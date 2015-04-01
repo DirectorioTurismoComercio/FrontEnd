@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div ng-controller="UserController">
+      <ul>
+        <h4>Registro de Usuario</h4>
+        <li ng-repeat="review in reviews">
+          <blockquote>
+            <strong>%% user.nombres %% %% user.appellido1 %%</strong>
+            <cite class="clearfix">—%% review.author %%</cite>
+          </blockquote>
+        </li>
+      </ul>
+
+
+      <form novalidate class="css-form">
+        Nombre:    <input type="text"   ng-model="user.nombres" required /><br />
+        Apellido1: <input type="text"   ng-model="user.apellido1" required /><br />
+        Apellido2: <input type="text"   ng-model="user.apellido2" required /><br />
+        Documento: <input type="number" ng-model="user.numero_documento" required /><br />
+        E-mail:    <input type="email"  ng-model="user.correo" required /><br />
+        <select ng-model="user.rol" class="form-control" 
+                ng-options="role.id as role.nombre for role in roles "
+                title="Roles">
+          <option value>Seleccione perfil</option>
+        </select>
+
+        <div ng-show="user.rol == 5 || user.rol == 1 ">
+          Nombre Institución:    <input type="text"    ng-model="user.nombre_institucion" /><br />
+          Teléfono Institución:  <input type="number"  ng-model="user.telefono_institucion" required /><br />
+          Correo Institución:    <input type="email"   ng-model="user.correo_institucion" required /><br />
+          Nit Institución:       <input type="email"   ng-model="user.nit" required /><br />
+          Ubicación Institución  <input type="email"   ng-model="user.ubicacion_institucion" required /><br />
+        </div>
+        <!-- Rol: <input type="number" ng-model="user.rol" required /><br /> -->
+        <!-- Gender: <input type="radio" ng-model="user.gender" value="male" />male -->
+        <!-- <input type="radio" ng-model="user.gender" value="female" />female<br /> -->
+
+        <input type="button" ng-click="reset()" value="Reset" />
+        <input type="submit" ng-click="update(user)" value="Save" />
+      </form>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+  .css-form input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+  }
+
+  .css-form input.ng-valid.ng-touched {
+    background-color: #78FA89;
+  }
+</style>
