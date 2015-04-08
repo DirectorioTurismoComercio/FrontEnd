@@ -9,7 +9,13 @@
   .directive("pageNavigation", function(){
     return {
       restrict: 'E',
-      templateUrl: 'templates/navbar.html'
+      templateUrl: 'templates/navbar.html',
+      controller : function($scope){
+        $scope.MobileMenu = true;
+        $scope.toggleMobileMenu = function() {
+          $scope.MobileMenu = $scope.MobileMenu === false ? true: false;
+        };
+      }
     };
   })
   .directive("pageFooter", function(){
