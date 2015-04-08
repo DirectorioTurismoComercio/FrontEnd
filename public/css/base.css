@@ -21,6 +21,10 @@ nav.MobileMenu ul a span {float: right; padding:0  16px 0 0;}
 /*BreadCrumbs*/
 div.breadCrumbs {margin: 0 0 0 16px; z-index: -1;}
 
+.main {
+	margin: 52px 0 0 0;
+}
+
 /* Pasos */
 div.numero {background: #e2202e; height: 80px; border-radius: 40px; color: #fff; display: block; font-size: 30pt; float: left; margin: 16px 0 16px 16px; text-align: center; vertical-align: middle; width: 80px; -webkit-border-radius: 40px; -moz-border-radius: 40px; }
 
