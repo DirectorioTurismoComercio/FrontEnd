@@ -32,6 +32,11 @@
         templateUrl: 'templates/user/user.html',
         controller: 'UserController'
       }).
+       when('/signupMain',
+      {
+        templateUrl: 'templates/signup/signup-main.html',
+        controller: 'SignupMainController'
+      }).
       when('/index',
       {
         templateUrl: 'templates/index.html',

@@ -22,9 +22,11 @@
         <page-Navigation></page-Navigation>
     </header><!-- /header -->
 
-    <div class="main" ng-view=""></div>
+    <div ng-view="" class="main"></div>
 
-    <page-Footer></page-Footer>
+    <div class="MobileFooter" ng-hide="MobileMenu">
+        Footer
+    </div>
 
 
 
@@ -41,7 +43,7 @@
     <script type="text/javascript" src="js/controllers/role-controller.js"></script>
     <script type="text/javascript" src="js/controllers/role-description-controller.js"></script>
     <script type="text/javascript" src="js/controllers/signup-index-controller.js"></script>
-
+    <script type="text/javascript" src="js/controllers/signup-main-controller.js"></script>
     <script type="text/javascript" src="js/services/users.js"></script>
     <script type="text/javascript" src="js/services/roles.js"></script>
     <!-- <script type="text/javascript" src="js/myscript.js"></script> -->

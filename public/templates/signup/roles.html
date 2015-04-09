@@ -1,7 +1,19 @@
 <div class="galeria">
-  <a href="%%rol.src%%" ng-repeat="rol in roles" class="roles">
-    <div ng-click="changeView('roleDescription')">
+  <a ng-click="toggleDescription($index)" ng-repeat="rol in roles" class="roles">
+    <div>
       <img class="slide" ng-src="%%rol.src%%" />
     </div>
   </a>
+</div>
+
+<div class="overlay" ng-hide="verDescription">
+  <div class="blanco">
+    <a class="close" ng-click="toggleDescription(0)">X</a>
+    <img src="%%rol_seleccionado.src%%" />
+    <h2>%%rol_seleccionado.titulo%%</h2>
+    <p>%% rol_seleccionado.des %%</p>
+
+  </div>
+  <div ng-click="">Aceptar</div>
+  <div ng-click="toggleDescription(0)">Cancelar</div>
 </div>

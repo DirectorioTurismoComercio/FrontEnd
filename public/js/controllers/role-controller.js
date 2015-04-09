@@ -10,5 +10,13 @@
 		    {src: './images/RegistroRolUniversidad.png', des: 'Imagen 04'},
 		    {src: './images/RegistroRolUniversidad.png', des: 'Imagen 04'}
 		];
+
+		$scope.verDescription = true;
+
+		$scope.toggleDescription = function(index) {
+			$scope.verDescription = $scope.verDescription === false ? true : false;
+			$scope.rol_seleccionado = $scope.roles[index];
+		}
+
 	}]);
 })();
