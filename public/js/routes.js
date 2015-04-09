@@ -22,12 +22,16 @@
         templateUrl: 'templates/signup/roles.html',
         controller: 'RoleController'
       }).
+      when('/roleDescription',
+      {
+        templateUrl: 'templates/signup/role-description.html',
+        controller: 'RoleDescriptionController'
+      }).
       when('/user',
       {
         templateUrl: 'templates/user/user.html',
         controller: 'UserController'
       }).
-      
       when('/index',
       {
         templateUrl: 'templates/index.html',
@@ -41,3 +45,4 @@
       });
   }]);
 })();
+
