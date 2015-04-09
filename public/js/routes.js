@@ -12,17 +12,26 @@
         templateUrl: 'templates/home/mainPage.html',
         controller: 'MainPageController'
       }).
+      when('/signup',
+      {
+        templateUrl: 'templates/signup/signup-main.html',
+        controller: 'SignupIndexController'
+      }).
       when('/roles',
       {
         templateUrl: 'templates/signup/roles.html',
         controller: 'RoleController'
+      }).
+      when('/roleDescription',
+      {
+        templateUrl: 'templates/signup/role-description.html',
+        controller: 'RoleDescriptionController'
       }).
       when('/user',
       {
         templateUrl: 'templates/user/user.html',
         controller: 'UserController'
       }).
-      
       when('/index',
       {
         templateUrl: 'templates/index.html',
@@ -32,7 +41,8 @@
         templateUrl: 'templates/unal.html',
       }).
       otherwise({
-        redirectTo:'/home'
+        redirectTo:'/unal'
       });
   }]);
 })();
+
