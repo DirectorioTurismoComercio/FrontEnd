@@ -38,8 +38,10 @@ body h1 {font-size: 11pt;color: #e2202e; text-transform: uppercase; padding: 16p
 a.roles {width: 49.5%; display: inline-block; border-top: 2px solid #E0DFD7; border-right: 2px solid #E0DFD7; border-left: 0px; border-bottom: 0px;}
 a.roles:nth-child(even)  {border-left: 0px !important; border-right: 0px !important;}
 a.roles:hover { background: #e2202e;}
-.galeria div { background: white; border: 2px solid #E0DFD7; border-radius: 50%; margin: 16px auto; height: 224px; width: 224px; }
+.galeria div { background: white; border: 2px solid #E0DFD7; border-radius: 50%; margin: 16px auto; height: 112px; width: 112px; }
 .galeria div:hover { background: #E0DFD7; }
+.galeria div img { max-width: 100%;}
+.galeria p {color:#58595B; font-size: 12pt;}
 
 /*footer*/
 /*body, html { height: 100%; }*/
@@ -47,7 +49,18 @@ div.MobileFooter { background: #E0DFD7; height: 100%; width:100%; position: abso
 footer {display: none;}
 
 /*overlay*/
-div.overlay{
-  background: rgba(88,89,91,0.85); height: 100%; width:100%; position: absolute; top:0;
-}
-a.close {background: #58595B; height: 40px; border-radius: 20px; color: #E0DFD7; display: block; font-size: 23px; text-align: center; vertical-align: middle; width: 40px; -webkit-border-radius: 20px; -moz-border-radius: 20px;cursor: pointer;}
+div.overlay{ background: rgba(88,89,91,0.85); height: 100%; width:100%; position: absolute; top:0; text-align: center;}
+a.close {background: #58595B; height: 24px; border-radius: 12px; color: #E0DFD7; display: block; width: 24px; -webkit-border-radius: 12px; -moz-border-radius: 12px;cursor: pointer;text-align: center; float: right; margin: 12px 12px 0 0;}
+a.close span {font-size: 18px;margin: 2px 0 0 -1px; display: block; font-weight: bold; }
+div.descriptionWrapper h2 { color: #59585B; display: inline-block; float: left; font-size: 13pt; margin: 12px 0 12px 12px; text-align: left; text-transform: uppercase; width: 82%; }
+div.descriptionWrapper { -moz-border-radius: 5px; -webkit-border-radius: 5px; background: #E0DFD7; border-radius: 5px; display: block; margin: 20px auto; width: 90%;}
+div.descriptionWindow { -moz-border-radius: 5px; -webkit-border-radius: 5px; background: white; border-radius: 5px; clear: both; display: block; margin: 20px auto; width: 95%; padding: 12px 0 0 0; height: 320px;}
+div.descriptionWindow div{background: white; border: 2px solid #E0DFD7; border-radius: 50%; margin: 16px auto; height: 112px; width: 112px;}
+div.descriptionWindow div img{ max-width: 100%;}
+div.descriptionWindow h3 {font-size: 12pt; color: #e2202e;}
+div.descriptionWindow p {color:#58595B; font-size: 12pt; margin-bottom: }
+div.descriptionWrapper .botones {display: inline-block; width: 95%; height: 32px; margin: 0 0 10px 0;}
+div.descriptionWrapper div.cancelar {-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+  width: 96px; height: 32px; background: #e2202e; float: left; cursor: pointer; }
+div.descriptionWrapper div.aceptar {-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; width: 96px; height: 32px; background: #37b34a; float: right; cursor: pointer;}
+div.cancelar span, div.aceptar span{ margin: 8px 0 0 0; display: block;}
