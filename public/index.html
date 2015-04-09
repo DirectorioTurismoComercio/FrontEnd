@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html ng-app="gemStore" class="ng-scope">
+  <head>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="components/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+
+    <script type="text/javascript" src="components/angular/angular.js"></script>
+    <script type="text/javascript" src="components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="components/angular-resource/angular-resource.js"></script>
+  </head>
+
+  <body>
+
+
+    <header id="header" class="fixedTop">
+        <page-Navigation></page-Navigation>
+    </header><!-- /header -->
+
+    <div ng-view="" class="main"></div>
+
+    <div class="MobileFooter" ng-hide="MobileMenu">
+        Footer
+    </div>
+
+
+
+
+
+    <script type="text/javascript" src="components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+
+    <script type="text/javascript" src="js/controllers/user-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/home-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/mainPage-controller.js"></script>
+    
+    <script type="text/javascript" src="js/controllers/role-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/role-description-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/signup-index-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/signup-main-controller.js"></script>
+    <script type="text/javascript" src="js/services/users.js"></script>
+    <script type="text/javascript" src="js/services/roles.js"></script>
+    <!-- <script type="text/javascript" src="js/myscript.js"></script> -->
+  </body>
+</html>
+
