@@ -32,9 +32,19 @@
         templateUrl: 'templates/user/user.html',
         controller: 'UserController'
       }).
-       when('/signupMain',
+       when('/personalData',
       {
-        templateUrl: 'templates/signup/signup-main.html',
+        templateUrl: 'templates/signup/personal-data.html',
+        controller: 'SignupMainController'
+      }).
+       when('/businessData',
+      {
+        templateUrl: 'templates/signup/business-data.html',
+        controller: 'SignupMainController'
+      }).
+         when('/profileSummary',
+      {
+        templateUrl: 'templates/signup/profile-summary.html',
         controller: 'SignupMainController'
       }).
       when('/index',

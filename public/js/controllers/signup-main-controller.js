@@ -5,7 +5,13 @@
 	* Description
 	*/
 	angular.module('gemStore')
-	.controller('SignupMainController', ['$scope', '$location', function($scope,$location){
-		
+	.controller('SignupMainController', ['$scope', 'registroService', function($scope,registroService){
+	
+	 $scope.changeView = function (view)
+        {
+        	registroService.changeView(view);
+        }	
+        $scope.usuario =  registroService.getUsuario();
+
 	}]);
 })();
