@@ -1,7 +1,7 @@
 (function(){
 	angular.module('gemStore')
 	.service('registroService', ['$resource', '$location',function($resource,$location) {
-		var usuario = {nombres:"juan",
+		var usuario = {nombres:"",
 						apellido1:"",
 						apellido2:"",
 						numero_documento:"",
