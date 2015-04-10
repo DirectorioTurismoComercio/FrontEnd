@@ -3,7 +3,7 @@
 	angular.module('gemStore')
 	.controller('RoleController', ['$scope', 'registroService', function($scope,registroService){
 		$scope.titulo = "Pagina Principal Controller";
-		$scope.overlayTitle = "Selecciona tu rol dentro de la plataforma";
+		$scope.overlayTitle = "Define tu rol dentro de la plataforma";
 		$scope.roles = [
 		    {src: './images/RegistroRolComerciante.png', des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut venenatis a leo vitae auctor. Donec vel posuere dolor. Integer sed semper tellus. Sed ultrices nibh id nisl malesuada, eu fringilla mi tincidunt. 01', titulo: 'titulo', rol: 'Comerciante' },
 		    {src: './images/RegistroRolEmpresario.png',  des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut venenatis a leo vitae auctor. Donec vel posuere dolor. Integer sed semper tellus. Sed ultrices nibh id nisl malesuada, eu fringilla mi tincidunt. 02', titulo: 'titulo', rol: 'Empresario'},

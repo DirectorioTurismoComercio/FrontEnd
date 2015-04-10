@@ -1,6 +1,7 @@
 /*Contenedor*/
 .fixedTop {position: fixed; top:0px; width: 100%}
 .content {margin: 52px 0 0 0;}
+html {font-family: 'Open Sans', sans-serif;font-weight: 400;}
 
 header { background: #E0DFD7; height: 52px; display: block; border-bottom: 1px solid #9B9A91;}
 
@@ -44,23 +45,35 @@ a.roles:hover { background: #e2202e;}
 .galeria p {color:#58595B; font-size: 12pt;}
 
 /*footer*/
-/*body, html { height: 100%; }*/
 div.MobileFooter { background: #E0DFD7; height: 100%; width:100%; position: absolute; top:118px;}
 footer {display: none;}
 
 /*overlay*/
 div.overlay{ background: rgba(88,89,91,0.85); height: 100%; width:100%; position: absolute; top:0; text-align: center;}
 a.close {background: #58595B; height: 24px; border-radius: 12px; color: #E0DFD7; display: block; width: 24px; -webkit-border-radius: 12px; -moz-border-radius: 12px;cursor: pointer;text-align: center; float: right; margin: 12px 12px 0 0;}
-a.close span {font-size: 18px;margin: 2px 0 0 -1px; display: block; font-weight: bold; }
-div.descriptionWrapper h2 { color: #59585B; display: inline-block; float: left; font-size: 13pt; margin: 12px 0 12px 12px; text-align: left; text-transform: uppercase; width: 82%; }
+a.close span {font-size: 18px;margin: 0; display: block; font-weight: 700; }
+div.descriptionWrapper h2 { color: #59585B; display: inline-block; float: left; font-size: 12pt; margin: 12px 0 12px 12px; text-align: left; text-transform: uppercase; width: 75%; }
 div.descriptionWrapper { -moz-border-radius: 5px; -webkit-border-radius: 5px; background: #E0DFD7; border-radius: 5px; display: block; margin: 20px auto; width: 90%;}
-div.descriptionWindow { -moz-border-radius: 5px; -webkit-border-radius: 5px; background: white; border-radius: 5px; clear: both; display: block; margin: 20px auto; width: 95%; padding: 12px 0 0 0; height: 320px;}
-div.descriptionWindow div{background: white; border: 2px solid #E0DFD7; border-radius: 50%; margin: 16px auto; height: 112px; width: 112px;}
+div.descriptionWindow { -moz-border-radius: 5px; -webkit-border-radius: 5px; background: white; border-radius: 5px; clear: both; display: block; margin: 20px auto; width: 95%; padding: 12px 0 0 0; height: 100%;}
+div.descriptionWindow div{background: white; border: 2px solid #E0DFD7; border-radius: 50%; margin: 10px auto; height: 112px; width: 112px;}
 div.descriptionWindow div img{ max-width: 100%;}
 div.descriptionWindow h3 {font-size: 12pt; color: #e2202e;}
 div.descriptionWindow p {color:#58595B; font-size: 12pt; margin-bottom: }
 div.descriptionWrapper .botones {display: inline-block; width: 95%; height: 32px; margin: 0 0 10px 0;}
-div.descriptionWrapper div.cancelar {-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
-  width: 96px; height: 32px; background: #e2202e; float: left; cursor: pointer; }
+div.descriptionWrapper div.cancelar {-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; width: 96px; height: 32px; background: #e2202e; float: left; cursor: pointer; }
 div.descriptionWrapper div.aceptar {-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; width: 96px; height: 32px; background: #37b34a; float: right; cursor: pointer;}
-div.cancelar span, div.aceptar span{ margin: 8px 0 0 0; display: block;}
+div.cancelar span, div.aceptar span{ margin: 4px 0 0 0; display: block; font-weight: 700; color: white;}
+
+/*personalData*/
+div.personalData {width: 100%; display: block; padding: 10px 0;}
+div.personalData div {width: 93%; margin: 10px auto;}
+
+/*Form*/
+label {width: 35%; display: inline-block;color:#58595B; font-weight: 300; }
+.personalData div:nth-child(4) span, .personalData div:nth-child(5) span{position: relative; top: 8px; display: block;}
+input[type="text"], input[type="email"], textarea, select{ border: 1px solid #CCC; color: #888; height: 20px; line-height:15px; margin:7px 0; outline: 0 none; padding: 5px 0px 5px 5px; width: 60%; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+div.aprobado { background: #E0DFD7; width: 100%; display: block; height: 70px;}
+div.aprobado div {margin: 10px 20px;}
+div.aprobado div.siguiente {float: right; width: 50px; height:50px; border-radius: 25px; -webkit-border-radius: 25px; -moz-border-radius: 25px; background: #37b34a; text-align: center; cursor: pointer;}
+div.aprobado div.anterior {float:left; width: 50px; height:50px; border-radius: 25px; -webkit-border-radius: 25px; -moz-border-radius: 25px; text-align: center; background: #58595B; cursor: pointer;}
+div.siguiente span, div.anterior span{ margin: 13px 0 0 0; display: block; color:#E0DFD7; }

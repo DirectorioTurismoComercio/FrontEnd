@@ -1,10 +1,25 @@
-<div>
-
-<div>Nombres: <input type="text" ng-model="usuario.nombres" /></div>
-<div>Apellido 1: <input type="text" ng-model="usuario.apellido1" /></div>
-<div>Apellido 2: <input type="text" ng-model="usuario.apellido2" /></div>
-<div>Número de documento: <input type="text" ng-model="usuario.numero_documento" /></div>
-<div>Correo Electrónico: <input type="text" ng-model="usuario.correo" /></div>
-<div ng-click="changeView('businessData')">Siguiente</div>
-<div ng-click="changeView('roles')">Anterior </div>
+<div class="personalData">
+  <div>
+    <label for="name"><span>Nombres:</span></label>
+    <input id="name" type="text" ng-model="usuario.nombres" />
+  </div>
+  <div>
+    <label for="lastName1"><span>Apellido 1:</span></label>
+    <input id="lastName1" type="text" ng-model="usuario.apellido1" />
+  </div>
+  <div>
+    <label for="lastName2"><span>Apellido 2:</span></label>
+    <input id="lastName2" type="text" ng-model="usuario.apellido2" />
+  </div>
+  <div>
+    <label for="phone"><span>Número de documento:</span></label>
+    <input id="phone" type="text" ng-model="usuario.numero_documento" /></div>
+  <div>
+    <label for="email"><span>Correo Electrónico:</span></label>
+    <input id="email" type="text" ng-model="usuario.correo" />
+  </div>
+</div>
+<div class="aprobado">
+  <div class="siguiente" ng-click="changeView('businessData')"><span>S</span></div>
+  <div class="anterior" ng-click="changeView('roles')"><span>A</span></div>
 </div>
