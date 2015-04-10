@@ -18,3 +18,20 @@ HA SIDO COMPLETADO
 <div>Correo Electrónico: %%usuario.correo_institucion%%</div>
 <div>NIT: %%usuario.NIT%%</div>
 </div>
+
+Redes Sociales:
+
+<table>
+<tr ng-repeat="usuariored in usuarioredes">
+
+<td> 
+		
+	%%getRedById(usuariored.red_social).nombre%%
+		
+
+</td>
+<td>
+	%%usuariored.url%% 
+	
+</td>
+</table>

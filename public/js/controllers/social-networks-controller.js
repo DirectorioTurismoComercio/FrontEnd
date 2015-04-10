@@ -13,6 +13,10 @@
           $scope.bEditar=new Array(usuarioredes.length);
         $scope.bGuardar=new Array(usuarioredes.length);
         $scope.usuarioredes=usuarioredes;
+        $scope.changeView = function (view)
+        {
+            registroService.changeView(view);
+        }   
     function error(errores)
     {
         alert("error de conexion con el servidor");
