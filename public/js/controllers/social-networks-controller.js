@@ -10,17 +10,15 @@
     $scope.bGuardar=true;
     var usuarioredes=registroService.getUsuarioRedes();
     $scope.redes = [{"id":1,"nombre":"Facebook","icono":""},{"id":2,"nombre":"Twitter","icono":""}];
-          $scope.bEditar=new Array(usuarioredes.length);
-        $scope.bGuardar=new Array(usuarioredes.length);
-        $scope.usuarioredes=usuarioredes;
-        $scope.changeView = function (view)
-        {
+    $scope.bEditar=new Array(usuarioredes.length);
+    $scope.bGuardar=new Array(usuarioredes.length);
+    $scope.usuarioredes=usuarioredes;
+    $scope.changeView = function (view) {
             registroService.changeView(view);
-        }   
-    function error(errores)
-    {
-        alert("error de conexion con el servidor");
-        Console.log(errores);
+        } 
+    function error(errores) {
+            alert("error de conexion con el servidor");
+            Console.log(errores);
     }
     $scope.getRedById=function(id)
     {

@@ -61,7 +61,7 @@
         templateUrl: 'templates/unal.html',
       }).
       otherwise({
-        redirectTo:'/unal'
+        redirectTo:'/signup'
       });
   }]);
 })();
