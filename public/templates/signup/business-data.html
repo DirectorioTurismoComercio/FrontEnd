@@ -1,12 +1,30 @@
-<div>
-  
-<div>Nombre del Comercio o Institución: <input type="text" ng-model="usuario.nombre_institucion"/></div>
-<div>Dirección: <input type="text" ng-model="usuario.direccion_institucion" /></div>
-<div>Municipio: <input type="text" ng-model="usuario.ubicacion_institucion" /></div>
-<div>Teléfono: <input type="text" ng-model="usuario.telefono_institucion" /></div>
-<div>Correo Electrónico: <input type="text" ng-model="usuario.correo_institucion"/></div>
-<div>NIT: <input type="text" ng-model="usuario.NIT"/></div>
-<div ng-click="changeView('profileSummary')">Siguiente</div>
-<div ng-click="changeView('personalData')">Anterior </div>
+<div class="personalData">
+  <div>
+    <label for="comercio"><span>Nombre del Comercio o Institución:</span></label>
+    <input id="comercio" type="text" ng-model="usuario.nombre_institucion"/>
+  </div>
+  <div>
+    <label for="Direccion"><span>Dirección:</span></label>
+    <input id="Direccion" type="text" ng-model="usuario.direccion_institucion" />
+  </div>
+  <div>
+    <label for="Municipio"><span>Municipio:</span></label>
+    <input id="Municipio" type="text" ng-model="usuario.ubicacion_institucion" />
+  </div>
+  <div>
+    <label for="Telefono"><span>Teléfono: </span></label>
+    <input id="Telefono" type="text" ng-model="usuario.telefono_institucion" />
+  </div>
+  <div>
+    <label for="email"><span>Correo Electrónico: </span></label>
+    <input id="email" type="text" ng-model="usuario.correo_institucion"/>
+  </div>
+  <div>
+    <label for="nit"><span>NIT: </span></label>
+    <input id="nit" type="text" ng-model="usuario.NIT"/>
+  </div>
 </div>
-
+<div class="aprobado">
+  <div class="siguiente" ng-click="changeView('profileSummary')"><span>S</span></div>
+  <div class="anterior" ng-click="changeView('personalData')"><span>A</span></div>
+</div>
