@@ -16,17 +16,21 @@
 
 
 					};
-		
+		var usuarioredes = new Array();
         var changeView = function(view){
 			$location.path(view);
 		};
 		  var getUsuario = function(){
 		      return usuario;
 		  }
-
+		  var getUsuarioRedes = function(){
+		      return usuarioredes;
+		  }
+		  
 	  return {
 	    changeView: changeView,
-	    getUsuario: getUsuario
+	    getUsuario: getUsuario,
+	    getUsuarioRedes: getUsuarioRedes
 	  };
 
 	}]);

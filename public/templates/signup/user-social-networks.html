@@ -1,4 +1,4 @@
-<h3> Redes Sociales </h3>
+<h3> Redes Sociales  </h3>
 
 <table>
 <tr ng-repeat="usuariored in usuarioredes">
@@ -7,12 +7,12 @@
 	<div ng-model="bGuardar[$index]" ng-show="bGuardar[$index]">
 		<select ng-options="red.id as red.nombre for red in redes" ng-model="usuariored.red_social"></select>
 	</div>	
-	<div ng-model="bEditar[$index]" ng-show="!bGuardar[$index]"> {{getRedById(usuariored.red_social).nombre}} </select>
+	<div ng-model="bEditar[$index]" ng-show="!bGuardar[$index]"> %%getRedById(usuariored.red_social).nombre%% </select>
 	</div>	
 
 </td>
 <td>
-	<div ng-show="!bGuardar[$index]">{{usuariored.url}} </div>
+	<div ng-show="!bGuardar[$index]">%%usuariored.url%% </div>
 	<input type="text" ng-model="usuariored.url" ng-show="bGuardar[$index]"/>
 </td>
 <td><button ng-model="bEditar[$index]" ng-show="!bGuardar[$index]" ng-click="editar($index)">Editar</button>
