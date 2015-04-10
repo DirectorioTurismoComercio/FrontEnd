@@ -1,11 +1,18 @@
 (function(){
-	angular.module('redesSocialesModule', [])
-	.controller('socialNetworksController',['$http', '$scope', 'Constantes','UserFactory','RoleFactory',
-		function socialNetworksController($scope,$http,$routeParams, UsuarioRedFactory,UsuarioRedesFactory, RedFactory) {
-	       var idusuario = $routeParams.idusuario;
+	angular.module('gemStore')
+	.controller('socialNetworksController',['$scope','registroService', '$routeParams', 'Constantes', 'UsuarioRedFactory','UsuarioRedesFactory', 'RedFactory',
+		function socialNetworksController($scope,registroService, $routeParams, Constantes, UsuarioRedFactory,UsuarioRedesFactory, RedFactory) 
+    {
+//	var idusuario = $routeParams.idusuario;
+    var idusuario = 1;
     $scope.nuevared={"url":"","usuario":1,"red_social":1};
     $scope.bAgregar=false;
-   //  $scope.redes = [{id:1,nombre:"Facebook",icono:""},{id:2,nombre:"Twitter",icono:""}];
+    $scope.bGuardar=true;
+    var usuarioredes=registroService.getUsuarioRedes();
+    $scope.redes = [{"id":1,"nombre":"Facebook","icono":""},{"id":2,"nombre":"Twitter","icono":""}];
+          $scope.bEditar=new Array(usuarioredes.length);
+        $scope.bGuardar=new Array(usuarioredes.length);
+        $scope.usuarioredes=usuarioredes;
     function error(errores)
     {
         alert("error de conexion con el servidor");
@@ -69,19 +76,24 @@
    //   }, error);
     
     }
-   
+   /*
     UsuarioRedesFactory.query({idusuario: idusuario},function(usuarioredes) {
         $scope.bEditar=new Array(usuarioredes.length);
         $scope.bGuardar=new Array(usuarioredes.length);
         $scope.usuarioredes = usuarioredes;
     });
-    
+*/
+    /*
     RedFactory.query(function(redes) {
+
         $scope.redes = redes;
    
     });
 
+    */
     }
+
 	]);
+
 	var gem = {name:"andres"};
 })();
