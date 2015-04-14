@@ -1,6 +1,6 @@
-<h3> Redes Sociales  </h3>
+<h3> Agrega tus redes sociales  </h3>
 
-<table>
+<table class="SocialNetwork">
 <tr ng-repeat="usuariored in usuarioredes">
 	<td> 
 		<div ng-model="bGuardar[$index]" ng-show="bGuardar[$index]">
@@ -40,7 +40,7 @@
 </div>
 	
 <div class="aprobado">
-  <div class="siguiente" ng-click="changeView('profileSummary')"><span>S</span></div>
-  <div class="anterior" ng-click="changeView('businessData')"><span>A</span></div>
+  <div class="siguiente" ng-click="changeView('profileSummary')"><span><span class="icon-check"></span></span></div>
+  <div class="anterior" ng-click="changeView('businessData')"><span><span class="icon-arrow-back"></span></span></div>
 </div>
 

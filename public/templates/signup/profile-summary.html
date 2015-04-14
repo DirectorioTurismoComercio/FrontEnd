@@ -1,42 +1,29 @@
-FELICITACIONES! TU REGISTRO
-HA SIDO COMPLETADO
+<h3>
+  FELICITACIONES! TU REGISTRO HA SIDO COMPLETADO
+</h3>
 
-<div>
-
-<div>Nombres: %%usuario.nombres%% </div>
-<div>Apellido 1: %%usuario.apellido1%% </div>
-<div>Apellido 2: %%usuario.apellido2%% </div>
-<div>Número de documento: %%usuario.numero_documento%% </div>
-<div>Correo Electrónico: %%usuario.correo%% </div>
-
-</div>
-<div>
-<div>Nombre del Comercio o Institución: %%usuario.nombre_institucion%%</div>
-<div>Dirección: %%usuario.direccion_institucion%% </div>
-<div>Municipio: %%usuario.ubicacion_institucion%% </div>
-<div>Teléfono: %%usuario.telefono_institucion%% </div>
-<div>Correo Electrónico: %%usuario.correo_institucion%%</div>
-<div>NIT: %%usuario.NIT%%</div>
+<div class="summaryBusiness">
+  <div class="wrapperSummaryBusiness">
+    <div><strong>%%usuario.nombre_institucion%%</strong></div>
+    <div><span class="icon-location2"></span>%%usuario.direccion_institucion%%, %%usuario.ubicacion_institucion%%</div>
+    <div><span class="icon-phone"></span>%%usuario.telefono_institucion%% </div>
+    <div><span class="icon-mail"></span>%%usuario.correo_institucion%%</div>
+    <div>NIT: %%usuario.NIT%%</div>
+    <div ng-repeat="usuariored in usuarioredes">
+      <span>%%getRedById(usuariored.red_social).nombre%%</span>
+      <span>%%usuariored.url%%</span>
+    </div>
+  </div>
 </div>
 
-Redes Sociales:
-
-<table>
-<tr ng-repeat="usuariored in usuarioredes">
-
-<td> 
-		
-	%%getRedById(usuariored.red_social).nombre%%
-		
-
-</td>
-<td>
-	%%usuariored.url%% 
-	
-</td>
-</table>
+<div class="summaryUser">
+  <div><span>NOMBRE:</span> %%usuario.nombres%% </div>
+  <div><span>APELLIDO:</span> %%usuario.apellido1%% %%usuario.apellido2%% </div>
+  <div><span>DOCUMENTO:</span> %%usuario.numero_documento%% </div>
+  <div><span>CORREO ELECTRÓNICO:</span><br>%%usuario.correo%% </div>
+</div>
 
 <div class="aprobado">
-  <div class="siguiente" ng-click="save(usuario, usuarioredes)"><span>Salvar</span></div>
-  <div class="anterior" ng-click="changeView('roles')"><span>A</span></div>
+  <div class="siguiente" ng-click="save(usuario, usuarioredes)"><span><span class="icon-check"></span></span></div>
+  <div class="anterior" ng-click="changeView('roles')"><span><span class="icon-arrow-back"></span></span></div>
 </div>

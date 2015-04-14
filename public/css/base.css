@@ -36,7 +36,7 @@ body h1 {font-size: 11pt;color: #e2202e; text-transform: uppercase; padding: 16p
 
 /*Galeria*/
 .galeria {width: 100%; clear: both; text-align: center;}
-a.roles {width: 49.5%; display: inline-block; border-top: 2px solid #E0DFD7; border-right: 2px solid #E0DFD7; border-left: 0px; border-bottom: 0px;}
+a.roles {width: 49.5%; display: inline-block; border-top: 2px solid #E0DFD7; border-right: 2px solid #E0DFD7; border-left: 0px; border-bottom: 0px; cursor: pointer;}
 a.roles:nth-child(even)  {border-left: 0px !important; border-right: 0px !important;}
 a.roles:hover { background: #e2202e;}
 .galeria div { background: white; border: 2px solid #E0DFD7; border-radius: 50%; margin: 16px auto; height: 112px; width: 112px; }
@@ -72,13 +72,19 @@ div.personalData div {width: 93%; margin: 10px auto;}
 label {width: 35%; display: inline-block;color:#58595B; font-weight: 300; }
 .personalData div:nth-child(4) span, .personalData div:nth-child(5) span{position: relative; top: 8px; display: block;}
 input[type="text"], input[type="email"], textarea, select{ border: 1px solid #CCC; color: #888; height: 20px; line-height:15px; margin:7px 0; outline: 0 none; padding: 5px 0px 5px 5px; width: 60%; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-div.aprobado { background: #E0DFD7; width: 100%; display: block; height: 70px;}
-div.aprobado div {margin: 10px 20px;}
-div.aprobado div.siguiente {float: right; width: 50px; height:50px; border-radius: 25px; -webkit-border-radius: 25px; -moz-border-radius: 25px; background: #37b34a; text-align: center; cursor: pointer;}
-div.aprobado div.anterior {float:left; width: 50px; height:50px; border-radius: 25px; -webkit-border-radius: 25px; -moz-border-radius: 25px; text-align: center; background: #58595B; cursor: pointer;}
-div.siguiente span, div.anterior span{ margin: 13px 0 0 0; display: block; color:#E0DFD7; }
 select { height: 35px; width: 80%; margin: 0 auto; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; font-size: 12pt;}
 .deshabilitado { cursor: auto;}
+  /*Siguente y Anterior*/
+  div.aprobado { background: #E0DFD7; width: 100%; display: block; height: 70px;}
+  div.aprobado div {margin: 10px 20px;}
+  div.aprobado div.siguiente {float: right; width: 50px; height:50px; border-radius: 25px; -webkit-border-radius: 25px; -moz-border-radius: 25px; background: #37b34a; text-align: center; cursor: pointer;}
+  div.aprobado div.anterior {float:left; width: 50px; height:50px; border-radius: 25px; -webkit-border-radius: 25px; -moz-border-radius: 25px; text-align: center; background: #58595B; cursor: pointer;}
+  div.siguiente span, div.anterior span{ margin: 5px 0 0 0; display: block; color:#E0DFD7; font-size: 1.6em;}
+  div.anterior span {margin: 2px 0 0 0;}
+  /*Form BusinessData*/
+  .businessData div {margin: 10px 0;}
+  .businessData div:nth-child(1) input { vertical-align: top; margin-top: 20px;}
+  .businessData div input, .businessData div span { vertical-align: middle; }
 
 /*Social Network*/
 div.addContainer { width: 95%; background: #E0DFD7;  margin: 10px auto; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; height: 40px; border: 1px #9B9A91 solid; cursor: pointer;}
@@ -89,3 +95,10 @@ div.addContainerClick .addContainerCentrar {width: 95%; margin: 10px auto;}
 div.addContainerClick select {width: 30%; display: inline-block;}
 div.addContainerClick input {width: 50%; display: inline-block;}
 div.addContainerClick button {width: 15%; display: inline-block;}
+
+/*Summary*/
+.summaryBusiness {width: 90%;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; background: #e0dfd7; border: 1px solid #58595b; margin: 0 auto;-webkit-box-shadow: 3px 3px 10px 3px rgba(88,89,91,1); -moz-box-shadow: 3px 3px 10px 3px rgba(88,89,91,1); box-shadow: 3px 3px 10px 3px rgba(88,89,91,1);}
+.wrapperSummaryBusiness {margin: 16px;}
+.wrapperSummaryBusiness span { margin-right: 16px; font-size: 12px;}
+.summaryUser div {margin: 0 auto; width: 95%; border-bottom: 1px solid #58595b; vertical-align: top; padding: 24px 0 24px 0;}
+.summaryUser div:last-child {margin-bottom: 8px;}
