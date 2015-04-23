@@ -1,3 +1,7 @@
+/*
+* Solo para 
+*
+*/
 (function(){
 	angular.module('gemStore')
 	.factory('UsuarioRedFactory', ['$resource', 'Constantes',function($resource,Constantes) {

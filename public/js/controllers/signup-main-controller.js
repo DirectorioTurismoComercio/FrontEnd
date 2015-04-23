@@ -6,15 +6,15 @@
 	*/
 	angular.module('gemStore')
 	.controller('SignupMainController',
-        ['$scope', 'registroService','UserFactory',
-    function($scope,registroService,UserFactory){
+        ['$scope', 'registroService','UserFactory', 'UsuarioRedesFactory',
+    function($scope,registroService,UserFactory,UsuarioRedesFactory){
     	$scope.redes = [{"id":1,"nombre":"Facebook","icono":""},
                         {"id":2,"nombre":"Twitter","icono":""}];
 
     	$scope.changeView = function (view){
                             	registroService.changeView(view);
                             };
-        $scope.usuario      =  registroService.getUsuario();
+        $scope.usuario      = registroService.getUsuario();
         $scope.usuarioredes = registroService.getUsuarioRedes();
         $scope.getRedById = function(id)
                             {
@@ -32,19 +32,29 @@
                                 }
                                 return -1;
                             };
-        $scope.save = function(user, usuarioRed) {
-            user.redes = usuarioRed;
-            console.log('usuarioRed',usuarioRed);
-            console.log(user);
+        $scope.save = function(user) {
+            //TODO: revisar por que no persiste en la DB el arreglo de las redes
+            // user.redes = redesSocialesDeUsuario;
+            // console.log('redesSocialesDeUsuario',redesSocialesDeUsuario);
+            // console.log(user);
             // debugger;
             UserFactory.save(user, function(user){
-                console.log(user);
+                console.log("Objeto retornado por el POST",user);
                 // debugger;
             },function (error){
                 console.log("Error.status",error.status);
                 console.log("Error",error);
                 // debugger;
             });
+            scope = {}
+            // UsuarioRedesFactory.save(redesSocialesDeUsuario, function(persistedRedObj){
+            //     console.log(persistedRedObj);
+            //     debugger;
+            // },function (error){
+            //     console.log("Error.status",error.status);
+            //     console.log("Error",error);
+            //     // debugger;
+            // });
           };
     }]);
 })();

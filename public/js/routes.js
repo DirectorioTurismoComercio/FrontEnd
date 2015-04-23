@@ -48,10 +48,10 @@
         controller: 'SignupMainController'
       }).
       // when('/socialNetworks/:idusuario', {
-         when('/socialNetworks', {
-      controller: 'socialNetworksController',
-      templateUrl: 'templates/signup/user-social-networks.html'
-      }).
+      // when('/socialNetworks', {
+      // controller: 'socialNetworksController',
+      // templateUrl: 'templates/signup/user-social-networks.html'
+      // }).
       when('/index',
       {
         templateUrl: 'templates/index.html',

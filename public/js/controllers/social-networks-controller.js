@@ -1,6 +1,7 @@
 (function(){
 	angular.module('gemStore')
-	.controller('socialNetworksController',['$scope','registroService', '$routeParams', 'Constantes', 'UsuarioRedFactory','UsuarioRedesFactory', 'RedFactory',
+	.controller('socialNetworksController',
+        ['$scope','registroService', '$routeParams', 'Constantes', 'UsuarioRedFactory','UsuarioRedesFactory', 'RedFactory',
 		function socialNetworksController($scope,registroService, $routeParams, Constantes, UsuarioRedFactory,UsuarioRedesFactory, RedFactory) 
     {
 //	var idusuario = $routeParams.idusuario;
