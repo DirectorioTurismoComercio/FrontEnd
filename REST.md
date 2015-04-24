@@ -25,6 +25,43 @@ anotame.la es una aplicacion que me permite crear notas de codigo para mis clase
 | `500`  | Error de servidor                                            |
 | `503`  | Servicio no disponible                                       |
 
+
+
+## Recuperar todos los problemas_soluciones del usuario 1
+
+Hacer get a /usuarios/1/problemas_soluciones
+ejemplo de los objetos recuperados:
+[
+    {
+        "id": 1, 
+        "titulo": "Tengo un Problema", 
+        "descripcion": "Es que...", 
+        "fecha": "2015-04-24T03:02:11Z", 
+        "tipo": "P", 
+        "usuario": 1, 
+        "categoria": []
+    }
+]
+
+
+## Crear un Problema_solucion para un usuario cuyo id es 1. El campo F puede ser P o S para indicar que es Problema o Solución
+
+Hacer POST a /usuarios/1/problemas_soluciones
+
+    {
+        "titulo": "Tengo un Problema", 
+        "descripcion": "Es que...", 
+        "tipo": "P",  
+        "usuario": 1, 
+        "categoria": []
+    }
+## Delete, Patch, Update
+
+ruta: problemas_soluciones/1      donde 1 es el id del problema_solución (ojo, no el id del usuario).
+
+## fin
+
+
 ## Crear una nota nueva
 
   Solicitud [POST] /productos
