@@ -21,11 +21,21 @@
         $scope.results = data;
       });
     }
+    $scope.search =  function (result)
+    {
+      SearchForResultsFactory.query({token: result},
+      function(data)
+      {
+        $scope.serverResults=data;
+      }
 
+
+        );
+     
+    }
 
     $scope.doSomethingElse = function(suggestion){
-      alert(suggestion);
-      SearchForResultsFactory.query({token: 'xxx'},
+      SearchForResultsFactory.query({token: suggestion},
       function(data)
       {
         $scope.serverResults=data;
