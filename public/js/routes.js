@@ -47,6 +47,12 @@
         templateUrl: 'templates/signup/profile-summary.html',
         controller: 'SignupMainController'
       }).
+      when('/search',
+      {
+        templateUrl: 'templates/search/search.html',
+        controller: 'SearchController'
+      }).
+       
       // when('/socialNetworks/:idusuario', {
       // when('/socialNetworks', {
       // controller: 'socialNetworksController',

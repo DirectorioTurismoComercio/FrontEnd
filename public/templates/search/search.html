@@ -1,0 +1,15 @@
+
+<div ng-controller="SearchController">
+    <div class="main">
+      <h2>Buscar:</h2>
+      <autocomplete ng-model="result" attr-placeholder="digite sus necesidades..." click-activation="true" data="results" on-type="doSomething" on-select="doSomethingElse"></autocomplete>
+      <br>
+      
+    </div>
+    <button ng-click="search(result)">Buscar</button>    
+    <div ng-repeat="serverResult in serverResults">
+      <div><a href>%%serverResult.titulo%%</a></div>
+      <div>%%serverResult.descripcion%%</div>
+    </div>
+
+  </div>
