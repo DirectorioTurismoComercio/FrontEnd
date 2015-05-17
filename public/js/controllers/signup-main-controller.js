@@ -17,7 +17,6 @@
                             };
         $scope.usuario      = registroService.getUsuario();
         $scope.usuarioRedes = registroService.getUsuarioRedes();
-
         $scope.getRedById = function(id)
                             {
                                 var longitud=0;
@@ -35,7 +34,7 @@
                             };
         $scope.save = function(user) {
             //TODO: este user.rol = 1 se corregira en la tarea 350
-            user.rol = 1;
+            
             user.$save()
             .then(function(user){
                 // TODO: post de redes en JSON y no en array se resolvera en la tarea 346
