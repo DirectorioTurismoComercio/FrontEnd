@@ -1,21 +1,23 @@
 (function(){
-	/**
-	*  Module
-	*
-	* Description
-	*/
-	angular.module('gemStore')
-	.controller('SignupMainController',
+    /**
+    *  Module
+    *
+    * Description
+    */
+    angular.module('gemStore')
+    .controller('SignupMainController',
         ['$scope', 'registroService','UserFactory', 'UsuarioRedesFactory',
     function($scope,registroService,UserFactory,UsuarioRedesFactory){
-    	$scope.redes = [{"id":1,"nombre":"Facebook","icono":""},
+        //TODO: estas redes "hard coded" se corregiran en la tarea 354
+        $scope.redes = [{"id":1,"nombre":"Facebook","icono":""},
                         {"id":2,"nombre":"Twitter","icono":""}];
 
-    	$scope.changeView = function (view){
-                            	registroService.changeView(view);
+        $scope.changeView  = function (view){
+                                registroService.changeView(view);
                             };
         $scope.usuario      = registroService.getUsuario();
-        $scope.usuarioredes = registroService.getUsuarioRedes();
+        $scope.usuarioRedes = registroService.getUsuarioRedes();
+
         $scope.getRedById = function(id)
                             {
                                 var longitud=0;
@@ -23,7 +25,6 @@
                                 {
                                     longitud=$scope.redes.length;
                                 }
-
                                 var i;
                                 for(i=0;i<longitud;i++)
                                 {
@@ -33,28 +34,28 @@
                                 return -1;
                             };
         $scope.save = function(user) {
-            //TODO: revisar por que no persiste en la DB el arreglo de las redes
-            // user.redes = redesSocialesDeUsuario;
-            // console.log('redesSocialesDeUsuario',redesSocialesDeUsuario);
-            // console.log(user);
-            // debugger;
-            UserFactory.save(user, function(user){
-                console.log("Objeto retornado por el POST",user);
+            //TODO: este user.rol = 1 se corregira en la tarea 350
+            user.rol = 1;
+            user.$save()
+            .then(function(user){
+                // TODO: post de redes en JSON y no en array se resolvera en la tarea 346
+                //
+                // $location.path("/users/"+user.id);
+                // console.log("Objeto retornado por el POST",user);
+                // userNetworks = angular.copy($scope.usuarioRedes);
+                // console.log(userNetworks);
                 // debugger;
-            },function (error){
-                console.log("Error.status",error.status);
-                console.log("Error",error);
-                // debugger;
+                // for (var i = userNetworks.length - 1; i >= 0; i--) {
+                //     console.log("userNetworks[i]:",userNetworks[i]);
+                //     userNetworks[i].usuario = user.id;
+                //     console.log("userNetworks["+i+"]",userNetworks[i]);
+                // };
+            }).catch(function(errors){
+                console.log("Errores retornado por el POST de agregar usuario",errors);
+            }).finally(function(){
+                $scope.isSubmitting = false;
             });
             scope = {}
-            // UsuarioRedesFactory.save(redesSocialesDeUsuario, function(persistedRedObj){
-            //     console.log(persistedRedObj);
-            //     debugger;
-            // },function (error){
-            //     console.log("Error.status",error.status);
-            //     console.log("Error",error);
-            //     // debugger;
-            // });
           };
     }]);
 })();
