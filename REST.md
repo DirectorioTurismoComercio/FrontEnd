@@ -1,5 +1,5 @@
-# API Rest de Anótame.la
-anotame.la es una aplicacion que me permite crear notas de codigo para mis clases
+# API Rest de Unal CTC
+Unal CTC es una aplicacion que me permite crear match entre aquellos que ofrecen soluciones a quienes publican sus necesidades o problemas relacionados con comercio, turismo y Tics. 
 
 ## Metodos HTTP permitidos
 
@@ -26,6 +26,44 @@ anotame.la es una aplicacion que me permite crear notas de codigo para mis clase
 | `503`  | Servicio no disponible                                       |
 
 
+## URL al servidor
+    http://www.epsilondx.com/django/index.fcgi
+## Rutas en el servidor
+
+    Using the URLconf defined in turismo.urls, Django tried these URL patterns, in this order:
+
+    ^roles/(?P<pk>[0-9]+)/$
+    ^roles/(?P<pk>[0-9]+)/\.(?P<format>[a-z0-9]+)$
+    ^roles/
+    ^roles/\.(?P<format>[a-z0-9]+)$
+
+    ^usuariosredes/(?P<pk>[0-9]+)
+    ^usuariosredes/(?P<pk>[0-9]+)\.(?P<format>[a-z0-9]+)$
+    ^usuariosredes
+    ^usuariosredes\.(?P<format>[a-z0-9]+)$
+    ^usuarios/(?P<usuario>[0-9]+)/problemas_soluciones
+    ^usuarios/(?P<usuario>[0-9]+)/problemas_soluciones\.(?P<format>[a-z0-9]+)$
+
+## las redes se guardan como obj JSON y no como arreglo
+    ^usuarios/(?P<pk>[0-9]+)/redes
+    ^usuarios/(?P<pk>[0-9]+)/redes\.(?P<format>[a-z0-9]+)$
+    ^usuarios/(?P<pk>[0-9]+)
+    ^usuarios/(?P<pk>[0-9]+)\.(?P<format>[a-z0-9]+)$
+    ^usuarios
+    ^usuarios\.(?P<format>[a-z0-9]+)$
+
+    ^redes/(?P<pk>[0-9]+)
+    ^redes/(?P<pk>[0-9]+)\.(?P<format>[a-z0-9]+)$
+    ^redes
+    ^redes\.(?P<format>[a-z0-9]+)$
+
+    ^categorias/(?P<pk>[0-9]+)
+    ^categorias/(?P<pk>[0-9]+)\.(?P<format>[a-z0-9]+)$
+    ^categorias
+    ^categorias\.(?P<format>[a-z0-9]+)$
+
+    ^problemas_soluciones/(?P<pk>[0-9]+)
+    ^problemas_soluciones/(?P<pk>[0-9]+)\.(?P<format>[a-z0-9]+)$
 
 ## Recuperar todos los problemas_soluciones del usuario 1
 
@@ -58,117 +96,3 @@ Hacer POST a /usuarios/1/problemas_soluciones
 ## Delete, Patch, Update
 
 ruta: problemas_soluciones/1      donde 1 es el id del problema_solución (ojo, no el id del usuario).
-
-## fin
-
-
-## Crear una nota nueva
-
-  Solicitud [POST] /productos
-    {
-      "producto":{
-        "name": "Azurite",
-        "description": "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
-        "shine": 8,
-        "price": 110.5,
-        "rarity": 7,
-        "color": "#CCC",
-        "faces": 14,
-        "images": [
-            "images/gem-02.gif",
-            "images/gem-05.gif",
-            "images/gem-09.gif"
-        ],
-        "reviews": [
-            {
-                "stars": 5,
-                "body": "I love this gem!",
-                "author": "joe@example.org"
-            },
-            {
-                "stars": 1,
-                "body": "This gem sucks.",
-                "author": "tim@example.org"
-            }
-        ]}
-    }
-  Respuesta
-
-    {
-      "nota":{
-        "id": 125,
-        "title": " #node-pro",
-        "description": "Introduccion a clase",
-        "type": "js",
-        "body": "mira mama ya se JS"
-      }
-    }
-
-
-## Obtener una nota
-  Solicitud GET /notas/123
-
-  Respuesta
-
-    {
-      "nota":{
-        "id": 123,
-        "title": " #node-pro",
-        "description": "Introduccion a clase",
-        "type": "js",
-        "body": "mira mama ya se JS"
-      }
-    }
-
-## Actualizar una nota
-  Solicitud PUT /notas/123
-
-    {
-      nota:{
-        "title": " #node-pro",
-        "description": "Introduccion a clase",
-        "type": "ruby",
-        "body": "mira mama ya se ruby"
-      }
-    }
-
-  Respuesta
-
-    {
-      nota:{
-        "id": 123,
-        "title": " #node-pro",
-        "description": "Introduccion a clase",
-        "type": "ruby",
-        "body": "mira mama ya se ruby"
-      }
-    }
-
-## Eliminar una nota
-
-  Solicitud DELETE /notas/id (204)
-
-
-## Obtener una lista de notas
-  Solicitud GET /notas/
-
-  Respuesta
-
-    [{
-      nota:{
-        "id": 123,
-        "title": " #node-pro",
-        "description": "Introduccion a clase",
-        "type": "js",
-        "body": "mira mama ya se JS"
-      }
-    },
-    {
-      nota:{
-        "id": 12345,
-        "title": " #node-pro",
-        "description": "Introduccion a clase",
-        "type": "js",
-        "body": "mira mama ya no se JS"
-      }
-    }]
