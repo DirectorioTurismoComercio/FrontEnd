@@ -1,0 +1,9 @@
+<h1>Problemas <a ng-href="#/notes/new" ng-click="createNote()" class="btn btn-default">Nuevo Problema</a></h1>
+<nw-category-selector ng-model="search.category "></nw-category-selector>
+<div class="row">
+	<div ng-repeat="problem in problems" class="col-sm-6">
+		<h2><a ng-href="#/problems/{{problem.id}}">{{problem.titulo}}</a></h2>
+		<p>{{problem.descripcion}}</p>
+		<p><span class="label label-info">{{problem.category.name}}</span></p>
+	</div>
+</div>

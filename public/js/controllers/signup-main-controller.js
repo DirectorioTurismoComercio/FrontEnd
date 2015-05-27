@@ -34,7 +34,6 @@
                             };
         $scope.save = function(user) {
             //TODO: este user.rol = 1 se corregira en la tarea 350
-            
             user.$save()
             .then(function(user){
                 // TODO: post de redes en JSON y no en array se resolvera en la tarea 346
@@ -53,6 +52,7 @@
                 console.log("Errores retornado por el POST de agregar usuario",errors);
             }).finally(function(){
                 $scope.isSubmitting = false;
+                registroService.changeView('user_admin');
             });
             scope = {}
           };

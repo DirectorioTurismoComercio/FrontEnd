@@ -52,7 +52,23 @@
         templateUrl: 'templates/search/search.html',
         controller: 'SearchController'
       }).
-       
+      when('/user_admin',
+      {
+        templateUrl: 'templates/administracion-usuario/user_admin.html',
+        controller: 'UserAdminController'
+      }).
+      when('/user/:id/problems',
+      {
+        templateUrl: 'templates/problems/show.html',
+        controller: 'ProblemsShowController'
+      }).
+      when('/usuarios/:id/edit',
+      {
+        templateUrl: 'templates/administracion-usuario/index.html',
+        controller: 'ProblemsIndexController'
+      }).
+
+      // usuarios/(?P<usuario>[0-9]+)/problemas_soluciones
       // when('/socialNetworks/:idusuario', {
       // when('/socialNetworks', {
       // controller: 'socialNetworksController',
