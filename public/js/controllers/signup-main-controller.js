@@ -52,7 +52,7 @@
                 console.log("Errores retornado por el POST de agregar usuario",errors);
             }).finally(function(){
                 $scope.isSubmitting = false;
-                registroService.changeView('user_admin');
+                registroService.changeView('user/'+user.id);
             });
             scope = {}
           };
