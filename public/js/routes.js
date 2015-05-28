@@ -57,15 +57,15 @@
         templateUrl: 'templates/administracion-usuario/user_admin.html',
         controller: 'UserAdminController'
       }).
-      when('/user/:id/problems',
+      when('/user/:idUser/problem',
+      {
+        templateUrl: 'templates/problems/index.html',
+        controller: 'ProblemsIndexController'
+      }).
+      when('/user/:id/problem/:idProblem',
       {
         templateUrl: 'templates/problems/show.html',
         controller: 'ProblemsShowController'
-      }).
-      when('/usuarios/:id/edit',
-      {
-        templateUrl: 'templates/administracion-usuario/index.html',
-        controller: 'ProblemsIndexController'
       }).
 
       // usuarios/(?P<usuario>[0-9]+)/problemas_soluciones
