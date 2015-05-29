@@ -6,8 +6,8 @@
     */
     angular.module('gemStore')
     .controller('SignupMainController',
-        ['$scope', 'registroService','UserFactory', 'UsuarioRedesFactory',
-    function($scope,registroService,UserFactory,UsuarioRedesFactory){
+        ['$scope', 'registroService',
+    function($scope,registroService){
         //TODO: estas redes "hard coded" se corregiran en la tarea 354
         $scope.redes = [{"id":1,"nombre":"Facebook","icono":""},
                         {"id":2,"nombre":"Twitter","icono":""}];
@@ -15,6 +15,7 @@
         $scope.changeView  = function (view){
                                 registroService.changeView(view);
                             };
+                            
         $scope.usuario      = registroService.getUsuario();
         $scope.usuarioRedes = registroService.getUsuarioRedes();
         $scope.getRedById = function(id)
