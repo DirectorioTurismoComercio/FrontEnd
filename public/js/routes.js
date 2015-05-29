@@ -52,7 +52,7 @@
         templateUrl: 'templates/search/search.html',
         controller: 'SearchController'
       }).
-      when('/user_admin',
+      when('/user/:idUser',
       {
         templateUrl: 'templates/administracion-usuario/user_admin.html',
         controller: 'UserAdminController'
@@ -62,7 +62,7 @@
         templateUrl: 'templates/problems/index.html',
         controller: 'ProblemsIndexController'
       }).
-      when('/user/:id/problem/:idProblem',
+      when('/user/:idUser/problem/:idProblem',
       {
         templateUrl: 'templates/problems/show.html',
         controller: 'ProblemsShowController'
