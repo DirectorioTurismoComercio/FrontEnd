@@ -5,5 +5,14 @@
 */
 angular.module('gemStore')
 .controller('ProblemsShowController',function(ProblemFactory, $scope,$routeParams, $location){
-
+	$scope.idUser  = $routeParams.idUser;
+	// console.log("$routeParams.idUser",$routeParams.idUser);
+	
+	$scope.problem = ProblemFactory.get({id: $routeParams.idUser,idProblem: $routeParams.idProblem });
+	$scope.deleteProblem = function(problem){
+		problem.$remove()
+		.then(function(){
+			$location.path("/user/"+$routeParams.idUser+"/problem/");
+		});
+	};
 });

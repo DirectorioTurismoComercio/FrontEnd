@@ -5,8 +5,8 @@
 */
 angular.module('gemStore')
 .controller('ProblemsIndexController',function(ProblemFactory, $scope,$routeParams, $location){
-	// $scope.problems      = ProblemFactory.get({id: $routeParams.id})
-	console.log("$routeParams.idUser",$routeParams.idUser);
+  $scope.idUser  = $routeParams.idUser;
+  // query instead of get because I need an array here
 	$scope.problems      = ProblemFactory.query({id: $routeParams.idUser});
 	$scope.problems.$promise.then(function(data){
    		console.log("get query success, data:",data);
