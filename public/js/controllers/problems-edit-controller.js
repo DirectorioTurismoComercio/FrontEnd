@@ -12,7 +12,6 @@ angular.module('gemStore')
 	$scope.saveProblem = function(problem){
 		$scope.isSubmitting = true;
 		console.log("problem:",problem);
-		debugger;
 		problem.$update({id:$routeParams.idUser,idProblem:$routeParams.idProblem})
 		.then(function(problem){
 			console.log("problema guardado exitosamente: ",problem);
