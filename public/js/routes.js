@@ -62,6 +62,11 @@
         templateUrl: 'templates/problems/index.html',
         controller: 'ProblemsIndexController'
       }).
+      when('/user/:idUser/problem/new',
+      {
+        templateUrl : "templates/problems/new.html",
+        controller:  "ProblemsCreateController"
+      }).
       when('/user/:idUser/problem/:idProblem',
       {
         templateUrl: 'templates/problems/show.html',
