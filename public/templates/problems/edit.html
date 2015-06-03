@@ -1,5 +1,11 @@
-<h1>Edit: %%problem.titulo%%</h1>
+<h1>Editar: %%problem.titulo%%</h1>
 <form>
+	<fieldset class="form-group">
+		Problema
+		<input type="radio" name="problema_o_solucion" ng-model="problem.tipo" value="P">
+		Solución
+		<input type="radio" name="problema_o_solucion" ng-model="problem.tipo" value="S">
+	</fieldset>
 	<fieldset  class="form-group">
 		<label for="name">Titulo</label>
 		<input class="form-control" type="text" id="titulo" name="titulo" ng-model="problem.titulo">
