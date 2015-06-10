@@ -67,7 +67,11 @@
         templateUrl: 'templates/problems/show.html',
         controller: 'ProblemsShowController'
       }).
-
+      when('/user/:idUser/problem/:idProblem/edit',
+      {
+        templateUrl: 'templates/problems/edit.html',
+        controller: 'ProblemsEditController'
+      }).
       // usuarios/(?P<usuario>[0-9]+)/problemas_soluciones
       // when('/socialNetworks/:idusuario', {
       // when('/socialNetworks', {
