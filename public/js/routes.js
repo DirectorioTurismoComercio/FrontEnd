@@ -52,7 +52,32 @@
         templateUrl: 'templates/search/search.html',
         controller: 'SearchController'
       }).
-       
+      when('/user/:idUser',
+      {
+        templateUrl: 'templates/administracion-usuario/user_admin.html',
+        controller: 'UserAdminController'
+      }).
+      when('/user/:idUser/problem',
+      {
+        templateUrl: 'templates/problems/index.html',
+        controller: 'ProblemsIndexController'
+      }).
+      when('/user/:idUser/problem/new',
+      {
+        templateUrl : "templates/problems/new.html",
+        controller:  "ProblemsCreateController"
+      }).
+      when('/user/:idUser/problem/:idProblem',
+      {
+        templateUrl: 'templates/problems/show.html',
+        controller: 'ProblemsShowController'
+      }).
+      when('/user/:idUser/problem/:idProblem/edit',
+      {
+        templateUrl: 'templates/problems/edit.html',
+        controller: 'ProblemsEditController'
+      }).
+      // usuarios/(?P<usuario>[0-9]+)/problemas_soluciones
       // when('/socialNetworks/:idusuario', {
       // when('/socialNetworks', {
       // controller: 'socialNetworksController',

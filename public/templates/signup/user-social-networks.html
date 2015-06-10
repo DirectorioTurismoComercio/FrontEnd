@@ -2,12 +2,12 @@
 
 <table class="SocialNetwork">
 <tr ng-repeat="usuariored in usuarioredes">
-	<td> 
+	<td>
 		<div ng-model="bGuardar[$index]" ng-show="bGuardar[$index]">
 			<select ng-options="red.id as red.nombre for red in redes" ng-model="usuariored.red_social"></select>
-		</div>	
+		</div>
 		<div ng-model="bEditar[$index]" ng-show="!bGuardar[$index]"> %%getRedById(usuariored.red_social).nombre%% </select>
-		</div>	
+		</div>
 
 	</td>
 	<td>
@@ -38,7 +38,7 @@
 		<button ng-show="bGuardar" ng-click="crear()">OK</button>
 	</div>
 </div>
-	
+
 <div class="aprobado">
   <div class="siguiente" ng-click="changeView('profileSummary')"><span><span class="icon-check"></span></span></div>
   <div class="anterior" ng-click="changeView('businessData')"><span><span class="icon-arrow-back"></span></span></div>

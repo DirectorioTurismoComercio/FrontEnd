@@ -1,0 +1,18 @@
+<h1>Editar: %%problem.titulo%%</h1>
+<form>
+	<fieldset class="form-group">
+		Problema
+		<input type="radio" name="problema_o_solucion" ng-model="problem.tipo" value="P">
+		Solución
+		<input type="radio" name="problema_o_solucion" ng-model="problem.tipo" value="S">
+	</fieldset>
+	<fieldset  class="form-group">
+		<label for="name">Titulo</label>
+		<input class="form-control" type="text" id="titulo" name="titulo" ng-model="problem.titulo">
+	</fieldset>
+	<fieldset  class="form-group">
+		<label for="bio">Descripcion</label>
+		<textarea class="form-control" type="text" id="descripcion" name="descripcion" ng-model="problem.descripcion"> </textarea>
+	</fieldset>
+	<input type="submit" value="%%isSubmitting ? 'Guardando...':'Guardar'%%" class="btn btn-default" ng-click="saveProblem(problem)" ng-disabled="isSubmitting">
+</form>
