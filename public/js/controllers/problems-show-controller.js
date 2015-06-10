@@ -8,9 +8,15 @@ angular.module('gemStore')
 	$scope.idUser  = $routeParams.idUser;
 	$scope.problem = ProblemFactory.get({id: $routeParams.idUser,idProblem: $routeParams.idProblem });
 	$scope.deleteProblem = function(problem){
-		problem.$remove()
+		problem.$remove({id:$routeParams.idUser,idProblem:$routeParams.idProblem})
 		.then(function(){
-			$location.path("/user/"+$routeParams.idUser+"/problem/");
+			console.log("borrado exitosamente: ",problem);
+		})
+		.catch(function(error){
+			console.log("remove problem in server errors: ",error);
+		})
+		.finally(function(){
+			$location.path("/user/"+$scope.idUser+"/problem/");
 		});
 	};
 });
