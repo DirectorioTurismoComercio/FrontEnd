@@ -4,17 +4,32 @@
 * ProblemEditController
 */
 angular.module('gemStore')
-.controller('ProblemsEditController', function(ProblemFactory, $scope, $routeParams, $location){
+.controller('ProblemsEditController', 
+	['ProblemFactory', '$scope', '$routeParams', '$location','ResultRetriever',
+	function(ProblemFactory, $scope, $routeParams, $location,ResultRetriever){
 	$scope.problem = ProblemFactory.get({id: $routeParams.idUser,idProblem: $routeParams.idProblem });
 	console.log("$scope.problem: ",$scope.problem);
 	$scope.isSubmitting = false;
+	$scope.doSomething = function(typedthings){
+      $scope.results = ResultRetriever.getresults(typedthings, 'SuggestedTagsFactory');
+      $scope.results.then(function(data){
+        $scope.results = data;
+      });
+    }
 	$scope.remove_tag = function(index){	
        $scope.problem.tags.splice(index,1);    
 	}
-	$scope.add_tag = function(new_tag)
-	{
-		$scope.problem.tags.push(new_tag);	
+	$scope.add_tag = function(new_tag){
+		if($scope.problem.tags.indexOf(new_tag)==-1){
+			$scope.problem.tags.push(new_tag);	
+		}
+		$scope.result = "";
 	}
+
+    $scope.doSomethingElse = function(suggestion){
+      $scope.add_tag(suggestion);
+      	$scope.result = "";
+    }
 	$scope.saveProblem = function(problem){
 		$scope.isSubmitting = true;
 		console.log("problem:",problem);
@@ -30,4 +45,4 @@ angular.module('gemStore')
 			$location.path("/user/"+$routeParams.idUser+"/problem/"+$routeParams.idProblem);
 		});
 	};
-});
+}]);
