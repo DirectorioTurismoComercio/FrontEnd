@@ -19,7 +19,7 @@
 		      }
 		      )
 		      .catch(function(errors){
-                console.log("Error al recuperar los roles desde el servidor: ",errors);
+                console.log("Error al recuperar sugerencias desde el servidor: ",errors);
 	            })
 		      .finally(function(){
 	               

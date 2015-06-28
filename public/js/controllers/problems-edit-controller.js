@@ -8,7 +8,13 @@ angular.module('gemStore')
 	$scope.problem = ProblemFactory.get({id: $routeParams.idUser,idProblem: $routeParams.idProblem });
 	console.log("$scope.problem: ",$scope.problem);
 	$scope.isSubmitting = false;
-
+	$scope.remove_tag = function(index){	
+       $scope.problem.tags.splice(index,1);    
+	}
+	$scope.add_tag = function(new_tag)
+	{
+		$scope.problem.tags.push(new_tag);	
+	}
 	$scope.saveProblem = function(problem){
 		$scope.isSubmitting = true;
 		console.log("problem:",problem);

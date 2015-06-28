@@ -44,7 +44,7 @@
 
         );
      
-      console.log("Suggestion selected: " + suggestion );
+      
     }
     }
 
