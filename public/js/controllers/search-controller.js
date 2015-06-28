@@ -15,8 +15,7 @@
     }
 
     $scope.doSomething = function(typedthings){
-      console.log("Do something like reload data with this: " + typedthings );
-      $scope.newresults = ResultRetriever.getresults(typedthings);
+      $scope.newresults = ResultRetriever.getresults(typedthings, 'SuggestionsFactory');
       $scope.newresults.then(function(data){
         $scope.results = data;
       });

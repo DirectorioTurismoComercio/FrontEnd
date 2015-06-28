@@ -7,6 +7,7 @@ angular.module('gemStore')
 .controller('ProblemsShowController',function(ProblemFactory, $scope,$routeParams, $location){
 	$scope.idUser  = $routeParams.idUser;
 	$scope.problem = ProblemFactory.get({id: $routeParams.idUser,idProblem: $routeParams.idProblem });
+	console.log($scope.problem);
 	$scope.deleteProblem = function(problem){
 		problem.$remove({id:$routeParams.idUser,idProblem:$routeParams.idProblem})
 		.then(function(){
