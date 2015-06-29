@@ -8,7 +8,6 @@ angular.module('gemStore')
 	['ProblemFactory', '$scope', '$routeParams', '$location','ResultRetriever',
 	function(ProblemFactory, $scope, $routeParams, $location,ResultRetriever){
 	$scope.problem = ProblemFactory.get({id: $routeParams.idUser,idProblem: $routeParams.idProblem });
-	console.log("$scope.problem: ",$scope.problem);
 	$scope.isSubmitting = false;
 	$scope.doSomething = function(typedthings){
       $scope.results = ResultRetriever.getresults(typedthings, 'SuggestedTagsFactory');

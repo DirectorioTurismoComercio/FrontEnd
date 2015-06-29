@@ -1,15 +1,39 @@
 /**
 * gemStore Module
-*
-* ProblemsCreateController
+*['ProblemFactory', '$scope', '$routeParams', '$location','ResultRetriever',
+	function(ProblemFactory, $scope, $routeParams, $location,ResultRetriever){
+	
 */
 angular.module('gemStore')
-.controller('ProblemsCreateController', function(ProblemFactory, $scope, $routeParams, $location){
+.controller('ProblemsCreateController', 
+	['ProblemFactory', '$scope', '$routeParams', '$location','ResultRetriever',
+	function(ProblemFactory, $scope, $routeParams, $location,ResultRetriever){
 	$scope.problem = new ProblemFactory();
 	//TODO: create category model
 	$scope.problem.categoria=[];
+	$scope.problem.tags=[];
 	$scope.problem.usuario  =Number($routeParams.idUser);
 	$scope.isSubmitting     =false;
+	$scope.doSomething = function(typedthings){
+      $scope.results = ResultRetriever.getresults(typedthings, 'SuggestedTagsFactory');
+      $scope.results.then(function(data){
+        $scope.results = data;
+      });
+    }
+	$scope.remove_tag = function(index){	
+       $scope.problem.tags.splice(index,1);    
+	}
+	$scope.add_tag = function(new_tag){
+		if($scope.problem.tags.indexOf(new_tag)==-1){
+			$scope.problem.tags.push(new_tag);	
+		}
+		$scope.result = "";
+	}
+
+    $scope.doSomethingElse = function(suggestion){
+      $scope.add_tag(suggestion);
+      	$scope.result = "";
+    }
 	$scope.saveProblem      =function(problem){
 		$scope.isSubmitting =true;
 		problem.$save({id:$routeParams.idUser})
@@ -23,4 +47,4 @@ angular.module('gemStore')
 			$scope.isSubmitting = false;
 		});
 	};
-});
+}]);

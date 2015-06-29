@@ -14,14 +14,20 @@
 		<label for="descripcion">Descripción</label>
 		<input class="form-control" type="text" id="descripcion" name="descripcion" ng-model="problem.descripcion">
 	</fieldset>
+	
 	<fieldset  class="form-group">
 		<div><label for="tags">palabras clave</label></div>
-		<input class="form-control" type="text" id="tags" name="tags" ng-model="problem.tags">
-		<div><input type="submit" value="adicionar" /></div>
-		<span class="tag"><span class="arrow"></span>&#10006; Experiments</span>
-		<span class="tag"><span class="arrow"></span>&#10006; Internet</span>
+		<div class="main">
+	      <autocomplete ng-model="result" attr-placeholder="palabra clave..." click-activation="true" data="results" on-type="doSomething" on-select="doSomethingElse"></autocomplete>
+	     <br>
+	    </div>
+		<div><input type="submit" value="adicionar" ng-click="add_tag(new_tag)"/></div>
+		<span class="tag" ng-repeat="tag in problem.tags" ng-click="remove_tag($index)">
+		<span class="arrow" ></span>&#10006; %%tag%%</span>
+		</span>
 		
 	</fieldset>
+	
 	
 	<input type="submit" value="%%isSubmitting ? 'Saving...':'Save'%%" class="btn btn-default" ng-click="saveProblem(problem)" ng-disabled="isSubmitting">
 </form>
