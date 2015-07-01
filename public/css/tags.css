@@ -37,15 +37,15 @@
  
 .tag .arrow {
     display: inline-block;
-    border: 30px solid;
-    border-color: #fff #fff #fff transparent;
+    border: 20px solid;
+    border-color: #FFF #FFF #FFF transparent;
     height: 2px;
     z-index: 5000;
     pointer-events: none;
     position: absolute;
     -webkit-transition: right 0.2s ease-in;
-    right: -20px;
-    top: -12px;
+    right: -15px;
+    top: 0px;
     display: inline-block;
 }
  

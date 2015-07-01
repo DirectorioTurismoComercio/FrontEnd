@@ -5,7 +5,7 @@
     function SearchController($scope, ResultRetriever,SearchForResultsFactory) 
     {
     $scope.results = ResultRetriever.getresults("...");
-    $scope.serverResults = ["uno","dos","tres"];
+    $scope.serverResults = [];
     $scope.results.then(function(data){
       $scope.results = data;
     });

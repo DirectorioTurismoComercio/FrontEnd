@@ -21,7 +21,7 @@
 	      <autocomplete ng-model="result" attr-placeholder="palabra clave..." click-activation="true" data="results" on-type="doSomething" on-select="doSomethingElse"></autocomplete>
 	     <br>
 	    </div>
-		<div><input type="submit" value="adicionar" ng-click="add_tag(new_tag)"/></div>
+		<div><input type="submit" value="adicionar" ng-click="add_tag(result)"/></div>
 		<span class="tag" ng-repeat="tag in problem.tags" ng-click="remove_tag($index)">
 		<span class="arrow" ></span>&#10006; %%tag%%</span>
 		</span>
