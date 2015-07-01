@@ -14,8 +14,10 @@ angular.module('gemStore')
 	$scope.problem.tags=[];
 	$scope.problem.usuario  =Number($routeParams.idUser);
 	$scope.isSubmitting     =false;
+	$scope.tag = { result:  ""};
 	$scope.doSomething = function(typedthings){
       $scope.results = ResultRetriever.getresults(typedthings, 'SuggestedTagsFactory');
+
       $scope.results.then(function(data){
         $scope.results = data;
       });
@@ -27,12 +29,13 @@ angular.module('gemStore')
 		if($scope.problem.tags.indexOf(new_tag)==-1){
 			$scope.problem.tags.push(new_tag);	
 		}
-		$scope.result = "";
+		
+		$scope.tag.result = "";
 	}
 
     $scope.doSomethingElse = function(suggestion){
       $scope.add_tag(suggestion);
-      	$scope.result = "";
+      	$scope.tag.result = "";
     }
 	$scope.saveProblem      =function(problem){
 		$scope.isSubmitting =true;
