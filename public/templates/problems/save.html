@@ -1,0 +1,37 @@
+<form>
+	<fieldset class="form-group">
+		Problema
+		<input type="radio" name="problema_o_solucion" ng-model="problem.tipo" value="P">
+		Solución
+		<input type="radio" name="problema_o_solucion" ng-model="problem.tipo" value="S">
+	</fieldset>
+	<fieldset  class="form-group">
+		<label for="name">Título</label>
+		<input class="form-control" type="text" id="titulo" name="titulo" ng-model="problem.titulo">
+	</fieldset>
+	<fieldset  class="form-group">
+		<label for="bio">Descripción</label>
+		<textarea class="form-control" type="text" id="descripcion" name="descripcion" ng-model="problem.descripcion"> </textarea>
+	</fieldset>
+	<fieldset  class="form-group">
+		<label for="tags">palabras clave:</label>
+		<div>
+	      <autocomplete ng-model="tag.result" attr-placeholder="digite nueva palabra clave..." click-activation="true" data="results" on-type="doSomething" on-select="doSomethingElse"></autocomplete>
+	    
+	    <div class="addContainer habilitado">
+		<span class="addLetter" ng-click="add_tag(tag.result)">Adicionar palabra clave</span>
+		</div>
+		</div>
+		
+			<fieldset  class="form-group">
+			<span class="tag" ng-repeat="tag in problem.tags" ng-click="remove_tag($index)">
+			<span class="arrow" ></span>&#10006; %%tag%%</span>
+			</span>
+			</fieldset>
+			
+		
+	</fieldset>
+	 <div class="addContainer habilitado">
+	<span class="addLetter" ng-click="saveProblem(problem)" ng-disabled="isSubmitting"> %%isSubmitting ? 'Guardando...':'Guardar'%% </span>
+	</div>
+</form>
