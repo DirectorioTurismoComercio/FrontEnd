@@ -1,25 +1,31 @@
+<form novalidate name="form" name="form">
 <div class="personalData">
   <div>
-    <label for="name"><span>Nombres:</span></label>
-    <input id="name" type="text" ng-model="usuario.nombres" />
+    <label for="name"><span>Nombres (obligatorio):</span></label>
+    <input id="name" type="text" ng-model="usuario.nombres" / name="nombres" required=""></br>
+    <span class="error" ng-show="form.nombres.$touched && form.nombres.$error.required">Por favor digite su nombre</span>
   </div>
   <div>
-    <label for="lastName1"><span>Apellido 1:</span></label>
-    <input id="lastName1" type="text" ng-model="usuario.apellido1" />
+    <label for="lastName1"><span>Apellido 1 (obligatorio):</span></label>
+    <input id="lastName1" type="text" ng-model="usuario.apellido1" name="apellido1" required=""/></br>
+    <span class="error" ng-show="form.apellido1.$touched && form.apellido1.$error.required">Por favor digite su primer apellido</span>
   </div>
   <div>
-    <label for="lastName2"><span>Apellido 2:</span></label>
-    <input id="lastName2" type="text" ng-model="usuario.apellido2" />
+    <label for="lastName2"><span>Apellido 2 (obligatorio):</span></label>
+    <input id="lastName2" type="text" ng-model="usuario.apellido2" name="apellido2" required=""/></br>
+    <span class="error" ng-show="form.apellido2.$touched && form.apellido2.$error.required">Por favor digite su segundo apellido</span>
   </div>
   <div>
     <label for="phone"><span>Número de documento:</span></label>
     <input id="phone" type="text" ng-model="usuario.numero_documento" /></div>
   <div>
-    <label for="email"><span>Correo Electrónico:</span></label>
-    <input id="email" type="text" ng-model="usuario.correo" />
+    <label for="email" required="" ><span>Correo Electrónico (obligatorio)::</span></label>
+    <input id="email" type="email" ng-model="usuario.correo" name="email" required=""/></br>
+    <span class="error" ng-show="form.email.$touched && form.email.$error.required">Por favor digite un correo electrónico</span>
+    <span class="error" ng-show="form.email.$touched && form.email.$error.email">La dirección de correo no es váilda</span>
   </div>
 </div>
 <div class="aprobado">
-  <div class="siguiente" ng-click="changeView('businessData')"><span><span class="icon-check"></span></span></div>
-  <div class="anterior" ng-click="changeView('roles')"><span><span class="icon-arrow-back"></span></span></div>
-</div>
+  <div class="siguiente %%form.$valid?'enabled':'disabled' %%"  ng-click="changeView('businessData',form)"><span><span class="icon-check"></span></span></div>
+  <div class="anterior" ng-click="changeView('roles',null)"><span><span class="icon-arrow-back"></span></span></div>
+</di</form>

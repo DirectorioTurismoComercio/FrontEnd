@@ -11,8 +11,16 @@
             $scope.redes = [{"id":1,"nombre":"Facebook","icono":""},
                             {"id":2,"nombre":"Twitter","icono":""}];
 
-            $scope.changeView  = function (view){
-                                    registroService.changeView(view);
+            $scope.changeView  = function (view,form){
+                                    if(form != undefined)
+                                    {    
+                                        if(form.$valid){
+                                        registroService.changeView(view);
+                                        }
+                                    }else{
+                                        registroService.changeView(view);
+                                    }
+
                                 };
 
             $scope.usuario      = registroService.getUsuario();

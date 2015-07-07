@@ -1,3 +1,4 @@
+<form novalidate name="form" name="form">
 <div class="businessData">
   <div>
     <label for="comercio"><span>Nombre del Comercio o Institución:</span></label>
@@ -25,6 +26,7 @@
   </div>
 </div>
 <div class="aprobado">
-  <div class="siguiente" ng-click="changeView('profileSummary')"><span><span class="icon-check"></span></span></div>
-  <div class="anterior" ng-click="changeView('personalData')"><span><span class="icon-arrow-back"></span></span></div>
+  <div class="siguiente" ng-click="changeView('profileSummary',form)"><span><span class="icon-check"></span></span></div>
+  <div class="anterior" ng-click="changeView('personalData',null)"><span><span class="icon-arrow-back"></span></span></div>
 </div>
+</form>
