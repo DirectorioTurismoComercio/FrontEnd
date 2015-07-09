@@ -1,32 +1,24 @@
-<form novalidate name="form" name="form">
+<form novalidate name="form">
 <div class="businessData">
   <div>
     <label for="comercio"><span>Nombre del Comercio o Institución:</span></label>
-    <input id="comercio" type="text" ng-model="usuario.nombre_institucion"/>
+    <input id="comercio" type="text" class="form-control" ng-model="usuario.nombre_institucion"/>
   </div>
+
   <div>
     <label for="Direccion"><span>Dirección:</span></label>
-    <input id="Direccion" type="text" ng-model="usuario.direccion_institucion" />
+    <input id="Direccion" type="text" ng-model="usuario.direccion_institucion" class="form-control" />
   </div>
-  <div>
-    <label for="Municipio"><span>Municipio:</span></label>
-    <input id="Municipio" type="text" ng-model="usuario.ubicacion_institucion" />
+  <div ng-class="validate(form.municipio,null,showErrors)">
+    <label for="name"><span>Municipio(obligatorio):</span></label>
+    <input id="name" type="text" ng-model="usuario.ubicacion_institucion" class="form-control" name="municipio" required="">
+    <span ng-class="validate(form.municipio,'icon',showErrors)"></span>
+    <span class="error" ng-show="(showErrors || form.municipio.$touched) && form.municipio.$error.required">Por favor digite el nombre de su municipio</span>
   </div>
-  <div>
-    <label for="Telefono"><span>Teléfono: </span></label>
-    <input id="Telefono" type="text" ng-model="usuario.telefono_institucion" />
-  </div>
-  <div>
-    <label for="email"><span>Correo Electrónico: </span></label>
-    <input id="email" type="text" ng-model="usuario.correo_institucion"/>
-  </div>
-  <div>
-    <label for="nit"><span>NIT: </span></label>
-    <input id="nit" type="text" ng-model="usuario.NIT"/>
-  </div>
-</div>
+
+ </div>
 <div class="aprobado">
-  <div class="siguiente" ng-click="changeView('profileSummary',form)"><span><span class="icon-check"></span></span></div>
+  <div class="siguiente" ng-click="changeView('socialNetworks',form)"><span><span class="icon-check"></span></span></div>
   <div class="anterior" ng-click="changeView('personalData',null)"><span><span class="icon-arrow-back"></span></span></div>
 </div>
 </form>

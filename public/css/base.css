@@ -70,11 +70,12 @@ div.personalData div {width: 93%; margin: 10px auto;}
 
 /*Form*/
 label {width: 35%; display: inline-block;color:#58595B; font-weight: 300; }
+/*
 .personalData div:nth-child(4) span, .personalData div:nth-child(5) span{position: relative; top: 8px; display: block;}
 input[type="text"], input[type="email"], textarea, select{ border: 1px solid #CCC; color: #888; height: 20px; line-height:15px; margin:7px 0; outline: 0 none; padding: 5px 0px 5px 5px; width: 60%; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
 select { height: 35px; width: 80%; margin: 0 auto; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; font-size: 12pt;}
 .deshabilitado { cursor: auto;}
-  /*Siguente y Anterior*/
+*/  /*Siguente y Anterior*/
   div.aprobado { background: #E0DFD7; width: 100%; display: block; height: 70px;}
   div.aprobado div {margin: 10px 20px;}
 
