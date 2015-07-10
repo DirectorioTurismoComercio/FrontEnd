@@ -114,29 +114,17 @@
                                     return -1;
                                 };
             $scope.save = function(user) {
-                console.log("USUARIO");
-                console.log(user);
-              /*  user.$save()
+                
+                user.$save()
                 .then(function(user){
-                    // TODO: post de redes en JSON y no en array se resolvera en la tarea 346
-                    //
-                    // $location.path("/users/"+user.id);
-                    // console.log("Objeto retornado por el POST",user);
-                    // userNetworks = angular.copy($scope.usuarioRedes);
-                    // console.log(userNetworks);
-                    // debugger;
-                    // for (var i = userNetworks.length - 1; i >= 0; i--) {
-                    //     console.log("userNetworks[i]:",userNetworks[i]);
-                    //     userNetworks[i].usuario = user.id;
-                    //     console.log("userNetworks["+i+"]",userNetworks[i]);
-                    // };
+               
                 }).catch(function(errors){
                     console.log("Errores retornado por el POST de agregar usuario",errors);
                 }).finally(function(){
                     $scope.isSubmitting = false;
                     registroService.changeView('user/'+user.id);
                 });
-*/
+
                 scope = {}
         };
     }]);

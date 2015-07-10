@@ -78,8 +78,8 @@
         controller: 'ProblemsEditController'
       }).
       // usuarios/(?P<usuario>[0-9]+)/problemas_soluciones
-      // when('/socialNetworks/:idusuario', {
-       when('/socialNetworks', {
+       when('/socialNetworks/:idusuario', {
+      // when('/socialNetworks', {
        controller: 'socialNetworksController',
        templateUrl: 'templates/signup/user-social-networks.html'
        }).
