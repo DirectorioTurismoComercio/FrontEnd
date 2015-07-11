@@ -71,3 +71,4 @@ npm-debug.log
 package.json
 rest_api.md
 server.js
+test/pruebas_aceptacion/codecept.phar.v2.0.11

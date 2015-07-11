@@ -5,5 +5,13 @@
 		<h3><a ng-href="#/user/%%idUser%%/problem/%%problem.id%%">Titulo: %%problem.titulo%%</a></h3>
 		<h3>Descripción </h3>
 		<p>%%problem.descripcion%%</p>
+		<h3>Categorias </h3>
+		<div ng-repeat="categoria in problem.categorias_completas">
+			<li>%%categoria.nombre%%</li>
+		</div>
+		<h3>Palabras clave</h3>
+		<div ng-repeat="tag in problem.tags">
+			<li>%%tag%%</li>
+		</div>
 	</div>
 </div>
