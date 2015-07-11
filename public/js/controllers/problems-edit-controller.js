@@ -15,21 +15,20 @@ angular.module('gemStore')
       $scope.results.then(function(data){
         $scope.results = data;
       });
-    }
+    };
 	$scope.remove_tag = function(index){	
        $scope.problem.tags.splice(index,1);    
-	}
+	};
 	$scope.add_tag = function(new_tag){
 		if($scope.problem.tags.indexOf(new_tag)==-1){
 			$scope.problem.tags.push(new_tag);	
 		}
 		$scope.tag.result = "";
-	}
-
+	};
     $scope.doSomethingElse = function(suggestion){
       $scope.add_tag(suggestion);
       	$scope.tag.result = "";
-    }
+    };
 	$scope.saveProblem = function(problem){
 		$scope.isSubmitting = true;
 		console.log("problem:",problem);

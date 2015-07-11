@@ -8,15 +8,15 @@
 
 	<fieldset class="form-group">
 		<label for="title">Seleccione Categoria</label>
-		<select ng-change="getCategoriesLevel2(selectedId,2)" ng-model="selectedId">
-			<option ng-repeat="category in rootCategories" value="%%category.id%%" > %%category.nombre%%></option>
-			<!-- <option ng-repeat="category.id as category.nombre for category in rootCategories" ng-model="problem.rootCategory"></option> -->
+		<select ng-change="getCategoriesLevel2(problem.categories.level1Id,2)" ng-model="problem.categories.level1Id">
+			<option ng-repeat="category in rootCategories" value="%%category.id%%" > %%category.nombre%% ></option>
+			<!-- <option ng-repeat="category.id as category.nombre for category in problem.categories.rootCategories" ng-model="problem.rootCategory"></option> -->
 		</select>
-		<select ng-change="getCategoriesLevel3(categoryLevel2Id,3)" ng-model="categoryLevel2Id">
-			<option ng-repeat="category in subcategoryTwo"   value="%%category.id%%" > %%category.nombre%%></option>
+		<select ng-change="getCategoriesLevel3(problem.categories.level2Id,3)" ng-model="problem.categories.level2Id">
+			<option ng-repeat="category in subcategoryTwo"   value="%%category.id%%" > %%category.nombre%% ></option>
 		</select>
-		<select ng-model="categoryLevel3Id">
-			<option ng-repeat="category in subcategoryThree" value="%%category.id%%" > %%category.nombre%%></option>
+		<select ng-model="problem.categories.level3Id">
+			<option ng-repeat="category in subcategoryThree" value="%%category.id%%" > %%category.nombre%% ></option>
 		</select>
 	</fieldset>
 	<fieldset  class="form-group">

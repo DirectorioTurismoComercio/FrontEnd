@@ -2,20 +2,19 @@
 * gemStore Module
 *['ProblemFactory', '$scope', '$routeParams', '$location','ResultRetriever',
 	function(ProblemFactory, $scope, $routeParams, $location,ResultRetriever){
-	
+
 */
 angular.module('gemStore')
-.controller('ProblemsCreateController', 
+.controller('ProblemsCreateController',
 	['CategoryFactory','ProblemFactory', '$scope', '$routeParams', '$location','ResultRetriever',
 	function(CategoryFactory, ProblemFactory, $scope, $routeParams, $location,ResultRetriever){
 
 	$scope.problem = new ProblemFactory();
-	
 
-	$scope.problem.categoria=[];
+	$scope.problem.categorias=[];
 	$scope.problem.tags=[];
 	$scope.problem.usuario  =Number($routeParams.idUser);
-	$scope.isSubmitting     =false;	
+	$scope.isSubmitting     =false;
 
 	//categoreis related code
 	// $scope.categories = CategoryFactory.query({nivel:"2",categoria_padre:"1"});
@@ -41,12 +40,12 @@ angular.module('gemStore')
         $scope.results = data;
       });
     };
-	$scope.remove_tag = function(index){	
-       $scope.problem.tags.splice(index,1);    
+	$scope.remove_tag = function(index){
+       $scope.problem.tags.splice(index,1);
 	};
 	$scope.add_tag = function(new_tag){
 		if($scope.problem.tags.indexOf(new_tag)==-1){
-			$scope.problem.tags.push(new_tag);	
+			$scope.problem.tags.push(new_tag);
 		}
 		$scope.tag.result = "";
 	}
@@ -59,7 +58,11 @@ angular.module('gemStore')
     //
 	$scope.saveProblem      =function(problem){
 		$scope.isSubmitting =true;
-		console.log("problem.rootCategory: ",problem.rootCategory);
+		// console.log("BEFORE SAVE problem: ",problem);
+		var arr = Object.keys(problem.categories).map(function(k) {  return problem.categories[k] });
+		// console.log("array of categories:", arr);
+		// console.log("problem.rootCategory: ",problem.rootCategory);
+		problem.categorias = arr;
 		problem.$save({id:$routeParams.idUser})
 		.then(function(problem){
 			// console.log("------this is the problem returned from server: ",problem);
