@@ -121,7 +121,7 @@
             $scope.save = function(view) {
                 
                 var promesa;
-                console.log($scope.usuario);
+                console.log("guardando");
                     if($scope.usuario.id)
                     {    
                     promesa = $scope.usuario.$update();

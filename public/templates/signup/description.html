@@ -1,11 +1,14 @@
+<form novalidate name="form">
 <p>Breve descripción de tu perfil</p>
 <div>
-<textarea class="form-control"></textarea>
+<textarea class="form-control" ng-model="usuario.descripcion"></textarea>
 </div>
 
 <div class="aprobado">
-  <div class="siguiente" ng-click="changeView('socialNetworks',form)"><span><span class="icon-check"></span></span></div>
+  <div class="siguiente" ng-click="changeView('socialNetworks/'+usuario.id,form,'save')"><span><span class="icon-check"></span></span></div>
   <div class="anterior" ng-click="changeView('personalData',null)"><span><span class="icon-arrow-back"></span></span></div>
 
 
 </div>
+
+</form>
