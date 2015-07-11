@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="summaryUser">
+<div class="summaryUser">changeView('description')
   <div><span>NOMBRE:</span> %%usuario.nombres%% </div>
   <div><span>APELLIDO:</span> %%usuario.apellido1%% %%usuario.apellido2%% </div>
   <div><span>DOCUMENTO:</span> %%usuario.numero_documento%% </div>
@@ -25,7 +25,7 @@
 
 
 <div class="aprobado">
-  <div class="siguiente" ng-click="save(usuario)"><span><span class="icon-check"></span></span></div>
+  <div class="siguiente" ng-click="changeView('profileDescription/'+usuario.id)"><span><span class="icon-check"></span></span></div>
   <div class="anterior" ng-click="changeView('businessData')">
     <span>
       <span class="icon-arrow-back"></span>

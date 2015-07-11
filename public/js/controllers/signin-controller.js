@@ -11,17 +11,18 @@ angular.module('gemStore')
         {
         	
                 usuario = registroService.getUsuario();
-				
+				console.log(usuario);
                 UserFactory.get({id:user}).$promise
                 .then(function(user){
                     registroService.setUsuario(user);
+                    console.log(registroService.getUsuario());
                     registroService.changeView('personalData');
                	
                 }).catch(function(errors){
                     $scope.mensaje="No se encontró al usuario";
                 }).finally(function(){
                     
-                    //registroService.changeView('personalData');
+                    
                 });
 
 

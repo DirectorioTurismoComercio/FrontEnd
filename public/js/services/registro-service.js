@@ -4,6 +4,7 @@
 		var usuario = new UserFactory();
 		var usuarioredes = new Array();
         var changeView = function(view){
+
 			$location.path(view);
 		};
 		  var getUsuario = function(){
@@ -13,10 +14,12 @@
 		      return usuarioredes;
 		  }
 		  var setUsuario = function(_usuario){
-		      for (propiedad in _usuario)
+		    /*  for (propiedad in _usuario)
                    { 
                     usuario[propiedad]=_usuario[propiedad];
                    }
+                   */
+                   usuario = _usuario;
 		  }
 
 	  return {

@@ -33,7 +33,7 @@
   
     <div ng-class="validate(form.email,null)">
     <label for="name"><span>Correo:</span></label>
-    <input id="name" type="email" ng-model="usuario.email" class="form-control" name="email" required="">
+    <input id="name" type="email" ng-model="usuario.correo" class="form-control" name="email" required="">
     <span ng-class="validate(form.email,'icon')"></span>
     <span class="error" ng-show="(showErrors || form.email.$touched) && form.email.$error.email">Por favor verifique su dirección de correo</span>
   </div>

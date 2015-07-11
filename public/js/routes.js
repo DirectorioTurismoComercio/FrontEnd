@@ -79,10 +79,15 @@
       }).
       // usuarios/(?P<usuario>[0-9]+)/problemas_soluciones
        when('/socialNetworks/:idusuario', {
-      // when('/socialNetworks', {
+    
        controller: 'socialNetworksController',
        templateUrl: 'templates/signup/user-social-networks.html'
        }).
+       when('/profileDescription/:idusuario',
+      {
+        controller: 'SignupMainController',
+        templateUrl: 'templates/signup/description.html',
+      }).
        when('/signin',
       {
         controller: 'SigninController',

@@ -12,7 +12,7 @@
             $scope.showErrors=false;               
             $scope.validate = function(model,icon,error)
             { 
-                console.log("validando");
+                
 
                 if(!$scope.showErrors)
                 {    
@@ -76,11 +76,19 @@
                   
              };                
 
-            $scope.changeView  = function (view,form){
+            $scope.changeView  = function (view,form,save){
+
                                     if(form != undefined)
                                     {    
                                         if(form.$valid){
-                                        registroService.changeView(view);
+                                                if(save)
+                                                {
+                                                    $scope.save(view);
+
+                                                }
+                                                else{    
+                                                  registroService.changeView(view);
+                                                  }
 
                                         }
                                         else
@@ -110,15 +118,25 @@
                                     }
                                     return -1;
                                 };
-            $scope.save = function(user) {
+            $scope.save = function(view) {
                 
-                user.$save()
-                .then(function(user){
-               
+                var promesa;
+                console.log($scope.usuario);
+                    if($scope.usuario.id)
+                    {    
+                    promesa = $scope.usuario.$update();
+                    }
+                    else
+                    {
+                     promesa = $scope.usuario.$save();   
+                    }    
+                promesa.then(function(user){
+                    registroService.changeView(view);
+                    console.log(user);
                 }).catch(function(errors){
                     console.log("Errores retornado por el POST de agregar usuario",errors);
                 }).finally(function(){
-                    $scope.isSubmitting = false;
+                  
                     registroService.changeView('user/'+user.id);
                 });
 
