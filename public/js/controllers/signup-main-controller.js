@@ -7,9 +7,6 @@
     angular.module('gemStore')
     .controller('SignupMainController',['$scope', 'registroService',
         function($scope,registroService){
-            //TODO: estas redes "hard coded" se corregiran en la tarea 354
-            $scope.redes = [{"id":1,"nombre":"Facebook","icono":""},
-                            {"id":2,"nombre":"Twitter","icono":""}];
 
             $scope.form=""; 
             $scope.showErrors=false;               

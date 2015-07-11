@@ -12,11 +12,18 @@
 		  var getUsuarioRedes = function(){
 		      return usuarioredes;
 		  }
+		  var setUsuario = function(_usuario){
+		      for (propiedad in _usuario)
+                   { 
+                    usuario[propiedad]=_usuario[propiedad];
+                   }
+		  }
 
 	  return {
 	    changeView: changeView,
 	    getUsuario: getUsuario,
-	    getUsuarioRedes: getUsuarioRedes
+	    getUsuarioRedes: getUsuarioRedes,
+	    setUsuario: setUsuario
 	  };
 
 	}]);
