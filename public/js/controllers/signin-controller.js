@@ -28,5 +28,9 @@ angular.module('gemStore')
 
 
         }	
+        $scope.signup = function()
+        {
+            registroService.changeView('signup');
+        }
 	
 }]);

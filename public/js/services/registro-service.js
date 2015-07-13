@@ -21,12 +21,18 @@
                    */
                    usuario = _usuario;
 		  }
+		  var reset = function()
+		  {
+		  	usuario = new UserFactory();
+		  	usuarioredes = new Array();
+		  }
 
 	  return {
 	    changeView: changeView,
 	    getUsuario: getUsuario,
 	    getUsuarioRedes: getUsuarioRedes,
-	    setUsuario: setUsuario
+	    setUsuario: setUsuario,
+	    reset: reset
 	  };
 
 	}]);

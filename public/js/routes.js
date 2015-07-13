@@ -77,7 +77,6 @@
         templateUrl: 'templates/problems/edit.html',
         controller: 'ProblemsEditController'
       }).
-      // usuarios/(?P<usuario>[0-9]+)/problemas_soluciones
        when('/socialNetworks/:idusuario', {
     
        controller: 'socialNetworksController',
@@ -93,6 +92,12 @@
         controller: 'SigninController',
         templateUrl: 'templates/signin/signin.html',
       }).
+         when('/signout',
+      {
+        controller: 'SignoutController',
+        templateUrl: 'templates/signout/signout.html',
+      }).
+     
       when('/index',
       {
         templateUrl: 'templates/index.html',
