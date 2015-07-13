@@ -8,16 +8,19 @@ header { background: #E0DFD7; height: 52px; display: block; border-bottom: 1px s
 header img.logo { margin: 12px 0 0px 16px; height: 32px;}
 
 /*Boton Menu Mobile*/
-header a.MobileMenu { margin:12px 12px 0 0; float: right; background: #9B9A91; border-radius: 5px; cursor: pointer; display: block; width: 42px; height: 35px; text-align: center; vertical-align: middle; -webkit-border-radius: 5px; -moz-border-radius: 5px;}
-header a.MobileMenu:hover {background: #e2202e !important;}
+header a.MobileMenu { margin:12px 12px 0 0; float: right; background-image: url("../images/RegistroIconMenu.png");background-size: 42px 35px;
+    background-repeat: no-repeat; border-radius: 5px; cursor: pointer; display: block; width: 42px; height: 35px; text-align: center; vertical-align: middle; -webkit-border-radius: 5px; -moz-border-radius: 5px;}
+/*header a.MobileMenu:hover {background: #e2202e !important;}*/
 header a.MobileMenu span {color:white; font-size: 22pt; position: relative; top: 2px;}
 
 /*MobileMenu*/
-nav.MobileMenu { display: block; width: 100%; background: #9B9A91; margin: 4px 0 0 0;}
-nav.MobileMenu ul {list-style: none; margin: 0; padding: 0;}
-nav.MobileMenu ul a{color: #E0DFD7; width: 100%; height: 32px; font-size: 11pt; border-bottom: 1px solid #E0DFD7; text-decoration: none; display: block;}
-nav.MobileMenu ul a li {padding: 9px 0 0 16px;}
-nav.MobileMenu ul a span {float: right; padding:0  16px 0 0;}
+nav.MobileMenu { z-index: 9999; display: block; width: 100%; background: #9B9A91; margin: 4px 0 0 0;}
+nav.MobileMenu ul {z-index: 9999; list-style: none; margin: 0; padding: 0;}
+nav.MobileMenu ul a{z-index: 9999; color: #E0DFD7; width: 100%; height: 32px; font-size: 11pt; border-bottom: 1px solid #E0DFD7; text-decoration: none; display: block;}
+nav.MobileMenu ul a li {z-index: 9999; padding: 9px 0 0 16px;}
+nav.MobileMenu ul a span {z-index: 9999; float: right; padding:0  16px 0 0;}
+nav.MobileMenu div {z-index: 9999; background: #E0DFD7; height: 200px;}
+
 
 /*BreadCrumbs*/
 div.breadCrumbs {margin: 0 0 0 16px; z-index: -1;}
@@ -45,7 +48,7 @@ a.roles:hover { background: #e2202e;}
 .galeria p {color:#58595B; font-size: 12pt;}
 
 /*footer*/
-div.MobileFooter { background: #E0DFD7; height: 100%; width:100%; position: absolute; top:118px;}
+div.MobileFooter { background: #E0DFD7; height: 100%; width:100%; position: absolute; top:318px;}
 footer {display: none;}
 
 /*overlay*/

@@ -52,12 +52,12 @@
         templateUrl: 'templates/search/search.html',
         controller: 'SearchController'
       }).
-      when('/user/:idUser',
+    /*  when('/user/:idUser',
       {
         templateUrl: 'templates/administracion-usuario/user_admin.html',
         controller: 'UserAdminController'
-      }).
-      when('/user/:idUser/problem',
+      }). */
+      when('/user/problems',
       {
         templateUrl: 'templates/problems/index.html',
         controller: 'ProblemsIndexController'
@@ -107,7 +107,7 @@
         templateUrl: 'templates/unal.html',
       }).
       otherwise({
-        redirectTo:'/signup'
+        redirectTo:'/signin'
       });
   }]);
 })();

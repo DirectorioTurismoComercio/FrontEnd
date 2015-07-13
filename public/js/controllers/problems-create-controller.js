@@ -6,15 +6,18 @@
 */
 angular.module('gemStore')
 .controller('ProblemsCreateController', 
-	['ProblemFactory', '$scope', '$routeParams', '$location','ResultRetriever',
-	function(ProblemFactory, $scope, $routeParams, $location,ResultRetriever){
+	['ProblemFactory', '$scope', '$routeParams', '$location','ResultRetriever','registroService',
+	function(ProblemFactory, $scope, $routeParams, $location,ResultRetriever,registroService){
+	var idUsuario = registroService.getUsuario().id;	
 	$scope.problem = new ProblemFactory();
 	//TODO: create category model
-	$scope.problem.categoria=[];
+	$scope.problem.categorias=[1];  // VALOR QUEMADO. FALTA INTEGRAR CON CATEGORIAS
 	$scope.problem.tags=[];
-	$scope.problem.usuario  =Number($routeParams.idUser);
+	$scope.problem.usuario  =Number(idUsuario);
 	$scope.isSubmitting     =false;
 	$scope.tag = { result:  ""};
+	$scope.form="";
+	$scope.showErrors=false;
 	$scope.doSomething = function(typedthings){
       $scope.results = ResultRetriever.getresults(typedthings, 'SuggestedTagsFactory');
 
@@ -37,17 +40,74 @@ angular.module('gemStore')
       $scope.add_tag(suggestion);
       	$scope.tag.result = "";
     }
-	$scope.saveProblem      =function(problem){
-		$scope.isSubmitting =true;
-		problem.$save({id:$routeParams.idUser})
-		.then(function(problem){
-			// console.log("------this is the problem returned from server: ",problem);
-			$location.path("user/"+$routeParams.idUser+"/problem/"+problem.id);
-		}).catch(function(errors){
-			//validations
-			console.log("SAVING PROBLEM - ERRORS returned from server: ",errors);
-		}).finally(function(){
-			$scope.isSubmitting = false;
-		});
+     $scope.validate = function(model,icon,error)
+            { 
+                
+                if(!$scope.showErrors)
+                {    
+                    if(model.$untouched)
+                    {
+                        return "";
+                    }    
+                }    
+              
+                
+                if(icon!=undefined)
+                {
+                          if(model.$invalid)
+                            {
+                                
+                                return "glyphicon glyphicon-remove form-control-feedback";   
+                                
+                            }
+                            else
+                            {
+
+                                return "glyphicon glyphicon-ok form-control-feedback";               
+                            
+                            }
+
+                }
+                else{ 
+                	
+                        if(model.$invalid)
+                        {
+                            
+                            return "form-group has-error has-feedback";   
+                            
+                        }
+                        else
+                        {
+
+                            
+                            return "form-group has-success has-feedback";               
+                        
+                        }
+                        
+                    }
+                  
+             };                
+
+	$scope.saveProblem      =function(problem,form){
+		
+		
+		if(form.$valid)
+		{	
+				problem.$save({id:idUsuario})
+					.then(function(problem){
+						// console.log("------this is the problem returned from server: ",problem);
+						$location.path("user/problems");
+					}).catch(function(errors){
+						//validations
+						console.log("SAVING PROBLEM - ERRORS returned from server: ",errors);
+					}).finally(function(){
+						$scope.isSubmitting = false;
+					});
+			
+		}
+		else
+		{
+			$scope.showErrors=true;
+		}	
 	};
 }]);
