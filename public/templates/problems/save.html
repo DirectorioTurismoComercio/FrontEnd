@@ -41,11 +41,18 @@
 		</div>
 		</div>
 		
-			<fieldset  class="form-group">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+			      <h3 class="panel-title">
+			         Palabras clave
+			      </h3>
+			   </div>
+			<div class="panel-body">	
 			<span class="tag" ng-repeat="tag in problem.tags" ng-click="remove_tag($index)">
 			<span class="arrow" ></span>&#10006; %%tag%%</span>
 			</span>
-			</fieldset>
+			</div>
+			</div>
 			
 		
 	</fieldset>
