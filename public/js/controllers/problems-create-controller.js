@@ -20,6 +20,8 @@ angular.module('gemStore')
 	// $scope.categories = CategoryFactory.query({nivel:"2",categoria_padre:"1"});
 	$scope.rootCategories = CategoryFactory.query({nivel:"1"});
 	$scope.getCategoriesLevel2 = function(idParent,level){
+		$scope.problem.categorias[1]= null;
+		$scope.problem.categorias[2]= null;
 		console.log("Level2 idParent",idParent);
 		$scope.subcategoryTwo = CategoryFactory.query({categoria_padre:idParent,nivel:level});
 		console.log($scope.subcategoryTwo);
@@ -48,21 +50,16 @@ angular.module('gemStore')
 			$scope.problem.tags.push(new_tag);
 		}
 		$scope.tag.result = "";
-	}
+	};
 
     $scope.doSomethingElse = function(suggestion){
       $scope.add_tag(suggestion);
       	$scope.tag.result = "";
-    }
+    };
 
     //
 	$scope.saveProblem      =function(problem){
 		$scope.isSubmitting =true;
-		// console.log("BEFORE SAVE problem: ",problem);
-		var arr = Object.keys(problem.categories).map(function(k) {  return problem.categories[k] });
-		// console.log("array of categories:", arr);
-		// console.log("problem.rootCategory: ",problem.rootCategory);
-		problem.categorias = arr;
 		problem.$save({id:$routeParams.idUser})
 		.then(function(problem){
 			// console.log("------this is the problem returned from server: ",problem);
