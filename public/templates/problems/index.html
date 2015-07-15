@@ -7,11 +7,11 @@
 		<p>%%problem.descripcion%%</p>
 		<h3>Categorias </h3>
 		<div ng-repeat="categoria in problem.categorias_completas">
-			<li>%%categoria.nombre%%</li>
+			<li><span class="label label-info">%%categoria.nombre%%</span></li>
 		</div>
 		<h3>Palabras clave</h3>
 		<div ng-repeat="tag in problem.tags">
-			<li>%%tag%%</li>
+			<li><span class="label label-default">%%tag%%</span></li>
 		</div>
 	</div>
 </div>
