@@ -33,9 +33,9 @@
   
     <div ng-class="validate(form.email,null)">
     <label for="name"><span>Correo:</span></label>
-    <input id="name" type="email" ng-model="usuario.correo" class="form-control" name="email" required="">
+    <input id="name" type="email" ng-model="usuario.correo" class="form-control" name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required="">
     <span ng-class="validate(form.email,'icon')"></span>
-    <span class="error" ng-show="(showErrors || form.email.$touched) && form.email.$error.email">Por favor verifique su dirección de correo</span>
+    <span class="error" ng-show="(showErrors || form.email.$touched) && form.email.$error.pattern">Por favor verifique su dirección de correo</span>
   </div>
   
   <div ng-class="validate(form.telefono,null)">
