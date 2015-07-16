@@ -92,7 +92,7 @@
         templateUrl: 'templates/unal.html',
       }).
       otherwise({
-        redirectTo:'/signup'
+        redirectTo:'/user/1/problem'
       });
   }]);
 })();
