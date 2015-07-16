@@ -6,6 +6,7 @@
     {
     $scope.results = ResultRetriever.getresults("...");
     $scope.serverResults = [];
+    $scope.tipo="P";
     $scope.results.then(function(data){
       $scope.results = data;
     });

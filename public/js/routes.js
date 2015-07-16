@@ -102,9 +102,9 @@
       {
         templateUrl: 'templates/index.html',
       }).
-      when('/unal',
+      when('/',
       {
-        templateUrl: 'templates/unal.html',
+        redirectTo:'/search'
       }).
       otherwise({
         redirectTo:'/signin'
