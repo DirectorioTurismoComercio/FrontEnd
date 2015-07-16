@@ -16,22 +16,16 @@ angular.module('gemStore')
 	$scope.problem.usuario  =Number($routeParams.idUser);
 	$scope.isSubmitting     =false;
 
-	//categoreis related code
-	// $scope.categories = CategoryFactory.query({nivel:"2",categoria_padre:"1"});
-	$scope.rootCategories = CategoryFactory.query({nivel:"1"});
-	$scope.getCategoriesLevel2 = function(idParent,level){
-		$scope.problem.categorias[1]= null;
+	//categories related code
+	$scope.categorias = CategoryFactory.query();
+
+	$scope.clearCategoryArray = function(level){
+		if (level === 1){
+			$scope.problem.categorias[1]= null;
+		}
 		$scope.problem.categorias[2]= null;
-		console.log("Level2 idParent",idParent);
-		$scope.subcategoryTwo = CategoryFactory.query({categoria_padre:idParent,nivel:level});
-		console.log($scope.subcategoryTwo);
 	};
 
-	$scope.getCategoriesLevel3 = function(idParent,level){
-		console.log("Level3 idParent",idParent);
-		$scope.subcategoryThree = CategoryFactory.query({categoria_padre:idParent,nivel:level});
-		console.log($scope.subcategoryThree);
-	};
 	//tags related code
 	$scope.tag = { result:  ""};
 

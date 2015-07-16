@@ -8,52 +8,20 @@
 
 	<fieldset class="form-group">
 		<label for="title">Seleccione Categoria</label>
-			<!-- Click me: <input type="checkbox" ng-model="clicked" aria-label="Toggle ngHide"><br/> -->
-			<div ng-model="clicked">
-				<p>problem.categorias: %%problem.categorias%%</p>
-				<div ng-hide="clicked">
-					<p ><span class="label label-danger">EDIT</span></p>
-					<select ng-model="problem.categorias[0]"
-							ng-change="clearCategoryArray()"
-					        ng-options="category.id as category.nombre for category in categorias | filter:{nivel:1}"
-					        >
-					        </select>
-					<select ng-options="category.id as category.nombre for category in categorias | filter:{categoria_padre:problem.categorias[0], nivel:2}"
-							ng-model="problem.categorias[1]"></select>
+		<!-- <p>problem.categorias: %%problem.categorias%%</p> -->
+		<select ng-model="problem.categorias[0]"
+				ng-change="clearCategoryArray(1)"
+		        ng-options="category.id as category.nombre for category in categorias | filter:{nivel:1}"
+		        >
+		        </select>
+		<select ng-model="problem.categorias[1]"
+				ng-change="clearCategoryArray(2)"
+				ng-options="category.id as category.nombre for category in categorias | filter:{categoria_padre:problem.categorias[0], nivel:2}">
+				</select>
 
-					<select ng-options="category.id as category.nombre for category in categorias | filter:{categoria_padre:problem.categorias[1], nivel:3}"
-							ng-model="problem.categorias[2]"></select>
-
-<!--                      <select ng-options="category.id as category.nombre for category in categorias" ng-model="problem.categorias[1]"></select>
-					<select ng-options="category.id as category.nombre for category in categorias" ng-model="problem.categorias[2]"></select>
- -->
-
-
-					<!-- <select ng-change="getCategoriesLevel2(problem.categorias[0],2)" ng-model="problem.categorias[0]">
-						<option ng-repeat="category in rootCategories" value="%%category.id%%"   > %%category.nombre%% </option>
-						<option ng-repeat="category.id as category.nombre for category in problem.categories.rootCategories" ng-model="problem.rootCategory"></option>
-					</select>
-					<select ng-change="getCategoriesLevel3(problem.categorias[1],3)" ng-model="problem.categorias[1]">
-						<option ng-repeat="category in subcategoryTwo"   value="%%category.id%%" > %%category.nombre%% </option>
-					</select>
-					<select ng-model="problem.categorias[2]">
-						<option ng-repeat="category in subcategoryThree" value="%%category.id%%" > %%category.nombre%% </option>
-					</select>
-				</div> -->
-
-				<!-- <div ng-show="clicked">
-					<p ><span class="label label-info">READ - from categories json</span></p>
-					<select ng-model="clicked">
-						<option>%%problem.categorias_completas[0].nombre%%</option>
-					</select>
-					<select>
-						<option>%%problem.categorias_completas[1].nombre%%</option>
-					</select>
-					<select>
-						<option>%%problem.categorias_completas[2].nombre%%</option>
-					</select>
-				</div> -->
-			</div>
+		<select ng-model="problem.categorias[2]"
+				ng-options="category.id as category.nombre for category in categorias | filter:{categoria_padre:problem.categorias[1], nivel:3}">
+				</select>
 	</fieldset>
 
 	<fieldset  class="form-group">
