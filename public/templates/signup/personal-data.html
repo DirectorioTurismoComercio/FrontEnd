@@ -24,7 +24,7 @@
 
   <div ng-class="validate(form.documento,null)">
     <label for="name"><span>Número de documento:</span></label>
-    <input id="name" type="number" ng-model="usuario.documento" class="form-control" name="documento">
+    <input id="name" type="number" ng-model="usuario.numero_documento" class="form-control" name="documento">
     <span ng-class="validate(form.documento,'icon')"></span>
     <span class="error" ng-show="(showErrors || form.documento.$touched) && form.documento.$error.number">Por favor digite un número</span>
   </div>
