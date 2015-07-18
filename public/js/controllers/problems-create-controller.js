@@ -9,16 +9,22 @@ angular.module('gemStore')
 	['CategoryFactory','ProblemFactory', '$scope', '$routeParams', '$location','ResultRetriever',
 	function(CategoryFactory, ProblemFactory, $scope, $routeParams, $location,ResultRetriever){
 
-	$scope.problem = new ProblemFactory();
+	var isEditing = false;
+	if(typeof $routeParams.idProblem === 'undefined'){
+		//create problem 
+		console.log("create a problem");
+	    $scope.problem = new ProblemFactory();
+	    $scope.problem.categorias=[];
+		$scope.problem.tags=[];
+		$scope.problem.usuario  = Number($routeParams.idUser);	
+	}else{
+		$scope.problem = ProblemFactory.get({id: $routeParams.idUser,idProblem: $routeParams.idProblem });
+		isEditing = true;
+	}
+	$scope.isSubmitting = false;
+	$scope.tag = { result:  ""};
 
-	$scope.problem.categorias=[];
-	$scope.problem.tags=[];
-	$scope.problem.usuario  =Number($routeParams.idUser);
-	$scope.isSubmitting     =false;
-
-	//categories related code
 	$scope.categorias = CategoryFactory.query();
-
 	$scope.clearCategoryArray = function(level){
 		if (level === 1){
 			$scope.problem.categorias[1]= null;
@@ -26,9 +32,8 @@ angular.module('gemStore')
 		$scope.problem.categorias[2]= null;
 	};
 
-	//tags related code
-	$scope.tag = { result:  ""};
-
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	//tag related
 	$scope.doSomething = function(typedthings){
       $scope.results = ResultRetriever.getresults(typedthings, 'SuggestedTagsFactory');
 
@@ -45,24 +50,38 @@ angular.module('gemStore')
 		}
 		$scope.tag.result = "";
 	};
-
     $scope.doSomethingElse = function(suggestion){
       $scope.add_tag(suggestion);
       	$scope.tag.result = "";
     };
-
     //
 	$scope.saveProblem      =function(problem){
 		$scope.isSubmitting =true;
-		problem.$save({id:$routeParams.idUser})
-		.then(function(problem){
-			// console.log("------this is the problem returned from server: ",problem);
-			$location.path("user/"+$routeParams.idUser+"/problem/"+problem.id);
-		}).catch(function(errors){
-			//validations
-			console.log("SAVING PROBLEM - ERRORS returned from server: ",errors);
-		}).finally(function(){
-			$scope.isSubmitting = false;
-		});
+		if(isEditing){
+			problem.$update({id:$routeParams.idUser,idProblem:$routeParams.idProblem})
+			.then(function(problem){
+				console.log("problema guardado exitosamente: ",problem);
+			})
+			.catch(function(error){
+				console.log("Update problem in server errors: ",error);
+			})
+			.finally(function(){
+				$scope.isSubmitting = false;
+				$location.path("/user/"+$routeParams.idUser+"/problem/"+$routeParams.idProblem);
+			});
+		}else{
+			problem.$save({id:$routeParams.idUser})
+			.then(function(problem){
+				console.log("------this is the problem returned from server: ",problem);
+			}).catch(function(errors){
+				//validations
+				//on errors, show me those errors
+				console.log("SAVING PROBLEM - ERRORS returned from server: ",errors);
+			}).finally(function(){
+				$scope.isSubmitting = false;
+				//on success show me the just created problem 
+				$location.path("user/"+$routeParams.idUser+"/problem/"+problem.id);
+			});
+		}
 	};
 }]);

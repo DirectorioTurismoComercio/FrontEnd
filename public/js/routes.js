@@ -75,7 +75,7 @@
       when('/user/:idUser/problem/:idProblem/edit',
       {
         templateUrl: 'templates/problems/edit.html',
-        controller: 'ProblemsEditController'
+        controller: 'ProblemsCreateController'
       }).
       // usuarios/(?P<usuario>[0-9]+)/problemas_soluciones
       // when('/socialNetworks/:idusuario', {
