@@ -63,13 +63,13 @@ angular.module('gemStore')
 		}else{
 			promise = problem.$save({id:$routeParams.idUser});
 		}
-			promise.then(function(problem){
-				console.log("------this is the problem returned from server: ",problem);
-			}).catch(function(errors){
-				console.log("SAVING PROBLEM - ERRORS returned from server: ",errors);
-			}).finally(function(){
-				$scope.isSubmitting = false;
-				$location.path("user/"+$routeParams.idUser+"/problem/"+problem.id);
-			});
+		promise.then(function(problem){
+			console.log("------this is the problem returned from server: ",problem);
+		}).catch(function(errors){
+			console.log("SAVING PROBLEM - ERRORS returned from server: ",errors);
+		}).finally(function(){
+			$scope.isSubmitting = false;
+			$location.path("user/"+$routeParams.idUser+"/problem/"+problem.id);
+		});
 	};
 }]);
