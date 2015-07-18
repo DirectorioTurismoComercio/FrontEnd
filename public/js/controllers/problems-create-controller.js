@@ -11,12 +11,12 @@ angular.module('gemStore')
 
 	var isEditing = false;
 	if(typeof $routeParams.idProblem === 'undefined'){
-		//create problem 
+		//create problem
 		console.log("create a problem");
 	    $scope.problem = new ProblemFactory();
 	    $scope.problem.categorias=[];
 		$scope.problem.tags=[];
-		$scope.problem.usuario  = Number($routeParams.idUser);	
+		$scope.problem.usuario  = Number($routeParams.idUser);
 	}else{
 		$scope.problem = ProblemFactory.get({id: $routeParams.idUser,idProblem: $routeParams.idProblem });
 		isEditing = true;
@@ -57,31 +57,19 @@ angular.module('gemStore')
     //
 	$scope.saveProblem      =function(problem){
 		$scope.isSubmitting =true;
+		var promise = null;
 		if(isEditing){
-			problem.$update({id:$routeParams.idUser,idProblem:$routeParams.idProblem})
-			.then(function(problem){
-				console.log("problema guardado exitosamente: ",problem);
-			})
-			.catch(function(error){
-				console.log("Update problem in server errors: ",error);
-			})
-			.finally(function(){
-				$scope.isSubmitting = false;
-				$location.path("/user/"+$routeParams.idUser+"/problem/"+$routeParams.idProblem);
-			});
+			promise = problem.$update({id:$routeParams.idUser,idProblem:$routeParams.idProblem});
 		}else{
-			problem.$save({id:$routeParams.idUser})
-			.then(function(problem){
+			promise = problem.$save({id:$routeParams.idUser});
+		}
+			promise.then(function(problem){
 				console.log("------this is the problem returned from server: ",problem);
 			}).catch(function(errors){
-				//validations
-				//on errors, show me those errors
 				console.log("SAVING PROBLEM - ERRORS returned from server: ",errors);
 			}).finally(function(){
 				$scope.isSubmitting = false;
-				//on success show me the just created problem 
 				$location.path("user/"+$routeParams.idUser+"/problem/"+problem.id);
 			});
-		}
 	};
 }]);
