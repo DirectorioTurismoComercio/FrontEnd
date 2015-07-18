@@ -7,12 +7,98 @@
     angular.module('gemStore')
     .controller('SignupMainController',['$scope', 'registroService',
         function($scope,registroService){
-            //TODO: estas redes "hard coded" se corregiran en la tarea 354
-            $scope.redes = [{"id":1,"nombre":"Facebook","icono":""},
-                            {"id":2,"nombre":"Twitter","icono":""}];
 
-            $scope.changeView  = function (view){
-                                    registroService.changeView(view);
+            $scope.form=""; 
+            $scope.showErrors=false;               
+            $scope.validate = function(model,icon,error)
+            { 
+                
+
+                if(!$scope.showErrors)
+                {    
+                    if(model.$untouched)
+                    {
+                        return "";
+                    }    
+                }    
+              
+                if(model==$scope.form.email)
+                {
+
+                   if(!$scope.form.email.$error.required)
+                   {
+                     $scope.form.telefono.$setValidity("required", true);
+
+                    
+                   }   
+                }  
+                if(model==$scope.form.telefono)
+                {
+
+                   if(!$scope.form.telefono.$error.required)
+                   {
+                    $scope.form.email.$setValidity("required", true);
+                   }   
+                }  
+           
+
+                if(icon!=undefined)
+                {
+                          if(model.$invalid)
+                            {
+                                
+                                return "glyphicon glyphicon-remove form-control-feedback";   
+                                
+                            }
+                            else
+                            {
+
+                                return "glyphicon glyphicon-ok form-control-feedback";               
+                            
+                            }
+
+                }
+                else{ 
+                        if(model.$invalid)
+                        {
+                            
+                            return "form-group has-error has-feedback";   
+                            
+                        }
+                        else
+                        {
+
+                            
+                            return "form-group has-success has-feedback";               
+                        
+                        }
+                    }
+                  
+             };                
+
+            $scope.changeView  = function (view,form,save){
+
+                                    if(form != undefined)
+                                    {    
+                                        if(form.$valid){
+                                                if(save)
+                                                {
+                                                    $scope.save(view);
+
+                                                }
+                                                else{    
+                                                  registroService.changeView(view);
+                                                  }
+
+                                        }
+                                        else
+                                        {
+                                            $scope.showErrors=true;
+                                        }   
+                                    }else{
+                                        registroService.changeView(view);
+                                    }
+
                                 };
 
             $scope.usuario      = registroService.getUsuario();
@@ -32,28 +118,28 @@
                                     }
                                     return -1;
                                 };
-            $scope.save = function(user) {
-                //TODO: este user.rol = 1 se corregira en la tarea 350
-                user.$save()
-                .then(function(user){
-                    // TODO: post de redes en JSON y no en array se resolvera en la tarea 346
-                    //
-                    // $location.path("/users/"+user.id);
-                    // console.log("Objeto retornado por el POST",user);
-                    // userNetworks = angular.copy($scope.usuarioRedes);
-                    // console.log(userNetworks);
-                    // debugger;
-                    // for (var i = userNetworks.length - 1; i >= 0; i--) {
-                    //     console.log("userNetworks[i]:",userNetworks[i]);
-                    //     userNetworks[i].usuario = user.id;
-                    //     console.log("userNetworks["+i+"]",userNetworks[i]);
-                    // };
+            $scope.save = function(view) {
+                
+                var promesa;
+                console.log("guardando");
+                    if($scope.usuario.id)
+                    {    
+                    promesa = $scope.usuario.$update();
+                    }
+                    else
+                    {
+                     promesa = $scope.usuario.$save();   
+                    }    
+                promesa.then(function(user){
+                    registroService.changeView(view);
+                    console.log(user);
                 }).catch(function(errors){
                     console.log("Errores retornado por el POST de agregar usuario",errors);
                 }).finally(function(){
-                    $scope.isSubmitting = false;
+                  
                     registroService.changeView('user/'+user.id);
                 });
+
                 scope = {}
         };
     }]);

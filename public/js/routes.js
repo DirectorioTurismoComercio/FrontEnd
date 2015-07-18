@@ -52,12 +52,12 @@
         templateUrl: 'templates/search/search.html',
         controller: 'SearchController'
       }).
-      when('/user/:idUser',
+    /*  when('/user/:idUser',
       {
         templateUrl: 'templates/administracion-usuario/user_admin.html',
         controller: 'UserAdminController'
-      }).
-      when('/user/:idUser/problem',
+      }). */
+      when('/user/problems',
       {
         templateUrl: 'templates/problems/index.html',
         controller: 'ProblemsIndexController'
@@ -77,12 +77,27 @@
         templateUrl: 'templates/problems/edit.html',
         controller: 'ProblemsEditController'
       }).
-      // usuarios/(?P<usuario>[0-9]+)/problemas_soluciones
-      // when('/socialNetworks/:idusuario', {
-      // when('/socialNetworks', {
-      // controller: 'socialNetworksController',
-      // templateUrl: 'templates/signup/user-social-networks.html'
-      // }).
+       when('/socialNetworks/:idusuario', {
+    
+       controller: 'socialNetworksController',
+       templateUrl: 'templates/signup/user-social-networks.html'
+       }).
+       when('/profileDescription/:idusuario',
+      {
+        controller: 'SignupMainController',
+        templateUrl: 'templates/signup/description.html',
+      }).
+       when('/signin',
+      {
+        controller: 'SigninController',
+        templateUrl: 'templates/signin/signin.html',
+      }).
+         when('/signout',
+      {
+        controller: 'SignoutController',
+        templateUrl: 'templates/signout/signout.html',
+      }).
+     
       when('/index',
       {
         templateUrl: 'templates/index.html',
@@ -92,7 +107,7 @@
         templateUrl: 'templates/unal.html',
       }).
       otherwise({
-        redirectTo:'/signup'
+        redirectTo:'/signin'
       });
   }]);
 })();
