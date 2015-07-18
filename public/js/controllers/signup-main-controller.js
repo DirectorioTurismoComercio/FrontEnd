@@ -5,11 +5,33 @@
     * Description
     */
     angular.module('gemStore')
-    .controller('SignupMainController',['$scope', 'registroService',
-        function($scope,registroService){
+    .controller('SignupMainController',['$scope', 'registroService','ResultRetriever',
+        function($scope,registroService, ResultRetriever){
 
             $scope.form=""; 
             $scope.showErrors=false;               
+            $scope.tag = { result:  ""};
+            $scope.doSomething = function(typedthings){
+              $scope.results = ResultRetriever.getresults(typedthings, 'SuggestedTagsFactory');
+              $scope.results.then(function(data){
+                $scope.results = data;
+              });
+            }
+            $scope.remove_tag = function(index){    
+               $scope.usuario.tags.splice(index,1);    
+            }
+            $scope.add_tag = function(new_tag){
+                if($scope.usuario.tags.indexOf(new_tag)==-1){
+                    $scope.usuario.tags.push(new_tag);  
+                }
+                $scope.tag.result = "";
+            }
+
+            $scope.doSomethingElse = function(suggestion){
+              $scope.add_tag(suggestion);
+                $scope.tag.result = "";
+            }
+          
             $scope.validate = function(model,icon,error)
             { 
                 
