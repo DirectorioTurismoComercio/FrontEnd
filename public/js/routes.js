@@ -75,7 +75,7 @@
       when('/user/:idUser/problem/:idProblem/edit',
       {
         templateUrl: 'templates/problems/edit.html',
-        controller: 'ProblemsEditController'
+        controller: 'ProblemsCreateController'
       }).
       // usuarios/(?P<usuario>[0-9]+)/problemas_soluciones
       // when('/socialNetworks/:idusuario', {
@@ -92,7 +92,7 @@
         templateUrl: 'templates/unal.html',
       }).
       otherwise({
-        redirectTo:'/signup'
+        redirectTo:'/user/1/problem'
       });
   }]);
 })();

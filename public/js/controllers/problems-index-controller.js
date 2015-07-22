@@ -4,7 +4,7 @@
 * ProblemsIndexController todos los problemas asociados a un usuario
 */
 angular.module('gemStore')
-.controller('ProblemsIndexController',function(ProblemFactory, $scope,$routeParams, $location){
+.controller('ProblemsIndexController',function(CategoryFactory, ProblemFactory, $scope,$routeParams, $location){
   $scope.idUser  = $routeParams.idUser;
   // query instead of get because I need an array here
 	$scope.problems      = ProblemFactory.query({id: $routeParams.idUser});
