@@ -4,16 +4,36 @@
         ['$scope','registroService', '$routeParams', 'Constantes', 'UsuarioRedFactory','UsuarioRedesFactory', 'RedFactory',
 		function socialNetworksController($scope,registroService, $routeParams, Constantes, UsuarioRedFactory,UsuarioRedesFactory, RedFactory) 
     {
-//	var idusuario = $routeParams.idusuario;
-    var idusuario = 1;
-    $scope.nuevared={"url":"","usuario":1,"red_social":1};
+	var idusuario = $routeParams.idusuario;
+    
     $scope.bAgregar=false;
     $scope.bGuardar=true;
-    var usuarioredes=registroService.getUsuarioRedes();
-    $scope.redes = [{"id":1,"nombre":"Facebook","icono":""},{"id":2,"nombre":"Twitter","icono":""}];
+    var usuarioredes=[];
+    UsuarioRedesFactory.query({idusuario: idusuario}).$promise 
+        .then(function(usuarioRedes){
+                usuarioredes=usuarioRedes;
+                $scope.usuarioredes=usuarioredes;
+                
+            }).catch(function(errors){
+                console.log("Error al recuperar usuarioredes desde el servidor: ",errors);
+            }).finally(function(){
+               
+            });
+     
+    RedFactory.query().$promise 
+        .then(function(redes){
+                $scope.redes=redes;
+                nuevaRed();
+
+            }).catch(function(errors){
+                console.log("Error al recuperar las redes sociales desde el servidor: ",errors);
+            }).finally(function(){
+               
+            });
     $scope.bEditar=new Array(usuarioredes.length);
     $scope.bGuardar=new Array(usuarioredes.length);
-    $scope.usuarioredes=usuarioredes;
+    console.log($scope.usuarioredes);
+
     $scope.changeView = function (view) {
             registroService.changeView(view);
         } 
@@ -47,36 +67,57 @@
     }
     $scope.borrar=function(index)
     {
-      //  UsuarioRedFactory.delete({id: $scope.usuarioredes[index].id }, function(data){  
-        $scope.bGuardar.splice(index,1);
-        $scope.bEditar.splice(index,1);
-        $scope.usuarioredes.splice(index,1);
-    //    },error);
+        UsuarioRedFactory.delete({id: $scope.usuarioredes[index].id }).$promise 
+        .then(function(data){
+                $scope.bGuardar.splice(index,1);
+                $scope.bEditar.splice(index,1);
+                $scope.usuarioredes.splice(index,1);
+            }).catch(function(errors){
+                error(errors);
+            }).finally(function(){
+               
+            });
+
      
     }
     
     $scope.guardar=function(index)
     {
+     console.log($scope.usuarioredes[index]);
+     UsuarioRedFactory.update({id: $scope.usuarioredes[index].id },$scope.usuarioredes[index]).$promise
+     .then(function(data){
+              $scope.bEditar[index]=true;
+              $scope.bGuardar[index]=false;
+            }).catch(function(errors){
+                error(errors);
+            }).finally(function(){
+               
+            });
 
-     // UsuarioRedFactory.update({id: $scope.usuarioredes[index].id },$scope.usuarioredes[index],function(data)
-     // {
-      $scope.bEditar[index]=true;
-      $scope.bGuardar[index]=false;
-     
-    //  },error); 
       
+    }
+    function nuevaRed()
+    {
+        $scope.nuevared={"url":"","usuario":idusuario,"red_social":$scope.redes[0].id};  
     }
     $scope.crear=function()
     {
-    //    console.log($scope.nuevared);
-    //  UsuarioRedFactory.save($scope.nuevared, function(data){  
-      $scope.bAgregar=false;
-      $scope.bEditar.push(false);
-      $scope.bGuardar.push(false);
-      $scope.usuarioredes.push($scope.nuevared);
+      console.log($scope.nuevared);
+      UsuarioRedFactory.save($scope.nuevared).$promise 
+      .then(function(data){
+              $scope.bAgregar=false;
+              $scope.bEditar.push(false);
+              $scope.bGuardar.push(false); 
+              $scope.usuarioredes.push(data);
+              nuevaRed();
+            }).catch(function(errors){
+                error(errors);
+            }).finally(function(){
+               
+            });
 
-      $scope.nuevared={"url":"","usuario": idusuario,"red_social":1};
-   //   }, error);
+      
+   
     
     }
    /*
@@ -86,14 +127,7 @@
         $scope.usuarioredes = usuarioredes;
     });
 */
-    /*
-    RedFactory.query(function(redes) {
-
-        $scope.redes = redes;
-   
-    });
-
-    */
+    
     }
 
 	]);

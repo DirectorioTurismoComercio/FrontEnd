@@ -4,12 +4,13 @@
 * ProblemsShowController un solo problema para un usuario
 */
 angular.module('gemStore')
-.controller('ProblemsShowController',function(ProblemFactory, $scope,$routeParams, $location){
-	$scope.idUser  = $routeParams.idUser;
-	$scope.problem = ProblemFactory.get({id: $routeParams.idUser,idProblem: $routeParams.idProblem });
-	console.log($scope.problem);
+.controller('ProblemsShowController',function(ProblemFactory, $scope,$routeParams, $location,registroService){
+	var idUsuario = registroService.getUsuario().id;
+	$scope.idUser = idUsuario;
+	$scope.problem = ProblemFactory.get({id: idUsuario,idProblem: $routeParams.idProblem });
+	
 	$scope.deleteProblem = function(problem){
-		problem.$remove({id:$routeParams.idUser,idProblem:$routeParams.idProblem})
+		problem.$remove({id:idUsuario,idProblem:$routeParams.idProblem})
 		.then(function(){
 			console.log("borrado exitosamente: ",problem);
 		})

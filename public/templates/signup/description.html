@@ -1,0 +1,38 @@
+<form novalidate name="form">
+<p>Breve descripción de tu perfil</p>
+<div>
+<textarea class="form-control" ng-model="usuario.descripcion"></textarea>
+</div>
+<fieldset  class="form-group">
+		<label for="tags">palabras clave:</label>
+		<div>
+	      <autocomplete ng-model="tag.result" attr-placeholder="digite nueva palabra clave..." click-activation="true" data="results" on-type="doSomething" on-select="doSomethingElse"></autocomplete>
+	    
+	    <div class="addContainer habilitado">
+		<span class="addLetter" ng-click="add_tag(tag.result)">Adicionar palabra clave</span>
+		</div>
+		</div>
+		
+			<div class="panel panel-default">
+				<div class="panel-heading">
+			      <h3 class="panel-title">
+			         Palabras clave
+			      </h3>
+			   </div>
+			<div class="panel-body">	
+			<span class="tag" ng-repeat="tag in usuario.tags" ng-click="remove_tag($index)">
+			<span class="arrow" ></span>&#10006; %%tag%%</span>
+			</span>
+			</div>
+			</div>
+			
+		
+	</fieldset>
+<div class="aprobado">
+  <div class="siguiente" ng-click="changeView('socialNetworks/'+usuario.id,form,'save')"><span><span class="icon-check"></span></span></div>
+  <div class="anterior" ng-click="changeView('personalData',null)"><span><span class="icon-arrow-back"></span></span></div>
+
+
+</div>
+
+</form>

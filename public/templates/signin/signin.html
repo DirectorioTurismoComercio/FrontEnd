@@ -1,0 +1,30 @@
+<!-- <div> Usuario </div>
+<div>
+<input type="text" ng-model="user" class="form-control" >
+<div class="error">%%mensaje%%</div>
+<button class="btn btn-primary btn-md" ng-click="signin(user)">Entrar</button>
+<button class="btn btn-primary btn-md" ng-click="signup()">Nuevo Usuario</button>
+</div>
+ -->
+
+<div class="container">
+      <form class="form-signin">
+
+<image class="img-contain" src="images/tendero-slider.png"></image>
+        <h2 class="form-signin-heading">Ingresar...</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" ng-model="user" class="form-control" placeholder="id usuario..." autofocus>
+        <div class="error">%%mensaje%%</div>
+        <label for="inputPassword" class="sr-only">Password</label>
+        
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+
+		<button class="btn btn-lg btn-primary btn-block" ng-click="signin(user)">Entrar</button>
+		<button class="btn btn-lg btn-primary btn-block" ng-click="signup()">Nuevo Usuario</button>
+      </form>
+
+    </div> <!-- /container -->
