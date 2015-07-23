@@ -1,42 +1,49 @@
+<div class="container">
 <form novalidate name="form">
+	<fieldset ng-class="validate(form.problema_o_solucion,null,showErrors)">
+    
+		<label>
+		Problema 
+		<input    type="radio" name="problema_o_solucion" ng-model="problem.tipo" value="P"  required="">
+		</label>
+	
+	
+	 	<label>
+		Solución
+		<input   type="radio" name="problema_o_solucion" ng-model="problem.tipo" value="S"  required="">
+		</label>
+		<span ng-class="validate(form.problema_o_solucion,'icon',showErrors)"></span>
+	</fieldset>
+	<span class="error" ng-show="(showErrors || form.problema_o_solucion.$touched) &&  form.problema_o_solucion.$error.required">Seleccione si es una necesidad o una solución</span>
 	
 
 	<fieldset class="form-group">
-		<label for="title">Seleccione Categoria</label>
+		<label for="title">Seleccione Categoria </label>
 		<!-- <p>problem.categorias: %%problem.categorias%%</p> -->
-		<select ng-model="problem.categorias[0]"
+		<select class="form-control" ng-model="problem.categorias[0]"
 				ng-change="clearCategoryArray(1)"
 		        ng-options="category.id as category.nombre for category in categorias | filter:{nivel:1}"
 		        >
 		        </select>
-		<select ng-model="problem.categorias[1]"
+		<select class="form-control" ng-model="problem.categorias[1]"
 				ng-change="clearCategoryArray(2)"
 				ng-options="category.id as category.nombre for category in categorias | filter:{categoria_padre:problem.categorias[0], nivel:2}">
 				</select>
 
-		<select ng-model="problem.categorias[2]"
+		<select class="form-control" ng-model="problem.categorias[2]"
 				ng-options="category.id as category.nombre for category in categorias | filter:{categoria_padre:problem.categorias[1], nivel:3}">
 				</select>
 	</fieldset>
 
-	<fieldset  class="form-group">
-		<label for="name">Título</label>
-		<input class="form-control" type="text" id="titulo" name="titulo" ng-model="problem.titulo">
-	</fieldset>
-	<fieldset  class="form-group">
 
-		<input   type="radio" name="problema_o_solucion" ng-model="problem.tipo" value="S"  required="">
-		</label>
-		<span ng-class="validate(form.problema_o_solucion,'icon',showErrors)"></span>
-</fieldset>
-	<span class="error" ng-show="(showErrors || form.problema_o_solucion.$touched) &&  form.problema_o_solucion.$error.required">Seleccione si es una necesidad o una solución</span>
-		
+	<fieldset  class="form-group">
+ 
 
 	<div  ng-class="validate(form.titulo,null,showErrors)">
 		<label for="titulo">Título</label>
 		<input class="form-control" type="text" id="titulo" name="titulo" ng-model="problem.titulo" required="">
 		<span ng-class="validate(form.titulo,'icon',showErrors)"></span>
-	</div>
+	</div> 
 	
 	<span class="error" ng-show="(showErrors || form.titulo.$touched) &&  form.titulo.$error.required">Escriba un título para su problema o solución</span>
 
@@ -77,3 +84,4 @@
 
 	</div>
 </form>
+</div>
