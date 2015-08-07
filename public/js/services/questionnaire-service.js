@@ -1,8 +1,8 @@
 (function(){
 	angular.module('gemStore')
-	.service('questionnaireService', ['$resource', '$location','QuestionnaireFactory',
-	function($resource,$location,QuestionnaireFactory) {
-	var questionnaires = new QuestionnaireFactory();
+	.service('questionnaireService', ['$resource', 'QuestionnaireFactory',
+	function($resource,QuestionnaireFactory) {
+	var questionnaires = null;
 	
 	
 	var getQuestionnaires = function ()

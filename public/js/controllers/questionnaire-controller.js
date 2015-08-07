@@ -6,16 +6,29 @@
 angular.module('gemStore')
 .controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService',
   function($scope,QuestionnaireFactory,questionnaireService){
-     var promesa = null;
      
-     if(questionnaireService.getQuestionnaires())
+     if(!questionnaireService.getQuestionnaires())
      { 
-     promesa = QuestionnaireFactory.query().$promise.
-       then(function(data){
-          questionnaireService.setQuestionnaires(data);
-          console.log(questionnaireService);
+          promesa = QuestionnaireFactory.query().$promise.
+          then(function(questionnaires){
+          for(var k=0;k<questionnaires.length;k++)
+          {  
+            for(var i=0; i<questionnaires[k].preguntas.length;i++)
+            {
+              console.log(questionnaires[k].preguntas[i]);
+              
+              for(var j=0;j<questionnaires[k].preguntas[i].opciones.length;j++)
+              {
+                questionnaires[k].preguntas[i].opciones[j].dato=false;
+                
+              }
+              
+            } 
+          }
+          questionnaireService.setQuestionnaires(questionnaires);
           $scope.questionnaires = questionnaireService.getQuestionnaires();
-          console.log(questionnaireService.getQuestionnaires());
+
+          
         })
         .catch(function(errors){
           console.log(errors);
