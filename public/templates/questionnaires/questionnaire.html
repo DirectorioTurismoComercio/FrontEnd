@@ -1,0 +1,9 @@
+<h1>  %%currentQuestion.enunciado%% </h1>
+<div ng-repeat="opcion in currentQuestion.opciones">
+<div>%%opcion.respuesta%% <input type="radio" /></div>
+</div>
+
+<div ng-click="next()"> Siguiente</div>
+<div ng-click="previous()"> Anterior </div>
+
+

@@ -97,6 +97,16 @@
         controller: 'SignoutController',
         templateUrl: 'templates/signout/signout.html',
       }).
+         when('/questionnaires',
+      {
+        controller: 'QuestionnaireController',
+        templateUrl: 'templates/questionnaires/index.html',
+      }).
+         when('/questionnaires/questionnaire/:idQuestionnaire',
+      {
+        controller: 'QuestionsController',
+        templateUrl: 'templates/questionnaires/questionnaire.html',
+      }).
      
       when('/index',
       {

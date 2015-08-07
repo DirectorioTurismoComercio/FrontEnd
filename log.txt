@@ -1,0 +1,519 @@
+
+ * Fecha: 2015-07-22 
+ Commit: ajustes en el css después de fusionar con tarea 370 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-22 
+ Commit: Merge branch 'master' of https://github.com/DirectorioTurismoComercio/FrontEnd 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-22 
+ Commit: Merge branch '370-crear-servicio-para-categorias' 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-22 
+ Commit: Merge pull request #16 from DirectorioTurismoComercio/393-agregar_y_quitar_tags_con_sugerencias_en_el_perfil 
+ Autor: camilo255423 
+
+
+ * Fecha: 2015-07-22 
+ Commit: Merge pull request #17 from DirectorioTurismoComercio/389-389-mostrar_lista_de_problemas_que_concuerden_con_la_búsqueda 
+ Autor: Andres 
+
+
+ * Fecha: 2015-07-18 
+ Commit: Refactoring - indentacion 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-18 
+ Commit: Refactor - promesa 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-18 
+ Commit: Merge pull request #15 from DirectorioTurismoComercio/383-validación-inscripción 
+ Autor: Andres 
+
+
+ * Fecha: 2015-07-18 
+ Commit: documento - se modifica el ng-model para que funcione con el backend 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-18 
+ Commit: Refactoring - CREATE and EDIT in just one controller 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-18 
+ Commit: se reestableció ruta de conexión con el servidor remoto 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-18 
+ Commit: se reestableció ruta de conexión con el servidor remoto 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-18 
+ Commit: funcionalidad de tags adicionada al perfil 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-16 
+ Commit: buscador como página principal. Se agregó checkbox para filtrar seleccionar necesidad o solución en los resultados 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-16 
+ Commit: two way binding working for categories 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-16 
+ Commit: two ways of creating a select cascading 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-15 
+ Commit: se corrigió validación de email en la inscripción para que verifique la dirección después del punto 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-15 
+ Commit: problem.categorias two way binding, also just display the categories related with the root category 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-14 
+ Commit: add categories and tags to the list of problems 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-14 
+ Commit: adding bootstrap 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-13 
+ Commit: ajustes css 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-13 
+ Commit: Secuencia de inscripción terminada, con crud de problemas. Se agregó página inicical provisional. 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-13 
+ Commit: sign out provisional funsionando 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-13 
+ Commit: Create - Category - removing ">" from select options 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-11 
+ Commit: descripción del perfin agregada 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-11 
+ Commit: sigin provisional funcionando. Actualiza datos de usuario o crea nuevo usuario. Se corrigió nombre de campo correo(estaba email en el modelo)  en el registro de usuario 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-11 
+ Commit: CRud displaying categories and tags in the problems index 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-11 
+ Commit: se agregó signin por id de usuario provisionalmente 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-11 
+ Commit: Persit category in the server - Create category 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-10 
+ Commit: redes sociales funcionando pero sin integrar con el registro 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-09 
+ Commit: validación inscripción sin redes sociales 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-09 
+ Commit: Cascading select/dropdowns - working but need some refactoring 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-07-06 
+ Commit: validación formulario personal-data 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-04 
+ Commit: Merge pull request #13 from DirectorioTurismoComercio/379-Creación_de_la_interfaz_de_CRUD_tags_al_momento_de_crear_un_problema_solución 
+ Autor: Andres 
+
+
+ * Fecha: 2015-07-01 
+ Commit: se creó un formulario parcial 'save'y se utilizó la directiva include para poder tener un único formulario al crear y editar problemas 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-07-01 
+ Commit: estilos css para botones tags, crud de problemas, y búsqueda 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-06-28 
+ Commit: agregar y eliminar tags en la creación de un problema-solución 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-06-28 
+ Commit: Agregar y quitar tags con sugerencias en la edición del Problema Solución 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-06-28 
+ Commit: Agregar y quitar tags con sugerencias en la edición del Problema Solución 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-06-28 
+ Commit: Corrección en ProblemaSolucionSerializer: se agregó el campo id 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-06-28 
+ Commit: agregar y quitar tags en editar problema. Sin sugerencias aun 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-06-09 
+ Commit: Merge pull request #8 from DirectorioTurismoComercio/buscador 
+ Autor: Andres 
+
+
+ * Fecha: 2015-06-09 
+ Commit: ruta que apunta al servidor remoto 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-06-09 
+ Commit: Merge pull request #11 from DirectorioTurismoComercio/372-crear-problema 
+ Autor: Andres 
+
+
+ * Fecha: 2015-06-09 
+ Commit: ruta que apunta al servidor remoto 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-06-09 
+ Commit: Merge branch 'master' of github.com:DirectorioTurismoComercio/FrontEnd into 372-crear-problema 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-06-09 
+ Commit: Merge pull request #10 from DirectorioTurismoComercio/365-Editar-problema 
+ Autor: Andres 
+
+
+ * Fecha: 2015-06-06 
+ Commit: se eliminó Constantes y resources de SuggestionsFactory. Se resolvió el query con promesas. Se cambió la variable i por token 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-06-02 
+ Commit: CRUD - complete 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-06-02 
+ Commit: Crear Mostrar y Editar funcionando 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-06-02 
+ Commit: remove debugger 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-06-01 
+ Commit: Edit problems complete 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-06-01 
+ Commit: versión inicial crud problema-solucion completa, falta agregar categorías 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-06-01 
+ Commit: Merge pull request #9 from DirectorioTurismoComercio/361-VC-detalle-problema 
+ Autor: camilo255423 
+
+
+ * Fecha: 2015-05-30 
+ Commit: buscador que autocompleta sugerencias según lo que recibe del backend 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-05-30 
+ Commit: Show VC detalle problema usuario completo 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-05-30 
+ Commit: Merge pull request #7 from DirectorioTurismoComercio/364-UserAdminController 
+ Autor: Andres 
+
+
+ * Fecha: 2015-05-29 
+ Commit: Complete 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-05-29 
+ Commit: Refactoring - quitando servicios no usados 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-05-29 
+ Commit: Merge pull request #6 from DirectorioTurismoComercio/363-redireccionar-admin-usuario 
+ Autor: Andres 
+
+
+ * Fecha: 2015-05-28 
+ Commit: Luego de terminar registro, el usuario es redirigido a la ventana de admin 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-05-28 
+ Commit: Merge pull request #5 from DirectorioTurismoComercio/362-Listar-problemas-de-un-usuario 
+ Autor: Andres 
+
+
+ * Fecha: 2015-05-28 
+ Commit: User's Problems index - working 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-05-27 
+ Commit: promises for user problems 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-05-18 
+ Commit: Merge pull request #4 from DirectorioTurismoComercio/roles 
+ Autor: Andres 
+
+
+ * Fecha: 2015-05-17 
+ Commit: se eliminó rol-factory, se usó promesa en la solicitud, console log eliminado 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-05-17 
+ Commit: Solicitud de listado de roles al servidor. Selección del rol en el registro. Definición de constante para la ruta de imágenes 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-05-17 
+ Commit: Merge pull request #3 from DirectorioTurismoComercio/353-RegistroService-Factory 
+ Autor: camilo255423 
+
+
+ * Fecha: 2015-05-17 
+ Commit: 352-353 - aqui se verifica que se pueden usar los recursos del factory para hacer post de usuario usando REST 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-05-17 
+ Commit: RegistroService - provee user como resource (factory) 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-05-17 
+ Commit: Merge pull request #2 from DirectorioTurismoComercio/355-API-REST-DOC 
+ Autor: camilo255423 
+
+
+ * Fecha: 2015-05-17 
+ Commit: API-REST - documentacion - actualizada 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-05-11 
+ Commit: Merge pull request #1 from DirectorioTurismoComercio/Buscador 
+ Autor: Andres 
+
+
+ * Fecha: 2015-05-02 
+ Commit: conexión con epsilon habilitada 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-26 
+ Commit: Buscador con sugerencias terminado. Versión inicial. Sugerencias en el front end sin conexión con el servidor. Falta adicionar Botón de búsqueda 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-23 
+ Commit: archivo md - actualización información de rutas de problemas_soluciones 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-23 
+ Commit: REST - documentation added 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-04-23 
+ Commit: SOCIAL NETWORKS - se retira del flujo de registro - para hacer mas corto este proceso 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-04-14 
+ Commit: Estilos completos, hacen falta iconos del Menu y Flechas a la derecha 
+ Autor: thecap 
+
+
+ * Fecha: 2015-04-13 
+ Commit: Informacion de registro - Salvada en la db - PROBLEMA - no guarda arreglo de redes en la DB 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-04-10 
+ Commit: Vista de redes al 70% 
+ Autor: thecap 
+
+
+ * Fecha: 2015-04-09 
+ Commit: registro completo con redes vinculadas, funcionalidad completa, sin terminar estilos, sin conexión con el servidor 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-09 
+ Commit: Merge branch 'redes_sociales2' 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-09 
+ Commit: redes sociales sin conexión al servidor 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-09 
+ Commit: Agregados los estilos para bussinesData 
+ Autor: thecap 
+
+
+ * Fecha: 2015-04-09 
+ Commit: Corrección de estilos y personalData publicado 
+ Autor: thecap 
+
+
+ * Fecha: 2015-04-09 
+ Commit: mezcla registro  versión cristián y camilo modelo usuario en blanco 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-09 
+ Commit: mezcla registro  versión cristián y camilo 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-09 
+ Commit: inicial 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-09 
+ Commit: Estilos actulizados 
+ Autor: thecap 
+
+
+ * Fecha: 2015-04-09 
+ Commit: Overlay Funcional y arregladas las imagenes 
+ Autor: thecap 
+
+
+ * Fecha: 2015-04-09 
+ Commit: funcionalidad de registro terminada, sin redes sociales, ni estilos 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-09 
+ Commit: descripción de rol funcionando sin estilos 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-09 
+ Commit: Merge branch 'master' of https://github.com/DirectorioTurismoComercio/FrontEnd 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-09 
+ Commit: CONTROLADOR - roleDescription 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-04-09 
+ Commit: CONTROLADOR - principal de signup - redireccion a roles 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-04-09 
+ Commit: redes sociales sin integración con usuario 
+ Autor: Camilo Rodríguez 
+
+
+ * Fecha: 2015-04-08 
+ Commit: GITIGNORE y Bower.json - removiendo dependencias no necesarias 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-04-08 
+ Commit: Pagina de seleccion de rol - incluida 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-04-08 
+ Commit: MainPage - Vista y Controlador 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-04-08 
+ Commit: Se crea estructura de las vistas para registro y home 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-04-08 
+ Commit: Sincronizando codigo Cristian - barra de navegacion - controlador del home 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-03-31 
+ Commit: Primer commit - carpeta publica funcionando con APACHE y carpeta de pruebas de aceptacion 
+ Autor: ANDRES KWAN 
+
+
+ * Fecha: 2015-03-31 
+ Commit: -.gitignore- para mantener unicamente el directorio - public- 
+ Autor: ANDRES KWAN 
