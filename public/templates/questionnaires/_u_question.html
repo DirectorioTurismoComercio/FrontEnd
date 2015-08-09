@@ -1,4 +1,6 @@
 <div ng-repeat="opcion in currentQuestion.opciones">
-<div>%%opcion.respuesta%% <input type="radio" name="radio" value="%%opcion.id%%" ng-model="currentQuestion.dato" />
+<div>%%opcion.respuesta%%
+ <input type="radio" name="radio" value="%%opcion.id%%"
+  ng-model="currentQuestion.dato" ng-click="uclick(opcion.id)"/>
 </div>
 </div>

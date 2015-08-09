@@ -4,7 +4,7 @@
 	function($resource,QuestionnaireFactory) {
 	var questionnaires = null;
 	
-	
+	var answers = [];
 	var getQuestionnaires = function ()
 	{
 		return questionnaires;
@@ -13,7 +13,25 @@
 	{
 		questionnaires = _questionnaires;
 	}
-		
+	var getAnswers = function()
+	{
+		return answers;
+	}
+
+	var addAnswer = function (answer)
+	{
+		answers.push(answer);
+	}
+	var removeAnswer = function (answer)
+	{
+		var index = answers.indexOf(answer);
+		if (index > -1) {
+		    answers.splice(index, 1);
+		}
+
+	}
+
+
 	
 	var getQuestionnaire = function (index)
 	{
@@ -27,7 +45,10 @@
 	  	questionnaires: questionnaires,
 	    getQuestionnaires: getQuestionnaires,
 	    setQuestionnaires: setQuestionnaires,
-	    getQuestionnaire: getQuestionnaire
+	    getQuestionnaire: getQuestionnaire,
+	    getAnswers: getAnswers,
+	    addAnswer: addAnswer,
+	    removeAnswer: removeAnswer
 	    
 	  };
 
