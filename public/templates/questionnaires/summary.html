@@ -4,9 +4,9 @@ Resumen
 	<div ng-repeat="question in questionnaire.preguntas">
 		<h2>%%question.pregunta.enunciado%%</h2>
 		<div ng-repeat="option in question.pregunta.opciones">
-			<h3 ng-show="option.dato || question.dato==option.id">%%option.respuesta%%</h3>
+			<h3 ng-show="option.dato || question.pregunta.dato==option.id">%%option.respuesta%%</h3>
 		</div>	
 	</div>
 </div>	
 
-<div ng-click="back()"> Siguiente</div>
+<div ng-click="back()"> Volver</div>

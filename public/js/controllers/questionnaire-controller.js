@@ -17,7 +17,7 @@ angular.module('gemStore')
             for(var i=0; i<questionnaires[k].preguntas.length;i++)
             {
               
-              questionnaires[k].preguntas[i].dato=0;
+              questionnaires[k].preguntas[i].pregunta.dato=0;
               for(var j=0;j<questionnaires[k].preguntas[i].pregunta.opciones.length;j++)
               {
                 questionnaires[k].preguntas[i].pregunta.opciones[j].dato=false;
