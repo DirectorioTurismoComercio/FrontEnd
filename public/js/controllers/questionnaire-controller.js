@@ -4,8 +4,8 @@
 * ProblemsShowController un solo problema para un usuario
 */
 angular.module('gemStore')
-.controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService',
-  function($scope,QuestionnaireFactory,questionnaireService){
+.controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location',
+  function($scope,QuestionnaireFactory,questionnaireService,$location){
      
      if(!questionnaireService.getQuestionnaires())
      { 
@@ -13,10 +13,11 @@ angular.module('gemStore')
           then(function(questionnaires){
           for(var k=0;k<questionnaires.length;k++)
           {  
+
             for(var i=0; i<questionnaires[k].preguntas.length;i++)
             {
-              console.log(questionnaires[k].preguntas[i]);
               
+              questionnaires[k].preguntas[i].dato=0;
               for(var j=0;j<questionnaires[k].preguntas[i].opciones.length;j++)
               {
                 questionnaires[k].preguntas[i].opciones[j].dato=false;
@@ -41,6 +42,11 @@ angular.module('gemStore')
      {
       $scope.questionnaires = questionnaireService.getQuestionnaires();
      }
+
+     $scope.summary = function(){
+      $location.path('questionnaires/summary');
+     }
+
    
 
 }]);

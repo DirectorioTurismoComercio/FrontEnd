@@ -1,0 +1,12 @@
+Resumen
+<div ng-repeat="questionnaire in questionnaires">
+<h1>%%questionnaire.titulo%%</h1>
+	<div ng-repeat="question in questionnaire.preguntas">
+		<h2>%%question.enunciado%%</h2>
+		<div ng-repeat="option in question.opciones">
+			<h3 ng-show="option.dato || question.dato==option.id">%%option.respuesta%%</h3>
+		</div>	
+	</div>
+</div>	
+
+<div ng-click="back()"> Siguiente</div>

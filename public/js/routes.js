@@ -107,6 +107,11 @@
         controller: 'QuestionsController',
         templateUrl: 'templates/questionnaires/questionnaire.html',
       }).
+         when('/questionnaires/summary',
+      {
+        controller: 'QuestionnaireSummaryController',
+        templateUrl: 'templates/questionnaires/summary.html',
+      }).
      
       when('/index',
       {

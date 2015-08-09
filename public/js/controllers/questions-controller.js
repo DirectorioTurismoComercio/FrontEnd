@@ -6,36 +6,50 @@
 angular.module('gemStore')
 .controller('QuestionsController',['$scope', '$location' , '$routeParams', 'questionnaireService',
   function($scope,$location, $routeParams,questionnaireService){
-  
+  var answersTemplateURL = "templates/questionnaires/";
    $scope.questionnaire = questionnaireService.getQuestionnaire($routeParams.idQuestionnaire);
    var currentQuestionIndex = 0;
    var maxIndex = $scope.questionnaire.preguntas.length - 1;
-   $scope.currentQuestion = $scope.questionnaire.preguntas[currentQuestionIndex];
+
+   changeQuestion();
 
    $scope.next = function()
    {
     currentQuestionIndex++;
-    if(currentQuestionIndex>maxIndex)
-    {
-      $location.path('questionnaires');
-    }
-
-    $scope.currentQuestion = $scope.questionnaire.preguntas[currentQuestionIndex];
-
+    changeQuestion();
    }
 
    $scope.previous = function()
    {
     currentQuestionIndex--;
-    if(currentQuestionIndex<0)
-    {
-      $location.path('questionnaires');
+    changeQuestion();
     }  
 
-    $scope.currentQuestion = $scope.questionnaire.preguntas[currentQuestionIndex];
+    function changeQuestion()
+    {
+            if(currentQuestionIndex>maxIndex || currentQuestionIndex<0){
+              $location.path('questionnaires');
+            }else{
 
-   }
-   
+            $scope.currentQuestion = $scope.questionnaire.preguntas[currentQuestionIndex];
+            console.log($scope.questionnaire);
+
+            switch($scope.currentQuestion.tipo_pregunta){
+              case "U":
+              $scope.answersTemplate = answersTemplateURL + "_u_question.html";
+              break;
+              case "M":
+              $scope.answersTemplate = answersTemplateURL + "_m_question.html";
+              break;
+              case "L":
+              $scope.answersTemplate = answersTemplateURL + "_l_question.html";
+              break;
+            }
+
+            }
+    }
+    
+
    
 
 }]);
