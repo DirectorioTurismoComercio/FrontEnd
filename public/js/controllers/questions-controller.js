@@ -31,7 +31,7 @@ angular.module('gemStore')
               $location.path('questionnaires');
             }else{
 
-            $scope.currentQuestion = $scope.questionnaire.preguntas[currentQuestionIndex];
+            $scope.currentQuestion = $scope.questionnaire.preguntas[currentQuestionIndex].pregunta;
             console.log($scope.questionnaire);
 
             switch($scope.currentQuestion.tipo_pregunta){
