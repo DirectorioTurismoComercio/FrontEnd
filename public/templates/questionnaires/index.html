@@ -1,6 +1,9 @@
 
-<div ng-repeat="questionnaire in questionnaires">
-<li><a ng-href="#/questionnaires/questionnaire/%%$index%%">
-	<h3 class="%%questionnaire.dato ? 'error': 'otra_clase'%%">%%questionnaire.titulo%%</h3></a></li>
+<div>
+	<ul>
+<li ng-repeat="questionnaire in questionnaires"><a ng-href="#/questionnaires/questionnaire/%%$index%%">
+
+	<h3 class="%%questionnaire.enable ? 'error': 'otra_clase'%%">%%questionnaire.titulo%%</h3></a></li>
+</ul>
 </diV>	
 <div ng-click="summary()"> Ver Resumen</div>
