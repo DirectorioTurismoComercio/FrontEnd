@@ -10,7 +10,7 @@ angular.module('gemStore')
    $scope.questionnaire = questionnaireService.getQuestionnaire($routeParams.idQuestionnaire);
    var currentQuestionIndex = 0;
    var maxIndex = $scope.questionnaire.preguntas.length - 1;
-
+   $scope.questionnaire.enable=true;
    changeQuestion();
 
    $scope.next = function()
@@ -68,6 +68,7 @@ angular.module('gemStore')
             $scope.currentQuestion = $scope.questionnaire.preguntas[currentQuestionIndex].pregunta;
             if(activeQuestion())
             {
+                $scope.questionnaire.preguntas[currentQuestionIndex].enable=true;
                 switch($scope.currentQuestion.tipo_pregunta){
                   case "U":
                   $scope.answersTemplate = answersTemplateURL + "_u_question.html";
@@ -82,6 +83,7 @@ angular.module('gemStore')
               }
               else
               {
+                $scope.questionnaire.preguntas[currentQuestionIndex].enable=false;
                 $scope.next();
               }
 

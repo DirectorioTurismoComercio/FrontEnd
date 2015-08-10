@@ -13,10 +13,10 @@ angular.module('gemStore')
           then(function(questionnaires){
           for(var k=0;k<questionnaires.length;k++)
           {  
-
+            questionnaires[k].enable=false;
             for(var i=0; i<questionnaires[k].preguntas.length;i++)
             {
-              
+              questionnaires[k].preguntas[i].enable=false;
               questionnaires[k].preguntas[i].pregunta.dato=0;
               for(var j=0;j<questionnaires[k].preguntas[i].pregunta.opciones.length;j++)
               {
