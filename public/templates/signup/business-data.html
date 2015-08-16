@@ -1,0 +1,24 @@
+<form novalidate name="form">
+<div class="businessData">
+  <div>
+    <label for="comercio"><span>Nombre del Comercio o Institución:</span></label>
+    <input id="comercio" type="text" class="form-control" ng-model="usuario.nombre_institucion"/>
+  </div>
+
+  <div>
+    <label for="Direccion"><span>Dirección:</span></label>
+    <input id="Direccion" type="text" ng-model="usuario.direccion_institucion" class="form-control" />
+  </div>
+  <div ng-class="validate(form.municipio,null,showErrors)">
+    <label for="name"><span>Municipio(obligatorio):</span></label>
+    <input id="name" type="text" ng-model="usuario.ubicacion_institucion" class="form-control" name="municipio" required="">
+    <span ng-class="validate(form.municipio,'icon',showErrors)"></span>
+    <span class="error" ng-show="(showErrors || form.municipio.$touched) && form.municipio.$error.required">Por favor digite el nombre de su municipio</span>
+  </div>
+
+ </div>
+<div class="aprobado">
+  <div class="siguiente" ng-click="changeView('profileSummary',form,'save')"><span><span class="icon-check"></span></span></div>
+  <div class="anterior" ng-click="changeView('personalData',null)"><span><span class="icon-arrow-back"></span></span></div>
+</div>
+</form>

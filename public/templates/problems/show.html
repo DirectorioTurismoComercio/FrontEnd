@@ -1,0 +1,11 @@
+<div class="container">
+<div class="page-header">
+	<h1>%%problem.tipo!=="S"?"Problema":"Solución" %%</h1>
+</div>
+<h1>Titulo: %%problem.titulo%%</h1>
+<h3>Description</h3>
+	<p>%%problem.descripcion%%</p>
+<p><span class="label label-info">%%problem.category.name%%</span></p>
+	<a ng-href="#/user/%%idUser%%/problem/%%problem.id%%/edit" class="btn btn-default">Editar Problema</a>
+	<a ng-href="#" ng-click="deleteProblem(problem)" class="btn btn-danger">Borrar</a>
+</div>

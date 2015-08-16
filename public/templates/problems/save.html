@@ -1,0 +1,87 @@
+<div class="container">
+<form novalidate name="form">
+	<fieldset ng-class="validate(form.problema_o_solucion,null,showErrors)">
+    
+		<label>
+		Problema 
+		<input    type="radio" name="problema_o_solucion" ng-model="problem.tipo" value="P"  required="">
+		</label>
+	
+	
+	 	<label>
+		Solución
+		<input   type="radio" name="problema_o_solucion" ng-model="problem.tipo" value="S"  required="">
+		</label>
+		<span ng-class="validate(form.problema_o_solucion,'icon',showErrors)"></span>
+	</fieldset>
+	<span class="error" ng-show="(showErrors || form.problema_o_solucion.$touched) &&  form.problema_o_solucion.$error.required">Seleccione si es una necesidad o una solución</span>
+	
+
+	<fieldset class="form-group">
+		<label for="title">Seleccione Categoria </label>
+		<!-- <p>problem.categorias: %%problem.categorias%%</p> -->
+		<select class="form-control" ng-model="problem.categorias[0]"
+				ng-change="clearCategoryArray(1)"
+		        ng-options="category.id as category.nombre for category in categorias | filter:{nivel:1}"
+		        >
+		        </select>
+		<select class="form-control" ng-model="problem.categorias[1]"
+				ng-change="clearCategoryArray(2)"
+				ng-options="category.id as category.nombre for category in categorias | filter:{categoria_padre:problem.categorias[0], nivel:2}">
+				</select>
+
+		<select class="form-control" ng-model="problem.categorias[2]"
+				ng-options="category.id as category.nombre for category in categorias | filter:{categoria_padre:problem.categorias[1], nivel:3}">
+				</select>
+	</fieldset>
+
+
+	<fieldset  class="form-group">
+ 
+
+	<div  ng-class="validate(form.titulo,null,showErrors)">
+		<label for="titulo">Título</label>
+		<input class="form-control" type="text" id="titulo" name="titulo" ng-model="problem.titulo" required="">
+		<span ng-class="validate(form.titulo,'icon',showErrors)"></span>
+	</div> 
+	
+	<span class="error" ng-show="(showErrors || form.titulo.$touched) &&  form.titulo.$error.required">Escriba un título para su problema o solución</span>
+
+	<div  ng-class="validate(form.descripcion,null,showErrors)">
+
+		<label for="bio">Descripción</label>
+		<textarea class="form-control" type="text" id="descripcion" name="descripcion" ng-model="problem.descripcion" required=""> </textarea>
+		<span ng-class="validate(form.descripcion,'icon',showErrors)"></span>
+	</div>
+	<span class="error" ng-show="(showErrors || form.descripcion.$touched) &&  form.descripcion.$error.required">Digite una descripción de su problema o solución</span>
+	<fieldset  class="form-group">
+		<label for="tags">palabras clave:</label>
+		<div>
+	      	<autocomplete ng-model="tag.result" attr-placeholder="digite nueva palabra clave..." click-activation="true" data="results" on-type="doSomething" on-select="doSomethingElse"></autocomplete>
+		    <div class="addContainer habilitado">
+				<span class="addLetter" ng-click="add_tag(tag.result)">Adicionar palabra clave</span>
+			</div>
+		</div>
+
+		
+			<div class="panel panel-default">
+				<div class="panel-heading">
+			      <h3 class="panel-title">
+			         Palabras clave
+			      </h3>
+			   </div>
+			<div class="panel-body">	
+			<span class="tag" ng-repeat="tag in problem.tags" ng-click="remove_tag($index)">
+			<span class="arrow" ></span>&#10006; %%tag%%</span>
+			</span>
+			</div>
+			</div>
+			
+		
+	</fieldset>
+	 <div class="addContainer habilitado">
+	<span class="addLetter" ng-click="saveProblem(problem,form)" ng-disabled="isSubmitting"> %%isSubmitting ? 'Guardando...':'Guardar'%% </span>
+
+	</div>
+</form>
+</div>

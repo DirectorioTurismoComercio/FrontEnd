@@ -1,0 +1,26 @@
+
+<div ng-controller="SearchController">
+    <div class="container">
+      <h2>Buscar:</h2>
+      <autocomplete ng-model="result" attr-placeholder="digite sus necesidades..." click-activation="true" data="results" on-type="doSomething" on-select="doSomethingElse"></autocomplete>
+      <br>
+      
+    
+     <div class="addContainer habilitado">
+    <span class="addLetter" ng-click="search(result)">Buscar</span>
+    </div>
+    Necesidades:
+    <input type="radio" name="tipo" value="P" ng-model="tipo"></input>
+    Soluciones:
+    <input type="radio" name="tipo" value="S" ng-model="tipo"></input>
+    <h2 ng-show="!!serverResults.length">Resultados de la búsqueda:</h2>
+    
+      <fieldset  class="form-group" ng-show="!!serverResults.length"> 
+        <div ng-repeat="serverResult in serverResults | filter: {tipo: tipo}">
+          <div><a href>%%serverResult.titulo%%</a></div>
+          <div>%%serverResult.descripcion%%</div>
+        </div>
+    </fieldset>
+
+  </div>
+</div>

@@ -1,0 +1,60 @@
+.error
+{
+  color: rgba(193,0,0,1);
+}
+
+.error.caja {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 160px;
+  padding: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(224,24,24,1);
+  -webkit-border-radius: 16px / 17px;
+  border-radius: 16px / 17px;
+  font: normal 16px/1 "Times New Roman", Times, serif;
+  color: rgba(193,0,0,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgba(242,181,192,1);
+  -webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+}
+
+
+  .css-form input.ng-invalid.ng-touched {
+     border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  }
+.css-form input.ng-invalid.ng-touched {
+     border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  }
+
+.css-form input.ng-invalid.ng-touched {
+     border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  }
+
+.icon6{
+  position: relative;
+  top: 1px;
+  right: 30px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.valor:before{
+  color: red;
+  content: "\e602";
+
+}

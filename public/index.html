@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html ng-app="gemStore" class="ng-scope">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="components/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/autocomplete.css" />
+    <link rel="stylesheet" href="css/tags.css" />
+    <link rel="stylesheet" href="css/errores.css" />
+    <link rel="stylesheet" href="css/signin.css" />
+    <script type="text/javascript" src="components/angular/angular.js"></script>
+    <script type="text/javascript" src="components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="components/angular-resource/angular-resource.js"></script>
+
+  </head>
+
+  <body>
+
+
+    <header id="header" class="fixedTop">
+        <page-Navigation></page-Navigation>
+    </header><!-- /header -->
+
+    <div ng-view="" class="main"></div>
+
+    <div class="MobileFooter" ng-hide="MobileMenu">
+    
+    </div>
+
+    <!-- app -->
+    <script type="text/javascript" src="components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/routes/routes.js"></script>
+
+    <!-- controllers -->
+    <script type="text/javascript" src="js/controllers/user/user-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/main/mainPage-controller.js"></script>
+
+    <script type="text/javascript" src="js/controllers/roles/role-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/roles/role-description-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/sign-up/signup-index-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/sign-up/signup-main-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/social-networks/social-networks-controller.js"></script>
+    
+    <script type="text/javascript" src="js/controllers/search/search-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/search/search-controller.js"></script>
+
+    <script type="text/javascript" src="js/controllers/problems/problems-index-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/problems/problems-show-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/problems/problems-create-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/sign-in-out/signin-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/sign-in-out/signout-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/questionnaires/questionnaire-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/questionnaires/questionnaire-summary-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/questionnaires/questions-controller.js"></script>
+    <!-- directives -->
+
+    <!-- services -->
+    <script type="text/javascript" src="js/services/users.js"></script>
+    <script type="text/javascript" src="js/services/roles.js"></script>
+    <script type="text/javascript" src="js/services/redes-sociales.js"></script>
+    <script type="text/javascript" src="js/services/usuario-red.js"></script>
+    <script type="text/javascript" src="js/services/usuario-redes.js"></script>
+    <script type="text/javascript" src="js/services/registro-service.js"></script>
+    <script type="text/javascript" src="js/services/result-retriever.js"></script>
+    <script type="text/javascript" src="js/services/search-for-results.js"></script>
+    <script type="text/javascript" src="js/services/suggestions-factory.js"></script>
+    <script type="text/javascript" src="js/services/suggested-tags-factory.js"></script>
+    <script type="text/javascript" src="js/services/questionnaire-factory.js"></script>
+    <script type="text/javascript" src="js/services/questionnaire-service.js"></script>
+    <script type="text/javascript" src="js/services/problem.js"></script>
+    <script type="text/javascript" src="js/services/category.js"></script>
+
+
+    <!-- aditional components -->
+    <script type="text/javascript" src="js/custom_components/autocomplete.js"></script>
+
+    
+  </body>
+</html>
+

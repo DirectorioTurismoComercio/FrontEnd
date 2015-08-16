@@ -1,0 +1,25 @@
+
+<div class="galeria">
+  <a ng-click="toggleDescription($index)" ng-repeat="rol in roles" class="roles">
+    <div>
+      <img class="slide" ng-src="%%ruta+rol.imagen%%" />
+    </div>
+    <p>%%rol.nombre%%</p>
+  </a>
+</div>
+
+<div class="overlay" ng-hide="verDescription">
+  <div class="descriptionWrapper">
+    <h2>%%overlayTitle%%</h2>
+    <a class="close" ng-click="toggleDescription(0)"><span>X</span></a>
+    <div class="descriptionWindow">    
+      <div><img src="%%ruta+rol_seleccionado.imagen%%" /></div>
+      <h3>%% rol_seleccionado.nombre %%</h3>
+      <p>%% rol_seleccionado.descripcion %%</p>
+    </div>
+    <div class="botones">
+      <div class="aceptar" ng-click="changeView('personalData')"><span>Aceptar</span></div>
+      <div class="cancelar" ng-click="toggleDescription(0)"><span>Cancelar</span></div>
+    </div>
+  </div>
+</div>

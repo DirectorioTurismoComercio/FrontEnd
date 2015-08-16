@@ -1,0 +1,18 @@
+  <img src="images/LogoTemp.png" alt="" class="logo">
+  <a class="MobileMenu" ng-click="toggleMobileMenu()">
+    <span class="icon-th-menu"></span>
+  </a>
+  <nav ng-hide="MobileMenu" class="MobileMenu base-class">
+    <ul ng-show="false">
+      <a href="#home" ng-click="toggleMobileMenu()"><li>Inicio<span class="icon-circle-right"></span></li></a>
+      <a href="#roles" ng-click="toggleMobileMenu()"><li>Registro<span class="icon-circle-right"></span></li></a>
+      <a href="#signup" ng-click="toggleMobileMenu()"><li>Signup<span class="icon-circle-right"></span></li></a>
+    </ul>
+    <ul ng-show="true">
+      <a href="#personalData" ng-click="toggleMobileMenu()"><li>Mi Perfil...<span class="icon-circle-right"></span></li></a>
+      <a href="#/user/problems" ng-click="toggleMobileMenu()"><li>Mis problemas...<span class="icon-circle-right"></span></li></a>
+      <a href="#signout" ng-click="toggleMobileMenu()"><li>Salir...<span class="icon-circle-right"></span></li></a>
+    </ul>
+    <div></div>
+  </nav>
+
