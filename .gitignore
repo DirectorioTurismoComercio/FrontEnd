@@ -28,10 +28,10 @@ build/Release
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules
 
-fonts/glyphi*
-css/boots*
-bower_components/
-components/
+#fonts/glyphi*
+#css/boots*
+#bower_components/
+#components/
 ######################
 #servidor de servicio REST
 #Djago prj

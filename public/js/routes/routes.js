@@ -1,11 +1,6 @@
 (function() {
-    //this module depends on
-    // 'store-products' module
-    // 'ngRoute'
-  angular.module('gemStore')
-  //how to use this with directives?
+   angular.module('gemStore')
   .config(['$routeProvider',function($routeProvider) {
-    // debugger;
     $routeProvider.
     when('/home',
       {
@@ -97,6 +92,21 @@
         controller: 'SignoutController',
         templateUrl: 'templates/signout/signout.html',
       }).
+         when('/questionnaires',
+      {
+        controller: 'QuestionnaireController',
+        templateUrl: 'templates/questionnaires/index.html',
+      }).
+         when('/questionnaires/questionnaire/:idQuestionnaire',
+      {
+        controller: 'QuestionsController',
+        templateUrl: 'templates/questionnaires/questionnaire.html',
+      }).
+         when('/questionnaires/summary',
+      {
+        controller: 'QuestionnaireSummaryController',
+        templateUrl: 'templates/questionnaires/summary.html',
+      }).
      
       when('/index',
       {
@@ -107,9 +117,7 @@
         redirectTo:'/search'
       }).
       otherwise({
-
         redirectTo:'/signin'
-
       });
   }]);
 })();
