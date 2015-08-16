@@ -1,0 +1,29 @@
+<div class="container">
+<div>
+<h3> Lista de mis problemas y soluciones...</h3>
+</div>
+<div>
+<h1><a ng-href="#/user/%%idUser%%/problem/new" ng-click="createProblem()" class="btn btn-default">Crear Problema</a></h1>
+
+	<div class="panel panel-default">
+			
+	<div ng-repeat="problem in problems" class="panel-body">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-11">
+		<h1>%%problem.tipo!=="S"?"Problema":"Solución" %%</h1>
+		<h3><a ng-href="#/user/%%idUser%%/problem/%%problem.id%%">Titulo: %%problem.titulo%%</a></h3>
+		<h3>Descripción </h3>
+		<p>%%problem.descripcion%%</p>
+		<h3>Categorias </h3>
+		<div ng-repeat="categoria in problem.categorias_completas">
+			<li><span class="label label-info">%%categoria.nombre%%</span></li>
+		</div>
+		<h3>Palabras clave</h3>
+		<div ng-repeat="tag in problem.tags">
+			<li><span class="label label-default">%%tag%%</span></li>
+		</div>
+		</div>
+	</div>
+</div>	
+
+

@@ -1,0 +1,53 @@
+
+<h3> <p class="text-center"> Agrega tus redes sociales  </p></h3>
+
+
+
+<div ng-repeat="usuariored in usuarioredes" div class="row">
+	
+	<div class="col-sm-1"></div>
+	<div class="col-sm-2">	
+		<div ng-model="bGuardar[$index]" ng-show="bGuardar[$index]">
+			<select class="form-control" ng-options="red.id as red.nombre for red in redes" ng-model="usuariored.red_social"></select>
+		</div>
+		<p  ng-model="bEditar[$index]" ng-show="!bGuardar[$index]"> %%getRedById(usuariored.red_social).nombre%% 
+		</p>
+
+	</div>
+	<div class="col-sm-4">
+		<p ng-show="!bGuardar[$index]"> <a ng-href="%%usuariored.url%%" target="_blank">URL</a> </p>
+		<input type="text" class="form-control" ng-model="usuariored.url" class="btn btn-primary btn-md"ng-show="bGuardar[$index]"/>
+	</div>
+	<div class="col-sm-4">
+		<p class="text-right">
+		<button type="button" class="btn btn-primary btn-md" ng-model="bEditar[$index]" ng-show="!bGuardar[$index]" ng-click="editar($index)">Editar</button>
+		<button type="button" class="btn btn-primary btn-md" ng-show="!bGuardar[$index]" ng-click="borrar($index)">Borrar</button>
+		<button ng-model="bGuardar[$index]" class="btn btn-primary btn-md" ng-show="bGuardar[$index]" ng-click="guardar($index)">Guardar</button>
+	</p>
+		<!--<button ng-show="bGuardar[$index]" ng-click="cancelar($index)">Cancelar</button>-->
+	</div>
+</div>	
+
+
+<div class="addContainer" ng-show="!bAgregar" ng-click="bAgregar=true">
+	<span class="addLetter">Adicionar</span>
+	<div class="addPlus"><span>+</span></div>
+</div>
+
+<div ng-model="bAgregar" ng-show="bAgregar" class="addContainerClick">
+	<div class="addContainer deshabilitado" ng-show="bAgregar" ng-click="bAgregar=false">
+		<span class="addLetter">Adicionar</span>
+		<div class="addPlus"><span>+</span></div>
+	</div>
+	<div class="addContainerCentrar">
+		<select class="form-control" ng-options="red.id as red.nombre for red in redes" ng-model="nuevared.red_social"></select>
+		<input class="form-control" type="text" ng-model="nuevared.url" ng-show="bAgregar" placeholder="Ingrese la URL"/>
+		<button ng-show="bGuardar" class="btn btn-primary btn-md" ng-click="crear()">OK</button>
+	</div>
+</div>
+
+<div class="aprobado">
+  <div class="siguiente" ng-click="changeView('user/problems')"><span><span class="icon-check"></span></span></div>
+  <div class="anterior" ng-click="changeView('businessData')"><span><span class="icon-arrow-back"></span></span></div>
+</div>
+

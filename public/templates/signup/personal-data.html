@@ -1,0 +1,54 @@
+<form novalidate name="form">
+<div class="personalData">
+  
+  <div ng-class="validate(form.nombres,null,showErrors)">
+    <label for="name"><span>Nombres(obligatorio):</span></label>
+    <input id="name" type="text" ng-model="usuario.nombres" class="form-control" name="nombres" required="">
+    <span ng-class="validate(form.nombres,'icon',showErrors)"></span>
+    <span class="error" ng-show="(showErrors ||  form.nombres.$touched) && form.nombres.$error.required">Por favor digite su nombre</span>
+  </div>
+
+  <div ng-class="validate(form.apellido1,null)">
+    <label for="name"><span>Primer Apellido(obligatorio):</span></label>
+    <input id="name" type="text" ng-model="usuario.apellido1" class="form-control" name="apellido1" required="">
+    <span ng-class="validate(form.apellido1,'icon')"></span>
+    <span class="error" ng-show="(showErrors || form.nombres.$touched) && form.nombres.$error.required">Por favor digite su primer apellido</span>
+  </div>
+
+  <div ng-class="validate(form.apellido2,null)">
+    <label for="name"><span>Segundo Apellido(obligatorio):</span></label>
+    <input id="name" type="text" ng-model="usuario.apellido2" class="form-control" name="apellido2" required="">
+    <span ng-class="validate(form.apellido2,'icon')"></span>
+    <span class="error" ng-show="(showErrors || form.apellido2.$touched) && form.apellido2.$error.required">Por favor digite su segundo apellido</span>
+  </div>
+
+  <div ng-class="validate(form.documento,null)">
+    <label for="name"><span>Número de documento:</span></label>
+    <input id="name" type="number" ng-model="usuario.numero_documento" class="form-control" name="documento">
+    <span ng-class="validate(form.documento,'icon')"></span>
+    <span class="error" ng-show="(showErrors || form.documento.$touched) && form.documento.$error.number">Por favor digite un número</span>
+  </div>
+  
+    <div><span>Digite su correo o número de teléfono (obligatorio)</span></div>
+  
+    <div ng-class="validate(form.email,null)">
+    <label for="name"><span>Correo:</span></label>
+    <input id="name" type="email" ng-model="usuario.correo" class="form-control" name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required="">
+    <span ng-class="validate(form.email,'icon')"></span>
+    <span class="error" ng-show="(showErrors || form.email.$touched) && form.email.$error.pattern">Por favor verifique su dirección de correo</span>
+  </div>
+  
+  <div ng-class="validate(form.telefono,null)">
+    <label for="name"><span>Teléfono:</span></label>
+    <input id="name" type="number" ng-model="usuario.telefono_institucion" class="form-control" name="telefono" required="">
+    <span ng-class="validate(form.telefono,'icon')"></span>
+    <span class="error" ng-show="(showErrors || form.telefono.$touched) && form.telefono.$error.number">Por favor digite un número</span>
+ <span class="error" ng-show="(showErrors || form.telefono.$touched && form.email.$touched && form.telefono.$error.required) && form.email.$error.required">Digite un correo o un número de teléfono</span>
+
+  </div>
+ 
+</div>
+<div class="aprobado">
+  <div class="siguiente"  ng-click="changeView('businessData',form)"><span><span class="icon-check"></span></span></div>
+  <div class="anterior" ng-click="changeView('roles',null)"><span><span class="icon-arrow-back"></span></span></div>
+</form>
