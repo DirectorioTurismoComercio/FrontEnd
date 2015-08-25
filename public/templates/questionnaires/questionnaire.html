@@ -1,11 +1,16 @@
-<h1>  %%currentQuestion.enunciado%% </h1>
-
-<div ng-include src="answersTemplate"></div>
-
-<div ng-click="next()"> Siguiente</div>
-<div ng-click="previous()"> Anterior </div>
-
-
-
-
-
+<div class="prompt">
+	<div class="prompt_q">
+    %%currentQuestion.enunciado%%
+    <div class="prompt_botones">
+	<div class="next" ng-click="next()"> Siguiente</div>		
+	<div class="back" ng-click="previous()"> Menu </div>	
+  </div>	  
+  </div>  	
+  
+	
+	<div ng-include src="answersTemplate"></div>
+	
+</div>
+<div class="bar_bottom" ng-click="summary()">
+    Estoy Buscando... 
+  </div>

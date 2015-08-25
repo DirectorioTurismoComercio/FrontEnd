@@ -1,10 +1,11 @@
-<h3>Resumen</h3>
+<div class="prompt">
+<div class="prompt_q">Resumen</div>
 <div ng-repeat="questionnaire in questionnaires">
 <div ng-show="questionnaire.enable">	
-<h1>%%questionnaire.titulo%%</h1>
+<div class="prompt_q">%%questionnaire.titulo%%</div>
 	<div ng-repeat="question in questionnaire.preguntas">
 		<div ng-show="question.enable">
-			<h2>%%question.pregunta.enunciado%%</h2>
+			<div class="prompt_r">%%question.pregunta.enunciado%%</div>
 			<div ng-repeat="option in question.pregunta.opciones">
 				<h3 ng-show="option.dato || question.pregunta.dato==option.id">%%option.respuesta%%</h3>
 			</div>	
@@ -14,3 +15,4 @@
 </div>	
 
 <div ng-click="back()"> Volver</div>
+</div>

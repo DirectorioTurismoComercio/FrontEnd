@@ -107,14 +107,23 @@
         controller: 'QuestionnaireSummaryController',
         templateUrl: 'templates/questionnaires/summary.html',
       }).
-     
+         when('/rolquestionnaire',//add pacho
+      {
+        controller: 'RoleQuestionnaireController',        
+        templateUrl: 'templates/questionnaires/roles.html',
+      }).
+         when('/actionquestionnaire',//add pacho
+      {
+        controller: 'ActionQuestionnaireController',        
+        templateUrl: 'templates/questionnaires/action.html',
+      }).     
       when('/index',
       {
         templateUrl: 'templates/index.html',
       }).
       when('/',
       {
-        redirectTo:'/search'
+        redirectTo:'/signin'
       }).
       otherwise({
         redirectTo:'/signin'

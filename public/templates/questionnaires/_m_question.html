@@ -1,4 +1,6 @@
 <div ng-repeat="opcion in currentQuestion.opciones">
-<div>%%opcion.respuesta%% <input type="checkbox"  ng-model="opcion.dato"
- ng-click="mclick(opcion.id,opcion.dato)"/></div>
+<div class="prompt_r">%%opcion.respuesta%%
+	<input type="checkbox"  ng-model="opcion.dato"
+ ng-click="mclick(opcion.id,opcion.dato)"/>
+</div>
 </div>

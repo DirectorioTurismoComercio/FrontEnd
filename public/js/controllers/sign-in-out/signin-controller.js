@@ -25,12 +25,16 @@ angular.module('gemStore')
                     
                 });
 
-
-
         }	
         $scope.signup = function()
         {
             registroService.changeView('signup');
+        }
+
+        // Función para no registrado (Comienza a Explorar) 
+        $scope.noregistrado = function()
+        {
+            registroService.changeView('actionquestionnaire');
         }
 	
 }]);

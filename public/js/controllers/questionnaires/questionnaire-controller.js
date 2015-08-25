@@ -6,10 +6,14 @@
 angular.module('gemStore')
 .controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location',
   function($scope,QuestionnaireFactory,questionnaireService,$location){
-     
+     var rol = questionnaireService.getRol();     
+     var tipo = questionnaireService.getTipo();     
+     console.log(rol);
+     console.log(tipo);
+     console.log(!questionnaireService.getQuestionnaires());     
      if(!questionnaireService.getQuestionnaires())
      { 
-          promesa = QuestionnaireFactory.query().$promise.
+          promesa = QuestionnaireFactory.query({id:rol,tipo: tipo}).$promise.
           then(function(questionnaires){
           for(var k=0;k<questionnaires.length;k++)
           {  
@@ -41,6 +45,11 @@ angular.module('gemStore')
      else
      {
       $scope.questionnaires = questionnaireService.getQuestionnaires();
+     }
+
+
+     $scope.changeView = function(view){
+      questionnaireService.changeView(view);
      }
 
      $scope.summary = function(){

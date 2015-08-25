@@ -1,9 +1,10 @@
 (function(){
 	angular.module('gemStore')
-	.service('questionnaireService', ['$resource', 'QuestionnaireFactory',
-	function($resource,QuestionnaireFactory) {
+	.service('questionnaireService', ['$resource','QuestionnaireFactory','$location',
+	function($resource,QuestionnaireFactory,$location) {
 	var questionnaires = null;
-	
+	var rol = null;
+	var tipo = null;
 	var answers = [];
 	var getQuestionnaires = function ()
 	{
@@ -29,17 +30,31 @@
 		    answers.splice(index, 1);
 		}
 
-	}
-
-
-	
+	}	
 	var getQuestionnaire = function (index)
 	{
 		return questionnaires[index];
 	}
 	
+	var changeView = function(view){			
+			$location.path(view);
+	};	
 
+	var getRol = function(){
+		return rol;
+	};	
 
+	var setRol = function(_rol){		
+		rol = _rol;		
+	};	
+
+	var getTipo = function(){
+		return tipo;
+	};	
+
+	var setTipo = function(_tipo){		
+		tipo = _tipo;		
+	};	
 	
 	  return {
 	  	questionnaires: questionnaires,
@@ -48,8 +63,12 @@
 	    getQuestionnaire: getQuestionnaire,
 	    getAnswers: getAnswers,
 	    addAnswer: addAnswer,
-	    removeAnswer: removeAnswer
-	    
+	    removeAnswer: removeAnswer,
+	    changeView: changeView,	    
+	    getRol: getRol,
+	    setRol: setRol,
+	    getTipo: getTipo,
+	    setTipo: setTipo
 	  };
 
 	}]);

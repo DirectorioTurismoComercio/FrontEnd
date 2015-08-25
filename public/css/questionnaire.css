@@ -1,0 +1,117 @@
+/*Modificaciones para pantalla SIGNIN*/
+.fondo{
+  max-width: 320px;  
+  background-image: url("../images/Fondo/Fondo_Inicio.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.btn-success {
+  background-color: #548880;
+  border-color: #548880;
+  text-align: left;
+}
+.btn-success:hover, .btn-success:active{
+  background-color: #549080;
+  border-color: #549080;
+  text-align: left;
+}
+
+.btn-danger {
+  background-color: #80392C;
+  border-color: #80392C;
+  text-align: left;
+}
+
+.btn-danger:hover, .btn-danger:active {
+  background-color: #90392C;
+  border-color: #90392C;
+  text-align: left;
+}
+.main{
+  background-color: #F2F2F2;
+}
+/*Modificaciones para pantalla Action*/
+.prompt {  
+  padding-top: 15px;
+  padding-left: 10px; 
+  padding-right: 10px;
+  height: 422px;
+  background-color: #F2F2F2;    
+}
+
+.volver {
+  color: #B3B3B3;  
+  font-size: 18px;
+}
+
+.prompt_q {
+  padding-top: 5px;
+  color: #4F4D59;  
+  font-size: 16px;
+  text-align: left;
+}
+.prompt_r {
+  padding-top: 5px;
+  color: #000000;  
+  font-size: 16px;
+  text-align: left;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #C6D7CE;
+}
+
+.prompt_botones {
+  padding-top: 100px;      
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.prompt_btn_B {
+  width: 75px;
+  height: 75px;
+  float: right;
+  color: #80392C;
+  text-align: center;
+  font-weight: bold;
+}
+.prompt_btn_O {
+  width: 75px;
+  height: 75px; 
+  color: #548880;
+  text-align: center;
+  font-weight: bold;
+}
+.next {
+  width: 75px;
+  height: 75px;
+  float: right;
+  color: #80392C;
+  text-align: center;
+  font-weight: bold;
+}
+.back {
+  width: 75px;
+  height: 75px; 
+  color: #548880;
+  text-align: center;
+  font-weight: bold;
+}
+
+/*Modificaciones para pantalla ROLES*/
+
+a.roles {
+  border: none;
+  width: 45%;
+}
+.galeria div{
+  width: 100px; 
+  height: 100px;
+}
+.bar_bottom{
+  padding-top: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #FFFFFF;
+  background-color: #80392C;
+  height: 72px;
+}
