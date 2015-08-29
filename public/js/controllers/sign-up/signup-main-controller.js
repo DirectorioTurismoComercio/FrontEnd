@@ -5,8 +5,8 @@
     * Description
     */
     angular.module('gemStore')
-    .controller('SignupMainController',['$scope', 'registroService','ResultRetriever',
-        function($scope,registroService, ResultRetriever){
+    .controller('SignupMainController',['$scope', 'registroService','ResultRetriever', 'QuestionnaireFactory','questionnaireService',
+        function($scope,registroService, ResultRetriever, QuestionnaireFactory, questionnaireService){
 
             $scope.form=""; 
             $scope.showErrors=false;               
@@ -140,8 +140,7 @@
                                     }
                                     return -1;
                                 };
-            $scope.save = function(view) {
-                
+            $scope.save = function(view) {                
                 var promesa;
                 console.log("guardando");
                     if($scope.usuario.id)
@@ -153,6 +152,17 @@
                      promesa = $scope.usuario.$save();   
                     }    
                 promesa.then(function(user){
+                    var respuesta = {};
+                    respuesta.cuestionarios = questionnaireService.getQuestionnaires();                    
+                    respuesta.id_usuario = user.id;     
+                    QuestionnaireFactory.save(respuesta).then(function(proceso){
+
+                    }).catch(function(errores){
+
+                    }).finally(function(){
+                        console.log("Se proceso el cuestionario");
+                    });  
+                    console.log(respuesta.id_usuario);                    
                     registroService.changeView(view);
                     console.log(user);
                 }).catch(function(errors){

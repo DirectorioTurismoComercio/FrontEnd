@@ -7,7 +7,7 @@ angular.module('gemStore')
 .controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location',
   function($scope,QuestionnaireFactory,questionnaireService,$location){
      var rol = questionnaireService.getRol();     
-     var tipo = questionnaireService.getTipo();     
+     var tipo = questionnaireService.getTipo();              
      console.log(rol);
      console.log(tipo);
      console.log(!questionnaireService.getQuestionnaires());     
@@ -51,6 +51,32 @@ angular.module('gemStore')
      $scope.changeView = function(view){
       questionnaireService.changeView(view);
      }
+     //Ofreciendo buscando
+    $scope.oyb = function(dato){          
+      type = questionnaireService.getTipo();          
+      if (type == dato) {
+        return true;
+      } else{
+        return false; 
+      };
+    }
+
+    $scope.revisar = function(_id){
+       return questionnaireService.getFull(_id);    
+    }
+
+    $scope.b_buscar = function(){
+      console.log(questionnaireService.getConta() );
+        if (questionnaireService.getConta() >= 3) {
+          return true;
+        } else {
+          return false;
+        };
+    }
+
+    $scope.buscar = function(){
+      $location.path('personalData');
+    }
 
      $scope.summary = function(){
       $location.path('questionnaires/summary');

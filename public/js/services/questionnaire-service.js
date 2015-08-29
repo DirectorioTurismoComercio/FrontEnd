@@ -6,6 +6,8 @@
 	var rol = null;
 	var tipo = null;
 	var answers = [];
+	var full= [];
+	var conta_respuestas= 0;
 	var getQuestionnaires = function ()
 	{
 		return questionnaires;
@@ -55,6 +57,34 @@
 	var setTipo = function(_tipo){		
 		tipo = _tipo;		
 	};	
+	//Para ver si ya se respondio la respuesta
+	var getFull = function(_id){		
+		 if (full[_id] == 'COMPLETO') {
+		 	return true;
+		 } 
+		 else{
+			return false;
+		 };		 
+	};	
+	var setFull = function(_id){		
+		console.log('Entra');
+		 full[_id]= 'COMPLETO';		
+	};	
+	var clearFull = function(){		
+		full = [];
+	};	
+	
+	//Cuenta respuestas para mostrar el botón de buscar
+	var getConta = function(){		
+		 return conta_respuestas;
+	};	
+	var setConta = function(_conta){				
+		if (_conta == 0) {
+			conta_respuestas = 0;
+		} else{
+			conta_respuestas++;
+		};		 
+	};	
 	
 	  return {
 	  	questionnaires: questionnaires,
@@ -68,7 +98,12 @@
 	    getRol: getRol,
 	    setRol: setRol,
 	    getTipo: getTipo,
-	    setTipo: setTipo
+	    setTipo: setTipo,
+	    getFull: getFull,
+	    setFull: setFull,
+	    clearFull: clearFull,
+	    getConta: getConta,
+	    setConta: setConta
 	  };
 
 	}]);

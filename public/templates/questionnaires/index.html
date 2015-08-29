@@ -6,13 +6,15 @@
 	<div class="prompt_q">
     3. Muy bien, ayúdanos a encontrar la solución perfecta para tu comercio, llenando la siguiente información:
   	</div>  
-	<div class="galeria">
+	<div class="galeria">    
     <a ng-href="#/questionnaires/questionnaire/%%$index%%" ng-repeat="questionnaire in questionnaires" class="roles">
+      <p class="icon-check" ng-show="revisar($index)"></p>
       <div>
         <!-- <img class="slide" ng-src="%%ruta+rol.imagen%%" /> -->
-      </div>
+      </div>      
       <p class="%%questionnaire.enable ? 'error': 'otra_clase'%%">%%questionnaire.titulo%%</p>
-    </a>
+
+    </a>    
   </div>
 
 	<!-- <ul>
@@ -20,6 +22,12 @@
 		<h3 class="%%questionnaire.enable ? 'error': 'otra_clase'%%">%%questionnaire.titulo%%</h3></a></li>
 	</ul> -->
 </div>	
-<div class="bar_bottom" ng-click="summary()">
+
+<div class="bar_bottom_b" ng-show="oyb('P')" ng-click="summary()">    
     Estoy Buscando... 
+    <div class="next" ng-click="buscar()" ng-show="b_buscar()">Buscar</div>
+  </div>
+  <div class="bar_bottom_o" ng-show="oyb('S')" ng-click="summary()">    
+    Estoy Ofreciendo...
+    <div class="next" ng-click="buscar()" ng-show="b_buscar()">Buscar</div>
   </div>

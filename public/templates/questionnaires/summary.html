@@ -1,18 +1,21 @@
 <div class="prompt">
-<div class="prompt_q">Resumen</div>
+<div class="prompt_q center">Resumen</div>
 <div ng-repeat="questionnaire in questionnaires">
 <div ng-show="questionnaire.enable">	
 <div class="prompt_q">%%questionnaire.titulo%%</div>
+	<div ng-click="edit($index)"><img ng-src="images/data/editar.png"></div>
 	<div ng-repeat="question in questionnaire.preguntas">
 		<div ng-show="question.enable">
-			<div class="prompt_r">%%question.pregunta.enunciado%%</div>
+			<div class="prompt_r">%%question.pregunta.enunciado%%
 			<div ng-repeat="option in question.pregunta.opciones">
 				<h3 ng-show="option.dato || question.pregunta.dato==option.id">%%option.respuesta%%</h3>
+			</div>	
 			</div>	
 		</div>
 	</div>
 </div>	
 </div>	
-
-<div ng-click="back()"> Volver</div>
+<div class="aprobado">
+<div class="anterior" ng-click="back()"><span><span class="icon-arrow-back"></span></span></div>
+</div>
 </div>

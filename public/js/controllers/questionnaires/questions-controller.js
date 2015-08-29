@@ -61,8 +61,12 @@ angular.module('gemStore')
     }
     function changeQuestion()
     {
-            if(currentQuestionIndex>maxIndex || currentQuestionIndex<0){
-              $location.path('questionnaires');
+            if(currentQuestionIndex>maxIndex || currentQuestionIndex<0){                            
+              if (currentQuestionIndex>maxIndex) {
+                questionnaireService.setFull($routeParams.idQuestionnaire);  
+                questionnaireService.setConta();  
+              };
+              $location.path('questionnaires');              
             }else{
 
             $scope.currentQuestion = $scope.questionnaire.preguntas[currentQuestionIndex].pregunta;
@@ -89,8 +93,13 @@ angular.module('gemStore')
 
             }
     }
-    
-
-   
+    $scope.oyb = function(dato){          
+      type = questionnaireService.getTipo();          
+      if (type == dato) {
+        return true;
+      } else{
+        return false; 
+      };
+    }
 
 }]);

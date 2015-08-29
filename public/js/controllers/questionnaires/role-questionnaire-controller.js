@@ -27,6 +27,15 @@
         	console.log(view);
         	registroService.changeView(view);
         }	
+//Ofreciendo buscando
+        $scope.oyb = function(dato){                	
+        	type = questionnaireService.getTipo();        	
+        	if (type == dato) {
+        		return true;
+        	} else{
+				return false;	
+        	};
+        }
 
  		$scope.usuario =  registroService.getUsuario();
 		$scope.toggleDescription    = function(index) {
@@ -35,6 +44,8 @@
 			registroService.getUsuario().rol=$scope.roles[index].id;			
 			questionnaireService.setRol($scope.roles[index].id);
 			questionnaireService.setQuestionnaires(false);			
+			questionnaireService.setConta(0);			
+			questionnaireService.clearFull();						
 		}
 
 	}]);
