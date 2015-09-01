@@ -1,12 +1,21 @@
 <div class="prompt">
-<div class="prompt_q center">Resumen</div>
+<div class="prompt_q center">Edita o elimina tus preferencias para personalizar tu búsqueda...</div>
 <div ng-repeat="questionnaire in questionnaires">
-<div ng-show="questionnaire.enable">	
-<div class="prompt_q">%%questionnaire.titulo%%</div>
-	<div ng-click="edit($index)"><img ng-src="images/data/editar.png"></div>
+<div class="gray" ng-show="questionnaire.enable">	
+	<div class="row">
+		<div class="col-xs-offset-1 col-xs-1">
+			<img ng-src="images/data/editar.png" ng-click="edit($index)">
+		</div>
+		<div class="prompt_categoria col-xs-7">
+			%%questionnaire.titulo%%
+		</div>
+		<div class="col-xs-1">
+			<img ng-src="images/data/borrar.png" ng-click="remove($index)">
+		</div>		
+	</div>	
 	<div ng-repeat="question in questionnaire.preguntas">
 		<div ng-show="question.enable">
-			<div class="prompt_r">%%question.pregunta.enunciado%%
+			<div class="prompt_r"><div class="blanco">%%question.pregunta.enunciado%%</div>
 			<div ng-repeat="option in question.pregunta.opciones">
 				<h3 ng-show="option.dato || question.pregunta.dato==option.id">%%option.respuesta%%</h3>
 			</div>	
@@ -16,6 +25,6 @@
 </div>	
 </div>	
 <div class="aprobado">
-<div class="anterior" ng-click="back()"><span><span class="icon-arrow-back"></span></span></div>
+<div class="centrar" ng-click="back()"><img ng-src="images/data/boton-flecha-arriba.png"></div>
 </div>
 </div>

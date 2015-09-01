@@ -3,6 +3,8 @@ angular.module('gemStore')
   function($scope,$location, $routeParams,questionnaireService,Constantes){
   $scope.questionnaires = questionnaireService.getQuestionnaires();
   $scope.ruta         = Constantes.ruta_imagenes;
+  $scope.pageClass="page-summary";
+  console.log('Cuestionario',$scope.questionnaires);
   	$scope.back = function()
   	{
   		$location.path('questionnaires');
@@ -12,5 +14,12 @@ angular.module('gemStore')
   		console.log(_id);
   		$location.path('questionnaires/questionnaire/'+_id);
   	}
+
+    //Quitar Categoria
+    $scope.remove = function(_id){      
+      $scope.questionnaires[_id].enable = false;
+      questionnaireService.setConta(-1);
+      questionnaireService.clearFull(_id);
+    }
 
 }]);

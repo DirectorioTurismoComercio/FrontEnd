@@ -4,8 +4,9 @@
 * ProblemsShowController un solo problema para un usuario
 */
 angular.module('gemStore')
-.controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location',
-  function($scope,QuestionnaireFactory,questionnaireService,$location){
+.controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location', 'Constantes',
+  function($scope,QuestionnaireFactory,questionnaireService,$location, Constantes){
+     $scope.ruta = Constantes.ruta_imagenes+'/data/';
      var rol = questionnaireService.getRol();     
      var tipo = questionnaireService.getTipo();              
      console.log(rol);

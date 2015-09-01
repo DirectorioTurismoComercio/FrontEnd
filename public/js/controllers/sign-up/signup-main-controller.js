@@ -158,9 +158,10 @@
                     QuestionnaireFactory.save(respuesta).then(function(proceso){
 
                     }).catch(function(errores){
-
+                        console.log("Errores",errores);                        
                     }).finally(function(){
-                        console.log("Se proceso el cuestionario");
+                        console.log("Se proceso el cuestionario");                        
+                        questionnaireService.reset();
                     });  
                     console.log(respuesta.id_usuario);                    
                     registroService.changeView(view);
@@ -168,7 +169,7 @@
                 }).catch(function(errors){
                     console.log("Errores retornado por el POST de agregar usuario",errors);
                 }).finally(function(){
-                  
+                    
                     registroService.changeView('user/'+user.id);
                 });
 

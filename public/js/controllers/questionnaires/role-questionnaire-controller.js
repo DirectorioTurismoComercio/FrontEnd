@@ -45,7 +45,7 @@
 			questionnaireService.setRol($scope.roles[index].id);
 			questionnaireService.setQuestionnaires(false);			
 			questionnaireService.setConta(0);			
-			questionnaireService.clearFull();						
+			questionnaireService.clearFull('ALL');						
 		}
 
 	}]);

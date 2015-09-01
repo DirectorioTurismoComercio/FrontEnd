@@ -70,8 +70,12 @@
 		console.log('Entra');
 		 full[_id]= 'COMPLETO';		
 	};	
-	var clearFull = function(){		
-		full = [];
+	var clearFull = function(_dato){		
+		if (_dato == 'ALL') {
+			full = [];	
+		} else {
+			full[_dato] = 'ELIMINADO';	
+		};		
 	};	
 	
 	//Cuenta respuestas para mostrar el botón de buscar
@@ -81,11 +85,21 @@
 	var setConta = function(_conta){				
 		if (_conta == 0) {
 			conta_respuestas = 0;
-		} else{
+		} else if (_conta == -1) {
+			conta_respuestas--;
+		} else {
 			conta_respuestas++;
 		};		 
 	};	
-	
+	//Resetear servicio de cuestionario
+	var reset = function(){
+		questionnaires = null;
+		rol = null;
+		tipo = null;
+		answers = [];
+		full= [];
+		conta_respuestas= 0;		
+	}	
 	  return {
 	  	questionnaires: questionnaires,
 	    getQuestionnaires: getQuestionnaires,
@@ -103,7 +117,8 @@
 	    setFull: setFull,
 	    clearFull: clearFull,
 	    getConta: getConta,
-	    setConta: setConta
+	    setConta: setConta,
+	    reset: reset
 	  };
 
 	}]);

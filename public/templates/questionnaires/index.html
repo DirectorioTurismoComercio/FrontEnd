@@ -10,7 +10,7 @@
     <a ng-href="#/questionnaires/questionnaire/%%$index%%" ng-repeat="questionnaire in questionnaires" class="roles">
       <p class="icon-check" ng-show="revisar($index)"></p>
       <div>
-        <!-- <img class="slide" ng-src="%%ruta+rol.imagen%%" /> -->
+        <img class="slide" ng-src="%%ruta+questionnaire.imagen%%" />
       </div>      
       <p class="%%questionnaire.enable ? 'error': 'otra_clase'%%">%%questionnaire.titulo%%</p>
 
@@ -23,11 +23,13 @@
 	</ul> -->
 </div>	
 
-<div class="bar_bottom_b" ng-show="oyb('P')" ng-click="summary()">    
+<div class="bar_bottom_b" ng-show="oyb('P')">        
+    <div class="centrar" ng-click="summary()"><img ng-src="images/data/boton-flecha-arriba.png"></div>    
     Estoy Buscando... 
     <div class="next" ng-click="buscar()" ng-show="b_buscar()">Buscar</div>
   </div>
   <div class="bar_bottom_o" ng-show="oyb('S')" ng-click="summary()">    
+    <div class="centrar" ng-click="summary()"><img ng-src="images/data/boton-flecha-arriba.png"></div>        
     Estoy Ofreciendo...
     <div class="next" ng-click="buscar()" ng-show="b_buscar()">Buscar</div>
   </div>
