@@ -4,13 +4,13 @@
 <div class="gray" ng-show="questionnaire.enable">	
 	<div class="row">
 		<div class="col-xs-offset-1 col-xs-1">
-			<img ng-src="images/data/editar.png" ng-click="edit($index)">
+			<img ng-src="%%editar%%" ng-click="edit($index)">
 		</div>
 		<div class="prompt_categoria col-xs-7">
 			%%questionnaire.titulo%%
 		</div>
 		<div class="col-xs-1">
-			<img ng-src="images/data/borrar.png" ng-click="remove($index)">
+			<img ng-src="%%borrar%%" ng-click="remove($index)">
 		</div>		
 	</div>	
 	<div ng-repeat="question in questionnaire.preguntas">
@@ -25,6 +25,6 @@
 </div>	
 </div>	
 <div class="aprobado">
-<div class="centrar" ng-click="back()"><img ng-src="images/data/boton-flecha-arriba.png"></div>
+	<img class="flecha_arriba" ng-click="back()"><br>
 </div>
 </div>

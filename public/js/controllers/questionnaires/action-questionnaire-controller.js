@@ -3,7 +3,10 @@
 	angular.module('gemStore')
 	.controller('ActionQuestionnaireController', ['$scope','Constantes','questionnaireService',
 		function($scope,Constantes,questionnaireService){
-                        $scope.ruta         = Constantes.ruta_imagenes;
+                        //Rutas Imagenes
+                        $scope.ruta = Constantes.ruta_imagenes + "botones/";
+                        $scope.busco = $scope.ruta + "boton-busco.png";
+                        $scope.ofrezco = $scope.ruta + "boton-ofrezco.png";
 			console.log('Prueba Controlador');
 			$scope.changeView = function (tipo)
         	{    

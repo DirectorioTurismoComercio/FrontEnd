@@ -6,7 +6,8 @@
 angular.module('gemStore')
 .controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location', 'Constantes',
   function($scope,QuestionnaireFactory,questionnaireService,$location, Constantes){
-     $scope.ruta = Constantes.ruta_imagenes+'/data/';
+     $scope.ruta = Constantes.ruta_imagenes+'botones/';
+     
      var rol = questionnaireService.getRol();     
      var tipo = questionnaireService.getTipo();              
      console.log(rol);

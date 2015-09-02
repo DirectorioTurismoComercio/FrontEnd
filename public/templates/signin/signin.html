@@ -9,7 +9,7 @@
 
 <div class="container fondo">
   <form class="form-signin">
-    <image class="img-contain" src="images/logo.png"></image>
+    <image class="img-contain" ng-src="%%logo%%"></image>
     <!-- <h2 class="form-signin-heading">Ingresar...</h2> -->    
     <label for="inputEmail" class="sr-only">Email address</label>
     <input type="text" ng-model="user" class="form-control" placeholder="id usuario..." autofocus>
@@ -22,15 +22,15 @@
     </div>
 		<button class="btn btn-lg btn-success btn-block" ng-click="signin(user)">
       <!-- <i class="fa fa-question-circle"></i> -->
-      <img ng-src="images/data/icono-como-funciona.png">
+      <img ng-src="%%como%%">
        ¿Cómo Funciona?
      </button>
     <button class="btn btn-lg btn-success btn-block" ng-click="signup()">
       <!-- <i class="fa fa-user"></i> -->
-      <img ng-src="images/data/icono-registro.png"> Registrate</button>
+      <img ng-src="%%registro%%"> Registrate</button>
     <button class="btn btn-lg btn-danger btn-block" ng-click="noregistrado()">
       <!-- <i class="fa fa-lightbulb-o"></i> -->
-      <img ng-src="images/data/icono-comenzar.png"> Comienza a Explorar</button>
+      <img ng-src="%%comenzar%%"> Comienza a Explorar</button>
     
   </form>
 </div> <!-- /container -->

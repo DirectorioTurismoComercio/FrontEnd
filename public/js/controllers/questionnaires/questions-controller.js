@@ -4,8 +4,11 @@
 * ProblemsShowController un solo problema para un usuario
 */
 angular.module('gemStore')
-.controller('QuestionsController',['$scope', '$location' , '$routeParams', 'questionnaireService',
-  function($scope,$location, $routeParams,questionnaireService){
+.controller('QuestionsController',['$scope', '$location' , '$routeParams', 'questionnaireService', 'Constantes',
+  function($scope,$location, $routeParams,questionnaireService, Constantes){
+  $scope.ruta = Constantes.ruta_imagenes + 'botones/';  
+  $scope.siguiente = $scope.ruta+'boton-siguiente-over.png';
+  $scope.anterior = $scope.ruta+'boton-regresar-over.png';
   var answersTemplateURL = "templates/questionnaires/";
    $scope.questionnaire = questionnaireService.getQuestionnaire($routeParams.idQuestionnaire);
    var currentQuestionIndex = 0;

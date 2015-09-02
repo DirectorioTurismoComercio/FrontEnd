@@ -4,8 +4,15 @@
 * to redirect to edit user, create problems, complete social networks
 */
 angular.module('gemStore')
-.controller('SigninController', ['$scope', 'registroService', 'UserFactory',
-        function($scope,registroService,UserFactory){
+.controller('SigninController', ['$scope', 'registroService', 'UserFactory', 'Constantes',
+        function($scope,registroService,UserFactory, Constantes){
+        //Inicio Rutas de imagenes
+        $scope.ruta= Constantes.ruta_imagenes + "botones/";    
+        $scope.logo= $scope.ruta + "logo.png";    
+        $scope.como= $scope.ruta + "icono-como-funciona.png";    
+        $scope.registro= $scope.ruta + "icono-registro.png";    
+        $scope.comenzar= $scope.ruta + "icono-comenzar.png";    
+        //Fin Rutas de imagenes
         $scope.mensaje="";
         $scope.signin=function(user)
         {

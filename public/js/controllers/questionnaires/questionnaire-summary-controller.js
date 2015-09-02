@@ -2,7 +2,9 @@ angular.module('gemStore')
 .controller('QuestionnaireSummaryController',['$scope', '$location' , '$routeParams', 'questionnaireService','Constantes',
   function($scope,$location, $routeParams,questionnaireService,Constantes){
   $scope.questionnaires = questionnaireService.getQuestionnaires();
-  $scope.ruta         = Constantes.ruta_imagenes;
+  $scope.ruta = Constantes.ruta_imagenes + 'botones/';  
+  $scope.editar = $scope.ruta+'editar.png';
+  $scope.borrar = $scope.ruta+'borrar.png';
   $scope.pageClass="page-summary";
   console.log('Cuestionario',$scope.questionnaires);
   	$scope.back = function()
