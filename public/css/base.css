@@ -41,7 +41,7 @@ body h1 {font-size: 11pt;color: #e2202e; text-transform: uppercase; padding: 16p
 .galeria {width: 100%; clear: both; text-align: center;}
 a.roles {width: 49.5%; display: inline-block; border-top: 2px solid #E0DFD7; border-right: 2px solid #E0DFD7; border-left: 0px; border-bottom: 0px; cursor: pointer;}
 a.roles:nth-child(even)  {border-left: 0px !important; border-right: 0px !important;}
-a.roles:hover { background: #e2202e;}
+/*a.roles:hover { background: #e2202e;}*/
 .galeria div { background: white; border: 2px solid #E0DFD7; border-radius: 50%; margin: 16px auto; height: 112px; width: 112px; }
 .galeria div:hover { background: #E0DFD7; }
 .galeria div img { max-width: 100%;}

@@ -1,0 +1,19 @@
+<div>
+	<div class="box" ng-repeat="s in solutions">		
+		<div class="row">
+			<div class="col-offset-xs-1 col-xs-1">
+				<img class="body-img" ng-src="%%img%%">
+			</div>
+			<div class="col-xs-10">
+				<div class="box-title">%%s.titulo%%</div>
+				<div class="box-body">%%s.descripcion%%</div>		
+			</div>
+		</div>		
+		<div ng-show="s.id === id">
+			<div ng-repeat="categorias in s.categorias">
+				%%categorias%%
+			</div>			
+		</div>
+		<div class="box-footer" ng-click="detalle(s.id)">%%s.fecha%%</div>		
+	</div>	
+</div>

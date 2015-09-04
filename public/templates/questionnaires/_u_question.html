@@ -1,6 +1,6 @@
 <div class="prompt_r" ng-repeat="opcion in currentQuestion.opciones">
 <div class="styled-radio">  
-		<label>%%opcion.respuesta%%</label><span></span><input type="radio" name="radio" value="%%opcion.id%%" ng-model="currentQuestion.dato" ng-click="uclick(opcion.id)"/><span></span>  	
+		%%opcion.respuesta%%<input class="radio_b" type="radio" name="radio" value="%%opcion.id%%" ng-model="currentQuestion.dato" ng-click="uclick(opcion.id)" align="right" /><span></span>  	
 </div>
 </div>
 <div class="bar_bottom_b" ng-show="oyb('P')" ng-click="summary()">    

@@ -1,4 +1,3 @@
-
 (function(){
 	angular.module('gemStore')
 	.controller('ActionQuestionnaireController', ['$scope','Constantes','questionnaireService',

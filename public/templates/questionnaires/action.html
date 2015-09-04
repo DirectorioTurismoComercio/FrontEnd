@@ -1,4 +1,3 @@
-
 <div class="prompt">
 	<div class="volver" ng-click="changeView('V')">
 		<i class="fa fa-angle-left"></i> Volver 
@@ -7,15 +6,19 @@
 		1. ¿Quieres ofrecer o buscar productos y/o servicios en TIC?
 	</div>	
 	<div class="prompt_botones">
-		<div class="prompt_btn_B" ng-click="changeView('P')">			
-			<img class="slide" ng-src="%%busco%%">
-			<span>Busco</span>
+		<div class="row">
+			<div class="col-xs-6">
+			<div class="prompt_btn_B" ng-click="changeView('P')">		
+				<img class="slide" ng-src="%%busco%%">
+				<span>Busco</span>
+			</div>	
+			</div>
+			<div class="col-xs-6">
+			<div class="prompt_btn_O" ng-click="changeView('S')">
+    			<img class="slide" ng-src="%%ofrezco%%">
+    			<span>Ofrezco</span>
+    		</div>
+    		</div>
 		</div>
-    	<div class="prompt_btn_O" ng-click="changeView('S')">
-    		<img class="slide" ng-src="%%ofrezco%%">
-    		<span>Ofrezco</span>
-    	</div>
 	</div>	  
 </div>
-  
-

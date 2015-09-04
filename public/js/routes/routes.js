@@ -107,6 +107,16 @@
         controller: 'QuestionnaireSummaryController',
         templateUrl: 'templates/questionnaires/summary.html',
       }).
+         when('/solutions',//add pacho
+      {
+        controller: 'SolutionController',        
+        templateUrl: 'templates/questionnaires/solutions.html',
+      }).
+         when('/solutions/detail',//add pacho
+      {
+        controller: 'SolutionDetailController',        
+        templateUrl: 'templates/questionnaires/solution-detail.html',
+      }).
          when('/rolquestionnaire',//add pacho
       {
         controller: 'RoleQuestionnaireController',        
