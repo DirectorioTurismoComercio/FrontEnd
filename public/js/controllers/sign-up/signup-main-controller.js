@@ -152,18 +152,29 @@
                      promesa = $scope.usuario.$save();   
                     }    
                 promesa.then(function(user){
-                    var respuesta = {};
-                    respuesta.cuestionarios = questionnaireService.getQuestionnaires();                    
-                    respuesta.id_usuario = user.id;     
-                    QuestionnaireFactory.save(respuesta).then(function(proceso){
+                    // var respuesta = {};
+                    // respuesta.cuestionarios = questionnaireService.getQuestionnaires();                    
+                    // respuesta.id_usuario = user.id;     
+                    var qf = new QuestionnaireFactory();
+                    qf.cuestionarios = questionnaireService.getQuestionnaires();                    
+                    qf.id_usuario = user.id;     
 
-                    }).catch(function(errores){
-                        console.log("Errores",errores);                        
-                    }).finally(function(){
-                        console.log("Se proceso el cuestionario");                        
-                        questionnaireService.reset();
-                    });  
-                    console.log(respuesta.id_usuario);                    
+                    qf.$save().then(function(proceso){
+                        console.log(proceso);
+                    }).catch(function(error){
+                        console.log(error);
+                    });
+
+
+                    // .then(function(proceso){
+                    //     console.log(proceso);
+                    // }).catch(function(errores){
+                    //     console.log("Errores",errores);                        
+                    // }).finally(function(){
+                    //     console.log("Se proceso el cuestionario");                        
+                    //     questionnaireService.reset();
+                    // });  
+                    // console.log(respuesta.id_usuario);                    
                     registroService.changeView(view);
                     console.log(user);
                 }).catch(function(errors){

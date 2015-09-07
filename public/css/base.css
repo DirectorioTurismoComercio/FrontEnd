@@ -25,7 +25,9 @@ nav.MobileMenu div {z-index: 9999; background: #E0DFD7; height: 200px;}
 /*BreadCrumbs*/
 div.breadCrumbs {margin: 0 0 0 16px; z-index: -1;}
 
-.main { margin: 52px 0 0 0; }
+.main { margin: 52px 0 0 0; 
+height: 400px;
+}
 
 /* Pasos */
 div.numero {background: #e2202e; height: 80px; border-radius: 40px; color: #fff; display: block; font-size: 30pt; float: left; margin: 16px 0 16px 16px; text-align: center; vertical-align: middle; width: 80px; -webkit-border-radius: 40px; -moz-border-radius: 40px; }
@@ -38,11 +40,11 @@ div.tituloPaso {color: #9B9A91; display: block; font-size: 18pt; float: left; te
 body h1 {font-size: 11pt;color: #e2202e; text-transform: uppercase; padding: 16px 0 16px 16px; margin: 0;}
 
 /*Galeria*/
-.galeria {width: 100%; clear: both; text-align: center;}
+.galeria {width: 100%; clear: both; text-align: center; margin: 1px 0 6px;}
 a.roles {width: 49.5%; display: inline-block; border-top: 2px solid #E0DFD7; border-right: 2px solid #E0DFD7; border-left: 0px; border-bottom: 0px; cursor: pointer;}
 a.roles:nth-child(even)  {border-left: 0px !important; border-right: 0px !important;}
 /*a.roles:hover { background: #e2202e;}*/
-.galeria div { background: white; border: 2px solid #E0DFD7; border-radius: 50%; margin: 16px auto; height: 112px; width: 112px; }
+.galeria div { background: #C3DBCC; border: 2px solid #E0DFD7; border-radius: 50%; margin: 16px auto; height: 112px; width: 112px; }
 .galeria div:hover { background: #E0DFD7; }
 .galeria div img { max-width: 100%;}
 .galeria p {color:#58595B; font-size: 12pt;}

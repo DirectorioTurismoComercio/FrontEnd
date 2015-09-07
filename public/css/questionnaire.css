@@ -37,21 +37,22 @@
   padding-top: 15px;
   padding-left: 10px; 
   padding-right: 10px;
-  /*height: 422px;*/
+  height: 428px;
   background-color: #F2F2F2;    
 }
 
 .volver {
   color: #B3B3B3;  
+  padding-left: 5px;
   font-size: 18px;
 }
 .prompt_q {
   padding-top: 5px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
   color: #4F4D59;  
   font-size: 16px;
-  text-align: left;
+  text-align: justify;
 }
 .prompt_r {
   padding: 10px;  
@@ -101,51 +102,6 @@
   text-align: center;
   font-weight: bold;
 }
-
-/*Modificaciones para pantalla ROLES*/
-
-a.roles {
-  border: none;
-  width: 45%;
-}
-.galeria div{
-  width: 100px; 
-  height: 100px;
-}
-.bar_bottom_b{
-  padding-top: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
-  color: #FFFFFF;
-  background-color: #80392C;
-  height: 60px;
-}
-.bar_bottom_o{
-  padding-top: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
-  color: #FFFFFF;
-  background-color: #548880;
-  height: 60px;
-}
-
-.prompt_categoria {  
-  padding-left: 30px;
-  padding-right: 30px;
-  color: #4F4D59;  
-  font-size: 16px;
-  text-align: center;  
-}
-
-.gray {
-  background-color: #E0DFD7;
-  border-radius: 10px;
-}
-
-.blanco {
-  color: white;
-}
-
 
 /*Radio Button*/
 
@@ -218,6 +174,15 @@ visibility: hidden; /*temporarily hide the "YES" label*/
   text-align: center;    
 }
 
+.btn-buscar {  
+  text-align: center;
+  background-color: #548880;
+  border-radius: 5px;
+  width: 65px;
+  height: 30px;
+  padding: 7px;
+}
+
 
 /* ANIMATIONS
 ============================================================================= */
@@ -265,7 +230,7 @@ visibility: hidden; /*temporarily hide the "YES" label*/
 
 /* home -------------------------- */
 
-.page-summary-animation.ng-enter {
+.page-summary .ng-enter {
   -webkit-transition: .10s all; /* Safari/Chrome */
   -moz-transition: .10s linear all; /* Firefox */
   -o-transition: .10s linear all; /* Opera */
@@ -275,7 +240,7 @@ visibility: hidden; /*temporarily hide the "YES" label*/
 /**
  * Pre animation -> enter
  */
-.page-summary-animation.ng-enter{
+.page-summary .ng-enter{
   /* The animation preparation code */
   opacity: 0;
 }
@@ -283,7 +248,7 @@ visibility: hidden; /*temporarily hide the "YES" label*/
 /**
  * Post animation -> enter
  */
-.page-summary-animation.ng-enter.ng-enter-active { 
+.page-summary .ng-enter.ng-enter-active { 
   /* The animation code itself */
   opacity: 1;
 }
@@ -370,18 +335,26 @@ visibility: hidden; /*temporarily hide the "YES" label*/
 .radio_b{
   padding-left: 0;
 }
-/*SOLUTIONS*/
 
+/*Solutions*/
+.backgr{
+  background-color: white;
+}
 .box{
   /*margin-top: px;  */
   text-align: center;
-  border-style: solid;
+  border-style: none;
   border-width: 1px;
-  background-color: #F2F2F2;
+  background-color: #F1F1F1;
+  padding: 1% 1% 1% 1%;
+  margin: 2% 2% 2% 2%;
 }
 
 .box-title{  
   color: #909CA6;
+  padding-left: 10px;
+  font-size: 15px;
+  text-align: left;
 }
 
 .box-img{  
@@ -392,13 +365,150 @@ visibility: hidden; /*temporarily hide the "YES" label*/
 
 .box-body{  
   color: #000000;
+  padding: 2% 7% 0 7%;
+  text-align: justify;
 }
 
 .box-footer{  
-  padding-top: 5px;
+  color: #909CA6;
   height: 30px;
   cursor: pointer;
-  background-color: #D3D7D7; 
+  background-color: #F1F1F1; 
   vertical-align: center;
+  padding-top: 2%; 
+  padding-left: 7%;
+  text-align: justify;
+}
+.solut_foot{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #F1F1F1;
+  padding: 1% 2% 1% 2%;
+  height: 60px;
+  box-shadow: 0 0 5px 2px rgba(1, 1, 1, 0.6);
+}
+.solut-button{
+  background-color: #548880;
+  border-radius: 10px;
+  margin: 0% 30% 0% 30%;
+  height: 50px;
 }
 
+
+/*Modificaciones para pantalla Action*/
+.serv_body{
+  padding: 60% 10px 60px 10px;
+  height: 300px; 
+}
+.serv_button{
+  vertical-align: baseline;
+  height: 115px;
+  padding: 0px 26px; 
+}
+.serv_text{    
+  height: 27px;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 8px;
+}
+.prompt_btn_O {
+  width: 75px;
+  height: 75px; 
+  color: #548880;
+  text-align: center;
+  font-weight: bold;
+}
+
+/*Modificaciones para pantalla Index*/
+.circle{
+      display: block;
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      background-color: #0fc;
+}
+
+.floating{
+      padding-top: 5px;
+      display: block;
+      float: right;
+      background-color: #7F382B; 
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      margin: 0px 1px 0 0;
+      font-size: 15px;
+}
+.icon-check:before {
+  color: White;
+}
+.s_cont{
+  margin: 20% 0 0 28%;
+  display: block;
+  font-size: 50px;
+}
+*{
+  box-sizing: border-box
+  }
+.galeria p {
+  color:#58595B; 
+  font-size: 9.6pt;
+  height: 22px;
+}
+
+/*Modificaciones para pantalla ROLES*/
+.body{
+  height: 370px;
+  background-color: #F2F2F2;  
+}
+.header{
+  padding-left: 10px;
+  padding-top: 15px;
+}
+a.roles {
+  border: none;
+  width: 45%;
+}
+.galeria {
+  background-color: #F2F2F2; 
+}
+.galeria div{
+  padding-top: 5px;
+  width: 95px; 
+  height: 95px;
+  margin: 5px auto
+}
+.bar_bottom_b{
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #FFFFFF;
+  background-color: #80392C;
+  height: 60px;
+}
+.bar_bottom_o{
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #FFFFFF;
+  background-color: #548880;
+  height: 60px;
+}
+
+.prompt_categoria {  
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #4F4D59;  
+  font-size: 16px;
+  text-align: center;  
+}
+
+.gray {
+  background-color: #E0DFD7;
+  border-radius: 10px;
+}
+
+.blanco {
+  color: white;
+}

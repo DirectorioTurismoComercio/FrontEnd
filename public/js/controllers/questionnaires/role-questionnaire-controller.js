@@ -6,18 +6,17 @@
 		$scope.titulo       = "Pagina Principal Controller";
 		$scope.overlayTitle = "Define tu rol dentro de la plataforma";
 		$scope.ruta         = Constantes.ruta_imagenes;
-		
+		$scope.load = true;
 		var roleFactory     = new RoleFactory();
-		console.log("rol factory"+roleFactory);
-
+		console.log("rol factory"+roleFactory);		
         RoleFactory.query().$promise 
-        .then(function(roles){
+        .then(function(roles){        	
 	        	$scope.roles = roles;
 	        	console.log($scope.roles);
             }).catch(function(errors){
                 console.log("Error al recuperar los roles desde el servidor: ",errors);
             }).finally(function(){
-               
+               $scope.load = false;               
             });
         
 		$scope.verDescription = true;

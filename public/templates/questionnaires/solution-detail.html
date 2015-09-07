@@ -1,5 +1,49 @@
 <div>
 <div class="volver" ng-click="changeView('V')">
-	<i class="fa fa-angle-left"></i> Volver 
+	<i class="fa fa-angle-left"></i> Ver Lista 
 </div>	
+<div layout="row" layout-align="space-around center">	
+	<div><img ng-src="%%img1%%"></div>	
+	<div class="bubble">95%</div>	
+	<div><img ng-src="%%img1%%"></div>	
+	</div>	
 </div>
+<div layout="row" layout-align="space-around center">
+		<div>Usted</div>
+		<div></div>
+		<div>%%solution.titulo%%</div>	
+</div>
+<!-- TABS -->
+<div>
+	<!-- <md-tabs md-dynamic-height md-border-bottom> -->
+<md-tabs md-swipe>
+      <md-tab label="Coincidencia">
+        <md-content class="md-padding">
+        	<div layout="column" layout-align="center center" ng-repeat="questionnaire in questionnaires">
+        		<p>%%questionnaire.titulo%%</p>        		
+        		<div ng-repeat="question in questionnaire.preguntas">
+        			<div ng-show="question.enable">
+        				<p>%%question.pregunta.enunciado%%</p>        		
+        			</div>
+        		</div>
+        	</div>          
+        </md-content>
+      </md-tab>
+      <md-tab label="Información">
+        <md-content class="md-padding">          
+          <p>%%solution.descripcion%%</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="Contacto">
+        <md-content class="md-padding">          
+          <p>Información de Contacto</p>
+        </md-content>
+      </md-tab>
+</md-tabs md-swipe>
+</div>
+<div class="solut_foot">
+	<div layout="row" layout-align="center center" class="solut-button">
+		 <img ng-src="%%img%%">
+		 <div>Cerrar Trato</div>
+	</div>
+</div>					

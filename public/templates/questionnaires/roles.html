@@ -1,20 +1,21 @@
-
-<div class="prompt">
-  <div class="volver" ng-click="changeView('V')">
-    <i class="fa fa-angle-left"></i> Volver 
-  </div>
-  <div class="prompt_q">
-    2. Ahora, cuéntanos un poco más sobre quién eres...
+<div class="body">
+  <div class="header">
+    <div class="volver" ng-click="changeView('V')">
+      <i class="fa fa-angle-left"></i> Volver 
+    </div>
+    <div class="prompt_q">
+      2. Ahora, cuéntanos un poco más sobre quién eres...
+    </div> 
+  </div> 
+  <div layout='row' layout-align="center center">
+    <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
   </div>  
   <div class="galeria">
     <a ng-click="toggleDescription($index)" ng-repeat="rol in roles" class="roles">
-      <div>
         <img class="slide" ng-src="%%ruta+rol.imagen%%" />
-      </div>
       <p>%%rol.nombre%%</p>
     </a>
   </div>
-</div>
   <div class="bar_bottom_b" ng-show="oyb('P')">    
     Estoy Buscando...
   </div>
@@ -37,3 +38,5 @@
     </div>
   </div>
 </div>
+</div>
+    

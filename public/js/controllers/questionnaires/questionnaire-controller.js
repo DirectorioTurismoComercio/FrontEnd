@@ -6,15 +6,15 @@
 angular.module('gemStore')
 .controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location', 'Constantes',
   function($scope,QuestionnaireFactory,questionnaireService,$location, Constantes){
-     $scope.ruta = Constantes.ruta_imagenes+'botones/';
-     
+     $scope.ruta = Constantes.ruta_imagenes+'botones/';     
      var rol = questionnaireService.getRol();     
      var tipo = questionnaireService.getTipo();              
      console.log(rol);
      console.log(tipo);
      console.log(!questionnaireService.getQuestionnaires());     
      if(!questionnaireService.getQuestionnaires())
-     { 
+     {    
+        $scope.load = true;     
           promesa = QuestionnaireFactory.query({id:rol,tipo: tipo}).$promise.
           then(function(questionnaires){
           for(var k=0;k<questionnaires.length;k++)
@@ -33,15 +33,14 @@ angular.module('gemStore')
             } 
           }
           questionnaireService.setQuestionnaires(questionnaires);
-          $scope.questionnaires = questionnaireService.getQuestionnaires();
-
-          
+          $scope.questionnaires = questionnaireService.getQuestionnaires();                  
         })
         .catch(function(errors){
           console.log(errors);
         })
-        .finally(function(){
+        .finally(function(){          
           console.log("in finally");
+          $scope.load = false;
         });
      }
      else
@@ -68,7 +67,7 @@ angular.module('gemStore')
     }
 
     $scope.b_buscar = function(){
-      console.log(questionnaireService.getConta() );
+      console.log(questionnaireService.getConta());
         if (questionnaireService.getConta() >= 3) {
           return true;
         } else {
@@ -77,7 +76,7 @@ angular.module('gemStore')
     }
 
     $scope.buscar = function(){
-      $location.path('personalData');
+      $location.path('solutions');
     }
 
      $scope.summary = function(){
