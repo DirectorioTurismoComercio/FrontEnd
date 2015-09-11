@@ -1,12 +1,25 @@
 (function(){
 	angular.module('gemStore')
-	.controller('ActionQuestionnaireController', ['$scope','Constantes','questionnaireService',
-		function($scope,Constantes,questionnaireService){
+	.controller('ActionQuestionnaireController', ['$scope','Constantes','questionnaireService','navBar',
+		function($scope,Constantes,questionnaireService,navBar){
                         //Rutas Imagenes
                         $scope.ruta = Constantes.ruta_imagenes + "botones/";
                         $scope.busco = $scope.ruta + "boton-busco.png";
                         $scope.ofrezco = $scope.ruta + "boton-ofrezco.png";
-			console.log('Prueba Controlador');
+			console.log('Prueba Controlador');                        
+
+                        $scope.toggleRight = function(){                                
+                                navBar.open();
+                        }
+
+                        $scope.close= function(){
+                                navBar.close();
+                        }
+
+                        $scope.menu_bar = function (view){
+                                questionnaireService.changeView(view);                      
+                        }
+
 			$scope.changeView = function (tipo)
         	{    
         		console.log(tipo);

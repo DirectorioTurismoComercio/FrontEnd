@@ -1,17 +1,27 @@
-<div class="backgr">
-	<div class="volver" ng-click="changeView('V')">
-      <i class="fa fa-angle-left"></i> Volver 
-    </div>
+<div layout="row" layout-align="space-around center" class="barra_main">
+	<div class="regresar" ng-click="menu_bar('questionnaires')">
+		<i class="fa fa-arrow-left"></i>
+		<md-tooltip>
+        VOLVER
+      </md-tooltip>
+	</div>
+	LABORATORIOS VIRTUALES
+	<div class="menu" ng-click="toggleRight()">	
+		<i class="fa fa-reorder"></i>
+	</div>
+</div>
+
+<div class="prompt fondo_blanco">	
 	<div layout='row' layout-align="center center">
     <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
   </div>  
-	<div class="box" ng-repeat="s in solutions">		
+	<div class="box" ng-repeat="s in solutions" ng-click="detalle(s.id)">
 		<div layout="row" layout-align="start center">
 				<div><img class="body-img" ng-src="%%img%%"></div>
 				<div class="box-title">%%s.titulo%%</div>
 		</div>
 		<div class="box-body">%%s.descripcion%%</div>
-		<div class="box-footer" ng-click="detalle(s.id)">%%s.fecha%%</div>
+		<div class="box-footer">%%s.fecha%%</div>
 	</div>
 </div>
 <div class="solut_foot">
@@ -20,3 +30,18 @@
 		 <div>Registrate</div>
 	</div>
 </div>					
+
+
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>      
+    <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>            
+  </div>  
+</md-sidenav>  

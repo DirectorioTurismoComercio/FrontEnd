@@ -1,6 +1,6 @@
 angular.module('gemStore')
-.controller('QuestionnaireSummaryController',['$scope', '$location' , '$routeParams', 'questionnaireService','Constantes',
-  function($scope,$location, $routeParams,questionnaireService,Constantes){
+.controller('QuestionnaireSummaryController',['$scope', '$location' , '$routeParams', 'questionnaireService','Constantes', 'navBar',
+  function($scope,$location, $routeParams,questionnaireService,Constantes, navBar){
   $scope.questionnaires = questionnaireService.getQuestionnaires();
   $scope.ruta = Constantes.ruta_imagenes + 'botones/';  
   $scope.editar = $scope.ruta+'editar.png';
@@ -22,6 +22,18 @@ angular.module('gemStore')
       $scope.questionnaires[_id].enable = false;
       questionnaireService.setConta(-1);
       questionnaireService.clearFull(_id);
+    }
+
+    $scope.toggleRight = function(){                                
+      navBar.open();
+    }
+
+    $scope.close= function(){
+      navBar.close();
+    }
+
+    $scope.menu_bar = function (view){
+      questionnaireService.changeView(view);                      
     }
 
 }]);

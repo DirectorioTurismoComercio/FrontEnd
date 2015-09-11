@@ -1,12 +1,25 @@
 
 (function(){
 	angular.module('gemStore')
-	.controller('RoleQuestionnaireController', ['$scope', 'registroService', 'RoleFactory','Constantes','questionnaireService',
-		function($scope,registroService,RoleFactory,Constantes,questionnaireService){
+	.controller('RoleQuestionnaireController', ['$scope', 'registroService', 'RoleFactory','Constantes','questionnaireService','navBar',
+		function($scope,registroService,RoleFactory,Constantes,questionnaireService, navBar){
 		$scope.titulo       = "Pagina Principal Controller";
 		$scope.overlayTitle = "Define tu rol dentro de la plataforma";
 		$scope.ruta         = Constantes.ruta_imagenes;
 		$scope.load = true;
+		
+		$scope.toggleRight = function(){                                
+			navBar.open();
+        }
+
+        $scope.close= function(){
+        	navBar.close();
+        }
+
+        $scope.menu_bar = function (view){
+			questionnaireService.changeView(view);                      
+		}
+
 		var roleFactory     = new RoleFactory();
 		console.log("rol factory"+roleFactory);		
         RoleFactory.query().$promise 

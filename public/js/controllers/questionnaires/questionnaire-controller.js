@@ -4,14 +4,26 @@
 * ProblemsShowController un solo problema para un usuario
 */
 angular.module('gemStore')
-.controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location', 'Constantes',
-  function($scope,QuestionnaireFactory,questionnaireService,$location, Constantes){
+.controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location', 'Constantes', 'navBar',
+  function($scope,QuestionnaireFactory,questionnaireService,$location, Constantes, navBar){
      $scope.ruta = Constantes.ruta_imagenes+'botones/';     
      var rol = questionnaireService.getRol();     
      var tipo = questionnaireService.getTipo();              
      console.log(rol);
      console.log(tipo);
      console.log(!questionnaireService.getQuestionnaires());     
+    $scope.toggleRight = function(){                                
+      navBar.open();
+    }
+
+    $scope.close= function(){
+      navBar.close();
+    }
+
+    $scope.menu_bar = function (view){
+      questionnaireService.changeView(view);                      
+    }
+    
      if(!questionnaireService.getQuestionnaires())
      {    
         $scope.load = true;     

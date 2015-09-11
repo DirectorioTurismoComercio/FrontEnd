@@ -1,3 +1,11 @@
+<div layout="row" layout-align="space-around center" class="barra_main">
+  <div></div>
+  LABORATORIOS VIRTUALES
+  <div class="menu" ng-click="toggleRight()"> 
+    <i class="fa fa-reorder"></i>
+  </div>
+</div>
+
 <div class="prompt">
 	<div class="prompt_q">
     %%currentQuestion.enunciado%%
@@ -5,8 +13,40 @@
 	<div class="q_next" ng-click="next()">Siguiente<img ng-src="%%siguiente%%"></div>		
 	<div class="q_back" ng-click="previous()"><img ng-src="%%anterior%%"> Menu </div>	
   </div>	  
-  </div>  	
-  
-	<div ng-include src="answersTemplate"></div>
-	
+  </div>  	  
+	<div ng-include src="answersTemplate"></div>	
 </div>
+ <div layout="column" layout-align="space-around center" class="footer_fix footer_buscar" ng-show="oyb('P')">
+    <div layout="row" layout-align="space-around center">
+      <div><img class="flecha_arriba" ng-click="summary()"></div>
+    </div>
+    <div layout="row" layout-align="space-between center">
+      <div>Estoy Buscando...</div>  
+      <div class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar</div>    
+    </div>
+  </div>  
+
+  <div layout="column" layout-align="space-around center" class="footer_fix footer_ofrecer" ng-show="oyb('S')">
+     <div layout="row" layout-align="space-around center">
+      <div><img class="flecha_arriba" ng-click="summary()"></div>
+      <div class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar
+      </div>
+    </div>
+    <div layout="row" layout-align="space-between center">      
+      <div>Estoy Ofreciendo...</div>
+    </div>
+  </div>  
+
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>      
+    <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>            
+  </div>  
+</md-sidenav>  

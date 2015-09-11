@@ -1,8 +1,14 @@
+<div layout="row" layout-align="space-around center" class="barra_main">   
+  <div class="regresar" ng-click="changeView('V')">
+    <i class="fa fa-arrow-left"></i>
+  </div>
+  LABORATORIOS VIRTUALES
+  <div class="menu" ng-click="toggleRight()"> 
+    <i class="fa fa-reorder"></i>
+  </div>
+</div>
 <div class="body">
-  <div class="header">
-    <div class="volver" ng-click="changeView('V')">
-      <i class="fa fa-angle-left"></i> Volver 
-    </div>
+  <div class="header">    
     <div class="prompt_q">
       2. Ahora, cuéntanos un poco más sobre quién eres...
     </div> 
@@ -16,12 +22,8 @@
       <p>%%rol.nombre%%</p>
     </a>
   </div>
-  <div class="bar_bottom_b" ng-show="oyb('P')">    
-    Estoy Buscando...
-  </div>
-  <div class="bar_bottom_o" ng-show="oyb('S')">    
-    Estoy Ofreciendo...
-  </div>
+  <div layout="column" layout-align="space-around center" class="footer_fix footer_buscar" ng-show="oyb('P')">Estoy Buscando...</div>  
+  <div layout="column" layout-align="space-around center" class="footer_fix footer_ofrecer" ng-show="oyb('S')">Estoy Ofreciendo...</div>
 
 <div class="overlay" ng-hide="verDescription">
   <div class="descriptionWrapper">
@@ -39,4 +41,16 @@
   </div>
 </div>
 </div>
-    
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>      
+    <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>            
+  </div>  
+</md-sidenav>  

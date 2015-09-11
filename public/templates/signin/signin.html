@@ -7,11 +7,13 @@
 </div>
  -->
 
-<div class="container fondo">
+<div class="fondo">
   <form class="form-signin">
-    <image class="img-contain" ng-src="%%logo%%"></image>
+    <image class="img-logo" ng-src="%%logo%%"></image>
+    <!-- <div layout="row" layout-align="center center">
+    <image class="img-logo"></image></div> -->
     <!-- <h2 class="form-signin-heading">Ingresar...</h2> -->    
-    <label for="inputEmail" class="sr-only">Email address</label>
+    <!-- <label for="inputEmail" class="sr-only">Email address</label>
     <input type="text" ng-model="user" class="form-control" placeholder="id usuario..." autofocus>
     <div class="error">%%mensaje%%</div>
       <label for="inputPassword" class="sr-only">Password</label>
@@ -19,18 +21,20 @@
       <label>
         <input type="checkbox" value="remember-me"> Recordarme
       </label>
-    </div>
-		<button class="btn btn-lg btn-success btn-block" ng-click="signin(user)">
-      <!-- <i class="fa fa-question-circle"></i> -->
-      <img ng-src="%%como%%">
-       ¿Cómo Funciona?
+    </div> -->
+
+    <div class="botones_inicio">
+
+
+      <button class="btn btn-lg btn-success btn-block" ng-click="signin(user)">   
+        <img ng-src="%%como%%"> ¿Cómo Funciona?
      </button>
-    <button class="btn btn-lg btn-success btn-block" ng-click="signup()">
-      <!-- <i class="fa fa-user"></i> -->
-      <img ng-src="%%registro%%"> Registrate</button>
-    <button class="btn btn-lg btn-danger btn-block" ng-click="noregistrado()">
-      <!-- <i class="fa fa-lightbulb-o"></i> -->
-      <img ng-src="%%comenzar%%"> Comienza a Explorar</button>
-    
+     <button class="btn btn-lg btn-success btn-block" ng-click="signup()">     
+        <img ng-src="%%registro%%"> Registrate
+      </button>
+    <button class="btn btn-lg btn-danger btn-block" ng-click="noregistrado()">     
+        <img ng-src="%%comenzar%%"> Comienza a Explorar
+    </button>
+    </div>
   </form>
 </div> <!-- /container -->

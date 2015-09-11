@@ -158,6 +158,7 @@
                     var qf = new QuestionnaireFactory();
                     qf.cuestionarios = questionnaireService.getQuestionnaires();                    
                     qf.id_usuario = user.id;     
+                    qf.tipo = questionnaireService.getTipo();     
 
                     qf.$save().then(function(proceso){
                         console.log(proceso);

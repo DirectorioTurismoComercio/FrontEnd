@@ -1,8 +1,14 @@
-<div class="body">
-<div class="header">
-  <div class="volver" ng-click="changeView('rolquestionnaire')">
-    <i class="fa fa-angle-left"></i> Volver 
+<div layout="row" layout-align="space-around center" class="barra_main">   
+  <div class="regresar" ng-click="changeView('rolquestionnaire')">
+    <i class="fa fa-arrow-left"></i>
   </div>
+  LABORATORIOS VIRTUALES
+  <div class="menu" ng-click="toggleRight()"> 
+    <i class="fa fa-reorder"></i>
+  </div>
+</div>
+<div class="body">
+<div class="header">  
   <div class="prompt_q">
     3. Muy bien, ayúdanos a encontrar la solución perfecta para tu comercio, llenando la siguiente información:
     </div>
@@ -21,24 +27,38 @@
     </a>    
   </div>  
 
-  <div class="bar_bottom_b" ng-show="oyb('P')">        
-    <div class="s_quest_back">
-      <img class="flecha_arriba" ng-click="summary()"><br>
-    </div>
+  <div layout="column" layout-align="space-around center" class="footer_fix footer_buscar" ng-show="oyb('P')">
     <div layout="row" layout-align="space-around center">
-      <div>Estoy Buscando...</div>
+      <div><img class="flecha_arriba" ng-click="summary()"></div>
+    </div>
+    <div layout="row" layout-align="space-between center">
+      <div>Estoy Buscando...</div>  
+      <div class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar</div>    
+    </div>
+  </div>  
+
+  <div layout="column" layout-align="space-around center" class="footer_fix footer_ofrecer" ng-show="oyb('S')">
+     <div layout="row" layout-align="space-around center">
+      <div><img class="flecha_arriba" ng-click="summary()"></div>
       <div class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar
       </div>
     </div>
-  </div>
-    <div class="bar_bottom_o" ng-show="oyb('S')" ng-click="summary()">    
-      <div class="s_quest_back">
-        <img class="flecha_arriba" ng-click="summary()"><br>
-      </div>   
-      <div layout="row" layout-align="space-around center">
+    <div layout="row" layout-align="space-between center">      
       <div>Estoy Ofreciendo...</div>
-      <div class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar
-      </div>
     </div>
-  </div>
+  </div>  
 </div>
+<!-- SIDE BAR -->
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>      
+    <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>            
+  </div>  
+</md-sidenav>  

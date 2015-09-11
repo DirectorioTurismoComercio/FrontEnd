@@ -1,0 +1,296 @@
+/*Dispositivos Pequeños*/
+@media (max-width: 320px) and (orientation: portrait){
+	.fondo{
+		width: 100%;
+		background-image: url("../images/Fondo/Fondo_Inicio.png");
+	    background-repeat: no-repeat;
+	    background-position: center;			
+	}
+	.img-logo {		
+		padding-left: 25%;
+		padding-right: 25%;
+		width: 100%;
+		/*width: 116px;
+		height: 117px;
+		background: url("../images/botones/logo.png") no-repeat;*/
+	}
+
+	.botones_inicio {
+		margin-top: 114px;
+	}
+
+	.regresar {
+		text-align: center;
+		width: 50px;
+	}
+	.menu{
+		text-align: center;
+		width: 50px;
+	}
+
+	.barra_main{
+		height: 50px;
+		background-color: white;
+		color: #154064; "/*azul*/
+		font-weight: bolder;
+		box-shadow: 0px 0px 5px 2px rgba(1, 1, 1, 0.6);		
+	}
+
+	.botones_barra {
+		height: 40px;
+		text-align: center;		
+	}
+
+	/*Action View*/	
+
+	.prompt {
+	    padding-top: 15px;
+	    padding-left: 10px;
+	    padding-right: 10px;
+	    height: 430px;
+	    background-color: #F2F2F2;
+	}
+	.prompt_q {	  
+	  color: #4F4D59; 	   
+	  font-size: 16px;
+	  text-align: justify;
+	}
+
+	.serv_body{
+	  padding: 70% 10px 60px 10px;
+	  height: 380px; 
+	}
+
+	.serv_button{	  
+	  height: 115px;	  
+	}
+
+	.btn_buscar {  
+	  color: #80392C;
+  	  text-align: center;
+  	  font-weight: bold;
+	}
+
+	.btn_ofrecer {  
+  		color: #548880;
+  		text-align: center;
+  		font-weight: bold;
+	}
+/* View Roles*/
+	.body {
+		height: 370px;
+  		background-color: #F2F2F2;  
+	}
+	.footer_fix {
+	  position: fixed;
+	  bottom: 0;
+	  width: 100%;	  
+	  padding: 1% 2% 1% 2%;
+	  height: 60px;
+	  box-shadow: 0 0 5px 2px rgba(1, 1, 1, 0.6);
+	}
+	.footer_buscar {
+	  color: #FFFFFF;
+  	  background-color: #80392C;
+	}
+
+	.footer_ofrecer {	  
+	  color: #FFFFFF;
+  	  background-color: #548880;
+	}
+/* View Summary*/
+	.prompt_q_full {	  
+	  width: 100%;
+	  color: #4F4D59;   
+	  font-size: 16px;
+	  text-align: left;
+	}
+
+	.s_quest_b {
+	    background-color: #f2f2f2;
+	    width: 100%;
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+	    margin-top: 2%;
+	}
+
+	.s_quest_q {
+	  padding: 10px;  
+	  margin-top: 5px;
+	  margin-bottom: 5px;
+	  margin-left: 15px;
+	  margin-right: 15px;
+	  color: #000000;  
+	  font-size: 16px;  
+	  text-align: center;
+	  background-color: #f2f2f2;
+	  border-radius: 12px;
+	}
+	.s_quest_r {
+	  background-color: #9BBDAA;
+	  padding: 4px 4px 4px 4px;
+	  border-radius: 10px;
+	}
+
+	/*SOLUTIONS-DETAIL*/
+
+	.sol_imagenes{
+		margin-top: 20px;
+	}
+	
+	.bubble{
+		color: #ffffff;
+		width: 50px;
+		height: 50px;		
+		border-radius: 50%;
+		background-color: #9BBDAA;		
+	}
+}
+
+/*Dispositivos Grandes*/
+@media (min-width: 321px){
+	.fondo{
+		margin-left: 25%;
+		width: 50%;
+		padding-top:10%;		
+	}
+	.img-logo {		
+		width: 100%;		
+	}
+	.botones_inicio {
+		margin-top: 114px;
+	}
+
+	.regresar {
+		text-align: center;
+		width: 100px;
+	}
+
+	.menu{
+		text-align: center;
+		width: 100px;
+	}
+
+	.botones_barra {
+		height: 40px;
+		text-align: center;		
+	}
+
+	/*Action View*/
+	.barra_main{
+		padding: 10px;
+		height: 50px;
+		background-color: white;
+		color: #154064;
+		font-weight: bolder;
+		text-align: center;
+		box-shadow: 0px 0px 5px 2px rgba(1, 1, 1, 0.6);		
+	}
+
+	.prompt {
+	    padding-top: 15px;
+	    padding-left: 10px;
+	    padding-right: 10px;
+	    height: 790px;
+	    background-color: #F2F2F2;	    
+	}
+
+	.prompt_q {	  
+	  color: #4F4D59; 	   
+	  font-size: 16px;
+	  text-align: justify;
+	}
+
+	.serv_body{
+	  padding: 70% 10px 60px 10px;
+	  height: 640px; 
+	}
+
+	.serv_button{	  
+	  height: 115px;	  
+	}
+
+	.btn_buscar {  
+	  color: #80392C;
+  	  text-align: center;
+  	  font-weight: bold;
+	}
+
+	.btn_ofrecer {  
+  		color: #548880;
+  		text-align: center;
+  		font-weight: bold;
+	}
+	/* View Roles*/
+	.body {
+		height: 370px;
+  		background-color: #F2F2F2;  
+	}
+	.footer_fix {
+	  position: fixed;
+	  bottom: 0;
+	  width: 100%;	  
+	  padding: 1% 2% 1% 2%;
+	  height: 60px;
+	  box-shadow: 0 0 5px 2px rgba(1, 1, 1, 0.6);
+	}
+	.footer_buscar {
+	  color: #FFFFFF;
+  	  background-color: #80392C;
+	}
+
+	.footer_ofrecer {	  
+	  color: #FFFFFF;
+  	  background-color: #548880;
+	}
+	.galeria {
+		margin-top: 20%;
+	}
+
+		
+}
+
+@media all{
+	.main{
+		width: 100%;
+		height: 100%;		
+		background-color: #f2f2f2;
+	}
+	.flecha_arriba{
+	  border: transparent;
+	  width: 19px;
+	  height: 12px;
+	  background: url("../images/botones/boton-flecha-arriba.png") no-repeat;
+	}
+	.flecha_abajo{
+	  border: transparent;
+	  width: 19px;
+	  height: 12px;
+	  background: url("../images/botones/boton-flecha-arriba.png") no-repeat;
+	  -webkit-transform: rotate(180deg);
+	  -moz-transform: rotate(180deg);
+	  -ms-transform: rotate(180deg);
+	}
+	.toolbar_side{
+		background-color: #f2f2f2;
+		color: #154064;
+	}
+
+	.fondo_blanco{
+		background-color: #ffffff;
+		color: #000000;
+	}
+
+	.texto_verde {
+  		color: #548880;
+	}
+
+	md-tabs md-ink-bar {
+	    color: rgb(6,158,82);
+	    background: rgb(6,158,82);
+	}
+
+	md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused {
+	    color: rgb(6,158,82);
+	}
+}
