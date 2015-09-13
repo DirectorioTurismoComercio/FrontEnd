@@ -98,6 +98,23 @@
 	  color: #FFFFFF;
   	  background-color: #548880;
 	}
+
+
+	/*View Question*/
+
+	.prompt_r {
+	  padding: 10px;  
+	  margin-top: 5px;
+	  margin-bottom: 5px;
+	  margin-left: 15px;
+	  margin-right: 15px;
+	  /*width: 100%;*/
+	  color: #000000;  
+	  font-size: 16px;  
+	  text-align: center;
+	  background-color: #C6D7CE;
+	  border-radius: 12px;
+	}
 /* View Summary*/
 	.prompt_q_full {	  
 	  width: 100%;
@@ -247,6 +264,68 @@
 		margin-top: 20%;
 	}
 
+	/*View Question*/
+
+	.prompt_r {
+	  padding: 10px;  
+	  margin-top: 5px;
+	  margin-bottom: 5px;
+	  margin-left: 15px;
+	  margin-right: 15px;
+	  width: 100%;
+	  color: #000000;  
+	  font-size: 16px;  
+	  text-align: center;
+	  background-color: #C6D7C;
+	  border-radius: 12px;
+	}
+	/* View Summary*/
+	.prompt_q_full {	  
+	  width: 100%;
+	  color: #4F4D59;   
+	  font-size: 16px;
+	  text-align: left;
+	}
+
+	.s_quest_b {
+	    background-color: #f2f2f2;
+	    width: 100%;
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+	    margin-top: 2%;
+	}
+
+	.s_quest_q {
+	  padding: 10px;  
+	  margin-top: 5px;
+	  margin-bottom: 5px;
+	  margin-left: 15px;
+	  margin-right: 15px;
+	  color: #000000;  
+	  font-size: 16px;  
+	  text-align: center;
+	  background-color: #f2f2f2;
+	  border-radius: 12px;
+	}
+	.s_quest_r {
+	  background-color: #9BBDAA;
+	  padding: 4px 4px 4px 4px;
+	  border-radius: 10px;
+	}
+
+	/*SOLUTIONS-DETAIL*/
+
+	.sol_imagenes{
+		margin-top: 20px;
+	}
+	
+	.bubble{
+		color: #ffffff;
+		width: 50px;
+		height: 50px;		
+		border-radius: 50%;
+		background-color: #9BBDAA;		
+	}
 		
 }
 
@@ -293,4 +372,144 @@
 	md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused {
 	    color: rgb(6,158,82);
 	}
+
+	.bc_content{
+	  height: 180px;
+	 }
+
+	 @-webkit-keyframes
+  cardEnter {  0%, 20%, 40%, 60%, 80%, 100% {
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);}
+
+ 0% {
+ opacity: 0;
+ -webkit-transform: scale3d(0.3, 0.3, 0.3);
 }
+
+ 20% {
+ -webkit-transform: scale3d(1.1, 1.1, 1.1);
+}
+
+ 40% {
+ -webkit-transform: scale3d(0.9, 0.9, 0.9);
+}
+
+ 60% {
+ opacity: 1;
+ -webkit-transform: scale3d(1.03, 1.03, 1.03);
+}
+
+ 80% {
+ -webkit-transform: scale3d(0.97, 0.97, 0.97);
+}
+
+ 100% {
+ opacity: 1;
+ -webkit-transform: scale3d(1, 1, 1);
+}
+
+}
+
+@keyframes
+cardEnter {  0%, 20%, 40%, 60%, 80%, 100% {
+ -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+ transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+ 0% {
+ opacity: 0;
+ -webkit-transform: scale3d(0.3, 0.3, 0.3);
+ transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+ 20% {
+ -webkit-transform: scale3d(1.1, 1.1, 1.1);
+ transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+ 40% {
+ -webkit-transform: scale3d(0.9, 0.9, 0.9);
+ transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+ 60% {
+ opacity: 1;
+ -webkit-transform: scale3d(1.03, 1.03, 1.03);
+ transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+ 80% {
+ -webkit-transform: scale3d(0.97, 0.97, 0.97);
+ transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+ 100% {
+ opacity: 1;
+ -webkit-transform: scale3d(1, 1, 1);
+ transform: scale3d(1, 1, 1);
+  }
+}
+
+.radio_b {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 49px;
+  cursor: pointer;
+  height: 20px;
+}
+.radio_b:hover .inner {
+  -webkit-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: .5;
+}
+.radio_b input {
+  width: 1px;
+  height: 1px;
+  opacity: 1;
+}
+.radio_b input:checked + .outer .inner {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+.radio_b input:checked + .outer { 
+  border: 3px solid #548880; 
+}
+
+.radio_b input:focus + .outer .inner {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  background-color: #548880;
+}
+.radio_b .outer {
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: left;
+  border: 3px solid #548880;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.radio_b .inner {
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  width: 16px;
+  height: 16px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  display: block;
+  border-radius: 50%;
+  background-color: #548880;
+  opacity: 0;
+}
+
+
+}
+
+

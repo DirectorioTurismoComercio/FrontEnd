@@ -47,7 +47,7 @@
   font-size: 16px;
   text-align: justify;
 }
-.prompt_r {
+/*.prompt_r {
   padding: 10px;  
   margin-top: 5px;
   margin-bottom: 5px;
@@ -58,7 +58,7 @@
   text-align: center;
   background-color: #C6D7CE;
   border-radius: 12px;
-}
+}*/
 
 .prompt_botones {
   padding-top: 130px;      

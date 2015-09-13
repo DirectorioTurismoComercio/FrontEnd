@@ -89,6 +89,7 @@ angular.module('gemStore')
 
     $scope.buscar = function(){
       $location.path('solutions');
+      
     }
 
      $scope.summary = function(){

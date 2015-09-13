@@ -1,6 +1,15 @@
-<div class="prompt_r" ng-repeat="opcion in currentQuestion.opciones">
+<!-- <div class="prompt_r" ng-repeat="opcion in currentQuestion.opciones">
 <div class="styled-radio">  
 		%%opcion.respuesta%%<input class="radio_b" type="radio" name="radio" value="%%opcion.id%%" ng-model="currentQuestion.dato" ng-click="uclick(opcion.id)" align="right" /><span></span>  	
 </div>
+</div>
+ -->
+
+<div layout="column" layout-align="end center" class="bc_content">
+ <div class="prompt_r" ng-repeat="opcion in currentQuestion.opciones">
+ <div layout="row" layout-align="end center">
+   <div flex="90">%%opcion.respuesta%% </div>
+   <input class="radio_b" type="radio" name="radio" value="%%opcion.id%%" ng-click="uclick(opcion.id)" ng-model="currentQuestion.dato" align="right" /><span class="outer"><span class="inner"></span></span></div>   
+ </div>
 </div>
 

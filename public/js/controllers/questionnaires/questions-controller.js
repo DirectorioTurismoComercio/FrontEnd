@@ -29,6 +29,7 @@ angular.module('gemStore')
     }  
     $scope.uclick = function (idOpcion)
     {
+    console.log('eee', idOpcion)      ;
        for(var i=0; i<$scope.currentQuestion.opciones.length;i++)
        {
         
