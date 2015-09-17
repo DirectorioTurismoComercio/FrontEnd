@@ -4,8 +4,8 @@
 * ProblemsShowController un solo problema para un usuario
 */
 angular.module('gemStore')
-.controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location', 'Constantes', 'navBar',
-  function($scope,QuestionnaireFactory,questionnaireService,$location, Constantes, navBar){
+.controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location', 'Constantes', 'navBar', 'SolutionFactory',
+  function($scope,QuestionnaireFactory,questionnaireService,$location, Constantes, navBar, SolutionFactory){
      $scope.ruta = Constantes.ruta_imagenes+'botones/';     
      var rol = questionnaireService.getRol();     
      var tipo = questionnaireService.getTipo();              
@@ -80,7 +80,7 @@ angular.module('gemStore')
 
     $scope.b_buscar = function(){
       console.log(questionnaireService.getConta());
-        if (questionnaireService.getConta() >= 3) {
+        if (questionnaireService.getConta() >= 0) {
           return true;
         } else {
           return false;
@@ -88,8 +88,18 @@ angular.module('gemStore')
     }
 
     $scope.buscar = function(){
-      $location.path('solutions');
-      
+      // var qf = new QuestionnaireFactory();
+      //     qf.cuestionarios = questionnaireService.getQuestionnaires();                              
+      //     qf.tipo = questionnaireService.getTipo();  
+      //     SolutionFactory.get({cuestionario:qf,pagina:1});
+          // SolutionFactory.post(qf,1);
+          // SolutionFactory.get(qf,1);
+      //     .then(function(proceso){
+      //       console.log(proceso);
+      //     }).catch(function(error){
+      //       console.log(error);
+      // });
+       $location.path('solutions');
     }
 
      $scope.summary = function(){

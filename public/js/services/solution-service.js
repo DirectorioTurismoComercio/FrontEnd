@@ -11,7 +11,7 @@
 	var setSolutions = function (_solutions)
 	{
 		solutions = _solutions;
-		console.log(solutions);
+		console.log('Soluciones:',solutions);
 	}
 
 	var getSolution = function ()

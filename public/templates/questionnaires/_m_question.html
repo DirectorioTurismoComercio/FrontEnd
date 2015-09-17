@@ -1,6 +1,22 @@
-<div class="prompt_r" ng-repeat="opcion in currentQuestion.opciones">
-<div >%%opcion.respuesta%%
-	<input type="checkbox"  ng-model="opcion.dato"
- ng-click="mclick(opcion.id,opcion.dato)"/>
+<!-- Provisionalmente comentado no funciona en devices -->
+<!-- <div layout="column" layout-align="end center" class="bc_content">
+<div class="prompt_r" ng-repeat="opcion in currentQuestion.opciones" >
+	<label class="ckb" ng-click="uclick(opcion.id)">
+		<div layout="row">
+			<div flex="90">%%opcion.respuesta%%</div>
+			<div><input type="checkbox"  ng-model="opcion.dato" ng-click="mclick(opcion.id,opcion.dato)"/>
+			<i></i></div>
+		</div>
+   		</label>
 </div>
+</div> -->
+
+<!-- Provisionalmente para poder probar funcionalidad -->
+
+<div layout="column" layout-align="end center" class="bc_content">
+	<div layout="row" layout-align="space-around center" class="prompt_r" ng-repeat="opcion in currentQuestion.opciones">
+		<md-checkbox ng-model="opcion.dato" ng-click="mclick(opcion.id,opcion.dato)" class="md-warn">
+	%%opcion.respuesta%%          
+</md-checkbox>
+	</div>
 </div>

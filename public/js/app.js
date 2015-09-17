@@ -1,8 +1,8 @@
 (function() {
     //'gemStore' module depends on 'store-products' modules
-  angular.module('gemStore',['ngRoute','ngResource','userModule','ngAnimate','ngMaterial'])
+  angular.module('gemStore',['ngRoute','ngResource','userModule','ngAnimate','ngMaterial','ngAria','angularUtils.directives.dirPagination'])
  .constant("Constantes",{"url":"http://www.epsilondx.com/django/index.fcgi","ruta_imagenes":"./images/"})
- //.constant("Constantes",{"url":"http://127.0.0.1:8000","ruta_imagenes":"./images/"})
+ // .constant("Constantes",{"url":"http://10.203.151.125:8282","ruta_imagenes":"./images/"})
   .config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('%%');
     $interpolateProvider.endSymbol('%%');
@@ -11,7 +11,7 @@
     return {
       restrict: 'E',
       templateUrl: 'templates/navbar.html',
-      controller : function($scope){
+      controller : function($scope){  
         $scope.MobileMenu = true;
         $scope.toggleMobileMenu = function() {
           $scope.MobileMenu = $scope.MobileMenu === false ? true: false;

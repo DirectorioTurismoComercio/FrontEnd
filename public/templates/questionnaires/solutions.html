@@ -13,17 +13,29 @@
 
 <div class="prompt fondo_blanco">	
 	<div layout='row' layout-align="center center">
-    <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
-  </div>  
-	<div class="box" ng-repeat="s in solutions" ng-click="detalle(s.id)">
+    	<md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
+  	</div>  
+
+  	<div class="box" dir-paginate="s in datos | itemsPerPage: solPerPage" 	current-page="currentPage" total-items="%%totalsolutions%%" ng-click="detalle(s.id)" ng-show="!load">
+
 		<div layout="row" layout-align="start center">
-				<div><img class="body-img" ng-src="%%img%%"></div>
-				<div class="box-title">%%s.titulo%%</div>
+				<div><img  class="box-img" ng-src="%%img%%"></div>
+				<div flex="77" class="box-title">%%s.problema_solucion.titulo%%</div>
+				<div layout-align="center center" class="box-bubble">%%s.nivel_afinidad%% %</div>
 		</div>
-		<div class="box-body">%%s.descripcion%%</div>
-		<div class="box-footer">%%s.fecha%%</div>
+		<div class="box-body"><p class="box-body-p">%%s.problema_solucion.descripcion%%</p></div>
+		<div class="box-footer">%%s.usuario.ubicacion_institucion%%</div>
 	</div>
+
+	<div layout='row' layout-align="center center">
+	<dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="js/directives/pagination/dirPagination.tpl.html">
+	</dir-pagination-controls>	
+	</div>	
+	<br>
+	<br>
+	<br>
 </div>
+
 <div class="solut_foot">
 	<div layout="row" layout-align="center center" class="solut-button" ng-click="reg()">
 		 <img ng-src="%%img2%%">

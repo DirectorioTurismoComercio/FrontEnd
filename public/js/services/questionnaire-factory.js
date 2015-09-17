@@ -1,7 +1,7 @@
 /**
 * gemStore Module
 *
-* Factory to access REST problems in server
+* Factory to access Questionnaires
 */
 angular.module('gemStore')
 .factory('QuestionnaireFactory', ['$resource','Constantes',

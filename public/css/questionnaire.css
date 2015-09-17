@@ -316,6 +316,7 @@ visibility: hidden; /*temporarily hide the "YES" label*/
   color: #548880;
   text-align: center;
   font-weight: bold;
+  cursor: pointer;
 }
 .q_back {
   width: 90px;

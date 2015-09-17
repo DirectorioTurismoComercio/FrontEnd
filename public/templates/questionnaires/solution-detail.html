@@ -13,7 +13,7 @@
 
 <div layout="row" layout-align="space-around center" class="sol_imagenes">
 	<div><img ng-src="%%img1%%"></div>	
-	<div layout="row" layout-align ="center center"class="bubble">95%</div>	
+	<div layout="row" layout-align ="center center" class="bubble">95%</div>	
 	<div><img ng-src="%%img1%%"></div>	
 </div>	
 
@@ -27,17 +27,23 @@
 	<!-- <md-tabs md-dynamic-height md-border-bottom> -->
 <md-tabs>
       <md-tab label="Coincidencia">
-        <md-content class="md-padding">
-        	<div layout="column" layout-align="center center" ng-repeat="questionnaire in questionnaires">
-        		<p>%%questionnaire.titulo%%</p>        		
+        <md-content>
+        	<div ng-repeat="questionnaire in questionnaires">
+            <!-- Categoria -->            
+        		<p class="sol_categoria">%%questionnaire.titulo%%</p>        		                        
         		<div ng-repeat="question in questionnaire.preguntas">
         			<div ng-show="question.enable">
-        				<p>%%question.pregunta.enunciado%%</p>        		
+                <!-- Pregunta -->
+        				<p class="sol_pregunta">%%question.pregunta.enunciado%%</p>        		
         			</div>
-              <div ng-repeat="option in question.pregunta.opciones">
-        <h3 ng-show="option.dato || question.pregunta.dato==option.id" class="s_quest_r">%%option.respuesta%%</h3>
-      </div>  
+              <div layout="row" layout-align="center center" ng-repeat="option in question.pregunta.opciones">
+                <!-- Respuestas -->                
+                <p ng-show="option.dato || question.pregunta.dato==option.id" class="sol_respuesta">%%option.respuesta%%</p>
+                <p ng-show="option.dato || question.pregunta.dato==option.id" class="bubble">!</p>
+                <p ng-show="option.dato || question.pregunta.dato==option.id" class="sol_respuesta">%%option.respuesta%%</p>
+              </div>  
         		</div>
+            <md-divider ng-if="!$last"></md-divider>
         	</div>          
         </md-content>
       </md-tab>
