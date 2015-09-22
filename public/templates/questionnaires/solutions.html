@@ -15,18 +15,18 @@
 	<div layout='row' layout-align="center center">
     	<md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
   	</div>  
-
-  	<div class="box" dir-paginate="s in datos | itemsPerPage: solPerPage" 	current-page="currentPage" total-items="%%totalsolutions%%" ng-click="detalle(s.id)" ng-show="!load">
-
-		<div layout="row" layout-align="start center">
+  	<div ng-show="!load">
+  	<div class="box" dir-paginate="s in solutions | itemsPerPage: 10" 	current-page="currentPage" total-items="totalsolutions" >  		
+<!--  -->
+		<div layout="row" layout-align="start center" >
 				<div><img  class="box-img" ng-src="%%img%%"></div>
 				<div flex="77" class="box-title">%%s.problema_solucion.titulo%%</div>
-				<div layout-align="center center" class="box-bubble">%%s.nivel_afinidad%% %</div>
+				<div layout-align="center center" class="box-bubble">%%s.nivel_afinidad | number:0%% %</div>
 		</div>
 		<div class="box-body"><p class="box-body-p">%%s.problema_solucion.descripcion%%</p></div>
-		<div class="box-footer">%%s.usuario.ubicacion_institucion%%</div>
+		<div class="box-footer" ng-click="detalle(s.problema_solucion.id,$index)">%%s.usuario.ubicacion_institucion%%</div>
 	</div>
-
+	</div>
 	<div layout='row' layout-align="center center">
 	<dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="js/directives/pagination/dirPagination.tpl.html">
 	</dir-pagination-controls>	

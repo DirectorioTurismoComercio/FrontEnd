@@ -13,43 +13,43 @@
 
 <div layout="row" layout-align="space-around center" class="sol_imagenes">
 	<div><img ng-src="%%img1%%"></div>	
-	<div layout="row" layout-align ="center center" class="bubble">95%</div>	
+	<div layout="row" layout-align ="center center" class="bubble">%%solution.nivel_afinidad | number:0%% %</div>	
 	<div><img ng-src="%%img1%%"></div>	
 </div>	
 
 <div layout="row" layout-align="center center">
-		<div flex="35">Usted</div>
+		<div flex="35" class="solution_text">Usted</div>
 		<div flex="30"></div>    
-		<div flex="35">%%solution.titulo%%</div>	
+		<div flex="35" class="solution_text">%%solution.problema_solucion.titulo%%</div>	
 </div>
+<div layout='row' layout-align="center center">
+      <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
+    </div>  
 <!-- TABS -->
-<div>
-	<!-- <md-tabs md-dynamic-height md-border-bottom> -->
-<md-tabs>
+<div ng-hide="load">
+	<!-- <md-tabs md-dynamic-height md-border-bottom> -->  
+<md-tabs md-stretch-tabs="always">
       <md-tab label="Coincidencia">
         <md-content>
-        	<div ng-repeat="questionnaire in questionnaires">
+        	<div ng-repeat="detalle in detail">
             <!-- Categoria -->            
-        		<p class="sol_categoria">%%questionnaire.titulo%%</p>        		                        
-        		<div ng-repeat="question in questionnaire.preguntas">
-        			<div ng-show="question.enable">
-                <!-- Pregunta -->
-        				<p class="sol_pregunta">%%question.pregunta.enunciado%%</p>        		
-        			</div>
-              <div layout="row" layout-align="center center" ng-repeat="option in question.pregunta.opciones">
-                <!-- Respuestas -->                
-                <p ng-show="option.dato || question.pregunta.dato==option.id" class="sol_respuesta">%%option.respuesta%%</p>
-                <p ng-show="option.dato || question.pregunta.dato==option.id" class="bubble">!</p>
-                <p ng-show="option.dato || question.pregunta.dato==option.id" class="sol_respuesta">%%option.respuesta%%</p>
-              </div>  
-        		</div>
+        		<p class="sol_categoria">%%detalle.cuestionario%%</p>        		
+            <!-- Pregunta -->            
+            <p class="sol_pregunta">%%detalle.pregunta%%</p>                                   
+        		
+            <div layout="row" layout-align="center center" ng-repeat="parejas in detalle.respuestas">
+              <!-- Respuestas -->                
+              <p class="sol_respuesta %%parejas.clase_color%%">%%parejas.respuesta1%%</p>
+              <div layout="row" layout-align ="center center" class="bubble %%parejas.clase_color%%">%%parejas.afinidad%% %</div>              
+              <p class="sol_respuesta %%parejas.clase_color%%">%%parejas.respuesta2%%</p>
+            </div>          		
             <md-divider ng-if="!$last"></md-divider>
         	</div>          
         </md-content>
       </md-tab>
       <md-tab label="Información">
         <md-content >        
-        <div class=""><p>%%solution.descripcion%%</p></div>    
+        <div class=""><p>%%solution.problema_solucion.descripcion%%</p></div>    
           
         </md-content>
       </md-tab>
@@ -61,9 +61,9 @@
 </md-tabs md-swipe>
 </div>
 <div class="solut_foot" layout="row" layout-align="space-around center">	
-    <div>Anterior</div>		 
-		 <div>Cerrar Trato</div>
-     <div>Siguiente</div>	
+    <div ng-click="anterior()">Anterior</div>		 
+		 <img class="solut_img" ng-src="%%img_cerrar%%">
+     <div ng-click="siguiente()">Siguiente</div>	
 </div>					
 
 

@@ -4,6 +4,9 @@
 	function($resource,SolutionFactory,$location) {
 	var solutions = null; //Todas
 	var solution = null; //Una sola
+	var id = null; //Una sola
+	var index = null; //Una sola
+	var page = null; //Una sola
 	var getSolutions = function ()
 	{
 		return solutions;
@@ -25,6 +28,33 @@
 		console.log(solution);
 	}
 
+	var getId = function ()
+	{		
+		return id;
+	}
+	var setId = function (_id)
+	{
+		id = _id;
+		console.log(id);
+	}
+	var getIndex = function ()
+	{		
+		return index;
+	}
+	var setIndex = function (_index)
+	{
+		index = _index;		
+		console.log(index);
+	}
+	var getPage = function ()
+	{
+		return page;
+	}
+	var setPage = function (_page)
+	{
+		page = _page;				
+	}
+
 	 return {
 
 	 	solutions: solutions,
@@ -32,7 +62,13 @@
 	 	getSolutions: getSolutions,
 	 	setSolutions: setSolutions,
 	 	getSolution: getSolution,
-	 	setSolution: setSolution	  		  	
+	 	setSolution: setSolution,
+	 	getId: getId,
+	 	setId: setId,
+	 	getIndex: getIndex,
+	 	setIndex: setIndex,
+	 	getPage: getPage,
+	 	setPage: setPage	  	  		  		  		  	
 	  };
 
 	}]);

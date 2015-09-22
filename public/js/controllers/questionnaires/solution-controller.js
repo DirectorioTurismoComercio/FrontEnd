@@ -1,8 +1,7 @@
 angular.module('gemStore')
 .controller('SolutionController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar',
 	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar){
-        //Rutas Imagenes
-        window.scrollTo(0, 1);
+        //Rutas Imagenes        
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
         $scope.img = $scope.ruta + 'boton-empresario.png';
         $scope.img2 = $scope.ruta + 'icono-registro.png';
@@ -46,11 +45,11 @@ angular.module('gemStore')
 
             $scope.load = true;
             SolutionFactory.get({cuestionario:qf,pagina:pageNumber}).$promise.
-            then(function(info){                
-                $scope.datos = info.problemas_soluciones;
+            then(function(info){                                
                 solutionService.setSolutions(info.problemas_soluciones);
+                $scope.solutions = solutionService.getSolutions();
                 $scope.totalsolutions = info.total;
-                console.log($scope.datos);
+                solutionService.setPage(pageNumber);                
             })
             .catch(function(errors){
                 console.log(errors);
@@ -60,27 +59,13 @@ angular.module('gemStore')
                 $scope.load = false;
             });          
         }
-        //   promesa = SolutionFactory.query().$promise.
-        //   then(function(solutions){                
-        //         solutionService.setSolutions(solutions);
-        //         $scope.solutions=solutionService.getSolutions();                
-        // })
-        // .catch(function(errors){
-        //   console.log(errors);
-        // })
-        // .finally(function(){
-        //   console.log("in finally");
-        //   $scope.load = false;
-        // });
-            // $http.get('path/to/api/users?page=' + pageNumber)
-            //     .then(function(result) {
-            //         $scope.users = result.data.Items;
-            //         $scope.totalUsers = result.data.Count
-            //     });
         
-        $scope.detalle = function(_id){            
-            $scope.solution = $scope.solutions[parseInt(_id)];
-            solutionService.setSolution($scope.solution);
+        
+        $scope.detalle = function(_id,_index){                      
+            // $scope.solution = $scope.solutions[parseInt(_id)];
+            // solutionService.setSolution($scope.solution);            
+            solutionService.setId(_id);
+            solutionService.setIndex(_index);            
             $location.path('/solutions/detail');                               
         }
 

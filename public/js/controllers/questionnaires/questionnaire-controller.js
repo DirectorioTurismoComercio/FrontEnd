@@ -80,7 +80,7 @@ angular.module('gemStore')
 
     $scope.b_buscar = function(){
       console.log(questionnaireService.getConta());
-        if (questionnaireService.getConta() >= 0) {
+        if (questionnaireService.getConta() >= 1) {
           return true;
         } else {
           return false;

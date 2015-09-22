@@ -9,9 +9,10 @@
 <div class="prompt">
 	<div class="prompt_q">
     %%currentQuestion.enunciado%%
-    <div class="q_button">
-	<div class="q_next" ng-click="next()">Siguiente<img ng-src="%%siguiente%%"></div>		
-	<div class="q_back" ng-click="previous()"><img ng-src="%%anterior%%"> Menu </div>	
+    <div class="q_button" layout="row" layout-align="center center">
+	     <div flex="33" class="q_back" ng-click="previous()"><img ng-src="%%anterior%%"> Menu </div>    	
+       <div flex="34" class="q_img"><img ng-src="%%ruta+questionnaire.imagen%%"></div>      
+	     <div flex="33" class="q_next" ng-click="next()">Siguiente<img ng-src="%%siguiente%%"></div>  
   </div>	  
   </div>  	  
 	<div ng-include src="answersTemplate"></div>	
