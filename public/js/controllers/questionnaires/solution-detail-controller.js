@@ -5,7 +5,10 @@ angular.module('gemStore')
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
         $scope.img1 = $scope.ruta + 'icono-registro.png';              
         $scope.img_cerrar = $scope.ruta + 'boton-conectarse.png';              
+        $scope.img_anterior = $scope.ruta + 'boton-regresar.png';              
+        $scope.img_siguiente = $scope.ruta + 'boton-siguiente.png';              
         $scope.load = true;
+        
         // $scope.solution = solutionService.getSolution();        
         $scope.questionnaires = questionnaireService.getQuestionnaires();
         // 
@@ -40,11 +43,11 @@ angular.module('gemStore')
                 // Color segun afinidad
                 for (var i = $scope.detail.length - 1; i >= 0; i--) {
                     for (var j = $scope.detail[i].respuestas.length - 1; j >= 0; j--) {
-                        if ($scope.detail[i].respuestas[j].afinidad >= 75 ) {
+                        if ($scope.detail[i].respuestas[j].afinidad > 75 ) {
                             $scope.detail[i].respuestas[j].clase_color = 'color_verde';
                         } 
                         else{
-                            if ($scope.detail[i].respuestas[j].afinidad <= 25) {
+                            if ($scope.detail[i].respuestas[j].afinidad < 25) {
                                 $scope.detail[i].respuestas[j].clase_color = 'color_rojo';
                             } else{
                                 $scope.detail[i].respuestas[j].clase_color = 'color_amarillo';

@@ -243,7 +243,7 @@
 	  position: fixed;
 	  bottom: 0;
 	  width: 100%;
-	  background-color: #F1F1F1;
+	  background-color: #E6E6E6;
 	  padding: 1% 2% 1% 2%;
 	  height: 60px;
 	  box-shadow: 0 0 5px 2px rgba(1, 1, 1, 0.6);
@@ -276,6 +276,7 @@
 	.sol_categoria{
 		font-style: italic;
 		color: #909CA6;
+		margin-top: 10px;
 	}
 
 	.sol_pregunta{
@@ -285,10 +286,25 @@
 	.sol_respuesta{
 		color: #ffffff;
 		background-color: #548880;
-		border-radius: 10px;
-		width: 125px;
+		border-radius: 7px;
+    	width: 35%;
 		height: 40px;		
 		text-align: center;
+	}
+
+	.solut_back{
+		color: #548880;		
+		font-size: larger;
+		cursor: pointer;
+	}
+	.solut_next{
+		color: #548880;		
+		font-size: larger;
+		cursor: pointer;
+	}
+
+	md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+    	min-height: 250px;
 	}
 }
 
@@ -532,7 +548,7 @@
 	  position: fixed;
 	  bottom: 0;
 	  width: 100%;
-	  background-color: #F1F1F1;
+	  background-color: #E6E6E6;
 	  padding: 1% 2% 1% 2%;
 	  height: 60px;
 	  box-shadow: 0 0 5px 2px rgba(1, 1, 1, 0.6);
@@ -564,6 +580,7 @@
 		width: 50px;
 		height: 50px;		
 		border-radius: 50%;
+	    margin-bottom: 10px;
 		background-color: #9BBDAA;		
 	}
 
@@ -579,12 +596,26 @@
 	.sol_respuesta{
 		color: #ffffff;
 		background-color: #548880;
-		border-radius: 10px;
-		width: 125px;
+		border-radius: 7px;
+    	width: 35%;
 		height: 40px;		
 		text-align: center;
 	}
-}
+	.solut_back{
+		color: #548880;		
+		font-size: larger;
+		cursor: pointer;
+	}
+	.solut_next{
+		color: #548880;		
+		font-size: larger;
+		cursor: pointer;
+	}
+
+	md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+ 	   min-height: 475px;
+	}
+}	
 
 @media all{
 	.main{
@@ -638,10 +669,7 @@
 	}
 	md-select-menu md-option[selected] {
     	color: rgb(6,158,82);
-	}
-	md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
- 	   min-height: 380px;
-	}
+	}	
 
 	.color_verde{
 		background-color: #548880;
@@ -681,8 +709,11 @@
 	}
 
 	*{
-	  box-sizing: border-box
+	  box-sizing: border-box	  
 	  }
+	 body,button, html, input, select, textarea{
+	 	    font-family: 'Roboto Condensed', sans-serif !important;
+	 }
 	.galeria p {
 	  color:#58595B; 
 	  font-size: 9.6pt;
