@@ -97,6 +97,10 @@ angular.module('gemStore')
                 getResultsPage(solutionService.getPage(),9);                
             };
         }     
+
+        $scope.reg = function(){                   
+            $location.path('personalData');                               
+        }
        
 
         function getResultsPage(pageNumber,index) {            
