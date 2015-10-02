@@ -1,0 +1,59 @@
+<div layout="row" layout-align="space-around center" class="barra_main">
+	<div class="regresar" ng-click="menu_bar('questionnaires')">
+		<i class="fa fa-arrow-left"></i>
+		<md-tooltip>
+        VOLVER
+      </md-tooltip>
+	</div>
+	LABORATORIOS VIRTUALES
+	<div class="menu" ng-click="toggleRight()">	
+		<i class="fa fa-reorder"></i>
+	</div>
+</div>
+
+<div class="prompt fondo_blanco">	
+	<div layout='row' layout-align="center center">
+    	<md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
+  	</div>  
+  	<div ng-show="!load">
+  	<div class="box" dir-paginate="s in solutions | itemsPerPage: 10" 	current-page="currentPage" total-items="totalsolutions" >  		
+<!--  -->
+		<div layout="row" layout-align="start center" >
+				<div><img  class="box-img" ng-src="%%img%%"></div>
+				<div flex="77" class="box-title">%%s.problema_solucion.titulo%%</div>
+				<div layout-align="center center" class="box-bubble">%%s.nivel_afinidad | number:0%% %</div>
+		</div>
+		<div class="box-body"><p class="box-body-p">%%s.problema_solucion.descripcion%%</p></div>
+		<div class="box-footer" ng-click="detalle(s.problema_solucion.id,$index)">%%s.usuario.ubicacion_institucion%%</div>
+	</div>
+	</div>
+	<div layout='row' layout-align="center center">
+	<dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="js/directives/pagination/dirPagination.tpl.html">
+	</dir-pagination-controls>	
+	</div>	
+	<br>
+	<br>
+	<br>
+</div>
+
+<div class="solut_foot">
+	<div layout="row" layout-align="center center" class="solut-button" ng-click="reg()">
+		 <img ng-src="%%img2%%">
+		 <div>Registrate</div>
+	</div>
+</div>					
+
+
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>      
+    <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>            
+  </div>  
+</md-sidenav>  

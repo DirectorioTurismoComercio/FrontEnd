@@ -14,8 +14,10 @@ contenedor {
   margin-bottom: 10px;
 }
 .img-contain {
+  padding-left: 50px;
+  padding-right: 50px;
   width: 100%;
-  height: 15em;
+  height: 10em;
   margin: 0 auto;
   overflow: hidden;
 }

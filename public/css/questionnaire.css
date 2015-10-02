@@ -1,0 +1,482 @@
+/*Modificaciones para pantalla SIGNIN*/
+.btn-success {
+  background-color: #548880;
+  border-color: #548880;
+  text-align: left;
+}
+.btn-success:hover, .btn-success:active{
+  background-color: #549080;
+  border-color: #549080;
+  text-align: left;
+}
+
+.btn-danger {
+  background-color: #80392C;
+  border-color: #80392C;
+  text-align: left;
+}
+
+.btn-danger:hover, .btn-danger:active {
+  background-color: #90392C;
+  border-color: #90392C;
+  text-align: left;
+}
+
+/*Modificaciones para pantalla Action*/
+.prompt {  
+  padding-top: 15px;
+  padding-left: 10px; 
+  padding-right: 10px;
+  height: 428px;
+  background-color: #F2F2F2;    
+}
+
+.volver {
+  color: #B3B3B3;  
+  padding-left: 5px;
+  font-size: 18px;
+}
+.prompt_q {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #4F4D59;  
+  font-size: 16px;
+  text-align: justify;
+}
+/*.prompt_r {
+  padding: 10px;  
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  color: #000000;  
+  font-size: 16px;  
+  text-align: center;
+  background-color: #C6D7CE;
+  border-radius: 12px;
+}*/
+
+.prompt_botones {
+  padding-top: 130px;      
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.prompt_btn_B {  
+  width: 75px;  
+  height: 75px;  
+  /*float: right;*/
+  color: #80392C;
+  text-align: center;
+  font-weight: bold;
+}
+.prompt_btn_O {
+  width: 75px;
+  height: 75px; 
+  color: #548880;
+  text-align: center;
+  font-weight: bold;
+}
+.next {
+  width: 75px;
+  height: 75px;
+  float: right;
+  color: #548880;
+  text-align: center;
+  font-weight: bold;
+}
+.back {
+  width: 75px;
+  height: 75px; 
+  color: #80392C;
+  text-align: center;
+  font-weight: bold;
+}
+
+/*Radio Button*/
+
+.styled-radio input{      
+  border: 0px;  
+  height: 16px;
+  font-size: 14;
+  padding-right: 10px;
+}
+.styled-radio input + span{  
+visibility: hidden; /*temporarily hide the "YES" label*/
+  background: #6EB558;
+  /*adding some CSS3 eye-candy - optional*/
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4e813f), to(#6EB558));
+  border: 1px solid #4e813f;
+  border-bottom-color: #ccc;
+  border-top-color: #000;
+  text-shadow: 0px 1px 1px #4e813f; 
+
+}
+
+
+
+/*Select Option*/
+.styled-select {
+  margin-bottom: 5px;
+  margin-left: 10px;
+   width: 200px;
+   height: 34px;
+   overflow: hidden;
+   background: url("../images/botones/lupa-busqueda.png") no-repeat right #ddd;
+   border: 1px solid #ccc;
+   }
+
+.styled-select select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 30px;
+   -webkit-appearance: none;
+ }
+
+.styled-select select>option {
+  text-align: center;
+}
+.styled-select select:hover {    
+    /*background-color: #549080;*/
+ }
+.flecha_arriba{
+  border: transparent;
+  width: 19px;
+  height: 12px;
+  background: url("../images/botones/boton-flecha-arriba.png") no-repeat;
+}
+.flecha_abajo{
+  border: transparent;
+  width: 19px;
+  height: 12px;
+  background: url("../images/botones/boton-flecha-arriba.png") no-repeat;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+}
+.centrar {
+  margin-top: 10px; 
+  text-align: center;    
+}
+
+.btn-buscar {  
+  text-align: center;
+  background-color: #548880;
+  border-radius: 5px;
+  width: 65px;
+  height: 30px;
+  padding: 7px;
+}
+
+
+/* ANIMATIONS
+============================================================================= */
+
+/* leaving animations ----------------------------------------- */
+/* rotate and fall */
+@keyframes rotateFall {
+    0%      { transform: rotateZ(0deg); }
+    20%     { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+    40%     { transform: rotateZ(17deg); }
+    60%     { transform: rotateZ(16deg); }
+    100%    { transform: translateY(100%) rotateZ(17deg); }
+}
+
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+    to      { transform: translateX(-100%); }
+}
+
+/* rotate out newspaper */
+@keyframes rotateOutNewspaper {
+    to      { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+
+/* entering animations --------------------------------------- */
+/* scale up */
+@keyframes scaleUp {
+    from    { opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform:translateX(100%); }
+    to      { transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+    from    { transform:translateY(100%); }
+    to      { transform: translateY(0); }
+}
+
+
+/* page specific animations ------------------------ */
+
+/* home -------------------------- */
+
+.page-summary .ng-enter {
+  -webkit-transition: .10s all; /* Safari/Chrome */
+  -moz-transition: .10s linear all; /* Firefox */
+  -o-transition: .10s linear all; /* Opera */
+  transition: .10s linear all; /* IE10+ and Future Browsers */
+}
+
+/**
+ * Pre animation -> enter
+ */
+.page-summary .ng-enter{
+  /* The animation preparation code */
+  opacity: 0;
+}
+
+/**
+ * Post animation -> enter
+ */
+.page-summary .ng-enter.ng-enter-active { 
+  /* The animation code itself */
+  opacity: 1;
+}
+
+/**
+ * Nuevas Ediciones
+ */
+.s_quest {  
+  padding-top: 5px;
+  /*height: 422px;*/
+  background-color: #F2F2F2;    
+}
+
+.s_quest_h {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 5px;
+  width: 100%;
+  color: #4F4D59;   
+  font-size: 16px;
+  text-align: left;
+}
+.s_quest_b {
+  background-color: #7F382B;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
+.s_quest_row {
+  background-color: #7F382B;
+  color: #FFFFFF;
+  width: 100%;
+  padding-top: 4px;
+  padding-left: 15px;
+}
+.s_quest_cat {
+  color: #FFFFFF;
+  padding-left: 20%;
+  padding-top: 4px;
+}
+.s_quest_q {
+  padding: 10px;  
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  color: #000000;  
+  font-size: 16px;  
+  text-align: center;
+  background-color: #548880;
+  border-radius: 12px;
+}
+.s_quest_r {
+  background-color: #9BBDAA;
+  padding: 4px 4px 4px 4px;
+  border-radius: 10px;
+}
+.s_quest_back {
+  height: 20px;
+  padding-left: 50%;
+}
+/*.q_button {
+  padding-top: 20%;      
+  width: 100%;
+}
+.q_next {
+  width: 90px;
+  height: 75px;
+  float: right;
+  color: #548880;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.q_back {
+  width: 90px;
+  height: 75px; 
+  padding-left: 0px;
+  color: #80392C;
+  text-align: center;
+  font-weight: bold;
+}*/
+.radio_b{
+  padding-left: 0;
+}
+
+/*Solutions*/
+.backgr{
+  background-color: white;
+}
+.box{
+  /*margin-top: px;  */
+  text-align: center;
+  border-style: none;
+  border-width: 1px;
+  background-color: #F1F1F1;
+  padding: 1% 1% 1% 1%;
+  margin: 2% 2% 2% 2%;
+}
+
+.box-title{  
+  color: #909CA6;
+  padding-left: 10px;
+  font-size: 15px;
+  text-align: left;
+}
+
+.box-img{  
+  border-radius: 20px;
+  width: 10px;
+  height: 10px;
+}
+
+.box-body{  
+  color: #000000;
+  padding: 2% 7% 0 7%;
+  text-align: justify;
+}
+
+.box-footer{  
+  color: #909CA6;
+  height: 30px;
+  cursor: pointer;
+  background-color: #F1F1F1; 
+  vertical-align: center;
+  padding-top: 2%; 
+  padding-left: 7%;
+  text-align: justify;
+}
+.solut_foot{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #F1F1F1;
+  padding: 1% 2% 1% 2%;
+  height: 60px;
+  box-shadow: 0 0 5px 2px rgba(1, 1, 1, 0.6);
+}
+.solut-button{
+  background-color: #548880;
+  border-radius: 10px;
+  margin: 0% 30% 0% 30%;
+  height: 50px;
+}
+
+
+/*Modificaciones para pantalla Action*/
+.serv_body{
+  padding: 60% 10px 60px 10px;
+  height: 300px; 
+}
+/*.serv_button{
+  vertical-align: baseline;
+  height: 115px;
+  padding: 0px 26px; 
+}*/
+/*.serv_text{    
+  height: 27px;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 8px;
+}*/
+.prompt_btn_O {
+  width: 75px;
+  height: 75px; 
+  color: #548880;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/*Modificaciones para pantalla ROLES*/
+.body{
+  height: 370px;
+  background-color: #F2F2F2;  
+}
+.header{
+  padding-left: 10px;
+  padding-top: 15px;
+}
+a.roles {
+  border: none;
+  width: 45%;
+}
+.galeria {
+  background-color: #F2F2F2; 
+}
+.galeria div{
+  padding-top: 5px;
+  width: 95px; 
+  height: 95px;
+  margin: 5px auto
+}
+.bar_bottom_b{
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #FFFFFF;
+  background-color: #80392C;
+  height: 60px;
+}
+.bar_bottom_o{
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #FFFFFF;
+  background-color: #548880;
+  height: 60px;
+}
+
+.prompt_categoria {  
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #4F4D59;  
+  font-size: 16px;
+  text-align: center;  
+}
+
+.gray {
+  background-color: #E0DFD7;
+  border-radius: 10px;
+}
+
+.blanco {
+  color: white;
+}
+
+
+
+
+
+md-tabs md-ink-bar {
+    color: rgb(6,158,82);
+    background: rgb(6,158,82);
+}
+
+md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused {
+    color: rgb(6,158,82);
+}

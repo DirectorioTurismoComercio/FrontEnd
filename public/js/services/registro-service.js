@@ -4,7 +4,6 @@
 		var usuario = new UserFactory();
 		var usuarioredes = new Array();
         var changeView = function(view){
-
 			$location.path(view);
 		};
 		  var getUsuario = function(){

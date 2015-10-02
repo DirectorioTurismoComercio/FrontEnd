@@ -1,0 +1,12 @@
+/**
+* gemStore Module
+*
+* Factory to access problema solucion
+*/
+angular.module('gemStore')
+.factory('AfinidadFactory', ['$resource','Constantes',
+	function($resource, Constantes){
+		return $resource(Constantes.url+'/afinidad',{cuestionario: '@cuestionario',pagina: '@pagina'}
+		);		
+	}
+]);

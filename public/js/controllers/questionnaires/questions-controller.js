@@ -4,8 +4,11 @@
 * ProblemsShowController un solo problema para un usuario
 */
 angular.module('gemStore')
-.controller('QuestionsController',['$scope', '$location' , '$routeParams', 'questionnaireService',
-  function($scope,$location, $routeParams,questionnaireService){
+.controller('QuestionsController',['$scope', '$location' , '$routeParams', 'questionnaireService', 'Constantes',
+  function($scope,$location, $routeParams,questionnaireService, Constantes){
+  $scope.ruta = Constantes.ruta_imagenes + 'botones/';  
+  $scope.siguiente = $scope.ruta+'boton-siguiente-over.png';
+  $scope.anterior = $scope.ruta+'boton-regresar-over.png';
   var answersTemplateURL = "templates/questionnaires/";
    $scope.questionnaire = questionnaireService.getQuestionnaire($routeParams.idQuestionnaire);
    var currentQuestionIndex = 0;
@@ -26,6 +29,7 @@ angular.module('gemStore')
     }  
     $scope.uclick = function (idOpcion)
     {
+    console.log('eee', idOpcion)      ;
        for(var i=0; i<$scope.currentQuestion.opciones.length;i++)
        {
         
@@ -61,8 +65,12 @@ angular.module('gemStore')
     }
     function changeQuestion()
     {
-            if(currentQuestionIndex>maxIndex || currentQuestionIndex<0){
-              $location.path('questionnaires');
+            if(currentQuestionIndex>maxIndex || currentQuestionIndex<0){                            
+              if (currentQuestionIndex>maxIndex) {
+                questionnaireService.setFull($routeParams.idQuestionnaire);  
+                questionnaireService.setConta();  
+              };
+              $location.path('questionnaires');              
             }else{
 
             $scope.currentQuestion = $scope.questionnaire.preguntas[currentQuestionIndex].pregunta;
@@ -89,8 +97,13 @@ angular.module('gemStore')
 
             }
     }
-    
-
-   
+    $scope.oyb = function(dato){          
+      type = questionnaireService.getTipo();          
+      if (type == dato) {
+        return true;
+      } else{
+        return false; 
+      };
+    }
 
 }]);

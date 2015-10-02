@@ -1,3 +1,27 @@
-<select  
+<div class="prompt_q">
+	<!-- <md-input-container>
+  <md-select placeholder="Seleccione Municipio">
+    <md-option ng-value="opt" ng-repeat="opt in neighborhoods2">{{ opt }}</md-option>
+  </md-select>
+</md-input-container> -->
+<!-- <div class="styled-select">
+<select 
 ng-options="opcion.id as opcion.respuesta for opcion in currentQuestion.opciones" ng-model="currentQuestion.dato">
 </select>
+</div>	
+</div> -->
+<div layout="row" layout-align="center center">
+<md-select ng-model="currentQuestion.dato" placeholder="Seleccione un Municipio">
+  <md-option ng-repeat="opcion in currentQuestion.opciones" value="%%opcion.id%%">%%opcion.respuesta%%</md-option>
+</md-select>
+</div>
+
+<!-- <div class="bar_bottom_b" ng-show="oyb('P')" ng-click="summary()">    
+    Estoy Buscando... 
+    <div class="next" ng-click="buscar()" ng-show="b_buscar()">Buscar</div>
+  </div>
+  <div class="bar_bottom_o" ng-show="oyb('S')" ng-click="summary()">    
+    Estoy Ofreciendo...
+    <div class="next" ng-click="buscar()" ng-show="b_buscar()">Buscar</div>
+  </div>
+ -->
