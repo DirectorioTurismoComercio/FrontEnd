@@ -9,7 +9,7 @@
         function($scope,registroService, ResultRetriever, QuestionnaireFactory, questionnaireService){
 
             $scope.form=""; 
-            $scope.showErrors=false;               
+            $scope.showErrors=false;               x    
             $scope.tag = { result:  ""};
             $scope.doSomething = function(typedthings){
               $scope.results = ResultRetriever.getresults(typedthings, 'SuggestedTagsFactory');

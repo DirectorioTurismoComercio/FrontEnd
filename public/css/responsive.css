@@ -1,5 +1,5 @@
 /*Dispositivos Pequeños*/
-@media (max-width: 320px) and (orientation: portrait){
+@media (max-width: 385px) and (orientation: portrait){
 	.fondo{
 		width: 100%;
 		background-image: url("../images/Fondo/Fondo_Inicio.png");
@@ -14,6 +14,10 @@
 		height: 117px;
 		background: url("../images/botones/logo.png") no-repeat;*/
 	}
+
+/*	.bc_content{
+		height: 180px;
+	}*/
 
 	.botones_inicio {
 		margin-top: 114px;
@@ -114,7 +118,7 @@
 	  margin-bottom: 5px;
 	  margin-left: 15px;
 	  margin-right: 15px;
-	  width: 100%;
+	  width: 95%;
 	  color: #000000;  
 	  font-size: 16px;  
 	  text-align: center;
@@ -309,7 +313,7 @@
 }
 
 /*Dispositivos Grandes*/
-@media (min-width: 321px) and (max-width: 2000px){
+@media (min-width: 386px) and (max-width: 2000px){
 	.fondo{
 		margin-left: 25%;
 		width: 50%;
@@ -413,12 +417,12 @@
 	/*View Question*/
 
 	.prompt_r {
-	  padding: 10px;  
+	  /*padding: 10px;  */
 	  margin-top: 5px;
 	  margin-bottom: 5px;
 	  margin-left: 15px;
 	  margin-right: 15px;
-	  width: 100%;
+	  width: 95%;
 	  color: #000000;  
 	  font-size: 16px;  
 	  text-align: center;
@@ -720,12 +724,12 @@
 	}
 
 	.prompt_r {
-	 padding: 10px;  
+	 /*padding: 10px;  */
 	 margin-top: 5px;
 	 margin-bottom: 5px;
 	 margin-left: 15px;
 	 margin-right: 15px;
-	   width: 100%;
+	   width: 95%;
 	 color: #000000;  
 	  font-size: 16px;  
 	 text-align: center;
