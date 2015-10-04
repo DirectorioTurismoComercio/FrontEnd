@@ -5,8 +5,13 @@
  // .constant("Constantes",{"url":"http://10.203.167.97:8282","ruta_imagenes":"./images/"})
   .config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('%%');
-    $interpolateProvider.endSymbol('%%');
+    $interpolateProvider.endSymbol('%%');    
   })
+  //Autenticación
+  .config(['$httpProvider', function($httpProvider){    
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+  }])
   .directive("pageNavigation", function(){
     return {
       restrict: 'E',

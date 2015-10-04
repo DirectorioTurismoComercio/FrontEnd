@@ -127,6 +127,11 @@
         controller: 'ActionQuestionnaireController',        
         templateUrl: 'templates/questionnaires/action.html',
       }).     
+         when('/auth',//add pacho
+      {
+        controller: 'AuthController',        
+        templateUrl: 'templates/auth/auth.html',
+      }).     
       when('/index',
       {
         templateUrl: 'templates/index.html',
