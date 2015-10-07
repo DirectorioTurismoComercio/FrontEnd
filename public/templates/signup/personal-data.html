@@ -1,36 +1,82 @@
 <form novalidate name="form">
 <div class="personalData">
   
-  <div ng-class="validate(form.nombres,null,showErrors)">
+  <!-- <div ng-class="validate(form.nombres,null,showErrors)">
     <label for="name"><span>Nombres(obligatorio):</span></label>
     <input id="name" type="text" ng-model="usuario.nombres" class="form-control" name="nombres" required="">
     <span ng-class="validate(form.nombres,'icon',showErrors)"></span>
     <span class="error" ng-show="(showErrors ||  form.nombres.$touched) && form.nombres.$error.required">Por favor digite su nombre</span>
-  </div>
+  </div> -->
 
-  <div ng-class="validate(form.apellido1,null)">
+  <md-input-container>
+      <div ng-messages="form.nombres.$error">
+        <div ng-message="required">Por favor digite sus nombres</div>
+      </div>
+      <label>Nombres:</label>
+      <input ng-model="usuario.nombres" name="nombres" required>      
+    </md-input-container>
+
+  <!-- <div ng-class="validate(form.apellido1,null)">
     <label for="name"><span>Primer Apellido(obligatorio):</span></label>
     <input id="name" type="text" ng-model="usuario.apellido1" class="form-control" name="apellido1" required="">
     <span ng-class="validate(form.apellido1,'icon')"></span>
     <span class="error" ng-show="(showErrors || form.nombres.$touched) && form.nombres.$error.required">Por favor digite su primer apellido</span>
-  </div>
+  </div> -->
+  <md-input-container>
+      <div ng-messages="form.apellido1.$error">
+        <div ng-message="required">Por favor digite su primer apellido</div>
+      </div>
+      <label>Primer Apellido:</label>
+      <input ng-model="usuario.apellido1" name="apellido1" required>      
+    </md-input-container>
 
-  <div ng-class="validate(form.apellido2,null)">
+  <!-- <div ng-class="validate(form.apellido2,null)">
     <label for="name"><span>Segundo Apellido(obligatorio):</span></label>
     <input id="name" type="text" ng-model="usuario.apellido2" class="form-control" name="apellido2" required="">
     <span ng-class="validate(form.apellido2,'icon')"></span>
     <span class="error" ng-show="(showErrors || form.apellido2.$touched) && form.apellido2.$error.required">Por favor digite su segundo apellido</span>
-  </div>
+  </div> -->
+  <md-input-container>
+      <div ng-messages="form.apellido2.$error">
+        <div ng-message="required">Por favor digite su segundo apellido</div>
+      </div>
+      <label>Segundo Apellido:</label>
+      <input ng-model="usuario.apellido2" name="apellido2" required>      
+    </md-input-container>
 
-  <div ng-class="validate(form.documento,null)">
+  <!-- <div ng-class="validate(form.documento,null)">
     <label for="name"><span>Número de documento:</span></label>
     <input id="name" type="number" ng-model="usuario.numero_documento" class="form-control" name="documento">
     <span ng-class="validate(form.documento,'icon')"></span>
     <span class="error" ng-show="(showErrors || form.documento.$touched) && form.documento.$error.number">Por favor digite un número</span>
-  </div>
+  </div> -->
+  <md-input-container>
+      <div ng-messages="form.documento.$error">
+        <div ng-message="required">Por favor digite su documento de identidad</div>
+      </div>
+      <label>Número de Documento</label>
+      <input ng-model="usuario.numero_documento" type="number" name="documento" required>      
+    </md-input-container>
   
-    <div><span>Digite su correo o número de teléfono (obligatorio)</span></div>
-  
+    <!-- <div><span>Digite su correo o número de teléfono (obligatorio)</span></div> -->
+    <md-input-container>
+      <div ng-messages="form.email.$error">
+        <div ng-message="required">Por favor digite su correo electrónico</div>
+        <div ng-message="pattern">Su email debe tener el formato de un correo (ejemplo@correo.com)</div>
+      </div>
+      <label>Correo Electrónico</label>
+      <input required type="email" name="email" ng-model="usuario.email" ng-pattern="/^.+@.+\..+$/" />
+    </md-input-container>
+
+    <md-input-container>
+      <div ng-messages="form.telefono.$error">
+        <div ng-message="required">Por favor digite su número de telefono</div>
+      </div>
+      <label>Número de Telefono</label>
+      <input ng-model="usuario.telefono_institucion" type="tel" name="telefono" required>      
+    </md-input-container>
+
+<!--   
     <div ng-class="validate(form.email,null)">
     <label for="name"><span>Correo:</span></label>
     <input id="name" type="email" ng-model="usuario.correo" class="form-control" name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required="">
@@ -45,7 +91,7 @@
     <span class="error" ng-show="(showErrors || form.telefono.$touched) && form.telefono.$error.number">Por favor digite un número</span>
  <span class="error" ng-show="(showErrors || form.telefono.$touched && form.email.$touched && form.telefono.$error.required) && form.email.$error.required">Digite un correo o un número de teléfono</span>
 
-  </div>
+  </div> -->
  
 </div>
 <div class="aprobado">

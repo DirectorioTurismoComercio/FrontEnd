@@ -13,31 +13,32 @@ angular.module('gemStore')
    $scope.questionnaire = questionnaireService.getQuestionnaire($routeParams.idQuestionnaire);
    var currentQuestionIndex = 0;
    var maxIndex = $scope.questionnaire.preguntas.length - 1;
+   console.log(currentQuestionIndex,maxIndex);   
    $scope.questionnaire.enable=true;
-   changeQuestion();
-
+   changeQuestion();   
    $scope.next = function()
    {
     currentQuestionIndex++;
     changeQuestion();
+    console.log(currentQuestionIndex,maxIndex);
    }
 
    $scope.previous = function()
    {
     currentQuestionIndex--;
     changeQuestion();
+    console.log(currentQuestionIndex,maxIndex);
     }  
     $scope.uclick = function (idOpcion)
     {
-    console.log('eee', idOpcion)      ;
+    // console.log('eee', idOpcion)      ;
        for(var i=0; i<$scope.currentQuestion.opciones.length;i++)
        {
         
         questionnaireService.removeAnswer($scope.currentQuestion.opciones[i].id);
        }      
        questionnaireService.addAnswer(parseInt(idOpcion));
-       console.log(questionnaireService.getAnswers());
-
+       console.log(questionnaireService.getAnswers());       
     }
     $scope.mclick = function (idOpcion,dato)
     {
@@ -48,12 +49,12 @@ angular.module('gemStore')
         questionnaireService.removeAnswer(idOpcion);
        }
       console.log(questionnaireService.getAnswers());
-
+      
     }
     function activeQuestion()
     {
       var dependencia_respuestas = $scope.questionnaire.preguntas[currentQuestionIndex].dependencia_respuestas;
-      console.log(dependencia_respuestas);
+      // console.log(dependencia_respuestas);
       if(dependencia_respuestas.length==0){
         return true;
       }
@@ -64,7 +65,9 @@ angular.module('gemStore')
       return false;
     }
     function changeQuestion()
-    {
+    {      
+      
+      console.log('Pacho',questionnaireService.getQuestionnaire($routeParams.idQuestionnaire));
             if(currentQuestionIndex>maxIndex || currentQuestionIndex<0){                            
               if (currentQuestionIndex>maxIndex) {
                 questionnaireService.setFull($routeParams.idQuestionnaire);  

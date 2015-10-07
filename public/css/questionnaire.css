@@ -23,75 +23,7 @@
 }
 
 /*Modificaciones para pantalla Action*/
-.prompt {  
-  padding-top: 15px;
-  padding-left: 10px; 
-  padding-right: 10px;
-  height: 428px;
-  background-color: #F2F2F2;    
-}
 
-.volver {
-  color: #B3B3B3;  
-  padding-left: 5px;
-  font-size: 18px;
-}
-.prompt_q {
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #4F4D59;  
-  font-size: 16px;
-  text-align: justify;
-}
-/*.prompt_r {
-  padding: 10px;  
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
-  color: #000000;  
-  font-size: 16px;  
-  text-align: center;
-  background-color: #C6D7CE;
-  border-radius: 12px;
-}*/
-
-.prompt_botones {
-  padding-top: 130px;      
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.prompt_btn_B {  
-  width: 75px;  
-  height: 75px;  
-  /*float: right;*/
-  color: #80392C;
-  text-align: center;
-  font-weight: bold;
-}
-.prompt_btn_O {
-  width: 75px;
-  height: 75px; 
-  color: #548880;
-  text-align: center;
-  font-weight: bold;
-}
-.next {
-  width: 75px;
-  height: 75px;
-  float: right;
-  color: #548880;
-  text-align: center;
-  font-weight: bold;
-}
-.back {
-  width: 75px;
-  height: 75px; 
-  color: #80392C;
-  text-align: center;
-  font-weight: bold;
-}
 
 /*Radio Button*/
 
@@ -302,27 +234,7 @@ visibility: hidden; /*temporarily hide the "YES" label*/
   height: 20px;
   padding-left: 50%;
 }
-/*.q_button {
-  padding-top: 20%;      
-  width: 100%;
-}
-.q_next {
-  width: 90px;
-  height: 75px;
-  float: right;
-  color: #548880;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-}
-.q_back {
-  width: 90px;
-  height: 75px; 
-  padding-left: 0px;
-  color: #80392C;
-  text-align: center;
-  font-weight: bold;
-}*/
+
 .radio_b{
   padding-left: 0;
 }
@@ -384,99 +296,4 @@ visibility: hidden; /*temporarily hide the "YES" label*/
   border-radius: 10px;
   margin: 0% 30% 0% 30%;
   height: 50px;
-}
-
-
-/*Modificaciones para pantalla Action*/
-.serv_body{
-  padding: 60% 10px 60px 10px;
-  height: 300px; 
-}
-/*.serv_button{
-  vertical-align: baseline;
-  height: 115px;
-  padding: 0px 26px; 
-}*/
-/*.serv_text{    
-  height: 27px;
-  text-align: center;
-  font-weight: bold;
-  margin-left: 8px;
-}*/
-.prompt_btn_O {
-  width: 75px;
-  height: 75px; 
-  color: #548880;
-  text-align: center;
-  font-weight: bold;
-}
-
-
-/*Modificaciones para pantalla ROLES*/
-.body{
-  height: 370px;
-  background-color: #F2F2F2;  
-}
-.header{
-  padding-left: 10px;
-  padding-top: 15px;
-}
-a.roles {
-  border: none;
-  width: 45%;
-}
-.galeria {
-  background-color: #F2F2F2; 
-}
-.galeria div{
-  padding-top: 5px;
-  width: 95px; 
-  height: 95px;
-  margin: 5px auto
-}
-.bar_bottom_b{
-  padding-top: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
-  color: #FFFFFF;
-  background-color: #80392C;
-  height: 60px;
-}
-.bar_bottom_o{
-  padding-top: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
-  color: #FFFFFF;
-  background-color: #548880;
-  height: 60px;
-}
-
-.prompt_categoria {  
-  padding-left: 30px;
-  padding-right: 30px;
-  color: #4F4D59;  
-  font-size: 16px;
-  text-align: center;  
-}
-
-.gray {
-  background-color: #E0DFD7;
-  border-radius: 10px;
-}
-
-.blanco {
-  color: white;
-}
-
-
-
-
-
-md-tabs md-ink-bar {
-    color: rgb(6,158,82);
-    background: rgb(6,158,82);
-}
-
-md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused {
-    color: rgb(6,158,82);
 }

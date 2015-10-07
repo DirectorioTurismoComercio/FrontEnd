@@ -42,7 +42,7 @@ angular.module('gemStore')
             var qf = new QuestionnaireFactory();
             qf.cuestionarios = questionnaireService.getQuestionnaires();                                        
             qf.tipo = questionnaireService.getTipo();
-
+            console.log('Info',qf);
             $scope.load = true;
             SolutionFactory.get({cuestionario:qf,pagina:pageNumber}).$promise.
             then(function(info){                                
