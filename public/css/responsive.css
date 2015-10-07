@@ -611,4 +611,18 @@
 		color: rgb(63,81,181);	
 	}
 
+	div.personalData {
+    width: 80%;
+    display: block;
+    padding: 10px 0;
+    margin: auto;
+}
+
+div.businessData {
+    width: 80%;
+    display: block;
+    padding: 10px 0;
+    margin: auto;
+}
+
 }

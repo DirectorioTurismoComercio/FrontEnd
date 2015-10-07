@@ -62,6 +62,10 @@
 	 	font-size: x-large;
 	 }
 
+	 .circle p{
+	 	    font-size: small;
+	 }
+
 	div.descriptionWrapper h2, div.descriptionWindow h3,
 	div.descriptionWindow p, div.cancelar span, 
 	div.aceptar span{
@@ -104,7 +108,9 @@
 	 div.aceptar span{
 	 	font-size: xx-large;
 	 }
-
+	 .circle p{
+	 	    font-size: small;
+	 }
 
 	 /*rol page*/	
 	 .galeria{
