@@ -34,8 +34,6 @@
           
             $scope.validate = function(model,icon,error)
             { 
-                
-
                 if(!$scope.showErrors)
                 {    
                     if(model.$untouched)
@@ -69,8 +67,7 @@
                           if(model.$invalid)
                             {
                                 
-                                return "glyphicon glyphicon-remove form-control-feedback";   
-                                
+                                return "glyphicon glyphicon-remove form-control-feedback";                                   
                             }
                             else
                             {
@@ -106,12 +103,10 @@
                                                 if(save)
                                                 {
                                                     $scope.save(view);
-
                                                 }
                                                 else{    
                                                   registroService.changeView(view);
                                                   }
-
                                         }
                                         else
                                         {
@@ -120,9 +115,7 @@
                                     }else{
                                         registroService.changeView(view);
                                     }
-
                                 };
-
             $scope.usuario      = registroService.getUsuario();
             $scope.usuarioRedes = registroService.getUsuarioRedes();
             $scope.getRedById = function(id)

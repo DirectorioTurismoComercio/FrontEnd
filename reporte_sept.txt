@@ -1,0 +1,159 @@
+Fecha 2015-09-23, Tarea:  23.09.2015 1er commit para Prototipo # 1 Se va a realizar la depuración de estilos
+para ir organizando el código y se inicia con la información para el
+prototipo # 2
+
+Fecha 2015-09-21, Tarea:  21.09.2015 Solution Detail funcional, falta terminar de ajustar la visualización
+
+Fecha 2015-09-16, Tarea:  16.09.2015 Soluciones Vista General Paginación Falta ajustar visualización de los botones de paginación
+
+Fecha 2015-09-13, Tarea:  Ajuste pregunta L 
+Fecha 2015-09-10, Tarea:  10.09.2015 Ajustes FrontEnd Responsive para cuestionario
+
+Fecha 2015-09-06, Tarea:  06.09.2015 Vista de Solutions y DetailSolutions
+
+Fecha 2015-09-04, Tarea:  Soluciones Adición de soluciones, ajustes varios de css.
+
+Fecha 2015-09-01, Tarea:  Nuevas Rutas Imágenes Imágenes y rutas. A partir de aquí inician ajustes de inclusión de
+Angular Material y Responsive para diferentes dispositivos
+
+Fecha 2015-08-31, Tarea:  Cuestionario y Registro Para revisión de SAVE de cuestionario.
+
+Fecha 2015-08-29, Tarea:  Funcionalidad Cuestionario/Registro Falta funcionalidad eliminar preguntas.
+
+Fecha 2015-08-25, Tarea:  Funcionalidad Cuestionario con Roles y Tipo Se une funcionalidad del cuestionario con la ventana de roles y la de
+escoger el tipo (Oferta/Demanda). Se inicia el ajuste de apariencia de
+acuerdo a la guía 3.0
+
+Fecha 2015-08-16, Tarea:  components 
+Fecha 2015-08-16, Tarea:  git ignore 
+Fecha 2015-08-16, Tarea:  untracked 
+Fecha 2015-08-16, Tarea:  modificaciones a gitignore 
+Fecha 2015-08-16, Tarea:  gitignore modfied 
+Fecha 2015-08-16, Tarea:  .gitignore modificado 
+Fecha 2015-08-16, Tarea:  reorganización de archivos 
+Fecha 2015-08-16, Tarea:  Merge pull request #18 from DirectorioTurismoComercio/403-interfaz-oferta-demanda-personalizada 403 interfaz oferta demanda personalizada
+Fecha 2015-08-10, Tarea:  cambio ruta: servidor remoto 
+Fecha 2015-08-10, Tarea:  correción cambió de color temas de la encuesta llenos 
+Fecha 2015-08-09, Tarea:  Solo se muestra en el resumen, cuestionarios y preguntas que se hayan respondido 
+Fecha 2015-08-09, Tarea:  se agregó template para pregunta en formato de lista plegable 
+Fecha 2015-08-09, Tarea:  cuestionario con preguntas dependientes funcionando 
+Fecha 2015-08-09, Tarea:  corrección cuestionario de acuerdo con nuevo formato JSON 
+Fecha 2015-08-09, Tarea:  se corrigió cuestionario de acuerdo con la nueva respuesta JSON del servidor 
+Fecha 2015-08-09, Tarea:  se adicionó resumen a la funcionalidad del cuestionario 
+Fecha 2015-08-06, Tarea:  Flujo  de preguntas, vuelve al menú de categorías 
+Fecha 2015-08-06, Tarea:  controllers para cuestionarios y preguntas creados. Servicio para almacenar cuestionario. Factory para solicitar datos al servidor 
+Fecha 2015-07-22, Tarea:  ajustes en el css después de fusionar con tarea 370 
+Fecha 2015-07-22, Tarea:  Merge branch 'master' of https://github.com/DirectorioTurismoComercio/FrontEnd Conflicts:
+	public/index.html
+	public/js/controllers/problems-create-controller.js
+	public/js/controllers/problems-edit-controller.js
+	public/js/controllers/problems-index-controller.js
+	public/js/routes.js
+	public/templates/problems/index.html
+	public/templates/problems/save.html
+
+merge 370
+
+Fecha 2015-07-22, Tarea:  Merge branch '370-crear-servicio-para-categorias' Fusión con categorías en crud de problemas
+
+Fecha 2015-07-22, Tarea:  Merge pull request #16 from DirectorioTurismoComercio/393-agregar_y_quitar_tags_con_sugerencias_en_el_perfil 393 agregar y quitar tags con sugerencias en el perfil
+Fecha 2015-07-22, Tarea:  Merge pull request #17 from DirectorioTurismoComercio/389-389-mostrar_lista_de_problemas_que_concuerden_con_la_búsqueda 389 389 mostrar lista de problemas que concuerden con la búsqueda
+Fecha 2015-07-18, Tarea:  Refactoring - indentacion 
+Fecha 2015-07-18, Tarea:  Refactor - promesa 
+Fecha 2015-07-18, Tarea:  Merge pull request #15 from DirectorioTurismoComercio/383-validación-inscripción 383 validación inscripción
+Fecha 2015-07-18, Tarea:  documento - se modifica el ng-model para que funcione con el backend 
+Fecha 2015-07-18, Tarea:  Refactoring - CREATE and EDIT in just one controller 
+Fecha 2015-07-18, Tarea:  se reestableció ruta de conexión con el servidor remoto 
+Fecha 2015-07-18, Tarea:  funcionalidad de tags adicionada al perfil 
+Fecha 2015-07-16, Tarea:  buscador como página principal. Se agregó checkbox para filtrar seleccionar necesidad o solución en los resultados 
+Fecha 2015-07-16, Tarea:  two way binding working for categories 
+Fecha 2015-07-16, Tarea:  two ways of creating a select cascading 
+Fecha 2015-07-15, Tarea:  se corrigió validación de email en la inscripción para que verifique la dirección después del punto 
+Fecha 2015-07-15, Tarea:  problem.categorias two way binding, also just display the categories related with the root category 
+Fecha 2015-07-14, Tarea:  add categories and tags to the list of problems 
+Fecha 2015-07-14, Tarea:  adding bootstrap 
+Fecha 2015-07-13, Tarea:  ajustes css 
+Fecha 2015-07-13, Tarea:  Secuencia de inscripción terminada, con crud de problemas. Se agregó página inicical provisional. 
+Fecha 2015-07-13, Tarea:  sign out provisional funsionando 
+Fecha 2015-07-13, Tarea:  Create - Category - removing ">" from select options 
+Fecha 2015-07-11, Tarea:  descripción del perfin agregada 
+Fecha 2015-07-11, Tarea:  sigin provisional funcionando. Actualiza datos de usuario o crea nuevo usuario. Se corrigió nombre de campo correo(estaba email en el modelo)  en el registro de usuario 
+Fecha 2015-07-11, Tarea:  CRud displaying categories and tags in the problems index 
+Fecha 2015-07-11, Tarea:  se agregó signin por id de usuario provisionalmente 
+Fecha 2015-07-11, Tarea:  Persit category in the server - Create category 
+Fecha 2015-07-10, Tarea:  redes sociales funcionando pero sin integrar con el registro 
+Fecha 2015-07-09, Tarea:  validación inscripción sin redes sociales 
+Fecha 2015-07-09, Tarea:  Cascading select/dropdowns - working but need some refactoring 
+Fecha 2015-07-06, Tarea:  validación formulario personal-data 
+Fecha 2015-07-04, Tarea:  Merge pull request #13 from DirectorioTurismoComercio/379-Creación_de_la_interfaz_de_CRUD_tags_al_momento_de_crear_un_problema_solución 379 creación de la interfaz de crud tags al momento de crear un problema solución
+Fecha 2015-07-01, Tarea:  se creó un formulario parcial 'save'y se utilizó la directiva include para poder tener un único formulario al crear y editar problemas 
+Fecha 2015-07-01, Tarea:  estilos css para botones tags, crud de problemas, y búsqueda 
+Fecha 2015-06-28, Tarea:  agregar y eliminar tags en la creación de un problema-solución 
+Fecha 2015-06-28, Tarea:  Agregar y quitar tags con sugerencias en la edición del Problema Solución 
+Fecha 2015-06-28, Tarea:  Agregar y quitar tags con sugerencias en la edición del Problema Solución 
+Fecha 2015-06-28, Tarea:  Corrección en ProblemaSolucionSerializer: se agregó el campo id 
+Fecha 2015-06-28, Tarea:  agregar y quitar tags en editar problema. Sin sugerencias aun 
+Fecha 2015-06-09, Tarea:  Merge pull request #8 from DirectorioTurismoComercio/buscador buscador que autocompleta sugerencias
+Fecha 2015-06-09, Tarea:  ruta que apunta al servidor remoto 
+Fecha 2015-06-09, Tarea:  Merge pull request #11 from DirectorioTurismoComercio/372-crear-problema 372 CRUD problema
+Fecha 2015-06-09, Tarea:  ruta que apunta al servidor remoto 
+Fecha 2015-06-09, Tarea:  Merge branch 'master' of github.com:DirectorioTurismoComercio/FrontEnd into 372-crear-problema 
+Fecha 2015-06-09, Tarea:  Merge pull request #10 from DirectorioTurismoComercio/365-Editar-problema 365 - Edit problems complete
+Fecha 2015-06-06, Tarea:  se eliminó Constantes y resources de SuggestionsFactory. Se resolvió el query con promesas. Se cambió la variable i por token 
+Fecha 2015-06-02, Tarea:  CRUD - complete 
+Fecha 2015-06-02, Tarea:  Crear Mostrar y Editar funcionando 
+Fecha 2015-06-02, Tarea:  remove debugger 
+Fecha 2015-06-01, Tarea:  Edit problems complete 
+Fecha 2015-06-01, Tarea:  Merge pull request #9 from DirectorioTurismoComercio/361-VC-detalle-problema 361 - Show VC - detalle problema usuario completo
+Fecha 2015-05-30, Tarea:  buscador que autocompleta sugerencias según lo que recibe del backend 
+Fecha 2015-05-30, Tarea:  Show VC detalle problema usuario completo 
+Fecha 2015-05-30, Tarea:  Merge pull request #7 from DirectorioTurismoComercio/364-UserAdminController 364 user admin controller
+Fecha 2015-05-29, Tarea:  Complete 
+Fecha 2015-05-29, Tarea:  Refactoring - quitando servicios no usados 
+Fecha 2015-05-29, Tarea:  Merge pull request #6 from DirectorioTurismoComercio/363-redireccionar-admin-usuario 363 - Luego de terminar registro, el usuario es redirigido a la ventana de …
+Fecha 2015-05-28, Tarea:  Luego de terminar registro, el usuario es redirigido a la ventana de admin 
+Fecha 2015-05-28, Tarea:  Merge pull request #5 from DirectorioTurismoComercio/362-Listar-problemas-de-un-usuario 362 listar problemas de un usuario
+Fecha 2015-05-28, Tarea:  User's Problems index - working 
+Fecha 2015-05-27, Tarea:  promises for user problems 
+Fecha 2015-05-18, Tarea:  Merge pull request #4 from DirectorioTurismoComercio/roles 350-Solicitud de listado de roles al servidor. Selección del rol en el re…
+Fecha 2015-05-17, Tarea:  se eliminó rol-factory, se usó promesa en la solicitud, console log eliminado 
+Fecha 2015-05-17, Tarea:  Solicitud de listado de roles al servidor. Selección del rol en el registro. Definición de constante para la ruta de imágenes 
+Fecha 2015-05-17, Tarea:  Merge pull request #3 from DirectorioTurismoComercio/353-RegistroService-Factory 353 "registroService" factory -- 352 validacion de funcionalidad
+Fecha 2015-05-17, Tarea:  352-353 - aqui se verifica que se pueden usar los recursos del factory para hacer post de usuario usando REST 
+Fecha 2015-05-17, Tarea:  RegistroService - provee user como resource (factory) 
+Fecha 2015-05-17, Tarea:  Merge pull request #2 from DirectorioTurismoComercio/355-API-REST-DOC 355-API-REST - documentacion - actualizada
+Fecha 2015-05-17, Tarea:  API-REST - documentacion - actualizada 
+Fecha 2015-05-11, Tarea:  Merge pull request #1 from DirectorioTurismoComercio/Buscador Camilo - Buscador con sugerencias, version inicial
+Fecha 2015-05-02, Tarea:  conexión con epsilon habilitada 
+Fecha 2015-04-26, Tarea:  Buscador con sugerencias terminado. Versión inicial. Sugerencias en el front end sin conexión con el servidor. Falta adicionar Botón de búsqueda 
+Fecha 2015-04-23, Tarea:  archivo md - actualización información de rutas de problemas_soluciones 
+Fecha 2015-04-23, Tarea:  REST - documentation added 
+Fecha 2015-04-23, Tarea:  SOCIAL NETWORKS - se retira del flujo de registro - para hacer mas corto este proceso 
+Fecha 2015-04-14, Tarea:  Estilos completos, hacen falta iconos del Menu y Flechas a la derecha 
+Fecha 2015-04-13, Tarea:  Informacion de registro - Salvada en la db - PROBLEMA - no guarda arreglo de redes en la DB 
+Fecha 2015-04-10, Tarea:  Vista de redes al 70% 
+Fecha 2015-04-09, Tarea:  registro completo con redes vinculadas, funcionalidad completa, sin terminar estilos, sin conexión con el servidor 
+Fecha 2015-04-09, Tarea:  Merge branch 'redes_sociales2' union del regitro con personalData con estilo a redes sociales sin conexión al servidor
+
+Fecha 2015-04-09, Tarea:  redes sociales sin conexión al servidor 
+Fecha 2015-04-09, Tarea:  Agregados los estilos para bussinesData 
+Fecha 2015-04-09, Tarea:  Corrección de estilos y personalData publicado 
+Fecha 2015-04-09, Tarea:  mezcla registro  versión cristián y camilo modelo usuario en blanco 
+Fecha 2015-04-09, Tarea:  mezcla registro  versión cristián y camilo 
+Fecha 2015-04-09, Tarea:  inicial 
+Fecha 2015-04-09, Tarea:  Estilos actulizados 
+Fecha 2015-04-09, Tarea:  Overlay Funcional y arregladas las imagenes 
+Fecha 2015-04-09, Tarea:  funcionalidad de registro terminada, sin redes sociales, ni estilos 
+Fecha 2015-04-09, Tarea:  descripción de rol funcionando sin estilos 
+Fecha 2015-04-09, Tarea:  Merge branch 'master' of https://github.com/DirectorioTurismoComercio/FrontEnd se debe unir el registro con las redes sociales
+
+Fecha 2015-04-09, Tarea:  CONTROLADOR - roleDescription 
+Fecha 2015-04-09, Tarea:  CONTROLADOR - principal de signup - redireccion a roles 
+Fecha 2015-04-09, Tarea:  redes sociales sin integración con usuario 
+Fecha 2015-04-08, Tarea:  GITIGNORE y Bower.json - removiendo dependencias no necesarias 
+Fecha 2015-04-08, Tarea:  Pagina de seleccion de rol - incluida 
+Fecha 2015-04-08, Tarea:  MainPage - Vista y Controlador 
+Fecha 2015-04-08, Tarea:  Se crea estructura de las vistas para registro y home 
+Fecha 2015-04-08, Tarea:  Sincronizando codigo Cristian - barra de navegacion - controlador del home 
+Fecha 2015-03-31, Tarea:  Primer commit - carpeta publica funcionando con APACHE y carpeta de pruebas de aceptacion 
+Fecha 2015-03-31, Tarea:  -.gitignore- para mantener unicamente el directorio - public- 
