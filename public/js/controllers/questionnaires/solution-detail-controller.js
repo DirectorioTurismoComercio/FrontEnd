@@ -36,7 +36,7 @@ angular.module('gemStore')
             qf.cuestionarios = questionnaireService.getQuestionnaires();                                        
             qf.tipo = questionnaireService.getTipo();    
 
-            DetailFactory.get({cuestionario:qf,id_ps:solutionService.getId()}).$promise.
+            DetailFactory.save({cuestionario:qf,id_ps:solutionService.getId()}).$promise.
             then(function(respuesta){                                
                 $scope.detail = respuesta.respuesta;
                 $scope.solution = $scope.solutions[solutionService.getIndex()];
@@ -105,7 +105,7 @@ angular.module('gemStore')
             qf.cuestionarios = questionnaireService.getQuestionnaires();                                        
             qf.tipo = questionnaireService.getTipo();
 
-            SolutionFactory.get({cuestionario:qf,pagina:pageNumber}).$promise.
+            SolutionFactory.save({cuestionario:qf,pagina:pageNumber}).$promise.
             then(function(info){                                
                 solutionService.setSolutions(info.problemas_soluciones);
                 solutionService.setIndex(index);
