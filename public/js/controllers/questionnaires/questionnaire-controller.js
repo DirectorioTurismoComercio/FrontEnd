@@ -87,10 +87,8 @@ angular.module('gemStore')
         };
     }
 
-    $scope.buscar = function(){
-      // var qf = new QuestionnaireFactory();
-      //     qf.cuestionarios = questionnaireService.getQuestionnaires();                              
-      //     qf.tipo = questionnaireService.getTipo();  
+    $scope.buscar = function(){      
+
       //     SolutionFactory.get({cuestionario:qf,pagina:1});
           // SolutionFactory.post(qf,1);
           // SolutionFactory.get(qf,1);
@@ -102,7 +100,7 @@ angular.module('gemStore')
        $location.path('solutions');
     }
 
-     $scope.summary = function(){
+     $scope.summary = function(){      
       $location.path('questionnaires/summary');
      }
 

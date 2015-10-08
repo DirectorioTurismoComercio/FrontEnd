@@ -48,14 +48,14 @@ a.roles:nth-child(even)  {border-left: 0px !important; border-right: 0px !import
 .galeria div { background: #C3DBCC; border: 2px solid #E0DFD7; border-radius: 50%; margin: 16px auto; height: 112px; width: 112px; }
 .galeria div:hover { background: #E0DFD7; }
 .galeria div img { max-width: 100%;}
-.galeria p {color:#58595B; font-size: 12pt;}
-
+/*.galeria p {color:#58595B; font-size: 12pt;}*/
+.galeria p {color:#58595B; font-size: 10pt;}
 /*footer*/
 div.MobileFooter { background: #E0DFD7; height: 100%; width:100%; position: absolute; top:318px;}
 footer {display: none;}
 
-/*overlay*/
-div.overlay{ background: rgba(88,89,91,0.85); height: 100%; width:100%; position: absolute; top:0; text-align: center;}
+/*overlay code in final.css*/
+/*div.overlay{ background: rgba(88,89,91,0.85); height: 100%; width:100%; position: absolute; top:0; text-align: center;}
 a.close {background: #58595B; height: 24px; border-radius: 12px; color: #E0DFD7; display: block; width: 24px; -webkit-border-radius: 12px; -moz-border-radius: 12px;cursor: pointer;text-align: center; float: right; margin: 12px 12px 0 0;}
 a.close span {font-size: 18px;margin: 0; display: block; font-weight: 700; }
 div.descriptionWrapper h2 { color: #59585B; display: inline-block; float: left; font-size: 12pt; margin: 12px 0 12px 12px; text-align: left; text-transform: uppercase; width: 75%; }
@@ -68,14 +68,14 @@ div.descriptionWindow p {color:#58595B; font-size: 12pt; margin-bottom: }
 div.descriptionWrapper .botones {display: inline-block; width: 95%; height: 32px; margin: 0 0 10px 0;}
 div.descriptionWrapper div.cancelar {-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; width: 96px; height: 32px; background: #e2202e; float: left; cursor: pointer; }
 div.descriptionWrapper div.aceptar {-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; width: 96px; height: 32px; background: #37b34a; float: right; cursor: pointer;}
-div.cancelar span, div.aceptar span{ margin: 4px 0 0 0; display: block; font-weight: 700; color: white;}
+div.cancelar span, div.aceptar span{ margin: 4px 0 0 0; display: block; font-weight: 700; color: white;}*/
 
 /*personalData*/
 div.personalData {width: 100%; display: block; padding: 10px 0;}
-div.personalData div {width: 93%; margin: 10px auto;}
+div.personalData div {width: 93%; /*margin: 10px auto;*/}
 
 /*Form*/
-label {width: 35%; display: inline-block;color:#58595B; font-weight: 300; }
+label {/*width: 35%;*/ display: inline-block;color:#58595B; font-weight: 300; }
 /*
 .personalData div:nth-child(4) span, .personalData div:nth-child(5) span{position: relative; top: 8px; display: block;}
 input[type="text"], input[type="email"], textarea, select{ border: 1px solid #CCC; color: #888; height: 20px; line-height:15px; margin:7px 0; outline: 0 none; padding: 5px 0px 5px 5px; width: 60%; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
@@ -108,7 +108,7 @@ div.addContainerClick input {width: 50%; display: inline-block;}
 div.addContainerClick button {width: 15%; display: inline-block;}
 
 /*Summary*/
-.summaryBusiness {width: 90%;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; background: #e0dfd7; border: 1px solid #58595b; margin: 0 auto;-webkit-box-shadow: 3px 3px 10px 3px rgba(88,89,91,1); -moz-box-shadow: 3px 3px 10px 3px rgba(88,89,91,1); box-shadow: 3px 3px 10px 3px rgba(88,89,91,1);}
+.summaryBusiness {width: 90%;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; background: #e0dfd7; border: 1px solid #58595b; margin: 5% auto;-webkit-box-shadow: 3px 3px 10px 3px rgba(88,89,91,1); -moz-box-shadow: 3px 3px 10px 3px rgba(88,89,91,1); box-shadow: 3px 3px 10px 3px rgba(88,89,91,1);}
 .wrapperSummaryBusiness {margin: 16px;}
 .wrapperSummaryBusiness span { margin-right: 16px; font-size: 12px;}
 .summaryUser div {margin: 0 auto; width: 95%; border-bottom: 1px solid #58595b; vertical-align: top; padding: 24px 0 24px 0;}

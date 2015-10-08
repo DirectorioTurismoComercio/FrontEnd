@@ -1,0 +1,85 @@
+<div layout="row" layout-align="space-around center" class="barra_main">
+  <div class="regresar" ng-click="menu_bar('solutions')">
+    <i class="fa fa-arrow-left"></i>
+    <md-tooltip>
+        VOLVER
+      </md-tooltip>
+  </div>
+  LABORATORIOS VIRTUALES
+  <div class="menu" ng-click="toggleRight()"> 
+    <i class="fa fa-reorder"></i>
+  </div>
+</div>
+
+<div layout="row" layout-align="space-around center" class="sol_imagenes">
+	<div><img ng-src="%%img1%%"></div>	
+	<div layout="row" layout-align ="center center" class="bubble">%%solution.nivel_afinidad | number:0%% %</div>	
+	<div><img ng-src="%%img1%%"></div>	
+</div>	
+
+<div layout="row" layout-align="center center">
+		<div flex="35" class="solution_text">Usted</div>
+		<div flex="30"></div>    
+		<div flex="35" class="solution_text">%%solution.problema_solucion.titulo%%</div>	
+</div>
+<div layout='row' layout-align="center center">
+      <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
+    </div>  
+<!-- TABS -->
+<div ng-hide="load">
+	<!-- <md-tabs md-dynamic-height md-border-bottom> -->  
+<md-tabs md-stretch-tabs="always">
+      <md-tab label="Coincidencia">
+        <md-content>
+        	<div ng-repeat="detalle in detail">
+            <!-- Categoria -->            
+        		<p class="sol_categoria">%%detalle.cuestionario%%</p>        		
+            <!-- Pregunta -->            
+            <p class="sol_pregunta">%%detalle.pregunta%%</p>                                   
+        		
+            <div layout="row" layout-align="center center" ng-repeat="parejas in detalle.respuestas">
+              <!-- Respuestas -->                
+              <p class="sol_respuesta %%parejas.clase_color%%">%%parejas.respuesta1%%</p>
+              <div layout="row" layout-align ="center center" class="bubble %%parejas.clase_color%%">%%parejas.afinidad%% %</div>              
+              <p class="sol_respuesta %%parejas.clase_color%%">%%parejas.respuesta2%%</p>
+            </div>          		
+            <md-divider ng-if="!$last"></md-divider>
+        	</div>          
+        </md-content>
+      </md-tab>
+      <md-tab label="Información">
+        <md-content >        
+        <div class=""><p>%%solution.problema_solucion.descripcion%%</p></div>    
+          
+        </md-content>
+      </md-tab>
+      <md-tab label="Contacto" ng-disabled="true">
+        <md-content class="md-padding">                
+          <p>Información de Contacto</p>
+        </md-content>
+      </md-tab>
+</md-tabs md-swipe>
+</div>
+<div class="solut_foot" layout="row" layout-align="space-around center">	
+    <div ng-click="anterior()" class="solut_back"><img ng-src="%%img_anterior%%">Anterior</div>		 
+
+		 <img ng-click="menu_bar('personalData')" class="solut_img" ng-src="%%img_cerrar%%">
+     
+     <div ng-click="siguiente()" class="solut_next">
+      Siguiente<img ng-src="%%img_siguiente%%"></div>	
+</div>					
+
+
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>      
+    <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>            
+  </div>  
+</md-sidenav>  

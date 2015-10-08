@@ -1,23 +1,50 @@
 <form novalidate name="form">
 <div class="businessData">
-  <div>
+  <!--  -->
+  <!-- <div>
     <label for="comercio"><span>Nombre del Comercio o Institución:</span></label>
     <input id="comercio" type="text" class="form-control" ng-model="usuario.nombre_institucion"/>
   </div>
-
+  
   <div>
     <label for="Direccion"><span>Dirección:</span></label>
     <input id="Direccion" type="text" ng-model="usuario.direccion_institucion" class="form-control" />
   </div>
-  <div ng-class="validate(form.municipio,null,showErrors)">
+
+    <div ng-class="validate(form.municipio,null,showErrors)">
     <label for="name"><span>Municipio(obligatorio):</span></label>
     <input id="name" type="text" ng-model="usuario.ubicacion_institucion" class="form-control" name="municipio" required="">
     <span ng-class="validate(form.municipio,'icon',showErrors)"></span>
     <span class="error" ng-show="(showErrors || form.municipio.$touched) && form.municipio.$error.required">Por favor digite el nombre de su municipio</span>
-  </div>
+  </div> -->
+  <md-input-container>
+      <div ng-messages="form.nombre_institucion.$error">
+        <div ng-message="required">Por favor digite sus nombres</div>
+      </div> 
+      <label>Nombre del Comercio o Institución:</label>
+      <input ng-model="usuario.nombre_institucion" name="nombre_institucion" >      
+  </md-input-container>
+
+  <md-input-container>
+      <div ng-messages="form.direccion_institucion.$error">
+        <div ng-message="required">Por favor digite su dirección</div>
+      </div>
+      <label>Dirección:</label>
+      <input ng-model="usuario.direccion_institucion" name="direccion_institucion" >      
+  </md-input-container>
+
+
+ <md-input-container>
+      <div ng-messages="form.ubicacion_institucion.$error">
+        <div ng-message="required">Por favor ingrese su municipio</div>
+      </div>
+      <label>Municipio:</label>
+      <input ng-model="usuario.ubicacion_institucion" name="ubicacion_institucion" required>      
+</md-input-container>
 
  </div>
-<div class="aprobado">
+<div class="aprobado  footer_fix" style='font-size: small;'">
+
   <div class="siguiente" ng-click="changeView('profileSummary',form,'save')"><span><span class="icon-check"></span></span></div>
   <div class="anterior" ng-click="changeView('personalData',null)"><span><span class="icon-arrow-back"></span></span></div>
 </div>

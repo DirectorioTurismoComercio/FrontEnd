@@ -1,6 +1,19 @@
-<h3>
+<div layout="row" layout-align="space-around center" class="barra_main">   
+  <div class="regresar" ng-click="changeView('V')">
+    <!-- <i class="fa fa-arrow-left"></i> -->
+  </div>
+  LABORATORIOS VIRTUALES
+  <div class="menu" ng-click="toggleRight()"> 
+    
+    <!-- <i class="fa fa-reorder"></i> -->
+  </div>
+</div>
+<div class="prompt_q" style="text-align: center;">
   FELICITACIONES! TU REGISTRO HA SIDO COMPLETADO
-</h3>
+</div>
+<!-- <h3>
+  FELICITACIONES! TU REGISTRO HA SIDO COMPLETADO
+</h3> -->
 
 <div class="summaryBusiness">
   <div class="wrapperSummaryBusiness">
@@ -16,17 +29,32 @@
   </div>
 </div>
 
-<div class="summaryUser">
+<!-- <div class="summaryUser">
   <div><span>NOMBRE:</span> %%usuario.nombres%% </div>
   <div><span>APELLIDO:</span> %%usuario.apellido1%% %%usuario.apellido2%% </div>
   <div><span>DOCUMENTO:</span> %%usuario.numero_documento%% </div>
   <div><span>CORREO ELECTRÓNICO:</span><br>%%usuario.correo%% </div>
+</div> -->
+
+<div class="summaryBusiness">
+  <div class="wrapperSummaryBusiness">    
+    <div><span>Nombres:</span> %%usuario.nombres%%</div>
+    <div><span>Apellidos:</span> %%usuario.apellido1%% %%usuario.apellido2%% </div>
+    <div><span>Documento:</span> %%usuario.numero_documento%%</div>
+    <div><span>Correo Electrónico:</span>%%usuario.correo%%</div>
+    <div ng-repeat="usuariored in usuarioredes">
+      <span>%%getRedById(usuariored.red_social).nombre%%</span>
+      <span>%%usuariored.url%%</span>
+    </div>
+  </div>
 </div>
 
 
-<div class="aprobado">
+<div class="aprobado footer_fix" style='font-size: small;'>
+  <!-- Comentado para verificar llevar al inicio mientras se implementa el perfil del usuario-->
   <!-- <div class="siguiente" ng-click="changeView('profileDescription/'+usuario.id)"><span><span class="icon-check"></span></span></div> -->
-  <div class="siguiente" ng-click="changeView('signin)"><span><span class="icon-check"></span></span></div>
+  <div class="siguiente" ng-click="changeView('signin')"><span><span class="icon-check"></span></span></div>
+
   <div class="anterior" ng-click="changeView('businessData')">
     <span>
       <span class="icon-arrow-back"></span>

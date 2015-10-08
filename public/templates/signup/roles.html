@@ -1,11 +1,25 @@
-
+<div layout="row" layout-align="space-around center" class="barra_main">   
+  <div class="regresar" ng-click="changeView('V')">
+    <!-- <i class="fa fa-arrow-left"></i> -->
+  </div>
+  LABORATORIOS VIRTUALES
+  <div class="menu" ng-click="toggleRight()"> 
+    
+    <!-- <i class="fa fa-reorder"></i> -->
+  </div>
+</div>
+<div class="body">
+  <div layout='row' layout-align="center center">
+    <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
+  </div>  
 <div class="galeria">
   <a ng-click="toggleDescription($index)" ng-repeat="rol in roles" class="roles">
-    <div>
+    <!-- <div> -->
       <img class="slide" ng-src="%%ruta+rol.imagen%%" />
-    </div>
+    <!-- </div> -->
     <p>%%rol.nombre%%</p>
   </a>
+</div>
 </div>
 
 <div class="overlay" ng-hide="verDescription">
