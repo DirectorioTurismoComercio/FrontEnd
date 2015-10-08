@@ -9,6 +9,9 @@
   </div>
 </div>
 <div class="body">
+  <div layout='row' layout-align="center center">
+    <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
+  </div>  
 <div class="galeria">
   <a ng-click="toggleDescription($index)" ng-repeat="rol in roles" class="roles">
     <!-- <div> -->
