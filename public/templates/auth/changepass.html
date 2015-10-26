@@ -1,0 +1,17 @@
+<form  novalidate name="form">
+<md-input-container>
+      <div ng-messages="form.pass1.$error">
+        <div ng-message="required">Digite nueva contraseña</div>        
+      </div> 
+      <label>Nueva Contraseña</label>
+      <input type="text" ng-model="change.pass1" name="pass1" required>      
+</md-input-container>
+<md-input-container>
+      <div ng-messages="form.pass2.$error">
+        <div ng-message="required">Confirmar contraseña</div>
+      </div> 
+      <label>Nueva Contraseña</label>
+      <input type="text" ng-model="change.pass2" name="pass2" required>      
+  </md-input-container>
+<md-button class="md-raised md-primary" ng-click="changepass()">Cambiar Contraseña</md-button>
+</form>

@@ -14,23 +14,25 @@ angular.module('gemStore')
         $scope.comenzar= $scope.ruta + "icono-comenzar.png";    
         //Fin Rutas de imagenes
         $scope.mensaje="";
+        $scope.login=function(){
+            registroService.changeView('auth');
+        }
         $scope.signin=function(user)
-        {
-        	
-                usuario = registroService.getUsuario();
-				console.log(usuario);
-                UserFactory.get({id:user}).$promise
-                .then(function(user){
-                    registroService.setUsuario(user);
-                    console.log(registroService.getUsuario());
-                    registroService.changeView('personalData');
-               	
-                }).catch(function(errors){
-                    $scope.mensaje="No se encontró al usuario";
-                }).finally(function(){
-                    
-                    
-                });
+        {	
+            usuario = registroService.getUsuario();
+			console.log(usuario);
+            UserFactory.get({id:user}).$promise
+            .then(function(user){
+                registroService.setUsuario(user);
+                console.log(registroService.getUsuario());
+                registroService.changeView('personalData');
+           	
+            }).catch(function(errors){
+                $scope.mensaje="No se encontró al usuario";
+            }).finally(function(){
+                
+                
+            });
 
         }	
         $scope.signup = function()

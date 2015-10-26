@@ -1,0 +1,18 @@
+<form  novalidate name="form">
+	<div class="personalData"> 
+		<md-input-container>
+			Por favor ingrese su correo electrónico para reestablecer la contraseña de su cuenta, le llegara un mensaje de correo electrónico con la información detallada. 
+		</md-input-container>
+		<md-input-container>
+      		<div ng-messages="form.recovery.$error">
+	        	<div ng-message="required">Por favor digite su correo electrónico</div>
+	        	<div ng-message="pattern">Su email debe tener el formato de un correo (ejemplo@correo.com)</div>
+      		</div> 
+      		<label>Correo Electrónico</label>
+      		<input type="email" ng-model="recovery.email" name="recovery" ng-pattern="/^.+@.+\..+$/" required>      
+		</md-input-container>
+		<md-input-container>
+			<md-button class="md-raised md-primary" ng-click="recuperar()">Recuperar Contraseña</md-button>
+		</md-input-container>
+	</div>
+</form>
