@@ -3,6 +3,7 @@
 	.service('autenticacionService', ['$resource','$location',
 	function($resource,$location) {
       		var info = "";
+      		var user = {};
 
       		var getInfo = function ()
 			{
@@ -14,9 +15,21 @@
 				info = _info;
 			}
 
+			var getUser = function ()
+			{
+				return user;
+			}
+
+			var setUser = function (_user)
+			{
+				user = _user;				
+			}
+
 			return {
 	  			getInfo: getInfo,
-	    		setInfo: setInfo
+	    		setInfo: setInfo,
+	    		getUser: getUser,
+	    		setUser: setUser
 			}
 		}
 	]);

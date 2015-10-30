@@ -152,6 +152,26 @@
         controller: 'ForgotPassController',        
         templateUrl: 'templates/auth/forgotpass.html',
       }).     
+         when('/profileMain',//Add by Pacho Perfil
+      {
+        controller: 'ProfileMainController',        
+        templateUrl: 'templates/profile/profile-main.html',
+      }).     
+         when('/profileUpdate',//Add by Pacho Perfil
+      {
+        controller: 'ProfileUpdateController',        
+        templateUrl: 'templates/profile/profile-update.html',
+      }).     
+         when('/profileSearch',//Add by Pacho Perfil
+      {
+        controller: 'ProfileSearchController',        
+        templateUrl: 'templates/profile/profile-search.html',
+      }).     
+         when('/profileSearchDetail',//Add by Pacho Perfil
+      {
+        controller: 'ProfileSearchDetailController',        
+        templateUrl: 'templates/profile/profile-search-detail.html',
+      }).     
       when('/index',
       { 
         templateUrl: 'templates/index.html',

@@ -1,0 +1,64 @@
+<div layout="row" layout-align="space-around center" class="barra_main">
+	<div class="regresar" ng-click="back()">
+		<i class="fa fa-arrow-left"></i>
+		<md-tooltip>
+        VOLVER
+      	</md-tooltip>
+	</div>
+	LABORATORIOS VIRTUALES
+	<div class="menu" ng-click="toggleRight()">	
+		<i class="fa fa-reorder"></i>
+	</div>
+</div>
+<!-- <div class="s_quest"> -->
+<div class="prompt fondo_blanco">
+<div layout="row" layout-align="center center" class="prompt_q_full">Edita o elimina tus preferencias para personalizar tu búsqueda...
+</div>	
+<div layout="row" layout-align="center center">
+	<img class="flecha_abajo" ng-click="back()">
+</div>
+<div ng-repeat="questionnaire in questionnaires">
+<div class="s_quest_b" ng-show="questionnaire.enable">	
+	<div layout="row" layout-align="space-around center">
+		<img ng-src="%%editar%%" ng-click="edit($index)">
+		<div>%%questionnaire.titulo%%</div>
+		<img ng-src="%%borrar%%" ng-click="remove($index)">
+	</div>
+	<!-- <div class="row s_quest_row">
+		<div class="col-xs-offset-1 col-xs-1">
+			<img ng-src="%%editar%%" ng-click="edit($index)">
+		</div>
+		<div class="col-xs-7 s_quest_cat">
+			%%questionnaire.titulo%%
+		</div>
+		<div class="col-xs-1">
+			<img ng-src="%%borrar%%" ng-click="remove($index)">
+		</div>		
+	</div>	 -->
+	<div ng-repeat="question in questionnaire.preguntas">
+		<div ng-show="question.enable">
+			<div class="s_quest_q"><div class="texto_verde">%%question.pregunta.enunciado%%</div>
+			<div ng-repeat="option in question.pregunta.opciones">
+				<h3 ng-show="option.dato || question.pregunta.dato==option.id" class="s_quest_r">%%option.respuesta%%</h3>
+			</div>	
+			</div>	
+		</div>
+	</div>
+</div>	
+</div>	
+</div>
+<!-- </div> -->
+
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>      
+    <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>            
+  </div>  
+</md-sidenav>  

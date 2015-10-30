@@ -1,0 +1,25 @@
+<md-dialog ng-cloak>
+  <form>  
+    <md-dialog-content>
+      <md-input-container flex>
+          <div ng-messages="form.info.$error">
+            <div ng-message="required">Por favor digite su usuario</div>            
+          </div> 
+          <label>Titulo</label>
+          <input type="text" ng-model="info.titulo" name="titulo" required>      
+      </md-input-container>
+      <md-input-container flex>
+          <label>Descripción</label>
+          <textarea ng-model="info.descripcion" columns="1" md-maxlength="120" maxlength="120" required></textarea>
+      </md-input-container>      
+      <div layout="row">   
+        <md-button ng-click="cancel()">
+          Cancelar
+        </md-button>
+        <md-button ng-click="answer(info.titulo,info.descripcion)" ng-disabled="save">
+          Guardar
+        </md-button>
+      </div>
+    </md-dialog-content>  
+    </form>
+</md-dialog>

@@ -33,8 +33,7 @@ angular.module('gemStore')
     {
     // console.log('eee', idOpcion)      ;
        for(var i=0; i<$scope.currentQuestion.opciones.length;i++)
-       {
-        
+       {        
         questionnaireService.removeAnswer($scope.currentQuestion.opciones[i].id);
        }      
        questionnaireService.addAnswer(parseInt(idOpcion));
@@ -96,8 +95,7 @@ angular.module('gemStore')
               {
                 $scope.questionnaire.preguntas[currentQuestionIndex].enable=false;
                 $scope.next();
-              }
-
+              } 
             }
     }
     $scope.oyb = function(dato){          
