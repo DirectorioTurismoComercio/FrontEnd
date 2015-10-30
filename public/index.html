@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html ng-app="gemStore" class="ng-scope">
   <head>    
@@ -8,7 +7,9 @@
 
     <link rel="stylesheet" href="components/normalize.css/normalize.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Revisar para que quede local y no desde internet -->
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <!-- Revisar para que quede local y no desde internet -->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/base.css" />
@@ -17,10 +18,8 @@
     <link rel="stylesheet" href="css/tags.css" />
     <link rel="stylesheet" href="css/errores.css" />
     <link rel="stylesheet" href="css/signin.css" />
-    <link rel="stylesheet" href="css/questionnaire.css" />
-    
-    
-    <!-- Add for material -->
+    <link rel="stylesheet" href="css/questionnaire.css" />        
+    <!-- Revisar para que quede local y no desde internet -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/final.css" />
@@ -29,8 +28,6 @@
     <script type="text/javascript" src="components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="components/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="components/angular-resource/angular-resource.js"></script>
-    
-
   </head>
 
   <body>    
@@ -39,11 +36,8 @@
     </header> -->
 <!-- /header -->
     <div ng-view="" class="main {{ pageClass }}"></div>
-
-    <!-- <div class="MobileFooter" ng-hide="MobileMenu">
-    
+    <!-- <div class="MobileFooter" ng-hide="MobileMenu">    
     </div> -->
-
     <!-- app -->
     <script type="text/javascript" src="components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="components/bootstrap/dist/js/bootstrap.js"></script>
@@ -75,7 +69,20 @@
     <script type="text/javascript" src="js/controllers/questionnaires/action-questionnaire-controller.js"></script>
     <script type="text/javascript" src="js/controllers/questionnaires/solution-controller.js"></script>
     <script type="text/javascript" src="js/controllers/questionnaires/solution-detail-controller.js"></script>
-    <!--<script type="text/javascript" src="js/controllers/auth/auth-controller.js"></script>-->
+    <script type="text/javascript" src="js/controllers/questionnaires/dialog-controller.js"></script>
+
+    <script type="text/javascript" src="js/controllers/profile/profile-main-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/profile/profile-update-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/profile/profile-search-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/profile/profile-search-detail-controller.js"></script>
+
+    <script type="text/javascript" src="js/controllers/auth/auth-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/auth/authu-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/auth/changepass-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/auth/recoverypass-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/auth/resetpass-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/auth/forgotpass-controller.js"></script>
+
     <!-- directives -->
     <script type="text/javascript" src="js/directives/pagination/dirPagination.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-messages.js"></script>
@@ -99,15 +106,24 @@
     <script type="text/javascript" src="js/services/solution-service.js"></script>
     <script type="text/javascript" src="js/services/detail-factory.js"></script>
     <script type="text/javascript" src="js/services/nav-bar.js"></script>
-    <!--<script type="text/javascript" src="js/services/auth-factory.js"></script>-->
+    <script type="text/javascript" src="js/services/authentication-service.js"></script>
+    <script type="text/javascript" src="js/services/usuario-prueba.js"></script>
+    <script type="text/javascript" src="js/services/service-auth.js"></script>
+    <script type="text/javascript" src="js/services/changepass-factory.js"></script>
+    <script type="text/javascript" src="js/services/resetpass-factory.js"></script>
+    <script type="text/javascript" src="js/services/forgotpass-factory.js"></script>
+    <script type="text/javascript" src="js/services/guardar-busqueda-factory.js"></script>
+    <script type="text/javascript" src="js/services/busqueda-detail-factory.js"></script>
 
 
     <!-- aditional components -->
     <script type="text/javascript" src="js/custom_components/autocomplete.js"></script>
 
-<!-- Add for material -->
+<!-- Revisar para que quede local y no desde internet -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-cookies.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-sanitize.min.js"></script>
     
   </body>
 </html>

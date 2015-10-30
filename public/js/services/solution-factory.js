@@ -8,6 +8,5 @@ angular.module('gemStore')
 	function($resource, Constantes){		
 		// return $resource(Constantes.url+'/afinidad',{cuestionario: '@cuestionario',pagina: '@pagina'});		
 		return $resource(Constantes.url+'/afinidad');
-
 	}
 ]);

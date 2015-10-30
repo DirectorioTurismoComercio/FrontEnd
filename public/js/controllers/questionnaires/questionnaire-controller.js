@@ -38,8 +38,7 @@ angular.module('gemStore')
               questionnaires[k].preguntas[i].pregunta.dato=0;
               for(var j=0;j<questionnaires[k].preguntas[i].pregunta.opciones.length;j++)
               {
-                questionnaires[k].preguntas[i].pregunta.opciones[j].dato=false;
-                
+                questionnaires[k].preguntas[i].pregunta.opciones[j].dato=false;                
               }
               
             } 

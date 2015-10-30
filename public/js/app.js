@@ -1,8 +1,8 @@
 (function() {
     //'gemStore' module depends on 'store-products' modules
-  angular.module('gemStore',['ngRoute','ngResource','userModule','ngAnimate','ngMaterial','ngAria','angularUtils.directives.dirPagination','ngMessages'])
+  angular.module('gemStore',['ngRoute','ngResource','userModule','ngAnimate','ngMaterial','ngAria','angularUtils.directives.dirPagination','ngMessages','ngCookies'])
  .constant("Constantes",{"url":"http://www.epsilondx.com/django/index.fcgi","ruta_imagenes":"./images/"})
- // .constant("Constantes",{"url":"http://10.203.190.83:8282","ruta_imagenes":"./images/"})
+ // .constant("Constantes",{"url":"http://10.203.186.249:8282","ruta_imagenes":"./images/"})
   .config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('%%');
     $interpolateProvider.endSymbol('%%');    

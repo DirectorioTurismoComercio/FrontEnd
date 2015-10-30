@@ -59,7 +59,7 @@
         <div ng-message="required">Por favor digite su primer apellido</div>
       </div>
       <label>Primer Apellido:</label>
-      <input ng-model="usuario.apellido1" name="apellido1" required>      
+      <input ng-model="usuario.apellido1" name="apellido1" required>            
     </md-input-container>
 
   <md-input-container>
@@ -70,12 +70,20 @@
       <input ng-model="usuario.apellido2" name="apellido2" required>      
     </md-input-container>
 
-  <md-input-container>
+  <!-- <md-input-container>
       <div ng-messages="form.documento.$error" >
         <div ng-message="required">Por favor digite su documento de identidad</div>
       </div>
       <label>Número de Documento</label>
       <input ng-model="usuario.numero_documento" type="number" name="documento" required>      
+    </md-input-container> -->
+
+    <md-input-container>
+      <div ng-messages="form.password.$error" >
+        <div ng-message="required">Por favor digite su contraseña</div>
+      </div>
+      <label>Contraseña</label>
+      <input ng-model="usuario.password" type="password" name="password" required>      
     </md-input-container>
   
     <!-- <div><span>Digite su correo o número de teléfono (obligatorio)</span></div> -->
@@ -85,7 +93,7 @@
         <div ng-message="pattern">Su email debe tener el formato de un correo (ejemplo@correo.com)</div>
       </div>
       <label>Correo Electrónico</label>
-      <input type="email" name="email" ng-model="usuario.correo" ng-pattern="/^.+@.+\..+$/" />
+      <input type="email" name="email" ng-model="usuario.correo" ng-pattern="/^.+@.+\..+$/" required/>
     </md-input-container>
 
     <md-input-container>
@@ -93,11 +101,8 @@
         <div ng-message="required">Por favor digite su número de telefono</div>
       </div>
       <label>Número de Telefono</label>
-      <input ng-model="usuario.telefono_institucion" type="tel" name="telefono" required>      
-    </md-input-container>
-
-  
-    
+      <input ng-model="usuario.telefono_institucion" type="tel" name="telefono">      
+    </md-input-container>    
  
 </div>
 <div class="aprobado  footer_fix" style='font-size: small;'>

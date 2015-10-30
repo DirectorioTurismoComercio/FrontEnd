@@ -1,0 +1,56 @@
+<form novalidate name="form">
+<div class="personalData">
+  <md-input-container>
+      <div ng-messages="form.nombres.$error" >
+        <div ng-message="required">Por favor digite sus nombres</div>
+      </div>
+      <label>Nombres:</label>
+      <input ng-model="usuario.nombres" name="nombres" required>      
+    </md-input-container>
+  
+  <md-input-container>
+      <div ng-messages="form.apellido1.$error" >
+        <div ng-message="required">Por favor digite su primer apellido</div>
+      </div>
+      <label>Primer Apellido:</label>
+      <input ng-model="usuario.apellido1" name="apellido1" required>            
+  </md-input-container>
+
+  <md-input-container>
+      <div ng-messages="form.apellido2.$error" >
+        <div ng-message="required">Por favor digite su segundo apellido</div>
+      </div>
+      <label>Segundo Apellido:</label>
+      <input ng-model="usuario.apellido2" name="apellido2" required>      
+  </md-input-container>
+
+  <md-input-container>
+      <div ng-messages="form.email.$error" >
+        <div ng-message="required">Por favor digite su correo electrónico</div>
+        <div ng-message="pattern">Su email debe tener el formato de un correo (ejemplo@correo.com)</div>
+      </div>
+      <label>Correo Electrónico</label>
+      <input type="email" name="email" ng-model="usuario.correo" ng-pattern="/^.+@.+\..+$/" required/>
+  </md-input-container>
+
+  <md-input-container>
+    <div ng-messages="form.telefono.$error" >
+        <div ng-message="required">Por favor digite su número de telefono</div>
+      </div>
+      <label>Número de Telefono</label>
+      <input ng-model="usuario.telefono_institucion" type="tel" name="telefono">      
+ </md-input-container>    
+
+ <md-input-container>
+      <div ng-messages="form.ubicacion_institucion.$error">
+        <div ng-message="required">Por favor ingrese su municipio</div>
+      </div>
+      <label>Municipio:</label>
+      <input ng-model="usuario.ubicacion_institucion" name="ubicacion_institucion" required>      
+</md-input-container>
+
+<md-input-container>
+	<md-button md-no-ink class="md-primary" ng-click="changepass()">Cambiar Contraseña</md-button>
+</md-input-container>
+ </div>
+</form>

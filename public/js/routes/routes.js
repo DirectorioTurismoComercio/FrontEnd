@@ -127,13 +127,53 @@
         controller: 'ActionQuestionnaireController',        
         templateUrl: 'templates/questionnaires/action.html',
       }).     
-         when('/auth',//add pacho
+         when('/auth',//Add by Pacho (Login)
       {
         controller: 'AuthController',        
         templateUrl: 'templates/auth/auth.html',
       }).     
-      when('/index',
+         when('/prueba',//Add by Pacho (prueba)
       {
+        controller: 'AController',        
+        templateUrl: 'templates/datos.html',
+      }).     
+         when('/auth/changepass',//Add by Pacho (Cambio de Contraseña)
+      {
+        controller: 'ChangePassController',        
+        templateUrl: 'templates/auth/changepass.html',
+      }).     
+         when('/auth/recovery',//Add by Pacho (Recuperar Contraseña envio correo)
+      {
+        controller: 'RecoveryController',        
+        templateUrl: 'templates/auth/recoverypass.html',
+      }).     
+         when('/auth/forgotpass/:uid/:token',//Add by Pacho (Cambio contraseña despues del correo)
+      {
+        controller: 'ForgotPassController',        
+        templateUrl: 'templates/auth/forgotpass.html',
+      }).     
+         when('/profileMain',//Add by Pacho Perfil
+      {
+        controller: 'ProfileMainController',        
+        templateUrl: 'templates/profile/profile-main.html',
+      }).     
+         when('/profileUpdate',//Add by Pacho Perfil
+      {
+        controller: 'ProfileUpdateController',        
+        templateUrl: 'templates/profile/profile-update.html',
+      }).     
+         when('/profileSearch',//Add by Pacho Perfil
+      {
+        controller: 'ProfileSearchController',        
+        templateUrl: 'templates/profile/profile-search.html',
+      }).     
+         when('/profileSearchDetail',//Add by Pacho Perfil
+      {
+        controller: 'ProfileSearchDetailController',        
+        templateUrl: 'templates/profile/profile-search-detail.html',
+      }).     
+      when('/index',
+      { 
         templateUrl: 'templates/index.html',
       }).
       when('/',

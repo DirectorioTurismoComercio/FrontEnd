@@ -1,6 +1,6 @@
 angular.module('gemStore')
-.controller('SolutionController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar',
-	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar){
+.controller('SolutionController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar','autenticacionService','$mdDialog','GuardarBusquedaFactory',
+	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, autenticacionService, $mdDialog, GuardarBusquedaFactory){
         //Rutas Imagenes        
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
         $scope.img = $scope.ruta + 'boton-empresario.png';
@@ -73,5 +73,60 @@ angular.module('gemStore')
             $location.path('personalData');                               
         }
 
+        $scope.loggin = function(){
+            if (autenticacionService.getInfo()) {                
+                return false;
+            } else{                
+                return true;
+            };            
+        }
+
+        $scope.addB = function(){
+            $mdDialog.show({
+                  controller: DialogController,
+                  templateUrl: 'templates/questionnaires/popup-tmp.html',
+                  parent: angular.element(document.body),
+                  targetEvent: '$event',
+                  clickOutsideToClose:true
+                })
+                .then(function(answer) {                  
+                  console.log(answer.titulo);
+                  console.log(answer.descripcion);
+                  console.log(questionnaireService.getQuestionnaires());                  
+                  console.log(questionnaireService.getTipo());                                   
+                  console.log(autenticacionService.getUser());                                   
+                  $NuevaBusqueda = new GuardarBusquedaFactory();
+                  $NuevaBusqueda.titulo = answer.titulo;
+                  $NuevaBusqueda.descripcion = answer.descripcion;
+                  $NuevaBusqueda.cuestionario = questionnaireService.getQuestionnaires();
+                  $NuevaBusqueda.tipo = questionnaireService.getTipo();
+                  $NuevaBusqueda.usuario = autenticacionService.getUser().id;
+                  $NuevaBusqueda.categorias = [];
+                  $NuevaBusqueda.tags = [];
+                  $NuevaBusqueda.$save({'pk': autenticacionService.getUser().id}).then(function(datos){                    
+                    console.log(datos);                    
+                  }).catch(function(error){
+                    console.log(error);                    
+                  });
+                }, function() {                                    
+                    
+                });            
+        }
         
 }]);
+function DialogController($scope, $mdDialog) {
+    $scope.save = false;
+    // console.log($scope.info.titulo);
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+  $scope.answer = function(answer,answer2) {    
+    var a = {};
+    a.titulo=answer;
+    a.descripcion=answer2;    
+    $mdDialog.hide(a);
+  };
+}

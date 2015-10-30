@@ -12,6 +12,7 @@
 </div>
 
 <div class="prompt fondo_blanco">	
+	<div id="popup"></div>
 	<div layout='row' layout-align="center center">
     	<md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
   	</div>  
@@ -37,10 +38,18 @@
 </div>
 
 <div class="solut_foot">
-	<div layout="row" layout-align="center center" class="solut-button" ng-click="reg()">
+	<div layout="row" layout-align="center center" class="solut-button" ng-click="reg()" ng-show="loggin()">
 		 <img ng-src="%%img2%%">
 		 <div>Registrate</div>
 	</div>
+	<div layout="row" layout-align="space-around center">
+		<div layout="column" ng-click="addB()" ng-hide="loggin()">		 
+		 	Agregar busqueda
+		</div>
+		<div layout="column" ng-click="menu_bar('questionnaires')" ng-hide="loggin()">		 
+			 <div>Volver a buscar</div>
+		</div>	
+	</div>	
 </div>					
 
 
