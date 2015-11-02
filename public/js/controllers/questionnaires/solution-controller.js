@@ -103,6 +103,7 @@ angular.module('gemStore')
                   $NuevaBusqueda.usuario = autenticacionService.getUser().id;
                   $NuevaBusqueda.categorias = [];
                   $NuevaBusqueda.tags = [];
+                  $NuevaBusqueda.respuestas_asociadas = [];
                   $NuevaBusqueda.$save({'pk': autenticacionService.getUser().id}).then(function(datos){                    
                     console.log(datos);                    
                   }).catch(function(error){

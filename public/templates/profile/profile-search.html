@@ -10,3 +10,10 @@
 		<i class="fa fa-reorder"></i>
 	</div>
 </div>
+
+ <div class="box" ng-repeat="datos in data" ng-click="detalle(datos.id,$index)">
+ 	<div layout="row" layout-align="start center" >		
+		<div flex="77" class="box-title">%%datos.titulo%%</div>
+	</div>
+	<div class="box-body"><p class="box-body-p">%%datos.descripcion%%</p></div>
+</div>
