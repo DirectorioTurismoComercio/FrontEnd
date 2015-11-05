@@ -4,6 +4,7 @@
 	function($resource,$location) {
       		var info = "";
       		var user = {};
+      		var id_busqueda = "";
 
       		var getInfo = function ()
 			{
@@ -25,11 +26,23 @@
 				user = _user;				
 			}
 
+			var getIdBusqueda = function ()
+			{
+				return id_busqueda;
+			}
+
+			var setIdBusqueda = function (_idbusq)
+			{
+				id_busqueda = _idbusq;				
+			}
+
 			return {
 	  			getInfo: getInfo,
 	    		setInfo: setInfo,
 	    		getUser: getUser,
-	    		setUser: setUser
+	    		setUser: setUser,
+	    		getIdBusqueda: getIdBusqueda,
+	    		setIdBusqueda: setIdBusqueda
 			}
 		}
 	]);

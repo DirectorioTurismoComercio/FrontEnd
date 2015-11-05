@@ -28,21 +28,21 @@
   </div>  
 
   <div layout="column" layout-align="space-around center" class="footer_fix footer_buscar" ng-show="oyb('P')">
-    <div layout="row" layout-align="space-around center">
+    <div layout="row" layout-align="center center">
       <div><img class="flecha_arriba" ng-click="summary()"></div>
     </div>
-    <div layout="row" layout-fill>
-      <div flex offset="40">Estoy Buscando...</div>  
+    <div layout="row">
+      <div>Estoy Buscando...</div>  
       <div flex class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar</div>    
     </div>
   </div>  
 
-  <div layout="column" layout-align="space-around center" class="footer_fix footer_ofrecer" ng-show="oyb('S')">
+  <div layout="column" layout-align="center center" class="footer_fix footer_ofrecer" ng-show="oyb('S')">
      <div layout="row" layout-align="space-around center">
       <div><img class="flecha_arriba" ng-click="summary()"></div>
     </div>          
-    <div layout="row" layout-fill>      
-      <div flex offset="40">Estoy Ofreciendo...</div>
+    <div layout="row">      
+      <div>Estoy Ofreciendo...</div>
       <div flex class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar
       </div>      
     </div>

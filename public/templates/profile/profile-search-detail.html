@@ -1,5 +1,5 @@
 <div layout="row" layout-align="space-around center" class="barra_main">
-	<div class="regresar" ng-click="back()">
+	<div class="regresar" ng-click="menu_bar('/profileSearch')">
 		<i class="fa fa-arrow-left"></i>
 		<md-tooltip>
         VOLVER
@@ -12,11 +12,6 @@
 </div>
 <!-- <div class="s_quest"> -->
 <div class="prompt fondo_blanco">
-<div layout="row" layout-align="center center" class="prompt_q_full">Edita o elimina tus preferencias para personalizar tu búsqueda...
-</div>	
-<div layout="row" layout-align="center center">
-	<img class="flecha_abajo" ng-click="back()">
-</div>
 <div ng-repeat="questionnaire in questionnaires">
 <div class="s_quest_b" ng-show="questionnaire.enable">	
 	<div layout="row" layout-align="space-around center">
@@ -59,6 +54,7 @@
   <div layout="column" layout-align="space_around center">
     <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
     <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>      
-    <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>            
+    <div class="botones_barra" ng-click="logout()">Cerrar Sesión</div>
   </div>  
 </md-sidenav>  
+

@@ -1,26 +1,4 @@
-/*Modificaciones para pantalla SIGNIN*/
-.btn-success {
-  background-color: #548880;
-  border-color: #548880;
-  text-align: left;
-}
-.btn-success:hover, .btn-success:active{
-  background-color: #549080;
-  border-color: #549080;
-  text-align: left;
-}
 
-.btn-danger {
-  background-color: #80392C;
-  border-color: #80392C;
-  text-align: left;
-}
-
-.btn-danger:hover, .btn-danger:active {
-  background-color: #90392C;
-  border-color: #90392C;
-  text-align: left;
-}
 
 /*Modificaciones para pantalla Action*/
 
@@ -106,74 +84,6 @@ visibility: hidden; /*temporarily hide the "YES" label*/
 }
 
 
-/* ANIMATIONS
-============================================================================= */
-
-/* leaving animations ----------------------------------------- */
-/* rotate and fall */
-@keyframes rotateFall {
-    0%      { transform: rotateZ(0deg); }
-    20%     { transform: rotateZ(10deg); animation-timing-function: ease-out; }
-    40%     { transform: rotateZ(17deg); }
-    60%     { transform: rotateZ(16deg); }
-    100%    { transform: translateY(100%) rotateZ(17deg); }
-}
-
-/* slide in from the bottom */
-@keyframes slideOutLeft {
-    to      { transform: translateX(-100%); }
-}
-
-/* rotate out newspaper */
-@keyframes rotateOutNewspaper {
-    to      { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
-}
-
-/* entering animations --------------------------------------- */
-/* scale up */
-@keyframes scaleUp {
-    from    { opacity: 0.3; -webkit-transform: scale(0.8); }
-}
-
-/* slide in from the right */
-@keyframes slideInRight {
-    from    { transform:translateX(100%); }
-    to      { transform: translateX(0); }
-}
-
-/* slide in from the bottom */
-@keyframes slideInUp {
-    from    { transform:translateY(100%); }
-    to      { transform: translateY(0); }
-}
-
-
-/* page specific animations ------------------------ */
-
-/* home -------------------------- */
-
-.page-summary .ng-enter {
-  -webkit-transition: .10s all; /* Safari/Chrome */
-  -moz-transition: .10s linear all; /* Firefox */
-  -o-transition: .10s linear all; /* Opera */
-  transition: .10s linear all; /* IE10+ and Future Browsers */
-}
-
-/**
- * Pre animation -> enter
- */
-.page-summary .ng-enter{
-  /* The animation preparation code */
-  opacity: 0;
-}
-
-/**
- * Post animation -> enter
- */
-.page-summary .ng-enter.ng-enter-active { 
-  /* The animation code itself */
-  opacity: 1;
-}
 
 /**
  * Nuevas Ediciones

@@ -1,125 +1,3 @@
-/*Dispositivos Pequeños*/
-@media (max-width: 480px) and (orientation: portrait){
-	
-	/*signin page*/
-	.fondo{
-		width: 100%;
-		height: 100%;
-		background-image: url("../images/Fondo/Fondo_Inicio.png");
-	    background-repeat: no-repeat;
-	    background-position: center;			
-	}
-	.img-logo {		
-		padding-left: 25%;
-		padding-right: 25%;
-		width: 100%
-	}
-	.form-signin {
-    	max-width: 90%;
-	}
-	
-	/*rol page*/
-	.galeria{
-	 	margin-top: 10%;
-	}
-
-
-	div.descriptionWrapper h2, div.descriptionWindow h3,
-	div.descriptionWindow p, div.cancelar span, div.aceptar span
-	{ 
-		font-size: medium;
-	}
-
-
-
-
-}
-
-/*Dispositivos Medios*/
-@media (min-width: 481px) and (max-width: 800px){
-
-	/*signin page*/
-	.fondo{
-		width: 100%;
-		height: 100%;
-		background-image: url("../images/Fondo/Fondo_media.png");
-	    background-repeat: no-repeat;
-	    background-position: center;			
-	}
-	.img-logo {		
-		padding-left: 25%;
-		padding-right: 25%;
-		width: 100%
-	}
-	.form-signin {
-    	max-width: 60%;
-	}
-
-
-	/*action questionnaire page*/
-	 .barra_main, .botones_barra, .prompt_q, .toolbar_side,
-	 .action_text, .galeria p, .footer_fix{
-	 	font-size: x-large;
-	 }
-
-	 .circle p{
-	 	    font-size: small;
-	 }
-
-	div.descriptionWrapper h2, div.descriptionWindow h3,
-	div.descriptionWindow p, div.cancelar span, 
-	div.aceptar span{
-	 	font-size: x-large;
-	}
-
- 	/*rol page*/
-	 .galeria{
-	 	margin-top: 25%;
-	 }
-
-	
-}
-	
-/*Dispositivos Grandes*/
-@media (min-width: 801px){
-
-	/*signin page*/
-	.fondo{
-		width: 100%;
-		height: 100%;
-		background-image: url("../images/Fondo/Fondo_grande.png");
-	    background-repeat: no-repeat;
-	    background-position: center;			
-	}
-	.img-logo {		
-		padding-left: 25%;
-		padding-right: 25%;
-		width: 100%
-	}
-	.form-signin {
-    	max-width: 40%;
-	}
-
-	/*action questionnaire page*/
-	 .barra_main, .botones_barra, .prompt_q, .toolbar_side, 
-	 .action_text, .galeria p, .footer_fix, 
-	 .div.descriptionWrapper h2, div.descriptionWindow h3,
-	 div.descriptionWindow p, div.cancelar span, 
-	 div.aceptar span{
-	 	font-size: xx-large;
-	 }
-	 .circle p{
-	 	    font-size: small;
-	 }
-
-	 /*rol page*/	
-	 .galeria{
-	 	margin-top: 5%;
-	 }
-
-}
-
-
 @media all{
 
 	/*diferent pages*/
@@ -134,14 +12,45 @@
 	.prompt {
 	    padding-left: 5%;
 	    padding-right: 5%;
-	    height: 90%;	    
+	    height: 80%;	    
 	    background-color: #F2F2F2;	    
 	}
-
-	/*signin page*/
-	.botones_inicio {
-		margin-top: 40%;
+	.bc_content{
+	  height: 100%;
+	  overflow: visible;
+	 }
+	.prompt_q {	  
+	  color: #4F4D59; 	   
+	  text-align: justify;
+	  padding: 2% 2% 2% 2%;
 	}
+
+
+	/*Modificaciones para pantalla SIGNIN*/
+
+	.btn-success {
+	  background-color: #548880;
+	  border-color: #548880;
+	  text-align: left;
+	}
+	.btn-success:hover, .btn-success:active{
+	  background-color: #549080;
+	  border-color: #549080;
+	  text-align: left;
+	}
+
+	.btn-danger {
+	  background-color: #80392C;
+	  border-color: #80392C;
+	  text-align: left;
+	}
+
+	.btn-danger:hover, .btn-danger:active {
+	  background-color: #90392C;
+	  border-color: #90392C;
+	  text-align: left;
+	}
+	
 
 	/*action page*/
 	.barra_main{
@@ -178,10 +87,6 @@
 	md-toolbar{
 		font-size: inherit;
 		min-height: 0px;
-	}
-	.prompt_q {	  
-	  color: #4F4D59; 	   
-	  text-align: justify;
 	}
 
 	.serv_button{	  
@@ -323,7 +228,6 @@
 		display: block; 
 		margin: 20px auto; 
 		width: 90%;
-		height: 80%;
 	}
 	div.descriptionWrapper h2 { 
 		color: #59585B; 
@@ -341,10 +245,8 @@
 		border-radius: 5px; 
 		clear: both; 
 		display: block; 
-		margin: 20px auto; 
 		width: 95%; 
-		padding: 12px 0 0 0; 
-		height: 70%;
+		margin-left: 2.5%;
 	}
 	div.descriptionWindow div {
 		background: white; 
@@ -396,5 +298,279 @@
 		color: white;
 	}
 
+
+}
+
+
+
+/*Dispositivos Pequeños*/
+@media (max-width: 480px) and (orientation: portrait){
+	
+	/*signin page*/
+	.fondo{
+		width: 100%;
+		height: 100%;
+		background-image: url("../images/Fondo/Fondo_Inicio.png");
+	    background-repeat: no-repeat;
+	    background-position: center;			
+	}
+	.img-logo {		
+		padding-left: 25%;
+		padding-right: 25%;
+		width: 100%
+	}
+	.form-signin {
+    	max-width: 90%;
+	}
+	.botones_inicio {
+		margin-top: 40%;
+	}
+
+	/*rol page*/
+	.galeria{
+	 	margin-top: 10%;
+	}
+
+
+	div.descriptionWrapper h2, div.descriptionWindow h3,
+	div.descriptionWindow p, div.cancelar span, div.aceptar span
+	{ 
+		font-size: medium;
+	}
+
+	/*rol-overlay page*/
+	div.descriptionWrapper { 
+		
+	}
+
+
+
+}
+
+@media (max-width: 480px) and (orientation: landscape){
+	
+	.main{
+		height: 100%;	
+	}
+
+	/*signin page*/
+	.fondo{
+		width: 100%;
+		height: 100%;
+		background-image: url("../images/Fondo/Fondo_Inicio.png");
+	    background-repeat: no-repeat;
+	    background-position: center;			
+	}
+	.img-logo {		
+		padding-left: 35%;
+		padding-right: 35%;
+		width: 100%
+	}
+	.form-signin {
+    	max-width: 70%;
+	}
+	.botones_inicio {
+		margin-top: 5%;
+	}
+	
+	/*rol page*/
+	.galeria{
+	 	margin-bottom: 5%;
+	 	margin-top: 5%
+	}
+	div.descriptionWrapper h2, div.descriptionWindow h3,
+	div.descriptionWindow p, div.cancelar span, div.aceptar span
+	{ 
+		font-size: medium;
+	}
+
+
+	/*rol-overlay page*/
+	div.descriptionWrapper { 
+		margin: 20px auto; 
+		width: 90%;
+		height: 90%;
+		padding-bottom: 3%;
+	}
+	div.descriptionWindow {  
+		margin: 20px auto;  
+		height: 70%;
+	}
+
+	/*questionnarie page*/
+	.prompt {
+	    height: 10	0%;	        
+	}
+
+
+}
+
+
+/*Dispositivos Medios*/
+@media (min-width: 481px) and (max-width: 800px) and (orientation: portrait){
+
+	/*signin page*/
+	.fondo{
+		width: 100%;
+		height: 100%;
+		background-image: url("../images/Fondo/Fondo_media.png");
+	    background-repeat: no-repeat;
+	    background-position: center;			
+	}
+	.img-logo {		
+		padding-left: 25%;
+		padding-right: 25%;
+		width: 100%
+	}
+	.form-signin {
+    	max-width: 60%;
+	}
+	.botones_inicio {
+		margin-top: 40%;
+	}
+
+
+	/*action questionnaire page*/
+	 .barra_main, .botones_barra, .prompt_q, .toolbar_side,
+	 .action_text, .galeria p, .footer_fix{
+	 	font-size: x-large;
+	 }
+
+	 .circle p{
+	 	    font-size: small;
+	 }
+
+	div.descriptionWrapper h2, div.descriptionWindow h3,
+	div.descriptionWindow p, div.cancelar span, 
+	div.aceptar span{
+	 	font-size: x-large;
+	}
+
+ 	/*rol page*/
+	 .galeria{
+	 	margin-top: 20%;
+	 }
+
+	
+}
+
+@media (min-width: 481px) and (max-width: 800px) and (orientation: landscape){
+
+	/*signin page*/
+	.fondo{
+		width: 100%;
+		height: 100%;
+		background-image: url("../images/Fondo/Fondo_media.png");
+	    background-repeat: no-repeat;
+	    background-position: center;			
+	}
+	.img-logo {		
+		padding-left: 35%;
+		padding-right: 35%;
+		width: 100%
+	}
+	.form-signin {
+    	max-width: 60%;
+	}
+	.botones_inicio {
+		margin-top: 5%;
+	}
+
+	/*action questionnaire page*/
+	 .barra_main, .botones_barra, .prompt_q, .toolbar_side,
+	 .action_text, .galeria p, .footer_fix{
+	 	font-size: large;
+	 }
+
+	 .circle p{
+	 	    font-size: small;
+	 }
+
+	div.descriptionWrapper h2, div.descriptionWindow h3,
+	div.descriptionWindow p, div.cancelar span, 
+	div.aceptar span{
+	 	font-size: large;
+	}
+
+
+	/*actionquestionnaire page*/
+	.serv_body{
+	  height: 70%; 
+	}
+
+ 	/*rol page*/
+	 .galeria{
+	 	margin-bottom: 5%;
+	 	margin-top: 5%;
+	 }
+
+
+	 /*rol-overlay page*/
+	div.descriptionWrapper { 
+		margin: 20px auto; 
+		width: 90%;
+		height: 90%;
+	}
+	div.descriptionWindow {  
+		margin: 20px auto; 
+		height: 65%;
+	}
+
+	
+}
+
+	
+/*Dispositivos Grandes*/
+@media (min-width: 801px){
+
+	/*signin page*/
+	.fondo{
+		width: 100%;
+		height: 100%;
+		background-image: url("../images/Fondo/Fondo_grande.png");
+	    background-repeat: no-repeat;
+	    background-position: center;			
+	}
+	.img-logo {		
+		padding-left: 25%;
+		padding-right: 25%;
+		width: 100%
+	}
+	.form-signin {
+    	max-width: 40%;
+	}
+	.botones_inicio {
+		margin-top: 40%;
+	}
+
+	/*action questionnaire page*/
+	 .barra_main, .botones_barra, .prompt_q, .toolbar_side, 
+	 .action_text, .galeria p, .footer_fix, 
+	 .div.descriptionWrapper h2, div.descriptionWindow h3,
+	 div.descriptionWindow p, div.cancelar span, 
+	 div.aceptar span{
+	 	font-size: xx-large;
+	 }
+	 .circle p{
+	 	    font-size: small;
+	 }
+
+ 	/*rol page*/
+	 .galeria{
+	 	margin-top: 5%;
+	 }
+
+
+	/*rol-overlay page*/
+	div.descriptionWrapper { 
+		margin: 20px auto; 
+		width: 90%;
+		height: 80%;
+	}
+	div.descriptionWindow {  
+		margin: 20px auto; 
+		padding: 1% 0 0 0; 
+		height: 70%;
+	}
 
 }

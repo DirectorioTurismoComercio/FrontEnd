@@ -21,7 +21,7 @@
     <div><span class="icon-location2"></span>%%usuario.direccion_institucion%%, %%usuario.ubicacion_institucion%%</div>
     <div><span class="icon-phone"></span>%%usuario.telefono_institucion%% </div>
     <div><span class="icon-mail"></span>%%usuario.correo_institucion%%</div>
-    <div>NIT: %%usuario.NIT%%</div>
+    <!-- <div>NIT: %%usuario.NIT%%</div> -->
     <div ng-repeat="usuariored in usuarioredes">
       <span>%%getRedById(usuariored.red_social).nombre%%</span>
       <span>%%usuariored.url%%</span>
@@ -40,7 +40,7 @@
   <div class="wrapperSummaryBusiness">    
     <div><span>Nombres:</span> %%usuario.nombres%%</div>
     <div><span>Apellidos:</span> %%usuario.apellido1%% %%usuario.apellido2%% </div>
-    <div><span>Documento:</span> %%usuario.numero_documento%%</div>
+    <!-- <div><span>Documento:</span> %%usuario.numero_documento%%</div> -->
     <div><span>Correo Electrónico:</span>%%usuario.correo%%</div>
     <div ng-repeat="usuariored in usuarioredes">
       <span>%%getRedById(usuariored.red_social).nombre%%</span>
@@ -53,7 +53,7 @@
 <div class="aprobado footer_fix" style='font-size: small;'>
   <!-- Comentado para verificar llevar al inicio mientras se implementa el perfil del usuario-->
   <!-- <div class="siguiente" ng-click="changeView('profileDescription/'+usuario.id)"><span><span class="icon-check"></span></span></div> -->
-  <div class="siguiente" ng-click="changeView('signin')"><span><span class="icon-check"></span></span></div>
+  <div class="siguiente" ng-click="changeView('profileMain')"><span><span class="icon-check"></span></span></div>
 
   <div class="anterior" ng-click="changeView('businessData')">
     <span>
