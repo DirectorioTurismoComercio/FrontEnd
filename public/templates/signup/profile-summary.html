@@ -21,7 +21,7 @@
     <div><span class="icon-location2"></span>%%usuario.direccion_institucion%%, %%usuario.ubicacion_institucion%%</div>
     <div><span class="icon-phone"></span>%%usuario.telefono_institucion%% </div>
     <div><span class="icon-mail"></span>%%usuario.correo_institucion%%</div>
-    <div>NIT: %%usuario.NIT%%</div>
+    <!-- <div>NIT: %%usuario.NIT%%</div> -->
     <div ng-repeat="usuariored in usuarioredes">
       <span>%%getRedById(usuariored.red_social).nombre%%</span>
       <span>%%usuariored.url%%</span>
@@ -40,7 +40,7 @@
   <div class="wrapperSummaryBusiness">    
     <div><span>Nombres:</span> %%usuario.nombres%%</div>
     <div><span>Apellidos:</span> %%usuario.apellido1%% %%usuario.apellido2%% </div>
-    <div><span>Documento:</span> %%usuario.numero_documento%%</div>
+    <!-- <div><span>Documento:</span> %%usuario.numero_documento%%</div> -->
     <div><span>Correo Electrónico:</span>%%usuario.correo%%</div>
     <div ng-repeat="usuariored in usuarioredes">
       <span>%%getRedById(usuariored.red_social).nombre%%</span>
