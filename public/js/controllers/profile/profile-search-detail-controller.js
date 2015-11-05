@@ -20,11 +20,12 @@
               cont = 0; 
               for(var j=0;j<$scope.questionnaires[k].preguntas[i].pregunta.opciones.length;j++)
               {                
-                if ($scope.questionnaires[k].preguntas[i].pregunta.opciones[j].dato === 1) {
-                  cont++;
-                  $scope.questionnaires[k].preguntas[i].dato = $scope.questionnaires[k].preguntas[i].pregunta.opciones[j].dato;
+                if ($scope.questionnaires[k].preguntas[i].pregunta.opciones[j].dato === 0) {
+                  
+                  // $scope.questionnaires[k].preguntas[i].dato = $scope.questionnaires[k].preguntas[i].pregunta.opciones[j].dato;
                 } else{
-                  $scope.questionnaires[k].preguntas[i].pregunta.opciones[j].dato === 0;                  
+                  cont++;
+                  // $scope.questionnaires[k].preguntas[i].pregunta.opciones[j].dato === 0;                  
                 };                
               }            
               if (cont > 0) {     

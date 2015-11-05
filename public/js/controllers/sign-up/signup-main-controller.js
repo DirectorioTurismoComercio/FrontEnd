@@ -5,8 +5,8 @@
     * Description
     */
     angular.module('gemStore')
-    .controller('SignupMainController',['$scope', 'registroService','ResultRetriever', 'QuestionnaireFactory','questionnaireService',
-        function($scope,registroService, ResultRetriever, QuestionnaireFactory, questionnaireService){
+    .controller('SignupMainController',['$scope', 'registroService','ResultRetriever', 'QuestionnaireFactory','questionnaireService','UserByToken','autenticacionService',
+        function($scope,registroService, ResultRetriever, QuestionnaireFactory, questionnaireService,UserByToken,autenticacionService){
 
             $scope.form=""; 
             $scope.showErrors=false;               
@@ -116,7 +116,21 @@
                                         registroService.changeView(view);
                                     }
                                 };
-            $scope.usuario      = registroService.getUsuario();
+            $scope.usuario      = registroService.getUsuario();            
+            if ($scope.usuario.key) {
+                data = {};
+                UserByToken.us($scope.usuario.key).query().$promise.then(function(usu){                                                           
+                  data = usu;
+                  autenticacionService.setInfo($scope.usuario.key);
+                  autenticacionService.setUser(usu);                        
+                  console.log('Id: ',data.id);                                     
+                  $scope.usuario = data;
+                }).catch(function(error){
+                  console.log(error);            
+                });       
+                console.log('USUARIO',$scope.usuario);                 
+            }
+
             $scope.usuarioRedes = registroService.getUsuarioRedes();
             $scope.getRedById = function(id)
                                 {
@@ -170,12 +184,11 @@
                     // });  
                     // console.log(respuesta.id_usuario);                    
                     registroService.changeView(view);
-                    console.log(user);
+                    console.log(user);                    
                 }).catch(function(errors){
                     console.log("Errores retornado por el POST de agregar usuario",errors);
-                }).finally(function(){
-                    
-                    registroService.changeView('user/'+user.id);
+                }).finally(function(){                    
+                    // registroService.changeView('user/'+user.id);
                 });
 
                 scope = {}
