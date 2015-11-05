@@ -207,3 +207,16 @@ visibility: hidden; /*temporarily hide the "YES" label*/
   margin: 0% 30% 0% 30%;
   height: 50px;
 }
+
+
+
+/*5 11 2015*/
+
+.btn-guardar-busq{
+  text-align: center;
+    background-color: #548880;
+    border-radius: 5px;
+    width: 125px;
+    height: 35px;
+    padding: 7px;  
+}

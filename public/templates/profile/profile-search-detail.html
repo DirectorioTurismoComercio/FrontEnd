@@ -11,8 +11,28 @@
 	</div>
 </div>
 <!-- <div class="s_quest"> -->
-<div class="prompt fondo_blanco">
-<div ng-repeat="questionnaire in questionnaires">
+
+<md-tabs md-stretch-tabs="always">
+      <md-tab label="Soluciones">
+        <md-content>
+        	<div class="box" ng-repeat="solucion in respuestas">  		
+				<div layout="row" layout-align="start center" >
+					<div><img  class="box-img" ng-src="%%img%%"></div>
+					<div flex="77" class="box-title">%%solucion.respuesta.titulo%%</div>				
+				</div>
+				<div class="box-body">
+					<p class="box-body-p">%%solucion.respuesta.descripcion%%</p>
+				</div>
+				<div class="box-footer" ng-click="detalle(solucion.respuesta.id,$index)">Detalle</div>
+			</div>
+        	<!-- <div ng-repeat="soluciones in respuestas">
+        		%%soluciones.respuesta.titulo%%
+        	</div> -->
+        </md-content>
+      </md-tab>
+      <md-tab label="Información">
+        <md-content >               
+          <div ng-repeat="questionnaire in questionnaires">
 <div class="s_quest_b" ng-show="questionnaire.enable">	
 	<div layout="row" layout-align="space-around center">
 		<img ng-src="%%editar%%" ng-click="edit($index)">
@@ -41,7 +61,10 @@
 	</div>
 </div>	
 </div>	
-</div>
+        </md-content>
+      </md-tab>      
+</md-tabs md-swipe>
+
 <!-- </div> -->
 
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">

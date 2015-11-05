@@ -1,10 +1,14 @@
 (function(){
 	angular.module('gemStore')
-	.controller('ProfileSearchDetailController', ['$scope','Constantes','$location','autenticacionService','DetalleBusquedaFactory','questionnaireService','navBar',
-		function($scope,Constantes,$location,autenticacionService,DetalleBusquedaFactory,questionnaireService,navBar){                              	
-      $scope.detalle = [];
+	.controller('ProfileSearchDetailController', ['$scope','Constantes','$location','autenticacionService','DetalleBusquedaFactory','questionnaireService','navBar','solutionService',
+		function($scope,Constantes,$location,autenticacionService,DetalleBusquedaFactory,questionnaireService,navBar,solutionService){                              	
+      $scope.respuestas = [];      
       DetalleBusquedaFactory.get({"pk": autenticacionService.getIdBusqueda()}).$promise.then(function(datos){                                    
         console.log(datos);
+        $scope.titulo = datos.titulo;
+        $scope.descripcion = datos.descripcion;
+        $scope.respuestas = datos.respuestas_asociadas;
+
           questionnaireService.setQuestionnaires(datos.cuestionario);
           $scope.questionnaires = questionnaireService.getQuestionnaires();                  
           console.log($scope.questionnaires);
@@ -39,6 +43,14 @@
       }).catch(function(error){
         console.log(error);
       });
+
+      $scope.detalle = function(_id,_index){                      
+            // $scope.solution = $scope.solutions[parseInt(_id)];
+            // solutionService.setSolution($scope.solution);            
+            solutionService.setId(_id);
+            solutionService.setIndex(_index);            
+            $location.path('/solutions/detail');                               
+      }
 
       $scope.toggleRight = function(){                                
         navBar.open();
