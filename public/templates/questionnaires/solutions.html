@@ -41,7 +41,7 @@
 	<div layout="row" layout-align="center center" class="solut-button" ng-click="reg()" ng-show="loggin()">
 		 <img ng-src="%%img2%%">
 		 <div>Registrate</div>
-	</div>
+	</div> 
 	<div layout="row" layout-align="space-around center">
 		<div layout="column" ng-click="addB()" ng-hide="loggin()">		 
 		 	Agregar busqueda
@@ -62,7 +62,7 @@
   </md-toolbar>
   <div layout="column" layout-align="space_around center">
     <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
-    <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>      
-    <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>            
+    <div class="botones_barra" ng-click="menu_bar('personalData')" ng-show="loggin()">Registrate</div>      
+    <div class="botones_barra" ng-click="menu_bar('signin')" ng-show="loggin()">Iniciar Sesión</div>            
   </div>  
 </md-sidenav>  
