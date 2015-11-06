@@ -40,7 +40,7 @@
             <div layout="row" layout-align="center center" ng-repeat="parejas in detalle.respuestas">
               <!-- Respuestas -->                
               <p class="sol_respuesta %%parejas.clase_color%%">%%parejas.respuesta1%%</p>
-              <div layout="row" layout-align ="center center" class="bubble %%parejas.clase_color%%">%%parejas.afinidad%% %</div>              
+              <div layout="row" layout-align ="center center" class="bubble %%parejas.clase_color%%">%%parejas.afinidad | number:0%% %</div>              
               <p class="sol_respuesta %%parejas.clase_color%%">%%parejas.respuesta2%%</p>
             </div>          		
             <md-divider ng-if="!$last"></md-divider>
@@ -60,9 +60,9 @@
       </md-tab>
 </md-tabs md-swipe>
 </div>
-<div class="solut_foot" layout="row" layout-align="space-around center">	
+<div class="solut_foot" layout="row" layout-align="space-between center">	
     <div ng-click="anterior()" class="solut_back"><img ng-src="%%img_anterior%%">Anterior</div>		 
-
+     <!-- <p>Agregar Solución</p> -->
 		 <img ng-click="menu_bar('personalData')" class="solut_img" ng-src="%%img_cerrar%%">
      
      <div ng-click="siguiente()" class="solut_next">

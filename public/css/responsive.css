@@ -51,7 +51,6 @@
 	    padding-bottom: 5px;
 	    margin-top: 2%;
 	}
-
 	.s_quest_q {
 	  padding: 10px;  
 	  margin-top: 5px;
@@ -213,6 +212,7 @@
 		text-align: center;		
 	}
 
+
 	/*View Question*/
 
 	.prompt_r {	  
@@ -257,6 +257,7 @@
 	  font-weight: bold;
 	  cursor: pointer;
 	}
+	
 	/* View Summary*/
 
 	.s_quest_b {
@@ -495,9 +496,7 @@
 	  color: White;
 	}
 
-	 body,button, html, input, select, textarea{
-	 	    font-family: 'Roboto Condensed', sans-serif !important;
-	 }
+
 
 	.prompt_r {	 
 	 margin-top: 5px;
@@ -582,10 +581,6 @@
 	    background-color: #548880;
 	}
 
-	.md-default-theme {
-		font-size: 16px;
-		
-	}
 	md-input-container label {
 	 	color: rgba(0,0,0,0.9);
 	}
@@ -598,7 +593,7 @@
     display: block;
     padding: 10px 0;
     margin: auto;
-}
+	}
 
 div.businessData {
     width: 80%;
