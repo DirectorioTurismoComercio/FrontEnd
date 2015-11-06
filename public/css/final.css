@@ -1,5 +1,18 @@
 @media all{
 
+	.galeria{
+		margin-top: 5%;
+	}
+
+	body,button, html, input, select, textarea{
+	 	    font-family: 'Roboto Condensed', sans-serif !important;
+	 }
+
+	md-radio-button {
+		margin: 10px;
+	}
+
+
 	/*diferent pages*/
 	.main{
 		width: 100%;
@@ -107,7 +120,6 @@
 
 
 	/*rol page*/
-
 	.body{
 	  height: 80%;
 	  background-color: #F2F2F2;  
@@ -172,7 +184,6 @@
 	  bottom: 0;
 	  width: 100%;	  
 	  padding: 1% 2% 1% 2%;
-	  height: 10%;
 	  box-shadow: 0 0 5px 2px rgba(1, 1, 1, 0.6);
 	}
 	.footer_buscar {
@@ -299,18 +310,88 @@
 	}
 
 
-}
+	/*Select Option*/
+	.styled-select {
+	  margin-bottom: 5px;
+	  margin-left: 10px;
+	   width: 200px;
+	   height: 34px;
+	   overflow: hidden;
+	   background: url("../images/botones/lupa-busqueda.png") no-repeat right #ddd;
+	   border: 1px solid #ccc;
+	   }
 
+	.styled-select select {
+	   background: transparent;
+	   width: 268px;
+	   padding: 5px;
+	   font-size: 16px;
+	   line-height: 1;
+	   border: 0;
+	   border-radius: 0;
+	   height: 30px;
+	   -webkit-appearance: none;
+	 }
+
+	.styled-select select>option {
+	  text-align: center;
+	}
+	.styled-select select:hover {    
+	    /*background-color: #549080;*/
+	 }
+	.flecha_arriba{
+	  border: transparent;
+	  width: 19px;
+	  height: 12px;
+	  background: url("../images/botones/boton-flecha-arriba.png") no-repeat;
+	}
+	.flecha_abajo{
+	  border: transparent;
+	  width: 19px;
+	  height: 12px;
+	  background: url("../images/botones/boton-flecha-arriba.png") no-repeat;
+	  -webkit-transform: rotate(180deg);
+	  -moz-transform: rotate(180deg);
+	  -ms-transform: rotate(180deg);
+	}
+	.centrar {
+	  margin-top: 10px; 
+	  text-align: center;    
+	}
+
+	.btn-buscar {  
+	  text-align: center;
+	  background-color: #548880;
+	  border-radius: 5px;
+	}
+
+	/*index page*/
+	.footer_cont{
+		width: 80%;
+		padding-bottom: inherit;
+	}
+	.text_footer{
+		margin-right: 0 2em 0 2em;
+	}
+
+
+	
+}
 
 
 /*Dispositivos Pequeños*/
 @media (max-width: 480px) and (orientation: portrait){
+
+	.md-default-theme {
+		font-size: medium;	
+	}
+
 	
 	/*signin page*/
 	.fondo{
 		width: 100%;
 		height: 100%;
-		background-image: url("../images/Fondo/Fondo_Inicio.png");
+		background-image: url("../images/Fondo/Fondo_Inicio2.png");
 	    background-repeat: no-repeat;
 	    background-position: center;			
 	}
@@ -330,10 +411,12 @@
 	.galeria{
 	 	margin-top: 10%;
 	}
-
-
+	.footer_fix {
+	  height: 10%;
+	}
 	div.descriptionWrapper h2, div.descriptionWindow h3,
-	div.descriptionWindow p, div.cancelar span, div.aceptar span
+	div.descriptionWindow p, div.cancelar span, div.aceptar span,
+	md-radio-button, .prompt
 	{ 
 		font-size: medium;
 	}
@@ -343,6 +426,13 @@
 		
 	}
 
+
+	/*Select Option*/
+	.btn-buscar {  
+	  width: 30%;
+	  height: 2em;
+	  padding: 2%;
+	}
 
 
 }
@@ -357,7 +447,7 @@
 	.fondo{
 		width: 100%;
 		height: 100%;
-		background-image: url("../images/Fondo/Fondo_Inicio.png");
+		background-image: url("../images/Fondo/Fondo_Inicio2.png");
 	    background-repeat: no-repeat;
 	    background-position: center;			
 	}
@@ -372,14 +462,25 @@
 	.botones_inicio {
 		margin-top: 5%;
 	}
+
+
+	/*actionquestionnarie page*/
+	.serv_body{
+	  margin-top: 20%; 
+	}
+
 	
 	/*rol page*/
 	.galeria{
-	 	margin-bottom: 5%;
+	 	margin-bottom: 10%;
 	 	margin-top: 5%
 	}
+	.footer_fix {
+	  height: 13%;
+	}
 	div.descriptionWrapper h2, div.descriptionWindow h3,
-	div.descriptionWindow p, div.cancelar span, div.aceptar span
+	div.descriptionWindow p, div.cancelar span, div.aceptar span,
+	md-radio-button, .prompt
 	{ 
 		font-size: medium;
 	}
@@ -399,7 +500,15 @@
 
 	/*questionnarie page*/
 	.prompt {
-	    height: 10	0%;	        
+	    height: initial;	        
+	}
+
+
+	/*Select Option*/
+	.btn-buscar {  
+	  width: 30%;
+	  height: 2em;
+	  padding: 1%;
 	}
 
 
@@ -432,7 +541,8 @@
 
 	/*action questionnaire page*/
 	 .barra_main, .botones_barra, .prompt_q, .toolbar_side,
-	 .action_text, .galeria p, .footer_fix{
+	 .action_text, .galeria p, .footer_fix,
+	 md-radio-button, .prompt{
 	 	font-size: x-large;
 	 }
 
@@ -450,6 +560,17 @@
 	 .galeria{
 	 	margin-top: 20%;
 	 }
+	.footer_fix {
+	  height: 13%;
+	}
+
+
+	/*Select Option*/
+	.btn-buscar {  
+	  width: 30%;
+	  height: 2em;
+	  padding: 2%;
+	}
 
 	
 }
@@ -478,7 +599,8 @@
 
 	/*action questionnaire page*/
 	 .barra_main, .botones_barra, .prompt_q, .toolbar_side,
-	 .action_text, .galeria p, .footer_fix{
+	 .action_text, .galeria p, .footer_fix, md-radio-button,
+	 .prompt{
 	 	font-size: large;
 	 }
 
@@ -496,13 +618,19 @@
 	/*actionquestionnaire page*/
 	.serv_body{
 	  height: 70%; 
+	  margin-top: 20%; 
 	}
 
+	  
+
  	/*rol page*/
-	 .galeria{
-	 	margin-bottom: 5%;
+	.galeria{
+	 	margin-bottom: 10%;
 	 	margin-top: 5%;
 	 }
+	.footer_fix {
+	  height: 15%;
+	}
 
 
 	 /*rol-overlay page*/
@@ -516,6 +644,19 @@
 		height: 65%;
 	}
 
+	/*questionnarie page*/
+	.prompt {
+	    height: initial;	        
+	}
+
+
+	/*Select Option*/
+	.btn-buscar {  
+	  width: 20%;
+	  height: 1.5em;
+	  padding: 0.1em;
+	}
+
 	
 }
 
@@ -527,7 +668,7 @@
 	.fondo{
 		width: 100%;
 		height: 100%;
-		background-image: url("../images/Fondo/Fondo_grande.png");
+		background-image: url("../images/Fondo/original.jpg");
 	    background-repeat: no-repeat;
 	    background-position: center;			
 	}
@@ -548,18 +689,24 @@
 	 .action_text, .galeria p, .footer_fix, 
 	 .div.descriptionWrapper h2, div.descriptionWindow h3,
 	 div.descriptionWindow p, div.cancelar span, 
-	 div.aceptar span{
+	 div.aceptar span, md-radio-button, .prompt{
 	 	font-size: xx-large;
 	 }
 	 .circle p{
 	 	    font-size: small;
 	 }
+	.serv_body{
+	  margin-top: 30%; 
+	}
+
 
  	/*rol page*/
-	 .galeria{
-	 	margin-top: 5%;
+	.galeria{
+	 	margin-bottom: 8%
 	 }
-
+	.footer_fix {
+	  height: 15%;
+	}
 
 	/*rol-overlay page*/
 	div.descriptionWrapper { 
@@ -567,10 +714,23 @@
 		width: 90%;
 		height: 80%;
 	}
-	div.descriptionWindow {  
+	div.descriptionWindow {
 		margin: 20px auto; 
 		padding: 1% 0 0 0; 
 		height: 70%;
+	}
+
+
+	/*questionnarie page*/
+	.prompt {
+	    height: initial;	        
+	}
+
+	/*Select Option*/
+	.btn-buscar {  
+	  width: 20%;
+	  height: 2em;
+	  padding: 1%;
 	}
 
 }

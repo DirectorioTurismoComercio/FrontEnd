@@ -113,7 +113,17 @@
                                             $scope.showErrors=true;
                                         }   
                                     }else{
-                                        registroService.changeView(view);
+                                        if (view === 'profileMain') {
+                                            if(questionnaireService.getTipo()){
+                                                registroService.changeView('solutions');        
+                                            }   
+                                            else{
+                                                registroService.changeView(view);    
+                                            }
+                                        } else{
+                                            registroService.changeView(view);    
+                                        };
+                                        
                                     }
                                 };
             $scope.usuario      = registroService.getUsuario();            
