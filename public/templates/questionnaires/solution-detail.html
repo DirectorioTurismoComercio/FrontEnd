@@ -40,7 +40,7 @@
             <div layout="row" layout-align="center center" ng-repeat="parejas in detalle.respuestas">
               <!-- Respuestas -->                
               <p class="sol_respuesta %%parejas.clase_color%%">%%parejas.respuesta1%%</p>
-              <div layout="row" layout-align ="center center" class="bubble %%parejas.clase_color%%">%%parejas.afinidad%% %</div>              
+              <div layout="row" layout-align ="center center" class="bubble %%parejas.clase_color%%">%%parejas.afinidad | number:0%% %</div>              
               <p class="sol_respuesta %%parejas.clase_color%%">%%parejas.respuesta2%%</p>
             </div>          		
             <md-divider ng-if="!$last"></md-divider>
