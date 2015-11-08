@@ -1,8 +1,20 @@
 (function(){
 	angular.module('gemStore')
-	.controller('AuthController', ['$scope','Constantes','AuthFactory','autenticacionService','$location','$mdDialog','UserByToken',
-		function($scope,Constantes,AuthFactory,autenticacionService,$location,$mdDialog,UserByToken){                        
+	.controller('AuthController', ['$scope','Constantes','AuthFactory','autenticacionService','$location','$mdDialog','UserByToken','questionnaireService','navBar',
+		function($scope,Constantes,AuthFactory,autenticacionService,$location,$mdDialog,UserByToken,questionnaireService,navBar){                        
        data ={};
+       $scope.toggleRight = function(){                                
+          navBar.open();
+        }
+
+        $scope.close= function(){
+          navBar.close();
+        }
+
+        $scope.menu_bar = function (view){          
+          questionnaireService.changeView(view);
+        }
+
        $scope.login = function(){
           $authentication = new AuthFactory();
           $authentication.username= $scope.login.usuario;

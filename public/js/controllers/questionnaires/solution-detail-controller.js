@@ -1,6 +1,6 @@
 angular.module('gemStore')
-.controller('SolutionDetailController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar', 'DetailFactory',
-	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, DetailFactory){
+.controller('SolutionDetailController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar', 'DetailFactory','autenticacionService','BusquedaSolucionFactory',
+	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, DetailFactory, autenticacionService,BusquedaSolucionFactory){
                 //Rutas Imagenes
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
         $scope.img1 = $scope.ruta + 'icono-registro.png';              
@@ -12,8 +12,7 @@ angular.module('gemStore')
         // $scope.solution = solutionService.getSolution();        
         $scope.questionnaires = questionnaireService.getQuestionnaires();
         // 
-        $scope.solutions = solutionService.getSolutions();                
-        
+        $scope.solutions = solutionService.getSolutions();                        
         
 
         $scope.toggleRight = function(){                                
@@ -25,8 +24,12 @@ angular.module('gemStore')
 	    }
 
 	    $scope.menu_bar = function (view){
-	      questionnaireService.changeView(view);                      
-	    }
+          if (autenticacionService.getInfo()) {
+            questionnaireService.changeView("/profileSearchDetail");                      
+          } else{
+            questionnaireService.changeView(view);                      
+          };          
+        }
 
         getDetailSolution();
 
@@ -36,6 +39,7 @@ angular.module('gemStore')
             qf.cuestionarios = questionnaireService.getQuestionnaires();                                        
             qf.tipo = questionnaireService.getTipo();    
 
+            console.log('Prueba Soluciones',solutionService.getId());
             DetailFactory.save({cuestionario:qf,id_ps:solutionService.getId()}).$promise.
             then(function(respuesta){                                
                 $scope.detail = respuesta.respuesta;
@@ -101,8 +105,26 @@ angular.module('gemStore')
         $scope.reg = function(){                   
             $location.path('personalData');                               
         }
-       
 
+        $scope.logged = function(){
+            if (autenticacionService.getInfo()) {                
+                return true;
+            } else{                
+                return false;
+            };            
+        }
+
+        $scope.guardarSolucion = function(){                   
+            var busq = autenticacionService.getIdBusqueda();
+            var solu = solutionService.getId();
+            console.log(busq,solu);
+            BusquedaSolucionFactory.save({"busqueda": busq, "respuesta": solu}).$promise.then(function(resultado){                                            
+                console.log(resultado);
+            }).catch(function(error){
+                console.log(error);
+            });
+        }
+       
         function getResultsPage(pageNumber,index) {            
         //Definición de objeto para envio cuestionario y tipo        
             var qf = new QuestionnaireFactory();

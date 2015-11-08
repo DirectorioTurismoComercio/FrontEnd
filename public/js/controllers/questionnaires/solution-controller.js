@@ -18,7 +18,11 @@ angular.module('gemStore')
         }
 
         $scope.menu_bar = function (view){
-          questionnaireService.changeView(view);                      
+          if (autenticacionService.getInfo()) {
+            questionnaireService.changeView("/profileSearchDetail");                      
+          } else{
+            questionnaireService.changeView(view);                      
+          };          
         }
         
         //Total de soluciones 
@@ -105,6 +109,7 @@ angular.module('gemStore')
                   $NuevaBusqueda.tags = [];
                   $NuevaBusqueda.respuestas_asociadas = [];
                   $NuevaBusqueda.$save({'pk': autenticacionService.getUser().id}).then(function(datos){                    
+                    autenticacionService.setIdBusqueda(datos.id);
                     console.log(datos);                    
                   }).catch(function(error){
                     console.log(error);                    

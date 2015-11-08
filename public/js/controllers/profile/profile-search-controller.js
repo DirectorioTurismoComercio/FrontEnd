@@ -7,7 +7,7 @@
       console.log(autenticacionService.getUser().id);
       GuardarBusquedaFactory.query({'pk': autenticacionService.getUser().id}).$promise.then(function(datos){                            
         $scope.data = datos;                  
-        console.log($scope.data); 
+        console.log("Busq:",$scope.data); 
         $scope.load = false;
       }).catch(function(error){
         // console.log(error);                    

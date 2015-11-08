@@ -11,6 +11,17 @@ angular.module('gemStore')
 		                }
 		            }
 		        })
+		    },
+
+		    up: function (token) {	    		
+	        	return $resource(Constantes.url+'/usuario', {}, {
+		    	    update: {
+		        	    method: 'PUT',
+		                headers: {
+		                    'Authorization': 'Token ' + token		        
+		                }
+		            }
+		        })
 		    }
 		};
 	}
