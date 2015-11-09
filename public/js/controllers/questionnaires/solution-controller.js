@@ -1,6 +1,6 @@
 angular.module('gemStore')
-.controller('SolutionController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar','autenticacionService','$mdDialog','GuardarBusquedaFactory',
-	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, autenticacionService, $mdDialog, GuardarBusquedaFactory){
+.controller('SolutionController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar','autenticacionService','$mdDialog','GuardarBusquedaFactory','$mdToast',
+	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, autenticacionService, $mdDialog, GuardarBusquedaFactory,$mdToast){
         //Rutas Imagenes        
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
         $scope.img = $scope.ruta + 'boton-empresario.png';
@@ -84,6 +84,25 @@ angular.module('gemStore')
                 return true;
             };            
         }
+        var last = {
+        bottom: false,
+        top: true,
+        left: false,
+        right: true
+      };
+      $scope.toastPosition = angular.extend({},last);
+      $scope.getToastPosition = function() {    
+        return Object.keys($scope.toastPosition)
+        .filter(function(pos) { return $scope.toastPosition[pos]; })
+        .join(' ');
+      };  
+      $scope.openToast = function($event) {        
+        $mdToast.show(
+          $mdToast.simple().content('Búsqueda Agregada')        
+          .position($scope.getToastPosition())
+          .hideDelay(1000)
+        );
+      };
 
         $scope.addB = function(){
             $mdDialog.show({
@@ -110,6 +129,7 @@ angular.module('gemStore')
                   $NuevaBusqueda.respuestas_asociadas = [];
                   $NuevaBusqueda.$save({'pk': autenticacionService.getUser().id}).then(function(datos){                    
                     autenticacionService.setIdBusqueda(datos.id);
+                    $scope.openToast();
                     console.log(datos);                    
                   }).catch(function(error){
                     console.log(error);                    

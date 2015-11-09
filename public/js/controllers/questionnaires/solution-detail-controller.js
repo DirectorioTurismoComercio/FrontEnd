@@ -1,6 +1,6 @@
 angular.module('gemStore')
-.controller('SolutionDetailController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar', 'DetailFactory','autenticacionService','BusquedaSolucionFactory',
-	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, DetailFactory, autenticacionService,BusquedaSolucionFactory){
+.controller('SolutionDetailController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar', 'DetailFactory','autenticacionService','BusquedaSolucionFactory','$mdToast',
+	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, DetailFactory, autenticacionService,BusquedaSolucionFactory,$mdToast){
                 //Rutas Imagenes
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
         $scope.img1 = $scope.ruta + 'icono-registro.png';              
@@ -8,6 +8,7 @@ angular.module('gemStore')
         $scope.img_anterior = $scope.ruta + 'boton-regresar.png';              
         $scope.img_siguiente = $scope.ruta + 'boton-siguiente.png';              
         $scope.load = true;
+        var logg = true;
         
         // $scope.solution = solutionService.getSolution();        
         $scope.questionnaires = questionnaireService.getQuestionnaires();
@@ -107,11 +108,12 @@ angular.module('gemStore')
         }
 
         $scope.logged = function(){
-            if (autenticacionService.getInfo()) {                
+            if (autenticacionService.getInfo() && logg) {                
                 return true;
-            } else{                
+            } else{         
                 return false;
-            };            
+            };                        
+
         }
 
         $scope.guardarSolucion = function(){                   
@@ -120,6 +122,7 @@ angular.module('gemStore')
             console.log(busq,solu);
             BusquedaSolucionFactory.save({"busqueda": busq, "respuesta": solu}).$promise.then(function(resultado){                                            
                 console.log(resultado);
+                $scope.openToast();
             }).catch(function(error){
                 console.log(error);
             });
@@ -146,5 +149,26 @@ angular.module('gemStore')
                 console.log("in finally");                                
             });          
         }
+
+      var last = {
+        bottom: false,
+        top: true,
+        left: false,
+        right: true
+      };
+      $scope.toastPosition = angular.extend({},last);
+      $scope.getToastPosition = function() {    
+        return Object.keys($scope.toastPosition)
+        .filter(function(pos) { return $scope.toastPosition[pos]; })
+        .join(' ');
+      };  
+      $scope.openToast = function($event) {
+        logg = false;
+        $mdToast.show(
+          $mdToast.simple().content('Solución Agregada')        
+          .position($scope.getToastPosition())
+          .hideDelay(1000)
+        );
+      };
 
 }]);
