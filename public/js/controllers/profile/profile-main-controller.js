@@ -1,7 +1,7 @@
 (function(){
 	angular.module('gemStore')
-	.controller('ProfileMainController', ['$scope','Constantes','$location','questionnaireService','navBar','$mdToast',
-		function($scope,Constantes,$location,questionnaireService,navBar,$mdToast){                              	
+	.controller('ProfileMainController', ['$scope','Constantes','$location','questionnaireService','navBar','$mdToast','LogoutFactory','autenticacionService',
+		function($scope,Constantes,$location,questionnaireService,navBar,$mdToast,LogoutFactory,autenticacionService){                              	
       var last = {
         bottom: false,
         top: true,
@@ -51,7 +51,13 @@
 
       $scope.logout = function(){
         // Falta llamar ruta de logout
-        $location.path('/signin');
+        LogoutFactory.logear(autenticacionService.getInfo()).save().$promise.then(function(respuesta){                                                                                       
+          console.log(respuesta);   
+          autenticacionService.setInfo('');                                  
+          $location.path('/signin');
+        }).catch(function(error){
+          console.log(error);            
+        });         
       } 
 		}
 	]);

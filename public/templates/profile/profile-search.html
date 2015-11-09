@@ -14,7 +14,7 @@
 <div layout='row' layout-align="center center">
    	<md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
 </div>  
- <div class="box" ng-repeat="datos in data" ng-click="detalle(datos.id,$index)">
+ <div class="box lightgray" ng-repeat="datos in data" ng-click="detalle(datos.id,$index)">
  	<div layout="row" layout-align="start center" >		
 		<div flex="77" class="box-title">%%datos.titulo%%</div>
 	</div>
@@ -32,8 +32,8 @@
       </div>
   </md-toolbar>
   <div layout="column" layout-align="space_around center">
-    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
-    <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>          
+    <!-- <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>           -->
     <div class="botones_barra" ng-click="logout()">Cerrar Sesión</div>            
   </div>  
 </md-sidenav>  

@@ -1,11 +1,23 @@
 (function(){
 	angular.module('gemStore')
-	.controller('ProfileUpdateController', ['$scope','Constantes','autenticacionService','$location','UserByToken',
-		function($scope,Constantes,autenticacionService,$location,UserByToken){                        
+	.controller('ProfileUpdateController', ['$scope','Constantes','autenticacionService','$location','UserByToken','navBar','LogoutFactory','questionnaireService',
+		function($scope,Constantes,autenticacionService,$location,UserByToken,navBar,LogoutFactory,questionnaireService){                        
         $scope.usuario = 	autenticacionService.getUser();
         $scope.token = autenticacionService.getInfo();
         console.log($scope.usuario);
         console.log($scope.token);
+
+        $scope.toggleRight = function(){                                
+            navBar.open();
+        }
+
+        $scope.close= function(){
+            navBar.close();
+        }
+
+        $scope.menu_bar = function (view){
+            questionnaireService.changeView(view);                      
+        }
 
         $scope.changepass = function(){
           $location.path('/auth/changepass');
@@ -28,6 +40,16 @@
             });      
           
         }
+
+        $scope.logout = function(){        
+            LogoutFactory.logear(autenticacionService.getInfo()).save().$promise.then(function(respuesta){                                                                                       
+                  console.log(respuesta);   
+              autenticacionService.setInfo('');                                  
+              $location.path('/signin');
+            }).catch(function(error){
+              console.log(error);            
+            });         
+        } 
 
 		}
 	]);

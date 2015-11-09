@@ -1,7 +1,7 @@
 (function(){
 	angular.module('gemStore')
-	.controller('ProfileSearchDetailController', ['$scope','Constantes','$location','autenticacionService','DetalleBusquedaFactory','questionnaireService','navBar','solutionService',
-		function($scope,Constantes,$location,autenticacionService,DetalleBusquedaFactory,questionnaireService,navBar,solutionService){                              	
+	.controller('ProfileSearchDetailController', ['$scope','Constantes','$location','autenticacionService','DetalleBusquedaFactory','questionnaireService','navBar','solutionService','LogoutFactory',
+		function($scope,Constantes,$location,autenticacionService,DetalleBusquedaFactory,questionnaireService,navBar,solutionService,LogoutFactory){                              	
       $scope.respuestas = [];      
       DetalleBusquedaFactory.get({"pk": autenticacionService.getIdBusqueda()}).$promise.then(function(datos){                                    
         console.log(datos);
@@ -80,9 +80,14 @@
         questionnaireService.changeView(view);                      
       }
       
-      $scope.logout = function(){
-        // Falta llamar ruta de logout
-        $location.path('/signin');
+      $scope.logout = function(){        
+            LogoutFactory.logear(autenticacionService.getInfo()).save().$promise.then(function(respuesta){                                                                                       
+                  console.log(respuesta);   
+              autenticacionService.setInfo('');                                  
+              $location.path('/signin');
+            }).catch(function(error){
+              console.log(error);            
+            });         
       } 
 		}
 	]);

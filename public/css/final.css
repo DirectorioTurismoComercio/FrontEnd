@@ -374,6 +374,10 @@
 		margin-right: 0 2em 0 2em;
 	}
 
+	/*Add 8.11.2015*/
+	.lightgray {
+		background-color: lightgray;
+	}
 
 	
 }

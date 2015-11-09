@@ -1,7 +1,7 @@
 (function(){
 	angular.module('gemStore')
-	.controller('ProfileSearchController', ['$scope','Constantes','$location','autenticacionService','GuardarBusquedaFactory','questionnaireService','navBar',
-		function($scope,Constantes,$location,autenticacionService,GuardarBusquedaFactory,questionnaireService,navBar){                              	
+	.controller('ProfileSearchController', ['$scope','Constantes','$location','autenticacionService','GuardarBusquedaFactory','questionnaireService','navBar','LogoutFactory',
+		function($scope,Constantes,$location,autenticacionService,GuardarBusquedaFactory,questionnaireService,navBar,LogoutFactory){                              	
       $scope.load = true;
       $scope.data = [];
       console.log(autenticacionService.getUser().id);
@@ -38,10 +38,15 @@
         questionnaireService.changeView(view);                      
       }
       
-      $scope.logout = function(){
-        // Falta llamar ruta de logout
-        $location.path('/signin');
-      } 
+      $scope.logout = function(){        
+            LogoutFactory.logear(autenticacionService.getInfo()).save().$promise.then(function(respuesta){                                                                                       
+                  console.log(respuesta);   
+              autenticacionService.setInfo('');                                  
+              $location.path('/signin');
+            }).catch(function(error){
+              console.log(error);            
+            });         
+        } 
 		}
 	]);
 })();
