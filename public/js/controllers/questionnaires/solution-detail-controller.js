@@ -120,7 +120,10 @@ angular.module('gemStore')
             var busq = autenticacionService.getIdBusqueda();
             var solu = solutionService.getId();
             console.log(busq,solu);
-            BusquedaSolucionFactory.save({"busqueda": busq, "respuesta": solu}).$promise.then(function(resultado){                                            
+            var s = $scope.solutions[solutionService.getIndex()];
+            
+            BusquedaSolucionFactory.save({"busqueda": busq, "respuesta": solu,"titulo": s.problema_solucion.titulo,"descripcion": s.problema_solucion.descripcion,"fecha": s.problema_solucion.fecha ,"tipo": s.problema_solucion.tipo}).$promise.then(function(resultado){                                            
+            // BusquedaSolucionFactory.save({"busqueda": busq, "respuesta": solu}).$promise.then(function(resultado){                                            
                 console.log(resultado);
                 $scope.openToast();
             }).catch(function(error){
