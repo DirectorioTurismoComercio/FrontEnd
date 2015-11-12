@@ -1,4 +1,14 @@
-<form  novalidate name="form">
+<div layout="row" layout-align="space-around center" class="barra_main">   
+  <div class="regresar" ng-click="menu_bar('signin')">
+    <i class="fa fa-arrow-left"></i>
+  </div>
+  LABORATORIOS VIRTUALES
+  <div class="menu" ng-click="toggleRight()"> 
+    <i class="fa fa-reorder"></i>
+  </div>
+</div>
+
+<form  novalidate name="form" autocomplete="off">
   <div class="personalData"> 
     <md-input-container>
           <div ng-messages="form.usuario.$error">
@@ -17,8 +27,23 @@
     </md-input-container>
     <md-input-container>
       <md-button md-no-ink class="md-primary" ng-click="forgot()">¿Ha olvidado su contraseña?</md-button>
-      <md-button class="md-raised md-primary" ng-click="login()" autofocus>Login</md-button>
+      <md-button class="md-raised md-primary" ng-click="login()" autofocus>Ingresar</md-button>
     </md-input-container>  
     <div id="alertPop" ng-cloak></div>
   </div>
 </form>
+
+<!-- SIDE BAR -->
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <div class="botones_barra" ng-click="menu_bar('roles')">Registrate</div>      
+    <!-- <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>             -->
+  </div>  
+</md-sidenav>  

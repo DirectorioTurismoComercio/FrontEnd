@@ -1,6 +1,6 @@
 angular.module('gemStore')
-.controller('SolutionDetailController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar', 'DetailFactory',
-	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, DetailFactory){
+.controller('SolutionDetailController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar', 'DetailFactory','autenticacionService','BusquedaSolucionFactory','$mdToast',
+	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, DetailFactory, autenticacionService,BusquedaSolucionFactory,$mdToast){
                 //Rutas Imagenes
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
         $scope.img1 = $scope.ruta + 'icono-registro.png';              
@@ -8,12 +8,12 @@ angular.module('gemStore')
         $scope.img_anterior = $scope.ruta + 'boton-regresar.png';              
         $scope.img_siguiente = $scope.ruta + 'boton-siguiente.png';              
         $scope.load = true;
+        var logg = true;
         
         // $scope.solution = solutionService.getSolution();        
         $scope.questionnaires = questionnaireService.getQuestionnaires();
         // 
-        $scope.solutions = solutionService.getSolutions();                
-        
+        $scope.solutions = solutionService.getSolutions();                        
         
 
         $scope.toggleRight = function(){                                
@@ -25,8 +25,12 @@ angular.module('gemStore')
 	    }
 
 	    $scope.menu_bar = function (view){
-	      questionnaireService.changeView(view);                      
-	    }
+          if (autenticacionService.getInfo()) {
+            questionnaireService.changeView("/profileSearchDetail");                      
+          } else{
+            questionnaireService.changeView(view);                      
+          };          
+        }
 
         getDetailSolution();
 
@@ -36,6 +40,7 @@ angular.module('gemStore')
             qf.cuestionarios = questionnaireService.getQuestionnaires();                                        
             qf.tipo = questionnaireService.getTipo();    
 
+            console.log('Prueba Soluciones',solutionService.getId());
             DetailFactory.save({cuestionario:qf,id_ps:solutionService.getId()}).$promise.
             then(function(respuesta){                                
                 $scope.detail = respuesta.respuesta;
@@ -101,8 +106,31 @@ angular.module('gemStore')
         $scope.reg = function(){                   
             $location.path('personalData');                               
         }
-       
 
+        $scope.logged = function(){
+            if (autenticacionService.getInfo() && logg) {                
+                return true;
+            } else{         
+                return false;
+            };                        
+
+        }
+
+        $scope.guardarSolucion = function(){                   
+            var busq = autenticacionService.getIdBusqueda();
+            var solu = solutionService.getId();
+            console.log(busq,solu);
+            var s = $scope.solutions[solutionService.getIndex()];
+            
+            BusquedaSolucionFactory.save({"busqueda": busq, "respuesta": solu,"titulo": s.problema_solucion.titulo,"descripcion": s.problema_solucion.descripcion,"fecha": s.problema_solucion.fecha ,"tipo": s.problema_solucion.tipo}).$promise.then(function(resultado){                                            
+            // BusquedaSolucionFactory.save({"busqueda": busq, "respuesta": solu}).$promise.then(function(resultado){                                            
+                console.log(resultado);
+                $scope.openToast();
+            }).catch(function(error){
+                console.log(error);
+            });
+        }
+       
         function getResultsPage(pageNumber,index) {            
         //Definición de objeto para envio cuestionario y tipo        
             var qf = new QuestionnaireFactory();
@@ -124,5 +152,26 @@ angular.module('gemStore')
                 console.log("in finally");                                
             });          
         }
+
+      var last = {
+        bottom: false,
+        top: true,
+        left: false,
+        right: true
+      };
+      $scope.toastPosition = angular.extend({},last);
+      $scope.getToastPosition = function() {    
+        return Object.keys($scope.toastPosition)
+        .filter(function(pos) { return $scope.toastPosition[pos]; })
+        .join(' ');
+      };  
+      $scope.openToast = function($event) {
+        logg = false;
+        $mdToast.show(
+          $mdToast.simple().content('Solución Agregada')        
+          .position($scope.getToastPosition())
+          .hideDelay(1000)
+        );
+      };
 
 }]);

@@ -1,5 +1,18 @@
+<div layout="row" layout-align="space-around center" class="barra_main">
+  <div class="regresar" ng-click="menu_bar('profileMain')">
+    <i class="fa fa-arrow-left"></i>
+    <md-tooltip>
+        VOLVER
+      </md-tooltip>
+  </div>
+  LABORATORIOS VIRTUALES
+  <div class="menu" ng-click="toggleRight()"> 
+    <i class="fa fa-reorder"></i>
+  </div>
+</div>
+
 <form novalidate name="form">
-<div class="personalData">
+<div class="prompt">
   <md-input-container>
       <div ng-messages="form.nombres.$error" >
         <div ng-message="required">Por favor digite sus nombres</div>
@@ -51,6 +64,21 @@
 
 <md-input-container>
 	<md-button md-no-ink class="md-primary" ng-click="changepass()">Cambiar Contraseña</md-button>
+  <md-button md-no-ink class="md-raised md-primary" ng-click="update()">Actualizar datos</md-button>
 </md-input-container>
  </div>
 </form>
+
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <!-- <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div> -->
+    <!-- <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>           -->
+    <div class="botones_barra" ng-click="logout()">Cerrar Sesión</div>            
+  </div>  
+</md-sidenav>  

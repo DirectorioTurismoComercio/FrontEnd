@@ -62,7 +62,7 @@
 </div>
 <div class="solut_foot" layout="row" layout-align="space-between center">	
     <div ng-click="anterior()" class="solut_back"><img ng-src="%%img_anterior%%">Anterior</div>		 
-     <!-- <p>Agregar Solución</p> -->
+     <p ng-show="logged()" ng-click="guardarSolucion()">Agregar Solución</p>
 		 <img ng-click="menu_bar('personalData')" class="solut_img" ng-src="%%img_cerrar%%">
      
      <div ng-click="siguiente()" class="solut_next">
@@ -80,6 +80,6 @@
   <div layout="column" layout-align="space_around center">
     <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
     <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>      
-    <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>            
+    <div class="botones_barra" ng-click="menu_bar('auth')">Iniciar Sesión</div>            
   </div>  
 </md-sidenav>  

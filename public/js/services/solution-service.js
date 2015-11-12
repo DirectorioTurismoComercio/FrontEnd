@@ -7,6 +7,7 @@
 	var id = null; //Una sola
 	var index = null; //Una sola
 	var page = null; //Una sola
+	var logged = null;
 	var getSolutions = function ()
 	{
 		return solutions;
@@ -55,6 +56,15 @@
 		page = _page;				
 	}
 
+	var getLogged = function ()
+	{
+		return logged;
+	}
+	var setLogged = function (_logged)
+	{
+		logged = _logged;				
+	}
+
 	 return {
 
 	 	solutions: solutions,
@@ -68,7 +78,9 @@
 	 	getIndex: getIndex,
 	 	setIndex: setIndex,
 	 	getPage: getPage,
-	 	setPage: setPage	  	  		  		  		  	
+	 	setPage: setPage,
+	 	getLogged: getLogged,
+	 	setLogged: setLogged	  	  		  		  		  	
 	  };
 
 	}]);

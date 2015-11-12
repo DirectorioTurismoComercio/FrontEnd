@@ -13,56 +13,45 @@
 <!-- <div class="s_quest"> -->
 
 <md-tabs md-stretch-tabs="always">
-      <md-tab label="Soluciones">
+	<md-tab label="Información">
+    	<md-content >               
+        <div ng-repeat="questionnaire in questionnaires">
+			<div class="s_quest_b" ng-show="questionnaire.enable">	
+				<div layout="row" layout-align="space-around center">
+					<img ng-src="%%editar%%" ng-click="edit($index)">
+					<div>%%questionnaire.titulo%%</div>
+					<img ng-src="%%borrar%%" ng-click="remove($index)">
+				</div>	
+				<div ng-repeat="question in questionnaire.preguntas">
+					<div ng-show="question.enable">
+					<div class="s_quest_q"><div class="texto_verde">%%question.pregunta.enunciado%%</div>
+						<div ng-repeat="option in question.pregunta.opciones">
+							<h3 ng-show="option.dato || question.pregunta.dato==option.id" class="s_quest_r">%%option.respuesta%%</h3>
+						</div>	
+					</div>	
+					</div>
+				</div>
+			</div>	
+		</div>	
+        </md-content>
+    </md-tab> 
+    <md-tab label="Soluciones">
         <md-content>
         	<div class="box" ng-repeat="solucion in respuestas">  		
 				<div layout="row" layout-align="start center" >
 					<div><img  class="box-img" ng-src="%%img%%"></div>
-					<div flex="77" class="box-title">%%solucion.respuesta.titulo%%</div>				
+					<div flex="77" class="box-title">%%solucion.problema_solucion.titulo%%</div>				
 				</div>
 				<div class="box-body">
-					<p class="box-body-p">%%solucion.respuesta.descripcion%%</p>
+					<p class="box-body-p">%%solucion.problema_solucion.descripcion%%</p>
 				</div>
-				<div class="box-footer" ng-click="detalle(solucion.respuesta.id,$index)">Detalle</div>
+				<div class="box-footer" ng-click="detalle(solucion.problema_solucion.id,$index)">Detalle</div>
 			</div>
         	<!-- <div ng-repeat="soluciones in respuestas">
         		%%soluciones.respuesta.titulo%%
         	</div> -->
         </md-content>
-      </md-tab>
-      <md-tab label="Información">
-        <md-content >               
-          <div ng-repeat="questionnaire in questionnaires">
-<div class="s_quest_b" ng-show="questionnaire.enable">	
-	<div layout="row" layout-align="space-around center">
-		<img ng-src="%%editar%%" ng-click="edit($index)">
-		<div>%%questionnaire.titulo%%</div>
-		<img ng-src="%%borrar%%" ng-click="remove($index)">
-	</div>
-	<!-- <div class="row s_quest_row">
-		<div class="col-xs-offset-1 col-xs-1">
-			<img ng-src="%%editar%%" ng-click="edit($index)">
-		</div>
-		<div class="col-xs-7 s_quest_cat">
-			%%questionnaire.titulo%%
-		</div>
-		<div class="col-xs-1">
-			<img ng-src="%%borrar%%" ng-click="remove($index)">
-		</div>		
-	</div>	 -->
-	<div ng-repeat="question in questionnaire.preguntas">
-		<div ng-show="question.enable">
-			<div class="s_quest_q"><div class="texto_verde">%%question.pregunta.enunciado%%</div>
-			<div ng-repeat="option in question.pregunta.opciones">
-				<h3 ng-show="option.dato || question.pregunta.dato==option.id" class="s_quest_r">%%option.respuesta%%</h3>
-			</div>	
-			</div>	
-		</div>
-	</div>
-</div>	
-</div>	
-        </md-content>
-      </md-tab>      
+      </md-tab>           
 </md-tabs md-swipe>
 
 <!-- </div> -->
