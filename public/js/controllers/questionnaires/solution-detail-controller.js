@@ -1,11 +1,12 @@
 angular.module('gemStore')
-.controller('SolutionDetailController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar', 'DetailFactory','autenticacionService','BusquedaSolucionFactory','$mdToast',
-	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, DetailFactory, autenticacionService,BusquedaSolucionFactory,$mdToast){
+.controller('SolutionDetailController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar', 'DetailFactory','autenticacionService','BusquedaSolucionFactory','$mdToast','conexionService',
+	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, DetailFactory, autenticacionService,BusquedaSolucionFactory,$mdToast,conexionService){
                 //Rutas Imagenes
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
         $scope.img1 = $scope.ruta + 'icono-registro.png';              
         $scope.img_cerrar = $scope.ruta + 'boton-conectarse.png';              
-        $scope.img_anterior = $scope.ruta + 'boton-regresar.png';              
+        $scope.img_anterior = $scope.ruta + 'boton-regresar.png'; 
+        $scope.anterior = $scope.ruta+'boton-regresar.png';            
         $scope.img_siguiente = $scope.ruta + 'boton-siguiente.png';              
         $scope.load = true;
         var logg = true;
@@ -113,7 +114,19 @@ angular.module('gemStore')
             } else{         
                 return false;
             };                        
+        }
 
+        $scope.conectar = function(){
+            if (autenticacionService.getInfo() && logg) {                
+                //Loggeado                
+                var inf_sol = $scope.solutions[solutionService.getIndex()];
+                conexionService.setBusqueda(autenticacionService.getIdBusqueda());
+                conexionService.setSolucion(inf_sol);                                
+                $location.path('conexionMain');   
+            } else{         
+                //No Loggeado
+                $location.path('personalData');   
+            };  
         }
 
         $scope.guardarSolucion = function(){                   

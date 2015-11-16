@@ -6,8 +6,10 @@
 		$scope.titulo       = "Pagina Principal Controller";
 		$scope.overlayTitle = "Define tu rol dentro de la plataforma";
 		$scope.ruta         = Constantes.ruta_imagenes;
-		$scope.load = true;
-		
+		$scope.load = true; 
+		$scope.ruta2 = Constantes.ruta_imagenes + "botones/";
+		$scope.anterior = $scope.ruta2+'boton-regresar.png';
+
 		$scope.toggleRight = function(){                                
 			navBar.open();
         }

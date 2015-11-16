@@ -1,0 +1,44 @@
+<div layout="row" layout-align="space-around center" class="barra_main">
+  <div class="regresar" ng-click="menu_bar('solutions/detail')">
+    <i class="fa fa-arrow-left"></i>
+    <md-tooltip>
+        VOLVER
+      </md-tooltip>
+  </div>
+  LABORATORIOS VIRTUALES
+  <div class="menu" ng-click="toggleRight()"> 
+    <i class="fa fa-reorder"></i>
+  </div>
+</div>
+
+
+<div>
+  %%solucion.problema_solucion.titulo%%
+  %%solucion.usuario.nombres%%
+  %%solucion.usuario.correo%%
+  %%solucion.usuario.ubicacion_institucion%%
+</div>
+<div>
+  <md-input-container>      
+      <label>Mensaje:</label>
+      <input ng-model="mensaje.mensaje" name="mensaje" >      
+  </md-input-container>
+  <md-input-container>      
+      <md-button class="md-raised md-primary" ng-click="enviar()" autofocus>Enviar</md-button>
+  </md-input-container>  
+</div>
+
+
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <!-- <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>       -->
+    <div class="botones_barra" ng-click="menu_bar('signin')">Cerrar Sesión</div>            
+  </div>  
+</md-sidenav>  

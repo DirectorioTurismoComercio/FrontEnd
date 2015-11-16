@@ -1,8 +1,8 @@
 <div layout="row" layout-align="space-around center" class="barra_main">   
   <div class="regresar" ng-click="changeView('V')">
-    <!-- <i class="fa fa-arrow-left"></i> -->
+    <i class="fa fa-arrow-left"></i>
   </div>
-  LABORATORIOS VIRTUALES
+  MERCATIC
   <div class="menu" ng-click="toggleRight()"> 
     
     <!-- <i class="fa fa-reorder"></i> -->
@@ -13,7 +13,8 @@
     <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
   </div>  
 <div class="galeria">
-  <a ng-click="toggleDescription($index)" ng-repeat="rol in roles" class="roles">
+  <!-- <a ng-click="toggleDescription($index)" ng-repeat="rol in roles" class="roles"> -->
+  <a ng-click="roleSelect($index)" ng-repeat="rol in roles" class="roles">    
     <!-- <div> -->
       <img class="slide" ng-src="%%ruta+rol.imagen%%" />
     <!-- </div> -->

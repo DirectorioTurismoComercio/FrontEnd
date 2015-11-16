@@ -28,10 +28,10 @@
               data = usuario;
               autenticacionService.setUser(usuario);                        
               console.log('Id: ',data.id);                                     
+              $location.path('/profileMain');
             }).catch(function(error){
               console.log(error);            
-            });         
-            $location.path('/profileMain');
+            });                     
           }).catch(function(error){
             $mdDialog.show(
               $mdDialog.alert()

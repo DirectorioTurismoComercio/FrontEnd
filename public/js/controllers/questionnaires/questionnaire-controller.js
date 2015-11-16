@@ -6,7 +6,8 @@
 angular.module('gemStore')
 .controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location', 'Constantes', 'navBar', 'SolutionFactory',
   function($scope,QuestionnaireFactory,questionnaireService,$location, Constantes, navBar, SolutionFactory){
-     $scope.ruta = Constantes.ruta_imagenes+'botones/';     
+     $scope.ruta = Constantes.ruta_imagenes+'botones/'; 
+     $scope.anterior = $scope.ruta+'boton-regresar.png';    
      var rol = questionnaireService.getRol();     
      var tipo = questionnaireService.getTipo();              
      console.log(rol);

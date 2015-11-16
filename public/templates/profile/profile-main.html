@@ -5,25 +5,48 @@
         VOLVER
       </md-tooltip> -->
   </div>
-  LABORATORIOS VIRTUALES
+  Bienvenido
   <div class="menu" ng-click="toggleRight()"> 
     <i class="fa fa-reorder"></i>
   </div>
 </div>
-
 <div class="prompt botones_inicio">
-  <button class="btn btn-lg btn-success btn-block" ng-click="profile()">  
-    Perfil
+  <div>
+  <div layout="row">
+    %%usuario.nombres%% %%usuario.apellido1%%
+  </div>  
+  <div layout="row">
+    %%usuario.nombre_institucion%% 
+  </div>  
+  <div layout="row">
+    %%usuario.correo%% 
+  </div>  
+  <div layout="row">
+    %%usuario.telefono_institucion%% 
+  </div>  
+  <div layout="row">
+    %%usuario.direccion_institucion%% 
+  </div>
+  <div layout="row">
+    %%usuario.ubicacion_institucion%%, Cundinamarca 
+  </div>    
+</div>
+  <button class="btn btn-lg btn-success btn-block" ng-click="profile()" layout="row" layout-align="start center">  
+    <div flex="25"><img ng-src="%%registro%%" ></div>
+    <div flex="auto">PERFIL</div>
   </button>
-  <button class="btn btn-lg btn-danger btn-block" ng-click="openToast()">     
-    Mis Conexiones
+  <button class="btn btn-lg btn-success btn-block" ng-click="openToast()" layout="row" layout-align="start center">  
+    <div flex="25"><img ng-src="%%como%%" ></div>
+    <div flex="auto">MIS CONEXIONES</div>
   </button>
-  <button class="btn btn-lg btn-success btn-block" ng-click="busquedas()">     
-    Mis Busquedas
-  </button>
-  <button class="btn btn-lg btn-danger btn-block" ng-click="new_b()">     
-    Nueva Busqueda
-  </button>
+  <button class="btn btn-lg btn-success btn-block" ng-click="busquedas()" layout="row" layout-align="start center">  
+    <div flex="25"><img ng-src="%%comenzar%%" ></div>
+    <div flex="auto">MIS BÚSQUEDAS</div>
+  </button>  
+  <button class="btn btn-lg btn-danger btn-block" ng-click="new_b()" layout="row" layout-align="start center">  
+    <div flex="25"><img ng-src="%%comenzar%%" ></div>
+    <div flex="auto">INICIO</div>
+  </button>    
 </div>
 
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">

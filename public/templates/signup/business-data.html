@@ -34,13 +34,19 @@
   </md-input-container>
 
 
- <md-input-container>
+ <!-- <md-input-container>
       <div ng-messages="form.ubicacion_institucion.$error">
         <div ng-message="required">Por favor ingrese su municipio</div>
       </div>
       <label>Municipio:</label>
       <input ng-model="usuario.ubicacion_institucion" name="ubicacion_institucion" required>      
-</md-input-container>
+</md-input-container> -->
+
+  <md-input-container>  
+    <md-select ng-model="usuario.municipio_id" name="municipio_id" placeholder="Seleccione un Municipio">
+      <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="muni($index)">%%opcion.nombre%%</md-option>
+    </md-select>
+  </md-input-container>  
 
  </div>
 <div class="aprobado  footer_fix" style='font-size: small;'">

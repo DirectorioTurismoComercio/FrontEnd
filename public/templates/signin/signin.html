@@ -7,17 +7,22 @@
 </div>
  -->
 <div class="fondo">
+  <div layout="row" layout-align="space-around center" class="barra_main">   
+    LABORATORIOS VIRTUALES
+    <div class="menu" ng-click="toggleRight()"> 
+      <i class="fa fa-reorder"></i>
+    </div>
+  </div>
   <form class="form-signin">
-    <image class="img-logo" ng-src="%%logo%%"></image>
     <div class="botones_inicio">
+      <button class="btn btn-lg btn-danger btn-block" ng-click="noregistrado()">     
+        <img ng-src="%%comenzar%%"> BUSCAR
+      </button>
       <button class="btn btn-lg btn-success btn-block" ng-click="login()">   
-        <img ng-src="%%como%%"> Iniciar Sesión
+        <img ng-src="%%como%%"> INICIAR SESIÓN
       </button>
       <button class="btn btn-lg btn-success btn-block" ng-click="signup()">     
-        <img ng-src="%%registro%%"> Regístrate
-      </button>
-      <button class="btn btn-lg btn-danger btn-block" ng-click="noregistrado()">     
-        <img ng-src="%%comenzar%%"> Comienza a Explorar
+        <img ng-src="%%registro%%"> REGÍSTRATE
       </button>
     </div>
   </form>

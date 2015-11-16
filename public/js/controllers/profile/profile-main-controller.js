@@ -2,25 +2,13 @@
 	angular.module('gemStore')
 	.controller('ProfileMainController', ['$scope','Constantes','$location','questionnaireService','navBar','$mdToast','LogoutFactory','autenticacionService',
 		function($scope,Constantes,$location,questionnaireService,navBar,$mdToast,LogoutFactory,autenticacionService){                              	
-      var last = {
-        bottom: false,
-        top: true,
-        left: false,
-        right: true
-      };
-      $scope.toastPosition = angular.extend({},last);
-      $scope.getToastPosition = function() {    
-        return Object.keys($scope.toastPosition)
-        .filter(function(pos) { return $scope.toastPosition[pos]; })
-        .join(' ');
-      };  
-      $scope.openToast = function($event) {
-        $mdToast.show(
-          $mdToast.simple().content('Simple Toast!')        
-          .position($scope.getToastPosition())
-          .hideDelay(1000)
-        );
-      };
+      $scope.usuario = autenticacionService.getUser();
+      console.log($scope.usuario);
+      $scope.ruta = Constantes.ruta_imagenes + "botones/";
+      $scope.como= $scope.ruta + "icono-como-funciona.png";    
+      $scope.registro= $scope.ruta + "icono-registro.png";    
+      $scope.comenzar= $scope.ruta + "icono-comenzar.png";    
+      
       $scope.toggleRight = function(){                                
         navBar.open();
       }

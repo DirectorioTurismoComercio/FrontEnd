@@ -1,16 +1,16 @@
 <div layout="row" layout-align="space-around center" class="barra_main">   
-  <div class="regresar" ng-click="changeView('V')">
-    <i class="fa fa-arrow-left"></i>
+  <div class="regresar" ng-click="changeView('actionquestionnaire')">
+    <img ng-src="%%anterior%%">
   </div>
   LABORATORIOS VIRTUALES
   <div class="menu" ng-click="toggleRight()"> 
     <i class="fa fa-reorder"></i>
-  </div>
+  </div> 
 </div>
 <div class="body">
   <div class="header">    
     <div class="prompt_q">
-      2. Ahora, cuéntanos un poco más sobre quién eres...
+      Encuentra la solución TIC adecuada para tu comercio llenando al menos dos de estos tres puntos:
     </div> 
   </div> 
   <div layout='row' layout-align="center center">
@@ -22,8 +22,8 @@
       <p>%%rol.nombre%%</p>
     </a>
   </div>
-  <div layout="column" layout-align="space-around center" class="footer_fix footer_buscar" ng-show="oyb('P')">Estoy Buscando...</div>  
-  <div layout="column" layout-align="space-around center" class="footer_fix footer_ofrecer" ng-show="oyb('S')">Estoy Ofreciendo...</div>
+  <!-- <div layout="column" layout-align="space-around center" class="footer_fix footer_buscar" ng-show="oyb('P')">BUSCAR</div>  
+  <div layout="column" layout-align="space-around center" class="footer_fix footer_ofrecer" ng-show="oyb('S')">Estoy Ofreciendo...</div> -->
 
 <div class="overlay" ng-hide="verDescription">
   <div class="descriptionWrapper">

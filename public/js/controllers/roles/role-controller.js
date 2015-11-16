@@ -1,8 +1,6 @@
-
-(function(){
-	angular.module('gemStore')
-	.controller('RoleController', ['$scope', 'registroService', 'RoleFactory','Constantes',
-		function($scope,registroService,RoleFactory,Constantes){
+angular.module('gemStore')
+	.controller('RoleController', ['$scope', 'registroService', 'RoleFactory','Constantes','$mdDialog',
+		function($scope,registroService,RoleFactory,Constantes,$mdDialog){
 		$scope.titulo       = "Pagina Principal Controller";
 		$scope.overlayTitle = "Define tu rol dentro de la plataforma";
 		$scope.ruta         = Constantes.ruta_imagenes;
@@ -22,6 +20,35 @@
         
 		$scope.verDescription = true;
 
+		$scope.roleSelect = function(index){			
+			$scope.rol_seleccionado = $scope.roles[index];		
+			registroService.getUsuario().rol=$scope.roles[index].id;
+            $mdDialog.show({
+            	locals:{dataToPass: $scope.rol_seleccionado, ruta: $scope.ruta},                
+            	clickOutsideToClose: true,                            	
+            	templateUrl: 'templates/signup/role-popup.html',
+            	controller: ['$scope', 'dataToPass', '$mdDialog', 'ruta', function($scope, dataToPass, $mdDialog, ruta) { 
+				    $scope.dataToPass = dataToPass;
+				    $scope.ruta = ruta;
+				    $scope.hide = function() {
+						$mdDialog.hide();
+					};
+					$scope.cancel = function() {
+						$mdDialog.cancel();
+					};  
+					$scope.answer = function() {    					    
+					    $mdDialog.hide();
+					    registroService.changeView('personalData');					    
+					};
+				}]
+        });
+
+		var mdDialogCtrl = function ($scope, dataToPass) { 
+    		$scope.mdDialogData = dataToPass  
+		}        
+
+        }
+
 		$scope.changeView = function (view)
         {
         	registroService.changeView(view);
@@ -34,6 +61,16 @@
 			registroService.getUsuario().rol=$scope.roles[index].id;
 		}
 
-	}]);
+}]);
 
-})();
+// function DialogController($scope, $mdDialog, rol) {
+// 	$scope.save = false;
+// 	$scope.rol_seleccionado = rol;	
+// 	console.log(rol);
+// 	$scope.hide = function() {
+// 		$mdDialog.hide();
+// 	};
+// 	$scope.cancel = function() {
+// 		$mdDialog.cancel();
+// 	};  
+// }

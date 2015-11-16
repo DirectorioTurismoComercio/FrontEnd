@@ -2,7 +2,7 @@
   <div class="regresar" ng-click="menu_bar('signin')">
     <i class="fa fa-arrow-left"></i>
   </div>
-  LABORATORIOS VIRTUALES
+  MERCATIC
   <div class="menu" ng-click="toggleRight()"> 
     <i class="fa fa-reorder"></i>
   </div>
@@ -12,10 +12,10 @@
   <div class="personalData"> 
     <md-input-container>
           <div ng-messages="form.usuario.$error">
-            <div ng-message="required">Por favor digite su usuario</div>
+            <div ng-message="required">Por favor digite su nombre de usuario</div>
             <div ng-message="pattern">El usuario debe tener el formato de un correo (ejemplo@correo.com)</div>
           </div> 
-          <label>Usuario(correo)</label>
+          <label>Nombre de usuario (correo electrónico)</label>
           <input type="email" ng-model="login.usuario" name="usuario" ng-pattern="/^.+@.+\..+$/" required>      
     </md-input-container>
     <md-input-container>
@@ -26,8 +26,9 @@
         <input type="password" ng-model="login.contrasena" name="contrasena" required>      
     </md-input-container>
     <md-input-container>
-      <md-button md-no-ink class="md-primary" ng-click="forgot()">¿Ha olvidado su contraseña?</md-button>
-      <md-button class="md-raised md-primary" ng-click="login()" autofocus>Ingresar</md-button>
+    <button class="btn btn-lg btn-success btn-block" ng-click="login()" layout="row" layout-align="center center">INGRESA</button>
+      <!-- <md-button class="md-raised md-primary" ng-click="login()" autofocus>Ingresa</md-button> -->
+      <md-button md-no-ink class="md-primary" ng-click="forgot()">¿Olvidaste tu contraseña?</md-button>      
     </md-input-container>  
     <div id="alertPop" ng-cloak></div>
   </div>
@@ -36,7 +37,7 @@
 <!-- SIDE BAR -->
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
   <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
-    <div>Lab. Virtuales</div>
+    <div>MercaTIC</div>
     <div ng-click="close()" class="md-primary">
         <i class="fa fa-close"></i>
       </div>
