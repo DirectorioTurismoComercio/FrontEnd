@@ -27,24 +27,23 @@
     </a>    
   </div>  
 
-  <div layout="column" layout-align="space-around center" class="footer_fix footer_buscar" ng-show="oyb('P')">
+  <div layout="column" layout-align="space-around center" class="footer_fix " ng-show="oyb('P')">
     <div layout="row" layout-align="center center">
       <!--       <div><img class="flecha_arriba" ng-click="summary()"></div> -->
     </div>
-    <div class="footer_cont" layout="row" layout-align="space-around center">
+    <div class="footer_cont footer_buscar" layout="row" layout-align="space-around center">
       <div class="text_footer" ng-click="buscar()">BUSCAR</div>  
-      <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div>    
+      <!-- <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div>    --> 
     </div>
   </div>  
 
-  <div layout="column" layout-align="center center" class="footer_fix footer_ofrecer" ng-show="oyb('S')">
-     <div layout="row" layout-align="space-around center">
-      <div><img class="flecha_arriba" ng-click="summary()"></div>
-    </div>          
-    <div class="footer_cont" layout="row" layout-align="space-around center">      
-      <div class="text_footer">Estoy Ofreciendo...</div>
-      <div class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar
-      </div>      
+  <div layout="column" layout-align="center center" class="footer_fix" ng-show="oyb('S')">
+    <div layout="row" layout-align="center center">
+      <!--       <div><img class="flecha_arriba" ng-click="summary()"></div> -->
+    </div>
+    <div class="footer_cont footer_buscar" layout="row" layout-align="space-around center">
+      <div class="text_footer" ng-click="buscar()">BUSCAR</div>  
+      <!-- <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div>    --> 
     </div>
   </div>  
 

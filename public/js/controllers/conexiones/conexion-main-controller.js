@@ -1,16 +1,10 @@
 angular.module('gemStore')
 .controller('ConexionMainController', ['$scope','Constantes','$location','navBar','autenticacionService','$mdToast','conexionService','ConexionFactory','ConexionMensajeFactory',
 	function($scope,Constantes,$location,navBar,autenticacionService,$mdToast,conexionService,ConexionFactory,ConexionMensajeFactory){
-
         var id_busqueda = conexionService.getBusqueda();
         $scope.solucion = conexionService.getSolucion();
         var id_solucion = $scope.solucion.problema_solucion.id;
-        var usuario = autenticacionService.getUser();
-        console.log("DATOS NUEVOS");
-        console.log(id_busqueda);
-        console.log($scope.solucion);
-        console.log(id_solucion);
-        console.log(usuario);
+        var usuario = autenticacionService.getUser();        
 
         ConexionFactory.get({"id_b": id_busqueda,"id_s": id_solucion}).$promise.then(function(resultado){                                            
             console.log(resultado);    

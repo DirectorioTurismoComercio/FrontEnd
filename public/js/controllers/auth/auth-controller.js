@@ -2,6 +2,8 @@
 	angular.module('gemStore')
 	.controller('AuthController', ['$scope','Constantes','AuthFactory','autenticacionService','$location','$mdDialog','UserByToken','questionnaireService','navBar',
 		function($scope,Constantes,AuthFactory,autenticacionService,$location,$mdDialog,UserByToken,questionnaireService,navBar){                        
+      $scope.ruta = Constantes.ruta_imagenes + "botones/";
+      $scope.anterior = $scope.ruta+'boton-regresar.png';
        data ={};
        $scope.toggleRight = function(){                                
           navBar.open();

@@ -12,15 +12,15 @@
 </div> 
 
 <div layout="row" layout-align="space-around center" class="sol_imagenes">
-	<div><img ng-src="%%img1%%"></div>	
-	<div layout="row" layout-align ="center center" class="bubble">%%solution.nivel_afinidad | number:0%% %</div>	
-	<div><img ng-src="%%img1%%"></div>	
+	<div><img class="box-img"  ng-src="%%img1%%"></div>	
+	<div layout="row" layout-align ="center center" class="bubble box-img ">%%solution.nivel_afinidad | number:0%%%</div>	
+	<div><img class="box-img" ng-src="%%img1%%"></div>	
 </div>	
 
-<div layout="row" layout-align="center center">
-		<div flex="35" class="solution_text">Usted</div>
-		<div flex="30"></div>    
-		<div flex="35" class="solution_text">%%solution.problema_solucion.titulo%%</div>	
+<div layout="row" layout-align="space-between center" style="
+    margin-bottom: 3%;">
+		<div flex="33" class="solution_text">Usted</div>   
+		<div flex="33" class="solution_text">%%solution.problema_solucion.titulo%%</div>	
 </div>
 <div layout='row' layout-align="center center">
       <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
@@ -36,12 +36,23 @@
         		<p class="sol_categoria">%%detalle.cuestionario%%</p>        		
             <!-- Pregunta -->            
             <p class="sol_pregunta">%%detalle.pregunta%%</p>                                   
-        		
             <div layout="row" layout-align="center center" ng-repeat="parejas in detalle.respuestas">
               <!-- Respuestas -->                
-              <p class="sol_respuesta %%parejas.clase_color%%">%%parejas.respuesta1%%</p>
-              <div layout="row" layout-align ="center center" class="bubble %%parejas.clase_color%%">%%parejas.afinidad | number:0%% %</div>              
-              <p class="sol_respuesta %%parejas.clase_color%%">%%parejas.respuesta2%%</p>
+              
+              <div layout="row" layout-align="center center" style="position: absolute; width: 100%; height: 50px;">
+                <div class="match_bubble %%parejas.clase_color%%" layout="row" layout-align="center center">
+                  %%parejas.afinidad | number:0%%%
+                </div>
+              </div>
+
+              <div class="sol_respuesta %%parejas.clase_color%%" layout="column" layout-align="center center">
+                <div>%%parejas.respuesta1%%</div>
+              </div>              
+              
+              <div class="sol_respuesta %%parejas.clase_color%%" layout="column" layout-align="center center">
+              <div>%%parejas.respuesta2%%</div>
+              </div>
+              
             </div>          		
             <md-divider ng-if="!$last"></md-divider>
         	</div>          
@@ -61,10 +72,10 @@
 </md-tabs md-swipe>
 </div>
 <div class="solut_foot" layout="row" layout-align="space-between center">	
-    <div ng-click="anterior()" class="solut_back"><img ng-src="%%img_anterior%%">Anterior</div>		 
+    <div ng-click="anterior()" class="solut_back"><img ng-src="%%img_anterior%%"></div>		 
     <p ng-show="logged()" ng-click="guardarSolucion()">Agregar Solución</p>
 		<img ng-click="conectar()" class="solut_img" ng-src="%%img_cerrar%%">     
-    <div ng-click="siguiente()" class="solut_next">Siguiente<img ng-src="%%img_siguiente%%"></div>	
+    <div ng-click="siguiente()" class="solut_next"><img ng-src="%%img_siguiente%%"></div>	
 </div>					
 
 

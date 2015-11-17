@@ -105,7 +105,18 @@
     </md-input-container>    
  
 </div>
-<div class="aprobado  footer_fix" style='font-size: small;'>
-  <div class="siguiente"  ng-click="changeView('businessData',form)" ng-submit="f()"><span><span class="icon-check"></span></span></div>
+<div layout="column" layout-align="space-around center" class="footer_fix">
+     <!-- <div layout="row" layout-align="space-around center">
+      <div><img class="flecha_arriba" ng-click="summary()"></div>
+      <div class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar
+      </div>
+    </div> -->
+    <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center"  ng-click="changeView('businessData',form)" ng-submit="f()">
+      <div class="text_footer">SIGUIENTE</div>  
+      <!-- <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div> -->
+    </div>
+  </div>  
+<!-- <div class="aprobado  footer_fix" style='font-size: small;'>
+  <div class="siguiente"  ng-click="changeView('businessData',form)" ng-submit="f()"><span><span class="icon-check"></span></span></div> -->
   <!-- <div class="anterior" ng-click="changeView('roles',null)"><span><span class="icon-arrow-back"></span></span></div> -->
 </form>

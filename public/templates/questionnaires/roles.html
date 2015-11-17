@@ -10,14 +10,15 @@
 <div class="body">
   <div class="header">    
     <div class="prompt_q">
-      Encuentra la solución TIC adecuada para tu comercio llenando al menos dos de estos tres puntos:
+      Cuentános cual es tu rol
     </div> 
   </div> 
-  <div layout='row' layout-align="center center">
+  <div layout='row' layout-align="center center">    
     <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
   </div>  
   <div class="galeria">
-    <a ng-click="toggleDescription($index)" ng-repeat="rol in roles" class="roles">
+    <!-- <a ng-click="toggleDescription($index)" ng-repeat="rol in roles" class="roles"> -->
+      <a ng-click="roleSelect($index)" ng-repeat="rol in roles" class="roles">    
         <img class="slide" ng-src="%%ruta+rol.imagen%%" />
       <p>%%rol.nombre%%</p>
     </a>

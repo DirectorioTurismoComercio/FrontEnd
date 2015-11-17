@@ -19,24 +19,25 @@
   </div>  	  
 	<div ng-include src="answersTemplate"></div>	
 </div>
- <div layout="column" layout-align="space-around center" class="footer_fix footer_buscar" ng-show="oyb('P')">
+ <div layout="column" layout-align="space-around center" class="footer_fix" ng-show="oyb('P')">
     <!-- <div layout="row" layout-align="space-around center">
       <div><img class="flecha_arriba" ng-click="summary()"></div>
     </div> -->
-    <div layout="row" layout-align="space-between center" ng-click="next()">
-      <div>SIGUIENTE</div>  
+    <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center" ng-click="next()">
+      <div class="text_footer">SIGUIENTE</div>  
       <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div>    
     </div>
   </div>  
 
-  <div layout="column" layout-align="space-around center" class="footer_fix footer_ofrecer" ng-show="oyb('S')">
+  <div layout="column" layout-align="space-around center" class="footer_fix" ng-show="oyb('S')">
      <!-- <div layout="row" layout-align="space-around center">
       <div><img class="flecha_arriba" ng-click="summary()"></div>
       <div class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar
       </div>
     </div> -->
-    <div layout="row" layout-align="space-between center">
-      <div>Estoy Ofreciendo...</div>
+    <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center" ng-click="next()">
+      <div class="text_footer">SIGUIENTE</div>  
+      <!-- <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div> -->
     </div>
   </div>  
 

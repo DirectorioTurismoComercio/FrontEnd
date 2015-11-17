@@ -2,6 +2,8 @@
 	angular.module('gemStore')
 	.controller('ProfileSearchController', ['$scope','Constantes','$location','autenticacionService','GuardarBusquedaFactory','questionnaireService','navBar','LogoutFactory',
 		function($scope,Constantes,$location,autenticacionService,GuardarBusquedaFactory,questionnaireService,navBar,LogoutFactory){                              	
+      $scope.ruta = Constantes.ruta_imagenes + "botones/";
+      $scope.anterior = $scope.ruta+'boton-regresar.png';
       $scope.load = true;
       $scope.data = [];
       console.log(autenticacionService.getUser().id);

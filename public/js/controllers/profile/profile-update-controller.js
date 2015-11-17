@@ -2,8 +2,10 @@
 	angular.module('gemStore')
 	.controller('ProfileUpdateController', ['$scope','Constantes','autenticacionService','$location','UserByToken','navBar','LogoutFactory','questionnaireService',
 		function($scope,Constantes,autenticacionService,$location,UserByToken,navBar,LogoutFactory,questionnaireService){                        
+        $scope.ruta = Constantes.ruta_imagenes + "botones/";
+        $scope.anterior = $scope.ruta+'boton-regresar.png';
         $scope.usuario = 	autenticacionService.getUser();
-        $scope.token = autenticacionService.getInfo();
+        $scope.token = autenticacionService.getInfo();        
         console.log($scope.usuario);
         console.log($scope.token);
 

@@ -71,56 +71,7 @@
 
 	
 
-	/*SOLUTIONS-DETAIL*/
-
-	.sol_imagenes{
-		margin-top: 20px;
-	}
-
-	.solut_img{
-		width: 60px;
-	}
 	
-	.bubble{
-		color: #ffffff;
-		width: 50px;
-		height: 50px;		
-		border-radius: 50%;
-		background-color: #548880;		
-	}
-	.sol_categoria{
-		font-style: italic;
-		color: #909CA6;
-		margin-top: 10px;
-	}
-
-	.sol_pregunta{
-		color: #000000;	
-	}
-
-	.sol_respuesta{
-		color: #ffffff;
-		background-color: #548880;
-		border-radius: 7px;
-    	width: 35%;
-		height: 40px;		
-		text-align: center;
-	}
-
-	.solut_back{
-		color: #548880;		
-		font-size: larger;
-		cursor: pointer;
-	}
-	.solut_next{
-		color: #548880;		
-		font-size: larger;
-		cursor: pointer;
-	}
-
-	md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-    	min-height: 250px;
-	}
 }
 
 /*Dispositivos Grandes*/
@@ -215,60 +166,6 @@
 	  border-radius: 10px;
 	}
 
-	/*SOLUTIONS-DETAIL*/
-
-	.sol_imagenes{
-		margin-top: 20px;
-	}
-
-	.solution_text{
-		text-align: center;
-	}
-
-	.solut_img{
-		width: 60px;
-	}
-	
-	.bubble{
-		color: #ffffff;
-		width: 50px;
-		height: 50px;		
-		border-radius: 50%;
-	    margin-bottom: 10px;
-		background-color: #9BBDAA;		
-	}
-
-	.sol_categoria{
-		font-style: italic;
-		color: #909CA6;
-	}
-
-	.sol_pregunta{
-		color: #000000;	
-	}
-
-	.sol_respuesta{
-		color: #ffffff;
-		background-color: #548880;
-		border-radius: 7px;
-    	width: 35%;
-		height: 40px;		
-		text-align: center;
-	}
-	.solut_back{
-		color: #548880;		
-		font-size: larger;
-		cursor: pointer;
-	}
-	.solut_next{
-		color: #548880;		
-		font-size: larger;
-		cursor: pointer;
-	}
-
-	md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
- 	   min-height: 475px;
-	}
 }	
 
 @media all{	
@@ -328,33 +225,6 @@
 
 /* Fin Modificaciones al MATERIAL ANGULAR*/
 
-/*Questionnaries style*/
-
-	
-.s_cont{
-	  margin: -6% 0 0 0;
-	  display: block;
-	  font-size: 50px;
-	}
-	.floating{
-	      padding-top: 5px;
-	      display: block;
-	      float: right;
-	      background-color: #7F382B; 
-	      width: 25px;
-	      height: 25px;
-	      border-radius: 50%;
-	      margin: 0 0 0 70px;
-	      font-size: 15px;
-	      position: absolute;
-	}
-	.icon-check:before {
-	  color: White;
-	}
-
-
-
-
 	.rad,
 	.ckb{
 	  cursor: pointer;
@@ -411,20 +281,7 @@
 		outline:0;
 	}
 
-	::-webkit-scrollbar {
-	    width: 12px;
-	}
-	::-webkit-scrollbar-track {
-	    background-color: #eaeaea;
-	    border-left: 1px solid #ccc;
-	}
-	::-webkit-scrollbar-thumb {
-	    background-color: #C6D7CE;
-	}
-	::-webkit-scrollbar-thumb:hover {
-	    background-color: #548880;
-	}
-
+	
 	md-input-container label {
 	 	color: rgba(0,0,0,0.9);
 	}

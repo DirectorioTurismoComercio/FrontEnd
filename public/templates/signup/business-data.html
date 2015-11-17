@@ -49,9 +49,16 @@
   </md-input-container>  
 
  </div>
-<div class="aprobado  footer_fix" style='font-size: small;'">
 
-  <div class="siguiente" ng-click="changeView('profileSummary',form,'save')"><span><span class="icon-check"></span></span></div>
-  <div class="anterior" ng-click="changeView('personalData',null)"><span><span class="icon-arrow-back"></span></span></div>
+<div class="footer_fix" style='font-size: small;'>
+    <div layout="row" class="footer_cont " layout-align="space-around center">
+      
+      <div class="text_footer footer_doble" layout="row" layout-align="space-around center" ng-click="changeView('personalData',null)" >ANTERIOR</div>
+
+      <div class="text_footer footer_doble guardar" ng-click= "changeView('profileSummary',form,'save')" layout="row" layout-align="space-around center">GUARDAR</div> 
+
+
+<!--   <div class="siguiente" ng-click="changeView('profileSummary',form,'save')"><span><span class="icon-check"></span></span></div>
+  <div class="anterior" ng-click="changeView('personalData',null)"><span><span class="icon-arrow-back"></span></span></div> -->
 </div>
 </form>

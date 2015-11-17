@@ -26,7 +26,7 @@
       } 
 
       $scope.conexiones = function(){
-        $location.path('/');
+        $location.path('/profileConections');
       } 
 
       $scope.busquedas = function(){

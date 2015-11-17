@@ -5,9 +5,9 @@ angular.module('gemStore')
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
         $scope.img1 = $scope.ruta + 'icono-registro.png';              
         $scope.img_cerrar = $scope.ruta + 'boton-conectarse.png';              
-        $scope.img_anterior = $scope.ruta + 'boton-regresar.png'; 
+        $scope.img_anterior = $scope.ruta + 'boton-regresar-over.png'; 
         $scope.anterior = $scope.ruta+'boton-regresar.png';            
-        $scope.img_siguiente = $scope.ruta + 'boton-siguiente.png';              
+        $scope.img_siguiente = $scope.ruta + 'boton-siguiente-over.png';              
         $scope.load = true;
         var logg = true;
         
@@ -44,6 +44,7 @@ angular.module('gemStore')
             console.log('Prueba Soluciones',solutionService.getId());
             DetailFactory.save({cuestionario:qf,id_ps:solutionService.getId()}).$promise.
             then(function(respuesta){                                
+                console.log("Detalles:",respuesta);
                 $scope.detail = respuesta.respuesta;
                 $scope.solution = $scope.solutions[solutionService.getIndex()];
                 // Color segun afinidad
@@ -61,7 +62,7 @@ angular.module('gemStore')
                         };
 
                         if ($scope.detail[i].respuestas[j].respuesta2 === "") {
-                            $scope.detail[i].respuestas[j].respuesta2 = 'No ofrece este servicio';
+                            $scope.detail[i].respuestas[j].respuesta2 = 'No hay coincidencia';
                         } 
                     };
                 };

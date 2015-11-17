@@ -37,7 +37,7 @@ angular.module('gemStore')
         }	
         $scope.signup = function()
         {
-            registroService.changeView('signup');
+            registroService.changeView('roles');
         }
 
         // Función para no registrado (Comienza a Explorar) 
