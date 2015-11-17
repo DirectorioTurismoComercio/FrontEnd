@@ -2,25 +2,14 @@
 	angular.module('gemStore')
 	.controller('ProfileMainController', ['$scope','Constantes','$location','questionnaireService','navBar','$mdToast','LogoutFactory','autenticacionService',
 		function($scope,Constantes,$location,questionnaireService,navBar,$mdToast,LogoutFactory,autenticacionService){                              	
-      var last = {
-        bottom: false,
-        top: true,
-        left: false,
-        right: true
-      };
-      $scope.toastPosition = angular.extend({},last);
-      $scope.getToastPosition = function() {    
-        return Object.keys($scope.toastPosition)
-        .filter(function(pos) { return $scope.toastPosition[pos]; })
-        .join(' ');
-      };  
-      $scope.openToast = function($event) {
-        $mdToast.show(
-          $mdToast.simple().content('Simple Toast!')        
-          .position($scope.getToastPosition())
-          .hideDelay(1000)
-        );
-      };
+      $scope.usuario = autenticacionService.getUser();
+      console.log($scope.usuario);
+      $scope.ruta = Constantes.ruta_imagenes + "botones/";
+      $scope.perfil= $scope.ruta + "boton_registrate.png";    
+      $scope.conectar= $scope.ruta + "boton-conectarse.png";    
+      $scope.buscar= $scope.ruta + "boton_agregar_busqueda.png";    
+      $scope.inicio= $scope.ruta + "boton-comenzar.png";          
+      
       $scope.toggleRight = function(){                                
         navBar.open();
       }
@@ -38,7 +27,7 @@
       } 
 
       $scope.conexiones = function(){
-        $location.path('/');
+        $location.path('/profileConections');
       } 
 
       $scope.busquedas = function(){

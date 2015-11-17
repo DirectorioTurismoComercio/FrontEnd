@@ -2,6 +2,8 @@
 	angular.module('gemStore')
 	.controller('ProfileSearchDetailController', ['$scope','Constantes','$location','autenticacionService','DetalleBusquedaFactory','questionnaireService','navBar','solutionService','LogoutFactory',
 		function($scope,Constantes,$location,autenticacionService,DetalleBusquedaFactory,questionnaireService,navBar,solutionService,LogoutFactory){                              	
+      $scope.ruta = Constantes.ruta_imagenes + "botones/";
+        $scope.anterior = $scope.ruta+'boton-regresar.png';
       $scope.respuestas = [];      
       DetalleBusquedaFactory.get({"pk": autenticacionService.getIdBusqueda()}).$promise.then(function(datos){                                    
         console.log(datos);

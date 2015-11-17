@@ -1,3 +1,15 @@
+<div layout="row" layout-align="space-around center" class="barra_main">
+  <div class="regresar" ng-click="menu_bar('')">
+  <!--   <i class="fa fa-arrow-left"></i>
+    <md-tooltip>
+        VOLVER
+      </md-tooltip> -->
+  </div>
+  Bienvenido
+  <div class="menu" ng-click="toggleRight()"> 
+    <i class="fa fa-reorder"></i>
+  </div>
+</div>
 <form novalidate name="form">
 <div class="personalData">
   
@@ -56,19 +68,19 @@
   
   <md-input-container>
       <div ng-messages="form.apellido1.$error" >
-        <div ng-message="required">Por favor digite su primer apellido</div>
+        <div ng-message="required">Por favor digite sus apellidos</div>
       </div>
-      <label>Primer Apellido:</label>
+      <label>Apellidos</label>
       <input ng-model="usuario.apellido1" name="apellido1" required>            
     </md-input-container>
 
-  <md-input-container>
+  <!-- <md-input-container>
       <div ng-messages="form.apellido2.$error" >
         <div ng-message="required">Por favor digite su segundo apellido</div>
       </div>
       <label>Segundo Apellido:</label>
       <input ng-model="usuario.apellido2" name="apellido2" required>      
-    </md-input-container>
+    </md-input-container> -->
 
   <!-- <md-input-container>
       <div ng-messages="form.documento.$error" >
@@ -105,7 +117,33 @@
     </md-input-container>    
  
 </div>
-<div class="aprobado  footer_fix" style='font-size: small;'>
-  <div class="siguiente"  ng-click="changeView('businessData',form)" ng-submit="f()"><span><span class="icon-check"></span></span></div>
+<br><br>
+<div layout="column" layout-align="space-around center" class="footer_fix">
+     <!-- <div layout="row" layout-align="space-around center">
+      <div><img class="flecha_arriba" ng-click="summary()"></div>
+      <div class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar
+      </div>
+    </div> -->
+    <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center"  ng-click="changeView('businessData',form)" ng-submit="f()">
+      <div class="text_footer">SIGUIENTE</div>  
+      <!-- <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div> -->
+    </div>
+  </div>  
+<!-- <div class="aprobado  footer_fix" style='font-size: small;'>
+  <div class="siguiente"  ng-click="changeView('businessData',form)" ng-submit="f()"><span><span class="icon-check"></span></span></div> -->
   <!-- <div class="anterior" ng-click="changeView('roles',null)"><span><span class="icon-arrow-back"></span></span></div> -->
 </form>
+
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <!-- <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>           -->
+    <!-- <div class="botones_barra" ng-click="logout()">Cerrar Sesión</div>             -->
+  </div>  
+</md-sidenav>  

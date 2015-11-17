@@ -1,6 +1,6 @@
 <div layout="row" layout-align="space-around center" class="barra_main">
 	<div class="regresar" ng-click="menu_bar('/profileMain')">
-		<i class="fa fa-arrow-left"></i>
+		<img ng-src="%%anterior%%">
 		<md-tooltip>
         VOLVER
       </md-tooltip>
@@ -14,12 +14,12 @@
 <div layout='row' layout-align="center center">
    	<md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
 </div>  
- <div class="box lightgray" ng-repeat="datos in data" ng-click="detalle(datos.id,$index)">
+ <div class="box" ng-repeat="datos in data" ng-click="detalle(datos.id,$index)">
  	<div layout="row" layout-align="start center" >		
 		<div flex="77" class="box-title">%%datos.titulo%%</div>
 	</div>
 	<div class="box-body"><p class="">%%datos.descripcion%%</p></div>
-	<div layout-align="center center" class="">Ver Detalles</div>
+	<div layout-align="center center" class="box-button">Ver Detalles</div>
 </div>
 
 

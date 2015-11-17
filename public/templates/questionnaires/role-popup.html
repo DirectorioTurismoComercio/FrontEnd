@@ -1,0 +1,20 @@
+<md-dialog ng-cloak>
+  <form>
+    <h2 align="center">%%dataToPass.nombre%%</h2>
+    <md-dialog-content align="center" style="max-width:800px;max-height:810px; ">
+      <div  class="md-dialog-content">
+        <div> %%dataToPass.descripcion%%</div>       
+        <img style="margin: auto; max-width: 100%;" alt="Lush mango tree" src="%%ruta+dataToPass.imagen%%">
+      </div>
+    
+    <div layout="row">   
+        <md-button ng-click="cancel()">
+          Cancelar
+        </md-button>
+        <md-button ng-click="answer()">
+          Aceptar
+        </md-button>
+      </div>
+      </md-dialog-content>
+  </form>
+</md-dialog>

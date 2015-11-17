@@ -9,8 +9,8 @@ angular.module('gemStore')
         //Inicio Rutas de imagenes
         $scope.ruta= Constantes.ruta_imagenes + "botones/";    
         $scope.logo= $scope.ruta + "logo.png";    
-        $scope.como= $scope.ruta + "icono-como-funciona.png";    
-        $scope.registro= $scope.ruta + "icono-registro.png";    
+        $scope.iniciar_sesion= $scope.ruta + "boton_iniciar_sesion.png";    
+        $scope.registro= $scope.ruta + "boton_registrate.png";    
         $scope.comenzar= $scope.ruta + "icono-comenzar.png";    
         //Fin Rutas de imagenes
         $scope.mensaje="";
@@ -37,7 +37,7 @@ angular.module('gemStore')
         }	
         $scope.signup = function()
         {
-            registroService.changeView('signup');
+            registroService.changeView('roles');
         }
 
         // Función para no registrado (Comienza a Explorar) 

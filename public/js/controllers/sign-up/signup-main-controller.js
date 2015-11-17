@@ -5,8 +5,8 @@
     * Description
     */
     angular.module('gemStore')
-    .controller('SignupMainController',['$scope', 'registroService','ResultRetriever', 'QuestionnaireFactory','questionnaireService','UserByToken','autenticacionService','$mdDialog',
-        function($scope,registroService, ResultRetriever, QuestionnaireFactory, questionnaireService,UserByToken,autenticacionService,$mdDialog){
+    .controller('SignupMainController',['$scope', 'registroService','ResultRetriever', 'QuestionnaireFactory','questionnaireService','UserByToken','autenticacionService','$mdDialog','MunicipiosFactory','navBar',
+        function($scope,registroService, ResultRetriever, QuestionnaireFactory, questionnaireService,UserByToken,autenticacionService,$mdDialog,MunicipiosFactory,navBar){
 
             $scope.form=""; 
             $scope.showErrors=false;               
@@ -27,10 +27,29 @@
                 $scope.tag.result = "";
             }
 
+            $scope.toggleRight = function(){                                
+                navBar.open();
+              }
+
+              $scope.close= function(){
+                navBar.close();
+              }
+
+              $scope.menu_bar = function (view){
+                questionnaireService.changeView(view);                      
+              }
+
             $scope.doSomethingElse = function(suggestion){
               $scope.add_tag(suggestion);
                 $scope.tag.result = "";
             }
+
+            MunicipiosFactory.query().$promise.then(function(an){
+                console.log("Municipios ",an);
+                $scope.municipios = an;
+            }).catch(function(error){
+                        console.log(error);
+            });
           
             $scope.validate = function(model,icon,error)
             { 
@@ -141,6 +160,12 @@
                 console.log('USUARIO',$scope.usuario);                 
             }
 
+            $scope.muni = function(index){
+             $scope.usuario.ubicacion_institucion = $scope.municipios[index].nombre;
+             $scope.usuario.apellido2 = $scope.usuario.apellido1;
+             console.log($scope.usuario.ubicacion_institucion); 
+            }
+
             $scope.usuarioRedes = registroService.getUsuarioRedes();
             $scope.getRedById = function(id)
                                 {
@@ -158,6 +183,7 @@
                                     return -1;
                                 };
             $scope.save = function(view) {                
+                
                 var promesa;
                 console.log("guardando");
                     if($scope.usuario.id)

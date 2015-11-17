@@ -1,6 +1,6 @@
 <div layout="row" layout-align="space-around center" class="barra_main">
 	<div class="regresar" ng-click="menu_bar('/profileSearch')">
-		<i class="fa fa-arrow-left"></i>
+		<img ng-src="%%anterior%%">
 		<md-tooltip>
         VOLVER
       	</md-tooltip>
@@ -45,7 +45,7 @@
 				<div class="box-body">
 					<p class="box-body-p">%%solucion.problema_solucion.descripcion%%</p>
 				</div>
-				<div class="box-footer" ng-click="detalle(solucion.problema_solucion.id,$index)">Detalle</div>
+				<div class="box-button" ng-click="detalle(solucion.problema_solucion.id,$index)">Detalle</div>
 			</div>
         	<!-- <div ng-repeat="soluciones in respuestas">
         		%%soluciones.respuesta.titulo%%

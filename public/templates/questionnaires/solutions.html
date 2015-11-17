@@ -1,6 +1,6 @@
 <div layout="row" layout-align="space-around center" class="barra_main">
 	<div class="regresar" ng-click="menu_bar('questionnaires')">
-		<i class="fa fa-arrow-left"></i>
+		<img ng-src="%%anterior%%">
 		<md-tooltip>
         VOLVER
       </md-tooltip>
@@ -10,7 +10,7 @@
 		<i class="fa fa-reorder"></i>
 	</div>
 </div>
-
+ 
 <div class="prompt fondo_blanco">	
 	<div id="popup"></div>
 	<div layout='row' layout-align="center center">
@@ -22,10 +22,14 @@
 		<div layout="row" layout-align="start center" >
 				<div><img  class="box-img" ng-src="%%img%%"></div>
 				<div flex="77" class="box-title">%%s.problema_solucion.titulo%%</div>
-				<div layout-align="center center" class="box-bubble">%%s.nivel_afinidad | number:0%% %</div>
+				<div layout-align="center center" class="box-bubble">%%s.nivel_afinidad | number:0%%%</div>
 		</div>
 		<div class="box-body"><p class="box-body-p">%%s.problema_solucion.descripcion%%</p></div>
-		<div class="box-footer" ng-click="detalle(s.problema_solucion.id,$index)">%%s.usuario.ubicacion_institucion%%</div>
+		<div layout="row" layout-align="space-around center" class="box-footer">
+		<div flex="60">%%s.usuario.ubicacion_institucion%%</div>
+		<div flex="20" class="box-button" ng-click="detalle(s.problema_solucion.id,$index)">VER</div>
+
+		</div>
 	</div>
 	</div>
 	<div layout='row' layout-align="center center">
@@ -43,10 +47,10 @@
 		 <div>Registrate</div>
 	</div> 
 	<div layout="row" layout-align="space-around center">
-		<div layout="column" class="btn-guardar-busq" ng-click="addB()" ng-hide="loggin()">		 
+		<div layout="column" class="btn-guardar-busq footer_doble guardar" ng-click="addB()" ng-hide="loggin()">		 
 		 	Agregar busqueda
 		</div>
-		<div layout="column" class="btn-guardar-busq" ng-click="menu_bar('questionnaires')" ng-hide="loggin()">		 
+		<div layout="column" class="btn-guardar-busq footer_doble" ng-click="menu_bar('questionnaires')" ng-hide="loggin()">		 
 			 <div>Volver a buscar</div>
 		</div>	
 	</div>	

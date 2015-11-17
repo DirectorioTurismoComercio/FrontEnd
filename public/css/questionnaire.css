@@ -89,60 +89,6 @@ visibility: hidden; /*temporarily hide the "YES" label*/
 .backgr{
   background-color: white;
 }
-.box{
-  /*margin-top: px;  */
-  text-align: center;
-  border-style: none;
-  border-width: 1px;
-  background-color: #F1F1F1;
-  padding: 1% 1% 1% 1%;
-  margin: 2% 2% 2% 2%;
-}
-
-.box-title{  
-  color: #909CA6;
-  padding-left: 10px;
-  font-size: 15px;
-  text-align: left;
-}
-
-.box-img{  
-  border-radius: 20px;
-  width: 10px;
-  height: 10px;
-}
-
-.box-body{  
-  color: #000000;
-  padding: 2% 7% 0 7%;
-  text-align: justify;
-}
-
-.box-footer{  
-  color: #909CA6;
-  height: 30px;
-  cursor: pointer;
-  background-color: #F1F1F1; 
-  vertical-align: center;
-  padding-top: 2%; 
-  padding-left: 7%;
-  text-align: justify;
-}
-.solut_foot{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #F1F1F1;
-  padding: 1% 2% 1% 2%;
-  height: 60px;
-  box-shadow: 0 0 5px 2px rgba(1, 1, 1, 0.6);
-}
-.solut-button{
-  background-color: #548880;
-  border-radius: 10px;
-  margin: 0% 30% 0% 30%;
-  height: 50px;
-}
 
 /*5 11 2015*/
 

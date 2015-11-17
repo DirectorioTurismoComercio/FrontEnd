@@ -49,15 +49,14 @@
   </div>
 </div>
 
-
-<div class="aprobado footer_fix" style='font-size: small;'>
-  <!-- Comentado para verificar llevar al inicio mientras se implementa el perfil del usuario-->
-  <!-- <div class="siguiente" ng-click="changeView('profileDescription/'+usuario.id)"><span><span class="icon-check"></span></span></div> -->
-  <div class="siguiente" ng-click="changeView('profileMain')"><span><span class="icon-check"></span></span></div>
-
-  <div class="anterior" ng-click="changeView('businessData')">
+<div layout="column" layout-align="space-around center" class="footer_fix">    
+  <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center"  ng-click="changeView('profileMain')">
+    <div class="text_footer">IR AL PERFIL</div>      
+  </div>
+</div>  
+  <!-- <div class="anterior" ng-click="changeView('businessData')">
     <span>
       <span class="icon-arrow-back"></span>
     </span>
-  </div>
+  </div> -->
 </div>
