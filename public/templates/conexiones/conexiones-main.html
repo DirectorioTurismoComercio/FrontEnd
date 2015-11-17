@@ -18,6 +18,10 @@
   %%solucion.usuario.correo%%
   %%solucion.usuario.ubicacion_institucion%%
 </div>
+
+<div ng-repeat="data in mensajes">
+  %%data.mensaje%%
+</div>
 <div>
   <md-input-container>      
       <label>Mensaje:</label>
@@ -27,6 +31,8 @@
       <md-button class="md-raised md-primary" ng-click="enviar()" autofocus>Enviar</md-button>
   </md-input-container>  
 </div>
+
+
 
 
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">

@@ -4,6 +4,7 @@
 		function($scope,Constantes,AuthFactory,autenticacionService,$location,$mdDialog,UserByToken,questionnaireService,navBar){                        
       $scope.ruta = Constantes.ruta_imagenes + "botones/";
       $scope.anterior = $scope.ruta+'boton-regresar.png';
+      $scope.load = false;
        data ={};
        $scope.toggleRight = function(){                                
           navBar.open();
@@ -18,6 +19,7 @@
         }
 
        $scope.login = function(){
+          $scope.load = true;
           $authentication = new AuthFactory();
           $authentication.username= $scope.login.usuario;
           $authentication.email= $scope.login.usuario;
@@ -30,6 +32,7 @@
               data = usuario;
               autenticacionService.setUser(usuario);                        
               console.log('Id: ',data.id);                                     
+              $scope.load = false;
               $location.path('/profileMain');
             }).catch(function(error){
               console.log(error);            

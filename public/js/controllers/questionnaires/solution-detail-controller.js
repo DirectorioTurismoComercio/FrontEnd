@@ -3,8 +3,9 @@ angular.module('gemStore')
 	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, DetailFactory, autenticacionService,BusquedaSolucionFactory,$mdToast,conexionService){
                 //Rutas Imagenes
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
-        $scope.img1 = $scope.ruta + 'icono-registro.png';              
+        $scope.img1 = $scope.ruta + 'boton_registrate.png';              
         $scope.img_cerrar = $scope.ruta + 'boton-conectarse.png';              
+        $scope.img_agregar = $scope.ruta + 'boton_agregar_busqueda.png';              
         $scope.img_anterior = $scope.ruta + 'boton-regresar-over.png'; 
         $scope.anterior = $scope.ruta+'boton-regresar.png';            
         $scope.img_siguiente = $scope.ruta + 'boton-siguiente-over.png';              
@@ -52,12 +53,15 @@ angular.module('gemStore')
                     for (var j = $scope.detail[i].respuestas.length - 1; j >= 0; j--) {
                         if ($scope.detail[i].respuestas[j].afinidad > 75 ) {
                             $scope.detail[i].respuestas[j].clase_color = 'color_verde';
+                            $scope.detail[i].respuestas[j].clase_color_bubble = 'color_verde_claro';
                         } 
                         else{
                             if ($scope.detail[i].respuestas[j].afinidad < 25) {
                                 $scope.detail[i].respuestas[j].clase_color = 'color_rojo';
+                                $scope.detail[i].respuestas[j].clase_color_bubble = 'color_rojo_claro';
                             } else{
                                 $scope.detail[i].respuestas[j].clase_color = 'color_amarillo';
+                                $scope.detail[i].respuestas[j].clase_color_bubble = 'color_amarillo_claro';
                             };
                         };
 

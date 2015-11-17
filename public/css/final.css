@@ -31,6 +31,11 @@
 	}
 
 	/*diferent pages*/
+
+	.img_box {
+		width: 3em;
+	}
+
 	.main{
 		width: 100%;
 		height: 100%;		
@@ -591,7 +596,7 @@
     	min-height: 250px;
 	}
 	md-content{
-		background-color: #C3DBCC;
+		/*background-color: #C3DBCC;*/
 		height: 50%;
 	}
 	.match_bubble{
@@ -611,6 +616,16 @@
 	}
 	.color_rojo{
 		background-color: #80392C;
+	}
+
+	.color_verde_claro{
+		background-color: #90B29E;
+	}
+	.color_amarillo_claro{
+		background-color: #E5CE6A;
+	}
+	.color_rojo_claro{
+		background-color: #BC8580;
 	}
 
 }

@@ -2,6 +2,8 @@
 	angular.module('gemStore')
 	.controller('ConexionesListController', ['$scope','Constantes','$location','questionnaireService','navBar','$mdToast','LogoutFactory','autenticacionService','ConexionListFactory','conexionService',
 		function($scope,Constantes,$location,questionnaireService,navBar,$mdToast,LogoutFactory,autenticacionService,ConexionListFactory,conexionService){                              	
+      $scope.ruta = Constantes.ruta_imagenes + "botones/";
+      $scope.anterior = $scope.ruta+'boton-regresar.png';
       $scope.load = true;
       $scope.usuario = autenticacionService.getUser();
       console.log($scope.usuario);

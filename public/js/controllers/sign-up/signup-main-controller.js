@@ -5,8 +5,8 @@
     * Description
     */
     angular.module('gemStore')
-    .controller('SignupMainController',['$scope', 'registroService','ResultRetriever', 'QuestionnaireFactory','questionnaireService','UserByToken','autenticacionService','$mdDialog','MunicipiosFactory',
-        function($scope,registroService, ResultRetriever, QuestionnaireFactory, questionnaireService,UserByToken,autenticacionService,$mdDialog,MunicipiosFactory){
+    .controller('SignupMainController',['$scope', 'registroService','ResultRetriever', 'QuestionnaireFactory','questionnaireService','UserByToken','autenticacionService','$mdDialog','MunicipiosFactory','navBar',
+        function($scope,registroService, ResultRetriever, QuestionnaireFactory, questionnaireService,UserByToken,autenticacionService,$mdDialog,MunicipiosFactory,navBar){
 
             $scope.form=""; 
             $scope.showErrors=false;               
@@ -26,6 +26,18 @@
                 }
                 $scope.tag.result = "";
             }
+
+            $scope.toggleRight = function(){                                
+                navBar.open();
+              }
+
+              $scope.close= function(){
+                navBar.close();
+              }
+
+              $scope.menu_bar = function (view){
+                questionnaireService.changeView(view);                      
+              }
 
             $scope.doSomethingElse = function(suggestion){
               $scope.add_tag(suggestion);

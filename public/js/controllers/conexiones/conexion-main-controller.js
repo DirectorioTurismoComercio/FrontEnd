@@ -3,13 +3,15 @@ angular.module('gemStore')
 	function($scope,Constantes,$location,navBar,autenticacionService,$mdToast,conexionService,ConexionFactory,ConexionMensajeFactory){
         var id_busqueda = conexionService.getBusqueda();
         $scope.solucion = conexionService.getSolucion();
-        var id_solucion = $scope.solucion.problema_solucion.id;
+        var id_solucion = $scope.solucion;
+        // var id_solucion = $scope.solucion.problema_solucion.id;
         var usuario = autenticacionService.getUser();        
 
         ConexionFactory.get({"id_b": id_busqueda,"id_s": id_solucion}).$promise.then(function(resultado){                                            
             console.log(resultado);    
             var busc = resultado.busqueda.usuario;
             var resp = resultado.respuesta.usuario;
+            $scope.mensajes = resultado.mensajes;
             var remite = autenticacionService.getUser().id;                
             var dest = null;
             if (remite === busc) {

@@ -24,7 +24,7 @@
         </div> 
         <label>Contraseña</label>
         <input type="password" ng-model="login.contrasena" name="contrasena" required>      
-    </md-input-container>
+    </md-input-container>    
     <md-input-container>
     <button class="btn btn-lg btn-success btn-block" ng-click="login()" layout="row" layout-align="center center">INGRESA</button>
       <!-- <md-button class="md-raised md-primary" ng-click="login()" autofocus>Ingresa</md-button> -->
@@ -33,6 +33,10 @@
     <div id="alertPop" ng-cloak></div>
   </div>
 </form>
+
+<div layout='row' layout-align="center center">    
+      <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
+    </div>  
 
 <!-- SIDE BAR -->
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">

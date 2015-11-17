@@ -11,6 +11,27 @@ angular.module('gemStore')
   $scope.anterior = $scope.ruta+'boton-regresar.png';
   var answersTemplateURL = "templates/questionnaires/";
    $scope.questionnaire = questionnaireService.getQuestionnaire($routeParams.idQuestionnaire);
+   questionnaires = questionnaireService.getQuestionnaires();
+   console.log("Prueb:",$routeParams.idQuestionnaire);
+  // Borrar la posición correspondiente al routeparams en el questionnaire
+    questionnaires[$routeParams.idQuestionnaire].enable=false;
+    for(var i=0; i<questionnaires[$routeParams.idQuestionnaire].preguntas.length;i++)
+    {
+      questionnaires[$routeParams.idQuestionnaire].preguntas[i].enable=false;
+      questionnaires[$routeParams.idQuestionnaire].preguntas[i].pregunta.dato=0;
+      for(var j=0;j<questionnaires[$routeParams.idQuestionnaire].preguntas[i].pregunta.opciones.length;j++)
+      {
+        questionnaires[$routeParams.idQuestionnaire].preguntas[i].pregunta.opciones[j].dato=false;                
+      }
+    }
+
+    questionnaireService.setQuestionnaires(questionnaires);    
+    $scope.questionnaire = questionnaires[$routeParams.idQuestionnaire];
+    console.log("Prueb:",$scope.questionnaire);
+    questionnaireService.clearAnswers();
+
+  // 
+
    var currentQuestionIndex = 0;
    var maxIndex = $scope.questionnaire.preguntas.length - 1;
    console.log(currentQuestionIndex,maxIndex);   
@@ -57,8 +78,9 @@ angular.module('gemStore')
       if(dependencia_respuestas.length==0){
         return true;
       }
+      console.log("Nuevo: ",questionnaireService.getAnswers());
       for(var k=0;k<dependencia_respuestas.length;k++)
-      {
+      { 
         if(questionnaireService.getAnswers().indexOf(parseInt(dependencia_respuestas[k]))!=-1) return true;
       }
       return false;

@@ -5,9 +5,10 @@
       $scope.usuario = autenticacionService.getUser();
       console.log($scope.usuario);
       $scope.ruta = Constantes.ruta_imagenes + "botones/";
-      $scope.como= $scope.ruta + "icono-como-funciona.png";    
-      $scope.registro= $scope.ruta + "icono-registro.png";    
-      $scope.comenzar= $scope.ruta + "icono-comenzar.png";    
+      $scope.perfil= $scope.ruta + "boton_registrate.png";    
+      $scope.conectar= $scope.ruta + "boton-conectarse.png";    
+      $scope.buscar= $scope.ruta + "boton_agregar_busqueda.png";    
+      $scope.inicio= $scope.ruta + "boton-comenzar.png";          
       
       $scope.toggleRight = function(){                                
         navBar.open();

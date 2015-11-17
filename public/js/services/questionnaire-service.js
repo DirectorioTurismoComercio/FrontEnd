@@ -21,6 +21,11 @@
 		return answers;
 	}
 
+	var clearAnswers = function()
+	{
+		answers = [];
+	}
+
 	var addAnswer = function (answer)
 	{
 		answers.push(answer);
@@ -106,6 +111,7 @@
 	    setQuestionnaires: setQuestionnaires,
 	    getQuestionnaire: getQuestionnaire,
 	    getAnswers: getAnswers,
+	    clearAnswers: clearAnswers,
 	    addAnswer: addAnswer,
 	    removeAnswer: removeAnswer,
 	    changeView: changeView,	    

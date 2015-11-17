@@ -1,3 +1,15 @@
+<div layout="row" layout-align="space-around center" class="barra_main">
+  <div class="regresar" ng-click="menu_bar('')">
+  <!--   <i class="fa fa-arrow-left"></i>
+    <md-tooltip>
+        VOLVER
+      </md-tooltip> -->
+  </div>
+  Bienvenido
+  <div class="menu" ng-click="toggleRight()"> 
+    <i class="fa fa-reorder"></i>
+  </div>
+</div>
 <form novalidate name="form">
 <div class="businessData">
   <!--  -->
@@ -51,14 +63,27 @@
  </div>
 
 <div class="footer_fix" style='font-size: small;'>
-    <div layout="row" class="footer_cont " layout-align="space-around center">
-      
+    <div layout="row" class="footer_cont " layout-align="space-around center">      
       <div class="text_footer footer_doble" layout="row" layout-align="space-around center" ng-click="changeView('personalData',null)" >ANTERIOR</div>
 
       <div class="text_footer footer_doble guardar" ng-click= "changeView('profileSummary',form,'save')" layout="row" layout-align="space-around center">GUARDAR</div> 
-
-
+    </div>
+</div>
 <!--   <div class="siguiente" ng-click="changeView('profileSummary',form,'save')"><span><span class="icon-check"></span></span></div>
   <div class="anterior" ng-click="changeView('personalData',null)"><span><span class="icon-arrow-back"></span></span></div> -->
-</div>
+    
 </form>
+
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>Lab. Virtuales</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    <!-- <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>           -->
+    <!-- <div class="botones_barra" ng-click="logout()">Cerrar Sesión</div>             -->
+  </div>  
+</md-sidenav>  
