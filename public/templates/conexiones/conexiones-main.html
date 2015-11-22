@@ -1,31 +1,32 @@
 <div layout="row" layout-align="space-around center" class="barra_main">
-  <div class="regresar" ng-click="menu_bar('solutions/detail')">
+  <div class="regresar" ng-click="menu_bar()">
     <i class="fa fa-arrow-left"></i>
-    <md-tooltip>
+    <!-- <md-tooltip>
         VOLVER
-      </md-tooltip>
+      </md-tooltip> -->
   </div>
-  LABORATORIOS VIRTUALES
+  MERCATIC
   <div class="menu" ng-click="toggleRight()"> 
     <i class="fa fa-reorder"></i>
   </div>
 </div>
 
-
-<div>
-  %%solucion.problema_solucion.titulo%%
-  %%solucion.usuario.nombres%%
-  %%solucion.usuario.correo%%
-  %%solucion.usuario.ubicacion_institucion%%
+<div class="conexiones_datos">
+    
 </div>
 
-<div ng-repeat="data in mensajes">
+<div layout='row' layout-align="center center">
+  <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
+</div>  
+
+<div ng-repeat="data in mensajes"  class="%%data.clase%%">
   %%data.mensaje%%
 </div>
-<div>
+
+<div layout="row" layout-align="space-between center" class="footer_fix">
   <md-input-container>      
-      <label>Mensaje:</label>
-      <input ng-model="mensaje.mensaje" name="mensaje" >      
+      <label>Escriba su mensaje</label>
+      <input ng-model="mensaje.mensaje" name="mensaje">      
   </md-input-container>
   <md-input-container>      
       <md-button class="md-raised md-primary" ng-click="enviar()" autofocus>Enviar</md-button>

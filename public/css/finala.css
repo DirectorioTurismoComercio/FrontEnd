@@ -48,8 +48,7 @@
 	    padding-left: 1%;
 	    padding-right: 1%;
 	    height: 80%;	    
-	    background-color: white;
-	    margin-bottom: 10%;
+	    background-color: white;	    
 	}
 	.bc_content{
 	  height: 100%;
@@ -108,6 +107,7 @@
 	.btn-lg, .btn-group-lg > .btn{
 		border-radius: 2em;
 		padding: 2% 2%;
+		font-size: 16px;
 	}
 	
 
@@ -580,9 +580,6 @@
 		text-align: center;
 		z-index: 2;
 	}
-	.sol_respuesta>div{
-    	width: 70%;
-	}
 
 	.solut_back{
 		color: #548880;		
@@ -645,31 +642,7 @@
 	.botones_perfil{
 		margin: 1% 5% 1% 5%;
 	}
-
-
-	/*Página Auth*/
-	div.personalData {
-	    width: 80%;
-	    display: block;
-	    padding: 10% 0;
-	    margin: auto;
-	}
-	div.businessData {
-	    width: 80%;
-	    display: block;
-	    padding: 10px 0;
-	    margin: auto;
-	}
-	md-input-container label:not(.md-no-float){
-		z-index: auto;
-	}
-
 	/*conexiones*/
-	.conexiones_datos{
-		height: 9%;
-		background-color: #B3BEBE;
-	}
-
 	.mensaje_enviado{
 	    color: #0E0000;
 	    border: 1px solid;
@@ -693,7 +666,6 @@
 	    margin-top: 3%;
 	    background-color: #9FBFB9;
 	}
-
 
 }
 
@@ -738,9 +710,7 @@
 	div.descriptionWindow p, div.cancelar span, div.aceptar span,
 	md-radio-button, .prompt, .box-title, .box-footer, .prompt_r,
 	.box-body-p, .solut-button, .solution_text, .box-img, 
-	md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused, 
-	div.personalData,  .btn-lg, .btn-group-lg > .btn,
-	 .md-button, .businessData , .text_footer  { 
+	md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused{ 
 		font-size: medium;
 	}
 	.box-bubble, .sol_respuesta
@@ -765,19 +735,9 @@
 	    height: 40px;
 	}
 
-
-	/*Solutions details */
-	md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-    min-height: 260px;
-	}
-
 }
 
-@media (max-width: 480px) and (orientation: landscape){
-
-	.img_box {
-		width: 2em;
-	}
+@media (max-width: 420px) and (orientation: landscape){
 	
 	.main{
 		height: 100%;	
@@ -824,9 +784,7 @@
 	div.descriptionWindow p, div.cancelar span, div.aceptar span,
 	md-radio-button, .prompt, .box-title, .box-footer, .prompt_r,
 	.box-body-p, .solut-button, .solution_text, .box-img,
-	md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused,
-	div.personalData ,  .btn-lg, .btn-group-lg > .btn,
-	 .md-button, .businessData, .text_footer  { 
+	md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused{ 
 		font-size: medium;
 	}
 	.box-bubble, .sol_respuesta
@@ -859,7 +817,6 @@
 	  padding: 1%;
 	}
 
-
 	/*VIEW SOLUTIONS;  */
 	.box-img{  
 	  width: 50px;
@@ -868,17 +825,6 @@
 	.box-bubble{
 	    width: 40px;
 	    height: 40px;
-	}
-
-
-	/*Solutions details */
-	md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-        min-height: 180px;
-    	margin-bottom: 10%;
-	}
-	.solut_foot > img.box-img{  
-	  width: 45px;
-	  height: 45px;
 	}
 
 
@@ -915,9 +861,7 @@
 	 .action_text, .galeria p, .footer_fix,
 	 md-radio-button, .prompt, .box-title, .box-footer, .prompt_r,
 	 .box-body-p, .solut-button, .solution_text, .box-img,
-	 md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused,
-	 div.personalData,  .btn-lg, .btn-group-lg > .btn,
-	 .md-button, .businessData, .text_footer  {
+	 md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused{
 	 	font-size: x-large;
 	 }
  	.box-bubble, .sol_respuesta
@@ -966,25 +910,10 @@
 	   	width: 70px;
 	    height: 70px;
 	}
-
-
-	/*Solutions details */
-	md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-    	min-height: 360px;
-        margin-bottom: 10%;
-	}
-	.solut_foot > img.box-img{  
-	  width: 45px;
-	  height: 45px;
-	}
 	
 }
 
-@media (min-width: 481px) and (max-width: 800px) and (orientation: landscape){
-
-	.img_box {
-		width: 2em;
-	}
+@media (min-width: 421px) and (max-width: 800px) and (orientation: landscape){
 
 	/*signin page*/
 	.fondo{
@@ -1005,19 +934,18 @@
     	padding-top: 15%;
 	}
 	.botones_inicio {
-		margin-top: 2%;
+		margin-top: 5%;
 	}
 
 	/*action questionnaire page*/
 	 .barra_main, .botones_barra, .prompt_q, .toolbar_side,
 	 .action_text, .galeria p, .footer_fix, md-radio-button,
 	 .prompt, .box-title, .box-footer, .prompt_r, .box-body-p,
-	 .solut-button, .box-img, md-tabs .md-tab.md-active,
-	  md-tabs .md-tab.md-focused, div.personalData,  .btn-lg, .btn-group-lg > .btn,
-	 .md-button, .businessData, .text_footer  {
+	 .solut-button, .solution_text, .box-img, md-tabs .md-tab.md-active,
+	  md-tabs .md-tab.md-focused{
 	 	font-size: x-large;
 	 }
-	.box-bubble, .sol_respuesta, .solution_text
+	.box-bubble, .sol_respuesta
 	{ 
 		font-size: large;
 	}
@@ -1036,7 +964,7 @@
 	/*actionquestionnaire page*/
 	.serv_body{
 	  height: 70%; 
-	  margin-top: 15%; 
+	  margin-top: 20%; 
 	}
 
 	  
@@ -1086,16 +1014,6 @@
 	    height: 70px;
 	}
 
-
-	/*Solutions details */
-	md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-    	margin-bottom: 10%;
-    	min-height: 260px;
-	}
-	.solut_foot > img.box-img{  
-	  width: 50px;
-	  height: 50px;
-	}
 	
 }
 
@@ -1132,13 +1050,12 @@
 	 .div.descriptionWrapper h2, div.descriptionWindow h3,
 	 div.descriptionWindow p, div.cancelar span, 
 	 div.aceptar span, md-radio-button, .prompt, .box-title,
-	 .box-footer, .prompt_r, .box-body-p, .solut-button, .box-img, md-tabs .md-tab.md-active, 
-	 md-tabs .md-tab.md-focused, div.personalData, .btn-lg, .btn-group-lg > .btn,
-	 .md-button, .businessData, .text_footer  {
+	 .box-footer, .prompt_r, .box-body-p, .solut-button, 
+	 .solution_text, .box-img, md-tabs .md-tab.md-active, 
+	 md-tabs .md-tab.md-focused{
 	 	font-size: xx-large;
 	 }
-	 .box-bubble, .sol_respuesta, div.personalData div, 
-	 .solution_text
+	 .box-bubble, .sol_respuesta
 	{ 
 		font-size: x-large;
 	}
@@ -1195,23 +1112,9 @@
 	    height: 110px;
 	}
 
-
-	/*Solutions details */
-	md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-    min-height: 460px;
-	}
-	.solut_foot > img.box-img{  
-	  width: 75px;
-	  height: 75px;
-	}
-
 }
 
 @media (min-width: 801px) and (orientation: landscape){
-
-	.img_box {
-		width: 2em;
-	}
 
 	/*signin page*/
 	.fondo{
@@ -1242,13 +1145,12 @@
 	 .div.descriptionWrapper h2, div.descriptionWindow h3,
 	 div.descriptionWindow p, div.cancelar span, 
 	 div.aceptar span, md-radio-button, .prompt, .box-title,
-	 .box-footer, .prompt_r, .box-body-p, .solut-button, .box-img, md-tabs .md-tab.md-active, 
-	 md-tabs .md-tab.md-focused, div.personalData, .btn-lg, .btn-group-lg > .btn,
-	 .md-button, .businessData, .text_footer  {
+	 .box-footer, .prompt_r, .box-body-p, .solut-button, 
+	 .solution_text, .box-img, md-tabs .md-tab.md-active, 
+	 md-tabs .md-tab.md-focused{
 	 	font-size: xx-large;
 	 }
-	 .box-bubble, .sol_respuesta, div.personalData div, 
-	 .solution_text
+	 .box-bubble, .sol_respuesta
 	{ 
 		font-size: x-large;
 	}
@@ -1301,17 +1203,6 @@
 	.box-bubble{
 	   	width: 110px;
 	    height: 110px;
-	}
-
-
-	/*Solutions details */
-	md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-    	min-height: 460px;
-        margin-bottom: 10%;
-	}
-	.solut_foot > img.box-img{  
-	  width: 60px;
-	  height: 60px;
 	}
 
 }

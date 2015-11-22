@@ -19,11 +19,11 @@ angular.module('gemStore')
         }
 
         $scope.menu_bar = function (view){
-          if (autenticacionService.getInfo()) {
-            questionnaireService.changeView("/profileSearchDetail");                      
-          } else{
+          // if (autenticacionService.getInfo()) {
+          //   questionnaireService.changeView("/profileSearchDetail");                      
+          // } else{
             questionnaireService.changeView(view);                      
-          };          
+          // };          
         }
         
         //Total de soluciones 

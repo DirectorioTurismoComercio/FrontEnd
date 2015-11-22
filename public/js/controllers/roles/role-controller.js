@@ -4,6 +4,7 @@ angular.module('gemStore')
 		$scope.titulo       = "Pagina Principal Controller";
 		$scope.overlayTitle = "Define tu rol dentro de la plataforma";
 		$scope.ruta         = Constantes.ruta_imagenes;
+		$scope.ruta2        = Constantes.ruta_imagenes + "botones/";    
 		$scope.load = true;
 		var roleFactory     = new RoleFactory();
 		console.log("rol factory"+roleFactory);

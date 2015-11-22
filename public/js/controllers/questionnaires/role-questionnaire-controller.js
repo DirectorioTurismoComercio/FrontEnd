@@ -79,6 +79,14 @@ angular.module('gemStore')
 			questionnaireService.clearFull('ALL');						
 		}
 
+        $scope.oyb = function(dato){                	
+ 	      	type = questionnaireService.getTipo();        	
+        	if (type == dato) {
+        		return true;
+        	} else{
+				return false;	
+        	};
+        }
 }]);
 
 // function DialogController($scope, $mdDialog, rol) {

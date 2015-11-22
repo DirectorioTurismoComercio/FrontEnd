@@ -5,7 +5,7 @@
         VOLVER
       </md-tooltip>
   </div>
-  LABORATORIOS VIRTUALES
+  MERCATIC
   <div class="menu" ng-click="toggleRight()"> 
     <i class="fa fa-reorder"></i>
   </div>
@@ -18,7 +18,7 @@
 </div>	
 
 <div layout="row" layout-align="space-between center" style="
-    margin-bottom: 3%;">
+    margin-bottom: 2%;">
 		<div flex="33" class="solution_text">Usted</div>   
 		<div flex="33" class="solution_text">%%solution.problema_solucion.titulo%%</div>	
 </div>
@@ -74,8 +74,11 @@
 <div class="solut_foot" layout="row" layout-align="space-between center">	
     <div ng-click="anterior()" class="solut_back"><img ng-src="%%img_anterior%%"></div>		 
     <!-- <p ng-show="logged()" ng-click="guardarSolucion()">Agregar Solución</p> -->
-    <img ng-show="logged()" ng-click="guardarSolucion()" class="img_box" ng-src="%%img_agregar%%">
-		<img ng-click="conectar()" class="img_box" ng-src="%%img_cerrar%%">     
+    <!-- <img ng-show="logged()" ng-click="guardarSolucion()" class="img_box" ng-src="%%img_agregar%%">
+		<img ng-click="conectar()" class="img_box" ng-src="%%img_cerrar%%">      -->
+    <img ng-show="logged()" ng-click="guardarSolucion()" class="box-img" ng-src="%%img_agregar%%">
+    <img ng-click="conectar()" class="box-img" ng-src="%%img_cerrar%%">
+
     <div ng-click="siguiente()" class="solut_next"><img ng-src="%%img_siguiente%%"></div>	
 </div>					
 

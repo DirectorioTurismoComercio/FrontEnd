@@ -1,7 +1,7 @@
 (function(){
 	angular.module('gemStore')
-	.controller('ProfileMainController', ['$scope','Constantes','$location','questionnaireService','navBar','$mdToast','LogoutFactory','autenticacionService',
-		function($scope,Constantes,$location,questionnaireService,navBar,$mdToast,LogoutFactory,autenticacionService){                              	
+	.controller('ProfileMainController', ['$scope','Constantes','$location','questionnaireService','navBar','$mdToast','LogoutFactory','autenticacionService','solutionService',
+		function($scope,Constantes,$location,questionnaireService,navBar,$mdToast,LogoutFactory,autenticacionService,solutionService){                              	
       $scope.usuario = autenticacionService.getUser();
       console.log($scope.usuario);
       $scope.ruta = Constantes.ruta_imagenes + "botones/";
@@ -9,7 +9,7 @@
       $scope.conectar= $scope.ruta + "boton-conectarse.png";    
       $scope.buscar= $scope.ruta + "boton_agregar_busqueda.png";    
       $scope.inicio= $scope.ruta + "boton-comenzar.png";          
-      
+      solutionService.setLogged('NOT');
       $scope.toggleRight = function(){                                
         navBar.open();
       }

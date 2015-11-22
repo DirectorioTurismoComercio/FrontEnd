@@ -2,7 +2,8 @@
   <div class="regresar" ng-click="changeView('actionquestionnaire')">
     <img ng-src="%%anterior%%">
   </div>
-  LABORATORIOS VIRTUALES
+  <div ng-show="oyb('P')">Estás: Buscando</div>
+  <div ng-show="oyb('S')">Estás: Ofreciendo</div>
   <div class="menu" ng-click="toggleRight()"> 
     <i class="fa fa-reorder"></i>
   </div> 
@@ -10,7 +11,7 @@
 <div class="body">
   <div class="header">    
     <div class="prompt_q">
-      Cuéntanos cual es tu rol
+      Por favor, elige el rol que mejor describe tu actividad económica:
     </div> 
   </div> 
   <div layout='row' layout-align="center center">    
