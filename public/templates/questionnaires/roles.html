@@ -1,29 +1,31 @@
 <div layout="row" layout-align="space-around center" class="barra_main">   
-  <div class="regresar" ng-click="changeView('V')">
-    <i class="fa fa-arrow-left"></i>
+  <div class="regresar" ng-click="changeView('actionquestionnaire')">
+    <img ng-src="%%anterior%%">
   </div>
-  LABORATORIOS VIRTUALES
+  <div ng-show="oyb('P')">Estás: Buscando</div>
+  <div ng-show="oyb('S')">Estás: Ofreciendo</div>
   <div class="menu" ng-click="toggleRight()"> 
     <i class="fa fa-reorder"></i>
-  </div>
+  </div> 
 </div>
 <div class="body">
   <div class="header">    
     <div class="prompt_q">
-      2. Ahora, cuéntanos un poco más sobre quién eres...
+      Por favor, elige el rol que mejor describe tu actividad económica:
     </div> 
   </div> 
-  <div layout='row' layout-align="center center">
+  <div layout='row' layout-align="center center">    
     <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
   </div>  
   <div class="galeria">
-    <a ng-click="toggleDescription($index)" ng-repeat="rol in roles" class="roles">
+    <!-- <a ng-click="toggleDescription($index)" ng-repeat="rol in roles" class="roles"> -->
+      <a ng-click="roleSelect($index)" ng-repeat="rol in roles" class="roles">    
         <img class="slide" ng-src="%%ruta+rol.imagen%%" />
       <p>%%rol.nombre%%</p>
     </a>
   </div>
-  <div layout="column" layout-align="space-around center" class="footer_fix footer_buscar" ng-show="oyb('P')">Estoy Buscando...</div>  
-  <div layout="column" layout-align="space-around center" class="footer_fix footer_ofrecer" ng-show="oyb('S')">Estoy Ofreciendo...</div>
+  <!-- <div layout="column" layout-align="space-around center" class="footer_fix footer_buscar" ng-show="oyb('P')">BUSCAR</div>  
+  <div layout="column" layout-align="space-around center" class="footer_fix footer_ofrecer" ng-show="oyb('S')">Estoy Ofreciendo...</div> -->
 
 <div class="overlay" ng-hide="verDescription">
   <div class="descriptionWrapper">

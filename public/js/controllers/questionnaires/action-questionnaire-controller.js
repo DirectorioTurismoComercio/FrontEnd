@@ -6,6 +6,7 @@
                         $scope.ruta = Constantes.ruta_imagenes + "botones/";
                         $scope.busco = $scope.ruta + "boton-busco.png";
                         $scope.ofrezco = $scope.ruta + "boton-ofrezco.png";
+                        $scope.anterior = $scope.ruta+'boton-regresar.png';
 			console.log('Prueba Controlador');                        
 
                         $scope.toggleRight = function(){                                

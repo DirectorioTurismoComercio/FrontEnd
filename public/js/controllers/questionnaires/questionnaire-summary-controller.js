@@ -6,6 +6,7 @@ angular.module('gemStore')
   $scope.editar = $scope.ruta+'editar.png';
   $scope.borrar = $scope.ruta+'borrar.png';
   $scope.pageClass="page-summary";
+  $scope.anterior = $scope.ruta+'boton-regresar.png';
   console.log('Cuestionario',$scope.questionnaires);
   	$scope.back = function()
   	{

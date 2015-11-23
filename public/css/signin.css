@@ -4,9 +4,7 @@ contenedor {
   background-color: #eee;
 }
 
-.form-signin {
-  height: 100%;
-  padding: 15px;
+.form-signin {  
   margin: 0 auto;
 }
 .form-signin .form-signin-heading,

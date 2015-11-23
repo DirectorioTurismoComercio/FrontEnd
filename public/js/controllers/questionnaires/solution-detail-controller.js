@@ -1,12 +1,14 @@
 angular.module('gemStore')
-.controller('SolutionDetailController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar', 'DetailFactory','autenticacionService','BusquedaSolucionFactory','$mdToast',
-	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, DetailFactory, autenticacionService,BusquedaSolucionFactory,$mdToast){
+.controller('SolutionDetailController', ['$scope','Constantes','SolutionFactory','solutionService', '$location', 'QuestionnaireFactory','questionnaireService', 'navBar', 'DetailFactory','autenticacionService','BusquedaSolucionFactory','$mdToast','conexionService',
+	function($scope,Constantes,SolutionFactory,solutionService, $location, QuestionnaireFactory, questionnaireService, navBar, DetailFactory, autenticacionService,BusquedaSolucionFactory,$mdToast,conexionService){
                 //Rutas Imagenes
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
-        $scope.img1 = $scope.ruta + 'icono-registro.png';              
+        $scope.img1 = $scope.ruta + 'boton_registrate.png';              
         $scope.img_cerrar = $scope.ruta + 'boton-conectarse.png';              
-        $scope.img_anterior = $scope.ruta + 'boton-regresar.png';              
-        $scope.img_siguiente = $scope.ruta + 'boton-siguiente.png';              
+        $scope.img_agregar = $scope.ruta + 'boton_agregar_busqueda.png';              
+        $scope.img_anterior = $scope.ruta + 'boton-regresar-over.png'; 
+        $scope.anterior = $scope.ruta+'boton-regresar.png';            
+        $scope.img_siguiente = $scope.ruta + 'boton-siguiente-over.png';              
         $scope.load = true;
         var logg = true;
         
@@ -25,7 +27,7 @@ angular.module('gemStore')
 	    }
 
 	    $scope.menu_bar = function (view){
-          if (autenticacionService.getInfo()) {
+          if (autenticacionService.getInfo() && solutionService.getLogged() === 'YES') {
             questionnaireService.changeView("/profileSearchDetail");                      
           } else{
             questionnaireService.changeView(view);                      
@@ -43,6 +45,7 @@ angular.module('gemStore')
             console.log('Prueba Soluciones',solutionService.getId());
             DetailFactory.save({cuestionario:qf,id_ps:solutionService.getId()}).$promise.
             then(function(respuesta){                                
+                console.log("Detalles:",respuesta);
                 $scope.detail = respuesta.respuesta;
                 $scope.solution = $scope.solutions[solutionService.getIndex()];
                 // Color segun afinidad
@@ -50,17 +53,20 @@ angular.module('gemStore')
                     for (var j = $scope.detail[i].respuestas.length - 1; j >= 0; j--) {
                         if ($scope.detail[i].respuestas[j].afinidad > 75 ) {
                             $scope.detail[i].respuestas[j].clase_color = 'color_verde';
+                            $scope.detail[i].respuestas[j].clase_color_bubble = 'color_verde_claro';
                         } 
                         else{
                             if ($scope.detail[i].respuestas[j].afinidad < 25) {
                                 $scope.detail[i].respuestas[j].clase_color = 'color_rojo';
+                                $scope.detail[i].respuestas[j].clase_color_bubble = 'color_rojo_claro';
                             } else{
                                 $scope.detail[i].respuestas[j].clase_color = 'color_amarillo';
+                                $scope.detail[i].respuestas[j].clase_color_bubble = 'color_amarillo_claro';
                             };
                         };
 
                         if ($scope.detail[i].respuestas[j].respuesta2 === "") {
-                            $scope.detail[i].respuestas[j].respuesta2 = 'No ofrece este servicio';
+                            $scope.detail[i].respuestas[j].respuesta2 = 'No hay coincidencia';
                         } 
                     };
                 };
@@ -113,7 +119,20 @@ angular.module('gemStore')
             } else{         
                 return false;
             };                        
+        }
 
+        $scope.conectar = function(){
+            if (autenticacionService.getInfo()) {                
+                //Loggeado                
+                conexionService.setOrigen('detalle');
+                var inf_sol = $scope.solutions[solutionService.getIndex()];
+                conexionService.setBusqueda(autenticacionService.getIdBusqueda());
+                conexionService.setSolucion(inf_sol);                                                
+                $location.path('conexionMain');   
+            } else{         
+                //No Loggeado
+                $location.path('personalData');   
+            };  
         }
 
         $scope.guardarSolucion = function(){                   

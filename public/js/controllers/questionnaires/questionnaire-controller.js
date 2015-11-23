@@ -6,7 +6,9 @@
 angular.module('gemStore')
 .controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location', 'Constantes', 'navBar', 'SolutionFactory',
   function($scope,QuestionnaireFactory,questionnaireService,$location, Constantes, navBar, SolutionFactory){
-     $scope.ruta = Constantes.ruta_imagenes+'botones/';     
+     $scope.ruta = Constantes.ruta_imagenes+'botones/'; 
+     $scope.anterior = $scope.ruta+'boton-regresar.png';    
+     $scope.buscar = $scope.ruta+'icono-comenzar.png';    
      var rol = questionnaireService.getRol();     
      var tipo = questionnaireService.getTipo();              
      console.log(rol);
@@ -27,6 +29,7 @@ angular.module('gemStore')
      if(!questionnaireService.getQuestionnaires())
      {    
         $scope.load = true;     
+          console.log(rol, tipo);
           promesa = QuestionnaireFactory.query({id:rol,tipo: tipo}).$promise.
           then(function(questionnaires){
           for(var k=0;k<questionnaires.length;k++)

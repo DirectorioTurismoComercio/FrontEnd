@@ -172,6 +172,16 @@
         controller: 'ProfileSearchDetailController',        
         templateUrl: 'templates/profile/profile-search-detail.html',
       }).     
+         when('/profileConections',//Add by Pacho Perfil
+      {
+        controller: 'ConexionesListController',        
+        templateUrl: 'templates/profile/profile-conexiones.html',
+      }).     
+         when('/conexionMain',//Add by Pacho Conexión 
+      {
+        controller: 'ConexionMainController',        
+        templateUrl: 'templates/conexiones/conexiones-main.html',
+      }).     
       when('/index',
       { 
         templateUrl: 'templates/index.html',

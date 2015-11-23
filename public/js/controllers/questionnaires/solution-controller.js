@@ -5,6 +5,7 @@ angular.module('gemStore')
         $scope.ruta = Constantes.ruta_imagenes + "botones/";                        
         $scope.img = $scope.ruta + 'boton-empresario.png';
         $scope.img2 = $scope.ruta + 'icono-registro.png';
+        $scope.anterior = $scope.ruta+'boton-regresar.png';
         $scope.detail = false;
         $scope.id = null;
         $scope.load = true;
@@ -18,11 +19,11 @@ angular.module('gemStore')
         }
 
         $scope.menu_bar = function (view){
-          if (autenticacionService.getInfo()) {
-            questionnaireService.changeView("/profileSearchDetail");                      
-          } else{
+          // if (autenticacionService.getInfo()) {
+          //   questionnaireService.changeView("/profileSearchDetail");                      
+          // } else{
             questionnaireService.changeView(view);                      
-          };          
+          // };          
         }
         
         //Total de soluciones 
