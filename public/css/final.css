@@ -1,5 +1,8 @@
 @media all{
 
+	.logo{
+		height: 80%;
+	}
 	.galeria{
 		margin-top: 5%;
 	}
@@ -73,6 +76,9 @@
 	 text-align: center;
 	 background-color: #C6D7CE;
 	 border-radius: 2em;
+	 user-select: none;
+  	 -webkit-user-select: none;
+  	 -webkit-touch-callout: none;
 	 }
 
 
@@ -190,6 +196,15 @@
 	}
 	.icon-check:before {
 	  color: White;
+	}
+	.q_img {	  	  	  
+	  text-align: center;	  	 
+	  margin-bottom: 15%; 
+	}
+	.q_button {
+	  height: 9em;
+	  padding-top: 15%;      
+	  width: 100%;
 	}
 
 
@@ -693,6 +708,38 @@
 	    margin-top: 3%;
 	    background-color: #9FBFB9;
 	}
+
+
+
+	.btn-guardar-busq{
+ 	text-align: center;
+    background-color: #548880;
+    border-radius: 5px;
+    width: 125px;
+    height: 35px;
+    padding: 7px; 
+
+    /*Radio Button*/
+
+	.styled-radio input{      
+	  border: 0px;  
+	  height: 16px;
+	  font-size: 14;
+	  padding-right: 10px;
+	}
+	.styled-radio input + span{  
+	visibility: hidden; /*temporarily hide the "YES" label*/
+	  background: #6EB558;
+	  /*adding some CSS3 eye-candy - optional*/
+	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4e813f), to(#6EB558));
+	  border: 1px solid #4e813f;
+	  border-bottom-color: #ccc;
+	  border-top-color: #000;
+  	  text-shadow: 0px 1px 1px #4e813f; 
+	} 
+
+
+}
 
 
 }
@@ -1233,7 +1280,7 @@
     	padding-top: 15%;
 	}
 	.botones_inicio {
-		margin-top: 25%;
+		margin-top: 15%;
 	}
 
 	/*action questionnaire page*/
