@@ -27,7 +27,7 @@ angular.module('gemStore')
 	    }
 
 	    $scope.menu_bar = function (view){
-          if (autenticacionService.getInfo()) {
+          if (autenticacionService.getInfo() && solutionService.getLogged() === 'YES') {
             questionnaireService.changeView("/profileSearchDetail");                      
           } else{
             questionnaireService.changeView(view);                      
@@ -122,11 +122,12 @@ angular.module('gemStore')
         }
 
         $scope.conectar = function(){
-            if (autenticacionService.getInfo() && logg) {                
+            if (autenticacionService.getInfo()) {                
                 //Loggeado                
+                conexionService.setOrigen('detalle');
                 var inf_sol = $scope.solutions[solutionService.getIndex()];
                 conexionService.setBusqueda(autenticacionService.getIdBusqueda());
-                conexionService.setSolucion(inf_sol);                                
+                conexionService.setSolucion(inf_sol);                                                
                 $location.path('conexionMain');   
             } else{         
                 //No Loggeado

@@ -48,6 +48,7 @@
               .ok('Aceptar')
               .targetEvent('$event')
             );                        
+            $scope.load = false;
           });
         } 
       $scope.forgot = function(){

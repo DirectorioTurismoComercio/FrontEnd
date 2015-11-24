@@ -10,8 +10,14 @@ angular.module('gemStore')
 		var roleFactory     = new RoleFactory();
 		console.log("rol factory"+roleFactory);
 		var tipo = questionnaireService.getTipo();
+
 		if (tipo === 'P') {
-			tipo_rol = 'BC';
+			if (Constantes.app === 'C') {
+				tipo_rol = 'BC';	
+			} 
+			else{
+				tipo_rol = 'BT';		
+			};
 		} else{
 			tipo_rol = 'O';
 		};
@@ -79,6 +85,14 @@ angular.module('gemStore')
 			questionnaireService.clearFull('ALL');						
 		}
 
+        $scope.oyb = function(dato){                	
+ 	      	type = questionnaireService.getTipo();        	
+        	if (type == dato) {
+        		return true;
+        	} else{
+				return false;	
+        	};
+        }
 }]);
 
 // function DialogController($scope, $mdDialog, rol) {
