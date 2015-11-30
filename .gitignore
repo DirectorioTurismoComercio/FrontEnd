@@ -56,7 +56,7 @@ _data/
 #3/31/15 
 #Kwan - remove server stuff
 builds/
-components/
+#components/
 data/
 lib/
 middlewares/

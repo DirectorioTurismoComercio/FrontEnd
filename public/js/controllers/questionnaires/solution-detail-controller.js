@@ -124,6 +124,19 @@ angular.module('gemStore')
         $scope.conectar = function(){
             if (autenticacionService.getInfo()) {                
                 //Loggeado                
+                if (autenticacionService.getIdBusqueda()) {
+                    //Si ya esta creada la búsqueda revisar
+                    // si ya está la solución
+                    if (autenticacionService.getId()) {
+                        //Si ya está la solución, 
+                    } else{
+
+                    };
+                } else{
+                    //Si no está creada la búsqueda solicitar la creación               
+                    // y así mismo crear la solución     
+
+                };
                 conexionService.setOrigen('detalle');
                 var inf_sol = $scope.solutions[solutionService.getIndex()];
                 conexionService.setBusqueda(autenticacionService.getIdBusqueda());
