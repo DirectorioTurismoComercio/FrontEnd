@@ -4,7 +4,7 @@
 * to redirect to edit user, create problems, complete social networks
 */
 angular.module('gemStore')
-.controller('SigninController', ['$scope', 'registroService', 'UserFactory', 'Constantes',
+.controller('ComoFuncionaController', ['$scope', 'registroService', 'UserFactory', 'Constantes',
         function($scope,registroService,UserFactory, Constantes){
         //Inicio Rutas de imagenes
         $scope.ruta= Constantes.ruta_imagenes + "botones/";    
@@ -43,7 +43,7 @@ angular.module('gemStore')
         }	
         $scope.vervideo = function(){
             //IR A NUEVA VISTA
-            registroService.changeView('comoFunciona');
+            registroService.changeView('como_funciona');
         }
 
         $scope.signup = function()
