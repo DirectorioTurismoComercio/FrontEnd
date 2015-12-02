@@ -14,8 +14,13 @@
     </div>
   </div>
   <form class="form-signin">
-    <div class="botones_como_funciona">
-      
+    <div class="">
+      <videogular vg-theme="config.theme.url">
+        <vg-media vg-src="config.sources"
+                  vg-tracks="config.tracks" 
+                  vg-native-controls="true">
+        </vg-media>
+      </videogular>
     </div>
     <div class="botones_inicio">            
       <button  class="btn btn-lg btn-success btn-block" ng-click="signup()">     
