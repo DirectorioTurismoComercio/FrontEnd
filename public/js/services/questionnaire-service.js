@@ -4,10 +4,12 @@
 	function($resource,QuestionnaireFactory,$location) {
 	var questionnaires = null;
 	var rol = null;
+	var imgrol = null;
 	var tipo = null;
 	var answers = [];
 	var full= [];
 	var conta_respuestas= 0;
+
 	var getQuestionnaires = function ()
 	{
 		return questionnaires;
@@ -53,6 +55,14 @@
 
 	var setRol = function(_rol){		
 		rol = _rol;		
+	};	
+
+	var getImgRol = function(){
+		return imgrol;
+	};	
+
+	var setImgRol = function(_imgrol){		
+		imgrol = _imgrol;		
 	};	
 
 	var getTipo = function(){
@@ -117,6 +127,8 @@
 	    changeView: changeView,	    
 	    getRol: getRol,
 	    setRol: setRol,
+	    getImgRol: getImgRol,
+	    setImgRol: setImgRol,
 	    getTipo: getTipo,
 	    setTipo: setTipo,
 	    getFull: getFull,

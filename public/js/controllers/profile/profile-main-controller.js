@@ -10,7 +10,10 @@
       console.log("rol factory"+roleFactory);
       RoleFactory.get({'id': $scope.rol}).$promise 
       .then(function(inforol){
-        console.log(inforol);        
+        console.log(inforol);
+        questionnaireService.setImgRol(inforol.imagen);
+        $scope.img_rol = Constantes.ruta_imagenes + '/' + questionnaireService.getImgRol();
+
         if (inforol.tipo_rol === 'BC' || inforol.tipo_rol === 'BC') {
           questionnaireService.setTipo('P');
         } else{
