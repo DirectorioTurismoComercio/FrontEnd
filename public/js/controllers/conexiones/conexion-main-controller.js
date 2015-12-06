@@ -3,6 +3,7 @@ angular.module('gemStore')
 	function($scope,Constantes,$location,navBar,autenticacionService,$mdToast,conexionService,ConexionFactory,ConexionMensajeFactory){
         var origen = conexionService.getOrigen();
         var load = true;
+        var dest = null;
         if (origen === 'detalle') {
             var id_busqueda = conexionService.getBusqueda();
             $scope.solucion = conexionService.getSolucion();
@@ -34,7 +35,7 @@ angular.module('gemStore')
             $scope.mensajes = resultado.mensajes;
             console.log($scope.mensajes);
             var remite = autenticacionService.getUser().id;                
-            var dest = null;
+            dest = null;
             if (remite === busc) {
                 dest = resp;
             } else{
@@ -64,6 +65,10 @@ angular.module('gemStore')
                 $location.path("/profileConections");  
             };
             
+        }
+
+        $scope.contacto = function(){
+            console.log(dest);
         }
 
         $scope.enviar = function(){

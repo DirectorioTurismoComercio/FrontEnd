@@ -154,18 +154,24 @@ angular.module('gemStore')
         }
 
         $scope.guardarSolucion = function(){                   
-            var busq = autenticacionService.getIdBusqueda();
-            $scope.solu = solutionService.getId();
-            console.log(busq,$scope.solu);
-            var s = $scope.solutions[solutionService.getIndex()];
+            if (autenticacionService.getIdBusqueda()) {
+                //Si ya está la búsqueda.
+                var busq = autenticacionService.getIdBusqueda();
+                $scope.solu = solutionService.getId();
+                console.log(busq,$scope.solu);
+                var s = $scope.solutions[solutionService.getIndex()];
             
-            BusquedaSolucionFactory.save({"busqueda": busq, "respuesta": $scope.solu,"titulo": s.problema_solucion.titulo,"descripcion": s.problema_solucion.descripcion,"fecha": s.problema_solucion.fecha ,"tipo": s.problema_solucion.tipo}).$promise.then(function(resultado){                                            
-            // BusquedaSolucionFactory.save({"busqueda": busq, "respuesta": solu}).$promise.then(function(resultado){                                            
-                console.log(resultado);
-                $scope.openToast();
-            }).catch(function(error){
-                console.log(error);
-            });
+                BusquedaSolucionFactory.save({"busqueda": busq, "respuesta": $scope.solu,"titulo": s.problema_solucion.titulo,"descripcion": s.problema_solucion.descripcion,"fecha": s.problema_solucion.fecha ,"tipo": s.problema_solucion.tipo}).$promise.then(function(resultado){                                            
+                    console.log(resultado);
+                    $scope.openToast();
+                }).catch(function(error){
+                    console.log(error);
+                });
+            } else{
+                //Si no está la búsqueda.
+                $scope.addB();                                        
+            };
+            
         }
        
         function getResultsPage(pageNumber,index) {            

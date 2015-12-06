@@ -9,12 +9,15 @@
 </div>
 <div class="body">
 <div class="header">  
-  <div class="prompt_q">
+  <div class="prompt_q" ng-show="!nodata">
     Encuentra la solución TIC adecuada para tu comercio llenando al menos dos de estos tres puntos:
     </div>
 <div layout='row' layout-align="center center">
     <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
   </div>  
+  <div layout='row' layout-align="center center" ng-show="nodata" class="prompt_q">
+    No se han encontrado datos
+</div>  
 </div>
 
   <div class="galeria">    

@@ -14,7 +14,9 @@
 <div layout='row' layout-align="center center">
     <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
 </div>  
-
+<div layout='row' layout-align="center center" ng-show="nodata" class="prompt_q">
+    No se han encontrado datos
+</div>  
 <div class="box" ng-repeat="conv in data" >
   <div layout="row" layout-align="space-between center" >
     <div flex="30" class="box-title" align="center">%%conv.busqueda.titulo%%</div>
