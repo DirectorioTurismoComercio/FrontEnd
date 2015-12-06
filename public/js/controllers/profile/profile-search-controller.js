@@ -5,11 +5,15 @@
       $scope.ruta = Constantes.ruta_imagenes + "botones/";
       $scope.anterior = $scope.ruta+'boton-regresar.png';
       $scope.load = true;
+      $scope.nodata = false;
       $scope.data = [];
       console.log(autenticacionService.getUser().id);
       GuardarBusquedaFactory.query({'pk': autenticacionService.getUser().id}).$promise.then(function(datos){                            
-        $scope.data = datos;                  
+        $scope.data = datos;                          
         console.log("Busq:",$scope.data); 
+        if (datos.length === 0) {
+          $scope.nodata = true;
+        }         
         $scope.load = false;
       }).catch(function(error){
         // console.log(error);                    

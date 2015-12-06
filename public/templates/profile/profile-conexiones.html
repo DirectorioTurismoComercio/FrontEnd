@@ -14,7 +14,9 @@
 <div layout='row' layout-align="center center">
     <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
 </div>  
-
+<div layout='row' layout-align="center center" ng-show="nodata" class="prompt_q">
+    No se han encontrado datos
+</div>  
 <div class="box" ng-repeat="conv in data" >
   <div layout="row" layout-align="space-between center" >
     <div flex="30" class="box-title" align="center">%%conv.busqueda.titulo%%</div>
@@ -28,7 +30,7 @@
 
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
   <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
-    <div>Lab. Virtuales</div>
+    <div>MERCATIC</div>
     <div ng-click="close()" class="md-primary">
         <i class="fa fa-close"></i>
       </div>

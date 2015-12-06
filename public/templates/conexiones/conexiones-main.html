@@ -11,25 +11,34 @@
   </div>
 </div>
 
-<div class="conexiones_datos">
-    
+<div class="conexiones_datos prompt_q" ng-click="contacto()">
+    Información de Contaco
 </div>
 
 <div layout='row' layout-align="center center">
   <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
 </div>  
 
-<div ng-repeat="data in mensajes"  class="%%data.clase%%">
-  %%data.mensaje%%
+<div ng-repeat="data in mensajes">
+  <div class="%%data.clase%%">
+    %%data.mensaje%%    
+  </div>
+  <div ng-if="$last">
+    </br></br></br></br>
+  </div>
 </div>
 
 <div layout="row" layout-align="space-between center" class="footer_fix">
-  <md-input-container>      
-      <label>Escriba su mensaje</label>
-      <input ng-model="mensaje.mensaje" name="mensaje">      
+  <md-input-container flex="80" md-no-float>      
+      <!-- <label>Escriba su mensaje</label> -->
+      <input ng-model="mensaje.mensaje" name="mensaje" placeholder="Escriba su mensaje">      
   </md-input-container>
   <md-input-container>      
-      <md-button class="md-raised md-primary" ng-click="enviar()" autofocus>Enviar</md-button>
+      <!-- <md-button class="md-raised md-primary" ng-click="enviar()" autofocus>Enviar</md-button> -->
+      <md-button class="md-fab md-mini md-primary" ng-click="enviar()">
+          <!-- <md-icon md-svg-src="img/icons/android.svg"></md-icon> -->
+          >
+        </md-button>
   </md-input-container>  
 </div>
 
@@ -38,7 +47,7 @@
 
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
   <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
-    <div>Lab. Virtuales</div>
+    <div>MERCATIC</div>
     <div ng-click="close()" class="md-primary">
         <i class="fa fa-close"></i>
       </div>

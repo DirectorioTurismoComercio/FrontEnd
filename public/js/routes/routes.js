@@ -182,6 +182,11 @@
         controller: 'ConexionMainController',        
         templateUrl: 'templates/conexiones/conexiones-main.html',
       }).     
+         when('/comoFunciona',//Add by Pacho Conexión 
+      {
+        controller: 'ComoFuncionaController',        
+        templateUrl: 'templates/signin/como_funciona.html',
+      }).     
       when('/index',
       { 
         templateUrl: 'templates/index.html',

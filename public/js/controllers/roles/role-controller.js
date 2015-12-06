@@ -9,7 +9,7 @@ angular.module('gemStore')
 		var roleFactory     = new RoleFactory();
 		console.log("rol factory"+roleFactory);
 
-		tipo_rol = 'C';
+		tipo_rol = Constantes.app;
         RoleFactory.query({'tipo_rol': tipo_rol}).$promise 
         .then(function(roles){
 	        	$scope.roles = roles;

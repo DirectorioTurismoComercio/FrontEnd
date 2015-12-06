@@ -9,12 +9,15 @@
 </div>
 <div class="body">
 <div class="header">  
-  <div class="prompt_q">
+  <div class="prompt_q" ng-show="!nodata">
     Encuentra la solución TIC adecuada para tu comercio llenando al menos dos de estos tres puntos:
     </div>
 <div layout='row' layout-align="center center">
     <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
   </div>  
+  <div layout='row' layout-align="center center" ng-show="nodata" class="prompt_q">
+    No se han encontrado datos
+</div>  
 </div>
 
   <div class="galeria">    
@@ -51,7 +54,7 @@
 <!-- SIDE BAR -->
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
   <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
-    <div>Lab. Virtuales</div>
+    <div>MERCATIC</div>
     <div ng-click="close()" class="md-primary">
         <i class="fa fa-close"></i>
       </div>

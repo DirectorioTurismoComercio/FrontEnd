@@ -85,7 +85,7 @@
 	/*Modificaciones para pantalla SIGNIN*/
 
 	.form-signin {
-		padding-top: 30%;
+		padding-top: 20%;
 	}
 
 	.btn-success {
@@ -770,8 +770,18 @@
 	.form-signin {
     	max-width: 90%;
 	}
+	.botones_como_funciona {
+		text-align: center;
+	    font-weight: 600;
+	    color: #666666;
+	    padding: 3%;
+	    background-color: rgba(255,255,255,0.7);
+	    border-radius: 2em;
+	    border: 1px solid;
+	    border-color: #999999;
+	}
 	.botones_inicio {
-		margin-top: 40%;
+		margin-top: 20%;
 	}
 
 	/*rol page*/
@@ -847,6 +857,16 @@
 	.form-signin {
     	max-width: 80%;
 		padding-top: 15%;
+	}
+	.botones_como_funciona {
+		text-align: center;
+	    font-weight: 600;
+	    color: #666666;
+	    padding: 3%;
+	    background-color: rgba(255,255,255,0.7);
+	    border-radius: 2em;
+	    border: 1px solid;
+	    border-color: #999999;
 	}
 	.botones_inicio {
 		margin-top: 5%;
@@ -952,8 +972,18 @@
 	.form-signin {
     	max-width: 80%;
 	}
+	.botones_como_funciona {
+		text-align: center;
+	    font-weight: 600;
+	    color: #666666;
+	    padding: 3%;
+	    background-color: rgba(255,255,255,0.7);
+	    border-radius: 2em;
+	    border: 1px solid;
+	    border-color: #999999;
+	}
 	.botones_inicio {
-		margin-top: 60%;
+		margin-top: 50%;
 	}
 
 
@@ -1049,7 +1079,17 @@
 	}
 	.form-signin {
     	max-width: 60%;
-    	padding-top: 15%;
+    	padding-top: 2%;
+	}
+	.botones_como_funciona {
+		text-align: center;
+	    font-weight: 600;
+	    color: #666666;
+	    padding: 3%;
+	    background-color: rgba(255,255,255,0.7);
+	    border-radius: 2em;
+	    border: 1px solid;
+	    border-color: #999999;
 	}
 	.botones_inicio {
 		margin-top: 2%;
@@ -1169,6 +1209,16 @@
     	max-width: 50%;
     	padding-top: 25%;
 	}
+	.botones_como_funciona {
+		text-align: center;
+	    font-weight: 600;
+	    color: #666666;
+	    padding: 3%;
+	    background-color: rgba(255,255,255,0.7);
+	    border-radius: 2em;
+	    border: 1px solid;
+	    border-color: #999999;
+	}
 	.botones_inicio {
 		margin-top: 70%;
 	}
@@ -1277,7 +1327,17 @@
 	}
 	.form-signin {
     	max-width: 50%;
-    	padding-top: 15%;
+    	padding-top: 7%;
+	}
+	.botones_como_funciona {
+		text-align: center;
+	    font-weight: 600;
+	    color: #666666;
+	    padding: 3%;
+	    background-color: rgba(255,255,255,0.7);
+	    border-radius: 2em;
+	    border: 1px solid;
+	    border-color: #999999;
 	}
 	.botones_inicio {
 		margin-top: 15%;
@@ -1292,7 +1352,7 @@
 	 .box-footer, .prompt_r, .box-body-p, .solut-button, .box-img, md-tabs .md-tab.md-active, 
 	 md-tabs .md-tab.md-focused, div.personalData, .btn-lg, .btn-group-lg > .btn,
 	 .md-button, .businessData, .text_footer  {
-	 	font-size: xx-large;
+	 	font-size: x-large;
 	 }
 	 .box-bubble, .sol_respuesta, div.personalData div, 
 	 .solution_text

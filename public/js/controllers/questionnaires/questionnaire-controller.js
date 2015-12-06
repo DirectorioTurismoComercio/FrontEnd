@@ -9,6 +9,7 @@ angular.module('gemStore')
      $scope.ruta = Constantes.ruta_imagenes+'botones/'; 
      $scope.anterior = $scope.ruta+'boton-regresar.png';    
      $scope.buscar = $scope.ruta+'icono-comenzar.png';    
+     $scope.nodata = false;
      var rol = questionnaireService.getRol();     
      var tipo = questionnaireService.getTipo();              
      console.log(rol);
@@ -32,6 +33,9 @@ angular.module('gemStore')
           console.log(rol, tipo);
           promesa = QuestionnaireFactory.query({id:rol,tipo: tipo}).$promise.
           then(function(questionnaires){
+          if (questionnaires.length === 0) {
+            $scope.nodata = true;
+          }         
           for(var k=0;k<questionnaires.length;k++)
           {  
             questionnaires[k].enable=false;
