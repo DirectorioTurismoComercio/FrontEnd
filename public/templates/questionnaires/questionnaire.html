@@ -12,17 +12,12 @@
 	<div class="prompt_q">
     %%currentQuestion.enunciado%%
     <div class="q_button" layout="row" layout-align="center center">
-<!-- 	     <div flex="33" class="q_back" ng-click="previous()"><img ng-src="%%anterior%%"> Menu </div>  -->   	
        <div flex="34" class="q_img"><img ng-src="%%ruta+questionnaire.imagen%%"></div>      
-<!-- 	     <div flex="33" class="q_next" ng-click="next()">Siguiente<img ng-src="%%siguiente%%"></div>  --> 
   </div>	  
   </div>  	  
 	<div ng-include src="answersTemplate"></div>	
 </div>
  <div layout="column" layout-align="space-around center" class="footer_fix" ng-show="oyb('P')">
-    <!-- <div layout="row" layout-align="space-around center">
-      <div><img class="flecha_arriba" ng-click="summary()"></div>
-    </div> -->
     <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center" ng-click="next()">
       <div class="text_footer">SIGUIENTE</div>  
       <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div>    
@@ -30,14 +25,8 @@
   </div>  
 
   <div layout="column" layout-align="space-around center" class="footer_fix" ng-show="oyb('S')">
-     <!-- <div layout="row" layout-align="space-around center">
-      <div><img class="flecha_arriba" ng-click="summary()"></div>
-      <div class="btn-buscar" ng-click="buscar()" ng-show="b_buscar()">Buscar
-      </div>
-    </div> -->
     <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center" ng-click="next()">
       <div class="text_footer">SIGUIENTE</div>  
-      <!-- <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div> -->
     </div>
   </div>  
 
