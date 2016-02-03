@@ -28,9 +28,7 @@ angular.module('gemStore')
     if(!questionnaireService.getQuestionnaires())
     {    
       $scope.load = true;     
-        console.log(rol, tipo);
-        promesa = QuestionnaireFactory.query({id:rol,tipo: tipo}).$promise.
-        then(function(questionnaires){
+      promesa = QuestionnaireFactory.query({id:rol,tipo: tipo}).$promise.then(function(questionnaires){
         if (questionnaires.length === 0) {
           $scope.nodata = true;
         }         
@@ -53,8 +51,7 @@ angular.module('gemStore')
       .catch(function(errors){
         console.log(errors);
       })
-      .finally(function(){          
-        console.log("in finally");
+      .finally(function(){
         $scope.load = false;
       });
     }
@@ -82,11 +79,12 @@ angular.module('gemStore')
     }
 
     $scope.b_buscar = function(){
-      if (questionnaireService.getConta() >= 1) {
+      return questionnaireService.hasAnyAnswerBeenCompleted();
+      /*if (questionnaireService.getConta() >= 1) {
         return true;
       } else {
         return false;
-      };
+      };*/
     }
 
     $scope.buscar = function(){      

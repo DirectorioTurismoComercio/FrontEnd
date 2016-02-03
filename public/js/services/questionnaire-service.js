@@ -91,7 +91,14 @@
 		} else {
 			full[_dato] = 'ELIMINADO';	
 		};		
-	};	
+	};
+	var hasAnyAnswerBeenCompleted = function(){		
+		for(var prop in full) {
+        	if(full.hasOwnProperty(prop))
+            	return true;
+    	}
+    	return false;
+	};
 	
 	//Cuenta respuestas para mostrar el botón de buscar
 	var getConta = function(){		
@@ -136,7 +143,8 @@
 	    clearFull: clearFull,
 	    getConta: getConta,
 	    setConta: setConta,
-	    reset: reset
+	    reset: reset,
+	    hasAnyAnswerBeenCompleted: hasAnyAnswerBeenCompleted
 	  };
 
 	}]);

@@ -13,29 +13,29 @@
     %%currentQuestion.enunciado%%
     <div class="q_button" layout="row" layout-align="center center">
        <div flex="34" class="q_img"><img ng-src="%%ruta+questionnaire.imagen%%"></div>      
-  </div>	  
+    </div>	  
   </div>  	  
 	<div ng-include src="answersTemplate"></div>	
 </div>
- <div layout="column" layout-align="space-around center" class="footer_fix" ng-show="oyb('P')">
-    <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center" ng-click="next()">
-      <div class="text_footer">SIGUIENTE</div>  
-      <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div>    
-    </div>
-  </div>  
+<div layout="column" layout-align="space-around center" class="footer_fix" ng-show="oyb('P')">
+  <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center" ng-click="next()">
+    <div class="text_footer">SIGUIENTE</div>  
+    <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div>    
+  </div>
+</div>  
 
-  <div layout="column" layout-align="space-around center" class="footer_fix" ng-show="oyb('S')">
-    <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center" ng-click="next()">
-      <div class="text_footer">SIGUIENTE</div>  
-    </div>
-  </div>  
+<div layout="column" layout-align="space-around center" class="footer_fix" ng-show="oyb('S')">
+  <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center" ng-click="next()">
+    <div class="text_footer">SIGUIENTE</div>  
+  </div>
+</div>  
 
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
   <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
     <div>MERCATIC</div>
     <div ng-click="close()" class="md-primary">
-        <i class="fa fa-close"></i>
-      </div>
+      <i class="fa fa-close"></i>
+    </div>
   </md-toolbar>
   <div layout="column" layout-align="space_around center">
     <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
