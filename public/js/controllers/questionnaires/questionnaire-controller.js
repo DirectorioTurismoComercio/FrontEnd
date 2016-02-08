@@ -4,8 +4,8 @@
 * ProblemsShowController un solo problema para un usuario
 */
 angular.module('gemStore')
-.controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location', 'Constantes', 'navBar', 'SolutionFactory',
-  function($scope,QuestionnaireFactory,questionnaireService,$location, Constantes, navBar, SolutionFactory){
+.controller('QuestionnaireController',['$scope', 'QuestionnaireFactory', 'questionnaireService','$location', 'Constantes', 'navBar', 'SolutionFactory', 'autenticacionService',
+  function($scope,QuestionnaireFactory,questionnaireService,$location, Constantes, navBar, SolutionFactory, autenticacionService){
     $scope.ruta = Constantes.ruta_imagenes+'botones/'; 
     $scope.anterior = $scope.ruta+'boton-regresar.png';    
     $scope.buscar = $scope.ruta+'icono-comenzar.png';    
@@ -60,16 +60,23 @@ angular.module('gemStore')
       $scope.questionnaires = questionnaireService.getQuestionnaires();
     }
 
+    $scope.goBack = function(){
+      var user = autenticacionService.getUser().id;
+      if (user === undefined)
+        $scope.changeView("rolquestionnaire");
+      else
+        $scope.changeView("profileMain");
+    }
 
     $scope.changeView = function(view){
       questionnaireService.changeView(view);
     }
      //Ofreciendo buscando
-    $scope.oyb = function(dato){          
+    $scope.oyb = function(dato){
       type = questionnaireService.getTipo();          
       if (type == dato) {
         return true;
-      } else{
+      } else {
         return false; 
       };
     }
@@ -79,12 +86,7 @@ angular.module('gemStore')
     }
 
     $scope.b_buscar = function(){
-      return questionnaireService.hasAnyAnswerBeenCompleted();
-      /*if (questionnaireService.getConta() >= 1) {
-        return true;
-      } else {
-        return false;
-      };*/
+      return true; questionnaireService.hasAnyAnswerBeenCompleted();
     }
 
     $scope.buscar = function(){      
