@@ -24,7 +24,6 @@
           $authentication.username= $scope.login.usuario;
           $authentication.email= $scope.login.usuario;
           $authentication.password= $scope.login.contrasena;
-          //autenticación          
           $authentication.$save().then(function(datos){
             autenticacionService.setInfo(datos.key);                        
             data = {};

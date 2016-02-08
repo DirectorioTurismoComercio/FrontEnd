@@ -36,13 +36,19 @@
 				id_busqueda = _idbusq;				
 			}
 
+			var isUserAuthenticated = function()
+			{
+				return !(user.id === undefined);
+			}
+
 			return {
 	  			getInfo: getInfo,
 	    		setInfo: setInfo,
 	    		getUser: getUser,
 	    		setUser: setUser,
 	    		getIdBusqueda: getIdBusqueda,
-	    		setIdBusqueda: setIdBusqueda
+	    		setIdBusqueda: setIdBusqueda,
+	    		isUserAuthenticated: isUserAuthenticated
 			}
 		}
 	]);

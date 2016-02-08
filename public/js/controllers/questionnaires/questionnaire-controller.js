@@ -61,11 +61,10 @@ angular.module('gemStore')
     }
 
     $scope.goBack = function(){
-      var user = autenticacionService.getUser().id;
-      if (user === undefined)
-        $scope.changeView("rolquestionnaire");
-      else
+      if (autenticacionService.isUserAuthenticated())
         $scope.changeView("profileMain");
+      else
+        $scope.changeView("rolquestionnaire");
     }
 
     $scope.changeView = function(view){
@@ -86,7 +85,7 @@ angular.module('gemStore')
     }
 
     $scope.b_buscar = function(){
-      return true; questionnaireService.hasAnyAnswerBeenCompleted();
+      return questionnaireService.hasAnyAnswerBeenCompleted();
     }
 
     $scope.buscar = function(){      
