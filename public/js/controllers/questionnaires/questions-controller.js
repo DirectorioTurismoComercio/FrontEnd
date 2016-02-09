@@ -39,9 +39,10 @@ angular.module('gemStore')
   changeQuestion();   
   $scope.next = function()
   {
-    currentQuestionIndex++;
-    changeQuestion();
-    console.log(currentQuestionIndex,maxIndex);
+    if((questionnaireService.getAnswers()).length!=0 || $scope.currentQuestion.dato!=0) {
+        currentQuestionIndex++;
+        changeQuestion();
+    }
   }
 
   $scope.previous = function()
