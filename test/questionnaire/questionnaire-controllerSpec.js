@@ -1,4 +1,4 @@
-describe('QuestionsController', function () {
+describe('Test suit that tests QuestionsController', function () {
 
     beforeEach(module('userModule'));
     beforeEach(module('gemStore'));
@@ -10,14 +10,17 @@ describe('QuestionsController', function () {
 
 
     beforeEach(inject(function (questionnaireService, $controller, $routeParams, $rootScope) {
-        mockQuestionnaireService = questionnaireService;
-        mockQuestionnaireService.setQuestionnaires([{
-            preguntas: []
-        }]);
-
-        $routeParams.idQuestionnaire = [0];
-
         mockScope = $rootScope.$new();
+        mockQuestionnaireService = questionnaireService;
+
+        var questionaires = [{
+            preguntas: []
+        }];
+
+        spyOn(mockQuestionnaireService, 'getQuestionnaires').and.returnValue(questionaires);
+        spyOn(mockQuestionnaireService, 'getQuestionnaire').and.returnValue(questionaires[0]);
+
+        $routeParams.idQuestionnaire = 0;
         mockController = $controller('QuestionsController', {
             $scope: mockScope,
             questionnaireService: mockQuestionnaireService
@@ -25,13 +28,10 @@ describe('QuestionsController', function () {
     }));
 
 
-    describe('$scope.grade', function () {
-        it('sets the strength to "strong" if the password length is >8 chars', function () {
-            //questionnaireService.setQuestionnaires(['q1']);
-            mockScope.currentQuestion = {};
-            mockScope.next();
-            expect(true).toEqual(true);
-        });
+    it('should check that user has selected an answer', function () {
+        mockScope.currentQuestion = {};
+        mockScope.next();
+        expect(true).toEqual(true);
     });
 });
 
