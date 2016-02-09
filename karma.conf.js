@@ -29,7 +29,7 @@ module.exports = function(config) {
       'public/components/angular-sanitize/angular-sanitize.min.js',
       'public/components/videogular/videogular.min.js',
       'public/js/**/*.js',
-      'test/*.js'
+      'test/**/*Spec.js'
     ],
 
 
