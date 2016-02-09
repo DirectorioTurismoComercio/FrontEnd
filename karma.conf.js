@@ -17,6 +17,17 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      'public/components/angular-route/angular-route.min.js',
+      'public/components/angular-resource/angular-resource.min.js',
+      //'public/js/controllers/user/user-controller.js',
+      'public/components/angular-animate/angular-animate.min.js',
+      'public/components/angular-material/angular-material.min.js',
+      'public/components/angular-aria/angular-aria.min.js',
+      'public/js/directives/pagination/dirPagination.js',
+      'public/components/angular-messages/angular-messages.min.js',
+      'public/components/angular-cookies/angular-cookies.min.js',
+      'public/components/angular-sanitize/angular-sanitize.min.js',
+      'public/components/videogular/videogular.min.js',
       'public/js/**/*.js',
       'test/*.js'
     ],
