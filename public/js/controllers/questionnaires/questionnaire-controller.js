@@ -49,7 +49,6 @@ angular.module('gemStore')
         $scope.questionnaires = questionnaireService.getQuestionnaires();                  
       })
       .catch(function(errors){
-        console.log(errors);
       })
       .finally(function(){
         $scope.load = false;
