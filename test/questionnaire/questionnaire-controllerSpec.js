@@ -23,38 +23,6 @@ describe('Test suit that tests QuestionsController', function () {
                                 "valor": "1",
                                 "pregunta": 1,
                                 "dato": false
-                            },
-                            {
-                                "id": 39,
-                                "respuesta": "Programas",
-                                "orden": 2,
-                                "valor": "2",
-                                "pregunta": 1,
-                                "dato": false
-                            },
-                            {
-                                "id": 40,
-                                "respuesta": "Servicios",
-                                "orden": 3,
-                                "valor": "3",
-                                "pregunta": 1,
-                                "dato": false
-                            },
-                            {
-                                "id": 44,
-                                "respuesta": "Internet",
-                                "orden": 7,
-                                "valor": "7",
-                                "pregunta": 1,
-                                "dato": false
-                            },
-                            {
-                                "id": 163,
-                                "respuesta": "Tengo un proyecto o idea de emprendimiento.",
-                                "orden": 8,
-                                "valor": "8",
-                                "pregunta": 1,
-                                "dato": false
                             }
                         ],
                         "enunciado": "¿Qué necesitas?",
@@ -79,70 +47,6 @@ describe('Test suit that tests QuestionsController', function () {
                                 "respuesta": "Servidores",
                                 "orden": 1,
                                 "valor": "1",
-                                "pregunta": 8,
-                                "dato": false
-                            },
-                            {
-                                "id": 24,
-                                "respuesta": "Dispositivos de redes",
-                                "orden": 2,
-                                "valor": "2",
-                                "pregunta": 8,
-                                "dato": false
-                            },
-                            {
-                                "id": 25,
-                                "respuesta": "Portátiles",
-                                "orden": 3,
-                                "valor": "3",
-                                "pregunta": 8,
-                                "dato": false
-                            },
-                            {
-                                "id": 26,
-                                "respuesta": "Equipos de Escritorio",
-                                "orden": 4,
-                                "valor": "4",
-                                "pregunta": 8,
-                                "dato": false
-                            },
-                            {
-                                "id": 27,
-                                "respuesta": "Tabletas",
-                                "orden": 5,
-                                "valor": "5",
-                                "pregunta": 8,
-                                "dato": false
-                            },
-                            {
-                                "id": 28,
-                                "respuesta": "Teléfonos Inteligenes",
-                                "orden": 6,
-                                "valor": "6",
-                                "pregunta": 8,
-                                "dato": false
-                            },
-                            {
-                                "id": 29,
-                                "respuesta": "Impresoras",
-                                "orden": 7,
-                                "valor": "7",
-                                "pregunta": 8,
-                                "dato": false
-                            },
-                            {
-                                "id": 30,
-                                "respuesta": "Sistemas para puntos de pago",
-                                "orden": 8,
-                                "valor": "8",
-                                "pregunta": 8,
-                                "dato": false
-                            },
-                            {
-                                "id": 31,
-                                "respuesta": "Sistemas de vigilancia con cámaras",
-                                "orden": 9,
-                                "valor": "9",
                                 "pregunta": 8,
                                 "dato": false
                             }
@@ -1200,18 +1104,11 @@ describe('Test suit that tests QuestionsController', function () {
     }));
 
 
-    it('should verify that "¿Qué buscas?" questionnaire id is 0', function () {
-        expect(mockQuestionnaireService.getQuestionnaire(0).titulo).toEqual('¿Qué buscas?');
-    });
-
-    it('should verify that "¿cuál es tu presupuesto?" questionnaire id is 1', function () {
-        expect(mockQuestionnaireService.getQuestionnaire(1).titulo).toEqual('¿Cuál es tu presupuesto?');
-
-    });
-
-    it('should verify that "¿cuál es tu presupuesto?" questionnaire id is 1', function () {
-        expect(mockQuestionnaireService.getQuestionnaire(2).titulo).toEqual('¿Dónde te encuentras?');
-
+    it('should verify that user has selected an answer', function () {
+        mockScope.currentQuestion = {};
+        var temp = mockScope.currentQuestion;
+        mockScope.next();
+        expect(mockScope.currentQuestion).not.toBe(temp)
     });
 
 });
