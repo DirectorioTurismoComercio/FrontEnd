@@ -27,5 +27,15 @@
                 restrict: 'E',
                 templateUrl: 'templates/footer.html'
             };
-        });
+        }).directive('sideBar', ['navBar', 'autenticacionService', function (navBar, autenticacionService) {
+            return {
+                restrict: "E",
+                templateUrl: 'templates/directives/side-bar.html',
+                link: function (scope, element, attr) {
+                    scope.isAuthenticated = function() {
+                        return autenticacionService.isUserAuthenticated();
+                    }
+                }
+            };
+        }])
 })();
