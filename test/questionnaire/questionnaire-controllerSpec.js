@@ -85,6 +85,25 @@ describe('Test suit that tests QuestionsController', function () {
         });
     }));
 
+    it('should check that user has selected at least one answer on checkbox buttons questionnaire', function () {
+        mockScope.mclick(40, true);
+        expect(mockQuestionnaireService.getAnswers()).toEqual([40]);
+    });
+
+    it('should check that user has selected an answer on radio buttons questionnaire', function () {
+        mockScope.uclick(38);
+        expect(mockQuestionnaireService.getAnswers()).toEqual([38]);
+    });
+
+    it('should check that if user has answered a radio button questionnaire Next button must be visible', function () {
+        mockScope.uclick(38);
+        expect(mockScope.isNextButtonVisible).toEqual(true);
+    });
+
+    it('should check that if user has answered the list option questionnaire Next button must be visible', function () {
+        mockScope.listOptionsClick();
+        expect(mockScope.isNextButtonVisible).toEqual(true);
+    });
 
     it('should check that user can continue when this has selected an answer', function () {
         var temp = mockScope.currentQuestion;
@@ -100,7 +119,6 @@ describe('Test suit that tests QuestionsController', function () {
         mockScope.next();
         expect(mockScope.currentQuestion).toEqual(temp)
     });
-
 });
 
 

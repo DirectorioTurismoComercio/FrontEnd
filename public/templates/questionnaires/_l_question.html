@@ -1,6 +1,6 @@
 <div class="prompt_q">
 <div layout="row" layout-align="center center">
 <md-select ng-model="currentQuestion.dato" placeholder="Seleccione un Municipio">
-  <md-option ng-repeat="opcion in currentQuestion.opciones" value="%%opcion.id%%">%%opcion.respuesta%%</md-option>
+  <md-option ng-repeat="opcion in currentQuestion.opciones" value="%%opcion.id%%" ng-click="listOptionsClick()">%%opcion.respuesta%%</md-option>
 </md-select>
 </div>

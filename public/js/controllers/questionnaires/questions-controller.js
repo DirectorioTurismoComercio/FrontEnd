@@ -9,6 +9,7 @@ angular.module('gemStore')
             $scope.ruta = Constantes.ruta_imagenes + 'botones/';
             $scope.siguiente = $scope.ruta + 'boton-siguiente-over.png';
             $scope.anterior = $scope.ruta + 'boton-regresar.png';
+            $scope.isNextButtonVisible = false;
             var answersTemplateURL = "templates/questionnaires/";
 
 
@@ -55,14 +56,20 @@ angular.module('gemStore')
                 changeQuestion();
                 console.log(currentQuestionIndex, maxIndex);
             }
+
+
             $scope.uclick = function (idOpcion) {
-                // console.log('eee', idOpcion)      ;
+
                 for (var i = 0; i < $scope.currentQuestion.opciones.length; i++) {
                     questionnaireService.removeAnswer($scope.currentQuestion.opciones[i].id);
                 }
                 questionnaireService.addAnswer(parseInt(idOpcion));
-                console.log(questionnaireService.getAnswers());
+
+                $scope.isNextButtonVisible = true;
+
             }
+
+
             $scope.mclick = function (idOpcion, dato) {
                 if (dato) {
                     questionnaireService.addAnswer(parseInt(idOpcion));
@@ -72,6 +79,13 @@ angular.module('gemStore')
                 }
                 console.log(questionnaireService.getAnswers());
             }
+
+
+            $scope.listOptionsClick = function () {
+                $scope.isNextButtonVisible = true;
+            }
+
+
             function activeQuestion() {
                 var dependencia_respuestas = $scope.questionnaire.preguntas[currentQuestionIndex].dependencia_respuestas;
                 // console.log(dependencia_respuestas);
@@ -117,6 +131,12 @@ angular.module('gemStore')
                     }
                 }
             }
+
+
+            function displayNextButton() {
+                return true;
+            }
+
 
             $scope.oyb = function (dato) {
                 type = questionnaireService.getTipo();
