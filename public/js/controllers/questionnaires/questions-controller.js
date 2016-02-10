@@ -10,11 +10,20 @@ angular.module('gemStore')
   $scope.siguiente = $scope.ruta+'boton-siguiente-over.png';
   $scope.anterior = $scope.ruta+'boton-regresar.png';
   var answersTemplateURL = "templates/questionnaires/";
+
+
   $scope.questionnaire = questionnaireService.getQuestionnaire($routeParams.idQuestionnaire);
+
+
   questionnaires = questionnaireService.getQuestionnaires();
-  console.log("Prueb:",$routeParams.idQuestionnaire);
+
+
+
+
   // Borrar la posición correspondiente al routeparams en el questionnaire
   questionnaires[$routeParams.idQuestionnaire].enable=false;
+
+
   for(var i=0; i<questionnaires[$routeParams.idQuestionnaire].preguntas.length;i++)
   {
     questionnaires[$routeParams.idQuestionnaire].preguntas[i].enable=false;
@@ -27,7 +36,7 @@ angular.module('gemStore')
 
   questionnaireService.setQuestionnaires(questionnaires);    
   $scope.questionnaire = questionnaires[$routeParams.idQuestionnaire];
-  console.log("Prueb:",$scope.questionnaire);
+
   questionnaireService.clearAnswers();
 
   // 
@@ -88,7 +97,7 @@ angular.module('gemStore')
   function changeQuestion()
   {      
     
-    console.log('Pacho',questionnaireService.getQuestionnaire($routeParams.idQuestionnaire));
+
     if(currentQuestionIndex>maxIndex || currentQuestionIndex<0){                            
       if (currentQuestionIndex>maxIndex) {
         questionnaireService.setFull($routeParams.idQuestionnaire);  
