@@ -73,6 +73,5 @@ package.json
 rest_api.md
 server.js
 test/pruebas_aceptacion/codecept.phar.v2.0.11
-public/js/app.js
 
 .idea/
