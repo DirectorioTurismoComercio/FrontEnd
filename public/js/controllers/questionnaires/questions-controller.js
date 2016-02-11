@@ -36,11 +36,9 @@ angular.module('gemStore')
 
             questionnaireService.clearAnswers();
 
-            //
-
             var currentQuestionIndex = 0;
             var maxIndex = $scope.questionnaire.preguntas.length - 1;
-            console.log(currentQuestionIndex, maxIndex);
+
             $scope.questionnaire.enable = true;
             changeQuestion();
 
@@ -55,34 +53,38 @@ angular.module('gemStore')
             $scope.previous = function () {
                 currentQuestionIndex--;
                 changeQuestion();
-                console.log(currentQuestionIndex, maxIndex);
             }
 
 
-            $scope.uclick = function (idOpcion) {
-
+            $scope.singleAnswerClick = function (idOpcion) {
                 for (var i = 0; i < $scope.currentQuestion.opciones.length; i++) {
                     questionnaireService.removeAnswer($scope.currentQuestion.opciones[i].id);
                 }
                 questionnaireService.addAnswer(parseInt(idOpcion));
 
                 $scope.isNextButtonVisible = true;
-
             }
 
+            $scope.multipleAnswerClick = function (idOpcion, dato) {
+                (dato == true) ? questionnaireService.addAnswer(parseInt(idOpcion)) : questionnaireService.removeAnswer(idOpcion);
+                displayNextButtonMultipleAnswerHandler();
+            }
 
-            $scope.mclick = function (idOpcion, dato) {
+            $scope.listOptionsClick = function () {
+                $scope.isNextButtonVisible = true;
+            }
 
-                if (dato) {
-                    questionnaireService.addAnswer(parseInt(idOpcion));
-                }
-                else {
-                    questionnaireService.removeAnswer(idOpcion);
+            $scope.searchOrOfferView = function (dato) {
+                type = questionnaireService.getTipo();
+
+                if (type == dato) {
+                    return true;
+                } else {
+                    return false;
                 }
             }
 
-
-            $scope.changeCheckBoxState = function () {
+            function displayNextButtonMultipleAnswerHandler() {
                 var numberOfSelectedOptions = 0;
 
                 for (var optionId = 0; optionId < $scope.currentQuestion.opciones.length; optionId++) {
@@ -92,22 +94,15 @@ angular.module('gemStore')
                 }
 
                 numberOfSelectedOptions > 0 ? $scope.isNextButtonVisible = true : $scope.isNextButtonVisible = false;
-
             }
-
-
-            $scope.listOptionsClick = function () {
-                $scope.isNextButtonVisible = true;
-            }
-
 
             function activeQuestion() {
                 var dependencia_respuestas = $scope.questionnaire.preguntas[currentQuestionIndex].dependencia_respuestas;
-                // console.log(dependencia_respuestas);
+
                 if (dependencia_respuestas.length == 0) {
                     return true;
                 }
-                console.log("Nuevo: ", questionnaireService.getAnswers());
+
                 for (var k = 0; k < dependencia_respuestas.length; k++) {
                     if (questionnaireService.getAnswers().indexOf(parseInt(dependencia_respuestas[k])) != -1) return true;
                 }
@@ -115,14 +110,12 @@ angular.module('gemStore')
             }
 
             function changeQuestion() {
-
-
                 if (currentQuestionIndex > maxIndex || currentQuestionIndex < 0) {
                     if (currentQuestionIndex > maxIndex) {
                         questionnaireService.setFull($routeParams.idQuestionnaire);
                         questionnaireService.setConta();
                     }
-                    ;
+
                     $location.path('questionnaires');
                 } else {
                     $scope.currentQuestion = $scope.questionnaire.preguntas[currentQuestionIndex].pregunta;
@@ -146,21 +139,4 @@ angular.module('gemStore')
                     }
                 }
             }
-
-
-            function displayNextButton() {
-                return true;
-            }
-
-
-            $scope.oyb = function (dato) {
-                type = questionnaireService.getTipo();
-                if (type == dato) {
-                    return true;
-                } else {
-                    return false;
-                }
-                ;
-            }
-
         }]);

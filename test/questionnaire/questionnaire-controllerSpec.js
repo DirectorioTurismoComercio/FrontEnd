@@ -85,18 +85,19 @@ describe('Test suit that tests QuestionsController', function () {
         });
     }));
 
+
     it('should check that user has selected at least one answer on checkbox buttons questionnaire', function () {
-        mockScope.mclick(40, true);
+        mockScope.multipleAnswerClick(40, true);
         expect(mockQuestionnaireService.getAnswers()).toEqual([40]);
     });
 
     it('should check that user has selected an answer on radio buttons questionnaire', function () {
-        mockScope.uclick(38);
+        mockScope.singleAnswerClick(38);
         expect(mockQuestionnaireService.getAnswers()).toEqual([38]);
     });
 
     it('should check that if user has answered a radio button questionnaire Next button must be visible', function () {
-        mockScope.uclick(38);
+        mockScope.singleAnswerClick(38);
         expect(mockScope.isNextButtonVisible).toEqual(true);
     });
 
@@ -104,24 +105,10 @@ describe('Test suit that tests QuestionsController', function () {
         mockScope.currentQuestion.opciones = [
             {
                 "id": 23,
-                "respuesta": "Servidores",
-                "orden": 1,
-                "valor": "1",
-                "pregunta": 8,
                 "dato": false,
-                "$$hashKey": "object:48"
-            },
-            {
-                "id": 24,
-                "respuesta": "Dispositivos de redes",
-                "orden": 2,
-                "valor": "2",
-                "pregunta": 8,
-                "dato": false,
-                "$$hashKey": "object:49"
             }
         ];
-        mockScope.changeCheckBoxState();
+        mockScope.multipleAnswerClick();
         expect(mockScope.isNextButtonVisible).toEqual(false);
     });
 
@@ -129,24 +116,10 @@ describe('Test suit that tests QuestionsController', function () {
         mockScope.currentQuestion.opciones = [
             {
                 "id": 23,
-                "respuesta": "Servidores",
-                "orden": 1,
-                "valor": "1",
-                "pregunta": 8,
                 "dato": true,
-                "$$hashKey": "object:48"
-            },
-            {
-                "id": 24,
-                "respuesta": "Dispositivos de redes",
-                "orden": 2,
-                "valor": "2",
-                "pregunta": 8,
-                "dato": false,
-                "$$hashKey": "object:49"
             }
         ];
-        mockScope.changeCheckBoxState();
+        mockScope.multipleAnswerClick();
         expect(mockScope.isNextButtonVisible).toEqual(true);
     });
 
@@ -156,7 +129,7 @@ describe('Test suit that tests QuestionsController', function () {
     });
 
     it('should check that if user has answered a questionnaire question in the next one the Next button must be disabled', function () {
-        mockScope.uclick(38);
+        mockScope.singleAnswerClick(38);
         mockScope.next();
         expect(mockScope.isNextButtonVisible).toEqual(false);
     });

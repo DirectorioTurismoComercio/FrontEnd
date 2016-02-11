@@ -18,13 +18,13 @@
   <div ng-include src="answersTemplate"></div>
 </div>
 <div layout="column" layout-align="space-around center" class="footer_fix" ng-show="isNextButtonVisible">
-  <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center" ng-click="next()" ng-show="oyb('P')">
+  <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center" ng-click="next()" ng-show="searchOrOfferView('P')">
     <div class="text_footer">SIGUIENTE</div>
     <div class="btn-buscar" ng-click="buscar()" ng-show="false">Buscar</div>
   </div>
 </div>
 
-<div layout="column" layout-align="space-around center" class="footer_fix" ng-show="oyb('S')">
+<div layout="column" layout-align="space-around center" class="footer_fix" ng-show="searchOrOfferView('S')">
   <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center" ng-click="next()">
     <div class="text_footer">SIGUIENTE</div>
   </div>
