@@ -48,6 +48,7 @@ angular.module('gemStore')
                 if ((questionnaireService.getAnswers()).length != 0 || $scope.currentQuestion.dato != 0) {
                     currentQuestionIndex++;
                     changeQuestion();
+                    $scope.isNextButtonVisible = false;
                 }
             }
 
@@ -71,13 +72,13 @@ angular.module('gemStore')
 
 
             $scope.mclick = function (idOpcion, dato) {
+                $scope.isNextButtonVisible = true;
                 if (dato) {
                     questionnaireService.addAnswer(parseInt(idOpcion));
                 }
                 else {
                     questionnaireService.removeAnswer(idOpcion);
                 }
-                console.log(questionnaireService.getAnswers());
             }
 
 

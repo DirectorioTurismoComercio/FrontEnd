@@ -100,9 +100,20 @@ describe('Test suit that tests QuestionsController', function () {
         expect(mockScope.isNextButtonVisible).toEqual(true);
     });
 
+    it('should check that if user has answered a checkBox questionnaire Next button must be visible', function () {
+        mockScope.mclick(38,true);
+        expect(mockScope.isNextButtonVisible).toEqual(true);
+    });
+
     it('should check that if user has answered the list option questionnaire Next button must be visible', function () {
         mockScope.listOptionsClick();
         expect(mockScope.isNextButtonVisible).toEqual(true);
+    });
+
+    it('should check that if user has answered a questionnaire question in the next one the Next button must be disabled', function () {
+        mockScope.uclick(38);
+        mockScope.next();
+        expect(mockScope.isNextButtonVisible).toEqual(false);
     });
 
     it('should check that user can continue when this has selected an answer', function () {
