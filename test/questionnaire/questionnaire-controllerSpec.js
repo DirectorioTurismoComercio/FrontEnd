@@ -100,8 +100,53 @@ describe('Test suit that tests QuestionsController', function () {
         expect(mockScope.isNextButtonVisible).toEqual(true);
     });
 
-    it('should check that if user has answered a checkBox questionnaire Next button must be visible', function () {
-        mockScope.mclick(38,true);
+    it('should check that if user has not selected any checkBox questionnaire Next button must be not visible', function () {
+        mockScope.currentQuestion.opciones = [
+            {
+                "id": 23,
+                "respuesta": "Servidores",
+                "orden": 1,
+                "valor": "1",
+                "pregunta": 8,
+                "dato": false,
+                "$$hashKey": "object:48"
+            },
+            {
+                "id": 24,
+                "respuesta": "Dispositivos de redes",
+                "orden": 2,
+                "valor": "2",
+                "pregunta": 8,
+                "dato": false,
+                "$$hashKey": "object:49"
+            }
+        ];
+        mockScope.changeCheckBoxState();
+        expect(mockScope.isNextButtonVisible).toEqual(false);
+    });
+
+    it('should check that if user has  selected any checkBox questionnaire Next button must be  visible', function () {
+        mockScope.currentQuestion.opciones = [
+            {
+                "id": 23,
+                "respuesta": "Servidores",
+                "orden": 1,
+                "valor": "1",
+                "pregunta": 8,
+                "dato": true,
+                "$$hashKey": "object:48"
+            },
+            {
+                "id": 24,
+                "respuesta": "Dispositivos de redes",
+                "orden": 2,
+                "valor": "2",
+                "pregunta": 8,
+                "dato": false,
+                "$$hashKey": "object:49"
+            }
+        ];
+        mockScope.changeCheckBoxState();
         expect(mockScope.isNextButtonVisible).toEqual(true);
     });
 

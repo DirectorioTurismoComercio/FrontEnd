@@ -15,7 +15,7 @@
 
 <div layout="column" layout-align="end center" class="bc_content">
 	<div layout="row" layout-align="space-around center" class="prompt_r" ng-repeat="opcion in currentQuestion.opciones">
-		<md-checkbox ng-model="opcion.dato" ng-click="mclick(opcion.id,opcion.dato)" class="md-warn">
+		<md-checkbox ng-model="opcion.dato" ng-click="mclick(opcion.id,opcion.dato)" ng-change="changeCheckBoxState()" class="md-warn">
 	%%opcion.respuesta%%          
 </md-checkbox>
 	</div>

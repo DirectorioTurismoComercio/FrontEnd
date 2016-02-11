@@ -72,13 +72,27 @@ angular.module('gemStore')
 
 
             $scope.mclick = function (idOpcion, dato) {
-                $scope.isNextButtonVisible = true;
+
                 if (dato) {
                     questionnaireService.addAnswer(parseInt(idOpcion));
                 }
                 else {
                     questionnaireService.removeAnswer(idOpcion);
                 }
+            }
+
+
+            $scope.changeCheckBoxState = function () {
+                var numberOfSelectedOptions = 0;
+
+                for (var optionId = 0; optionId < $scope.currentQuestion.opciones.length; optionId++) {
+                    if ($scope.currentQuestion.opciones[optionId].dato == true) {
+                        numberOfSelectedOptions++
+                    }
+                }
+
+                numberOfSelectedOptions > 0 ? $scope.isNextButtonVisible = true : $scope.isNextButtonVisible = false;
+
             }
 
 
