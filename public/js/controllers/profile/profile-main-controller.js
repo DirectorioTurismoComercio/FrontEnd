@@ -33,14 +33,6 @@
       $scope.buscar= $scope.ruta + "boton_agregar_busqueda.png";    
       $scope.inicio= $scope.ruta + "boton-comenzar.png";          
       solutionService.setLogged('NOT');
-      
-      $scope.toggleRight = function(){                                
-        navBar.open();
-      }
-
-      $scope.close= function(){
-        navBar.close();
-      }
 
       $scope.menu_bar = function (view){
         questionnaireService.changeView(view);                      
@@ -62,16 +54,6 @@
         $location.path('/questionnaires');
       } 
 
-      $scope.logout = function(){
-        // Falta llamar ruta de logout
-        LogoutFactory.logear(autenticacionService.getInfo()).save().$promise.then(function(respuesta){                                                                                       
-          console.log(respuesta);   
-          autenticacionService.setInfo('');                                  
-          $location.path('/signin');
-        }).catch(function(error){
-          console.log(error);            
-        });         
-      } 
 		}
 	]);
 })();

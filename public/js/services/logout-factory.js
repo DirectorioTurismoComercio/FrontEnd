@@ -2,7 +2,7 @@ angular.module('gemStore')
 .factory('LogoutFactory', ['$resource','Constantes',
 	function($resource, Constantes){						
 		return {
-	    	logear: function (token) {	    		
+	    	logout: function (token) {
 	        	return $resource(Constantes.url+'/rest-auth/logout', {}, {
 		    	    save: {
 		        	    method: 'POST',

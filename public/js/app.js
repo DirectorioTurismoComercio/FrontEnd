@@ -34,6 +34,18 @@
                 link: function (scope, element, attr) {
                     scope.isAuthenticated = function() {
                         return autenticacionService.isUserAuthenticated();
+                    };
+
+                    scope.logout=function(){
+                        return autenticacionService.logout();
+                    }
+
+                    scope.toggleRight = function(){
+                        navBar.open();
+                    }
+
+                    scope.close= function(){
+                        navBar.close();
                     }
                 }
             };
