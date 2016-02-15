@@ -107,82 +107,82 @@
         controller: 'QuestionnaireSummaryController',
         templateUrl: 'templates/questionnaires/summary.html',
       }).
-         when('/solutions',//add pacho
+         when('/solutions',
       {
         controller: 'SolutionController',        
         templateUrl: 'templates/questionnaires/solutions.html',
       }).
-         when('/solutions/detail',//add pacho
+         when('/solutions/detail',
       {
         controller: 'SolutionDetailController',        
         templateUrl: 'templates/questionnaires/solution-detail.html',
       }).
-         when('/rolquestionnaire',//add pacho
+         when('/rolquestionnaire',
       {
         controller: 'RoleQuestionnaireController',        
         templateUrl: 'templates/questionnaires/roles.html',
       }).
-         when('/actionquestionnaire',//add pacho
+         when('/actionquestionnaire',
       {
         controller: 'ActionQuestionnaireController',        
         templateUrl: 'templates/questionnaires/action.html',
       }).     
-         when('/auth',//Add by Pacho (Login)
+         when('/auth',
       {
         controller: 'AuthController',        
         templateUrl: 'templates/auth/auth.html',
       }).     
-         when('/prueba',//Add by Pacho (prueba)
+         when('/prueba',
       {
         controller: 'AController',        
         templateUrl: 'templates/datos.html',
       }).     
-         when('/auth/changepass',//Add by Pacho (Cambio de Contraseña)
+         when('/auth/changepass',
       {
         controller: 'ChangePassController',        
         templateUrl: 'templates/auth/changepass.html',
       }).     
-         when('/auth/recovery',//Add by Pacho (Recuperar Contraseña envio correo)
+         when('/auth/recovery',
       {
         controller: 'RecoveryController',        
         templateUrl: 'templates/auth/recoverypass.html',
       }).     
-         when('/auth/forgotpass/:uid/:token',//Add by Pacho (Cambio contraseña despues del correo)
+         when('/auth/forgotpass/:uid/:token',
       {
         controller: 'ForgotPassController',        
         templateUrl: 'templates/auth/forgotpass.html',
       }).     
-         when('/profileMain',//Add by Pacho Perfil
+         when('/profileMain',
       {
         controller: 'ProfileMainController',        
         templateUrl: 'templates/profile/profile-main.html',
       }).     
-         when('/profileUpdate',//Add by Pacho Perfil
+         when('/profileUpdate',
       {
         controller: 'ProfileUpdateController',        
         templateUrl: 'templates/profile/profile-update.html',
       }).     
-         when('/profileSearch',//Add by Pacho Perfil
+         when('/profileSearch',
       {
         controller: 'ProfileSearchController',        
         templateUrl: 'templates/profile/profile-search.html',
       }).     
-         when('/profileSearchDetail',//Add by Pacho Perfil
+         when('/profileSearchDetail',
       {
         controller: 'ProfileSearchDetailController',        
         templateUrl: 'templates/profile/profile-search-detail.html',
       }).     
-         when('/profileConections',//Add by Pacho Perfil
+         when('/profileConections',
       {
         controller: 'ConexionesListController',        
         templateUrl: 'templates/profile/profile-conexiones.html',
       }).     
-         when('/conexionMain',//Add by Pacho Conexión 
+         when('/conexionMain',
       {
         controller: 'ConexionMainController',        
         templateUrl: 'templates/conexiones/conexiones-main.html',
       }).     
-         when('/comoFunciona',//Add by Pacho Conexión 
+         when('/comoFunciona',
       {
         controller: 'ComoFuncionaController',        
         templateUrl: 'templates/signin/como_funciona.html',

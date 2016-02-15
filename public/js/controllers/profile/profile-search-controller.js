@@ -30,29 +30,11 @@
 
       $scope.new_b = function(){
         $location.path('/actionquestionnaire');
-      } 
-
-      $scope.toggleRight = function(){                                
-        navBar.open();
-      }
-
-      $scope.close= function(){
-        navBar.close();
       }
 
       $scope.menu_bar = function (view){
         questionnaireService.changeView(view);                      
       }
-      
-      $scope.logout = function(){        
-            LogoutFactory.logear(autenticacionService.getInfo()).save().$promise.then(function(respuesta){                                                                                       
-                  console.log(respuesta);   
-              autenticacionService.setInfo('');                                  
-              $location.path('/signin');
-            }).catch(function(error){
-              console.log(error);            
-            });         
-        } 
 		}
 	]);
 })();
