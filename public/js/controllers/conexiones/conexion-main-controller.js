@@ -50,14 +50,6 @@ angular.module('gemStore')
 
         $scope.actualizar();
 
-        $scope.toggleRight = function(){                                
-          navBar.open();
-        }
-
-        $scope.close= function(){   
-          navBar.close();
-        }
-
         $scope.menu_bar = function (view){          
             if (origen === 'detalle') {
                 $location.path("/solutions/detail");  
@@ -95,6 +87,5 @@ angular.module('gemStore')
             });
             // actualizar();
         }
-
 
 }]);

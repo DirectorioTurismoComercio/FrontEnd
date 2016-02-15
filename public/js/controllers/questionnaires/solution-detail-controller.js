@@ -16,16 +16,7 @@ angular.module('gemStore')
         // $scope.solution = solutionService.getSolution();        
         $scope.questionnaires = questionnaireService.getQuestionnaires();
         // 
-        $scope.solutions = solutionService.getSolutions();                        
-        
-
-        $scope.toggleRight = function(){                                
-	      navBar.open();
-	    }
-
-	    $scope.close= function(){
-	      navBar.close();
-	    }
+        $scope.solutions = solutionService.getSolutions();
 
 	    $scope.menu_bar = function (view){
           if (autenticacionService.getInfo() && solutionService.getLogged() === 'YES') {
