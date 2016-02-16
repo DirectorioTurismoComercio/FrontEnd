@@ -12,6 +12,7 @@
       <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>
     </div>
     <div ng-show="isAuthenticated()">
+      <div ng-show="!isOnProfileMainMenu()" class="botones_barra" ng-click="redirectToProfileMain()">Ir al menú de perfil</div>
       <div class="botones_barra" ng-click="logout()">Cerrar Sesión</div>       
     </div>
   </div>
