@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="gemStore" class="ng-scope">
-  <head>    
+  <head>
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/tags.css" />
     <link rel="stylesheet" href="css/errores.css" />
     <link rel="stylesheet" href="css/signin.css" />
-    <link rel="stylesheet" href="css/questionnaire.css" />        
+    <link rel="stylesheet" href="css/questionnaire.css" />
     <!-- Revisar para que quede local y no desde internet -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
     <link rel="stylesheet" href="css/responsive.css" />
@@ -33,16 +33,16 @@
     <script type="text/javascript" src="components/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="components/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="components/videogular/videogular.min.js"></script>
-    
+
   </head>
 
-  <body>    
+  <body>
     <!-- <header class="fixedTop">
         <page-Navigation></page-Navigation>
     </header> -->
 <!-- /header -->
     <div ng-view="" class="main {{ pageClass }}"></div>
-    <!-- <div class="MobileFooter" ng-hide="MobileMenu">    
+    <!-- <div class="MobileFooter" ng-hide="MobileMenu">
     </div> -->
     <!-- app -->
     <script type="text/javascript" src="components/jquery/dist/jquery.js"></script>
@@ -50,6 +50,7 @@
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/constants.js"></script>
     <script type="text/javascript" src="js/routes/routes.js"></script>
+    <script type="text/javascript" src="js/routes/router.decorator.js"></script>
 
     <!-- controllers -->
     <script type="text/javascript" src="js/controllers/user/user-controller.js"></script>
@@ -60,7 +61,7 @@
     <script type="text/javascript" src="js/controllers/sign-up/signup-index-controller.js"></script>
     <script type="text/javascript" src="js/controllers/sign-up/signup-main-controller.js"></script>
     <script type="text/javascript" src="js/controllers/social-networks/social-networks-controller.js"></script>
-    
+
     <script type="text/javascript" src="js/controllers/search/search-controller.js"></script>
     <script type="text/javascript" src="js/controllers/search/search-controller.js"></script>
 
@@ -130,10 +131,10 @@
     <script type="text/javascript" src="js/services/logout-factory.js"></script>
     <script type="text/javascript" src="js/services/conexion-service.js"></script>
     <script type="text/javascript" src="js/services/conexion-factory.js"></script>
-    <script type="text/javascript" src="js/services/conexion-mensaje-factory.js"></script>    
-    <script type="text/javascript" src="js/services/conexion-list-factory.js"></script>    
+    <script type="text/javascript" src="js/services/conexion-mensaje-factory.js"></script>
+    <script type="text/javascript" src="js/services/conexion-list-factory.js"></script>
 
-    
+
     <script type="text/javascript" src="js/services/municipios-factory.js"></script>
 
 
@@ -142,10 +143,10 @@
 
 <!-- Revisar para que quede local y no desde internet -->
     <script src="components/angular-aria/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>
     <script src="components/angular-cookies/angular-cookies.min.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.min.js"></script>
-    
+
   </body>
 </html>
 
