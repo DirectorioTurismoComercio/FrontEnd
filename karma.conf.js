@@ -20,7 +20,7 @@ module.exports = function(config) {
       'public/components/angular-route/angular-route.min.js',
       'public/components/angular-resource/angular-resource.min.js',
       //'public/js/controllers/user/user-controller.js',
-      'public/components/angular-animate/angular-animate.min.js',
+      'node_modules/angular-animate/angular-animate.min.js',
       'public/components/angular-material/angular-material.min.js',
       'public/components/angular-aria/angular-aria.min.js',
       'public/js/directives/pagination/dirPagination.js',
@@ -29,7 +29,8 @@ module.exports = function(config) {
       'public/components/angular-sanitize/angular-sanitize.min.js',
       'public/components/videogular/videogular.min.js',
       'public/js/**/*.js',
-      'test/**/*Spec.js'
+      'test/**/*Spec.js',
+      'public/templates/directives/side-bar.html'
     ],
 
 
@@ -41,6 +42,11 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'public/templates/directives/side-bar.html': 'ng-html2js'
+    },
+
+    ngHtml2JsPreprocessor:{
+      stripPrefix: 'public/'
     },
 
 

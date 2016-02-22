@@ -28,11 +28,12 @@
                 restrict: 'E',
                 templateUrl: 'templates/footer.html'
             };
-        }).directive('sideBar', ['navBar', 'autenticacionService', '$location','$route', function (navBar, autenticacionService, $location, $route) {
+        }).directive('sideBar', ['navBar', 'autenticacionService', '$location','$route', function (navBar, autenticacionService, $location) {
             return {
                 restrict: "E",
                 templateUrl: 'templates/directives/side-bar.html',
                 link: function (scope, element, attr) {
+
                     scope.isAuthenticated = function() {
                         return autenticacionService.isUserAuthenticated();
                     };
@@ -49,8 +50,9 @@
                         navBar.close();
                     }
 
-                    scope.isOnProfileMainMenu=function(){
-                        return ($route.current.templateUrl=='templates/profile/profile-main.html');
+                    scope.isOnProfileMainMenuPage=function(){
+                        return autenticacionService.isOnProfileMainMenu();
+
                     }
 
                     scope.redirectToProfileMain = function(){

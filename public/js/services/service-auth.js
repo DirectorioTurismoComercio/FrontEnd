@@ -1,7 +1,7 @@
 (function(){
 	angular.module('gemStore')
-	.service('autenticacionService', ['$resource','$location', 'LogoutFactory',
-	function($resource,$location, LogoutFactory) {
+	.service('autenticacionService', ['$resource','$location', 'LogoutFactory','$route',
+	function($resource,$location, LogoutFactory, $route) {
       		var info = "";
       		var user = {};
       		var id_busqueda = "";
@@ -41,6 +41,10 @@
 				return !(user.id === undefined);
 			}
 
+			var isOnProfileMainMenu =function(){
+				return ($route.current.templateUrl=='templates/profile/profile-main.html');
+			}
+
 			var logout = function(){
 			LogoutFactory.logout(getInfo()).save().$promise.then(function(respuesta){
 				setInfo('');
@@ -57,7 +61,8 @@
 	    		getIdBusqueda: getIdBusqueda,
 	    		setIdBusqueda: setIdBusqueda,
 	    		isUserAuthenticated: isUserAuthenticated,
-				logout:logout
+				logout:logout,
+				isOnProfileMainMenu:isOnProfileMainMenu
 			}
 		}
 	]);
