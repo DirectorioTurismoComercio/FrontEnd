@@ -1,7 +1,7 @@
 (function(){
 	angular.module('gemStore')
 	.controller('AuthController', ['$scope','Constantes','AuthFactory','autenticacionService','$location','$mdDialog','UserByToken','questionnaireService','navBar', 
-								 'authenticationService',
+								'authenticationService',
 		function($scope,Constantes,AuthFactory,autenticacionService,$location,$mdDialog,UserByToken,questionnaireService,navBar, authenticationService){                        
 			$scope.ruta = Constantes.ruta_imagenes + "botones/";
 			$scope.anterior = $scope.ruta+'boton-regresar.png';
