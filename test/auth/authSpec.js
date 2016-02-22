@@ -5,6 +5,7 @@ describe('Auth module', function () {
 	var token = 'aToK3NfR0MsErV3R';
 	var credentials = {username:username,password:'1234'};
 	var API_CONFIG;
+	var requestHandler;
 
 	beforeEach(module('auth'));
 	beforeEach(module('constants'));
@@ -12,8 +13,8 @@ describe('Auth module', function () {
 		$httpBackend = $injector.get('$httpBackend');
 		API_CONFIG = $injector.get('API_CONFIG');
 
-        authRequestHandler = $httpBackend.when('POST', getLoginUrl())
-                            .respond({name: 'myusername', token: token});
+        requestHandler = $httpBackend.when('POST', getLoginUrl())
+        	.respond({name: 'myusername', token: token});
         _isUserLoggedIn = $injector.get('isUserLoggedIn');
         _authService = $injector.get('authenticationService'); 
     }));
@@ -45,12 +46,22 @@ describe('Auth module', function () {
 		doLogin();
 		expect(_authService.getUser().token).toBe(token);
 	});
+	it('handles incorrect credentials', function(){
+		var catchedError = false;
+		requestHandler.respond(401, '');
+		doLogin(function(){
+			catchedError = true;
+		});
+		expect(catchedError).toBe(true);
+	});
 
 	function getLoginUrl(){
 		return API_CONFIG.url + API_CONFIG.login;
 	}
-	function doLogin(){
-		_authService.login(credentials);
+	function doLogin(catchFunction){
+		var promise = _authService.login(credentials);
+		if(catchFunction != undefined)
+			promise.catch(catchFunction);
 		$httpBackend.flush();		
 	}
 });
