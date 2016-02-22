@@ -1,7 +1,9 @@
 describe('Auth module', function () {
 
 	var _isUserLoggedIn, _authService, $httpBackend;
-	var credentials = {username:'myusername',password:'1234'};
+	var username = 'myusername';
+	var token = 'aToK3NfR0MsErV3R';
+	var credentials = {username:username,password:'1234'};
 	var API_CONFIG;
 
 	beforeEach(module('auth'));
@@ -11,7 +13,7 @@ describe('Auth module', function () {
 		API_CONFIG = $injector.get('API_CONFIG');
 
         authRequestHandler = $httpBackend.when('POST', getLoginUrl())
-                            .respond({name: 'myusername'});
+                            .respond({name: 'myusername', token: token});
         _isUserLoggedIn = $injector.get('isUserLoggedIn');
         _authService = $injector.get('authenticationService'); 
     }));
@@ -20,13 +22,14 @@ describe('Auth module', function () {
 		expect(_isUserLoggedIn()).toBe(false);
 	});
 	it('checks user is logged in', function(){
-		_authService.login(credentials);
+		doLogin();
 		expect(_isUserLoggedIn()).toBe(true);
 	});
-	it('stores username', function(){
-		_authService.login(credentials);
+	it('stores username and token', function(){
+		doLogin();
 		var user = _authService.getUser();
 		expect(user.name).toBe('myusername');
+		expect(user.token).not.toBe(undefined);
 	});
 	it('receives credentials', function(){
 		expect(_authService.login).toThrow();
@@ -34,13 +37,20 @@ describe('Auth module', function () {
 	it('receives password', function(){
 		expect(function(){_authService.login({username:''})}).toThrow();
 	});
-	it('calls API login service', function(){
-		$httpBackend.expectPOST(getLoginUrl());
-		_authService.login(credentials);
-		$httpBackend.flush();
+	it('calls API login service with params', function(){
+		$httpBackend.expectPOST(getLoginUrl(), credentials);
+		doLogin();
+	});
+	it('receives token from API', function(){
+		doLogin();
+		expect(_authService.getUser().token).toBe(token);
 	});
 
 	function getLoginUrl(){
 		return API_CONFIG.url + API_CONFIG.login;
+	}
+	function doLogin(){
+		_authService.login(credentials);
+		$httpBackend.flush();		
 	}
 });

@@ -1,6 +1,6 @@
 (function () {
 	var auth = angular.module('auth',[]);
-	auth.factory('authenticationService', ['$http', 'API_CONFIG', function($http, API_CONFIG){
+	auth.factory('authenticationService', ['$q', '$http', 'API_CONFIG', function($q, $http, API_CONFIG){
 		var user = null;
 
 		function checkForValidCredentials(c) {
@@ -11,10 +11,19 @@
 		return {
 			login: function(credentials){
 				checkForValidCredentials(credentials);
-				$http.post(API_CONFIG.url + API_CONFIG.login);
-				user = {
-					name:credentials.username
-				};
+				var deferred = $q.defer();
+				$http.post(API_CONFIG.url + API_CONFIG.login, credentials)
+					.success(function(response){
+						user = {
+							name:credentials.username,
+							token: response.token
+						};
+						deferred.resolve(user);
+					})
+					.error(function(){
+						deferred.reject();
+					});
+				return deferred.promise;
 			},
 			getUser: function(){
 				return user;
