@@ -14,7 +14,7 @@ describe('Auth module', function () {
 		API_CONFIG = $injector.get('API_CONFIG');
 
         requestHandler = $httpBackend.when('POST', getLoginUrl())
-        	.respond({name: 'myusername', token: token});
+        	.respond({name: 'myusername', key: token});
         _isUserLoggedIn = $injector.get('isUserLoggedIn');
         _authService = $injector.get('authenticationService'); 
     }));

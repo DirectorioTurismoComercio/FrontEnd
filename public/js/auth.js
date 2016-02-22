@@ -16,9 +16,9 @@
 					.success(function(response){
 						user = {
 							name:credentials.username,
-							token: response.token
+							token: response.key
 						};
-						deferred.resolve(user);
+						deferred.resolve();
 					})
 					.error(function(){
 						deferred.reject();

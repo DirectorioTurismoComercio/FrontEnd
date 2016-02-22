@@ -1,6 +1,7 @@
 (function () {
     //'gemStore' module depends on 'store-products' modules
-    angular.module('gemStore', ['ngRoute', 'ngResource', 'userModule', 'ngAnimate', 'ngMaterial', 'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies', 'ngSanitize', 'com.2fdevs.videogular'])
+    angular.module('gemStore', ['ngRoute', 'ngResource', 'userModule', 'ngAnimate', 'ngMaterial', 'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies', 'ngSanitize', 'com.2fdevs.videogular',
+                                'auth'])
         .config(function ($interpolateProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');
