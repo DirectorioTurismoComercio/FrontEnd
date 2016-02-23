@@ -13,15 +13,13 @@ describe('Test suit that tests Directive', function () {
         mockAutenticacionService,
         mockLocation;
 
-
-    beforeEach(inject(function(_$compile_, _$rootScope_, $injector, _$route_, $location, autenticacionService){
+    beforeEach(inject(function(_$compile_, _$rootScope_, $injector, _$route_, $location, autenticacionService) {
 
         $compile = _$compile_;
         $rootScope = _$rootScope_;
         $mockRoute=_$route_;
         mockAutenticacionService=autenticacionService;
         mockLocation=$location;
-
         spyOn(mockAutenticacionService, 'isOnProfileMainMenu').and.callFake(function () {
             return true;
          });

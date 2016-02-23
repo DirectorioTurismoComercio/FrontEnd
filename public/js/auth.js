@@ -1,12 +1,19 @@
 (function () {
 	var auth = angular.module('auth',[]);
-	auth.factory('authenticationService', ['$q', '$http', 'API_CONFIG', function($q, $http, API_CONFIG){
+	auth.factory('authenticationService', ['$window', '$q', '$http', 'API_CONFIG', function($window, $q, $http, API_CONFIG){
 		var user = null;
 
 		function checkForValidCredentials(c) {
 			if(c === undefined || c.password === undefined) 
 				throw Error("crendentials should contain username and password");
 		}
+
+		function init() {
+	        if ($window.sessionStorage["user"]) {
+	            user = JSON.parse($window.sessionStorage["user"]);
+	        }
+	    }
+	    init();
 			
 		return {
 			login: function(credentials){
@@ -18,6 +25,7 @@
 							name:credentials.username,
 							token: response.key
 						};
+						$window.sessionStorage["user"] = JSON.stringify(user);
 						deferred.resolve();
 					})
 					.error(function(){

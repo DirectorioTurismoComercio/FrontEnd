@@ -109,7 +109,7 @@
                 .when('/auth/changepass', {
                     controller: 'ChangePassController',
                     templateUrl: 'templates/auth/changepass.html',
-                    authenticate: 'user'
+                    required_roles: 'user'
                 })
                 .when('/auth/recovery', {
                     controller: 'RecoveryController',
@@ -122,17 +122,17 @@
                 .when('/profileMain', {
                     controller: 'ProfileMainController',
                     templateUrl: 'templates/profile/profile-main.html',
-                    authenticate: 'user'
+                    required_roles: 'user'
                 })
                 .when('/profileUpdate', {
                     controller: 'ProfileUpdateController',
                     templateUrl: 'templates/profile/profile-update.html',
-                    authenticate: 'user'
+                    required_roles: 'user'
                 })
                 .when('/profileSearch', {
                     controller: 'ProfileSearchController',
                     templateUrl: 'templates/profile/profile-search.html',
-                    authenticate: 'user'
+                    required_roles: 'user'
                 })
                 .when('/profileSearchDetail', {
                     controller: 'ProfileSearchDetailController',
@@ -141,7 +141,7 @@
                 .when('/profileConections', {
                     controller: 'ConexionesListController',
                     templateUrl: 'templates/profile/profile-conexiones.html',
-                    authenticate: 'user'
+                    required_roles: 'user'
                 })
                 .when('/conexionMain', {
                     controller: 'ConexionMainController',
