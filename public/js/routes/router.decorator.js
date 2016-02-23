@@ -7,6 +7,16 @@ angular.module('gemStore')
                     $location.path('/signin');
                 }
             }
+
+            if (autenticacionService.isUserAuthenticated()) {
+                redirectToProfileMainIfForcesMainMenu(next);
+            }
         });
+
+        function redirectToProfileMainIfForcesMainMenu(next) {
+            if (next.$$route.templateUrl == 'templates/signin/signin.html') {
+                $location.path('/profileMain');
+            }
+        }
     });
 

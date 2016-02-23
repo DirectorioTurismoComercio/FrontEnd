@@ -46,6 +46,7 @@
 			}
 
 			var logout = function(){
+			user.id=undefined;
 			LogoutFactory.logout(getInfo()).save().$promise.then(function(respuesta){
 				setInfo('');
 				$location.path('/signin');
