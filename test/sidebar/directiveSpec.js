@@ -59,4 +59,11 @@ describe('side-bar', function () {
         expect(rootScope.isAuthenticated()).toBe(true);
     });
 
+    it('logs user out', function() {
+        authService.login(CREDENTIALS);
+        httpBackend.flush();
+        rootScope.logout(); 
+        expect(rootScope.isAuthenticated()).toBe(false);
+    });
+
 });
