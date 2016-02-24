@@ -37,10 +37,8 @@ describe('side-bar', function () {
         element = compile("<side-bar></side-bar>")(rootScope);
 
         rootScope.$digest();
-        httpBackend.when('POST', API_CONFIG.url + API_CONFIG.login)
-            .respond(LOGIN_API_RESPONSE);
-        httpBackend.when('GET', API_CONFIG.url + API_CONFIG.user)
-            .respond(USER_API_RESPONSE);
+
+        setupLoginResponses(httpBackend, API_CONFIG);
     });
 
     beforeEach(function(){

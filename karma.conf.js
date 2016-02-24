@@ -28,6 +28,7 @@ module.exports = function(config) {
       'public/components/angular-cookies/angular-cookies.min.js',
       'public/components/angular-sanitize/angular-sanitize.min.js',
       'public/components/videogular/videogular.min.js',
+      'test/specHelpers.js',
       'test/specConstants.js',
       'public/js/**/*.js',
       'test/**/*Spec.js',

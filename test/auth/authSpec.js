@@ -10,10 +10,7 @@ describe('Auth module', function () {
 		$httpBackend = $injector.get('$httpBackend');
 		API_CONFIG = $injector.get('API_CONFIG');
 
-        requestHandler = $httpBackend.when('POST', getLoginUrl())
-        	.respond(LOGIN_API_RESPONSE);
-        $httpBackend.when('GET', API_CONFIG.url + API_CONFIG.user)
-        	.respond(USER_API_RESPONSE);
+        requestHandler = setupLoginResponses($httpBackend, API_CONFIG);
 
         _isUserLoggedIn = $injector.get('isUserLoggedIn');
         _authService = $injector.get('authenticationService'); 
@@ -47,7 +44,7 @@ describe('Auth module', function () {
 	});
 
 	it('calls API login service with params', function(){
-		$httpBackend.expectPOST(getLoginUrl(), CREDENTIALS);
+		$httpBackend.expectPOST(API_CONFIG.url + API_CONFIG.login, CREDENTIALS);
 		doLogin();
 	});
 
@@ -78,10 +75,6 @@ describe('Auth module', function () {
 		var user = _authService.getUser();
 		expect(user.correo).toBe(USER_API_RESPONSE.correo);
 	});
-
-	function getLoginUrl(){
-		return API_CONFIG.url + API_CONFIG.login;
-	}
 
 	function doLogin(catchFunction){
 		var promise = _authService.login(CREDENTIALS);
