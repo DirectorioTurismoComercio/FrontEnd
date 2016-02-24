@@ -1,8 +1,8 @@
 (function(){
 	angular.module('gemStore')
-	.controller('ProfileMainController', ['$scope','Constantes','$location','questionnaireService','navBar','$mdToast','LogoutFactory','autenticacionService','solutionService','RoleFactory',
-		function($scope,Constantes,$location,questionnaireService,navBar,$mdToast,LogoutFactory,autenticacionService,solutionService,RoleFactory){                              	
-      $scope.usuario = autenticacionService.getUser();
+	.controller('ProfileMainController', ['$scope','Constantes','$location','questionnaireService','navBar','$mdToast','LogoutFactory','authenticationService','solutionService','RoleFactory',
+		function($scope,Constantes,$location,questionnaireService,navBar,$mdToast,LogoutFactory,authenticationService,solutionService,RoleFactory){                              	
+      $scope.usuario = authenticationService.getUser();
       $scope.rol = $scope.usuario.rol;
       questionnaireService.setRol($scope.rol);
 
@@ -26,7 +26,6 @@
         
       });
 
-      console.log($scope.usuario);
       $scope.ruta = Constantes.ruta_imagenes + "botones/";
       $scope.perfil= $scope.ruta + "boton_registrate.png";    
       $scope.conectar= $scope.ruta + "boton-conectarse.png";    

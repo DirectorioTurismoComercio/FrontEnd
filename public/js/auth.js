@@ -21,17 +21,24 @@
 				var deferred = $q.defer();
 				$http.post(API_CONFIG.url + API_CONFIG.login, credentials)
 					.success(function(response){
-						user = {
-							name:credentials.username,
-							token: response.key
-						};
-						$window.sessionStorage["user"] = JSON.stringify(user);
-						deferred.resolve();
+						var token = response.key;
+						$http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + token} })
+							.success(function(response){
+								user = response;
+								user.token = token;
+								user.name = credentials.username;
+								$window.sessionStorage["user"] = JSON.stringify(user);
+								deferred.resolve();
+							});
 					})
 					.error(function(){
 						deferred.reject();
 					});
 				return deferred.promise;
+			},
+			logout: function() {
+				user = null;
+				$window.sessionStorage["user"] = null;
 			},
 			getUser: function(){
 				return user;
