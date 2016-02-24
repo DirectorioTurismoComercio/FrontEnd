@@ -47,7 +47,7 @@
 	}]);
 	auth.factory('isUserLoggedIn', ['authenticationService', function(authenticationService) {
 	    return function(){
-	        return !(authenticationService.getUser() === null);
+	    	return !(authenticationService.getUser() === null);
 	    };
 	}]);
 }())

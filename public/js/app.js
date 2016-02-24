@@ -28,14 +28,14 @@
                 restrict: 'E',
                 templateUrl: 'templates/footer.html'
             };
-        }).directive('sideBar', ['navBar', 'autenticacionService', '$location','$route', function (navBar, autenticacionService, $location) {
+        }).directive('sideBar', ['navBar', 'autenticacionService', '$location', 'authenticationService', 'isUserLoggedIn', function (navBar, autenticacionService, $location, authenticationService, isUserLoggedIn) {
             return {
                 restrict: "E",
                 templateUrl: 'templates/directives/side-bar.html',
                 link: function (scope, element, attr) {
 
                     scope.isAuthenticated = function() {
-                        return autenticacionService.isUserAuthenticated();
+                        return isUserLoggedIn();
                     };
 
                     scope.logout=function(){
