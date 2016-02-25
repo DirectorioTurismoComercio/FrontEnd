@@ -33,6 +33,7 @@ describe('side-bar', function () {
         });
 
         httpBackend.whenGET('templates/signin/signin.html').respond(200, '');
+        httpBackend.whenGET('templates/profile/profile-main.html').respond(200, '');
 
         element = compile("<side-bar></side-bar>")(rootScope);
 
