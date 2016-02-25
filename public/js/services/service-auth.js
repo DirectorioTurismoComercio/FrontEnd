@@ -41,10 +41,6 @@
 				return !(user.id === undefined);
 			}
 
-			var isOnProfileMainMenu =function(){
-				return ($route.current.templateUrl=='templates/profile/profile-main.html');
-			}
-
 			var logout = function(){
 				user.id=undefined;
 				LogoutFactory.logout(getInfo()).save().$promise.then(function(respuesta){
@@ -62,8 +58,7 @@
 	    		getIdBusqueda: getIdBusqueda,
 	    		setIdBusqueda: setIdBusqueda,
 	    		isUserAuthenticated: isUserAuthenticated,
-				logout:logout,
-				isOnProfileMainMenu:isOnProfileMainMenu
+				logout:logout
 			}
 		}
 	]);

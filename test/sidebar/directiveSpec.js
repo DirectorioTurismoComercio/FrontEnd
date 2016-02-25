@@ -7,31 +7,20 @@ describe('side-bar', function () {
 
     var compile,
         rootScope,
-        mockRoute,
         httpBackend,
         element,
-        mockAutenticacionService,
-        mockLocation,
         authService,
         API_CONFIG;
 
-    beforeEach(inject(function($compile, $rootScope, $injector, $route, $location, autenticacionService, authenticationService) {
+    beforeEach(inject(function($compile, $rootScope, $injector, authenticationService) {
         compile = $compile;
         rootScope = $rootScope;
-        mockRoute= $route;
         API_CONFIG = $injector.get('API_CONFIG');
-        mockAutenticacionService = autenticacionService;
-        authService = authenticationService;
-        mockLocation= $location;
         httpBackend = $injector.get('$httpBackend');
         authService = authenticationService;
     }));
 
     beforeEach(function() {
-        spyOn(mockAutenticacionService, 'isOnProfileMainMenu').and.callFake(function () {
-            return true;
-        });
-
         httpBackend.whenGET('templates/signin/signin.html').respond(200, '');
         httpBackend.whenGET('templates/profile/profile-main.html').respond(200, '');
 
@@ -46,7 +35,7 @@ describe('side-bar', function () {
         authService.reset();
     })
 
-    it('redirects to profile main method', function() {
+    it('has redirectToProfileMain method', function() {
         expect(rootScope.redirectToProfileMain).toBeDefined();
     });
     

@@ -36,7 +36,7 @@
             templateUrl: 'templates/footer.html'
         };
     })
-    .directive('sideBar', ['navBar', 'autenticacionService', '$location', 'authenticationService', 'isUserLoggedIn', function (navBar, autenticacionService, $location, authenticationService, isUserLoggedIn) {
+    .directive('sideBar', ['navBar', '$location', 'authenticationService', 'isUserLoggedIn', function (navBar, $location, authenticationService, isUserLoggedIn) {
         return {
             restrict: "E",
             templateUrl: 'templates/directives/side-bar.html',
@@ -62,8 +62,7 @@
                 }
 
                 scope.isOnProfileMainMenuPage=function(){
-                    return autenticacionService.isOnProfileMainMenu();
-
+                    return $location.path().match(/profileMain/) != null;
                 }
 
                 scope.redirectToProfileMain = function(){
