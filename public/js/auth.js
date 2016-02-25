@@ -37,6 +37,11 @@
 				return deferred.promise;
 			},
 			logout: function() {
+				if (user !== null)
+				{
+					var token = user.token;
+					$http.post(API_CONFIG.url + API_CONFIG.logout, {}, { headers: {'Authorization': 'Token ' + token} });
+				}
 				user = null;
 				$window.sessionStorage["user"] = null;
 			},
