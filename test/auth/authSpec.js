@@ -17,7 +17,7 @@ describe('Auth module', function () {
     }));
 
     beforeEach(function(){
-    	authService.logout();
+    	authService.reset();
     });
 
 	it('checks user is not logged in', function(){

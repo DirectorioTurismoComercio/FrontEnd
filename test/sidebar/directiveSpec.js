@@ -43,13 +43,12 @@ describe('side-bar', function () {
     });
 
     beforeEach(function(){
-        authService.logout();
+        authService.reset();
     })
 
     it('redirects to profile main method', function() {
         expect(rootScope.redirectToProfileMain).toBeDefined();
     });
-
     
     it('starts off as anonymous user', function() {
         expect(rootScope.isAuthenticated()).toBe(false);
@@ -64,7 +63,8 @@ describe('side-bar', function () {
     it('logs user out', function() {
         authService.login(CREDENTIALS);
         httpBackend.flush();
-        rootScope.logout(); 
+        rootScope.logout();
+        httpBackend.flush();
         expect(rootScope.isAuthenticated()).toBe(false);
     });
 

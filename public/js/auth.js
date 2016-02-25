@@ -8,6 +8,11 @@
 				throw Error("crendentials should contain username and password");
 		}
 
+		function clearUserData() {
+			user = null;
+			$window.sessionStorage["user"] = null;
+		}
+
 		function init() {
 	        if ($window.sessionStorage["user"]) {
 	            user = JSON.parse($window.sessionStorage["user"]);
@@ -39,19 +44,23 @@
 			logout: function() {
 				var deferred = $q.defer();
 				var token = user != null ? user.token : null;
-				user = null;
-				$window.sessionStorage["user"] = null;
 				$http.post(API_CONFIG.url + API_CONFIG.logout, {}, { headers: {'Authorization': 'Token ' + token} })
 					.success(function(response){
 						deferred.resolve();
 					})
 					.error(function(){
 						deferred.reject();
+					})
+					.finally(function(){
+						clearUserData();
 					});
 				return deferred.promise;
 			},
 			getUser: function(){
 				return user;
+			},
+			reset: function() {
+				clearUserData();
 			}
 		}
 	}]);
