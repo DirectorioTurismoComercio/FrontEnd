@@ -10,6 +10,11 @@ describe('auth', function() {
 		expect(browser.getCurrentUrl()).toMatch(/\/#\/profileMain/);	
  	});
 
+	it('should redirect to profile main if logged user forces main page URL', function(){
+		browser.navigateTo='http://localhost/ecosistema/FrontEnd/public/#/signin';
+		expect(browser.getCurrentUrl()).toMatch(/\/#\/profileMain/);
+	});
+
  	it('redirects to profile after refresh', function() {
  		browser.refresh();
 		expect(browser.getCurrentUrl()).toMatch(/\/#\/profileMain/);	
