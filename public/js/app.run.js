@@ -1,5 +1,5 @@
 angular.module('gemStore')
-    .run(function ($rootScope, $location, isUserLoggedIn, authenticationService) {
+    .run(function ($rootScope, $location, isUserLoggedIn, autenticacionService) {
         $rootScope.$on('$routeChangeStart', function (event, nextView) {
             if (nextView.required_roles !== undefined) {
                 if (!isUserLoggedIn()) {
@@ -8,7 +8,7 @@ angular.module('gemStore')
                 }
             }
 
-            if (authenticationService.getUser()!==null) {
+            if (autenticacionService.isUserAuthenticated()) {
                 redirectToProfileMainIfForcesMainMenu(nextView);
             }
         });
