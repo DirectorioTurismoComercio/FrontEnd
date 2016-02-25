@@ -37,13 +37,18 @@
 				return deferred.promise;
 			},
 			logout: function() {
-				if (user !== null)
-				{
-					var token = user.token;
-					$http.post(API_CONFIG.url + API_CONFIG.logout, {}, { headers: {'Authorization': 'Token ' + token} });
-				}
+				var deferred = $q.defer();
+				var token = user != null ? user.token : null;
 				user = null;
 				$window.sessionStorage["user"] = null;
+				$http.post(API_CONFIG.url + API_CONFIG.logout, {}, { headers: {'Authorization': 'Token ' + token} })
+					.success(function(response){
+						deferred.resolve();
+					})
+					.error(function(){
+						deferred.reject();
+					});
+				return deferred.promise;
 			},
 			getUser: function(){
 				return user;

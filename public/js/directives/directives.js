@@ -47,8 +47,10 @@
                 };
 
                 scope.logout=function(){
-                    authenticationService.logout();
-                    autenticacionService.logout();
+                    authenticationService.logout()
+                        .finally(function(){
+                            $location.path('/signin');
+                        });
                 }
 
                 scope.toggleRight = function(){

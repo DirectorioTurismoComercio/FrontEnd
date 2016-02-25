@@ -1,4 +1,5 @@
 describe('auth', function() {
+
 	beforeAll(function(){
 		browser.get('http://localhost/ecosistema/FrontEnd/public/#/auth');
 		element(by.model('login.usuario')).sendKeys('misantropee@gmail.com');
@@ -27,5 +28,17 @@ describe('auth', function() {
 				var user = value[0];
 				expect(user.correo).toBe('misantropee@gmail.com');
 			});
+ 	});
+
+ 	it('redirects to main after logout', function() {
+ 		element(by.id('menu')).click();
+ 		element(by.id('logout')).click().then(function(){
+	 		browser.wait(function(){
+	 			return browser.getCurrentUrl().then(function(url) {
+	 				console.log(url, url.match(/\/#\/signin/));
+	                return url.match(/\/#\/signin/) != null;
+	            });
+	 		}, 5000);
+ 		});
  	});
 });

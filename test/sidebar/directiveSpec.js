@@ -50,6 +50,7 @@ describe('side-bar', function () {
         expect(rootScope.redirectToProfileMain).toBeDefined();
     });
 
+    
     it('starts off as anonymous user', function() {
         expect(rootScope.isAuthenticated()).toBe(false);
     });
