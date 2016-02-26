@@ -137,6 +137,7 @@
                 .when('/profileSearchDetail', {
                     controller: 'ProfileSearchDetailController',
                     templateUrl: 'templates/profile/profile-search-detail.html',
+                    required_roles: 'user'
                 })
                 .when('/profileConections', {
                     controller: 'ConexionesListController',
@@ -146,6 +147,7 @@
                 .when('/conexionMain', {
                     controller: 'ConexionMainController',
                     templateUrl: 'templates/conexiones/conexiones-main.html',
+                    required_roles: 'user',
                 })
                 .when('/comoFunciona', {
                     controller: 'ComoFuncionaController',
