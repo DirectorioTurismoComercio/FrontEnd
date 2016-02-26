@@ -76,3 +76,7 @@ test/pruebas_aceptacion/codecept.phar.v2.0.11
 public/js/constants.js
 
 .idea/
+
+######################
+#e2e tests
+conf.js
