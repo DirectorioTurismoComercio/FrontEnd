@@ -1,74 +1,80 @@
 <div layout="row" layout-align="space-around center" class="barra_main">
-  <div class="regresar" ng-click="menu_bar('')">
-      </md-tooltip> -->
-  </div>
-  MERCATIC
-  <div class="menu" ng-click="toggleRight()"> 
-    <i class="fa fa-reorder"></i>
-  </div>
+    <div class="regresar" ng-click="menu_bar('')">
+        </md-tooltip> -->
+    </div>
+    MERCATIC
+    <div class="menu" ng-click="toggleRight()">
+        <i class="fa fa-reorder"></i>
+    </div>
 </div>
 <form novalidate name="form">
-<div class="personalData">
+    <div ng-controller="" class="personalData">
 
-  <md-input-container>
-      <div ng-messages="form.nombres.$error" >
-        <div ng-message="required">Por favor digite sus nombres</div>
-      </div>
-      <label>Nombres:</label>
-      <input ng-model="usuario.nombres" name="nombres" required>      
-    </md-input-container>
+        <md-input-container>
+            <div ng-messages="form.nombres.$error">
+                <div ng-message="required">Por favor digite sus nombres</div>
+            </div>
+            <label>Nombres:</label>
+            <input ng-model="usuario.nombres" name="nombres" required>
+        </md-input-container>
 
-  
-  <md-input-container>
-      <div ng-messages="form.apellido1.$error" >
-        <div ng-message="required">Por favor digite sus apellidos</div>
-      </div>
-      <label>Apellidos</label>
-      <input ng-model="usuario.apellido1" name="apellido1" required>            
-    </md-input-container>
 
-    <md-input-container>
-      <div ng-messages="form.password.$error" >
-        <div ng-message="required">Por favor digite su contraseña</div>
-      </div>
-      <label>Contraseña</label>
-      <input ng-model="usuario.password" type="password" name="password" required>      
-    </md-input-container>
-  
-    <md-input-container>
-      <div ng-messages="form.email.$error" >
-        <div ng-message="required">Por favor digite su correo electrónico</div>
-        <div ng-message="pattern">Su email debe tener el formato de un correo (ejemplo@correo.com)</div>
-      </div>
-      <label>Correo Electrónico</label>
-      <input type="email" name="email" ng-model="usuario.correo" ng-pattern="/^.+@.+\..+$/" required/>
-    </md-input-container>
+        <md-input-container>
+            <div ng-messages="form.apellido1.$error">
+                <div ng-message="required">Por favor digite su primer apellido</div>
+            </div>
+            <label>Primer Apellido</label>
+            <input ng-model="usuario.apellido1" name="apellido1" required>
+        </md-input-container>
 
-    <md-input-container>
-      <div ng-messages="form.telefono.$error" >
-        <div ng-message="required">Por favor digite su número de telefono</div>
-      </div>
-      <label>Número de Telefono</label>
-      <input ng-model="usuario.telefono_institucion" type="tel" name="telefono">      
-    </md-input-container>    
- 
-</div>
-<br><br>
-<div layout="column" layout-align="space-around center" class="footer_fix">
-    <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center"  ng-click="changeView('businessData',form)" ng-submit="f()">
-      <div class="text_footer">SIGUIENTE</div>  
+        <md-input-container>
+            <label>Segundo Apellido</label>
+            <input ng-model="usuario.apellido2" name="secondSurname">
+        </md-input-container>
+
+        <md-input-container>
+            <div ng-messages="form.password.$error">
+                <div ng-message="required">Por favor digite su contraseña</div>
+            </div>
+            <label>Contraseña</label>
+            <input ng-model="usuario.password" type="password" name="password" required>
+        </md-input-container>
+
+        <md-input-container>
+            <div ng-messages="form.email.$error">
+                <div ng-message="required">Por favor digite su correo electrónico</div>
+                <div ng-message="pattern">Su email debe tener el formato de un correo (ejemplo@correo.com)</div>
+            </div>
+            <label>Correo Electrónico</label>
+            <input type="email" name="email" ng-model="usuario.correo" ng-pattern="/^.+@.+\..+$/" required/>
+        </md-input-container>
+
+        <md-input-container>
+            <div ng-messages="form.telefono.$error">
+                <div ng-message="required">Por favor digite su número de telefono</div>
+            </div>
+            <label>Número de Telefono</label>
+            <input ng-model="usuario.telefono_institucion" type="tel" name="telefono">
+        </md-input-container>
+
     </div>
-  </div> 
+    <br><br>
+    <div layout="column" layout-align="space-around center" class="footer_fix">
+        <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center"
+             ng-click="changeView('businessData',form)" ng-submit="f()">
+            <div class="text_footer">SIGUIENTE</div>
+        </div>
+    </div>
 </form>
 
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
-    <div>MERCATIC</div>
-    <div ng-click="close()" class="md-primary">
-        <i class="fa fa-close"></i>
-      </div>
-  </md-toolbar>
-  <div layout="column" layout-align="space_around center">
-    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
-  </div>  
+    <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">
+        <div>MERCATIC</div>
+        <div ng-click="close()" class="md-primary">
+            <i class="fa fa-close"></i>
+        </div>
+    </md-toolbar>
+    <div layout="column" layout-align="space_around center">
+        <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+    </div>
 </md-sidenav>  
