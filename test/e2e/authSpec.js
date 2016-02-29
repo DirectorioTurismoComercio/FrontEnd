@@ -11,8 +11,33 @@ describe('auth', function () {
         expect(browser.getCurrentUrl()).toMatch(/\/#\/profileMain/);
     });
 
-    it('should redirect to profile main if logged user forces main page URL', function () {
+    it('redirects to profile main if logged user forces main page URL', function () {
         browser.navigateTo = browser.baseUrl + '/FrontEnd/public/#/signin';
+        expect(browser.getCurrentUrl()).toMatch(/\/#\/profileMain/);
+    });
+
+    it('redirects to profile main if logged user forces register URL', function () {
+        browser.navigateTo = browser.baseUrl + '/FrontEnd/public/#/roles';
+        expect(browser.getCurrentUrl()).toMatch(/\/#\/profileMain/);
+    });
+
+    it('redirects to profile main if logged user forces personal data URL', function () {
+        browser.navigateTo = browser.baseUrl + '/FrontEnd/public/#/personalData';
+        expect(browser.getCurrentUrl()).toMatch(/\/#\/profileMain/);
+    });
+
+    it('redirects to profile main if logged user forces businessData data URL', function () {
+        browser.navigateTo = browser.baseUrl + '/FrontEnd/public/#/businessData';
+        expect(browser.getCurrentUrl()).toMatch(/\/#\/profileMain/);
+    });
+
+    it('redirects to profile main if logged user forces profileSummary URL', function () {
+        browser.navigateTo = browser.baseUrl + '/FrontEnd/public/#/profileSummary';
+        expect(browser.getCurrentUrl()).toMatch(/\/#\/profileMain/);
+    });
+
+    it('redirects to profile main if logged user forces auth URL', function () {
+        browser.navigateTo = browser.baseUrl + '/FrontEnd/public/#/auth';
         expect(browser.getCurrentUrl()).toMatch(/\/#\/profileMain/);
     });
 

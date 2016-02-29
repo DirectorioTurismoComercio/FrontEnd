@@ -1,5 +1,14 @@
 angular.module('gemStore')
     .run(function ($rootScope, $location, isUserLoggedIn) {
+        var forbiddenURLsToForce=[
+            'templates/signin/signin.html',
+            'templates/signup/roles.html',
+            'templates/signup/personal-data.html',
+            'templates/signup/business-data.html',
+            'templates/signup/profile-summary.html',
+            'templates/auth/auth.html'
+        ];
+
         $rootScope.$on('$routeChangeStart', function (event, nextView) {
             if (nextView.required_roles !== undefined) {
                 if (!isUserLoggedIn()) {
@@ -9,13 +18,15 @@ angular.module('gemStore')
             }
 
             if (isUserLoggedIn()) {
-                redirectToProfileMainIfForcesMainMenu(nextView);
+                redirectToProfileMainIfForcesAForbiddenURL(nextView);
             }
         });
 
-        function redirectToProfileMainIfForcesMainMenu(nextView) {
-            if (nextView.$$route.templateUrl == 'templates/signin/signin.html') {
-                $location.path('/profileMain');
+        function redirectToProfileMainIfForcesAForbiddenURL(nextView) {
+            for(var i=0; i<= forbiddenURLsToForce.length; i++){
+                if (nextView.$$route.templateUrl == forbiddenURLsToForce[i]) {
+                    $location.path('/profileMain');
+                }
             }
         }
     });
