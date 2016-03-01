@@ -5,7 +5,7 @@
                 $scope.ruta = Constantes.ruta_imagenes + "botones/";
                 $scope.anterior = $scope.ruta + 'boton-regresar.png';
                 $scope.usuario = authenticationService.getUser();
-                $scope.token = autenticacionService.getInfo();
+                $scope.token = $scope.usuario.token;
                 console.log($scope.usuario);
                 console.log($scope.token);
 
@@ -29,7 +29,7 @@
                 }
 
                 $scope.update = function () {
-                    UserByToken.up(autenticacionService.getInfo()).update(
+                    UserByToken.up($scope.token).update(
                         {
                             "nombres": $scope.usuario.nombres,
                             "apellido1": $scope.usuario.apellido1,
