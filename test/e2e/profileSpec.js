@@ -1,4 +1,4 @@
-describe('auth', function () {
+describe('profile', function () {
 
     beforeAll(function () {
         browser.get(browser.baseUrl + '/FrontEnd/public/#/auth');
@@ -60,7 +60,6 @@ describe('auth', function () {
         element(by.id('logout')).click().then(function () {
             browser.wait(function () {
                 return browser.getCurrentUrl().then(function (url) {
-                    console.log(url, url.match(/\/#\/signin/));
                     return url.match(/\/#\/signin/) != null;
                 });
             }, 5000);

@@ -1,10 +1,10 @@
 (function () {
     angular.module('gemStore')
-        .controller('ProfileUpdateController', ['$scope', 'Constantes', 'autenticacionService', '$location', 'UserByToken', 'navBar', 'LogoutFactory', 'questionnaireService', 'MunicipiosFactory',
-            function ($scope, Constantes, autenticacionService, $location, UserByToken, navBar, LogoutFactory, questionnaireService, MunicipiosFactory) {
+        .controller('ProfileUpdateController', ['$scope', 'Constantes', 'autenticacionService', 'authenticationService', '$location', 'UserByToken', 'navBar', 'LogoutFactory', 'questionnaireService', 'MunicipiosFactory',
+            function ($scope, Constantes, autenticacionService, authenticationService, $location, UserByToken, navBar, LogoutFactory, questionnaireService, MunicipiosFactory) {
                 $scope.ruta = Constantes.ruta_imagenes + "botones/";
                 $scope.anterior = $scope.ruta + 'boton-regresar.png';
-                $scope.usuario = autenticacionService.getUser();
+                $scope.usuario = authenticationService.getUser();
                 $scope.token = autenticacionService.getInfo();
                 console.log($scope.usuario);
                 console.log($scope.token);
