@@ -21,7 +21,7 @@
 
 			$scope.login = function(){
 				$scope.load = true;
-				authenticationService.login({username:$scope.login.usuario,password:$scope.login.contrasena})
+				authenticationService.login({email:$scope.login.email,password:$scope.login.contrasena})
 					.then(function(){
 						autenticacionService.setInfo(authenticationService.getUser().token);
 						UserByToken.us(autenticacionService.getInfo()).query().$promise.then(function(usuario){                                                           

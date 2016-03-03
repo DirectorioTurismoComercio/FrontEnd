@@ -16,7 +16,7 @@
             <div ng-message="pattern">El usuario debe tener el formato de un correo (ejemplo@correo.com)</div>
           </div> 
           <label>Nombre de usuario (correo electrónico)</label>
-          <input type="email" ng-model="login.usuario" name="usuario" ng-pattern="/^.+@.+\..+$/" required>      
+          <input type="email" ng-model="login.email" name="usuario" ng-pattern="/^.+@.+\..+$/" required>
     </md-input-container>
     <md-input-container>
         <div ng-messages="form.contrasena.$error">
