@@ -25,7 +25,7 @@ describe('Register module', function () {
     beforeEach(module('gemStore'));
     beforeEach(module('register'));
     beforeEach(module('constants'));
-    beforeEach(inject(function ($injector, $resource,_$httpBackend_) {
+    beforeEach(inject(function ($injector) {
         httpBackend = $injector.get('$httpBackend');
 
         registerService = $injector.get('registerService');
@@ -35,7 +35,7 @@ describe('Register module', function () {
         API_CONFIG=$injector.get('API_CONFIG');
         registerResource=$injector.get('registerResource');
 
-        spyOn(registerResource, 'save').and.callFake(function (index) {
+        spyOn(registerResource, 'save').and.callFake(function () {
             return true;
         });
 
