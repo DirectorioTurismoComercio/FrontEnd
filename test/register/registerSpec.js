@@ -1,6 +1,6 @@
 describe('Register module', function () {
 
-    var registerService, httpBackend, userFactory, API_CONFIG, registerResource;
+    var registerService, httpBackend, userFactory, API_CONFIG, registerResource, registerErrorHandler, mdDialog;
     var userData = {
             nombres: "nombre1",
             tags: [],
@@ -34,10 +34,8 @@ describe('Register module', function () {
 
         API_CONFIG=$injector.get('API_CONFIG');
         registerResource=$injector.get('registerResource');
-
-        spyOn(registerResource, 'save').and.callFake(function () {
-            return true;
-        });
+        registerErrorHandler= $injector.get('registerErrorHandler');
+        mdDialog= $injector.get('$mdDialog');
 
     }));
 
@@ -46,6 +44,9 @@ describe('Register module', function () {
     });
 
     it('should register user data ', function () {
+        spyOn(registerResource, 'save').and.callFake(function () {
+            return true;
+        });
         expect(registerService.register(userData)).toBe(true);
     });
 
@@ -61,6 +62,17 @@ describe('Register module', function () {
 
         userData.password=undefined;
         expect(function(){registerService.register(userData)}).toThrow();
+    });
+
+    it('should show message error if occurs error 400', function () {
+        var error={
+            status: 400
+        };
+        spyOn(mdDialog, 'show').and.callFake(function () {
+            return true;
+        });
+        registerErrorHandler.showError(error);
+        expect(mdDialog.show()).toBe(true);
     });
 
 });
