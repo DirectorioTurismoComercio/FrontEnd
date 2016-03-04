@@ -68,11 +68,9 @@ describe('Register module', function () {
         var error={
             status: 400
         };
-        spyOn(mdDialog, 'show').and.callFake(function () {
-            return true;
-        });
+        spyOn(mdDialog, 'show');
         registerErrorHandler.showError(error);
-        expect(mdDialog.show()).toBe(true);
+        expect(mdDialog.show).toHaveBeenCalled();
     });
 
 });
