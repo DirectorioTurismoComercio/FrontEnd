@@ -1,13 +1,11 @@
 (function () {
     angular.module('gemStore')
-        .controller('ProfileUpdateController', ['$scope', 'Constantes', 'autenticacionService', 'authenticationService', '$location', 'UserByToken', 'navBar', 'LogoutFactory', 'questionnaireService', 'MunicipiosFactory',
-            function ($scope, Constantes, autenticacionService, authenticationService, $location, UserByToken, navBar, LogoutFactory, questionnaireService, MunicipiosFactory) {
+        .controller('ProfileUpdateController', ['$scope', 'Constantes', 'authenticationService', '$location', 'UserByToken', 'navBar', 'LogoutFactory', 'questionnaireService', 'MunicipiosFactory',
+            function ($scope, Constantes, authenticationService, $location, UserByToken, navBar, LogoutFactory, questionnaireService, MunicipiosFactory) {
                 $scope.ruta = Constantes.ruta_imagenes + "botones/";
                 $scope.anterior = $scope.ruta + 'boton-regresar.png';
                 $scope.usuario = authenticationService.getUser();
                 $scope.token = $scope.usuario.token;
-                console.log($scope.usuario);
-                console.log($scope.token);
 
                 MunicipiosFactory.query().$promise.then(function (an) {
                     $scope.municipios = an;
@@ -40,7 +38,6 @@
                             "ubicacion_institucion": $scope.usuario.ubicacion_institucion,
                             "municipio_id": $scope.usuario.municipio_id
                         }).$promise.then(function (response) {
-                        autenticacionService.setUser(response);
                         console.log(response);
                     }).catch(function (error) {
                         console.log(error);
