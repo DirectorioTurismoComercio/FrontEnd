@@ -2,7 +2,7 @@ describe('profile', function () {
 
     beforeAll(function () {
         browser.get(browser.baseUrl + '/FrontEnd/public/#/auth');
-        element(by.model('login.usuario')).sendKeys('misantropee@gmail.com');
+        element(by.model('login.email')).sendKeys('misantropee@gmail.com');
         element(by.model('login.contrasena')).sendKeys('1234');
         element(by.id('login')).click();
     });
