@@ -1,7 +1,7 @@
 (function () {
     var register = angular.module('register', []);
 
-    register.factory('registerService', ['UserFactory', 'registerResource', 'registerErrorHandler', function (UserFactory, registerResource, registerErrorHandler) {
+    register.factory('registerService', ['UserFactory', 'registerResource', 'registerErrorHandler', function (UserFactory, registerResource, registerErrorHandler,$location) {
         function checkRequireFields(userData) {
             if (userData.apellido1 == undefined || userData.municipio_id == undefined || userData.rol == undefined || userData.password == undefined) {
                 registerErrorHandler.showError('fieldUndefined');
@@ -14,21 +14,20 @@
                 checkRequireFields(userData);
                 var newUser = new UserFactory();
                 newUser = userData;
-                return (registerResource.save(newUser) ? true : false);
+                registerResource.save(newUser);
             }
         }
     }]);
 
-    register.service('registerResource', ['registerErrorHandler', function (registerErrorHandler) {
+    register.service('registerResource', ['registerErrorHandler', '$location', function (registerErrorHandler, $location) {
         return {
             save: function (newUser) {
                 newUser.$save(function (data){
-                        return true;
+                        $location.path('/profileSummary');
                     },
                     function (error){
                         console.log('An error has ocurred', error);
                         registerErrorHandler.showError(error);
-                        return false;
                     });
             }
         }

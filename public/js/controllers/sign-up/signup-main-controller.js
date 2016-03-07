@@ -1,9 +1,9 @@
 (function () {
     angular.module('gemStore')
         .controller('SignupMainController', ['$scope', 'registroService', 'ResultRetriever', 'QuestionnaireFactory',
-            'questionnaireService', 'UserByToken', 'autenticacionService', '$mdDialog', 'MunicipiosFactory', 'navBar',
+            'questionnaireService', 'UserByToken', 'autenticacionService', '$mdDialog', 'MunicipiosFactory', 'navBar', 'registerService',
             function ($scope, registroService, ResultRetriever, QuestionnaireFactory, questionnaireService, UserByToken,
-                      autenticacionService, $mdDialog, MunicipiosFactory, navBar) {
+                      autenticacionService, $mdDialog, MunicipiosFactory, navBar, registerService) {
 
                 $scope.form = "";
                 $scope.showErrors = false;
@@ -196,5 +196,12 @@
                     }).finally(function () {
                     });
                 };
+
+
+                $scope.registerNewUser=function(){
+                    registerService.register($scope.usuario);
+                };
+
+
             }]);
 })();

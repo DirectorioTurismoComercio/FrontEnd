@@ -1,6 +1,7 @@
 describe('Register module', function () {
 
-    var registerService, httpBackend, userFactory, API_CONFIG, registerResource, registerErrorHandler, mdDialog;
+    var registerService, httpBackend, userFactory, API_CONFIG, registerResource, registerErrorHandler,
+        mdDialog,location;
     var userData = {
             nombres: "nombre1",
             tags: [],
@@ -27,15 +28,13 @@ describe('Register module', function () {
     beforeEach(module('constants'));
     beforeEach(inject(function ($injector) {
         httpBackend = $injector.get('$httpBackend');
-
         registerService = $injector.get('registerService');
-
         userFactory = $injector.get('UserFactory');
-
         API_CONFIG=$injector.get('API_CONFIG');
         registerResource=$injector.get('registerResource');
         registerErrorHandler= $injector.get('registerErrorHandler');
         mdDialog= $injector.get('$mdDialog');
+        location=$injector.get('$location');
 
     }));
 
@@ -43,11 +42,12 @@ describe('Register module', function () {
         expect(registerService.register).toThrow();
     });
 
-    it('should register user data ', function () {
+    it('should register user', function () {
         spyOn(registerResource, 'save').and.callFake(function () {
             return true;
         });
-        expect(registerService.register(userData)).toBe(true);
+
+        expect(registerResource.save(userData)).toBe(true);
     });
 
     it('should throws error if any of apellido1, municipio_id, rol, password field is undefined', function () {
@@ -62,6 +62,13 @@ describe('Register module', function () {
 
         userData.password=undefined;
         expect(function(){registerService.register(userData)}).toThrow();
+    });
+
+    it('should show message error if occurs error fieldUndefined', function () {
+        var error='fieldUndefined';
+        spyOn(mdDialog, 'show');
+        registerErrorHandler.showError(error);
+        expect(mdDialog.show).toHaveBeenCalled();
     });
 
     it('should show message error if occurs error 400', function () {
