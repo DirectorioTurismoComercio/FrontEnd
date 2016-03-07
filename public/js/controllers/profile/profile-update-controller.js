@@ -27,9 +27,8 @@
                 }
 
                 $scope.update = function () {
-                    console.log('el segundo apellido es:', $scope.usuario.apellido2);
-                    if($scope.usuario.apellido2==undefined){
-                        $scope.usuario.apellido2="";
+                    if ($scope.usuario.apellido2 == undefined) {
+                        $scope.usuario.apellido2 = "";
                     }
                     UserByToken.up($scope.token).update(
                         {
