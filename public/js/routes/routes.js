@@ -6,10 +6,6 @@
                     templateUrl: 'templates/home/mainPage.html',
                     controller: 'MainPageController'
                 })
-                .when('/signup', {
-                    templateUrl: 'templates/signup/signup-main.html',
-                    controller: 'SignupIndexController'
-                })
                 .when('/roles', {
                     templateUrl: 'templates/signup/roles.html',
                     controller: 'RoleController'
