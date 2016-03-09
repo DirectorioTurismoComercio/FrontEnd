@@ -1,6 +1,5 @@
 describe('Test suit that tests QuestionsController', function () {
 
-    beforeEach(module('userModule'));
     beforeEach(module('gemStore'));
 
 

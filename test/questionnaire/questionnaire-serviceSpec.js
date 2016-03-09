@@ -1,6 +1,5 @@
 describe('Test suit that tests questionnaireService', function () {
 
-    beforeEach(module('userModule'));
     beforeEach(module('gemStore'));
 
 

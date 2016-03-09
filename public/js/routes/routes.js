@@ -10,10 +10,6 @@
                     templateUrl: 'templates/signup/roles.html',
                     controller: 'RoleController'
                 })
-                .when('/user', {
-                    templateUrl: 'templates/user/user.html',
-                    controller: 'UserController'
-                })
                 .when('/personalData', {
                     templateUrl: 'templates/signup/personal-data.html',
                     controller: 'SignupMainController'

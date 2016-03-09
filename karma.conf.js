@@ -19,7 +19,6 @@ module.exports = function(config) {
       'node_modules/angular-mocks/angular-mocks.js',
       'public/components/angular-route/angular-route.min.js',
       'public/components/angular-resource/angular-resource.min.js',
-      //'public/js/controllers/user/user-controller.js',
       'node_modules/angular-animate/angular-animate.min.js',
       'public/components/angular-material/angular-material.min.js',
       'public/components/angular-aria/angular-aria.min.js',

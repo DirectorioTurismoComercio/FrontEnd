@@ -1,6 +1,5 @@
 describe('side-bar', function () {
 
-    beforeEach(module('userModule'));
     beforeEach(module('gemStore'));
 
     beforeEach(module('templates/directives/side-bar.html'));
