@@ -90,10 +90,6 @@
                     controller: 'AuthController',
                     templateUrl: 'templates/auth/auth.html',
                 })
-                .when('/prueba', {
-                    controller: 'AController',
-                    templateUrl: 'templates/datos.html',
-                })
                 .when('/auth/changepass', {
                     controller: 'ChangePassController',
                     templateUrl: 'templates/auth/changepass.html',
