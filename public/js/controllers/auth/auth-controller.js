@@ -42,7 +42,26 @@
                 }
 
                 $scope.facebookLogin = function () {
-                    console.log('presiono boton de facebook');
+                    FB.login(function(response){
+                        console.log('la respuesta es', response);
+                        if (response.authResponse){
+                            console.log('Welcome Fetching your information...');
+                            FB.api('/me',function(response){
+                                console.log('Good to see you ' + response.name + '//' + response.email +'//');
+
+                                console.log(JSON.stringify(response));
+
+                                var accessToken=FB.getAuthResponse();
+                                console.log('El token es', accessToken);
+
+                            },{
+                                scope: 'public_profile,email',
+                                return_scopes: true
+                            });
+                        }else{
+                            console.log('User cancelled login or did not fully authorize');
+                        }
+                    });
                 }
 
                 function showErrorDialog() {
