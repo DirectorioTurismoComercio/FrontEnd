@@ -8,5 +8,9 @@
             $authProvider.facebook({
                 clientId: API_CONFIG.facebookID
             });
+
+            $authProvider.google({
+                clientId: API_CONFIG.googleID
+            });
         })
 })();
