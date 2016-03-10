@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/satellizer/satellizer.min.js',
       'public/components/angular-route/angular-route.min.js',
       'public/components/angular-resource/angular-resource.min.js',
       'node_modules/angular-animate/angular-animate.min.js',

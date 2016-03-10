@@ -1,24 +1,20 @@
 (function () {
     angular.module('gemStore', ['ngRoute', 'ngResource', 'ngAnimate', 'ngMaterial', 'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies', 'ngSanitize', 'com.2fdevs.videogular',
-                                'constants', 'auth'])
-        .config(function ($interpolateProvider, API_CONFIG) {
+                                'constants', 'auth', 'satellizer'])
+        .config(function ($interpolateProvider, API_CONFIG, $authProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');
 
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId      : API_CONFIG.facebookID,
-                    xfbml      : true,
-                    version    : 'v2.3'
-                });
-            };
+            $authProvider.facebook({
+                clientId: API_CONFIG.facebookID
+            });
 
-            (function(d, s, id){
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+           /* $authProvider.oauth2({
+                name: 'foursquare',
+                url: '/auth/foursquare',
+                clientId: 'Foursquare Client ID',
+                redirectUri: window.location.origin,
+                authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate',
+            });*/
         })
 })();
