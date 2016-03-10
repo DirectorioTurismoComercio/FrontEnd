@@ -8,13 +8,5 @@
             $authProvider.facebook({
                 clientId: API_CONFIG.facebookID
             });
-
-           /* $authProvider.oauth2({
-                name: 'foursquare',
-                url: '/auth/foursquare',
-                clientId: 'Foursquare Client ID',
-                redirectUri: window.location.origin,
-                authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate',
-            });*/
         })
 })();
