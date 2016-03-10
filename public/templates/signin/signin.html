@@ -1,36 +1,31 @@
-<!-- <div> Usuario </div>
-<div>
-<input type="text" ng-model="user" class="form-control" >
-<div class="error">%%mensaje%%</div>
-<button class="btn btn-primary btn-md" ng-click="signin(user)">Entrar</button>
-<button class="btn btn-primary btn-md" ng-click="signup()">Nuevo Usuario</button>
-</div>
- -->
 <div class="fondo">
-  <div layout="row" layout-align="space-around center" class="barra_main">   
-    <img class="logo" ng-src="%%logo%%">
-    <div class="menu" ng-click="toggleRight()"> 
-      <i class="fa fa-reorder"></i>
+    <div layout="row" layout-align="space-around center" class="barra_main">
+        <img class="logo" ng-src="%%logo%%">
+        <div class="menu" ng-click="toggleRight()">
+            <i class="fa fa-reorder"></i>
+        </div>
     </div>
-  </div>
-  <form class="form-signin">
-    <div class="botones_como_funciona">
-      El mercado de las TIC para el comercio en Cundinamarca
-      <div layout="row" layout-align="center center" ng-click="vervideo()">
-        <img class="img_box" ng-src="%%como_funciona%%">
-        <div>¿CÓMO FUNCIONA?</div>
-      </div>
-    </div>
-    <div class="botones_inicio">
-      <button class="btn btn-lg btn-danger btn-block" ng-click="noregistrado()">     
-        <img class="img_box" ng-src="%%comenzar%%"> INICIO
-      </button>
-      <button class="btn btn-lg btn-success btn-block" ng-click="login()">   
-        <img class="img_box" ng-src="%%iniciar_sesion%%"> INICIAR SESIÓN
-      </button>
-      <button  class="btn btn-lg btn-success btn-block" ng-click="signup()">     
-        <img class="img_box" ng-src="%%registro%%"> REGÍSTRARSE
-      </button>
-    </div>
-  </form>
+    <form class="form-signin">
+        <div class="botones_como_funciona">
+            El mercado de las TIC para el comercio en Cundinamarca
+            <a href="#/comoFunciona" layout="row" layout-align="center center">
+                <img class="img_box" src="./images/botones/boton_como_funciona.png">
+                <div>¿CÓMO FUNCIONA?</div>
+            </a>
+        </div>
+        <div class="botones_inicio">
+            <a href="#/map" class="btn btn-lg btn-danger btn-block">
+                <img class="img_box" src="./images/botones/boton-donde.png"> VER MAPA
+            </a>
+            <a href="#/actionquestionnaire" class="btn btn-lg btn-danger btn-block">
+                <img class="img_box" src="./images/botones/icono-comenzar.png"> INICIO
+            </a>
+            <a href="#/auth" class="btn btn-lg btn-success btn-block">
+                <img class="img_box" src="./images/botones/boton_iniciar_sesion.png"> INICIAR SESIÓN
+            </a>
+            <a href="#/roles" class="btn btn-lg btn-success btn-block">
+                <img class="img_box" src="./images/botones/boton_registrate.png"> REGÍSTRARSE
+            </a>
+        </div>
+    </form>
 </div>
