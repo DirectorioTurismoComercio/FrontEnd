@@ -7,11 +7,11 @@
             $interpolateProvider.endSymbol('%%');
 
             $authProvider.facebook({
-                clientId: API_CONFIG.facebookID
+                clientId: '1529648703998052'
             });
 
             $authProvider.google({
-                clientId: API_CONFIG.googleID
+                clientId: '134061854666-op17m2c08s30q3des75on95hib3a4a43.apps.googleusercontent.com'
             });
         })
 })();
