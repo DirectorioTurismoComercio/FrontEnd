@@ -3,14 +3,13 @@
 describe('Controller: MapController', function () {
 
     beforeEach(module('gemStore'));
-    //beforeEach(module('map'));
 
-    var MapCtrl, scope;
+    var MapController, scope;
 
     // Initialize the controller and a mock scope
     beforeEach(inject(function ($controller, $rootScope) {
         scope = $rootScope.$new();
-        MapCtrl = $controller('MapController', {
+        MapController = $controller('MapController', {
             $scope: scope
         });
     }));
