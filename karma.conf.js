@@ -30,6 +30,8 @@ module.exports = function (config) {
             'public/components/videogular/videogular.min.js',
             'test/specHelpers.js',
             'test/specConstants.js',
+            'public/js/map/map.js',
+            'public/js/map/map.controller.js',
             'public/js/**/*.js',
             'test/**/*Spec.js',
             'public/templates/directives/side-bar.html'

@@ -82,8 +82,7 @@
 		 };		 
 	};	
 	var setFull = function(_id){		
-		console.log('Entra');
-		 full[_id]= 'COMPLETO';		
+		 full[_id]= 'COMPLETO';
 	};	
 	var clearFull = function(_dato){		
 		if (_dato == 'ALL') {
