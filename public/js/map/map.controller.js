@@ -6,8 +6,7 @@ angular.module('map')
             center: {
                 latitude: 4.5809775,
                 longitude: -74.1340484
-            }
-            ,
+            },
             zoom: 9
         };
 
