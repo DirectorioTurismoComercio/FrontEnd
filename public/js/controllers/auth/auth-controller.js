@@ -20,21 +20,25 @@
                 }
 
                 $scope.login = function () {
-                    $scope.load = true;
-                    authenticationService.login({email: $scope.login.email, password: $scope.login.contrasena})
-                        .then(function () {
-                            autenticacionService.setInfo(authenticationService.getUser().token);
-                            UserByToken.us(autenticacionService.getInfo()).query().$promise.then(function (usuario) {
-                                autenticacionService.setUser(usuario);
-                                $scope.load = false;
-                                $location.path('/profileMain');
+                    if($scope.login.email!=undefined && $scope.login.contrasena!=undefined){
+                        $scope.load = true;
+                        authenticationService.login({email: $scope.login.email, password: $scope.login.contrasena})
+                            .then(function () {
+                                autenticacionService.setInfo(authenticationService.getUser().token);
+                                UserByToken.us(autenticacionService.getInfo()).query().$promise.then(function (usuario) {
+                                    autenticacionService.setUser(usuario);
+                                    $scope.load = false;
+                                    $location.path('/profileMain');
+                                }).catch(function (error) {
+                                    console.log('ocurrio un error',error);
+                                });
                             }).catch(function (error) {
-                                console.log('ocurrio un error',error);
-                            });
-                        }).catch(function (error) {
-                        showErrorDialog();
-                        $scope.load = false;
-                    });
+                            showErrorDialog('Los datos de acceso no son correctos, por favor verifique.');
+                            $scope.load = false;
+                        });
+                    }else{
+                        showErrorDialog('Por favor ingrese usuario y contraseña');
+                    }
                 }
 
                 $scope.forgot = function () {
@@ -64,13 +68,13 @@
                     });
                 };
 
-                function showErrorDialog() {
+                function showErrorDialog(message) {
                     $mdDialog.show(
                         $mdDialog.alert()
                             .parent(angular.element(document.querySelector('#alertPop')))
                             .clickOutsideToClose(true)
                             .title('Error')
-                            .content('Los datos de acceso no son correctos, por favor verifique.')
+                            .content(message)
                             .ariaLabel('Alert Dialog Demo')
                             .ok('Aceptar')
                             .targetEvent('$event')
