@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('map')
-    .controller('MapController', function ($scope, $timeout, uiGmapGoogleMapApi, uiGmapIsReady) {
+    .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady) {
         $scope.map = {
             center: {
                 latitude: 4.5809775,
@@ -28,8 +28,8 @@ angular.module('map')
         uiGmapIsReady.promise().then(initMap);
 
         function initMap() {
-            var mapObject = $scope.map.control.getGMap();
-            var placesService = new google.maps.places.PlacesService(mapObject);
+            var map = $scope.map.control.getGMap();
+            var placesService = new google.maps.places.PlacesService(map);
 
 
             var fromInput = document.getElementById('from');
@@ -48,5 +48,39 @@ angular.module('map')
             };
 
             return new google.maps.places.Autocomplete(input, options);
+        }
+
+        $scope.getUserPosition = function () {
+            var geolocation = $window.navigator.geolocation;
+
+            if (geolocation) {
+                geolocation.getCurrentPosition(setUserPosition, handleLocationError);
+            }
+        }
+
+        function setUserPosition(position) {
+            var map = $scope.map.control.getGMap();
+            var gMapPosition = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            map.setCenter(gMapPosition);
+            map.setZoom(15);
+            addMarker(map, gMapPosition)
+        }
+
+        function addMarker(map, position) {
+            return new google.maps.Marker({
+                position: position,
+                map: map
+            });
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
         }
     });
