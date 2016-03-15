@@ -25,19 +25,28 @@ angular.module('map')
             //map.DirectionsService.route()
         });
 
-        uiGmapIsReady.promise().then(createPlacesService);
+        uiGmapIsReady.promise().then(initMap);
 
-        function createPlacesService() {
+        function initMap() {
             var mapObject = $scope.map.control.getGMap();
             var placesService = new google.maps.places.PlacesService(mapObject);
 
+
+            var fromInput = document.getElementById('from');
+            var toInput = document.getElementById('to');
+
+            addAutocompleteFeature(fromInput);
+            addAutocompleteFeature(toInput);
+        }
+
+        function addAutocompleteFeature(input) {
             var options = {
                 types: ['(cities)'],
-                componentRestrictions: {country: "co"}
+                componentRestrictions: {
+                    country: "co"
+                }
             };
 
-            var input = document.getElementById('from');
-            var autocomplete = new google.maps.places.Autocomplete(input, options);
-
+            return new google.maps.places.Autocomplete(input, options);
         }
     });
