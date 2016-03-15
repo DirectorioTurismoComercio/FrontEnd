@@ -1,8 +1,8 @@
 (function () {
     angular.module('gemStore')
         .controller('AuthController', ['$scope', 'Constantes', 'AuthFactory', 'autenticacionService', '$location', '$mdDialog', 'UserByToken', 'questionnaireService', 'navBar',
-            'authenticationService','$auth',
-            function ($scope, Constantes, AuthFactory, autenticacionService, $location, $mdDialog, UserByToken, questionnaireService, navBar, authenticationService, $auth) {
+            'authenticationService', '$auth','$http', 'API_CONFIG','$window', '$q',
+            function ($scope, Constantes, AuthFactory, autenticacionService, $location, $mdDialog, UserByToken, questionnaireService, navBar, authenticationService, $auth,$http,API_CONFIG,$window, $q) {
                 $scope.ruta = Constantes.ruta_imagenes + "botones/";
                 $scope.anterior = $scope.ruta + 'boton-regresar.png';
                 $scope.load = false;
@@ -29,7 +29,7 @@
                                 $scope.load = false;
                                 $location.path('/profileMain');
                             }).catch(function (error) {
-                                console.log(error);
+                                console.log('ocurrio un error',error);
                             });
                         }).catch(function (error) {
                         showErrorDialog();
@@ -41,9 +41,27 @@
                     $location.path('/auth/recovery');
                 }
 
-                $scope.authenticate = function(provider) {
-                    console.log('se entra a satellizer');
-                    $auth.authenticate(provider);
+                $scope.authenticate = function (provider) {
+                    console.log('presiono en', provider);
+                    $auth.authenticate(provider).then(function (response) {
+                        $auth.setToken(response.data.token);
+
+
+                        console.log('se autentico en', provider, response);
+
+                       /* autenticacionService.setInfo(response.data.token);
+                        console.log('seteo el token');
+                        UserByToken.us(autenticacionService.getInfo()).query().$promise.then(function (usuario) {
+                            autenticacionService.setUser(usuario);
+                            $scope.load = false;
+                            $location.path('/profileMain');
+                        }).catch(function (error) {
+                            console.log('ocurrio un error',error);
+                        });*/
+
+                    }).catch(function(error){
+                        console.log('hubo un error', error);
+                    });
                 };
 
                 function showErrorDialog() {
