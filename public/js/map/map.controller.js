@@ -2,6 +2,11 @@
 
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady) {
+        var fromInput = document.getElementById('from');
+        var toInput = document.getElementById('to');
+        var directionsDisplay;
+        var directionsService;
+
         $scope.map = {
             center: {
                 latitude: 4.5809775,
@@ -11,32 +16,41 @@ angular.module('map')
             zoom: 9
         };
 
-        uiGmapGoogleMapApi.then(function (GMapsApi) {
-            //var placesService = new google.maps.places.PlacesService(GMapsApi.Map);
-            //console.log(placesService);
 
-            /*
-             var directionsRequest = {
-             origin: LatLng | String | google.maps.Place,
-             destination: LatLng | String | google.maps.Place,
-             }*/
-
-
-            //map.DirectionsService.route()
-        });
-
+        uiGmapGoogleMapApi.then(initServices);
         uiGmapIsReady.promise().then(initMap);
 
+        $scope.calculateRoute = function () {
+            var request = {
+                origin: fromInput.value,
+                destination: toInput.value,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+
+            directionsService.route(request, function (result, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(result);
+                }
+            });
+        }
+
+        $scope.goToUserPosition = function () {
+            var geolocation = $window.navigator.geolocation;
+
+            if (geolocation) {
+                geolocation.getCurrentPosition(setUserPosition, handleLocationError);
+            }
+        }
+
+        function initServices(GMapApi) {
+            directionsDisplay = new GMapApi.DirectionsRenderer();
+            directionsService = new GMapApi.DirectionsService();
+        }
+
         function initMap() {
-            var map = $scope.map.control.getGMap();
-            var placesService = new google.maps.places.PlacesService(map);
-
-
-            var fromInput = document.getElementById('from');
-            var toInput = document.getElementById('to');
-
             addAutocompleteFeature(fromInput);
             addAutocompleteFeature(toInput);
+            directionsDisplay.setMap($scope.map.control.getGMap());
         }
 
         function addAutocompleteFeature(input) {
@@ -48,14 +62,6 @@ angular.module('map')
             };
 
             return new google.maps.places.Autocomplete(input, options);
-        }
-
-        $scope.getUserPosition = function () {
-            var geolocation = $window.navigator.geolocation;
-
-            if (geolocation) {
-                geolocation.getCurrentPosition(setUserPosition, handleLocationError);
-            }
         }
 
         function setUserPosition(position) {
@@ -77,10 +83,7 @@ angular.module('map')
             });
         }
 
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-            infoWindow.setPosition(pos);
-            infoWindow.setContent(browserHasGeolocation ?
-                'Error: The Geolocation service failed.' :
-                'Error: Your browser doesn\'t support geolocation.');
+        function handleLocationError() {
+            alert("No es posible obtener la ubicación");
         }
     });
