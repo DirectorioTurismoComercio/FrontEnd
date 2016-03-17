@@ -36,7 +36,7 @@
             templateUrl: 'templates/footer.html'
         };
     })
-    .directive('sideBar', ['navBar', '$location', 'authenticationService', 'isUserLoggedIn', function (navBar, $location, authenticationService, isUserLoggedIn) {
+    .directive('sideBar', ['navBar', '$location', 'authenticationService', 'isUserLoggedIn','$auth', function (navBar, $location, authenticationService, isUserLoggedIn, $auth) {
         return {
             restrict: "E",
             templateUrl: 'templates/directives/side-bar.html',
@@ -51,6 +51,7 @@
                         .finally(function(){
                             $location.path('/signin');
                         });
+                    $auth.removeToken();
                 }
 
                 scope.toggleRight = function(){

@@ -10,8 +10,7 @@
 
             $authProvider.facebook({
                 clientId: '1529648703998052',
-                url: '/api/login/social/token/facebook',
-                //scope: ['public_profile', 'email', 'publish_actions']
+                url: '/api/login/social/token/facebook'
             });
 
             $authProvider.google({

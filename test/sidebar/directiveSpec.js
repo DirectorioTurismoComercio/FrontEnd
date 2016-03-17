@@ -9,7 +9,8 @@ describe('side-bar', function () {
         httpBackend,
         element,
         authService,
-        API_CONFIG;
+        API_CONFIG,
+        auth;
 
     beforeEach(inject(function($compile, $rootScope, $injector, authenticationService) {
         compile = $compile;
@@ -17,6 +18,7 @@ describe('side-bar', function () {
         API_CONFIG = $injector.get('API_CONFIG');
         httpBackend = $injector.get('$httpBackend');
         authService = authenticationService;
+        auth= $injector.get('$auth');
     }));
 
     beforeEach(function() {
@@ -49,11 +51,13 @@ describe('side-bar', function () {
     });
 
     it('logs user out', function() {
+        spyOn(auth, 'removeToken');
         authService.login(CREDENTIALS);
         httpBackend.flush();
         rootScope.logout();
         httpBackend.flush();
         expect(rootScope.isAuthenticated()).toBe(false);
+        expect(auth.removeToken).toHaveBeenCalled();
     });
 
 });
