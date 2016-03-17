@@ -6,7 +6,7 @@
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');
 
-            $authProvider.baseUrl = 'http://192.168.33.10:8000';
+            $authProvider.baseUrl = API_CONFIG.authBaseURL;
 
             $authProvider.facebook({
                 clientId: '1529648703998052',

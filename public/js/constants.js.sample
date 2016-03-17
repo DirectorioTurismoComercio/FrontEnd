@@ -9,5 +9,6 @@ angular.module('constants', [])
     .constant("API_CONFIG", {
     	"url": "http://127.0.0.1:8000",
     	"login": "/rest-auth/login",
-    	"user": "/usuario"
+    	"user": "/usuario",
+        "authBaseURL": 'http://ecosistema.desarrollo.com/backend'
     });
