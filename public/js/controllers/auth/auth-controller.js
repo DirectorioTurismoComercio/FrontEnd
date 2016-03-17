@@ -53,20 +53,30 @@
 
                         console.log('se autentico en', provider, response);
 
-                       /* autenticacionService.setInfo(response.data.token);
-                        console.log('seteo el token');
-                        UserByToken.us(autenticacionService.getInfo()).query().$promise.then(function (usuario) {
-                            autenticacionService.setUser(usuario);
-                            $scope.load = false;
-                            $location.path('/profileMain');
-                        }).catch(function (error) {
-                            console.log('ocurrio un error',error);
-                        });*/
+                        console.log("el token de red social", response.data.token);
+
+
+
+
+                        $http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + response.data.token} })
+                            .success(function(response){
+                                console.log("se autentico en ususarios");
+                               /* user = response;
+                                user.token = token;
+                                user.name = credentials.username;
+                                $window.sessionStorage["user"] = JSON.stringify(user);
+                                deferred.resolve();*/
+                            });
+
 
                     }).catch(function(error){
                         console.log('hubo un error', error);
                     });
                 };
+
+                $scope.logout=function(){
+                    $auth.removeToken();
+                }
 
                 function showErrorDialog(message) {
                     $mdDialog.show(

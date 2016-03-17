@@ -27,6 +27,7 @@
 				$http.post(API_CONFIG.url + API_CONFIG.login, credentials)
 					.success(function(response){
 						var token = response.key;
+						console.log("el token de normal es",response.key);
 						$http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + token} })
 							.success(function(response){
 								user = response;
