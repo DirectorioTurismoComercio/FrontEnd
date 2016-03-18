@@ -1,9 +1,16 @@
-<div class="input-group">
-    <label for="from">Desde</label>
-    <input id="from" type="text" class="input-sm">
-    <label for="to">Hasta</label>
-    <input id="to" type="text" class="input-sm">
+<div class="map-control">
+    <div class="input-group">
+        <label for="from">Desde</label>
+        <input id="from" type="text" class="input-sm" ng-model="routeFrom" ng-change="alert('a');">
+        <button class="btn btn-default" aria-label="Left Align" ng-click="goToUserPosition()">
+            <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+        </button>
+    </div>
+    <div class="input-group">
+        <label for="to">Hasta</label>
+        <input id="to" type="text" class="input-sm" ng-model="routeTo">
+    </div>
     <button class="btn btn-primary" ng-click="calculateRoute()">Calcular ruta</button>
-    <button class="btn btn-danger" ng-click="goToUserPosition()">Ir a mi posición</button>
 </div>
+
 <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"></ui-gmap-google-map>

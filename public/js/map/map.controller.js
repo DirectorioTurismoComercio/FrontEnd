@@ -2,15 +2,17 @@
 
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady) {
+        var MY_LOCATION = 'Mi Ubicación';
         var fromInput = document.getElementById('from');
         var toInput = document.getElementById('to');
         var directionsDisplay;
         var directionsService;
+        var userPosition = {};
 
         $scope.map = {
             center: {
-                latitude: 4.5809775,
-                longitude: -74.1340484
+                latitude: 4.6363623,
+                longitude: -74.0854427
             },
             control: {},
             zoom: 9
@@ -21,13 +23,17 @@ angular.module('map')
         uiGmapIsReady.promise().then(initMap);
 
         $scope.calculateRoute = function () {
-            var request = {
+            var routeData = {
                 origin: fromInput.value,
                 destination: toInput.value,
                 travelMode: google.maps.TravelMode.DRIVING
             };
 
-            directionsService.route(request, function (result, status) {
+            if (fromInput.value == MY_LOCATION) {
+                routeData.origin = userPosition.lat + "," + userPosition.lng;
+            }
+
+            directionsService.route(routeData, function (result, status) {
                 if (status == google.maps.DirectionsStatus.OK) {
                     directionsDisplay.setDirections(result);
                 }
@@ -54,8 +60,20 @@ angular.module('map')
         }
 
         function addAutocompleteFeature(input) {
+            var circleCundinamarca = new google.maps.Circle({
+                //fillColor: '#FF0055',
+                //fillOpacity: 0.35,
+                //map: $scope.map.control.getGMap(),
+                center: {
+                    lat: $scope.map.center.latitude,
+                    lng: $scope.map.center.longitude
+                },
+                radius: 137000
+            });
+
+
             var options = {
-                types: ['(cities)'],
+                bounds: circleCundinamarca.getBounds(),
                 componentRestrictions: {
                     country: "co"
                 }
@@ -66,14 +84,17 @@ angular.module('map')
 
         function setUserPosition(position) {
             var map = $scope.map.control.getGMap();
-            var gMapPosition = {
+
+            userPosition = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
 
-            map.setCenter(gMapPosition);
+            fromInput.value = MY_LOCATION;
+
+            addMarker(map, userPosition)
+            map.setCenter(userPosition);
             map.setZoom(15);
-            addMarker(map, gMapPosition)
         }
 
         function addMarker(map, position) {
