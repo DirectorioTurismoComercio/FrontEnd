@@ -22,6 +22,7 @@
 		function userDataRequest(credentials, token, deferred){
 			$http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + token} })
 				.success(function(response){
+					response.rol='2',
 					user = response;
 					user.token = token;
 					user.name = credentials.username;
