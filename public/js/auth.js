@@ -18,6 +18,18 @@
 	            user = JSON.parse($window.sessionStorage["user"]);
 	        }
 	    }
+
+		function userDataRequest(credentials, token, deferred){
+			$http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + token} })
+				.success(function(response){
+					user = response;
+					user.token = token;
+					user.name = credentials.username;
+					$window.sessionStorage["user"] = JSON.stringify(user);
+					deferred.resolve();
+				});
+		}
+
 	    init();
 			
 		return {
@@ -27,19 +39,15 @@
 				$http.post(API_CONFIG.url + API_CONFIG.login, credentials)
 					.success(function(response){
 						var token = response.key;
-						console.log("el token de normal es",response.key);
-						$http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + token} })
-							.success(function(response){
-								user = response;
-								user.token = token;
-								user.name = credentials.username;
-								$window.sessionStorage["user"] = JSON.stringify(user);
-								deferred.resolve();
-							});
+						userDataRequest(credentials,token, deferred);
 					})
 					.error(function(){
 						deferred.reject();
 					});
+				return deferred.promise;
+			},
+			loginSocialMedia: function(credentials, token, deferred){
+				userDataRequest(credentials, token, deferred)
 				return deferred.promise;
 			},
 			logout: function() {

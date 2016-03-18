@@ -45,29 +45,23 @@
                     $location.path('/auth/recovery');
                 }
 
+
                 $scope.authenticate = function (provider) {
-                    console.log('presiono en', provider);
+                    $scope.load = true;
                     $auth.authenticate(provider).then(function (response) {
                         $auth.setToken(response.data.token);
+                        var credentials={
+                            username:response.data.username
+                        };
 
+                        var deferred = $q.defer()
 
-                        console.log('se autentico en', provider, response);
-
-                        console.log("el token de red social", response.data.token);
-
-
-
-
-                        $http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + response.data.token} })
-                            .success(function(response){
-                                console.log("se autentico en ususarios");
-                               /* user = response;
-                                user.token = token;
-                                user.name = credentials.username;
-                                $window.sessionStorage["user"] = JSON.stringify(user);
-                                deferred.resolve();*/
-                            });
-
+                        authenticationService.loginSocialMedia(response, credentials, deferred).finally(
+                            function(){
+                                $scope.load = false;
+                                $location.path('/profileMain');
+                            }
+                        );
 
                     }).catch(function(error){
                         console.log('hubo un error', error);
@@ -75,6 +69,7 @@
                 };
 
                 $scope.logout=function(){
+                    console.log("deslogueado");
                     $auth.removeToken();
                 }
 

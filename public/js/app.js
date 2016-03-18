@@ -7,6 +7,7 @@
             $interpolateProvider.endSymbol('%%');
 
             $authProvider.baseUrl = API_CONFIG.authBaseURL;
+            $authProvider.authToken= 'Token';
 
             $authProvider.facebook({
                 clientId: '1529648703998052',
