@@ -1,12 +1,11 @@
 (function () {
     angular.module('gemStore')
-        .controller('AuthController', ['$scope', 'Constantes', 'AuthFactory', 'autenticacionService', '$location', '$mdDialog', 'UserByToken', 'questionnaireService', 'navBar',
-            'authenticationService', '$auth','$http', 'API_CONFIG','$window', '$q',
-            function ($scope, Constantes, AuthFactory, autenticacionService, $location, $mdDialog, UserByToken, questionnaireService, navBar, authenticationService, $auth,$http,API_CONFIG,$window, $q) {
+        .controller('AuthController', ['$scope', 'Constantes', 'AuthFactory', '$location', '$mdDialog', 'UserByToken', 'questionnaireService', 'navBar',
+            'authenticationService', '$auth', '$http', 'API_CONFIG', '$window', '$q',
+            function ($scope, Constantes, AuthFactory, $location, $mdDialog, UserByToken, questionnaireService, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q) {
                 $scope.ruta = Constantes.ruta_imagenes + "botones/";
                 $scope.anterior = $scope.ruta + 'boton-regresar.png';
                 $scope.load = false;
-                data = {};
                 $scope.toggleRight = function () {
                     navBar.open();
                 }
@@ -20,23 +19,16 @@
                 }
 
                 $scope.login = function () {
-                    if($scope.login.email!=undefined && $scope.login.contrasena!=undefined){
+                    if ($scope.login.email != undefined && $scope.login.contrasena != undefined) {
                         $scope.load = true;
                         authenticationService.login({email: $scope.login.email, password: $scope.login.contrasena})
                             .then(function () {
-                                autenticacionService.setInfo(authenticationService.getUser().token);
-                                UserByToken.us(autenticacionService.getInfo()).query().$promise.then(function (usuario) {
-                                    autenticacionService.setUser(usuario);
-                                    $scope.load = false;
-                                    $location.path('/profileMain');
-                                }).catch(function (error) {
-                                    console.log('ocurrio un error',error);
-                                });
+                                redirectToProfileMain();
                             }).catch(function (error) {
                             showErrorDialog('Los datos de acceso no son correctos, por favor verifique.');
                             $scope.load = false;
                         });
-                    }else{
+                    } else {
                         showErrorDialog('Por favor ingrese usuario y contraseña');
                     }
                 }
@@ -47,31 +39,22 @@
 
 
                 $scope.authenticate = function (provider) {
-                    $scope.load = true;
                     $auth.authenticate(provider).then(function (response) {
+                        $scope.load = true;
                         $auth.setToken(response.data.token);
-                        var credentials={
-                            username:response.data.username
+                        var credentials = {
+                            username: response.data.username
                         };
-
                         var deferred = $q.defer()
-
-                        authenticationService.loginSocialMedia(response, credentials, deferred).finally(
-                            function(){
-                                $scope.load = false;
-                                $location.path('/profileMain');
+                        authenticationService.loginSocialMedia(credentials, response.data.token, deferred).finally(
+                            function () {
+                                redirectToProfileMain();
                             }
                         );
-
-                    }).catch(function(error){
+                    }).catch(function (error) {
                         console.log('hubo un error', error);
                     });
                 };
-
-                $scope.logout=function(){
-                    console.log("deslogueado");
-                    $auth.removeToken();
-                }
 
                 function showErrorDialog(message) {
                     $mdDialog.show(
@@ -85,5 +68,11 @@
                             .targetEvent('$event')
                     );
                 }
+
+                function redirectToProfileMain() {
+                    $scope.load = false;
+                    $location.path('/profileMain');
+                }
+
             }]);
 })();
