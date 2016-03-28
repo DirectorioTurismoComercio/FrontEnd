@@ -1,12 +1,12 @@
 (function () {
     angular.module('gemStore')
-        .controller('ProfileUpdateController', ['$scope', 'Constantes', 'authenticationService', '$location', 'UserByToken', 'navBar', 'LogoutFactory', 'questionnaireService', 'MunicipiosFactory',
-            function ($scope, Constantes, authenticationService, $location, UserByToken, navBar, LogoutFactory, questionnaireService, MunicipiosFactory) {
+        .controller('ProfileUpdateController', ['$scope', 'Constantes', 'authenticationService', '$location', 'UserByToken', 'navBar', 'LogoutFactory', 'questionnaireService', 'MunicipiosFactory', '$auth',
+            function ($scope, Constantes, authenticationService, $location, UserByToken, navBar, LogoutFactory, questionnaireService, MunicipiosFactory, $auth) {
                 $scope.ruta = Constantes.ruta_imagenes + "botones/";
                 $scope.anterior = $scope.ruta + 'boton-regresar.png';
                 $scope.usuario = authenticationService.getUser();
                 $scope.token = $scope.usuario.token;
-
+                $scope.isEmailEditable=$auth.getToken()==null;
                 MunicipiosFactory.query().$promise.then(function (an) {
                     $scope.municipios = an;
                 }).catch(function (error) {
@@ -27,7 +27,6 @@
                 }
 
                 $scope.update = function () {
-                    console.log('el segundo apellido es:', $scope.usuario.apellido2);
                     if($scope.usuario.apellido2==undefined){
                         $scope.usuario.apellido2="";
                     }
