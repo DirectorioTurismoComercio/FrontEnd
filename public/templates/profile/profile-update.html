@@ -34,7 +34,7 @@
             <input ng-model="usuario.apellido2" name="apellido2">
         </md-input-container>
 
-        <md-input-container ng-show="isEmailEditable">
+        <md-input-container>
             <div ng-messages="form.email.$error">
                 <div ng-message="required">Por favor digite su correo electrónico</div>
                 <div ng-message="pattern">Su email debe tener el formato de un correo (ejemplo@correo.com)</div>
