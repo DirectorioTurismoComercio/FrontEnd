@@ -11,7 +11,6 @@
 		function clearUserData() {
 			user = null;
 			$window.sessionStorage["user"] = null;
-			console.log("clear data", user);
 		}
 
 		function init() {

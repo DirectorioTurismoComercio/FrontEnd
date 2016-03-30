@@ -120,12 +120,12 @@
                         data = usu;
                         autenticacionService.setInfo($scope.usuario.key);
                         autenticacionService.setUser(usu);
-                        console.log('Id: ', data.id);
+
                         $scope.usuario = data;
                     }).catch(function (error) {
                         console.log(error);
                     });
-                    console.log('USUARIO', $scope.usuario);
+
                 }
 
                 $scope.muni = function (index) {
@@ -158,7 +158,7 @@
 
                     promesa.then(function (user) {
                         registroService.changeView(view);
-                        console.log(user);
+
                     }).catch(function (errors) {
                         console.log("Errores retornado por el POST de agregar usuario", errors);
                         if (errors.status === 400) {
