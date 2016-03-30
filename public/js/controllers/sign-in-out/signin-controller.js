@@ -1,4 +1,4 @@
-angular.module('gemStore')
+/*angular.module('gemStore')
     .controller('SigninController', ['$scope', 'registroService', 'UserFactory', 'Constantes',
         function ($scope, registroService, UserFactory, Constantes) {
             //Inicio Rutas de imagenes
@@ -27,4 +27,4 @@ angular.module('gemStore')
 
                 });
             }
-        }]);
+        }]);*/

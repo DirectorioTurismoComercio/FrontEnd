@@ -1,7 +1,7 @@
 (function () {
     angular.module('gemStore')
-        .controller('ProfileUpdateController', ['$scope', 'Constantes', 'authenticationService', '$location', 'UserByToken', 'navBar', 'LogoutFactory', 'questionnaireService', 'MunicipiosFactory', '$auth',
-            function ($scope, Constantes, authenticationService, $location, UserByToken, navBar, LogoutFactory, questionnaireService, MunicipiosFactory, $auth) {
+        .controller('ProfileUpdateController', ['$scope', 'Constantes', 'authenticationService', '$location', 'UserByToken', 'navBar', 'MunicipiosFactory', '$auth','registroService',
+            function ($scope, Constantes, authenticationService, $location, UserByToken, navBar, MunicipiosFactory, $auth, registroService) {
                 $scope.ruta = Constantes.ruta_imagenes + "botones/";
                 $scope.anterior = $scope.ruta + 'boton-regresar.png';
                 $scope.usuario = authenticationService.getUser();
@@ -19,7 +19,7 @@
                 }
 
                 $scope.menu_bar = function (view) {
-                    questionnaireService.changeView(view);
+                    registroService.changeView(view);
                 }
 
                 $scope.changepass = function () {

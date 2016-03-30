@@ -1,13 +1,14 @@
 (function () {
     angular.module('gemStore')
-        .controller('SignupMainController', ['$scope', 'registroService', 'ResultRetriever', 'QuestionnaireFactory',
-            'questionnaireService', 'UserByToken', 'autenticacionService', '$mdDialog', 'MunicipiosFactory', 'navBar',
-            function ($scope, registroService, ResultRetriever, QuestionnaireFactory, questionnaireService, UserByToken,
-                      autenticacionService, $mdDialog, MunicipiosFactory, navBar) {
+        .controller('SignupMainController', ['$scope', 'ResultRetriever',
+            'UserByToken', 'autenticacionService', '$mdDialog', 'MunicipiosFactory', 'navBar', 'registroService',
+            function ($scope, ResultRetriever, UserByToken,
+                      autenticacionService, $mdDialog, MunicipiosFactory, navBar, registroService) {
 
                 $scope.form = "";
                 $scope.showErrors = false;
                 $scope.tag = {result: ""};
+
                 $scope.doSomething = function (typedthings) {
                     $scope.results = ResultRetriever.getresults(typedthings, 'SuggestedTagsFactory');
                     $scope.results.then(function (data) {
@@ -35,7 +36,8 @@
                 }
 
                 $scope.menu_bar = function (view) {
-                    questionnaireService.changeView(view);
+                    registroService.changeView(view);
+                    $scope.usuario.apellidos="";
                 }
 
                 $scope.doSomethingElse = function (suggestion) {
@@ -104,16 +106,8 @@
                         }
                     } else {
                         if (view === 'profileMain') {
-                            if (questionnaireService.getTipo()) {
-                                registroService.changeView('solutions');
-                            }
-                            else {
                                 registroService.changeView(view);
-                            }
-                        } else {
-                            registroService.changeView(view);
                         }
-                        ;
 
                     }
                 };
@@ -163,18 +157,6 @@
                     }
 
                     promesa.then(function (user) {
-                        var qf = new QuestionnaireFactory();
-
-                        qf.cuestionarios = questionnaireService.getQuestionnaires();
-                        qf.id_usuario = user.id;
-                        qf.tipo = questionnaireService.getTipo();
-
-                        qf.$save().then(function (proceso) {
-                            console.log(proceso);
-                        }).catch(function (error) {
-                            console.log(error);
-                        });
-
                         registroService.changeView(view);
                         console.log(user);
                     }).catch(function (errors) {

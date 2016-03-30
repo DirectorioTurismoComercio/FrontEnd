@@ -1,7 +1,7 @@
 (function(){
 	angular.module('gemStore')
-	.service('autenticacionService', ['$resource','$location', 'LogoutFactory','$route',
-	function($resource,$location, LogoutFactory, $route) {
+	.service('autenticacionService', ['$resource','$location','$route',
+	function($resource,$location, $route) {
       		var info = "";
       		var user = {};
       		var id_busqueda = "";
@@ -41,15 +41,6 @@
 				return !(user.id === undefined);
 			}
 
-			var logout = function(){
-				user.id=undefined;
-				LogoutFactory.logout(getInfo()).save().$promise.then(function(respuesta){
-					setInfo('');
-					$location.path('/signin');
-				}).catch(function(error){
-				});
-			}
-
 		return {
 	  			getInfo: getInfo,
 	    		setInfo: setInfo,
@@ -57,8 +48,7 @@
 	    		setUser: setUser,
 	    		getIdBusqueda: getIdBusqueda,
 	    		setIdBusqueda: setIdBusqueda,
-	    		isUserAuthenticated: isUserAuthenticated,
-				logout:logout
+	    		isUserAuthenticated: isUserAuthenticated
 			}
 		}
 	]);

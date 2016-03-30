@@ -1,8 +1,8 @@
 (function () {
     angular.module('gemStore')
-        .controller('AuthController', ['$scope', 'Constantes', 'AuthFactory', '$location', '$mdDialog', 'UserByToken', 'questionnaireService', 'navBar',
-            'authenticationService', '$auth', '$http', 'API_CONFIG', '$window', '$q',
-            function ($scope, Constantes, AuthFactory, $location, $mdDialog, UserByToken, questionnaireService, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q) {
+        .controller('AuthController', ['$scope', 'Constantes', '$location', '$mdDialog', 'navBar',
+            'authenticationService', '$auth', '$http', 'API_CONFIG', '$window', '$q', 'registroService',
+            function ($scope, Constantes, $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, registroService) {
                 $scope.ruta = Constantes.ruta_imagenes + "botones/";
                 $scope.anterior = $scope.ruta + 'boton-regresar.png';
                 $scope.load = false;
@@ -15,7 +15,7 @@
                 }
 
                 $scope.menu_bar = function (view) {
-                    questionnaireService.changeView(view);
+                    registroService.changeView(view)
                 }
 
                 $scope.login = function () {
