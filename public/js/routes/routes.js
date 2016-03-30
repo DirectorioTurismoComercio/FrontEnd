@@ -140,6 +140,9 @@
                 .when('/index', {
                     templateUrl: 'templates/index.html',
                 })
+                .when('/home', {
+                    templateUrl: 'templates/home/mainPage.html',
+                })
                 .when('/', {
                     redirectTo: '/signin'
                 })
