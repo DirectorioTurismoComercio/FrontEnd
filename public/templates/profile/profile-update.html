@@ -26,12 +26,7 @@
                 <div ng-message="required">Por favor digite su primer apellido</div>
             </div>
             <label>Primer Apellido:</label>
-            <input ng-model="usuario.apellido1" name="apellido1" required>
-        </md-input-container>
-
-        <md-input-container>
-            <label>Segundo Apellido:</label>
-            <input ng-model="usuario.apellido2" name="apellido2">
+            <input ng-model="usuario.apellidos" name="apellidos" required>
         </md-input-container>
 
         <md-input-container>
@@ -48,15 +43,7 @@
                 <div ng-message="required">Por favor digite su número de telefono</div>
             </div>
             <label>Número de Telefono</label>
-            <input ng-model="usuario.telefono_institucion" type="tel" name="telefono">
-        </md-input-container>
-        <label>Seleccione un Municipio</label>
-        <md-input-container>
-            <md-select ng-model="usuario.municipio_id" name="municipio_id" placeholder="Seleccione un Municipio">
-                <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="muni($index)">
-                    %%opcion.nombre%%
-                </md-option>
-            </md-select>
+            <input ng-model="usuario.telefono" type="tel" name="telefono">
         </md-input-container>
 
         <md-input-container>

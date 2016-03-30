@@ -23,14 +23,10 @@
             <div ng-messages="form.apellido1.$error">
                 <div ng-message="required">Por favor digite su primer apellido</div>
             </div>
-            <label>Primer Apellido</label>
-            <input ng-model="usuario.apellido1" name="apellido1" required>
+            <label>Apellidos</label>
+            <input ng-model="usuario.apellidos" name="apellidos" required>
         </md-input-container>
 
-        <md-input-container>
-            <label>Segundo Apellido</label>
-            <input ng-model="usuario.apellido2" name="secondSurname">
-        </md-input-container>
 
         <md-input-container>
             <div ng-messages="form.password.$error">
@@ -54,14 +50,14 @@
                 <div ng-message="required">Por favor digite su número de telefono</div>
             </div>
             <label>Número de Telefono</label>
-            <input ng-model="usuario.telefono_institucion" type="tel" name="telefono">
+            <input ng-model="usuario.telefono" type="tel" name="telefono">
         </md-input-container>
 
     </div>
     <br><br>
     <div layout="column" layout-align="space-around center" class="footer_fix">
         <div layout="row" class="footer_cont footer_buscar" layout-align="space-around center"
-             ng-click="changeView('businessData',form)" ng-submit="f()">
+             ng-click="changeView('profileSummary',form,'save')" ng-submit="f()">
             <div class="text_footer">SIGUIENTE</div>
         </div>
     </div>
