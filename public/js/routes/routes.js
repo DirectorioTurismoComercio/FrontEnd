@@ -2,10 +2,6 @@
     angular.module('gemStore')
         .config(function ($routeProvider) {
             $routeProvider
-                .when('/home', {
-                    templateUrl: 'templates/home/mainPage.html',
-                    controller: 'MainPageController'
-                })
                 .when('/personalData', {
                     templateUrl: 'templates/signup/personal-data.html',
                     controller: 'SignupMainController'
@@ -65,7 +61,8 @@
                     templateUrl: 'templates/index.html',
                 })
                 .when('/home', {
-                    templateUrl: 'templates/home/mainPage.html',
+                    controller: '',
+                    templateUrl: 'templates/home/home.html'
                 })
                 .when('/', {
                     redirectTo: '/signin'
