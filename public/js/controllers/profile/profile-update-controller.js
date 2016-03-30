@@ -33,11 +33,10 @@
                     UserByToken.up($scope.token).update(
                         {
                             "nombres": $scope.usuario.nombres,
-                            "apellido1": $scope.usuario.apellido1,
-                            "apellido2": $scope.usuario.apellido2,
+                            "apellidos": $scope.usuario.apellidos,
                             "rol": $scope.usuario.rol,
                             "correo": $scope.usuario.correo,
-                            "telefono_institucion": $scope.usuario.telefono_institucion,
+                            "telefono": $scope.usuario.telefono,
                             "ubicacion_institucion": $scope.usuario.ubicacion_institucion,
                             "municipio_id": $scope.usuario.municipio_id
                         }).$promise.then(function (response) {
