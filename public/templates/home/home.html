@@ -1,12 +1,29 @@
-<div layout="row" layout-align="space-around center" class="barra_main"></div>
-<div layout="row" layout-align="space-around center" class="homeSubHeaderPicture">FOTO</div>
-<div layout="row" layout-align="space-between center" class="formContainer">
-    <div class="searchDiv" flex>
-        <input class="searchInput" type="text" placeholder="Busca por palabra clave">
-        <button class="searchButton" ng-click="search()">Buscar
-            <img class="img_box seacrhIcon" src="./images/botones/Lupa.png">
-        </button>
+<div class="masterContainer">
+    <header>
+        <div class="logo">
+            <a href="home.html">Cundinamarcapp</a>
+        </div>
+        <nav>
+            <a href="#/signin">¿Cómo funciona?</a>
+            <a href="#/personalData">Registro</a>
+            <a href="#/auth">Iniciar Sesión</a>
+        </nav>
+    </header>
+    <div class="carousel"></div>
+    <div class="searchSection">
+        <div class="searchDiv">
+            <input class="searchInput" type="text" placeholder="Busca por palabra clave">
+            <md-tooltip md-visible="demo.showTooltip" md-direction="bottom">
+                Acá va el tooltip
+            </md-tooltip>
+            </input>
+            <button class="searchButton" ng-click="search()">Buscar
+                <img class="img_box seacrhIcon" src="./images/botones/Lupa.png">
+            </button>
+        </div>
+        <div class="routeDiv">
+
+        </div>
     </div>
-    <div class="makeRouteDiv" flex>Second item in row</div>
 </div>
 

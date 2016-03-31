@@ -1,81 +1,113 @@
-.homeSubHeaderPicture {
-    height: 35%;
+.masterContainer {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
 }
 
-.formContainer {
-    height: 6%;
+header {
+    background: #285453;
+    width: 100%;
+    padding: 20px;
+    height: auto;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+}
+
+header .logo a {
+    font-size: 3em;
+    text-decoration: none;
+}
+
+header nav {
+    width: 40%;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+header nav a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 2em;
+
+    flex-grow: 1;
+}
+
+.carousel {
+    width: 100%;
+    height: 400px;
+    background-color: #59585B;
+
+    display: flex;
+    flex-flow: row wrap;
+
+}
+
+.searchSection {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
 }
 
 .searchDiv {
+    width: 50%;
     background-color: #3BC6D0;
-    height: 100%;
+    padding: 20px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 
 .searchInput {
-    margin-left: 5%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    height: 40%;
-    width: 45%;
-    display: inline-block;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    padding: 10px 20px;
+    width: 50%;
     border: 1px solid #B6EDEA;
-    -webkit-border-radius: 10px;
     border-radius: 10px;
     font-family: 'PT Sans', sans-serif;
     font-weight: normal;
+    font-size: 1.5em;
     color: #868684;
-    -o-text-overflow: clip;
-    text-overflow: clip;
     background: #B6EDEA;
-    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2) inset;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2) inset;
-    text-shadow: 0 0 0 rgba(255, 255, 255, 0.66);
-    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+
+
 }
 
-.searchButton {
-    margin-right: 5%;
-    margin-left: 5%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    height: 40%;
-    width: 30%;
-    display: inline-block;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    cursor: pointer;
-    padding: 10px 20px;
+.searchButton{
+    width: 40%;
     border: 1px solid #149AA9;
-    -webkit-border-radius: 10px;
     border-radius: 10px;
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.9);
-    -o-text-overflow: clip;
-    text-overflow: clip;
-    background: #149AA9;
-    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
-    text-shadow: 0 0 0 rgba(15, 73, 168, 0.66);
-    -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
-    -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
-    -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
-    transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    font-size: 2em;
+    line-height: 2em;
+    background-color: #149AA9;
+    color: white;
+    padding: 5px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
-.seacrhIcon {
-    margin-left: 1%;
+.seacrhIcon{
+    margin-left: 20%;
+    height: 1.5em;
+    width: 1em;
+    margin-top: 6px;
+
 }
 
-.makeRouteDiv {
+.routeDiv {
+    width: 50%;
     background-color: #D19637;
-    height: 100%;
 }

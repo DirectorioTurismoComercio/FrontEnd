@@ -61,7 +61,7 @@
                     templateUrl: 'templates/index.html',
                 })
                 .when('/home', {
-                    controller: '',
+                    controller: 'HomeController',
                     templateUrl: 'templates/home/home.html'
                 })
                 .when('/', {
