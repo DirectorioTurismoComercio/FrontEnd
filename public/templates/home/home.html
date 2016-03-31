@@ -4,25 +4,43 @@
             <a href="home.html">Cundinamarcapp</a>
         </div>
         <nav>
-            <a href="#/signin">¿Cómo funciona?</a>
-            <a href="#/personalData">Registro</a>
-            <a href="#/auth">Iniciar Sesión</a>
+            <a href="#/personalData">Regístrate</a>
+            <a href="#/auth">Inicia Sesión</a>
         </nav>
     </header>
     <div class="carousel"></div>
     <div class="searchSection">
-        <div class="searchDiv">
-            <input class="searchInput" type="text" placeholder="Busca por palabra clave">
+        <div class="searchDiv" ng-click="search()">
             <md-tooltip md-visible="demo.showTooltip" md-direction="bottom">
                 Acá va el tooltip
             </md-tooltip>
-            </input>
-            <button class="searchButton" ng-click="search()">Buscar
-                <img class="img_box seacrhIcon" src="./images/botones/Lupa.png">
-            </button>
+            <div class="labelContainer">
+                <p class="searchLabel">Busca</p>
+            </div>
+            <img class="img_box seacrhIcon" src="./images/botones/Lupa.png">
         </div>
         <div class="routeDiv">
-
+        </div>
+    </div>
+    <div class="searchMenu" ng-show="mostrar">
+        <div class="titleContainer">
+            <img class="img_box firstStepIcon" src="./images/botones/Lupa.png">
+            <p class="title">Busca por palabra clave</p>
+        </div>
+        <p class="subTitle">Nuestro buscador te ayudará a ubicar lo que necesitas</p>
+        <input class="searchInput" type="text">
+        <div class="divider"></div>
+        <div class="titleContainer">
+            <img class="img_box firstStepIcon" src="./images/botones/Lupa.png">
+            <p class="title">Selecciona el municipio</p>
+        </div>
+        <p class="subTitle">Selecciona el municipio de tu interés</p>
+        <md-select ng-model="ctrl.userState">
+            <md-option>
+            </md-option>
+        </md-select>
+        <div class="searchButtonContainer">
+            <button class="searchButton" ng-click="makeSearch()">Realizar búsqueda</button>
         </div>
     </div>
 </div>
