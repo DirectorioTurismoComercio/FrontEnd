@@ -3,11 +3,9 @@
 	.factory('ResultRetriever', ['$q','$timeout', 'SuggestionsFactory','SuggestedTagsFactory',
 		function($q,$timeout,SuggestionsFactory,SuggestedTagsFactory) {
 		  var ResultRetriever = new Object();
-
 		  ResultRetriever.getresults = function(token, suggestionsFactory) {
 		    var resultdata = $q.defer();
 		    var results;
-
 		      if(suggestionsFactory=="SuggestionsFactory")
 		      SuggestionsFactory.query({token: token}).$promise.
 		      then(

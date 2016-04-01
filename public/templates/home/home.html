@@ -15,7 +15,7 @@
         </a>
     </div>
     <div class="searchSection">
-        <div class="searchDiv" ng-click="search()">
+        <div class="searchDiv" ng-click="showSearchForm()">
             <md-tooltip md-visible="demo.showTooltip" md-direction="bottom">
                 Acá va el tooltip
             </md-tooltip>
@@ -34,6 +34,7 @@
         </div>
         <p class="subTitle">Nuestro buscador te ayudará a ubicar lo que necesitas</p>
         <input class="searchInput" type="text">
+        <autocomplete ng-model="result" attr-placeholder="digite sus necesidades..." click-activation="true" data="results" on-type="lookForSuggestions" on-select="doSearchBySuggestion"></autocomplete>
         <div class="divider"></div>
         <div class="titleContainer">
             <img class="img_box firstStepIcon" src="./images/botones/Lupa.png">
@@ -44,7 +45,7 @@
             <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">%%opcion.nombre%%</md-option>
         </md-select>
         <div class="searchButtonContainer">
-            <button class="searchButton" aria-label="Buscar" ng-click="makeSearch()">Realizar búsqueda</button>
+            <button class="searchButton" aria-label="Buscar" ng-click="doSearch(result)">Realizar búsqueda</button>
         </div>
     </div>
 </div>
