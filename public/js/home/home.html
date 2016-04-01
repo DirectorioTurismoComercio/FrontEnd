@@ -33,8 +33,7 @@
             <p class="title">Busca por palabra clave</p>
         </div>
         <p class="subTitle">Nuestro buscador te ayudará a ubicar lo que necesitas</p>
-        <input class="searchInput" type="text">
-        <autocomplete ng-model="result" attr-placeholder="digite sus necesidades..." click-activation="true" data="results" on-type="lookForSuggestions" on-select="doSearchBySuggestion"></autocomplete>
+        <autocomplete class="searchInput" ng-model="result" attr-placeholder="digite sus necesidades..." click-activation="true" data="results" on-type="lookForSuggestions" on-select="doSearchBySuggestion"></autocomplete>
         <div class="divider"></div>
         <div class="titleContainer">
             <img class="img_box firstStepIcon" src="./images/botones/Lupa.png">
