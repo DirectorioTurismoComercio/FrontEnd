@@ -60,10 +60,6 @@
                 .when('/index', {
                     templateUrl: 'templates/index.html',
                 })
-                .when('/home', {
-                    controller: 'HomeController',
-                    templateUrl: 'templates/home/home.html'
-                })
                 .when('/search', {
                     controller: 'SearchController',
                     templateUrl: 'js/search/search.html'
@@ -72,10 +68,10 @@
                     templateUrl: 'js/how_it_works/howitworks.html'
                 })
                 .when('/', {
-                    redirectTo: '/signin'
+                    redirectTo: '/home'
                 })
                 .otherwise({
-                    redirectTo: '/signin'
+                    redirectTo: '/home'
                 });
         });
 })();

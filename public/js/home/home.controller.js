@@ -1,8 +1,10 @@
 'use strict';
 
-angular.module('home',[])
+angular.module('home')
     .controller('HomeController', function ($scope, MunicipiosFactory, ResultRetriever, SearchForResultsFactory) {
         $scope.showExpandableContent=false;
+        $scope.results =null;
+        $scope.serverResults = [];
 
         $scope.showSearchForm=function(){
             console.log("hizo click en buscar");
@@ -16,11 +18,6 @@ angular.module('home',[])
         $scope.selectedTown = function(index){
             console.log("El municipio elegido fue", $scope.municipios[index].nombre);
         }
-
-
-
-        $scope.results =null;
-        $scope.serverResults = [];
 
         $scope.lookForSuggestions = function (typedthings) {
             $scope.newresults = ResultRetriever.getresults(typedthings, "SuggestionsFactory");
