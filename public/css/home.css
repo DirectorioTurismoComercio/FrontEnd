@@ -46,7 +46,25 @@ header nav a {
     background-color: #59585B;
 
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.carouselText{
+    color: white;
+    margin-left: 40%;
+}
+
+.howWorksButton{
+    width: 20%;
+    border: 1px solid #5FF0BF;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    background-color: #5FF0BF;
+    color: #285453;
+    padding: 5px;
+    margin-left: 40%;
 
 }
 

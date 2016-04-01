@@ -64,6 +64,9 @@
                     controller: 'HomeController',
                     templateUrl: 'templates/home/home.html'
                 })
+                .when('/howitworks', {
+                    templateUrl: 'js/how_it_works/howitworks.html'
+                })
                 .when('/', {
                     redirectTo: '/signin'
                 })
