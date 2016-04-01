@@ -1,6 +1,6 @@
 (function(){
 	angular.module('gemStore')
 	.factory('SearchForResultsFactory', ['$resource', 'Constantes',function($resource,Constantes) {
-		return $resource(Constantes.url+'/buscar',{token: '@token'});
+		return $resource(Constantes.url+'/buscar',{search: '@search'});
 	}]);
 })();

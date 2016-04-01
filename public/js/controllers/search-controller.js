@@ -23,9 +23,10 @@
     }
     $scope.search =  function (result)
     {
-      SearchForResultsFactory.query({token: result},
+      SearchForResultsFactory.query({search: result},
       function(data)
       {
+        console.log("RETORNO",data);
         $scope.serverResults=data;
       }
 
@@ -35,7 +36,7 @@
     }
 
     $scope.doSomethingElse = function(suggestion){
-      SearchForResultsFactory.query({token: suggestion},
+      SearchForResultsFactory.query({search: suggestion},
       function(data)
       {
         $scope.serverResults=data;
