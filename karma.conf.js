@@ -35,6 +35,8 @@ module.exports = function (config) {
             'test/specConstants.js',
             'public/js/map/map.js',
             'public/js/map/map.controller.js',
+            'public/js/home/home.js',
+            'public/js/home/home.controller.js',
             'public/js/**/*.js',
             'test/**/*Spec.js',
             'public/templates/directives/side-bar.html'

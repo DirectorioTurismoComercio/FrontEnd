@@ -3,7 +3,7 @@
 describe('Controller: HomeController', function () {
     var homeController, scope;
 
-    beforeEach(module('home'));
+    beforeEach(module('gemStore'));
 
     beforeEach(inject(function ($controller, $rootScope) {
         scope = $rootScope.$new();
@@ -13,6 +13,6 @@ describe('Controller: HomeController', function () {
     }));
 
     it('Search callback should exist', function () {
-        expect(scope.search).toBeDefined();
+        expect(scope.doSearch).toBeDefined();
     });
 });

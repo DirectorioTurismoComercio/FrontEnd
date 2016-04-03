@@ -43,9 +43,7 @@ angular.module('home')
                     $scope.serverResults = data;
                 }
             );
-        }
-
-
+        };
 
         MunicipiosFactory.query().$promise.then(function (response) {
             $scope.municipios = response;
