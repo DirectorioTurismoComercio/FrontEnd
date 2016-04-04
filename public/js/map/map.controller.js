@@ -60,26 +60,37 @@ angular.module('map')
         }
 
         function addAutocompleteFeature(input) {
-            var circleCundinamarca = new google.maps.Circle({
-                //fillColor: '#FF0055',
-                //fillOpacity: 0.35,
-                //map: $scope.map.control.getGMap(),
-                center: {
-                    lat: $scope.map.center.latitude,
-                    lng: $scope.map.center.longitude
-                },
-                radius: 137000
+            var at
+            var rectangleCundinamarca = new google.maps.Rectangle({
+                strokeColor: '#ff0000',
+                strokeOpacity: 0.01,
+                strokeWeight: 2,
+                fillColor: '#ff0000',
+                fillOpacity: 0.01,
+                map: $scope.map.control.getGMap(),
+                bounds: {
+                    north: 5.829687,
+                    south: 3.735986,
+                    east: -73.048008,
+                    west: -74.890964
+                }
             });
 
 
             var options = {
-                bounds: circleCundinamarca.getBounds(),
+                bounds: rectangleCundinamarca.getBounds(),
                 componentRestrictions: {
                     country: "co"
                 }
             };
 
-            return new google.maps.places.Autocomplete(input, options);
+            at = new google.maps.places.Autocomplete(input, options);
+            at.addListener('place_changed', function () {
+                console.log(at.getPlace().geometry.location.lat());
+            });
+
+
+            return at;
         }
 
         function setUserPosition(position) {
@@ -106,5 +117,13 @@ angular.module('map')
 
         function handleLocationError() {
             alert("No es posible obtener la ubicación");
+        }
+
+        $scope.clearRouteFrom = function () {
+            $scope.routeFrom = '';
+        }
+
+        $scope.clearRouteTo = function () {
+            $scope.routeTo = '';
         }
     });
