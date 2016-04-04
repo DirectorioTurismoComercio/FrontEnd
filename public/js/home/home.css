@@ -107,11 +107,82 @@ header nav a {
     height: 600px;
 
     display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
+    flex-flow: row wrap;
 
 }
 
+.StepIconContainer{
+    width: 6%;
+    height: 100px;
+
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#firstStepiconContainer{
+
+}
+
+.stepIcon{
+    height: 3em;
+    width: 1em;
+    margin-top: 20%;
+}
+
+.stepLabelsContanier{
+    width: 22%;
+    height: 100px;
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    background-color: #2b542c;
+
+}
+
+.stepTitle{
+    color: #2EAAA4;
+    font-size: 1.5em;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    margin-top: 5%;
+}
+
+.subTitle{
+    color: #285453;
+}
+
+.searchInputContainer{
+    width: 18%;
+    height: 100px;
+    margin-left: 2%;
+
+    display: flex;
+    flex-flow: column wrap;
+
+}
+
+.searchInput{
+    width: 100%;
+    border-radius: 10px;
+    font-family: 'PT Sans', sans-serif;
+    border: 1px solid #B6EDEA;
+    font-weight: normal;
+    font-size: 1.0em;
+    color: #868684;
+    background: #B6EDEA;
+    margin-top: 5%;
+}
+
+#secondStepIconContainer{
+    margin-left: 2%;
+    background-color: #00b3ee;
+}
+
+
+/*
 .titleContainer{
     width: 100%;
     padding: 20px;
@@ -120,10 +191,6 @@ header nav a {
     flex-flow: row wrap;
 }
 
-.firstStepIcon{
-    height: 3em;
-    width: 1em;
-}
 
 .title{
     color: #2EAAA4;
@@ -132,9 +199,7 @@ header nav a {
     font-weight: bold;
 }
 
-.subTitle{
-    color: #285453;
-}
+
 
 .searchInput{
     width: 50%;
@@ -183,7 +248,7 @@ header nav a {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-}
+}*/
 
 .routeDiv {
     width: 50%;

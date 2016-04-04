@@ -36,6 +36,11 @@ angular.module('home')
 
         MunicipiosFactory.query().$promise.then(function (response) {
             $scope.municipios = response;
+            $scope.municipios.push(
+                {
+                    id: -1,
+                    nombre: "Todo Cundinamarca"
+                });
         }).catch(function (error) {
             console.log("Ocurrio un error", error);
         });

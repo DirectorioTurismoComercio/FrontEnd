@@ -28,6 +28,26 @@
         </div>
     </div>
     <div class="searchMenu" ng-show="showExpandableContent">
+        <div class="StepIconContainer" id="firstStepiconContainer">
+            <img class="img_box stepIcon" src="./images/Home/1_busca.png">
+        </div>
+        <div class="stepLabelsContanier">
+            <p class="stepTitle">Busca por palabra Clave</p>
+            <p class="subTitle">Nuestro buscador te ayudará a ubicar lo que necesitas</p>
+        </div>
+        <div class="searchInputContainer">
+            <autocomplete class="searchInput" ng-model="result" attr-placeholder="¿Qué buscas?" click-activation="true" data="results" on-type="lookForSuggestions" on-select="doSearchBySuggestion"></autocomplete>
+        </div>
+        <div class="StepIconContainer" id="secondStepIconContainer">
+            <img class="img_box stepIcon" src="./images/Home/2_busca.png">
+        </div>
+        <div class="stepLabelsContanier">
+            <p class="stepTitle">Selecciona el municipio</p>
+        </div>
+
+
+        <!--
+
         <div class="titleContainer">
             <img class="img_box firstStepIcon" src="./images/botones/Lupa.png">
             <p class="title">Busca por palabra clave</p>
@@ -43,9 +63,18 @@
         <md-select ng-model="usuario.municipio_id" name="municipio_id" placeholder="Seleccione un Municipio" aria-label="municipios">
             <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">%%opcion.nombre%%</md-option>
         </md-select>
+
+
+        -->
         <div class="searchButtonContainer">
             <button class="searchButton" aria-label="Buscar" ng-click="doSearch(result)">Realizar búsqueda</button>
         </div>
+
+        <md-select ng-model="usuario.municipio_id" name="municipio_id" placeholder="Seleccione un Municipio" aria-label="municipios">
+            <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">%%opcion.nombre%%</md-option>
+        </md-select>
+
+
     </div>
 </div>
 
