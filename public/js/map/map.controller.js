@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('map')
-    .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady) {
+    .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory) {
         var MY_LOCATION = 'Mi Ubicación';
         var fromInput = document.getElementById('from');
         var toInput = document.getElementById('to');
@@ -48,6 +48,23 @@ angular.module('map')
             }
         }
 
+
+        function drawistes() {
+            var sites = SearchForResultsFactory.getResults();
+            var map = $scope.map.control.getGMap();
+            console.log()
+            for(var i=0; i<sites.length;i++){
+                var position={
+                    lat: parseFloat(sites[i].latitud),
+                    lng: parseFloat(sites[i].longitud)
+                };
+                addMarker(map,position);
+            }
+
+
+        }
+
+
         function initServices(GMapApi) {
             directionsDisplay = new GMapApi.DirectionsRenderer();
             directionsService = new GMapApi.DirectionsService();
@@ -57,6 +74,7 @@ angular.module('map')
             addAutocompleteFeature(fromInput);
             addAutocompleteFeature(toInput);
             directionsDisplay.setMap($scope.map.control.getGMap());
+            drawistes();
         }
 
         function addAutocompleteFeature(input) {
