@@ -9,6 +9,8 @@ angular.module('map')
         var directionsService;
         var userPosition = {};
 
+        $scope.routeFrom = '';
+        $scope.routeTo = '';
         $scope.map = {
             center: {
                 latitude: 4.6363623,
@@ -60,13 +62,13 @@ angular.module('map')
         }
 
         function addAutocompleteFeature(input) {
-            var at
+            var at;
             var rectangleCundinamarca = new google.maps.Rectangle({
                 strokeColor: '#ff0000',
-                strokeOpacity: 0.01,
+                strokeOpacity: 0.1,
                 strokeWeight: 2,
                 fillColor: '#ff0000',
-                fillOpacity: 0.01,
+                fillOpacity: 0.1,
                 map: $scope.map.control.getGMap(),
                 bounds: {
                     north: 5.829687,
@@ -86,7 +88,16 @@ angular.module('map')
 
             at = new google.maps.places.Autocomplete(input, options);
             at.addListener('place_changed', function () {
-                console.log(at.getPlace().geometry.location.lat());
+                var lat = at.getPlace().geometry.location.lat();
+                var lng = at.getPlace().geometry.location.lng();
+
+                var isInside = rectangleCundinamarca.getBounds().contains(new google.maps.LatLng(lat,lng));
+
+                if(!isInside){
+                    alert("El lugar seleccionado no esta disponible por el momento");
+                    console.log(at.getPlace());
+                    input.value = '';
+                }
             });
 
 
