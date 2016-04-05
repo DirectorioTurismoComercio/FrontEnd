@@ -51,7 +51,7 @@ angular.module('map')
         }
 
 
-        function drawistes() {
+        function drawSites() {
             var sites = SearchForResultsFactory.getResults();
             var map = $scope.map.control.getGMap();
             for(var i=0; i<sites.length;i++){
@@ -76,7 +76,7 @@ angular.module('map')
             addAutocompleteFeature(fromInput);
             addAutocompleteFeature(toInput);
             directionsDisplay.setMap($scope.map.control.getGMap());
-            drawistes();
+            drawSites();
         }
 
         function addAutocompleteFeature(input) {
