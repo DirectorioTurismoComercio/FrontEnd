@@ -1,14 +1,14 @@
 <div class="map-control">
     <div class="input-group">
-        <label for="from">Desde</label>
-        <input id="from" type="text" class="input-lg" ng-model="routeFrom" ng-click="clearRouteFrom()">
+        <label for="routeOrigin">Desde</label>
+        <input id="routeOrigin" type="text" class="input-lg" ng-model="routeOrigin" ng-click="clearRouteOrigin()">
         <button class="btn btn-default" aria-label="Left Align" ng-click="goToUserPosition()">
             <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
         </button>
     </div>
     <div class="input-group">
-        <label for="to">Hasta</label>
-        <input id="to" type="text" class="input-lg" ng-model="routeTo" ng-click="clearRouteTo()">
+        <label for="routeDestination">Hasta</label>
+        <input id="routeDestination" type="text" class="input-lg" ng-model="routeDestination" ng-click="clearRouteDestination()">
     </div>
     <button class="btn btn-primary" ng-click="calculateRoute()">Calcular ruta</button>
 </div>

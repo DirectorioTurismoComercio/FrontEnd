@@ -4,14 +4,14 @@ angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
                                            SearchForResultsFactory, MapService) {
         var MY_LOCATION = 'Mi Ubicación';
-        var routeOriginInput = document.getElementById('from');
-        var routeDestinationInput = document.getElementById('to');
+        var routeOriginInput = document.getElementById('routeOrigin');
+        var routeDestinationInput = document.getElementById('routeDestination');
         var directionsDisplay;
         var directionsService;
         var userPosition = {};
 
-        $scope.routeFrom = '';
-        $scope.routeTo = '';
+        $scope.routeOrigin = '';
+        $scope.routeDestination = '';
         $scope.map = {
             center: {
                 latitude: 4.6363623,
@@ -30,7 +30,6 @@ angular.module('map')
             var origin = routeOriginInput.value == MY_LOCATION ? userCoords : routeOriginInput.value;
             var destination = routeDestinationInput.value;
 
-
             MapService.calulateRoute(origin, destination, directionsService, directionsDisplay);
         }
 
@@ -38,6 +37,13 @@ angular.module('map')
             MapService.getUserPosition(setUserPositionAsRouteOrigin, handleLocationError);
         }
 
+        $scope.clearRouteOrigin = function () {
+            $scope.routeOrigin = '';
+        }
+
+        $scope.clearRouteDestination = function () {
+            $scope.routeDestination = '';
+        }
 
         function showPlacesFound() {
             var sites = SearchForResultsFactory.getResults();
@@ -79,7 +85,7 @@ angular.module('map')
 
         function setUserPositionAsRouteOrigin(position) {
             var map = $scope.map.control.getGMap();
-            $scope.routeFrom = MY_LOCATION;
+            $scope.routeOrigin = MY_LOCATION;
             userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
 
             MapService.addMarker(map, userPosition)
@@ -90,13 +96,4 @@ angular.module('map')
         function handleLocationError() {
             alert("No es posible obtener la ubicación");
         }
-
-        $scope.clearRouteFrom = function () {
-            $scope.routeFrom = '';
-        }
-
-        $scope.clearRouteTo = function () {
-            $scope.routeTo = '';
-        }
-    })
-;
+    });
