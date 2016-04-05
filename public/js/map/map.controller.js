@@ -55,15 +55,12 @@ angular.module('map')
             var sites = SearchForResultsFactory.getResults();
             var map = $scope.map.control.getGMap();
             for(var i=0; i<sites.length;i++){
-
                 var position={
                     lat: parseFloat(sites[i].latitud),
                     lng: parseFloat(sites[i].longitud)
                 };
                 addMarker(map,position);
             }
-
-
         }
 
 

@@ -1,10 +1,21 @@
 'use strict';
 
 angular.module('home')
-    .controller('HomeController', function ($scope, MunicipiosFactory, ResultRetriever, SearchForResultsFactory, $location) {
+    .controller('HomeController', function ($scope, MunicipiosFactory, ResultRetriever, SearchForResultsFactory, $location, $mdDialog) {
         $scope.showExpandableContent = false;
         $scope.results = null;
         $scope.serverResults = [];
+
+        MunicipiosFactory.query().$promise.then(function (response) {
+            $scope.municipios = response;
+            $scope.municipios.push(
+                {
+                    id: -1,
+                    nombre: "Todo Cundinamarca"
+                });
+        }).catch(function (error) {
+            console.log("Ocurrio un error", error);
+        });
 
         $scope.showSearchForm = function () {
             console.log("hizo click en buscar");
@@ -25,22 +36,28 @@ angular.module('home')
         }
 
         $scope.doSearch = function (result) {
-            SearchForResultsFactory.doSearch(result).then(function(response){
-                $location.path('/map');
-            }).catch(function(error){
+            SearchForResultsFactory.doSearch(result).then(function (response) {
+                if (response.length > 0) {
+                    $location.path('/map');
+                } else {
+                    showEmptyResultMessage("No se han encontrado resultados");
+                }
+            }).catch(function (error) {
                 console.log("ocurrio un error", error);
             });
         }
 
+        function showEmptyResultMessage(message) {
+            $mdDialog.show(
+                $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#alertPop')))
+                    .clickOutsideToClose(true)
+                    .title('Error')
+                    .content(message)
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('Aceptar')
+                    .targetEvent('$event')
+            );
+        }
 
-        MunicipiosFactory.query().$promise.then(function (response) {
-            $scope.municipios = response;
-            $scope.municipios.push(
-                {
-                    id: -1,
-                    nombre: "Todo Cundinamarca"
-                });
-        }).catch(function (error) {
-            console.log("Ocurrio un error", error);
-        });
     });
