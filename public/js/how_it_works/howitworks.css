@@ -1,6 +1,11 @@
 .desktopLayout{
     display: flex;
 }
+
+.mobileLayout{
+    display: none;
+}
+
 .masterContainer {
     width: 100%;
     height: auto;
@@ -81,4 +86,58 @@
     height: auto;
     margin-left: 8%;
 
+}
+
+
+@media screen and (max-width: 1000px) {
+    .desktopLayout{
+        display: none;
+    }
+
+    .mobileLayout{
+        display: flex;
+    }
+
+    .linksContainerMobile{
+        width: 100%;
+        height: auto;
+        margin-top: 5%;
+
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-around;
+    }
+
+    .sectionMobile{
+        width:100%;
+        height: auto;
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .titleMobile{
+        width: 75%;
+        height: auto;
+        margin-left: 10%;
+        margin-right: 15%;
+
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .descriptionMobile{
+        width:70%;
+        height: auto;
+        margin: 2% 15% 2% 15%;
+
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .stepsDivider{
+        width: 90%;
+        height: 2px;
+        margin-bottom: 2%;
+        background-color: #5FF0BF;
+    }
 }
