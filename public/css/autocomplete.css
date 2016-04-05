@@ -6,7 +6,7 @@
 }
 
 .autocomplete input{
-  width: 50%;
+  width: 100%;
   border-radius: 10px;
   font-family: 'PT Sans', sans-serif;
   border: 1px solid #B6EDEA;

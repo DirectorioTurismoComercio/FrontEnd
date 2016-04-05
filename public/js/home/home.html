@@ -16,13 +16,10 @@
     </div>
     <div class="searchSection">
         <div class="searchDiv" ng-click="showSearchForm()">
-            <md-tooltip md-visible="demo.showTooltip" md-direction="bottom">
-                Acá va el tooltip
-            </md-tooltip>
             <div class="labelContainer">
                 <p class="searchLabel">Busca</p>
             </div>
-            <img class="img_box seacrhIcon" src="./images/botones/Lupa.png">
+            <img class="img_box searchIcon" src="./images/botones/Lupa.png">
         </div>
         <div class="routeDiv">
         </div>
@@ -85,7 +82,7 @@
                     </div>
                 </div>
                 <div class="inputBoxMobile">
-                    <md-select ng-model="usuario.municipio_id" name="municipio_id" placeholder="Seleccione un Municipio"
+                    <md-select class="dropDownTowns" ng-model="usuario.municipio_id" name="municipio_id" placeholder="Seleccione un Municipio"
                                aria-label="municipios">
                         <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">
                             %%opcion.nombre%%

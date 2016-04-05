@@ -100,7 +100,7 @@ p{
     border-bottom: 5px solid #5FF0BF;
 }
 
-.seacrhIcon{
+.searchIcon{
     height: 3em;
     width: 1em;
     margin-left: 2%;
@@ -188,7 +188,10 @@ p{
 }
 
 .dropDownTowns{
-    width: 100%;
+    width: 82%;
+    padding: 0%;
+    margin-bottom: 10%;
+    height: 1%;
     border-radius: 10px;
     border: 1px solid #B6EDEA;
     background: #B6EDEA;
@@ -268,7 +271,7 @@ p{
         width: 10%;
 
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column wrap;
         justify-content: center;
     }
 
@@ -298,5 +301,8 @@ p{
         height: 2px;
         background-color: #5FF0BF;
     }
+}
 
+@media screen and (max-width: 500px) {
+  
 }
