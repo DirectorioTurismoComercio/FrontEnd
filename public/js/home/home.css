@@ -41,6 +41,10 @@ header nav a {
     flex-grow: 1;
 }
 
+p{
+    text-align: left;
+}
+
 .carousel {
     width: 100%;
     height: 400px;
@@ -110,6 +114,14 @@ header nav a {
     display: flex;
     flex-flow: row wrap;
 
+}
+
+.desktopLayout{
+    display: flex;
+}
+
+.mobile{
+    display: none;
 }
 
 .StepIconContainer{
@@ -215,4 +227,76 @@ header nav a {
 .routeDiv {
     width: 50%;
     background-color: #D19637;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    .desktopLayout{
+        display: none;
+    }
+
+    .mobile{
+        display: flex;
+    }
+
+    .stepsContainerMobile{
+        width: 100%;
+        margin-top: 5%;
+        height: auto;
+        flex-flow: column wrap;
+    }
+
+    .stepContainerMobile{
+        width: 80%;
+        height: auto;
+        margin-left: 5%;
+        margin-right: 15%;
+
+        display: flex;
+        flex-flow: column wrap;
+
+    }
+
+    .imageAndTextMobileContainer{
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .imageContainerMobile{
+        width: 10%;
+
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .textContainerMobile{
+        width: 90%;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+
+    .inputBoxMobile{
+        width: 30%;
+        margin-left: 10%;
+
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .searchInput{
+        font-size: 0.9em;
+    }
+
+
+    .stepsDivider{
+        width: 90%;
+        margin: 2% 5% 3% 5%;
+        height: 2px;
+        background-color: #5FF0BF;
+    }
+
 }

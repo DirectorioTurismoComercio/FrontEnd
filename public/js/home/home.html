@@ -28,34 +28,77 @@
         </div>
     </div>
     <div class="searchMenu" ng-show="showExpandableContent">
-        <div class="StepIconContainer">
+        <div class="StepIconContainer desktopLayout">
             <img class="img_box stepIcon" src="./images/Home/1_busca.png">
         </div>
-        <div class="stepLabelsContanier">
+        <div class="stepLabelsContanier desktopLayout">
             <p class="stepTitle">Busca por palabra Clave</p>
             <p class="subTitle">Nuestro buscador te ayudará a ubicar lo que necesitas</p>
         </div>
-        <div class="searchInputContainer">
-            <autocomplete class="searchInput" ng-model="result" attr-placeholder="¿Qué buscas?" click-activation="true" data="results" on-type="lookForSuggestions" on-select="doSearchBySuggestion"></autocomplete>
+        <div class="searchInputContainer desktopLayout">
+            <autocomplete class="searchInput" ng-model="result" attr-placeholder="¿Qué buscas?" click-activation="true"
+                          data="results" on-type="lookForSuggestions" on-select="doSearchBySuggestion"></autocomplete>
         </div>
-        <div class="StepIconContainer" id="secondStepIconContainer">
+        <div class="StepIconContainer desktopLayout" id="secondStepIconContainer">
             <img class="img_box stepIcon" src="./images/Home/2_busca.png">
         </div>
-        <div class="stepLabelsContanier">
+        <div class="stepLabelsContanier desktopLayout">
             <p class="stepTitle">Selecciona el municipio</p>
             <p class="subTitle">Selecciona el municipio de tu interés</p>
         </div>
-        <div class="searchInputContainer">
-            <md-select  ng-model="usuario.municipio_id" name="municipio_id" placeholder="Seleccione un Municipio" aria-label="municipios">
-                <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">%%opcion.nombre%%</md-option>
+        <div class="searchInputContainer desktopLayout">
+            <md-select ng-model="usuario.municipio_id" name="municipio_id" placeholder="Seleccione un Municipio"
+                       aria-label="municipios">
+                <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">
+                    %%opcion.nombre%%
+                </md-option>
             </md-select>
         </div>
+
+
+
+        <div class="stepsContainerMobile mobile">
+            <div class="stepContainerMobile">
+                <div class="imageAndTextMobileContainer">
+                    <div class="imageContainerMobile">
+                        <img class="img_box stepIcon" src="./images/Home/1_busca.png">
+                    </div>
+                    <div class="textContainerMobile">
+                        <p class="stepTitle">Busca por palabra Clave</p>
+                        <p class="subTitle">Nuestro buscador te ayudará a ubicar lo que necesitas</p>
+                    </div>
+                </div>
+                <div class="inputBoxMobile">
+                    <autocomplete class="searchInput" ng-model="result" attr-placeholder="¿Qué buscas?" click-activation="true"
+                                  data="results" on-type="lookForSuggestions" on-select="doSearchBySuggestion"></autocomplete>
+                </div>
+            </div>
+            <div class="stepsDivider"></div>
+            <div class="stepContainerMobile">
+                <div class="imageAndTextMobileContainer">
+                    <div class="imageContainerMobile">
+                        <img class="img_box stepIcon" src="./images/Home/2_busca.png">
+                    </div>
+                    <div class="textContainerMobile">
+                        <p class="stepTitle">Selecciona el municipio</p>
+                        <p class="subTitle">Selecciona el municipio de tu interés</p>
+                    </div>
+                </div>
+                <div class="inputBoxMobile">
+                    <md-select ng-model="usuario.municipio_id" name="municipio_id" placeholder="Seleccione un Municipio"
+                               aria-label="municipios">
+                        <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">
+                            %%opcion.nombre%%
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+        </div>
+
+
         <div class="searchButtonContainer">
             <button class="searchButton" aria-label="Buscar" ng-click="doSearch(result)">Realizar búsqueda</button>
         </div>
-
-
-
     </div>
 </div>
 
