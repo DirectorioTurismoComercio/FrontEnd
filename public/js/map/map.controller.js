@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('map')
-    .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory) {
+    .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
+                                           SearchForResultsFactory, MapService) {
         var MY_LOCATION = 'Mi Ubicación';
-        var fromInput = document.getElementById('from');
-        var toInput = document.getElementById('to');
+        var routeOriginInput = document.getElementById('from');
+        var routeDestinationInput = document.getElementById('to');
         var directionsDisplay;
         var directionsService;
         var userPosition = {};
@@ -25,44 +26,31 @@ angular.module('map')
         uiGmapIsReady.promise().then(initMap);
 
         $scope.calculateRoute = function () {
-            var routeData = {
-                origin: fromInput.value,
-                destination: toInput.value,
-                travelMode: google.maps.TravelMode.DRIVING
-            };
+            var userCoords = userPosition.lat + "," + userPosition.lng;
+            var origin = routeOriginInput.value == MY_LOCATION ? userCoords : routeOriginInput.value;
+            var destination = routeDestinationInput.value;
 
-            if (fromInput.value == MY_LOCATION) {
-                routeData.origin = userPosition.lat + "," + userPosition.lng;
-            }
 
-            directionsService.route(routeData, function (result, status) {
-                if (status == google.maps.DirectionsStatus.OK) {
-                    directionsDisplay.setDirections(result);
-                }
-            });
+            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay);
         }
 
         $scope.goToUserPosition = function () {
-            var geolocation = $window.navigator.geolocation;
-
-            if (geolocation) {
-                geolocation.getCurrentPosition(setUserPosition, handleLocationError);
-            }
+            MapService.getUserPosition(setUserPositionAsRouteOrigin, handleLocationError);
         }
 
 
-        function drawSites() {
+        function showPlacesFound() {
             var sites = SearchForResultsFactory.getResults();
             var map = $scope.map.control.getGMap();
-            for(var i=0; i<sites.length;i++){
-                var position={
-                    lat: parseFloat(sites[i].latitud),
-                    lng: parseFloat(sites[i].longitud)
-                };
-                addMarker(map,position);
+
+            if (sites != undefined) {
+                for (var i = 0; i < sites.length; i++) {
+                    var site = sites[i];
+                    var position = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
+                    MapService.addMarker(map, position);
+                }
             }
         }
-
 
         function initServices(GMapApi) {
             directionsDisplay = new GMapApi.DirectionsRenderer();
@@ -70,75 +58,33 @@ angular.module('map')
         }
 
         function initMap() {
-            addAutocompleteFeature(fromInput);
-            addAutocompleteFeature(toInput);
+            var routeFromAutocomplete = MapService.addAutocompleteFeature(routeOriginInput);
+            var routeToAutocomplete = MapService.addAutocompleteFeature(routeDestinationInput);
+
+            MapService.addPlaceChangedListener(routeFromAutocomplete, routeOriginInput, checkAllowedPlace)
+            MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
             directionsDisplay.setMap($scope.map.control.getGMap());
-            drawSites();
+            showPlacesFound();
         }
 
-        function addAutocompleteFeature(input) {
-            var at;
-            var rectangleCundinamarca = new google.maps.Rectangle({
-                strokeColor: '#ff0000',
-                strokeOpacity: 0.1,
-                strokeWeight: 2,
-                fillColor: '#ff0000',
-                fillOpacity: 0.1,
-                map: $scope.map.control.getGMap(),
-                bounds: {
-                    north: 5.829687,
-                    south: 3.735986,
-                    east: -73.048008,
-                    west: -74.890964
-                }
-            });
+        function checkAllowedPlace(autocomplete, inputBox) {
+            var latitude = autocomplete.getPlace().geometry.location.lat();
+            var longitude = autocomplete.getPlace().geometry.location.lng();
 
-
-            var options = {
-                bounds: rectangleCundinamarca.getBounds(),
-                componentRestrictions: {
-                    country: "co"
-                }
-            };
-
-            at = new google.maps.places.Autocomplete(input, options);
-            at.addListener('place_changed', function () {
-                var lat = at.getPlace().geometry.location.lat();
-                var lng = at.getPlace().geometry.location.lng();
-
-                var isInside = rectangleCundinamarca.getBounds().contains(new google.maps.LatLng(lat,lng));
-
-                if(!isInside){
-                    alert("El lugar seleccionado no esta disponible por el momento");
-                    console.log(at.getPlace());
-                    input.value = '';
-                }
-            });
-
-
-            return at;
+            if (!MapService.isPlaceInCundinamarca(latitude, longitude)) {
+                alert("El lugar seleccionado no esta disponible por el momento");
+                inputBox.value = '';
+            }
         }
 
-        function setUserPosition(position) {
+        function setUserPositionAsRouteOrigin(position) {
             var map = $scope.map.control.getGMap();
+            $scope.routeFrom = MY_LOCATION;
+            userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
 
-            userPosition = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            fromInput.value = MY_LOCATION;
-
-            addMarker(map, userPosition)
+            MapService.addMarker(map, userPosition)
             map.setCenter(userPosition);
             map.setZoom(15);
-        }
-
-        function addMarker(map, position) {
-            return new google.maps.Marker({
-                position: position,
-                map: map
-            });
         }
 
         function handleLocationError() {
@@ -152,4 +98,5 @@ angular.module('map')
         $scope.clearRouteTo = function () {
             $scope.routeTo = '';
         }
-    });
+    })
+;
