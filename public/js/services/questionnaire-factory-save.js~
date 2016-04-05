@@ -1,0 +1,8 @@
+
+angular.module('gemStore')
+.factory('QuestionnaireFactorySave', ['$resource','Constantes',
+	function($resource, Constantes){
+		return $resource(Constantes.url+'/cuestionarios/guardar'
+		);
+	}
+]);

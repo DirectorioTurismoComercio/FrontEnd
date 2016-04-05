@@ -1,0 +1,13 @@
+angular.module('gemStore')
+.controller('QuestionnaireSummaryController',['$scope', '$location' , '$routeParams', 'questionnaireService','QuestionnaireSave',
+  function($scope,$location, $routeParams,questionnaireService,QuestionnaireSave){
+  $scope.questionnaires = questionnaireService.getQuestionnaires();
+  QuestionnaireSave.save($scope.questionnaires);	
+  	$scope.back = function()
+  	{
+  		$location.path('questionnaires');
+  	}
+
+
+
+}]);

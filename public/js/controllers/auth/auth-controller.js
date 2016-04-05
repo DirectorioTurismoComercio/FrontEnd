@@ -23,6 +23,7 @@
                     $scope.load = true;
                     authenticationService.login({email: $scope.login.email, password: $scope.login.contrasena})
                         .then(function () {
+                            console.log(autenticacionService);
                             autenticacionService.setInfo(authenticationService.getUser().token);
                             UserByToken.us(autenticacionService.getInfo()).query().$promise.then(function (usuario) {
                                 autenticacionService.setUser(usuario);
@@ -42,7 +43,7 @@
                 }
 
                 $scope.authenticate = function(provider) {
-                    console.log('se entra a satellizer');
+                    console.log('se entra a satellizer!!!!');
                     $auth.authenticate(provider);
                 };
 
