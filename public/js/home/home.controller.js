@@ -27,7 +27,6 @@ angular.module('home')
         $scope.doSearch = function (result) {
             SearchForResultsFactory.doSearch(result).then(function(response){
                 $location.path('/map');
-                console.log("Los resultados en el controlador home son", SearchForResultsFactory.getResults());
             }).catch(function(error){
                 console.log("ocurrio un error", error);
             });
