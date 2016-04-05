@@ -44,7 +44,7 @@
             <p class="subTitle">Selecciona el municipio de tu interés</p>
         </div>
         <div class="searchInputContainer desktopLayout">
-            <md-select ng-model="usuario.municipio_id" name="municipio_id" placeholder="Seleccione un Municipio"
+            <md-select ng-model="usuario.municipio_id" name="municipio_id" placeholder="Todo Cundinamarca"
                        aria-label="municipios">
                 <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">
                     %%opcion.nombre%%
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="inputBoxMobile">
-                    <md-select class="dropDownTowns" ng-model="usuario.municipio_id" name="municipio_id" placeholder="Seleccione un Municipio"
+                    <md-select class="dropDownTowns" ng-model="usuario.municipio_id" name="municipio_id" placeholder="Todo Cundinamarca"
                                aria-label="municipios">
                         <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">
                             %%opcion.nombre%%
