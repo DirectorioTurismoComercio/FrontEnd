@@ -14,10 +14,13 @@ angular.module('home')
         });
 
         $scope.showSearchForm = function () {
+            $scope.isRouteFormVisible=false;
             $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
+
         }
 
         $scope.showRouteForm = function(){
+            $scope.isSearchFormVisible=false;
             $scope.isRouteFormVisible=!$scope.isRouteFormVisible;
         }
 
