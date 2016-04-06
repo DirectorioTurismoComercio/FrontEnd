@@ -145,7 +145,7 @@ p{
 
 .stepIcon{
     height: 3em;
-    width: 1em;
+    width: 3em;
     margin-left: 10%;
 }
 
@@ -313,6 +313,35 @@ p{
         margin: 2% 5% 3% 5%;
         height: 2px;
         background-color: #5FF0BF;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .stepIcon{
+        height: 2.5em;
+        width: 2.5em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .stepIcon{
+        height: 2.0em;
+        width: 2.0em;
+    }
+
+    .inputBoxMobile{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .stepIcon{
+        height: 1.8em;
+        width: 1.8em;
+    }
+
+    .inputBoxMobile{
+        width: 80%;
     }
 }
 
