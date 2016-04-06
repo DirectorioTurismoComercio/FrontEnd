@@ -1,7 +1,7 @@
 (function () {
     angular.module('gemStore', ['ngRoute', 'ngResource', 'ngAnimate', 'ngMaterial',
             'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies',
-            'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home'])
+            'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home', 'businessBrowser'])
         .config(function ($interpolateProvider, API_CONFIG, $authProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');

@@ -1,0 +1,16 @@
+.browser-Input-Field{
+    width: 100%;
+    border-radius: 10px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+    font-size: 1.0em;
+    color: #868684;
+    background: #B6EDEA;
+    margin-top: 5%;
+}
+
+@media screen and (max-width: 1000px) {
+    .browser-Input-Field{
+        font-size: 0.9em;
+    }
+}

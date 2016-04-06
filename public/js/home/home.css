@@ -195,18 +195,6 @@ p{
     flex-flow: column wrap;
 }
 
-.searchInput{
-    width: 100%;
-    border-radius: 10px;
-    font-family: 'PT Sans', sans-serif;
-    border: 1px solid #B6EDEA;
-    font-weight: normal;
-    font-size: 1.0em;
-    color: #868684;
-    background: #B6EDEA;
-    margin-top: 5%;
-}
-
 .dropDownTowns{
     width: 82%;
     padding: 0%;
@@ -328,11 +316,6 @@ p{
         display: flex;
         flex-flow: row wrap;
     }
-
-    .searchInput{
-        font-size: 0.9em;
-    }
-
 
     .stepsDivider{
         width: 90%;

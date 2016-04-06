@@ -28,15 +28,6 @@ angular.module('home')
             console.log("El municipio elegido fue", $scope.municipios[index].nombre);
         }
 
-        $scope.lookForSuggestions = function (typedthings) {
-            $scope.newresults = ResultRetriever.getresults(typedthings, "SuggestionsFactory");
-            $scope.newresults.then(function (data) {
-                $scope.results = data;
-            }).catch(function (error) {
-                console.log("ocurrio un error", error);
-            });
-        }
-
         $scope.doSearch = function (result) {
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 if (response.length > 0) {
