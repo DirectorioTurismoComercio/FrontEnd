@@ -97,7 +97,14 @@ p{
     font-weight: normal;
     text-align: center;
     color: white;
+}
+
+.searchLabelUnderline{
     border-bottom: 5px solid #5FF0BF;
+}
+
+.labelNotUnderline{
+    border-bottom: none;
 }
 
 .searchIcon{
@@ -243,6 +250,18 @@ p{
 .routeDiv {
     width: 50%;
     background-color: #D19637;
+}
+
+.routeLabelContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.routeLabelUnderline{
+    border-bottom: 5px solid #ffc520;
 }
 
 .routeMenu{
