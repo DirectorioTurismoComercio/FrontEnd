@@ -2,7 +2,8 @@
 
 angular.module('home')
     .controller('HomeController', function ($scope, MunicipiosFactory, ResultRetriever, SearchForResultsFactory, $location, $mdDialog) {
-        $scope.showExpandableContent = false;
+        $scope.isSearchFormVisible = false;
+        $scope.isRouteFormVisible =false;
         $scope.results = null;
         $scope.serverResults = [];
 
@@ -13,8 +14,11 @@ angular.module('home')
         });
 
         $scope.showSearchForm = function () {
-            console.log("hizo click en buscar");
-            $scope.showExpandableContent = !$scope.showExpandableContent;
+            $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
+        }
+
+        $scope.showRouteForm = function(){
+            $scope.isRouteFormVisible=!$scope.isRouteFormVisible;
         }
 
         $scope.selectedTown = function (index) {

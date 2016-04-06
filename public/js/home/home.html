@@ -21,10 +21,10 @@
             </div>
             <img class="img_box searchIcon" src="./images/botones/Lupa.png">
         </div>
-        <div class="routeDiv">
+        <div class="routeDiv" ng-click="showRouteForm()">
         </div>
     </div>
-    <div class="searchMenu" ng-show="showExpandableContent">
+    <div class="searchMenu" ng-show="isSearchFormVisible">
 
         <div class="stepsContainerDesktop desktopLayout" >
             <div class="stepIconContainer">
@@ -106,5 +106,12 @@
             <button class="searchButton" aria-label="Buscar" ng-click="doSearch(result)">Realizar búsqueda</button>
         </div>
     </div>
+
+
+    <div class="routeMenu" ng-show="isRouteFormVisible">
+
+    </div>
+
+
 </div>
 
