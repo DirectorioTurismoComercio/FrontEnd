@@ -1,17 +1,11 @@
 'use strict';
 
 angular.module('home')
-    .controller('HomeController', function ($scope, MunicipiosFactory, ResultRetriever, SearchForResultsFactory, $location, $mdDialog) {
+    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog) {
         $scope.isSearchFormVisible = false;
         $scope.isRouteFormVisible =false;
         $scope.results = null;
         $scope.serverResults = [];
-
-        MunicipiosFactory.query().$promise.then(function (response) {
-            $scope.municipios = response;
-        }).catch(function (error) {
-            console.log("Ocurrio un error", error);
-        });
 
         $scope.showSearchForm = function () {
             $scope.isRouteFormVisible=false;
@@ -22,10 +16,6 @@ angular.module('home')
         $scope.showRouteForm = function(){
             $scope.isSearchFormVisible=false;
             $scope.isRouteFormVisible=!$scope.isRouteFormVisible;
-        }
-
-        $scope.selectedTown = function (index) {
-            console.log("El municipio elegido fue", $scope.municipios[index].nombre);
         }
 
         $scope.doSearch = function (result) {

@@ -1,0 +1,6 @@
+<md-select class="dropDownTowns" ng-model="usuario.municipio_id" name="municipio_id" placeholder="Todo Cundinamarca"
+           aria-label="municipios">
+    <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">
+        %%opcion.nombre%%
+    </md-option>
+</md-select>
