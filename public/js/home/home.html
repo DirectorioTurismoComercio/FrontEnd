@@ -25,34 +25,43 @@
         </div>
     </div>
     <div class="searchMenu" ng-show="showExpandableContent">
-        <div class="StepIconContainer desktopLayout">
-            <img class="img_box stepIcon" src="./images/Home/1_busca.png">
-        </div>
-        <div class="stepLabelsContanier desktopLayout">
-            <p class="stepTitle">Busca por palabra Clave</p>
-            <p class="subTitle">Nuestro buscador te ayudará a ubicar lo que necesitas</p>
-        </div>
-        <div class="searchInputContainer desktopLayout">
-            <autocomplete class="searchInput" ng-model="result" attr-placeholder="¿Qué buscas?" click-activation="true"
-                          data="results" on-type="lookForSuggestions" on-select="doSearchBySuggestion"></autocomplete>
-        </div>
-        <div class="StepIconContainer desktopLayout" id="secondStepIconContainer">
-            <img class="img_box stepIcon" src="./images/Home/2_busca.png">
-        </div>
-        <div class="stepLabelsContanier desktopLayout">
-            <p class="stepTitle">Selecciona el municipio</p>
-            <p class="subTitle">Selecciona el municipio de tu interés</p>
-        </div>
-        <div class="searchInputContainer desktopLayout">
-            <md-select ng-model="usuario.municipio_id" name="municipio_id" placeholder="Todo Cundinamarca"
-                       aria-label="municipios">
-                <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">
-                    %%opcion.nombre%%
-                </md-option>
-            </md-select>
-        </div>
 
-
+        <div class="stepsContainerDesktop desktopLayout" >
+            <div class="stepIconContainer">
+                <img class="img_box stepIcon" src="./images/Home/1_busca.png">
+            </div>
+            <div class="textContainer">
+                <div class="titleContainer">
+                    <p class="stepTitle">Busca por palabra Clave</p>
+                </div>
+                <div class="titleContainer">
+                    <p class="subTitle">Nuestro buscador te ayudará a ubicar lo que necesitas</p>
+                </div>
+            </div>
+            <div class="inputContainer">
+                <autocomplete class="searchInput" ng-model="result" attr-placeholder="¿Qué buscas?" click-activation="true"
+                              data="results" on-type="lookForSuggestions" on-select="doSearchBySuggestion"></autocomplete>
+            </div>
+            <div class="stepIconContainer">
+                <img class="img_box stepIcon" src="./images/Home/2_busca.png">
+            </div>
+            <div class="textContainer">
+                <div class="titleContainer">
+                    <p class="stepTitle">Selecciona el municipio</p>
+                </div>
+                <div class="titleContainer">
+                    <p class="subTitle">Selecciona el municipio de tu interés</p>
+                </div>
+            </div>
+            <div class="inputContainer">
+                <md-select class="dropDownTowns" ng-model="usuario.municipio_id" name="municipio_id" placeholder="Todo Cundinamarca"
+                           aria-label="municipios">
+                    <md-option ng-repeat="opcion in municipios" value="%%opcion.id%%" ng-click="selectedTown($index)">
+                        %%opcion.nombre%%
+                    </md-option>
+                </md-select>
+            </div>
+        </div>
 
         <div class="stepsContainerMobile mobile">
             <div class="stepContainerMobile">
