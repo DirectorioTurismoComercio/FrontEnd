@@ -1,13 +1,7 @@
 'use strict';
 
 angular.module('map')
-    .service('MapService', function ($window) {
-        var boundsCundinamarca = {
-            north: 5.829687,
-            south: 3.735986,
-            east: -73.048008,
-            west: -74.890964
-        };
+    .service('MapService', function ($window, CUNDINAMARCA_COORDS) {
 
         function calulateRoute(origin, destination, directionsService, directionsDisplay) {
             var routeData = {
@@ -32,11 +26,8 @@ angular.module('map')
         }
 
         function addAutocompleteFeature(inputBox) {
-            var rectangleCundinamarca = new google.maps.Rectangle({
-                bounds: boundsCundinamarca
-            });
             var options = {
-                bounds: rectangleCundinamarca.getBounds(),
+                bounds: calculatePolygonBounds(),
                 componentRestrictions: {
                     country: "co"
                 }
@@ -52,14 +43,10 @@ angular.module('map')
         }
 
         function isPlaceInCundinamarca(latitude, longitude) {
-            var rectangleCundinamarca = new google.maps.Rectangle({
-                bounds: boundsCundinamarca
-            });
             var coords = new google.maps.LatLng(latitude, longitude);
-            var isPlaceInCundinamarca = rectangleCundinamarca.getBounds()
-                .contains(coords);
+            var cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
 
-            return isPlaceInCundinamarca;
+            return google.maps.geometry.poly.containsLocation(coords, cundinamarcaPolygon);
         }
 
         function addMarker(map, position) {
@@ -69,12 +56,23 @@ angular.module('map')
             });
         }
 
-
         function coordsToLatLng(latitude, longitude) {
             return {
                 lat: latitude,
                 lng: longitude
             }
+        }
+
+        function calculatePolygonBounds() {
+            var bounds = new google.maps.LatLngBounds();
+            var cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
+            var path = cundinamarcaPolygon.getPath();
+
+            path.forEach(function (latlng, i) {
+                bounds.extend(latlng);
+            });
+
+            return bounds;
         }
 
         return {

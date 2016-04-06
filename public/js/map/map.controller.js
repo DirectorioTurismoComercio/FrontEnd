@@ -2,7 +2,7 @@
 
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
-                                           SearchForResultsFactory, MapService) {
+                                           SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS) {
         var MY_LOCATION = 'Mi Ubicación';
         var routeOriginInput = document.getElementById('routeOrigin');
         var routeDestinationInput = document.getElementById('routeDestination');
@@ -45,7 +45,7 @@ angular.module('map')
             $scope.routeDestination = '';
         }
 
-        function showPlacesFound() {
+        function showFoundPlaces() {
             var sites = SearchForResultsFactory.getResults();
             var map = $scope.map.control.getGMap();
 
@@ -70,14 +70,24 @@ angular.module('map')
             MapService.addPlaceChangedListener(routeFromAutocomplete, routeOriginInput, checkAllowedPlace)
             MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
             directionsDisplay.setMap($scope.map.control.getGMap());
-            showPlacesFound();
+            showFoundPlaces();
+
+            /*Dibujo del poligono de cundinamarca, solo para muestra en desarrollo. Se quitará mas adelante*/
+            var cundinamarcaPolygon = new google.maps.Polygon({
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.1,
+                strokeWeight: 2,
+                fillColor: '#bbffff',
+                paths: CUNDINAMARCA_COORDS,
+                map: $scope.map.control.getGMap()
+            });
         }
 
         function checkAllowedPlace(autocomplete, inputBox) {
             var latitude = autocomplete.getPlace().geometry.location.lat();
             var longitude = autocomplete.getPlace().geometry.location.lng();
 
-            if (!MapService.isPlaceInCundinamarca(latitude, longitude)) {
+            if (!MapService.isPlaceInCundinamarca(latitude, longitude, $scope.map.control.getGMap())) {
                 alert("El lugar seleccionado no esta disponible por el momento");
                 inputBox.value = '';
             }
