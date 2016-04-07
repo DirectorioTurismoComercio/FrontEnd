@@ -260,10 +260,10 @@
 	.blanco {
 	  color: white;
 	}
-	/*md-tabs md-ink-bar {
+	md-tabs md-ink-bar {
 	    color: white;
-	    background: #518881;
-	}*/
+	    background: transparent;
+	}
 
 	md-tab-item span{
 		color: white;

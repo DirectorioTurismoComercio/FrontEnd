@@ -249,19 +249,12 @@ p{
     flex-flow: row wrap;
 }
 
-.md-tab:first-child{background: #3BC6D0; color: #0000FF}
-.md-tab:nth-child(2){background: #D19637; color: #9C9C9C }
 
 
-
-
-
-
-.tab{
-    color: white;
-
-
+md-tabs-content-wrapper{
+    top: 0.1px !important;
 }
+
 
 @media screen and (max-width: 1000px) {
     .desktopLayout{

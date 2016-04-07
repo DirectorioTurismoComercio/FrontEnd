@@ -15,7 +15,7 @@
         </a>
     </div>
 
-    <!--
+
     <div class="searchSectionHome">
         <div class="searchDiv" ng-click="showSearchForm()">
             <div class="labelContainer">
@@ -30,15 +30,11 @@
             </div>
         </div>
     </div>
-    -->
 
-    <div style="width: 100%">
-        <md-tabs md-dynamic-height="false" md-stretch-tabs="always" style="height: auto">
-            <md-tab>
-                <md-tab-label class="tab" ng-click="showSearchForm()"> Buscar
 
-                    <md-icon md-svg-icon="./images/Home/bad-witch-silhouette.svg"></md-icon>
-                </md-tab-label>
+    <div style="width: 100%" ng-show="isSearchFormVisible || isRouteFormVisible">
+        <md-tabs  md-stretch-tabs="always" style="height: auto" md-no-ink-bar>
+            <md-tab md-active="isSearchFormVisible">
                 <md-tab-body >
                     <div class="stepsContainerDesktop desktopLayout">
                         <div class="stepIconContainer">
@@ -108,12 +104,9 @@
                     </div>
                 </md-tab-body>
             </md-tab>
-            <md-tab>
-                <md-tab-label> Arma tu ruta
-                    <md-icon md-svg-icon="./images/Home/bad-witch-silhouette.svg"></md-icon>
-                </md-tab-label>
+            <md-tab md-active="isRouteFormVisible">
                 <md-tab-body>
-                    <div class="routeMenu">
+                    <div class="routeMenu" >
 
                     </div>
                 </md-tab-body>
