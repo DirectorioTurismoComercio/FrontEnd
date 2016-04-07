@@ -2,7 +2,7 @@
 
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
-                                           SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS) {
+                                           SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS, $location) {
         var MY_LOCATION = 'Mi Ubicación';
         var routeOriginInput = document.getElementById('routeOrigin');
         var routeDestinationInput = document.getElementById('routeDestination');
@@ -43,6 +43,18 @@ angular.module('map')
 
         $scope.clearRouteDestination = function () {
             $scope.routeDestination = '';
+        }
+
+        $scope.doSearch = function (result) {
+            SearchForResultsFactory.doSearch(result).then(function (response) {
+                if (response.length > 0) {
+                    showFoundPlaces()
+                } else {
+                    showEmptyResultMessage("No se han encontrado resultados");
+                }
+            }).catch(function (error) {
+                console.log("ocurrio un error", error);
+            });
         }
 
         function showFoundPlaces() {
