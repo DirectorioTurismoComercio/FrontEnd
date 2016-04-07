@@ -84,10 +84,10 @@
 
 
 /*Modificaciones al MATERIAL ANGULAR*/
-	md-tabs md-ink-bar {
+	/*md-tabs md-ink-bar {
 	    color: rgb(6,158,82);
 	    background: rgb(6,158,82);
-	}
+	}*/
 
 	md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused {
 	    color: rgb(6,158,82);

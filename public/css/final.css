@@ -260,9 +260,13 @@
 	.blanco {
 	  color: white;
 	}
-	md-tabs md-ink-bar {
-	    color: #518881;
+	/*md-tabs md-ink-bar {
+	    color: white;
 	    background: #518881;
+	}*/
+
+	md-tab-item span{
+		color: white;
 	}
 
 	md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused {

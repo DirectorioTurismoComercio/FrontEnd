@@ -11,6 +11,8 @@ angular.module('home')
             $scope.isRouteFormVisible=false;
             $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
 
+            console.log("selcciono buscar");
+
         }
 
         $scope.showRouteForm = function(){
