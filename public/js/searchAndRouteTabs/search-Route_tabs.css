@@ -1,0 +1,58 @@
+.searchSectionHome {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+}
+
+.searchDiv {
+    width: 50%;
+    background-color: #3BC6D0;
+    padding: 2px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.routeDiv {
+    width: 50%;
+    background-color: #D19637;
+}
+
+.routeLabelContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+
+.searchLabel{
+    font-size: 1.5em;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+    text-align: center;
+    color: white;
+}
+
+.searchLabelUnderline{
+    border-bottom: 5px solid #5FF0BF;
+}
+
+.labelNotUnderline{
+    border-bottom: none;
+}
+
+.searchIcon{
+    height: 3em;
+    width: 1em;
+    margin-left: 2%;
+}
+
+.routeLabelUnderline{
+    border-bottom: 5px solid #ffc520;
+}

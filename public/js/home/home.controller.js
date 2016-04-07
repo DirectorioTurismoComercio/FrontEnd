@@ -2,24 +2,6 @@
 
 angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog) {
-        $scope.isSearchFormVisible = false;
-        $scope.isRouteFormVisible =false;
-        $scope.results = null;
-        $scope.serverResults = [];
-
-        $scope.showSearchForm = function () {
-            $scope.isRouteFormVisible=false;
-            $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
-
-            console.log("selcciono buscar");
-
-        }
-
-        $scope.showRouteForm = function(){
-            $scope.isSearchFormVisible=false;
-            $scope.isRouteFormVisible=!$scope.isRouteFormVisible;
-        }
-
         $scope.doSearch = function (result) {
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 if (response.length > 0) {
