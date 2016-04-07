@@ -37,6 +37,7 @@ module.exports = function (config) {
             'public/js/map/map.controller.js',
             'public/js/home/home.js',
             'public/js/home/home.controller.js',
+            'public/js/businessBrowser/businessBrowser.controller.js',
             'public/js/**/*.js',
             'test/**/*Spec.js',
             'public/templates/directives/side-bar.html'
