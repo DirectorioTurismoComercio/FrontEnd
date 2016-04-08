@@ -261,12 +261,16 @@
 	  color: white;
 	}
 	md-tabs md-ink-bar {
-	    color: #518881;
-	    background: #518881;
+	    color: white;
+	    background: transparent;
+	}
+
+	md-tab-item span{
+		color: white;
 	}
 
 	md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused {
-	    color: #518881;
+	    color: white;
 	}
 
 	.galeria p {
@@ -776,7 +780,7 @@
 	    color: #666666;
 	    padding: 3%;
 	    background-color: rgba(255,255,255,0.7);
-	    border-radius: 10%;
+	    border-radius: 2em;
 	    border: 1px solid;
 	    border-color: #999999;
 	}
@@ -864,7 +868,7 @@
 	    color: #666666;
 	    padding: 3%;
 	    background-color: rgba(255,255,255,0.7);
-	    border-radius: 10%;
+	    border-radius: 2em;
 	    border: 1px solid;
 	    border-color: #999999;
 	}
@@ -978,7 +982,7 @@
 	    color: #666666;
 	    padding: 3%;
 	    background-color: rgba(255,255,255,0.7);
-	    border-radius: 10%;
+	    border-radius: 2em;
 	    border: 1px solid;
 	    border-color: #999999;
 	}
@@ -1087,7 +1091,7 @@
 	    color: #666666;
 	    padding: 3%;
 	    background-color: rgba(255,255,255,0.7);
-	    border-radius: 10%;
+	    border-radius: 2em;
 	    border: 1px solid;
 	    border-color: #999999;
 	}
@@ -1215,7 +1219,7 @@
 	    color: #666666;
 	    padding: 3%;
 	    background-color: rgba(255,255,255,0.7);
-	    border-radius: 10%;
+	    border-radius: 2em;
 	    border: 1px solid;
 	    border-color: #999999;
 	}
@@ -1335,7 +1339,7 @@
 	    color: #666666;
 	    padding: 3%;
 	    background-color: rgba(255,255,255,0.7);
-	    border-radius: 10%;
+	    border-radius: 2em;
 	    border: 1px solid;
 	    border-color: #999999;
 	}

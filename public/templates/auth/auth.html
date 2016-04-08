@@ -1,54 +1,58 @@
-<div layout="row" layout-align="space-around center" class="barra_main">   
-  <div class="regresar" ng-click="menu_bar('signin')">
-    <img ng-src="%%anterior%%">
-  </div>
-  MERCATIC
-  <div class="menu" ng-click="toggleRight()"> 
-    <i class="fa fa-reorder"></i>
-  </div>
+<div layout="row" layout-align="space-around center" class="barra_main">
+    <div class="regresar" ng-click="menu_bar('home')">
+        <img ng-src="%%anterior%%">
+    </div>
+    MERCATIC
+    <div class="menu" ng-click="toggleRight()">
+        <i class="fa fa-reorder"></i>
+    </div>
 </div>
 
-<form  novalidate name="form" autocomplete="off">
-  <div class="personalData"> 
-    <md-input-container>
-          <div ng-messages="form.usuario.$error">
-            <div ng-message="required">Por favor digite su nombre de usuario</div>
-            <div ng-message="pattern">El usuario debe tener el formato de un correo (ejemplo@correo.com)</div>
-          </div> 
-          <label>Nombre de usuario (correo electrónico)</label>
-          <input type="email" ng-model="login.usuario" name="usuario" ng-pattern="/^.+@.+\..+$/" required>      
-    </md-input-container>
-    <md-input-container>
-        <div ng-messages="form.contrasena.$error">
-          <div ng-message="required">Por favor digite su contraseña</div>
-        </div> 
-        <label>Contraseña</label>
-        <input type="password" ng-model="login.contrasena" name="contrasena" required>      
-    </md-input-container>    
-    <md-input-container>
-    <button class="btn btn-lg btn-success btn-block" ng-click="login()" layout="row" layout-align="center center">INGRESA</button>
-      <!-- <md-button class="md-raised md-primary" ng-click="login()" autofocus>Ingresa</md-button> -->
-      <md-button md-no-ink class="md-primary" ng-click="forgot()">¿Olvidaste tu contraseña?</md-button>      
-    </md-input-container>  
-    <div id="alertPop" ng-cloak></div>
-  </div>
+<form novalidate name="form" autocomplete="off">
+    <div class="personalData">
+        <md-input-container>
+            <div ng-messages="form.usuario.$error">
+                <div ng-message="required">Por favor digite su nombre de usuario</div>
+                <div ng-message="pattern">El usuario debe tener el formato de un correo (ejemplo@correo.com)</div>
+            </div>
+            <label>Nombre de usuario (correo electrónico)</label>
+            <input type="email" ng-model="login.email" name="usuario" ng-pattern="/^.+@.+\..+$/" required>
+        </md-input-container>
+        <md-input-container>
+            <div ng-messages="form.contrasena.$error">
+                <div ng-message="required">Por favor digite su contraseña</div>
+            </div>
+            <label>Contraseña</label>
+            <input type="password" ng-model="login.contrasena" name="contrasena" required>
+        </md-input-container>
+        <md-input-container>
+            <button id="login" class="btn btn-lg btn-success btn-block" ng-click="login()" layout="row"
+                    layout-align="center center">INGRESA
+            </button>
+
+            <md-button md-no-ink class="md-primary" ng-click="forgot()">¿Olvidaste tu contraseña?</md-button>
+            <md-button md-no-ink class="md-primary" ng-click="authenticate('facebook')">Iniciar sesión con Facebook</md-button>
+            <md-button md-no-ink class="md-primary" ng-click="authenticate('google')">Iniciar sesión con Google Plus</md-button>
+        </md-input-container>
+        <div id="alertPop" ng-cloak></div>
+    </div>
 </form>
 
-<div layout='row' layout-align="center center">    
-      <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
-    </div>  
+<div layout='row' layout-align="center center">
+    <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
+</div>
 
 <!-- SIDE BAR -->
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
-    <div>MercaTIC</div>
-    <div ng-click="close()" class="md-primary">
-        <i class="fa fa-close"></i>
-      </div>
-  </md-toolbar>
-  <div layout="column" layout-align="space_around center">
-    <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
-    <div class="botones_barra" ng-click="menu_bar('roles')">Registrate</div>      
-    <!-- <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>             -->
-  </div>  
+    <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">
+        <div>MercaTIC</div>
+        <div ng-click="close()" class="md-primary">
+            <i class="fa fa-close"></i>
+        </div>
+    </md-toolbar>
+    <div layout="column" layout-align="space_around center">
+        <div class="botones_barra" ng-click="menu_bar('home')">Inicio</div>
+        <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>
+
+    </div>
 </md-sidenav>  

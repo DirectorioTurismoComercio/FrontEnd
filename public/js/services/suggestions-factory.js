@@ -1,6 +1,6 @@
 (function(){
 	angular.module('gemStore')
-	.factory('SuggestionsFactory', ['$resource', 'Constantes',function($resource,Constantes) {
-		return $resource(Constantes.url+'/sugerencias',{token: '@token'});
-	}]);
+		.factory('SuggestionsFactory', ['$resource', 'API_CONFIG',function($resource,API_CONFIG) {
+			return $resource(API_CONFIG.url+'/sugerencias',{token: '@token'});
+		}]);
 })();

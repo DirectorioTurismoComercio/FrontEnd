@@ -1,7 +1,7 @@
 (function(){
 	angular.module('gemStore')
-	.service('autenticacionService', ['$resource','$location',
-	function($resource,$location) {
+	.service('autenticacionService', ['$resource','$location','$route',
+	function($resource,$location, $route) {
       		var info = "";
       		var user = {};
       		var id_busqueda = "";
@@ -36,13 +36,19 @@
 				id_busqueda = _idbusq;				
 			}
 
-			return {
+			var isUserAuthenticated = function()
+			{
+				return !(user.id === undefined);
+			}
+
+		return {
 	  			getInfo: getInfo,
 	    		setInfo: setInfo,
 	    		getUser: getUser,
 	    		setUser: setUser,
 	    		getIdBusqueda: getIdBusqueda,
-	    		setIdBusqueda: setIdBusqueda
+	    		setIdBusqueda: setIdBusqueda,
+	    		isUserAuthenticated: isUserAuthenticated
 			}
 		}
 	]);

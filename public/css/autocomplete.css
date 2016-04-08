@@ -6,35 +6,37 @@
 }
 
 .autocomplete input{
-  font-size: 1.2em;
-  width: 95%;
-  padding:0.4em;
+  width: 100%;
+  border-radius: 10px;
+  font-family: 'PT Sans', sans-serif;
+  border: 1px solid #B6EDEA;
+  font-weight: normal;
+  font-size: 1.5em;
+  color: #868684;
+  background: #B6EDEA;
 }
 
 .autocomplete ul{
   position: absolute;
   left: 0.1em;
   top: 1.8em;
-  width: 93%;
-  border-left: 1px solid #888;
-  border-right: 1px solid #888;
-  border-bottom: 1px solid #888;
+  width: 105%;
   z-index: 1;
 }
 
 .autocomplete li{
   text-align: left;
   list-style:none;
-  width: 93%;
+  width: 100%;
   padding:-5em;
   position: relative;
   left: -2em;
-  background-color: #fff;
+  background-color: #B6EDEA;
 }
 
 .autocomplete li.active{
   width: 100%;
-  background-color: #4bf;
+  background-color: #B6EDEA;
 }
 
 .autocomplete .highlight {
@@ -45,11 +47,3 @@
   background: #666;
   color: #fff;
 }
-
-/*.main{
-  display: inline-block;
-  padding: 2em;
-  width: 30em;
-  margin-bottom: 5em;
-}
-*/

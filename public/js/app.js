@@ -1,33 +1,23 @@
-(function() {
-    //'gemStore' module depends on 'store-products' modules
-  angular.module('gemStore',['ngRoute','ngResource','userModule','ngAnimate','ngMaterial','ngAria','angularUtils.directives.dirPagination','ngMessages','ngCookies'])
- .constant("Constantes",{"url":"http://www.epsilondx.com/django/index.fcgi","ruta_imagenes":"./images/","app":"C"})
- // .constant("Constantes",{"url":"http://10.203.186.249:8282","ruta_imagenes":"./images/"})
-  .config(function($interpolateProvider) {
-    $interpolateProvider.startSymbol('%%');
-    $interpolateProvider.endSymbol('%%');    
-  })
-  //Autenticación
-  // .config(['$httpProvider', function($httpProvider){    
-  //   $httpProvider.defaults.xsrfCookieName = 'csrftoken';
-  //   $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
-  // }])
-  .directive("pageNavigation", function(){
-    return {
-      restrict: 'E',
-      templateUrl: 'templates/navbar.html',
-      controller : function($scope){  
-        $scope.MobileMenu = true;
-        $scope.toggleMobileMenu = function() {
-          $scope.MobileMenu = $scope.MobileMenu === false ? true: false;
-        };
-      }
-    };
-  })
-  .directive("pageFooter", function(){
-    return {
-      restrict: 'E',
-      templateUrl: 'templates/footer.html'
-    };
-  });
+(function () {
+    angular.module('gemStore', ['ngRoute', 'ngResource', 'ngAnimate', 'ngMaterial',
+            'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies',
+            'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home', 'businessBrowser', 'dropDownTowns', 'searchAndRouteTabs'])
+        .config(function ($interpolateProvider, API_CONFIG, $authProvider) {
+            $interpolateProvider.startSymbol('%%');
+            $interpolateProvider.endSymbol('%%');
+
+            $authProvider.baseUrl = API_CONFIG.authBaseURL;
+            $authProvider.authToken= 'Token';
+
+            $authProvider.facebook({
+                clientId: '1529648703998052',
+                url: '/api/login/social/token/facebook'
+            });
+
+            $authProvider.google({
+                clientId: '134061854666-op17m2c08s30q3des75on95hib3a4a43.apps.googleusercontent.com',
+                url: '/api/login/social/token/google-oauth2',
+                redirectUri: window.location.origin + '/'
+            });
+        })
 })();

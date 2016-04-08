@@ -1,147 +1,148 @@
 <!DOCTYPE html>
 <html ng-app="gemStore" class="ng-scope">
-  <head>    
+<head>
     <meta charset="utf-8">
+    <title>mercatic</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-    <link rel="stylesheet" href="components/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="components/normalize.css/normalize.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Revisar para que quede local y no desde internet -->
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <!-- Revisar para que quede local y no desde internet -->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/autocomplete.css" />
-    <link rel="stylesheet" href="css/tags.css" />
-    <link rel="stylesheet" href="css/errores.css" />
-    <link rel="stylesheet" href="css/signin.css" />
-    <link rel="stylesheet" href="css/questionnaire.css" />        
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/fonts.css"/>
+    <link rel="stylesheet" href="css/autocomplete.css"/>
+    <link rel="stylesheet" href="css/tags.css"/>
+    <link rel="stylesheet" href="css/errores.css"/>
+    <link rel="stylesheet" href="css/signin.css"/>
+    <link rel="stylesheet" href="css/questionnaire.css"/>
+    <link rel="stylesheet" href="js/home/home.css"/>
+    <link rel="stylesheet" href="js/businessBrowser/browser-Input-Field.css"/>
+    <link rel="stylesheet" href="js/dropDownTowns/drop-Down_Towns.css"/>
+    <link rel="stylesheet" href="js/searchAndRouteTabs/search-Route_tabs.css"/>
+
+    <link rel="stylesheet" href="js/how_it_works/howitworks.css"/>
     <!-- Revisar para que quede local y no desde internet -->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
-    <link rel="stylesheet" href="css/responsive.css" />
-     <!-- Para COmercio -->
-    <link rel="stylesheet" href="css/final.css" />
+    <link rel="stylesheet"
+          href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
+    <link rel="stylesheet" href="css/responsive.css"/>
+    <!-- Para COmercio -->
+    <link rel="stylesheet" href="css/final.css"/>
     <!-- Para Turismo-->
     <!-- <link rel="stylesheet" href="css/final_turismo.css" /> -->
+
+    <link rel="stylesheet" href="js/map/map.css">
 
     <script type="text/javascript" src="components/angular/angular.js"></script>
     <script type="text/javascript" src="components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="components/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="components/angular-resource/angular-resource.js"></script>
-  </head>
+    <script type="text/javascript" src="components/videogular/videogular.min.js"></script>
+    <script type="text/javascript" src="components/prefix/prefixfree.min.js"></script>
 
-  <body>    
-    <!-- <header class="fixedTop">
-        <page-Navigation></page-Navigation>
-    </header> -->
+</head>
+
+<body>
+<!-- <header class="fixedTop">
+    <page-Navigation></page-Navigation>
+</header> -->
 <!-- /header -->
-    <div ng-view="" class="main {{ pageClass }}"></div>
-    <!-- <div class="MobileFooter" ng-hide="MobileMenu">    
-    </div> -->
-    <!-- app -->
-    <script type="text/javascript" src="components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="components/bootstrap/dist/js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/routes/routes.js"></script>
+<div ng-view="" class="main {{ pageClass }}"></div>
+<!-- <div class="MobileFooter" ng-hide="MobileMenu">
+</div> -->
+<!-- app -->
+<script type="text/javascript" src="components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/app.run.js"></script>
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/constants.js"></script>
+<script type="text/javascript" src="js/routes/routes.js"></script>
+<script src="//cdn.jsdelivr.net/satellizer/0.14.0/satellizer.min.js"></script>
 
-    <!-- controllers -->
-    <script type="text/javascript" src="js/controllers/user/user-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/main/mainPage-controller.js"></script>
+<!-- Modules -->
 
-    <script type="text/javascript" src="js/controllers/roles/role-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/roles/role-description-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/sign-up/signup-index-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/sign-up/signup-main-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/social-networks/social-networks-controller.js"></script>
-    
-    <script type="text/javascript" src="js/controllers/search/search-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/search/search-controller.js"></script>
+<!-- controllers -->
+<script type="text/javascript" src="js/home/home.js"></script>
+<script type="text/javascript" src="js/home/home.controller.js"></script>
+<script type="text/javascript" src="js/businessBrowser/businessBrowser.controller.js"></script>
+<script type="text/javascript" src="js/dropDownTowns/dropDownTowns.controller.js"></script>
+<script type="text/javascript" src="js/searchAndRouteTabs/searchAndRouteTabs.controller.js"></script>
 
-    <script type="text/javascript" src="js/controllers/problems/problems-index-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/problems/problems-show-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/problems/problems-create-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/sign-in-out/signin-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/sign-in-out/como-funciona-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/sign-in-out/signout-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/questionnaires/questionnaire-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/questionnaires/questionnaire-summary-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/questionnaires/questions-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/questionnaires/role-questionnaire-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/questionnaires/action-questionnaire-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/questionnaires/solution-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/questionnaires/solution-detail-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/questionnaires/dialog-controller.js"></script>
+<script type="text/javascript" src="js/controllers/sign-up/signup-main-controller.js"></script>
 
-    <script type="text/javascript" src="js/controllers/profile/profile-main-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/profile/profile-update-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/profile/profile-search-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/profile/profile-search-detail-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/profile/profile-conexiones-controller.js"></script>
+<script type="text/javascript" src="js/search/search-controller.js"></script>
 
-    <script type="text/javascript" src="js/controllers/auth/auth-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/auth/authu-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/auth/changepass-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/auth/recoverypass-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/auth/resetpass-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/auth/forgotpass-controller.js"></script>
-
-    <script type="text/javascript" src="js/controllers/conexiones/conexion-main-controller.js"></script>
-
-    <!-- directives -->
-    <script type="text/javascript" src="js/directives/pagination/dirPagination.js"></script>
-    <script type="text/javascript" src="components/angular-messages/angular-messages.min.js"></script>
-
-    <!-- services -->
-    <script type="text/javascript" src="js/services/users.js"></script>
-    <script type="text/javascript" src="js/services/roles.js"></script>
-    <script type="text/javascript" src="js/services/redes-sociales.js"></script>
-    <script type="text/javascript" src="js/services/usuario-red.js"></script>
-    <script type="text/javascript" src="js/services/usuario-redes.js"></script>
-    <script type="text/javascript" src="js/services/registro-service.js"></script>
-    <script type="text/javascript" src="js/services/result-retriever.js"></script>
-    <script type="text/javascript" src="js/services/search-for-results.js"></script>
-    <script type="text/javascript" src="js/services/suggestions-factory.js"></script>
-    <script type="text/javascript" src="js/services/suggested-tags-factory.js"></script>
-    <script type="text/javascript" src="js/services/questionnaire-factory.js"></script>
-    <script type="text/javascript" src="js/services/questionnaire-service.js"></script>
-    <script type="text/javascript" src="js/services/problem.js"></script>
-    <script type="text/javascript" src="js/services/category.js"></script>
-    <script type="text/javascript" src="js/services/solution-factory.js"></script>
-    <script type="text/javascript" src="js/services/solution-service.js"></script>
-    <script type="text/javascript" src="js/services/detail-factory.js"></script>
-    <script type="text/javascript" src="js/services/nav-bar.js"></script>
-    <script type="text/javascript" src="js/services/authentication-service.js"></script>
-    <script type="text/javascript" src="js/services/usuario-prueba.js"></script>
-    <script type="text/javascript" src="js/services/service-auth.js"></script>
-    <script type="text/javascript" src="js/services/changepass-factory.js"></script>
-    <script type="text/javascript" src="js/services/resetpass-factory.js"></script>
-    <script type="text/javascript" src="js/services/forgotpass-factory.js"></script>
-    <script type="text/javascript" src="js/services/guardar-busqueda-factory.js"></script>
-    <script type="text/javascript" src="js/services/busqueda-detail-factory.js"></script>
-    <script type="text/javascript" src="js/services/busqueda-solucion-factory.js"></script>
-    <script type="text/javascript" src="js/services/logout-factory.js"></script>
-    <script type="text/javascript" src="js/services/conexion-service.js"></script>
-    <script type="text/javascript" src="js/services/conexion-factory.js"></script>
-    <script type="text/javascript" src="js/services/conexion-mensaje-factory.js"></script>    
-    <script type="text/javascript" src="js/services/conexion-list-factory.js"></script>    
-
-    
-    <script type="text/javascript" src="js/services/municipios-factory.js"></script>    
+<script type="text/javascript" src="js/controllers/sign-in-out/signin-controller.js"></script>
+<script type="text/javascript" src="js/controllers/sign-in-out/como-funciona-controller.js"></script>
+<script type="text/javascript" src="js/controllers/sign-in-out/signout-controller.js"></script>
 
 
-    <!-- aditional components -->
-    <script type="text/javascript" src="js/custom_components/autocomplete.js"></script>
+<script type="text/javascript" src="js/controllers/profile/profile-main-controller.js"></script>
+<script type="text/javascript" src="js/controllers/profile/profile-update-controller.js"></script>
+
+
+<script type="text/javascript" src="js/controllers/auth/auth-controller.js"></script>
+<script type="text/javascript" src="js/controllers/auth/changepass-controller.js"></script>
+<script type="text/javascript" src="js/controllers/auth/recoverypass-controller.js"></script>
+<script type="text/javascript" src="js/controllers/auth/resetpass-controller.js"></script>
+<script type="text/javascript" src="js/controllers/auth/forgotpass-controller.js"></script>
+
+<script type="text/javascript" src="js/services/usuario-prueba.js"></script>
+
+<script type="text/javascript" src="js/services/service-auth.js"></script>
+<script type="text/javascript" src="js/services/registro-service.js"></script>
+
+
+<!-- directives -->
+<script type="text/javascript" src="js/directives/pagination/dirPagination.js"></script>
+<script type="text/javascript" src="components/angular-messages/angular-messages.min.js"></script>
+<script type="text/javascript" src="js/directives/directives.js"></script>
+<script type="text/javascript" src="js/businessBrowser/browserInputField.directive.js"></script>
+<script type="text/javascript" src="js/dropDownTowns/dropDownTowns.directive.js"></script>
+<script type="text/javascript" src="js/searchAndRouteTabs/searchAndRouteTabs.directive.js"></script>
+<script type="text/javascript" src="js/searchAndRouteTabs/searchTabContentHome.directive.js"></script>
+
+
+<!-- services -->
+<script type="text/javascript" src="js/services/users.js"></script>
+<script type="text/javascript" src="js/services/result-retriever.js"></script>
+<script type="text/javascript" src="js/services/search-for-results.js"></script>
+<script type="text/javascript" src="js/services/suggestions-factory.js"></script>
+<script type="text/javascript" src="js/services/suggested-tags-factory.js"></script>
+<script type="text/javascript" src="js/services/nav-bar.js"></script>
+<script type="text/javascript" src="js/services/changepass-factory.js"></script>
+<script type="text/javascript" src="js/services/resetpass-factory.js"></script>
+<script type="text/javascript" src="js/services/forgotpass-factory.js"></script>
+
+
+<script type="text/javascript" src="js/services/municipios-factory.js"></script>
+
+<script type="text/javascript" src="js/map/map.js"></script>
+<script type="text/javascript" src="js/map/map.controller.js"></script>
+<script type="text/javascript" src="js/map/map.service.js"></script>
+<script type="text/javascript" src="js/map/map.constants.js"></script>
+
+
+
+
+<script type="text/javascript" src="js/custom_components/autocomplete.js"></script>
 
 <!-- Revisar para que quede local y no desde internet -->
-    <script src="components/angular-aria/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>    
-    <script src="components/angular-cookies/angular-cookies.min.js"></script>
-    <script src="components/angular-sanitize/angular-sanitize.min.js"></script>
-    
-  </body>
+<script src="components/angular-aria/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>
+<script src="components/angular-cookies/angular-cookies.min.js"></script>
+<script src="components/angular-sanitize/angular-sanitize.min.js"></script>
+
+<script src="components/lodash/lodash.js"></script>
+<script src='components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+<script src='components/angular-google-maps/dist/angular-google-maps.min.js'></script>
+
+</body>
 </html>
 

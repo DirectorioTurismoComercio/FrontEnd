@@ -1,0 +1,19 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar layout="row" layout-align="space-around center" class="toolbar_side">  
+    <div>MERCATIC</div>
+    <div ng-click="close()" class="md-primary">
+        <i class="fa fa-close"></i>
+      </div>
+  </md-toolbar>
+  <div layout="column" layout-align="space_around center">
+    <div ng-show="!isAuthenticated()">
+      <div class="botones_barra" ng-click="menu_bar('signin')">Inicio</div>
+      <div class="botones_barra" ng-click="menu_bar('personalData')">Registrate</div>      
+      <div class="botones_barra" ng-click="menu_bar('signin')">Iniciar Sesión</div>
+    </div>
+    <div ng-show="isAuthenticated()">
+      <div ng-show="!isOnProfileMainMenuPage()" class="botones_barra" ng-click="redirectToProfileMain()">Ir al menú de perfil</div>
+      <div id="logout" class="botones_barra" ng-click="logout()">Cerrar Sesión</div>       
+    </div>
+  </div>
+</md-sidenav>  
