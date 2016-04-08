@@ -1,0 +1,81 @@
+<div style="width: 100%" ng-show="isSearchFormVisible || isRouteFormVisible">
+    <md-tabs  md-stretch-tabs="always">
+        <md-tab md-active="isSearchFormVisible">
+            <md-tab-body >
+                <div class="stepsContainerDesktopHome desktopLayout">
+                    <div class="stepIconContainerHome">
+                        <img class="img_box stepIconHome" src="./images/Home/1_busca.png">
+                    </div>
+                    <div class="textContainerHome">
+                        <div class="titleContainerHome">
+                            <p class="stepTitleHome">Busca por palabra Clave</p>
+                        </div>
+                        <div class="titleContainerHome">
+                            <p class="subTitleHome">Nuestro buscador te ayudará a ubicar lo que necesitas</p>
+                        </div>
+                    </div>
+                    <div class="inputContainerHome">
+                        <browser-input-field></browser-input-field>
+                    </div>
+                    <div class="stepIconContainerHome">
+                        <img class="img_box stepIconHome" src="./images/Home/2_busca.png">
+                    </div>
+                    <div class="textContainerHome">
+                        <div class="titleContainerHome">
+                            <p class="stepTitleHome">Selecciona el municipio</p>
+                        </div>
+                        <div class="titleContainerHome">
+                            <p class="subTitleHome">Selecciona el municipio de tu interés</p>
+                        </div>
+                    </div>
+                    <div class="inputContainerHome">
+                        <drop-down-town-directive></drop-down-town-directive>
+                    </div>
+                </div>
+
+                <div class="stepsContainerMobileHome mobile">
+                    <div class="stepContainerMobileHome">
+                        <div class="imageAndTextMobileContainerHome">
+                            <div class="imageContainerMobileHome">
+                                <img class=" stepIconHome" src="./images/Home/1_busca.png">
+                            </div>
+                            <div class="textContainerMobileHome">
+                                <p class="stepTitleHome">Busca por palabra Clave</p>
+                                <p class="subTitleHome">Nuestro buscador te ayudará a ubicar lo que necesitas</p>
+                            </div>
+                        </div>
+                        <div class="inputBoxMobileHome">
+                            <browser-input-field></browser-input-field>
+                        </div>
+                    </div>
+                    <div class="stepsDividerHome"></div>
+                    <div class="stepContainerMobileHome">
+                        <div class="imageAndTextMobileContainerHome">
+                            <div class="imageContainerMobileHome">
+                                <img class=" stepIconHome" src="./images/Home/2_busca.png">
+                            </div>
+                            <div class="textContainerMobileHome">
+                                <p class="stepTitleHome">Selecciona el municipio</p>
+                                <p class="subTitleHome">Selecciona el municipio de tu interés</p>
+                            </div>
+                        </div>
+                        <div class="inputBoxMobileHome">
+                            <drop-down-town-directive></drop-down-town-directive>
+                            </md-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="searchButtonContainerHome">
+                    <button class="searchButtonHome" aria-label="Buscar" ng-click="doSearch(result)">Realizar búsqueda</button>
+                </div>
+            </md-tab-body>
+        </md-tab>
+        <md-tab md-active="isRouteFormVisible">
+            <md-tab-body>
+                <div class="routeMenuHome" >
+
+                </div>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+</div>
