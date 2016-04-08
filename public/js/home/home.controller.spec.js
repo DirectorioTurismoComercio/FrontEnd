@@ -1,34 +1,23 @@
 'use strict';
 
 describe('Controller: HomeController', function () {
-    var homeController, $scope, $qTest, deferred, location, mdDialog, searchFactory, mockSearch;
+    var homeController, $scope, $qTest, deferred, mdDialog;
 
     beforeEach(module('gemStore'));
     beforeEach(module('home'));
-    
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $location, $mdDialog) {
-        $scope = $rootScope.$new();
-        $qTest = $q;
 
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $mdDialog) {
+        $scope = $rootScope.$new();
+        deferred = $q.defer();
+        $qTest = $q;
         mdDialog = $mdDialog;
 
-        searchFactory = SearchForResultsFactory;
-
-        mockSearch =
-        {
-            doSearch:function(){
-                deferred = $q.defer();
-                return deferred.promise
-            }
-        }
-
-
-        spyOn(SearchForResultsFactory, 'doSearch').and.returnValue();
+        spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
         spyOn(mdDialog, 'show');
 
         homeController = $controller('HomeController', {
             $scope: $scope,
-            SearchForResultsFactory: mockSearch,
+            SearchForResultsFactory: SearchForResultsFactory,
             $mdDialog: mdDialog
         });
     }));
@@ -39,16 +28,9 @@ describe('Controller: HomeController', function () {
 
     it('Should show error message if search has zero results', function () {
         $scope.doSearch();
-        deferred.resolve([])
+        deferred.resolve([]);
         $scope.$apply();
         expect(mdDialog.show).toHaveBeenCalled();
     });
-    /*
-     it('Should show error message if has ocurred an error', function () {
-     deferred.reject();
-     $scope.$apply();
-     $scope.doSearch();
-     expect(console.log).toHaveBeenCalled();
-     });
-     */
+    
 });
