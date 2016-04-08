@@ -1,0 +1,67 @@
+<div style="width: 100%" ng-show="isSearchFormVisible || isRouteFormVisible">
+    <md-tabs  md-stretch-tabs="always">
+        <md-tab md-active="isSearchFormVisible">
+            <md-tab-body >
+                <div class="stepsContainerDesktopHome desktopLayout">
+                    <div class="stepIconContainerHome">
+                        <img class="img_box stepIconHome" src="./images/Home/1_busca.png">
+                    </div>
+                    <div class="textContainerHome">
+                        <div class="titleContainerHome">
+                            <p class="stepTitleHome">Busca por palabra Clave</p>
+                        </div>
+                        <div class="titleContainerHome">
+                            <p class="subTitleHome">Nuestro buscador te ayudará a ubicar lo que necesitas</p>
+                        </div>
+                    </div>
+                    <div class="inputContainerHome">
+                        <browser-input-field></browser-input-field>
+                    </div>
+                    <div class="stepIconContainerHome">
+                        <img class="img_box stepIconHome" src="./images/Home/2_busca.png">
+                    </div>
+                    <div class="textContainerHome">
+                        <div class="titleContainerHome">
+                            <p class="stepTitleHome">Selecciona el municipio</p>
+                        </div>
+                        <div class="titleContainerHome">
+                            <p class="subTitleHome">Selecciona el municipio de tu interés</p>
+                        </div>
+                    </div>
+                    <div class="inputContainerHome">
+                        <drop-down-town-directive></drop-down-town-directive>
+                    </div>
+                </div>
+
+                <div class="mobile">
+                    <div class="stepsContainerMobileMap ">
+                        <div class="searchInputSectionMobileMap">
+                            <div class="inputContainerMobileMap">
+                                <browser-input-field></browser-input-field>
+                            </div>
+                            <div class="textContainerMobileMap">
+                                <p class="textSearchMobileMap">en</p>
+                            </div>
+                            <div class="inputContainerMobileMap">
+                                <drop-down-town-directive></drop-down-town-directive>
+                            </div>
+                            <div class="searchButtonContainerMobileMap">
+                                <img class="img_box stepIconHome" src="./images/Home/1_busca.png">
+                            </div>
+                        </div>
+                        <div class="categorySectionMobileMap">
+
+                        </div>
+                    </div>
+                </div>
+            </md-tab-body>
+        </md-tab>
+        <md-tab md-active="isRouteFormVisible">
+            <md-tab-body>
+                <div class="routeMenuHome" >
+
+                </div>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+</div>
