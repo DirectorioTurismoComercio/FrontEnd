@@ -1,0 +1,200 @@
+.stepsContainerDesktopHome {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-flow: row wrap;
+
+}
+
+.stepIconContainerHome {
+    width: 6%;
+    height: auto;
+    margin-top: 3%;
+
+    display: flex;
+    flex-flow: row wrap;
+
+}
+
+.stepIconHome {
+    height: 3em;
+    width: 3em;
+    margin-left: 10%;
+}
+
+.textContainerHome {
+    width:22%;
+    height: auto;
+    margin-right: 2%;
+    margin-top: 3%;
+
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.titleContainerHome {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.stepTitleHome {
+    color: #2EAAA4;
+    font-size: 1.5em;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    margin-top: 5%;
+}
+
+.subTitleHome {
+    color: #285453;
+}
+
+.inputContainerHome {
+    width: 18%;
+    height: auto;
+    margin-right: 1%;
+    margin-top: 3%;
+
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.searchButtonContainerHome {
+    width: 100%;
+    height: 5%;
+    background-color: #3BC6D0;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+}
+
+.searchButtonHome {
+    width: 20%;
+    height: 3%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border: 1px solid #B6EDEA;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.0em;
+    background-color: #B6EDEA;
+    color: #2B91C8;
+    padding: 5px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.routeMenuHome {
+    background-color: #D19635;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+
+md-tabs-content-wrapper{
+    top: 0.1px !important;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .desktopLayout{
+        display: none;
+    }
+
+    .mobile{
+        display: flex;
+    }
+
+    .stepsContainerMobileHome {
+        width: 100%;
+        margin-top: 5%;
+        height: auto;
+        flex-flow: column wrap;
+    }
+
+    .stepContainerMobileHome {
+        width: 80%;
+        height: auto;
+        margin-left: 5%;
+        margin-right: 15%;
+
+        display: flex;
+        flex-flow: column wrap;
+
+    }
+
+    .imageAndTextMobileContainerHome {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .imageContainerMobileHome {
+        width: 10%;
+
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+
+    .textContainerMobileHome {
+        width: 90%;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+
+    .inputBoxMobileHome {
+        width: 30%;
+        margin-left: 10%;
+
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .stepsDividerHome {
+        width: 90%;
+        margin: 2% 5% 3% 5%;
+        height: 2px;
+        background-color: #5FF0BF;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .stepIconHome {
+        height: 2.5em;
+        width: 2.5em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .stepIconHome {
+        height: 2.0em;
+        width: 2.0em;
+    }
+
+    .inputBoxMobileHome {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .stepIconHome {
+        height: 1.8em;
+        width: 1.8em;
+    }
+
+    .inputBoxMobileHome {
+        width: 80%;
+    }
+}

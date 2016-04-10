@@ -1,41 +1,42 @@
 'use strict';
 
 describe('Controller: HomeController', function () {
-    var homeController, $scope, $qTest, deferred, location, mdDialog;
+    var homeController, $scope, $qTest, deferred, mdDialog, location;
 
     beforeEach(module('gemStore'));
+    beforeEach(module('home'));
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $location, $mdDialog) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $mdDialog, $location) {
         $scope = $rootScope.$new();
-        $qTest=$q;
-        deferred=$q.defer();
-        mdDialog=$mdDialog;
+        deferred = $q.defer();
+        $qTest = $q;
+        mdDialog = $mdDialog;
+        location = $location;
 
-        spyOn(SearchForResultsFactory,'doSearch').and.returnValue(deferred.promise);
+        spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
         spyOn(mdDialog, 'show');
+        spyOn(location, 'path');
 
         homeController = $controller('HomeController', {
             $scope: $scope,
             SearchForResultsFactory: SearchForResultsFactory,
-            $mdDialog:mdDialog
+            $location: location,
+            $mdDialog: mdDialog
         });
     }));
 
-    it('Search callback should exist', function () {
-        expect($scope.doSearch).toBeDefined();
-    });
-/*
     it('Should show error message if search has zero results', function () {
-        deferred.resolve([{}]);
-        $scope.$apply();
         $scope.doSearch();
+        deferred.resolve([]);
+        $scope.$apply();
         expect(mdDialog.show).toHaveBeenCalled();
     });
-    it('Should show error message if has ocurred an error', function () {
-        deferred.reject();
-        $scope.$apply();
+
+    it('Should redirects to map page', function () {
         $scope.doSearch();
-        expect(console.log).toHaveBeenCalled();
+        deferred.resolve(['Repuesta']);
+        $scope.$apply();
+        expect(location.path).toHaveBeenCalled();
     });
-*/
+
 });
