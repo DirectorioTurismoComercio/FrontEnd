@@ -3,7 +3,7 @@
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
                                            SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS
-                                           , InfoWindowService, $location) {
+                                           , SiteMarkerService, $location) {
         var MY_LOCATION = 'Mi Ubicación';
         var routeOriginInput = document.getElementById('routeOrigin');
         var routeDestinationInput = document.getElementById('routeDestination');
@@ -57,29 +57,18 @@ angular.module('map')
                 console.log("ocurrio un error", error);
             });
         }
-        function makeInfoWindowEvent(map, marker, site) {  
-           return function() {  
-            var infowindow = new google.maps.InfoWindow({
-                content: InfoWindowService.getTemplate(site.nombre,site.descripcion,site.URLfoto)
-              });
-              infowindow.open(map, marker);
-           };  
-        } 
-
+      
         function showFoundPlaces() {
             var sites = SearchForResultsFactory.getResults();
             var map = $scope.map.control.getGMap();
             if (sites != undefined) {
                 for (var i = 0; i < sites.length; i++) {
-                    var site = sites[i];
-                    
+                    var site = sites[i];                
                     var position = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
                     var marker = MapService.addMarker(map, position);
-
-                    marker.addListener('click',makeInfoWindowEvent(map,marker,site));
-                                               
-                      };
+                    SiteMarkerService.createSiteMarker(site,marker,map);                                                    
                 }
+            }
         }
         
         

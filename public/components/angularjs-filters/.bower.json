@@ -1,0 +1,38 @@
+{
+  "name": "angularjs-filters",
+  "main": "index.js",
+  "version": "0.0.2",
+  "homepage": "https://github.com/sumitchawla/angularjs-filters",
+  "authors": [
+    "Sumit Chawla <sumitkchawla@gmail.com>"
+  ],
+  "description": "Common AngularJS Filters",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "AngularJS",
+    "filters",
+    "Filters",
+    "for",
+    "AngularJS"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.2",
+    "commit": "ad265c8ac8517729eeab2a9aceff9e8e4cbdd833"
+  },
+  "_source": "https://github.com/sumitchawla/angularjs-filters.git",
+  "_target": "~0.0.2",
+  "_originalSource": "angularjs-filters",
+  "_direct": true
+}
