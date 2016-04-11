@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: businessBrowserController', function () {
-    var businessBrowserController, $scope, $qTest, deferred;
+    var businessBrowserController, $scope, deferred;
 
     beforeEach(module('gemStore'));
     beforeEach(module('businessBrowser'));
@@ -9,7 +9,6 @@ describe('Controller: businessBrowserController', function () {
     beforeEach(inject(function ($controller, $rootScope, $q, ResultRetriever) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
-        $qTest = $q;
 
         spyOn(ResultRetriever, 'getresults').and.returnValue(deferred.promise);
 

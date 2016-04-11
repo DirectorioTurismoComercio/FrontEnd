@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: HomeController', function () {
-    var homeController, $scope, $qTest, deferred, mdDialog, location;
+    var homeController, $scope, deferred, mdDialog, location;
 
     beforeEach(module('gemStore'));
     beforeEach(module('home'));
@@ -9,7 +9,6 @@ describe('Controller: HomeController', function () {
     beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $mdDialog, $location) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
-        $qTest = $q;
         mdDialog = $mdDialog;
         location = $location;
 

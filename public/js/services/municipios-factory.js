@@ -2,7 +2,14 @@
 	angular.module('gemStore')
 	.factory("MunicipiosFactory",['$resource', 'Constantes',
 		function($resource, Constantes){
-			var obj = $resource(Constantes.url+"/municipios");			
-			return obj;			
+
+			return{
+				getTowns:getTowns
+			};
+
+			function getTowns(){
+				var townsPromise = $resource(Constantes.url+"/municipios").query().$promise;
+				return townsPromise;
+			}
 		}]);
 })();
