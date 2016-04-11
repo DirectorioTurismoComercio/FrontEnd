@@ -1,0 +1,9 @@
+.masterContainerSiteDetail{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+
+    background-color: #00b3ee;
+}
