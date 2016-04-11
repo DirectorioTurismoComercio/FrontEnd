@@ -3,8 +3,8 @@
 angular.module('siteAndTownSaver',[])
     .service('siteAndTownSaverService', function () {
 
-        var currentSearchedSite;
-        var currentSearchedTown;
+        var currentSearchedSite=null;
+        var currentSearchedTown=null;
 
         return {
             setCurrentSearchedSite: setCurrentSearchedSite,
