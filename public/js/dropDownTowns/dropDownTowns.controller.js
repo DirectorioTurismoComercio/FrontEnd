@@ -1,9 +1,10 @@
 angular.module('dropDownTowns', [])
     .controller('dropDownTownsController', function ($scope, MunicipiosFactory, siteAndTownSaverService) {
 
+
         $scope.selectedTown = function (index) {
-            siteAndTownSaverService.setCurrentSearchedTown(index);
-        }
+            siteAndTownSaverService.setCurrentSearchedTown($scope.municipios[index]);
+        };
 
         MunicipiosFactory.getTowns().then(function (response) {
             $scope.municipios = response;
