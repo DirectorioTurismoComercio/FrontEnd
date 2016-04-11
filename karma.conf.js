@@ -29,6 +29,7 @@ module.exports = function (config) {
             'public/components/angular-sanitize/angular-sanitize.min.js',
             'public/components/videogular/videogular.min.js',
             'public/components/lodash/lodash.js',
+            'public/components/angularjs-filters/filters.js',
             'public/components/angular-simple-logger/dist/angular-simple-logger.min.js',
             'public/components/angular-google-maps/dist/angular-google-maps.min.js',
             'test/specHelpers.js',
