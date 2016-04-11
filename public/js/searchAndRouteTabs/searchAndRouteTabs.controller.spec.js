@@ -1,16 +1,25 @@
 'use strict';
 
 describe('Controller: searchAndRouteTabs', function () {
-    var searchAndRouteTabsController, scope;
+    var searchAndRouteTabsController, scope, testsiteAndTownSaverService;
 
     beforeEach(module('gemStore'));
 
-    beforeEach(inject(function ($controller, $rootScope) {
+    beforeEach(inject(function ($controller, $rootScope, siteAndTownSaverService) {
         scope = $rootScope.$new();
+        testsiteAndTownSaverService=siteAndTownSaverService;
+
+        spyOn(testsiteAndTownSaverService, 'getCurrentSearchedSite').and.returnValue('business');
+
         searchAndRouteTabsController = $controller('searchAndRouteTabsController', {
-            $scope: scope
+            $scope: scope,
+            siteAndTownSaverService:testsiteAndTownSaverService
         });
     }));
+
+    it('should show searchForm if user has made a business search', function () {
+        expect(scope.isSearchFormVisible).toBe(true);
+    });
 
     it('should set to false isRouteFormVisible when showSearchForm', function () {
         scope.isRouteFormVisible=true;
