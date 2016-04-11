@@ -1,8 +1,8 @@
 angular.module('dropDownTowns', [])
-    .controller('dropDownTownsController', function ($scope, MunicipiosFactory) {
+    .controller('dropDownTownsController', function ($scope, MunicipiosFactory, siteAndTownSaverService) {
 
         $scope.selectedTown = function (index) {
-            console.log("El municipio elegido fue", $scope.municipios[index].nombre);
+            siteAndTownSaverService.setCurrentSearchedTown(index);
         }
 
         MunicipiosFactory.getTowns().then(function (response) {

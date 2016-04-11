@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('home')
-    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog) {
+    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService) {
         $scope.doSearch = function (result) {
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 if (response.length > 0) {
+                    siteAndTownSaverService.setCurrentSearchedSite(result);
                     $location.path('/map');
                 } else {
                     showEmptyResultMessage("No se han encontrado resultados");
