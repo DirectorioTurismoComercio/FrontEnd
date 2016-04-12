@@ -105,6 +105,10 @@ md-tabs-content-wrapper{
     top: 0.1px !important;
 }
 
+md-tabs-canvas{
+    height: 0 !important;
+}
+
 
 @media screen and (max-width: 1000px) {
     .desktopLayout{
