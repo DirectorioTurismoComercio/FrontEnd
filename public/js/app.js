@@ -1,7 +1,9 @@
 (function () {
     angular.module('gemStore', ['ngRoute', 'ngResource', 'ngAnimate', 'ngMaterial',
             'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies',
-            'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home', 'businessBrowser', 'dropDownTowns', 'searchAndRouteTabs', 'siteAndTownSaver', 'siteDetail'])
+            'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
+            'businessBrowser', 'dropDownTowns', 'searchAndRouteTabs', 'siteAndTownSaver', 'siteDetail',
+            'howItWorks'])
         .config(function ($interpolateProvider, API_CONFIG, $authProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');

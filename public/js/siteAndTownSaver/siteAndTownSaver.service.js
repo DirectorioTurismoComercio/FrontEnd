@@ -1,31 +1,65 @@
 'use strict';
 
-angular.module('siteAndTownSaver',[])
+angular.module('siteAndTownSaver', [])
     .service('siteAndTownSaverService', function () {
-
-        var currentSearchedSite=null;
-        var currentSearchedTown=null;
+        var searchedQuery;
+        var searchedRoute;
+        var currentSearchedSite = null;
+        var currentSearchedTown = null;
 
         return {
             setCurrentSearchedSite: setCurrentSearchedSite,
             getCurrentSearchedSite: getCurrentSearchedSite,
-            setCurrentSearchedTown:setCurrentSearchedTown,
-            getCurrentSearchedTown:getCurrentSearchedTown
+            setCurrentSearchedTown: setCurrentSearchedTown,
+            getCurrentSearchedTown: getCurrentSearchedTown,
+            setSearchedQuery: setSearchedQuery,
+            getSearchedQuery: getSearchedQuery,
+            setSearchedRoute: setSearchedRoute,
+            getSearchedRoute: getSearchedRoute,
+            resetSearch: resetSearch
+
         }
 
-        function setCurrentSearchedSite(site){
-            currentSearchedSite=site;
+        function setCurrentSearchedSite(site) {
+            currentSearchedSite = site;
         }
 
-        function getCurrentSearchedSite(){
+        function getCurrentSearchedSite() {
             return currentSearchedSite;
         }
 
-        function setCurrentSearchedTown(town){
-            currentSearchedTown=town;
+        function setCurrentSearchedTown(town) {
+            currentSearchedTown = town;
         }
 
-        function getCurrentSearchedTown(){
+        function getCurrentSearchedTown() {
             return currentSearchedTown;
+        }
+
+        function setSearchedQuery(query, town) {
+            searchedQuery = {
+                query: query,
+                town: town
+            };
+        }
+
+        function setSearchedRoute(origin, destination) {
+            searchedRoute = {
+                origin: origin,
+                destination: destination
+            };
+        }
+
+        function getSearchedQuery() {
+            return searchedQuery;
+        }
+
+        function getSearchedRoute() {
+            return searchedRoute;
+        }
+
+        function resetSearch() {
+            searchedQuery = undefined;
+            searchedRoute = undefined;
         }
     });

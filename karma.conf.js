@@ -40,6 +40,8 @@ module.exports = function (config) {
             'public/js/home/home.controller.js',
             'public/js/businessBrowser/businessBrowser.controller.js',
             'public/js/siteAndTownSaver/siteAndTownService.service.js',
+            'public/js/howItWorks/howItWorks.js',
+            'public/js/howItWorks/howItWorks.controller.js',
             'public/js/siteDetails/siteDetail.js',
             'public/js/**/*.js',
             'test/**/*Spec.js',

@@ -3,14 +3,14 @@
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
                                            SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS
-                                           , SiteMarkerService, $location, $mdDialog) {
+        , SiteMarkerService, $location, $mdDialog) {
         var MY_LOCATION = 'Mi Ubicación';
         var routeOriginInput = document.getElementById('routeOrigin');
         var routeDestinationInput = document.getElementById('routeDestination');
         var directionsDisplay;
         var directionsService;
         var userPosition = {};
-        var markers=[];
+        var markers = [];
 
         $scope.routeOrigin = '';
         $scope.routeDestination = '';
@@ -59,16 +59,16 @@ angular.module('map')
                 console.log("ocurrio un error", error);
             });
         }
-      
+
         function showFoundPlaces() {
             var sites = SearchForResultsFactory.getResults();
             var map = $scope.map.control.getGMap();
             if (sites != undefined) {
                 for (var i = 0; i < sites.length; i++) {
-                    var site = sites[i];                
+                    var site = sites[i];
                     var position = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
                     var marker = MapService.addMarker(map, position);
-                    SiteMarkerService.createSiteMarker(site,marker,map);
+                    SiteMarkerService.createSiteMarker(site, marker, map);
                     markers.push(marker);
                 }
             }
@@ -101,8 +101,8 @@ angular.module('map')
                     .targetEvent('$event')
             );
         }
-        
-        
+
+
         function initServices(GMapApi) {
             directionsDisplay = new GMapApi.DirectionsRenderer();
             directionsService = new GMapApi.DirectionsService();

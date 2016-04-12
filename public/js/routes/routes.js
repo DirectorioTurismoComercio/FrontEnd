@@ -64,9 +64,6 @@
                     controller: 'SearchController',
                     templateUrl: 'js/search/search.html'
                 })
-                .when('/howitworks', {
-                    templateUrl: 'js/how_it_works/howitworks.html'
-                })
                 .when('/', {
                     redirectTo: '/home'
                 })
