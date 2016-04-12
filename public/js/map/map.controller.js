@@ -10,6 +10,7 @@ angular.module('map')
         var directionsDisplay;
         var directionsService;
         var userPosition = {};
+        var markers=[];
 
         $scope.routeOrigin = '';
         $scope.routeDestination = '';
@@ -49,7 +50,8 @@ angular.module('map')
         $scope.doSearch = function (result) {
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 if (response.length > 0) {
-                    showFoundPlaces()
+                    deleteMarkers();
+                    showFoundPlaces();
                 } else {
                     showEmptyResultMessage("No se han encontrado resultados");
                 }
@@ -66,9 +68,25 @@ angular.module('map')
                     var site = sites[i];                
                     var position = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
                     var marker = MapService.addMarker(map, position);
-                    SiteMarkerService.createSiteMarker(site,marker,map);                                                    
+                    SiteMarkerService.createSiteMarker(site,marker,map);
+                    markers.push(marker);
                 }
             }
+        }
+
+        function clearMarkers() {
+            setMapOnAll(null);
+        }
+
+        function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+
+        function deleteMarkers() {
+            clearMarkers();
+            markers = [];
         }
         
         
