@@ -24,15 +24,14 @@ describe('Controller: dropDownTownsController', function () {
     it('Should set current searched town', function () {
         deferred.resolve(['Bogota']);
         $scope.$apply();
-        $scope.selectedTown();
+        $scope.selectTown();
         expect(testsiteAndTownSaverService.setCurrentSearchedTown).toHaveBeenCalled();
     });
 
-   /* it('Should set default name and Value: Todos los municipios and 1', function () {
+    it('Should set default name: Todo Cundinamarca', function () {
         deferred.resolve(['Bogota']);
         $scope.$apply();
-        $scope.selectedTown();
-        expect(testsiteAndTownSaverService.setCurrentSearchedTown).toHaveBeenCalled();
-    });*/
-
+        testsiteAndTownSaverService.getCurrentSearchedTown(null);
+        expect($scope.selectedTown.nombre).toBe('Todo Cundinamarca');
+    });
 });
