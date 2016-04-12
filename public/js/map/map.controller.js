@@ -3,7 +3,7 @@
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
                                            SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS
-                                           , SiteMarkerService, $location) {
+                                           , SiteMarkerService, $location, $mdDialog) {
         var MY_LOCATION = 'Mi Ubicación';
         var routeOriginInput = document.getElementById('routeOrigin');
         var routeDestinationInput = document.getElementById('routeDestination');
@@ -87,6 +87,19 @@ angular.module('map')
         function deleteMarkers() {
             clearMarkers();
             markers = [];
+        }
+
+        function showEmptyResultMessage(message) {
+            $mdDialog.show(
+                $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#alertPop')))
+                    .clickOutsideToClose(true)
+                    .title('Error')
+                    .content(message)
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('Aceptar')
+                    .targetEvent('$event')
+            );
         }
         
         
