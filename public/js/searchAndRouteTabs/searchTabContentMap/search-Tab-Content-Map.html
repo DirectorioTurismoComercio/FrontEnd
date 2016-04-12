@@ -31,6 +31,9 @@
                     <div class="inputContainerHome">
                         <drop-down-town-directive></drop-down-town-directive>
                     </div>
+                    <div class="searchButtonContainerHome">
+                        <button class="searchButtonHome" aria-label="Buscar" ng-click="doSearch(result)">Realizar búsqueda</button>
+                    </div>
                 </div>
 
                 <div class="mobile">
@@ -46,7 +49,7 @@
                                 <drop-down-town-directive></drop-down-town-directive>
                             </div>
                             <div class="searchButtonContainerMobileMap">
-                                <img class="img_box stepIconHome" src="./images/Home/1_busca.png">
+                                <img class="img_box stepIconHome" src="./images/Home/1_busca.png" ng-click="doSearch(result)">
                             </div>
                         </div>
                         <div class="categorySectionMobileMap">
