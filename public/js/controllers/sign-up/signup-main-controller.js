@@ -45,7 +45,7 @@
                     $scope.tag.result = "";
                 }
 
-                MunicipiosFactory.query().$promise.then(function (an) {
+                MunicipiosFactory.getTowns().then(function (an) {
                     $scope.municipios = an;
                 }).catch(function (error) {
                     console.log(error);
