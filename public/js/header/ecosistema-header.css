@@ -1,0 +1,37 @@
+.ecosistemaHeader{
+    background-color: #285453;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.heaaderLogoContainer{
+    width: auto;
+    height: auto;
+
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    display: flex;
+    flex-flow: column wrap;
+
+    justify-content: center;
+}
+
+.ecosistemaLogoHeader{
+    height: 5.0em;
+    width: 35.0em;
+}
+
+.menuContainerHeader{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 2%;
+}
+
+.menuHeader{
+    height: 5.0em;
+    width: 5.0em;
+    background-color: #7F382B;
+}

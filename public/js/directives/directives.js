@@ -3,7 +3,7 @@
     .directive('myHeader', function() {
         return {
             restrict: 'E',
-            templateUrl: 'templates/header.html'
+            //templateUrl: 'templates/ecosistema-header.html'
         };
     })
     .directive('myBreadcrumbs', function() {
