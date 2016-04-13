@@ -35,17 +35,24 @@ describe('Controller: HomeController', function () {
     });
 
     it('Should redirects to map page', function () {
-        $scope.doSearch();
+        $scope.doSearch('bar');
         deferred.resolve(['Repuesta']);
         $scope.$apply();
         expect(location.path).toHaveBeenCalled();
     });
 
     it('Should save the current searched site', function () {
-        $scope.doSearch();
+        $scope.doSearch('bar');
         deferred.resolve(['Repuesta']);
         $scope.$apply();
         expect(testsiteAndTownSaverService.setCurrentSearchedSite).toHaveBeenCalled();
+    });
+
+    it('Should show error if user does not type any place in the input box', function () {
+        $scope.doSearch();
+        deferred.resolve(['Repuesta']);
+        $scope.$apply();
+        expect(mdDialog.show).toHaveBeenCalled();
     });
 
 });
