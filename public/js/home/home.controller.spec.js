@@ -1,20 +1,21 @@
 'use strict';
 
 describe('Controller: HomeController', function () {
-    var homeController, $scope, deferred, mdDialog, location, testsiteAndTownSaverService;
+    var homeController, $scope, deferred, location, testsiteAndTownSaverService, testpopErrorAlertService;
 
     beforeEach(module('gemStore'));
     beforeEach(module('home'));
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $mdDialog, $location, siteAndTownSaverService) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $location, siteAndTownSaverService, popErrorAlertService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
-        mdDialog = $mdDialog;
         location = $location;
         testsiteAndTownSaverService=siteAndTownSaverService;
+        testpopErrorAlertService=popErrorAlertService;
+
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
-        spyOn(mdDialog, 'show');
+        spyOn(testpopErrorAlertService, 'showPopErrorAlert');
         spyOn(location, 'path');
         spyOn(testsiteAndTownSaverService, 'setCurrentSearchedSite');
 
@@ -22,8 +23,8 @@ describe('Controller: HomeController', function () {
             $scope: $scope,
             SearchForResultsFactory: SearchForResultsFactory,
             $location: location,
-            $mdDialog: mdDialog,
-            siteAndTownSaverService:testsiteAndTownSaverService
+            siteAndTownSaverService:testsiteAndTownSaverService,
+            popErrorAlertService:popErrorAlertService
         });
     }));
 
@@ -31,7 +32,7 @@ describe('Controller: HomeController', function () {
         $scope.doSearch();
         deferred.resolve([]);
         $scope.$apply();
-        expect(mdDialog.show).toHaveBeenCalled();
+        expect(testpopErrorAlertService.showPopErrorAlert).toHaveBeenCalled();
     });
 
     it('Should redirects to map page', function () {
@@ -52,7 +53,7 @@ describe('Controller: HomeController', function () {
         $scope.doSearch();
         deferred.resolve(['Repuesta']);
         $scope.$apply();
-        expect(mdDialog.show).toHaveBeenCalled();
+        expect(testpopErrorAlertService.showPopErrorAlert).toHaveBeenCalled();
     });
 
 });

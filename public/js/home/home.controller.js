@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('home')
-    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService) {
+    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService, popErrorAlertService) {
         $scope.doSearch = function (result) {
            if(result!= undefined){
                 getSites(result);
            }
             else{
-               showEmptyResultMessage("Por favor ingrese un criterio de busqueda");
+               popErrorAlertService.showPopErrorAlert("Por favor ingrese un criterio de busqueda");
            }
         };
 
@@ -17,23 +17,10 @@ angular.module('home')
                     siteAndTownSaverService.setCurrentSearchedSite(result);
                     $location.path('/map');
                 } else {
-                    showEmptyResultMessage("No se han encontrado resultados");
+                    popErrorAlertService.showPopErrorAlert("No se han encontrado resultados");
                 }
             }).catch(function (error) {
                 console.log("ocurrio un error", error);
             });
-        }
-
-        function showEmptyResultMessage(message) {
-            $mdDialog.show(
-                $mdDialog.alert()
-                    .parent(angular.element(document.querySelector('#alertPop')))
-                    .clickOutsideToClose(true)
-                    .title('Error')
-                    .content(message)
-                    .ariaLabel('Alert Dialog Demo')
-                    .ok('Aceptar')
-                    .targetEvent('$event')
-            );
         }
     });

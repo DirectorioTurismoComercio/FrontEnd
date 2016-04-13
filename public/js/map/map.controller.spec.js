@@ -1,22 +1,22 @@
 'use strict';
 
 describe('Controller: MapController', function () {
-    var MapController, $scope, mdDialog,deferred;
+    var MapController, $scope, testpopErrorAlertService,deferred;
 
     beforeEach(module('gemStore'));
 
-    beforeEach(inject(function ($controller, $rootScope, $q,$mdDialog, SearchForResultsFactory, MapService) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, popErrorAlertService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
-        mdDialog = $mdDialog;
+        testpopErrorAlertService = popErrorAlertService;
 
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
-        spyOn(mdDialog, 'show');
+        spyOn(testpopErrorAlertService, 'showPopErrorAlert');
 
         MapController = $controller('MapController', {
             $scope: $scope,
-            $mdDialog: mdDialog,
+            popErrorAlertService: testpopErrorAlertService,
             SearchForResultsFactory: SearchForResultsFactory,
             MapService:MapService
         });
@@ -26,6 +26,6 @@ describe('Controller: MapController', function () {
         $scope.doSearch();
         deferred.resolve([]);
         $scope.$apply();
-        expect(mdDialog.show).toHaveBeenCalled();
+        expect(testpopErrorAlertService.showPopErrorAlert).toHaveBeenCalled();
     });
 });

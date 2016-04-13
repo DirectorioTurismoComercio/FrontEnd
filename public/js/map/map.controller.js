@@ -3,7 +3,7 @@
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
                                            SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS
-        , SiteMarkerService, $location, $mdDialog) {
+        , SiteMarkerService, $location, popErrorAlertService) {
         var MY_LOCATION = 'Mi Ubicación';
         var routeOriginInput = document.getElementById('routeOrigin');
         var routeDestinationInput = document.getElementById('routeDestination');
@@ -53,7 +53,7 @@ angular.module('map')
                     deleteMarkers();
                     showFoundPlaces();
                 } else {
-                    showEmptyResultMessage("No se han encontrado resultados");
+                    popErrorAlertService.showPopErrorAlert("No se han encontrado resultados");
                 }
             }).catch(function (error) {
                 console.log("ocurrio un error", error);
@@ -88,20 +88,6 @@ angular.module('map')
             clearMarkers();
             markers = [];
         }
-
-        function showEmptyResultMessage(message) {
-            $mdDialog.show(
-                $mdDialog.alert()
-                    .parent(angular.element(document.querySelector('#alertPop')))
-                    .clickOutsideToClose(true)
-                    .title('Error')
-                    .content(message)
-                    .ariaLabel('Alert Dialog Demo')
-                    .ok('Aceptar')
-                    .targetEvent('$event')
-            );
-        }
-
 
         function initServices(GMapApi) {
             directionsDisplay = new GMapApi.DirectionsRenderer();

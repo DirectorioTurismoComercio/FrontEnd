@@ -3,7 +3,7 @@
             'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies',
             'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
             'businessBrowser', 'dropDownTowns', 'searchAndRouteTabs', 'siteAndTownSaver', 'siteDetail',
-            'howItWorks'])
+            'howItWorks', 'popErrorAlert'])
         .config(function ($interpolateProvider, API_CONFIG, $authProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');
