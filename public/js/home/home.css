@@ -6,41 +6,6 @@
     flex-flow: row wrap;
 }
 
-header {
-    background: #285453;
-    width: 100%;
-    padding: 20px;
-    height: 8%;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-
-}
-
-header .logo a {
-    font-size: 3em;
-    text-decoration: none;
-}
-
-header nav {
-    width: 40%;
-
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-header nav a {
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    padding: 10px;
-    font-size: 2em;
-
-    flex-grow: 1;
-}
-
 p{
     text-align: left;
 }
