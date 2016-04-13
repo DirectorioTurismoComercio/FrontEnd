@@ -3,6 +3,15 @@
 angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService) {
         $scope.doSearch = function (result) {
+           if(result!= undefined){
+                getSites(result);
+           }
+            else{
+               showEmptyResultMessage("Por favor ingrese un criterio de busqueda");
+           }
+        };
+
+        function getSites(result){
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 if (response.length > 0) {
                     siteAndTownSaverService.setCurrentSearchedSite(result);
