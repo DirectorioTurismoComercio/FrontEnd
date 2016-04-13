@@ -3,16 +3,21 @@
 angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService) {
         $scope.doSearch = function (result) {
-            SearchForResultsFactory.doSearch(result).then(function (response) {
-                if (response.length > 0) {
-                    siteAndTownSaverService.setCurrentSearchedSite(result);
-                    $location.path('/map');
-                } else {
-                    showEmptyResultMessage("No se han encontrado resultados");
-                }
-            }).catch(function (error) {
-                console.log("ocurrio un error", error);
-            });
+           if(result!= undefined){
+               SearchForResultsFactory.doSearch(result).then(function (response) {
+                   if (response.length > 0) {
+                       siteAndTownSaverService.setCurrentSearchedSite(result);
+                       $location.path('/map');
+                   } else {
+                       showEmptyResultMessage("No se han encontrado resultados");
+                   }
+               }).catch(function (error) {
+                   console.log("ocurrio un error", error);
+               });
+           }
+            else{
+               showEmptyResultMessage("Por favor ingrese un criterio de busqueda");
+           }
         }
 
         function showEmptyResultMessage(message) {
