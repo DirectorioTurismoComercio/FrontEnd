@@ -1,7 +1,7 @@
 angular.module('businessBrowser', [])
     .controller('businessBrowserController', function ($scope, ResultRetriever, siteAndTownSaverService) {
 
-        setPlaceholder();
+        setPlaceholderAndValue();
 
 
         $scope.lookForSuggestions = function (typedthings) {
@@ -13,8 +13,9 @@ angular.module('businessBrowser', [])
             });
         }
 
-        function setPlaceholder() {
+        function setPlaceholderAndValue() {
             $scope.browserBusinessPlaceholder = (siteAndTownSaverService.getCurrentSearchedSite() == null) ? '¿Qué Buscas?' : siteAndTownSaverService.getCurrentSearchedSite();
+            $scope.result= (siteAndTownSaverService.getCurrentSearchedSite() == null) ? undefined : siteAndTownSaverService.getCurrentSearchedSite();
         }
     });
 
