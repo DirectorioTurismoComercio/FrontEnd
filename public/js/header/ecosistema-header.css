@@ -35,3 +35,31 @@
     width: 5.0em;
     background-color: #7F382B;
 }
+
+@media screen and (max-width: 650px) {
+    .ecosistemaLogoHeader{
+        height: 5.0em;
+        width: 25.0em;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .ecosistemaLogoHeader{
+        height: 5.0em;
+        width: 20.0em;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .ecosistemaLogoHeader{
+        height: 5.0em;
+        width: 18.0em;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .ecosistemaLogoHeader{
+        height: 5.0em;
+        width: 16.0em;
+    }
+}
