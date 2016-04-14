@@ -102,16 +102,6 @@ angular.module('map')
             MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
             directionsDisplay.setMap($scope.map.control.getGMap());
             showFoundPlaces();
-
-            /*Dibujo del poligono de cundinamarca, solo para muestra en desarrollo. Se quitará mas adelante*/
-            var cundinamarcaPolygon = new google.maps.Polygon({
-                strokeColor: '#FF0000',
-                strokeOpacity: 0.1,
-                strokeWeight: 2,
-                fillColor: '#bbffff',
-                paths: CUNDINAMARCA_COORDS,
-                map: $scope.map.control.getGMap()
-            });
         }
 
         function checkAllowedPlace(autocomplete, inputBox) {
