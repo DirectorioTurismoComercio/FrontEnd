@@ -33,6 +33,8 @@ module.exports = function (config) {
             'public/components/angular-simple-logger/dist/angular-simple-logger.min.js',
             'public/components/angular-google-maps/dist/angular-google-maps.min.js',
             'public/components/angular-translate/angular-translate.min.js',
+            'public/components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
+
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
@@ -53,7 +55,10 @@ module.exports = function (config) {
 
         // list of files to exclude
         exclude: [
-            'test/e2e/*'
+            'test/e2e/*',
+            'public/i18n/locale-en.json',
+            'public/i18n/locale-es.json',
+            'public/app-i18n-loader.js'
         ],
 
 

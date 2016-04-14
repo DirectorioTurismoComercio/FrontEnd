@@ -28,14 +28,14 @@
                 'es_*':'es'
             });
 
-            $translateProvider.translations('es',{
-                BUTTON_HOW_IT_WORKS:"¿Cómo funciona?"
+            $translateProvider.useStaticFilesLoader({
+                prefix:'i18n/locale-',
+                suffix:'.json'
             });
 
+            $translateProvider.useLoader
 
-            $translateProvider.translations('en',{
-                BUTTON_HOW_IT_WORKS:"How it works?"
-            });
+
 
             $translateProvider.useSanitizeValueStrategy('escape');
             $translateProvider.preferredLanguage('es');

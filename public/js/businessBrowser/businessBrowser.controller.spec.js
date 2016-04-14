@@ -6,11 +6,26 @@ describe('Controller: businessBrowserController', function () {
     beforeEach(module('gemStore'));
     beforeEach(module('businessBrowser'));
 
-    beforeEach(inject(function ($controller, $rootScope, $q, ResultRetriever,siteAndTownSaverService) {
+    beforeEach(module('gemStore', function ($provide, $translateProvider) {
+
+        $provide.factory('customLoader', function ($q) {
+            return function () {
+                var deferred = $q.defer();
+                deferred.resolve({});
+                return deferred.promise;
+            };
+        });
+
+        $translateProvider.useLoader('customLoader');
+
+    }));
+
+    beforeEach(inject(function ($controller, $rootScope, $q, ResultRetriever, siteAndTownSaverService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
 
-        testsiteAndTownSaverService=siteAndTownSaverService;
+        testsiteAndTownSaverService = siteAndTownSaverService;
+
 
         spyOn(ResultRetriever, 'getresults').and.returnValue(deferred.promise);
         spyOn(testsiteAndTownSaverService, 'getCurrentSearchedSite').and.returnValue('business');
@@ -18,7 +33,7 @@ describe('Controller: businessBrowserController', function () {
         businessBrowserController = $controller('businessBrowserController', {
             $scope: $scope,
             ResultRetriever: ResultRetriever,
-            siteAndTownSaverService:testsiteAndTownSaverService
+            siteAndTownSaverService: testsiteAndTownSaverService
         });
     }));
 

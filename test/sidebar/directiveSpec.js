@@ -12,6 +12,20 @@ describe('side-bar', function () {
         API_CONFIG,
         auth;
 
+    beforeEach(module('gemStore', function ($provide, $translateProvider) {
+
+        $provide.factory('customLoader', function ($q) {
+            return function () {
+                var deferred = $q.defer();
+                deferred.resolve({});
+                return deferred.promise;
+            };
+        });
+
+        $translateProvider.useLoader('customLoader');
+
+    }));
+
     beforeEach(inject(function($compile, $rootScope, $injector, authenticationService) {
         compile = $compile;
         rootScope = $rootScope;

@@ -6,6 +6,20 @@ describe('Controller: dropDownTownsController', function () {
     beforeEach(module('gemStore'));
     beforeEach(module('dropDownTowns'));
 
+    beforeEach(module('gemStore', function ($provide, $translateProvider) {
+
+        $provide.factory('customLoader', function ($q) {
+            return function () {
+                var deferred = $q.defer();
+                deferred.resolve({});
+                return deferred.promise;
+            };
+        });
+
+        $translateProvider.useLoader('customLoader');
+
+    }));
+
     beforeEach(inject(function ($controller, $rootScope, $q,siteAndTownSaverService, MunicipiosFactory) {
         $scope = $rootScope.$new();
         deferred = $q.defer();

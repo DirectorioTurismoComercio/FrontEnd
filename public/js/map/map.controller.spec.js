@@ -5,6 +5,20 @@ describe('Controller: MapController', function () {
 
     beforeEach(module('gemStore'));
 
+    beforeEach(module('gemStore', function ($provide, $translateProvider) {
+
+        $provide.factory('customLoader', function ($q) {
+            return function () {
+                var deferred = $q.defer();
+                deferred.resolve({});
+                return deferred.promise;
+            };
+        });
+
+        $translateProvider.useLoader('customLoader');
+
+    }));
+
     beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, popErrorAlertService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
