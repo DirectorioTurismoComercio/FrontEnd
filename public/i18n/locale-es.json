@@ -1,4 +1,11 @@
 {
   "BUTTON_HOW_IT_WORKS":"¿Cómo funciona?",
-  "carouselText":"Descubre lo que Cundinamarca tiene para ofrecerte en parques naturales"
+  "CAROUSEL_TEXT":"Descubre lo que Cundinamarca tiene para ofrecerte en parques naturales",
+  "SEARCH_TAB":"Busca",
+  "PLAN_YOUR_TRIP":"Arma tu ruta",
+  "SEARCH_BY_KEY_WORD": "Busca por palabra Clave",
+  "SEARCH_1ST_STEP_TIP": "Nuestro buscador te ayudará a ubicar lo que necesitas",
+  "SELECT_TOWN":"Selecciona el municipio",
+  "SEARCH_2ND_STEP_TIP":"Selecciona el municipio de tu interés",
+  "MAKE_SEARCH":"Realizar búsqueda"
 }

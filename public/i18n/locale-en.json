@@ -1,5 +1,11 @@
 {
   "BUTTON_HOW_IT_WORKS":"How it works?",
-  "carouselText":"Discover what Cundinamarca has to offer about natural parks"
-
+  "CAROUSEL_TEXT":"Discover what Cundinamarca has to offer about natural parks",
+  "SEARCH_TAB":"Search",
+  "PLAN_YOUR_TRIP":"Plan your trip",
+  "SEARCH_BY_KEY_WORD": "Search by keyword",
+  "SEARCH_1ST_STEP_TIP": "Our browser will help you to search what you need",
+  "SELECT_TOWN":"Select a town",
+  "SEARCH_2ND_STEP_TIP":"Select your interest town",
+  "MAKE_SEARCH":"Make search"
 }
