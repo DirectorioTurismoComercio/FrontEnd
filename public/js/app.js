@@ -33,10 +33,6 @@
                 suffix:'.json'
             });
 
-            $translateProvider.useLoader
-
-
-
             $translateProvider.useSanitizeValueStrategy('escape');
             $translateProvider.preferredLanguage('es');
         })
