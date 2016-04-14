@@ -3,8 +3,8 @@
             'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies',
             'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
             'businessBrowser', 'dropDownTowns', 'searchAndRouteTabs', 'siteAndTownSaver', 'siteDetail',
-            'howItWorks', 'popErrorAlert', 'ecosistemaHeader'])
-        .config(function ($interpolateProvider, API_CONFIG, $authProvider) {
+            'howItWorks', 'popErrorAlert', 'ecosistemaHeader', 'pascalprecht.translate'])
+        .config(function ($interpolateProvider, API_CONFIG, $authProvider, $translateProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');
 
@@ -21,5 +21,23 @@
                 url: '/api/login/social/token/google-oauth2',
                 redirectUri: window.location.origin + '/'
             });
+
+            $translateProvider.fallbackLanguage('es');
+            $translateProvider.registerAvailableLanguageKeys(['en','es'],{
+                'en_*':'en',
+                'es_*':'es'
+            });
+
+            $translateProvider.translations('es',{
+                BUTTON_HOW_IT_WORKS:"¿Cómo funciona?"
+            });
+
+
+            $translateProvider.translations('en',{
+                BUTTON_HOW_IT_WORKS:"How it works?"
+            });
+
+            $translateProvider.useSanitizeValueStrategy('escape');
+            $translateProvider.preferredLanguage('es');
         })
 })();

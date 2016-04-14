@@ -32,6 +32,7 @@ module.exports = function (config) {
             'public/components/angularjs-filters/filters.js',
             'public/components/angular-simple-logger/dist/angular-simple-logger.min.js',
             'public/components/angular-google-maps/dist/angular-google-maps.min.js',
+            'public/components/angular-translate/angular-translate.min.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
