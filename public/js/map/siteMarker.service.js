@@ -1,40 +1,41 @@
 'use strict';
 
 angular.module('map')
-	.service('SiteMarkerService', function($filter,$sce,$templateRequest,$q){
-	var infowindow = null;
-        function makeInfoWindowEvent(map, marker, content) {  
-           return function() {  
-	    if(infowindow){
-		infowindow.close();
-	    }
-            infowindow = new google.maps.InfoWindow({
-                content: content
-              });
-              infowindow.open(map, marker);
-           };  
-        } 
+    .service('SiteMarkerService', function ($filter, $sce, $templateRequest, $q) {
+        var infowindow = null;
+
+        function makeInfoWindowEvent(map, marker, content) {
+            return function () {
+                if (infowindow) {
+                    infowindow.close();
+                }
+                infowindow = new google.maps.InfoWindow({
+                    content: content
+                });
+                infowindow.open(map, marker);
+            };
+        }
 
 
-    var createSiteMarker=function(site,marker,map){
-            var templateUrl = $sce.getTrustedResourceUrl('js/map/infowindow.html');  
-             
-            $templateRequest(templateUrl).then(function(template) {
-            var filter = $filter('format');
-            var content = filter(template, site.nombre,site.descripcion,site.URLfoto);
-            marker.addListener('click',makeInfoWindowEvent(map,marker,content));
+        var createSiteMarker = function (site, marker, map) {
+            var templateUrl = $sce.getTrustedResourceUrl('js/map/infowindow.html');
 
-             }, function() {
-              console.log("error al crear template para Marker");
+            $templateRequest(templateUrl).then(function (template) {
+                var filter = $filter('format');
+                var content = filter(template, site.nombre, site.descripcion, site.URLfoto);
+                marker.addListener('click', makeInfoWindowEvent(map, marker, content));
+
+            }, function () {
+                console.log("error al crear template para Marker");
             });
-            
-          
-    }   
 
-    return { 
-              createSiteMarker: createSiteMarker
-          };
-	})
+
+        }
+
+        return {
+            createSiteMarker: createSiteMarker
+        };
+    })
 ;
 
 

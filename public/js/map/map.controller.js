@@ -67,7 +67,8 @@ angular.module('map')
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
                     var position = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
-                    var marker = MapService.addMarker(map, position);
+                    var marker = MapService.addMarker(map, position, site.nombre);
+
                     SiteMarkerService.createSiteMarker(site, marker, map);
                     markers.push(marker);
                 }

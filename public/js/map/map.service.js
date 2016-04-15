@@ -49,10 +49,17 @@ angular.module('map')
             return google.maps.geometry.poly.containsLocation(coords, cundinamarcaPolygon);
         }
 
-        function addMarker(map, position) {
-            return new google.maps.Marker({
+        function addMarker(map, position, label) {
+            return new MarkerWithLabel({
                 position: position,
-                map: map
+                map: map,
+                labelContent: label,
+                labelAnchor: new google.maps.Point(22, 0),
+                labelClass: "marker-label",
+                labelStyle: {
+                    "font-weight": "bold",
+                    opacity: 1.0
+                }
             });
         }
 
