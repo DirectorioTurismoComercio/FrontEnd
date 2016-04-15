@@ -12,7 +12,6 @@ angular.module('dropDownTowns', [])
             $scope.municipios.splice(0, 0, {
                 nombre: 'Todo Cundinamarca',
             });
-            console.log("los municipios", $scope.municipios);
         }).catch(function (error) {
             console.log("Ocurrio un error", error);
         });
