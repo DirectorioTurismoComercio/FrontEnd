@@ -12,6 +12,7 @@
     margin: auto;
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 
 .header{
@@ -22,29 +23,44 @@
 }
 
 .videoContainer{
-    width: 100%;
+    max-width: 2000px;
     height: 50em;
+
+  
+    display: flex;
+    flex: 1 1 80%;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
 .videoHowItWorks{
     height: 100%;
-    width: 100%;
+    width: 80%;
 }
 
 .linksContainer{
-    width: 96%;
-    height: auto;
-    margin-left: 2%;
-    margin-right: 2%;
+    max-width: 2000px;
+    width: 80%;
+    height: 500px;
     margin-top: 3%;
 
     display: flex;
+    flex: 1 1 80%;
     flex-flow: row wrap;
-    justify-content:space-between;
+    justify-content:center;
+}
+
+.secondLinkContainer{
+    width: 80%;
+
+    display: flex;
+    flex: 1 1 80%;
+    flex-flow: row wrap;
+
 }
 
 .linkSection{
-    width: 31%;
+    width: 26.6%;
     height: auto;
     display: flex;
     flex-flow: column wrap;
@@ -52,11 +68,16 @@
 }
 
 .registerSection{
-    margin-right: 2%;
+    margin-left: 10%;
+    height: auto;
 }
 
 .searchSection{
-    margin-right: 2%;
+    height: auto;
+}
+
+.routeSection{
+    height: auto;
 }
 
 
