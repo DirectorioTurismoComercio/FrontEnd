@@ -3,7 +3,7 @@
             'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies',
             'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
             'businessBrowser', 'dropDownTowns', 'searchAndRouteTabs', 'siteAndTownSaver', 'siteDetail',
-            'howItWorks', 'popErrorAlert', 'ecosistemaHeader', 'pascalprecht.translate'])
+            'howItWorks', 'popErrorAlert', 'ecosistemaHeader', 'pascalprecht.translate', 'ecosistemaFooter'])
         .config(function ($interpolateProvider, API_CONFIG, $authProvider, $translateProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');

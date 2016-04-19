@@ -1,0 +1,8 @@
+.ecosistemaFooter{
+    background-color: #285453;
+
+    height: 200px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}

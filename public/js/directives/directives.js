@@ -30,12 +30,6 @@
             }
         };
     })
-    .directive("pageFooter", function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'templates/footer.html'
-        };
-    })
     .directive('sideBar', ['navBar', '$location', 'authenticationService', 'isUserLoggedIn','$auth', function (navBar, $location, authenticationService, isUserLoggedIn, $auth) {
         return {
             restrict: "E",
