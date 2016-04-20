@@ -20,23 +20,42 @@
 .routeDiv {
     width: 50%;
     background-color: #D19637;
-}
-
-.routeLabelContainer{
-    width: 100%;
-    height: auto;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 
+.labelContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.routeLabelContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.textAndImageContainer{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
 
 .searchLabel{
-    font-size: 1.5em;
+    font-size: 2em;
     font-family: 'PT Sans', sans-serif;
     font-weight: normal;
     text-align: center;
     color: white;
+
+
 }
 
 .searchLabelUnderline{
@@ -49,8 +68,8 @@
 
 .searchIcon{
     height: 3em;
-    width: 1em;
-    margin-left: 2%;
+    width: 3em;
+    margin-left: 40%;
 }
 
 .routeLabelUnderline{

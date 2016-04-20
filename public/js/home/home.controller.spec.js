@@ -44,6 +44,12 @@ describe('Controller: HomeController', function () {
         });
     }));
 
+
+    it('Should redirects to How it Works Page', function () {
+        $scope.goToHowItWorks();
+        expect(location.path).toHaveBeenCalled();
+    });
+
     it('Should show error message if search has zero results', function () {
         $scope.doSearch();
         deferred.resolve([]);

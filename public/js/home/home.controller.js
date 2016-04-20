@@ -11,6 +11,10 @@ angular.module('home')
            }
         };
 
+        $scope.goToHowItWorks=function(){
+            $location.path('/howitworks');
+        }
+
         function getSites(result){
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 if (response.length > 0) {
