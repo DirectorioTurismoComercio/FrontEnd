@@ -116,6 +116,17 @@
         display: flex;
     }
 
+    .videoContainer{
+        height: 30%;
+    }
+
+    .videoHowItWorks{
+        height: 100%;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
     .linksContainerMobile{
         width: 100%;
         height: auto;
