@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('map', ['uiGmapgoogle-maps','ch.filters'])
+angular.module('map', ['uiGmapgoogle-maps', 'ch.filters'])
     .config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
         uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyB01Crhc-gyfYhAxa8IdSVcKuUC4lHai7E',
@@ -13,5 +13,13 @@ angular.module('map', ['uiGmapgoogle-maps','ch.filters'])
                 templateUrl: 'js/map/map.html',
                 controller: 'MapController'
             });
+/*            .when('/map/searchKeyword', {
+                templateUrl: 'js/map/map.html',
+                controller: 'MapController'
+            })
+            .when('/map/searchRoute', {
+                templateUrl: 'js/map/map.html',
+                controller: 'MapController'
+            });*/
     });
 

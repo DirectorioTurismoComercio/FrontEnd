@@ -18,4 +18,16 @@
     <button class="btn btn-primary" ng-click="calculateRoute()">Calcular ruta</button>
 </div>
 
+<div id="content" class="found-sites">
+    <div ng-repeat="site in foundSites">
+        <h1 id="firstHeading" class="firstHeading">%%site.nombre%%</h1>
+        <div>
+            <p>%%site.descripcion%%</p>
+            <img height=100 width=100 ng-src='%%site.URLfoto%%'/>
+            <a href="#/sitedetail">VER LOCAL</a>
+            <a href="#/map/searchRoute">COMO LLEGAR</a>
+        </div>
+    </div>
+</div>
+
 <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"></ui-gmap-google-map>

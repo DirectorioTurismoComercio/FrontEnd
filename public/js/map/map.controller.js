@@ -2,8 +2,8 @@
 
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
-                                           SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS
-        , SiteMarkerService, $location, popErrorAlertService) {
+                                           SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS, SiteMarkerService,
+                                           $location, popErrorAlertService, $routeParams) {
         var MY_LOCATION = 'Mi Ubicación';
         var routeOriginInput = document.getElementById('routeOrigin');
         var routeDestinationInput = document.getElementById('routeDestination');
@@ -12,6 +12,7 @@ angular.module('map')
         var userPosition = {};
         var markers = [];
 
+        $scope.foundSites = [{name:'nombre', description:'desc'}];
         $scope.routeOrigin = '';
         $scope.routeDestination = '';
         $scope.map = {
@@ -62,6 +63,7 @@ angular.module('map')
 
         function showFoundPlaces() {
             var sites = SearchForResultsFactory.getResults();
+            $scope.foundSites = sites;
             var map = $scope.map.control.getGMap();
             if (sites != undefined) {
                 for (var i = 0; i < sites.length; i++) {
@@ -95,6 +97,17 @@ angular.module('map')
             directionsService = new GMapApi.DirectionsService();
         }
 
+        function showSearchedRoute() {
+            switch ($location.$$path) {
+                case '/map/searchRoute':
+                    console.log("route");
+                    break;
+                case '/map/searchKeyword':
+                    console.log("keyword");
+                    break;
+            }
+        }
+
         function initMap() {
             var routeFromAutocomplete = MapService.addAutocompleteFeature(routeOriginInput);
             var routeToAutocomplete = MapService.addAutocompleteFeature(routeDestinationInput);
@@ -102,6 +115,7 @@ angular.module('map')
             MapService.addPlaceChangedListener(routeFromAutocomplete, routeOriginInput, checkAllowedPlace)
             MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
             directionsDisplay.setMap($scope.map.control.getGMap());
+            showSearchedRoute();
             showFoundPlaces();
         }
 
@@ -128,4 +142,5 @@ angular.module('map')
         function handleLocationError() {
             alert("No es posible obtener la ubicación");
         }
-    });
+    })
+;

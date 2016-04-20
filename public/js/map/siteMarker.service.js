@@ -2,34 +2,15 @@
 
 angular.module('map')
     .service('SiteMarkerService', function ($filter, $sce, $templateRequest, $q) {
-        var infowindow = null;
-
-        function makeInfoWindowEvent(map, marker, content) {
+        function showSiteInList(map, site) {
             return function () {
-                if (infowindow) {
-                    infowindow.close();
-                }
-                infowindow = new google.maps.InfoWindow({
-                    content: content
-                });
-                infowindow.open(map, marker);
+                console.log("show site selected " + site.nombre)
             };
         }
 
 
         var createSiteMarker = function (site, marker, map) {
-            var templateUrl = $sce.getTrustedResourceUrl('js/map/infowindow.html');
-
-            $templateRequest(templateUrl).then(function (template) {
-                var filter = $filter('format');
-                var content = filter(template, site.nombre, site.descripcion, site.URLfoto);
-                marker.addListener('click', makeInfoWindowEvent(map, marker, content));
-
-            }, function () {
-                console.log("error al crear template para Marker");
-            });
-
-
+            marker.addListener('click', showSiteInList(map, site));
         }
 
         return {
