@@ -32,7 +32,8 @@ angular.module('map')
             var origin = routeOriginInput.value == MY_LOCATION ? userCoords : routeOriginInput.value;
             var destination = routeDestinationInput.value;
 
-            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay);
+            var map = $scope.map.control.getGMap();
+            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map);
         }
 
         $scope.goToUserPosition = function () {

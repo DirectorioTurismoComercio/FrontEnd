@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('map')
-    .service('MapService', function ($window, CUNDINAMARCA_COORDS) {
+    .service('MapService', function ($window, CUNDINAMARCA_COORDS, $http, API_CONFIG, SiteMarkerService) {
 
-        function calulateRoute(origin, destination, directionsService, directionsDisplay) {
+        function calulateRoute(origin, destination, directionsService, directionsDisplay, map) {
             var routeData = {
                 origin: origin,
                 destination: destination,
@@ -13,8 +13,51 @@ angular.module('map')
             directionsService.route(routeData, function (result, status) {
                 if (status == google.maps.DirectionsStatus.OK) {
                     directionsDisplay.setDirections(result);
+
+                    var points = [];
+                    ///Se dibuja el overview_path
+                    console.log("los puntos son", result);
+
+                    console.log("los puntos", result.routes[0].overview_path[5].lat());
+                    console.log("los puntos", result.routes[0].overview_path[5].lng());
+
+                    console.log("los puntos", result.routes[0].overview_path[5]);
+
+
+                    for (var i = 0; i < result.routes[0].overview_path.length; i++) {
+                        points.push([result.routes[0].overview_path[i].lat(), result.routes[0].overview_path[i].lng()]);
+                        /*addMarker(map, {
+                            lat: result.routes[0].overview_path[i].lat(),
+                            lng: result.routes[0].overview_path[i].lng()
+                        }, "p");*/
+                    }
+
+
+
+                    $http.post(API_CONFIG.url + API_CONFIG.sitios, {'points': points}, {})
+                        .success(function (sites) {
+                            console.log(sites);
+                            for (var i = 0; i < sites.length; i++) {
+                               /* addMarker(map, {
+                                    lat: parseFloat(response[i].latitud),
+                                    lng: parseFloat(response[i].longitud)
+                                }, "p");*/
+
+
+                                var position = coordsToLatLng(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
+                                var marker = addMarker(map, position, sites[i].nombre);
+
+                                SiteMarkerService.createSiteMarker(sites[i], marker, map);
+
+                            }
+                        })
+                        .error(function (error) {
+                            console.log("Hubo un error", error);
+                        })
                 }
             });
+
+
         }
 
         function getUserPosition(userPositionResolved, errorGettingLocation) {
