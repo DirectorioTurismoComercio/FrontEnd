@@ -11,6 +11,7 @@ angular.module('map')
         var directionsService;
         var userPosition = {};
         var markers = [];
+        $scope.loading=false;
 
         $scope.routeOrigin = '';
         $scope.routeDestination = '';
@@ -28,13 +29,14 @@ angular.module('map')
         uiGmapIsReady.promise().then(initMap);
 
         $scope.calculateRoute = function () {
+            $scope.loading=true;
             var userCoords = userPosition.lat + "," + userPosition.lng;
             var origin = routeOriginInput.value == MY_LOCATION ? userCoords : routeOriginInput.value;
             var destination = routeDestinationInput.value;
 
             var map = $scope.map.control.getGMap();
             markers=MapService.deleteMarkers(markers);
-            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, markers);
+            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, markers, $scope);
         }
 
         $scope.goToUserPosition = function () {

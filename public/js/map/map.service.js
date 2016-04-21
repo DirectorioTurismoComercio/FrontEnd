@@ -3,7 +3,7 @@
 angular.module('map')
     .service('MapService', function ($window, CUNDINAMARCA_COORDS, $http, API_CONFIG, SiteMarkerService) {
 
-        function calulateRoute(origin, destination, directionsService, directionsDisplay, map,markers) {
+        function calulateRoute(origin, destination, directionsService, directionsDisplay, map,markers, $scope) {
             var routeData = {
                 origin: origin,
                 destination: destination,
@@ -28,6 +28,7 @@ angular.module('map')
                                 markers.push(marker);
                                 SiteMarkerService.createSiteMarker(sites[i], marker, map);
                             }
+                            $scope.loading=false;
                         })
                         .error(function (error) {
                             console.log("Hubo un error", error);

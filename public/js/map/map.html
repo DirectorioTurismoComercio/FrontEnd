@@ -18,4 +18,10 @@
     <button class="btn btn-primary" ng-click="calculateRoute()">Calcular ruta</button>
 </div>
 
-<ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"></ui-gmap-google-map>
+<div>
+    <md-progress-circular class="loadingSitesOnMap" md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+    <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control">
+    </ui-gmap-google-map>
+</div>
+
+

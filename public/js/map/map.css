@@ -5,3 +5,11 @@
 .map-control {
     margin: 20px;
 }
+
+.loadingSitesOnMap{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
