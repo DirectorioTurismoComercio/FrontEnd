@@ -7,9 +7,29 @@
     justify-content: space-between;
 }
 
+.logoSection{
+    display: none;
+}
+
 .bottomFooter{
     background-color: darkslategrey;
     height: 8%;
     display: flex;
     flex-flow: row wrap;
+}
+
+@media screen and (max-width: 1000px) {
+    .ecosistemaFooter{
+        height: 20%;
+    }
+
+    .logoSection{
+        display: flex;
+        height: 20%;
+        background-color: white;
+    }
+
+    .bottomFooter{
+        height: 10%;
+    }
 }
