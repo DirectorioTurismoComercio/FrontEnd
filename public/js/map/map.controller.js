@@ -52,10 +52,12 @@ angular.module('map')
         }
 
         $scope.doSearch = function (result) {
+            $scope.loading=true;
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 if (response.length > 0) {
                     markers=MapService.deleteMarkers(markers);
                     showFoundPlaces();
+                    $scope.loading=false;
                 } else {
                     popErrorAlertService.showPopErrorAlert("No se han encontrado resultados");
                 }
