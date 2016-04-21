@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('map')
-    .service('MapService', function ($window, CUNDINAMARCA_COORDS, $http, API_CONFIG, SiteMarkerService) {
+    .service('MapService', function ($window, CUNDINAMARCA_COORDS, $http, API_CONFIG, SiteMarkerService, sitesNearRoute) {
 
-        function calulateRoute(origin, destination, directionsService, directionsDisplay, map,markers, $scope) {
+        function calulateRoute(origin, destination, directionsService, directionsDisplay, map, markers, $scope) {
             var routeData = {
                 origin: origin,
                 destination: destination,
@@ -15,26 +15,27 @@ angular.module('map')
                     directionsDisplay.setDirections(result);
 
                     var points = [];
-
                     for (var i = 0; i < result.routes[0].overview_path.length; i++) {
                         points.push([result.routes[0].overview_path[i].lat(), result.routes[0].overview_path[i].lng()]);
                     }
-
-                    $http.post(API_CONFIG.url + API_CONFIG.sitios, {'points': points}, {})
-                        .success(function (sites) {
-                            for (var i = 0; i < sites.length; i++) {
-                                var position = coordsToLatLng(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
-                                var marker = addMarker(map, position, sites[i].nombre);
-                                markers.push(marker);
-                                SiteMarkerService.createSiteMarker(sites[i], marker, map);
-                            }
-                            $scope.loading=false;
-                        })
-                        .error(function (error) {
-                            console.log("Hubo un error", error);
-                        })
+                    drawRouteSites(points,map, markers, $scope);
                 }
             });
+        }
+
+        function drawRouteSites(points,map, markers, $scope) {
+            sitesNearRoute.getSitesNearRoute(points).success(function (sites) {
+                    for (var i = 0; i < sites.length; i++) {
+                        var position = coordsToLatLng(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
+                        var marker = addMarker(map, position, sites[i].nombre);
+                        markers.push(marker);
+                        SiteMarkerService.createSiteMarker(sites[i], marker, map);
+                    }
+                    $scope.loading = false;
+                })
+                .error(function (error) {
+                    console.log("Hubo un error", error);
+                })
         }
 
         function getUserPosition(userPositionResolved, errorGettingLocation) {
@@ -83,7 +84,7 @@ angular.module('map')
             });
         }
 
-        function deleteMarkers(markers){
+        function deleteMarkers(markers) {
             for (var i = 0; i < markers.length; i++) {
                 markers[i].setMap(null);
             }
@@ -117,7 +118,6 @@ angular.module('map')
             isPlaceInCundinamarca: isPlaceInCundinamarca,
             addMarker: addMarker,
             coordsToLatLng: coordsToLatLng,
-            deleteMarkers:deleteMarkers
+            deleteMarkers: deleteMarkers
         }
-    })
-;
+    });
