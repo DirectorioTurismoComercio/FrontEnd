@@ -3,7 +3,7 @@
 angular.module('map')
     .service('MapService', function ($window, CUNDINAMARCA_COORDS, $http, API_CONFIG, SiteMarkerService) {
 
-        function calulateRoute(origin, destination, directionsService, directionsDisplay, map) {
+        function calulateRoute(origin, destination, directionsService, directionsDisplay, map,markers) {
             var routeData = {
                 origin: origin,
                 destination: destination,
@@ -22,11 +22,10 @@ angular.module('map')
 
                     $http.post(API_CONFIG.url + API_CONFIG.sitios, {'points': points}, {})
                         .success(function (sites) {
-                            console.log(sites);
                             for (var i = 0; i < sites.length; i++) {
                                 var position = coordsToLatLng(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
                                 var marker = addMarker(map, position, sites[i].nombre);
-
+                                markers.push(marker);
                                 SiteMarkerService.createSiteMarker(sites[i], marker, map);
                             }
                         })
@@ -83,6 +82,13 @@ angular.module('map')
             });
         }
 
+        function deleteMarkers(markers){
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(null);
+            }
+            return markers = [];
+        }
+
         function coordsToLatLng(latitude, longitude) {
             return {
                 lat: latitude,
@@ -109,7 +115,8 @@ angular.module('map')
             addPlaceChangedListener: addPlaceChangedListener,
             isPlaceInCundinamarca: isPlaceInCundinamarca,
             addMarker: addMarker,
-            coordsToLatLng: coordsToLatLng
+            coordsToLatLng: coordsToLatLng,
+            deleteMarkers:deleteMarkers
         }
     })
 ;
