@@ -83,44 +83,33 @@
     font-size: 1.4em;
 }
 
+@media screen and (max-width: 1055px) {
+    .description {
+        font-size: 1.3em;
+    }
 
-.secondLinkContainer{
-    width: 80%;
-
-    display: flex;
-    flex: 1 1 80%;
-    flex-flow: row wrap;
-
+    .title {
+        font-size: 1.8em;
+    }
 }
 
+@media screen and (max-height: 785px) {
+    .sectionText {
+        margin-top: 1%;
+    }
 
+    .sectionTitle{
+        padding-top: 2%;
+    }
 
-.registerSection{
-    height: auto;
-    padding-left: 2%;
-    padding-right: 2%;
+    .description {
+        font-size: 1.3em;
+    }
+
+    .title {
+        font-size: 1.4em;
+    }
 }
-
-.searchSection{
-    height: auto;
-    padding-right: 2%;
-    padding-left: 2%;
-}
-
-.routeSection{
-    height: auto;
-    padding-right: 2%;
-    padding-left: 2%;
-}
-
-
-
-
-
-
-
-
-
 
 @media screen and (max-width: 1000px) {
     .desktopLayout{
