@@ -1,8 +1,10 @@
 <ecosistema-header-directive style="width: 100%; height: auto"></ecosistema-header-directive>
 <search-and-route-tabs-section class="searchAndRouteSection"></search-and-route-tabs-section>
 <search-tab-content-map class="searchAndRouteSection"></search-tab-content-map>
+uno dos tres
 
-<div class="map-control">
+cuatro cinco seis
+
     <div class="input-group">
         <label for="routeOrigin">Desde</label>
         <input id="routeOrigin" type="text" class="input-lg" ng-model="routeOrigin" ng-click="clearRouteOrigin()">
@@ -18,4 +20,4 @@
     <button class="btn btn-primary" ng-click="calculateRoute()">Calcular ruta</button>
 </div>
 
-<ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"></ui-gmap-google-map>
+<side-bar-map></side-bar-map>

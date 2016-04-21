@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('map', ['uiGmapgoogle-maps','ch.filters'])
+angular.module('map', ['uiGmapgoogle-maps','ch.filters','gemStore'])
     .config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
         uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyB01Crhc-gyfYhAxa8IdSVcKuUC4lHai7E',

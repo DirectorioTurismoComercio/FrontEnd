@@ -2,15 +2,13 @@
 
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
-                                           SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS
-        , SiteMarkerService, $location, popErrorAlertService,navBar) {
+                                           SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS) {
         var MY_LOCATION = 'Mi Ubicación';
         var routeOriginInput = document.getElementById('routeOrigin');
         var routeDestinationInput = document.getElementById('routeDestination');
         var directionsDisplay;
         var directionsService;
         var userPosition = {};
-        var markers = [];
 
         $scope.routeOrigin = '';
         $scope.routeDestination = '';
@@ -32,8 +30,7 @@ angular.module('map')
             var origin = routeOriginInput.value == MY_LOCATION ? userCoords : routeOriginInput.value;
             var destination = routeDestinationInput.value;
 
-            var map = $scope.map.control.getGMap();
-            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map);
+            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay);
         }
 
         $scope.goToUserPosition = function () {
@@ -48,47 +45,44 @@ angular.module('map')
             $scope.routeDestination = '';
         }
 
-        $scope.doSearch = function (result) {
-            SearchForResultsFactory.doSearch(result).then(function (response) {
-                if (response.length > 0) {
-                    deleteMarkers();
-                    showFoundPlaces();
-                } else {
-                    popErrorAlertService.showPopErrorAlert("No se han encontrado resultados");
-                }
-            }).catch(function (error) {
-                console.log("ocurrio un error", error);
-            });
-        }
-
         function showFoundPlaces() {
             var sites = SearchForResultsFactory.getResults();
             var map = $scope.map.control.getGMap();
+
             if (sites != undefined) {
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
                     var position = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
-                    var marker = MapService.addMarker(map, position, site.nombre);
-
-                    SiteMarkerService.createSiteMarker(site, marker, map);
-                    markers.push(marker);
+                    var marker = MapService.addMarker(map, position);
+                    var template = $templateCache.get('map.html');
+		    console.log(template);
+		    var contentString = '<div id="content">'+
+		      '<div id="siteNotice">'+
+		      '</div>'+
+		      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+		      '<div id="bodyContent">'+
+		      '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+		      'sandstone rock formation in the southern part of the '+
+		      'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+		      'south west of the nearest large town, Alice Springs; 450&#160;km '+
+		      '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+		      'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+		      'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+		      'Aboriginal people of the area. It has many springs, waterholes, '+
+		      'rock caves and ancient paintings. Uluru is listed as a World '+
+		      'Heritage Site.</p>'+
+		      '<p>Attribution: Uluru, <img src="http://farm2.static.flickr.com/1261/1463425755_6cb3e71b61_b.jpg" width=100 height=100></img> '+
+		      '(last visited June 22, 2009).</p>'+
+		      '</div>'+
+		      '</div>';	
+		    var infowindow = new google.maps.InfoWindow({
+			    content: contentString
+			  });
+		    marker.addListener('click', function(){
+			infowindow.open(map,marker);
+		    }); 
                 }
             }
-        }
-
-        function clearMarkers() {
-            setMapOnAll(null);
-        }
-
-        function setMapOnAll(map) {
-            for (var i = 0; i < markers.length; i++) {
-                markers[i].setMap(map);
-            }
-        }
-
-        function deleteMarkers() {
-            clearMarkers();
-            markers = [];
         }
 
         function initServices(GMapApi) {
@@ -104,6 +98,16 @@ angular.module('map')
             MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
             directionsDisplay.setMap($scope.map.control.getGMap());
             showFoundPlaces();
+
+            /*Dibujo del poligono de cundinamarca, solo para muestra en desarrollo. Se quitará mas adelante*/
+            var cundinamarcaPolygon = new google.maps.Polygon({
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.1,
+                strokeWeight: 2,
+                fillColor: '#bbffff',
+                paths: CUNDINAMARCA_COORDS,
+                map: $scope.map.control.getGMap()
+            });
         }
 
         function checkAllowedPlace(autocomplete, inputBox) {
