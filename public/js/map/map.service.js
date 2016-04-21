@@ -15,40 +15,19 @@ angular.module('map')
                     directionsDisplay.setDirections(result);
 
                     var points = [];
-                    ///Se dibuja el overview_path
-                    console.log("los puntos son", result);
-
-                    console.log("los puntos", result.routes[0].overview_path[5].lat());
-                    console.log("los puntos", result.routes[0].overview_path[5].lng());
-
-                    console.log("los puntos", result.routes[0].overview_path[5]);
-
 
                     for (var i = 0; i < result.routes[0].overview_path.length; i++) {
                         points.push([result.routes[0].overview_path[i].lat(), result.routes[0].overview_path[i].lng()]);
-                        /*addMarker(map, {
-                            lat: result.routes[0].overview_path[i].lat(),
-                            lng: result.routes[0].overview_path[i].lng()
-                        }, "p");*/
                     }
-
-
 
                     $http.post(API_CONFIG.url + API_CONFIG.sitios, {'points': points}, {})
                         .success(function (sites) {
                             console.log(sites);
                             for (var i = 0; i < sites.length; i++) {
-                               /* addMarker(map, {
-                                    lat: parseFloat(response[i].latitud),
-                                    lng: parseFloat(response[i].longitud)
-                                }, "p");*/
-
-
                                 var position = coordsToLatLng(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
                                 var marker = addMarker(map, position, sites[i].nombre);
 
                                 SiteMarkerService.createSiteMarker(sites[i], marker, map);
-
                             }
                         })
                         .error(function (error) {
@@ -56,8 +35,6 @@ angular.module('map')
                         })
                 }
             });
-
-
         }
 
         function getUserPosition(userPositionResolved, errorGettingLocation) {
