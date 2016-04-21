@@ -11,8 +11,9 @@ angular.module('map')
         var directionsService;
         var userPosition = {};
         var markers = [];
+        $scope.loading = false;
 
-        $scope.foundSites = [{name:'nombre', description:'desc'}];
+        $scope.foundSites = [{name: 'nombre', description: 'desc'}];
         $scope.routeOrigin = '';
         $scope.routeDestination = '';
         $scope.map = {
@@ -29,11 +30,14 @@ angular.module('map')
         uiGmapIsReady.promise().then(initMap);
 
         $scope.calculateRoute = function () {
+            $scope.loading = true;
             var userCoords = userPosition.lat + "," + userPosition.lng;
             var origin = routeOriginInput.value == MY_LOCATION ? userCoords : routeOriginInput.value;
             var destination = routeDestinationInput.value;
 
-            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay);
+            var map = $scope.map.control.getGMap();
+            markers = MapService.deleteMarkers(markers);
+            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, markers, $scope);
         }
 
         $scope.goToUserPosition = function () {
@@ -47,12 +51,17 @@ angular.module('map')
         $scope.clearRouteDestination = function () {
             $scope.routeDestination = '';
         }
+        $scope.showSiteDetail = function (siteIndex) {
+            console.log("show site detail" + $scope.foundSites[siteIndex].nombre);
+        }
 
         $scope.doSearch = function (result) {
+            $scope.loading = true;
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 if (response.length > 0) {
-                    deleteMarkers();
+                    markers = MapService.deleteMarkers(markers);
                     showFoundPlaces();
+                    $scope.loading = false;
                 } else {
                     popErrorAlertService.showPopErrorAlert("No se han encontrado resultados");
                 }
@@ -75,21 +84,6 @@ angular.module('map')
                     markers.push(marker);
                 }
             }
-        }
-
-        function clearMarkers() {
-            setMapOnAll(null);
-        }
-
-        function setMapOnAll(map) {
-            for (var i = 0; i < markers.length; i++) {
-                markers[i].setMap(map);
-            }
-        }
-
-        function deleteMarkers() {
-            clearMarkers();
-            markers = [];
         }
 
         function initServices(GMapApi) {

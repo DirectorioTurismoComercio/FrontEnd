@@ -18,16 +18,26 @@
     <button class="btn btn-primary" ng-click="calculateRoute()">Calcular ruta</button>
 </div>
 
-<div id="content" class="found-sites">
-    <div ng-repeat="site in foundSites">
-        <h1 id="firstHeading" class="firstHeading">%%site.nombre%%</h1>
-        <div>
-            <p>%%site.descripcion%%</p>
-            <img height=100 width=100 ng-src='%%site.URLfoto%%'/>
-            <a href="#/sitedetail">VER LOCAL</a>
-            <a href="#/map/searchRoute">COMO LLEGAR</a>
+<div class="row">
+    <md-progress-circular class="loadingSitesOnMap" md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+
+    <div class="col-md-5 found-sites" ng-show="foundSites.length > 0">
+        <div ng-repeat="site in foundSites" class="row item">
+            <div class="row" ng-click="showSiteDetail($index)">
+                <div class="text col-md-8">
+                    <h1 class="title">%%site.nombre%%</h1>
+                    <p class="desc">%%site.descripcion%%</p>
+                </div>
+                <div class="col-md-4 image">
+                    <img ng-src='%%site.URLfoto%%' class="img-rounded"/>
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-default">COMO LLEGAR</button>
+            </div>
         </div>
     </div>
+    <div class="col-md-7">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
+    </div>
 </div>
-
-<ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"></ui-gmap-google-map>
