@@ -50,3 +50,11 @@
     width: 100%;
     height: 100%;
 }
+.row .boton{
+    background-color: white;
+}
+
+.row .boton:hover{
+    background-color: #F2F2F2;
+    cursor: pointer; 
+}

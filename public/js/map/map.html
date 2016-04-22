@@ -23,7 +23,8 @@
 
     <div class="col-md-5 found-sites" ng-show="foundSites.length > 0">
         <div ng-repeat="site in foundSites" class="row item">
-            <div class="row" ng-click="showSiteDetail($index)">
+            <div class="row boton" ng-click="showSiteDetail($index)" ng-mouseover="highLightMarker($index)" ng-mouseleave="clearHighLightedMarker($index)">
+
                 <div class="text col-md-8">
                     <h1 class="title">%%site.nombre%%</h1>
                     <p class="desc">%%site.descripcion%%</p>
@@ -33,8 +34,9 @@
                 </div>
             </div>
             <div>
-                <button type="button" class="btn btn-default">COMO LLEGAR</button>
+                <button type="button" class="btn btn-default clase1">COMO LLEGAR</button>
             </div>
+        
         </div>
     </div>
     <div class="col-md-7">

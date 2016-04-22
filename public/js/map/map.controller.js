@@ -11,6 +11,7 @@ angular.module('map')
         var directionsService;
         var userPosition = {};
         var markers = [];
+        var highlightedMarker=null;
         $scope.loading = false;
 
         $scope.foundSites = [{name: 'nombre', description: 'desc'}];
@@ -53,7 +54,18 @@ angular.module('map')
         }
         $scope.showSiteDetail = function (siteIndex) {
             console.log("show site detail" + $scope.foundSites[siteIndex].nombre);
+            highlightedMarker=markers[siteIndex];
+            highlightedMarker.setIcon('./images/greenMarker.png');
         }
+        $scope.clearHighLightedMarker = function(index){
+            console.log("saliendo");
+            markers[index].setIcon('./images/redMarker.png');
+                
+        }
+        $scope.highLightMarker = function(index){
+            markers[index].setIcon('./images/greenMarker.png');
+        }
+
 
         $scope.doSearch = function (result) {
             $scope.loading = true;
@@ -84,6 +96,7 @@ angular.module('map')
                     markers.push(marker);
                 }
             }
+            
         }
 
         function initServices(GMapApi) {
