@@ -21,9 +21,9 @@
 <div class="row">
     <md-progress-circular class="loadingSitesOnMap" md-mode="indeterminate" ng-show="loading"></md-progress-circular>
 
-    <div class="col-md-5 found-sites" ng-show="foundSites.length > 0">
+    <div class="col-md-5 found-sites" ng-show="foundSites.length > 0 && !isShowingSiteDetail">
         <div ng-repeat="site in foundSites" class="row item">
-            <div class="row boton" ng-click="showSiteDetail($index)" ng-mouseover="highLightMarker($index)" ng-mouseleave="clearHighLightedMarker($index)">
+            <div class="row boton" ng-click="showSiteDetail(site, $index)" ng-mouseover="highLightMarker($index)" ng-mouseleave="clearHighLightedMarker($index)">
 
                 <div class="text col-md-8">
                     <h1 class="title">%%site.nombre%%</h1>
@@ -38,6 +38,23 @@
             </div>
         
         </div>
+    </div>
+    <div class="col-md-5 found-sites" ng-show="isShowingSiteDetail">
+        <div>Detalles del sitio</div>
+        <a href="" ng-click="hideSiteDetail()">Volver a lista de sitios</a>
+        <div class="row">
+            <div class="text col-md-8">
+                        <h1 class="title">%%selectedSite.nombre%%</h1>
+                        <p class="desc">%%selectedSite.descripcion%%</p>
+            </div>
+        
+         </div>   
+         <div class="row item">
+               <div class="text col-md-4 image"> 
+                <img ng-src='%%selectedSite.URLfoto%%' class="img-rounded"/>
+                </div>
+        </div>    
+         
     </div>
     <div class="col-md-7">
         <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>

@@ -84,12 +84,7 @@ angular.module('map')
             });
         }
 
-        function deleteMarkers(markers) {
-            for (var i = 0; i < markers.length; i++) {
-                markers[i].setMap(null);
-            }
-            return markers = [];
-        }
+   
 
         function coordsToLatLng(latitude, longitude) {
             return {
@@ -117,7 +112,6 @@ angular.module('map')
             addPlaceChangedListener: addPlaceChangedListener,
             isPlaceInCundinamarca: isPlaceInCundinamarca,
             addMarker: addMarker,
-            coordsToLatLng: coordsToLatLng,
-            deleteMarkers: deleteMarkers
+            coordsToLatLng: coordsToLatLng
         }
     });
