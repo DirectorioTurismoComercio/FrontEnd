@@ -2,19 +2,54 @@
 
 angular.module('map')
     .service('SiteMarkerService', function ($filter, $sce, $templateRequest, $q) {
-        function showSiteInList(map, site) {
+        var markers = [];
+        var selectedMarker = null;
+        function markerOnClick(map, site,showSiteDetail) {
             return function () {
-                console.log("show site selected " + site.nombre)
+                showSiteDetail(site, null);
+                highLightMarker(this);
             };
         }
 
+        var addSiteMarker = function (site, marker, map,showSiteDetail) {
+            marker.addListener('click', markerOnClick(map, site,showSiteDetail));
 
-        var createSiteMarker = function (site, marker, map) {
-            marker.addListener('click', showSiteInList(map, site));
+            markers.push(marker);
         }
 
+        var deleteMarkers = function() {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(null);
+            }
+        }
+
+        var clearHighLightedMarkerByIndex = function(index){
+            clearHighLightedMarker(markers[index]);
+                
+        }
+        var clearSelectedMarker = function(){
+            if(selectedMarker){
+                clearHighLightedMarker(selectedMarker);
+            }
+        }
+        var highLightMarkerByIndex = function(index){
+            highLightMarker(markers[index]);
+        }
+        function clearHighLightedMarker(marker){
+            marker.setIcon('./images/redMarker.png');
+        }
+
+        function highLightMarker(marker){
+            clearSelectedMarker();
+            selectedMarker = marker;
+            marker.setIcon('./images/greenMarker.png');
+        }
         return {
-            createSiteMarker: createSiteMarker
+            addSiteMarker: addSiteMarker,
+            deleteMarkers: deleteMarkers,
+            clearHighLightedMarkerByIndex: clearHighLightedMarkerByIndex,
+            clearSelectedMarker: clearSelectedMarker,
+            highLightMarkerByIndex: highLightMarkerByIndex
         };
     })
 ;

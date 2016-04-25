@@ -10,9 +10,13 @@ angular.module('map')
         var directionsDisplay;
         var directionsService;
         var userPosition = {};
-        var markers = [];
+        $scope.selectedSite=null;
+        
+        
+        var highlightedMarker=null;
+        $scope.isShowingSiteDetail = false;
+       
         $scope.loading = false;
-
         $scope.foundSites = [{name: 'nombre', description: 'desc'}];
         $scope.routeOrigin = '';
         $scope.routeDestination = '';
@@ -36,7 +40,7 @@ angular.module('map')
             var destination = routeDestinationInput.value;
 
             var map = $scope.map.control.getGMap();
-            markers = MapService.deleteMarkers(markers);
+            SiteMarkerService.deleteMarkers();
             MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, markers, $scope);
         }
 
@@ -51,15 +55,36 @@ angular.module('map')
         $scope.clearRouteDestination = function () {
             $scope.routeDestination = '';
         }
-        $scope.showSiteDetail = function (siteIndex) {
-            console.log("show site detail" + $scope.foundSites[siteIndex].nombre);
+
+        $scope.hideSiteDetail = function (siteIndex) {
+            SiteMarkerService.clearSelectedMarker();
+            $scope.isShowingSiteDetail=false;
+
+        }
+        $scope.clearHighLightedMarker = function(index){
+            if(!$scope.isShowingSiteDetail){
+            SiteMarkerService.clearHighLightedMarkerByIndex(index);
+        }
+                
+        }
+        $scope.highLightMarker = function(index){
+            SiteMarkerService.highLightMarkerByIndex(index);
+        }
+
+        $scope.showSiteDetail = function (site, index) {
+            if(index){
+                SiteMarkerService.highLightMarkerByIndex(index);
+            }
+            $scope.isShowingSiteDetail=true;
+            $scope.selectedSite = site;         
+            $scope.$apply();
         }
 
         $scope.doSearch = function (result) {
             $scope.loading = true;
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 if (response.length > 0) {
-                    markers = MapService.deleteMarkers(markers);
+                    SiteMarkerService.deleteMarkers();
                     showFoundPlaces();
                     $scope.loading = false;
                 } else {
@@ -80,11 +105,13 @@ angular.module('map')
                     var position = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
                     var marker = MapService.addMarker(map, position, site.nombre);
 
-                    SiteMarkerService.createSiteMarker(site, marker, map);
-                    markers.push(marker);
+                    SiteMarkerService.addSiteMarker(site, marker, map,$scope.showSiteDetail);
+                    
                 }
             }
+            
         }
+
 
         function initServices(GMapApi) {
             directionsDisplay = new GMapApi.DirectionsRenderer();
