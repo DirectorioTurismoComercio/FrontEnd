@@ -75,6 +75,18 @@
     padding-left: 2%;
     display: flex;
     flex-flow: column wrap;
+    justify-content: space-around;
+}
+
+.currentLocationHomeContainer{
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+}
+
+.currentLocationHome{
+    background-color: #0000FF;
+    width: 14%;
 }
 
 .categoryContainerHome{
