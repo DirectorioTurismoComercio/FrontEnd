@@ -3,7 +3,7 @@
 angular.module('map')
     .service('MapService', function ($window, CUNDINAMARCA_COORDS, $http, API_CONFIG, SiteMarkerService, sitesNearRoute) {
 
-        function calulateRoute(origin, destination, directionsService, directionsDisplay, map, markers, $scope) {
+        function calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope) {
             var routeData = {
                 origin: origin,
                 destination: destination,
@@ -18,18 +18,17 @@ angular.module('map')
                     for (var i = 0; i < result.routes[0].overview_path.length; i++) {
                         points.push([result.routes[0].overview_path[i].lat(), result.routes[0].overview_path[i].lng()]);
                     }
-                    drawRouteSites(points,map, markers, $scope);
+                    drawRouteSites(points,map, $scope);
                 }
             });
         }
 
-        function drawRouteSites(points,map, markers, $scope) {
+        function drawRouteSites(points,map, $scope) {
             sitesNearRoute.getSitesNearRoute(points).success(function (sites) {
                     for (var i = 0; i < sites.length; i++) {
                         var position = coordsToLatLng(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
                         var marker = addMarker(map, position, sites[i].nombre);
-                        markers.push(marker);
-                        SiteMarkerService.createSiteMarker(sites[i], marker, map);
+                        SiteMarkerService.addSiteMarker(sites[i], marker, map, null);
                     }
                     $scope.loading = false;
                 })

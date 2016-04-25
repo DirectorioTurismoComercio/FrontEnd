@@ -41,7 +41,7 @@ angular.module('map')
 
             var map = $scope.map.control.getGMap();
             SiteMarkerService.deleteMarkers();
-            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, markers, $scope);
+            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
         }
 
         $scope.goToUserPosition = function () {
