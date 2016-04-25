@@ -1,3 +1,6 @@
+.mobileLayout{
+    display: none;
+}
 
 .stepsContainerDesktopHome {
     width: 100%;
@@ -128,7 +131,6 @@
 }
 
 
-
 md-tabs-content-wrapper{
     top: 0.1px !important;
 }
@@ -143,90 +145,142 @@ md-tabs-canvas{
         display: none;
     }
 
-    .mobile{
+    .mobileLayout{
         display: flex;
     }
 
     .stepsContainerMobileHome {
         width: 100%;
-        margin-top: 5%;
-        height: auto;
-        flex-flow: column wrap;
-    }
-
-    .stepContainerMobileHome {
-        width: 80%;
-        height: auto;
-        margin-left: 5%;
-        margin-right: 15%;
 
         display: flex;
         flex-flow: column wrap;
 
     }
 
-    .imageAndTextMobileContainerHome {
+    .stepContainerHomeMobile{
+        height: 65%;
         width: 100%;
+
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+
+    .stepTextMobileContainerHome{
+        width: 100%;
+        height: 30%;
+
+        margin-top: 11%;
+        display: flex;
+        flex-flow: row wrap;
+
+    }
+
+    .stepIconContainerHome{
+        width: 15%;
+        margin-top: 0%;
+    }
+
+    .stepIconHome{
+        height: 6vmin;
+        width: 6vmin;
+        margin-top: 15%;
+    }
+
+    .textContainerHome{
+        width: 85%;
+        margin-top: 0%;
+        padding-right: 15%;
+    }
+
+    .stepTitleHome {
+        color: #2EAAA4;
+        font-size: 3.8vmin;
+        margin-top: 3%;
+    }
+
+    .subTitleHome {
+        color: #285453;
+        font-size: 3.0vmin;
+        margin-top: 0%;
+    }
+
+    .inputContainerHome {
+        width: 44%;
+        height: 3%;
+        margin-top: 2%;
+        margin-left: 15%;
+        padding-right: 0%;
+        padding-left: 0%;
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .categoryContainerHome{
+        width: 100%;
+        height: 60%;
+        margin-top: 4%;
         display: flex;
         flex-flow: row wrap;
     }
 
-    .imageContainerMobileHome {
-        width: 10%;
-
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: center;
-    }
-
-    .textContainerMobileHome {
+    .stepsDividerHomeMobile {
         width: 90%;
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: center;
-    }
-
-    .inputBoxMobileHome {
-        width: 30%;
-        margin-left: 10%;
-
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    .stepsDividerHome {
-        width: 90%;
-        margin: 2% 5% 3% 5%;
+        margin: 0% 5% 0% 5%;
         height: 2px;
         background-color: #5FF0BF;
     }
+
+    .step2ndContainerHomeMobile{
+        height: 34.5%;
+        width: 100%;
+
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .step2ndTextMobileContainerHome{
+        width: 100%;
+        height: 45%;
+
+        margin-top: 3%;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .step2ndTitleHome{
+        font-size: 3.5vmin;
+        color: #2EAAA4;
+        font-weight: bold;
+        margin-top: 3%;
+
+    }
+
+    .subTitl2ndeHome{
+        font-size: 2.7vmin;
+        color: #285453;
+
+    }
+
+    .searchButtonHome {
+        width: 90%;
+        height: 5%;
+        margin: 1% 5% 1% 5%;
+        border: 1px solid #B6EDEA;
+        font-family: 'PT Sans', sans-serif;
+        font-weight: bold;
+        font-size: 1.8vmin;
+        background-color: #B6EDEA;
+        color: #2B91C8;
+        padding: 5px;
+
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
 }
 
-@media screen and (max-width: 600px) {
-    .stepIconHome {
-        height: 2.5em;
-        width: 2.5em;
-    }
-}
 
-@media screen and (max-width: 450px) {
-    .stepIconHome {
-        height: 2.0em;
-        width: 2.0em;
-    }
 
-    .inputBoxMobileHome {
-        width: 60%;
-    }
-}
 
-@media screen and (max-width: 350px) {
-    .stepIconHome {
-        height: 1.8em;
-        width: 1.8em;
-    }
-
-    .inputBoxMobileHome {
-        width: 80%;
-    }
-}
