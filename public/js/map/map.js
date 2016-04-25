@@ -13,13 +13,5 @@ angular.module('map', ['uiGmapgoogle-maps', 'ch.filters'])
                 templateUrl: 'js/map/map.html',
                 controller: 'MapController'
             });
-/*            .when('/map/searchKeyword', {
-                templateUrl: 'js/map/map.html',
-                controller: 'MapController'
-            })
-            .when('/map/searchRoute', {
-                templateUrl: 'js/map/map.html',
-                controller: 'MapController'
-            });*/
     });
 
