@@ -77,7 +77,36 @@
         <md-tab md-active="isRouteFormVisible">
             <md-tab-body>
                 <div class="routeMenuHome" >
-
+                    <div class="stepContainerHome">
+                        <div class="stepIconContainerHome">
+                            <img class="stepIconHome" src="./images/Home/1_busca.png">
+                        </div>
+                        <div class="textContainerHome">
+                            <p class="stepTitleHome" translate="SEARCH_TAB_MAP_HOME"></p>
+                            <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_TIP"></p>
+                        </div>
+                        <div class="inputContainerHome">
+                            <browser-input-field></browser-input-field>
+                        </div>
+                    </div>
+                    <div class="stepContainerHomeRight">
+                        <div class="stepIconContainerHome">
+                            <img class="stepIconHome" src="./images/Home/2_busca.png">
+                        </div>
+                        <div class="textContainerHome">
+                            <p class="stepTitleHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP"></p>
+                            <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP_TIP"></p>
+                        </div>
+                        <div class="inputContainerHome">
+                            <drop-down-town-directive></drop-down-town-directive>
+                        </div>
+                    </div>
+                    <div class="categoryContainerHome">
+                        <p>Espacio para las categorias</p>
+                    </div>
+                    <div class="searchButtonContainerHome">
+                        <button class="searchButtonHome" aria-label="Buscar" translate="MAKE_ROUTE" ng-click="doSearch(result)"></button>
+                    </div>
                 </div>
             </md-tab-body>
         </md-tab>
