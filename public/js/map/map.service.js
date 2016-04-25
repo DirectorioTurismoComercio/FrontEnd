@@ -25,12 +25,14 @@ angular.module('map')
 
         function drawRouteSites(points,map, $scope) {
             sitesNearRoute.getSitesNearRoute(points).success(function (sites) {
+
                     for (var i = 0; i < sites.length; i++) {
                         var position = coordsToLatLng(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
                         var marker = addMarker(map, position, sites[i].nombre);
-                        SiteMarkerService.addSiteMarker(sites[i], marker, map, null);
+                        SiteMarkerService.addSiteMarker(sites[i], marker, map, $scope.showSiteDetail);
                     }
                     $scope.loading = false;
+                    $scope.foundSites = sites;
                 })
                 .error(function (error) {
                     console.log("Hubo un error", error);
