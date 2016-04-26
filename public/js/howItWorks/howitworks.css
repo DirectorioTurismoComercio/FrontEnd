@@ -36,7 +36,7 @@
 }
 
 .linkSection{
-    width: 33.3%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-flow: column wrap;
@@ -139,18 +139,19 @@
         flex-flow: row wrap;
     }
 
-    .stepsDividerHome {
+    .stepsDividerHowitWorks {
         width: 90%;
+        margin-left: 5%;
         height: 2px;
         margin-bottom: 2%;
         background-color: #5FF0BF;
     }
 
     .title{
-        font-size: 3.5vmin;
+        font-size: 5.5vmin;
     }
 
     .description{
-        font-size: 2.8vmin;
+        font-size: 4.8vmin;
     }
 }
