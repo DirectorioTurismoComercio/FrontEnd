@@ -58,3 +58,13 @@
     background-color: #F2F2F2;
     cursor: pointer; 
 }
+
+@media screen and (max-width: 1000px) {
+    .container{
+     display: flex;
+    flex-direction:column-reverse;
+    }
+    .mobile-image{
+        height: 20px;
+    }
+}    

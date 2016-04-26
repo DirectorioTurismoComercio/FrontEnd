@@ -18,19 +18,19 @@
     <button class="btn btn-primary" ng-click="calculateRoute()">Calcular ruta</button>
 </div>
 
-<div class="row">
+<div class="row container">
     <md-progress-circular class="loadingSitesOnMap" md-mode="indeterminate" ng-show="loading"></md-progress-circular>
 
     <div class="col-md-5 found-sites" ng-show="foundSites.length > 0 && !isShowingSiteDetail">
         <div ng-repeat="site in foundSites" class="row item">
-            <div class="row boton" ng-click="showSiteDetail(site, $index)" ng-mouseover="highLightMarker($index)" ng-mouseleave="clearHighLightedMarker($index)">
+            <div class="row boton mobile-row" ng-click="showSiteDetail(site, $index)" ng-mouseover="highLightMarker($index)" ng-mouseleave="clearHighLightedMarker($index)">
 
-                <div class="text col-md-8">
+                <div class="text col-md-8 col-xs-8">
                     <h1 class="title">%%site.nombre%%</h1>
                     <p class="desc">%%site.descripcion%%</p>
                 </div>
-                <div class="col-md-4 image">
-                    <img ng-src='%%site.URLfoto%%' class="img-rounded"/>
+                <div class="col-md-4 col-xs-4 image">
+                    <img height="30" ng-src='%%site.URLfoto%%' />
                 </div>
             </div>
             <div>
