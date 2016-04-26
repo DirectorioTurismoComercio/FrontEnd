@@ -86,7 +86,7 @@
                             <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_TIP"></p>
                         </div>
                         <div class="inputContainerHome">
-                            <browser-input-field></browser-input-field>
+                            <input class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="routeFrom"/>
                             <div class="currentLocationHomeContainer">
                                 <button class="currentLocationHome"></button>
                                 <p class="subTitleHome" translate="CURRENT_LOCATION"></p>
@@ -101,8 +101,8 @@
                             <p class="stepTitleHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP"></p>
                             <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP_TIP"></p>
                         </div>
-                        <div class="inputContainerHome">
-                            <drop-down-town-directive></drop-down-town-directive>
+                        <div class="inputContainerHomeRouteTo">
+                            <input class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="routeTo"/>
                         </div>
                     </div>
                     <div class="searchButtonContainerHome">

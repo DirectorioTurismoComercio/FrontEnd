@@ -3,5 +3,6 @@ angular.module('searchAndRouteTabs')
         return {
             restrict: 'E',
             templateUrl: 'js/searchAndRouteTabs/searchTabContentHome/search-Tab-Content-Home.html',
+            controller:'searchTabContentHomeController'
         }
     }]);

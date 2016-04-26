@@ -1,4 +1,4 @@
-angular.module('searchAndRouteTabs', [])
+angular.module('searchAndRouteTabs', ['google.places'])
     .controller('searchAndRouteTabsController', function ($scope, siteAndTownSaverService) {
         $scope.isSearchFormVisible = false;
         $scope.isRouteFormVisible = false;

@@ -143,6 +143,17 @@
     justify-content: space-between;
 }
 
+.inputContainerHomeRouteTo {
+    width: 48%;
+    height: auto;
+    margin-top: 3%;
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+    display: flex;
+    flex-flow: column wrap;
+}
+
 
 md-tabs-content-wrapper{
     top: 0.1px !important;
