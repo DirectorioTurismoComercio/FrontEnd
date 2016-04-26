@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('home', [])
+angular.module('home', ['ngMaterial'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/home', {
