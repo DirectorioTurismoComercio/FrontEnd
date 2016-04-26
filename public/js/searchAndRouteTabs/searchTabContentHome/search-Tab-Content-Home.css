@@ -92,7 +92,6 @@
 .categoryContainerHome{
     width: 100%;
 
-    background-color: #7a43b6;
     height: 5%;
     display: flex;
     flex-flow: row wrap;
@@ -141,6 +140,10 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+}
+
+.currentLocation{
+    margin-left: 10px;
 }
 
 .inputContainerHomeRouteTo {
@@ -233,11 +236,53 @@ md-tabs-canvas{
         width: 44%;
         height: 3%;
         margin-top: 2%;
+        margin-bottom: 2%;
         margin-left: 15%;
         padding-right: 0%;
         padding-left: 0%;
         display: flex;
         flex-flow: column wrap;
+    }
+
+    .inputContainerHomeRouteFromText{
+        width: 70%;
+        height: 3%;
+        margin: 2% 15% 0% 15%;
+        padding-right: 0%;
+        padding-left: 0%;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .inputContainerHomeRouteFrom {
+        width: 70%;
+        height: 3%;
+        margin: 0% 15% 2% 15%;
+        padding-right: 0%;
+        padding-left: 0%;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .routeStartingPointTips{
+        color: #285453;
+        font-size: 2.0vmin;
+    }
+
+    .startingPointText{
+        margin-left: 20%;
+    }
+
+    .currentPointText{
+        margin-left: 38%;
+    }
+
+    .inputFrom{
+        width: 65%;
+    }
+
+    .currentLocationButtonMobile{
+        margin-left: 20%;
     }
 
     .categoryContainerHome{
@@ -293,7 +338,7 @@ md-tabs-canvas{
         border: 1px solid #B6EDEA;
         font-family: 'PT Sans', sans-serif;
         font-weight: bold;
-        font-size: 1.8vmin;
+        font-size: 2.5vmin;
         background-color: #B6EDEA;
         color: #2B91C8;
         padding: 5px;
@@ -302,7 +347,6 @@ md-tabs-canvas{
         flex-flow: row wrap;
         justify-content: center;
     }
-
 }
 
 
