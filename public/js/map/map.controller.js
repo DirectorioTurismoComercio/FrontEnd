@@ -31,18 +31,33 @@ angular.module('map')
 
 
         uiGmapGoogleMapApi.then(initServices);
+
+        function initServices(GMapApi) {
+            directionsDisplay = new GMapApi.DirectionsRenderer();
+            directionsService = new GMapApi.DirectionsService();
+        }
+
         uiGmapIsReady.promise().then(initMap);
 
+        function initMap() {
+            var routeFromAutocomplete = MapService.addAutocompleteFeature(routeOriginInput);
+            var routeToAutocomplete = MapService.addAutocompleteFeature(routeDestinationInput);
+
+            MapService.addPlaceChangedListener(routeFromAutocomplete, routeOriginInput, checkAllowedPlace)
+            MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
+            directionsDisplay.setMap($scope.map.control.getGMap());
+            showFoundPlaces();
+        }
+
         $scope.calculateRoute = function () {
-            $scope.loading = true;
+            var map = $scope.map.control.getGMap();
             var userCoords = userPosition.lat + "," + userPosition.lng;
             var origin = routeOriginInput.value == MY_LOCATION ? userCoords : routeOriginInput.value;
             var destination = routeDestinationInput.value;
-            var map = $scope.map.control.getGMap();
 
-            console.log(origin);
-            console.log(destination);
+            $scope.loading = true;
             SiteMarkerService.deleteMarkers();
+            MapService.addMarker(map, destination);
             MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
         };
 
@@ -98,10 +113,17 @@ angular.module('map')
             });
         };
 
-        $scope.calcRouteFromUserPosition = function (site) {
-            MapService.getUserPosition(setUserPositionAsRouteOrigin, handleLocationError);
-            routeDestinationInput.value = site.latitud + "," + site.longitud;
-            $scope.calculateRoute();
+        $scope.showRouteToSite = function (site) {
+            MapService.getUserPosition(function (position) {
+                var destination = site.latitud + "," + site.longitud;
+                var map = $scope.map.control.getGMap();
+
+                userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
+                var origin = userPosition.lat + "," + userPosition.lng;
+
+                MapService.addMarker(map, userPosition);
+                MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
+            }, handleLocationError);
         };
 
         function showFoundPlaces() {
@@ -115,39 +137,10 @@ angular.module('map')
                     var marker = MapService.addMarker(map, position, site.nombre);
 
                     SiteMarkerService.addSiteMarker(site, marker, map, $scope.showSiteDetail);
-
                 }
             }
-
         }
 
-
-        function initServices(GMapApi) {
-            directionsDisplay = new GMapApi.DirectionsRenderer();
-            directionsService = new GMapApi.DirectionsService();
-        }
-
-        function showSearchedRoute() {
-            switch ($location.$$path) {
-                case '/map/searchRoute':
-                    console.log("route");
-                    break;
-                case '/map/searchKeyword':
-                    console.log("keyword");
-                    break;
-            }
-        }
-
-        function initMap() {
-            var routeFromAutocomplete = MapService.addAutocompleteFeature(routeOriginInput);
-            var routeToAutocomplete = MapService.addAutocompleteFeature(routeDestinationInput);
-
-            MapService.addPlaceChangedListener(routeFromAutocomplete, routeOriginInput, checkAllowedPlace)
-            MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
-            directionsDisplay.setMap($scope.map.control.getGMap());
-            showSearchedRoute();
-            showFoundPlaces();
-        }
 
         function checkAllowedPlace(autocomplete, inputBox) {
             var latitude = autocomplete.getPlace().geometry.location.lat();

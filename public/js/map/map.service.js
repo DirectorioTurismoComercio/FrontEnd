@@ -12,18 +12,19 @@ angular.module('map')
 
             directionsService.route(routeData, function (result, status) {
                 if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setOptions({suppressMarkers: true});
                     directionsDisplay.setDirections(result);
 
                     var points = [];
                     for (var i = 0; i < result.routes[0].overview_path.length; i++) {
                         points.push([result.routes[0].overview_path[i].lat(), result.routes[0].overview_path[i].lng()]);
                     }
-                    drawRouteSites(points,map, $scope);
+                    drawRouteSites(points, map, $scope);
                 }
             });
         }
 
-        function drawRouteSites(points,map, $scope) {
+        function drawRouteSites(points, map, $scope) {
             sitesNearRoute.getSitesNearRoute(points).success(function (sites) {
 
                     for (var i = 0; i < sites.length; i++) {
@@ -85,7 +86,6 @@ angular.module('map')
             });
         }
 
-   
 
         function coordsToLatLng(latitude, longitude) {
             return {
