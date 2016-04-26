@@ -57,6 +57,18 @@ describe('Controller: HomeController', function () {
         expect(testpopErrorAlertService.showPopErrorAlert).toHaveBeenCalled();
     });
 
+    it('Should show error message if make route with no origin', function () {
+        $scope.routeToController.routeFrom='';
+        $scope.calculateRoute();
+        expect(testpopErrorAlertService.showPopErrorAlert).toHaveBeenCalled();
+    });
+
+    it('Should show error message if make route with no destination', function () {
+        $scope.routeToController.routeTo='';
+        $scope.calculateRoute();
+        expect(testpopErrorAlertService.showPopErrorAlert).toHaveBeenCalled();
+    });
+
     it('Should redirects to map page', function () {
         $scope.doSearch('bar');
         deferred.resolve(['Repuesta']);

@@ -18,9 +18,13 @@ angular.module('home')
         };
 
         $scope.calculateRoute=function(){
-            siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.formatted_address);
-            siteAndTownSaverService.setDestination($scope.routeToController.routeTo.formatted_address);
-            $location.path('/map');
+            if($scope.routeToController.routeFrom=='' || $scope.routeToController.routeTo==''){
+                popErrorAlertService.showPopErrorAlert("Indique un punto de partida y un destino");
+            }else{
+                siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.formatted_address);
+                siteAndTownSaverService.setDestination($scope.routeToController.routeTo.formatted_address);
+                $location.path('/map');
+            }
         }
 
         $scope.goToHowItWorks=function(){
