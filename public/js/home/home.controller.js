@@ -2,6 +2,12 @@
 
 angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService, popErrorAlertService) {
+
+        $scope.routeToController={
+            routeFrom:'',
+            routeTo:''
+        }
+
         $scope.doSearch = function (result) {
            if(result!= undefined){
                 getSites(result);
@@ -10,6 +16,12 @@ angular.module('home')
                popErrorAlertService.showPopErrorAlert("Por favor ingrese un criterio de busqueda");
            }
         };
+
+        $scope.calculateRoute=function(){
+            console.log("desde ",$scope.routeToController.routeFrom.formatted_address);
+            console.log("hasta ",$scope.routeToController.routeTo.formatted_address);
+
+        }
 
         $scope.goToHowItWorks=function(){
             $location.path('/howitworks');
