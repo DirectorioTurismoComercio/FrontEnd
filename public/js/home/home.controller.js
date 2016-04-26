@@ -3,10 +3,6 @@
 angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService, popErrorAlertService) {
 
-        $scope.autocompleteOptions = {
-            componentRestrictions: { country: 'co' },
-        }
-
         $scope.routeToController={
             routeFrom:'',
             routeTo:''
