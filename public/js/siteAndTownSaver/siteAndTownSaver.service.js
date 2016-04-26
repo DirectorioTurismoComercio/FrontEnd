@@ -3,15 +3,21 @@
 angular.module('siteAndTownSaver', [])
     .service('siteAndTownSaverService', function () {
         var searchedQuery;
-        var searchedRoute;
+        var searchedRoute=null;
         var currentSearchedSite = null;
         var currentSearchedTown = null;
+        var currentOrigin=null;
+        var currentDestination=null;
 
         return {
             setCurrentSearchedSite: setCurrentSearchedSite,
             getCurrentSearchedSite: getCurrentSearchedSite,
             setCurrentSearchedTown: setCurrentSearchedTown,
             getCurrentSearchedTown: getCurrentSearchedTown,
+            setOrigin:setOrigin,
+            getOrigin:getOrigin,
+            setDestination:setDestination,
+            getDestination:getDestination,
             setSearchedQuery: setSearchedQuery,
             getSearchedQuery: getSearchedQuery,
             setSearchedRoute: setSearchedRoute,
@@ -34,6 +40,22 @@ angular.module('siteAndTownSaver', [])
 
         function getCurrentSearchedTown() {
             return currentSearchedTown;
+        }
+
+        function setOrigin(origin){
+            currentOrigin=origin;
+        }
+
+        function getOrigin(){
+            return currentOrigin;
+        }
+
+        function setDestination(destination){
+            currentDestination=destination;
+        }
+
+        function getDestination(){
+            return currentDestination;
         }
 
         function setSearchedQuery(query, town) {

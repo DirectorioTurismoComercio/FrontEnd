@@ -3,7 +3,7 @@
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
                                            SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS, SiteMarkerService,
-                                           $location, popErrorAlertService, $routeParams) {
+                                           $location, popErrorAlertService, siteAndTownSaverService) {
         var MY_LOCATION = 'Mi Ubicación';
         var routeOriginInput = document.getElementById('routeOrigin');
         var routeDestinationInput = document.getElementById('routeDestination');
@@ -47,6 +47,7 @@ angular.module('map')
             MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
             directionsDisplay.setMap($scope.map.control.getGMap());
             showFoundPlaces();
+            showSearchedRoute();
         }
 
         $scope.calculateRoute = function () {
@@ -139,6 +140,15 @@ angular.module('map')
                     SiteMarkerService.addSiteMarker(site, marker, map, $scope.showSiteDetail);
                 }
             }
+        }
+
+        function showSearchedRoute() {
+
+            var origin=siteAndTownSaverService.getOrigin();
+            var destination=siteAndTownSaverService.getDestination();
+
+            console.log("origen y destino mapa", origin,destination);
+
         }
 
 

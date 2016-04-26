@@ -32,6 +32,18 @@ describe('siteAndTownSaver Service', function () {
         expect(siteAndTownSaverService.getCurrentSearchedTown()).toBe('Bogota');
     });
 
+    it('should set and get current origin', function () {
+        var currentOrigin='Bogota';
+        siteAndTownSaverService.setOrigin(currentOrigin);
+        expect(siteAndTownSaverService.getOrigin()).toBe('Bogota');
+    });
+
+    it('should set and get current destination', function () {
+        var currentDestination='Tobia';
+        siteAndTownSaverService.setDestination(currentDestination);
+        expect(siteAndTownSaverService.getDestination()).toBe('Tobia');
+    });
+
     it('should set and get Searched query', function () {
         siteAndTownSaverService.setSearchedQuery(searchedQuery.query, searchedQuery.town);
         var receivedSearchedQuery=siteAndTownSaverService.getSearchedQuery();

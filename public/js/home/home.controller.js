@@ -9,18 +9,18 @@ angular.module('home')
         }
 
         $scope.doSearch = function (result) {
-           if(result!= undefined){
+            if(result!= undefined){
                 getSites(result);
-           }
+            }
             else{
-               popErrorAlertService.showPopErrorAlert("Por favor ingrese un criterio de busqueda");
-           }
+                popErrorAlertService.showPopErrorAlert("Por favor ingrese un criterio de busqueda");
+            }
         };
 
         $scope.calculateRoute=function(){
-            console.log("desde ",$scope.routeToController.routeFrom.formatted_address);
-            console.log("hasta ",$scope.routeToController.routeTo.formatted_address);
-
+            siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.formatted_address);
+            siteAndTownSaverService.setDestination($scope.routeToController.routeTo.formatted_address);
+            $location.path('/map');
         }
 
         $scope.goToHowItWorks=function(){
