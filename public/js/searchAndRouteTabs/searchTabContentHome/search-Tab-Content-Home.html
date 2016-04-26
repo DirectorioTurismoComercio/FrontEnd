@@ -1,79 +1,113 @@
 <div style="width: 100%" ng-show="isSearchFormVisible || isRouteFormVisible">
-    <md-tabs  md-stretch-tabs="always">
+    <md-tabs md-dynamic-height="true"  md-stretch-tabs="always">
         <md-tab md-active="isSearchFormVisible">
-            <md-tab-body >
+            <md-tab-body>
                 <div class="stepsContainerDesktopHome desktopLayout">
-                    <div class="stepIconContainerHome">
-                        <img class="img_box stepIconHome" src="./images/Home/1_busca.png">
-                    </div>
-                    <div class="textContainerHome">
-                        <div class="titleContainerHome">
-                            <p class="stepTitleHome" translate="SEARCH_BY_KEY_WORD"></p>
+                    <div class="stepContainerHome">
+                        <div class="stepIconContainerHome">
+                            <img class="stepIconHome" src="./images/Home/1_busca.png">
                         </div>
-                        <div class="titleContainerHome">
+                        <div class="textContainerHome">
+                            <p class="stepTitleHome" translate="SEARCH_BY_KEY_WORD"></p>
                             <p class="subTitleHome" translate="SEARCH_1ST_STEP_TIP"></p>
                         </div>
-                    </div>
-                    <div class="inputContainerHome">
-                        <browser-input-field></browser-input-field>
-                    </div>
-                    <div class="stepIconContainerHome">
-                        <img class="img_box stepIconHome" src="./images/Home/2_busca.png">
-                    </div>
-                    <div class="textContainerHome">
-                        <div class="titleContainerHome">
-                            <p class="stepTitleHome" translate="SELECT_TOWN"></p>
+                        <div class="inputContainerHome">
+                            <browser-input-field></browser-input-field>
                         </div>
-                        <div class="titleContainerHome">
+                    </div>
+                    <div class="stepContainerHomeRight">
+                        <div class="stepIconContainerHome">
+                            <img class="stepIconHome" src="./images/Home/2_busca.png">
+                        </div>
+                        <div class="textContainerHome">
+                            <p class="stepTitleHome" translate="SELECT_TOWN"></p>
                             <p class="subTitleHome" translate="SEARCH_2ND_STEP_TIP"></p>
                         </div>
+                        <div class="inputContainerHome">
+                            <drop-down-town-directive></drop-down-town-directive>
+                        </div>
                     </div>
-                    <div class="inputContainerHome">
-                        <drop-down-town-directive></drop-down-town-directive>
+                    <div class="categoryContainerHome">
+                        <p>Espacio para las categorias</p>
+                    </div>
+                    <div class="searchButtonContainerHome">
+                        <button class="searchButtonHome" aria-label="Buscar" translate="MAKE_SEARCH" ng-click="doSearch(result)"></button>
                     </div>
                 </div>
 
-                <div class="stepsContainerMobileHome mobile">
-                    <div class="stepContainerMobileHome">
-                        <div class="imageAndTextMobileContainerHome">
-                            <div class="imageContainerMobileHome">
-                                <img class=" stepIconHome" src="./images/Home/1_busca.png">
+                <div class="mobileLayout stepsContainerMobileHome">
+                    <div class="stepContainerHomeMobile">
+                        <div class="stepTextMobileContainerHome">
+                            <div class="stepIconContainerHome">
+                                <img class="stepIconHome" src="./images/Home/1_busca.png">
                             </div>
-                            <div class="textContainerMobileHome">
+                            <div class="textContainerHome">
                                 <p class="stepTitleHome" translate="SEARCH_BY_KEY_WORD"></p>
                                 <p class="subTitleHome" translate="SEARCH_1ST_STEP_TIP"></p>
                             </div>
                         </div>
-                        <div class="inputBoxMobileHome">
+                        <div class="inputContainerHome">
                             <browser-input-field></browser-input-field>
                         </div>
+                        <div class="categoryContainerHome">
+                            <p>espacio de categorias</p>
+                        </div>
                     </div>
-                    <div class="stepsDividerHome"></div>
-                    <div class="stepContainerMobileHome">
-                        <div class="imageAndTextMobileContainerHome">
-                            <div class="imageContainerMobileHome">
-                                <img class=" stepIconHome" src="./images/Home/2_busca.png">
+                    <div class="stepsDividerHomeMobile"></div>
+                    <div class="step2ndContainerHomeMobile">
+                        <div class="step2ndTextMobileContainerHome">
+                            <div class="stepIconContainerHome">
+                                <img class="stepIconHome" src="./images/Home/2_busca.png">
                             </div>
-                            <div class="textContainerMobileHome">
-                                <p class="stepTitleHome" translate="SELECT_TOWN"></p>
-                                <p class="subTitleHome" translate="SEARCH_2ND_STEP_TIP"></p>
+                            <div class="textContainerHome">
+                                <p class="step2ndTitleHome" translate="SELECT_TOWN"></p>
+                                <p class="subTitl2ndeHome" translate="SEARCH_2ND_STEP_TIP"></p>
                             </div>
                         </div>
-                        <div class="inputBoxMobileHome">
+                        <div class="inputContainerHome">
                             <drop-down-town-directive></drop-down-town-directive>
-                            </md-select>
                         </div>
                     </div>
-                </div>
-                <div class="searchButtonContainerHome">
-                    <button class="searchButtonHome" aria-label="Buscar" ng-click="doSearch(result)" translate="MAKE_SEARCH"></button>
+                    <div class="searchButtonContainerHome">
+                        <button class="searchButtonHome" aria-label="Buscar" translate="MAKE_SEARCH" ng-click="doSearch(result)"></button>
+                    </div>
                 </div>
             </md-tab-body>
         </md-tab>
         <md-tab md-active="isRouteFormVisible">
             <md-tab-body>
                 <div class="routeMenuHome" >
-
+                    <div class="stepContainerHome">
+                        <div class="stepIconContainerHome">
+                            <img class="stepIconHome" src="./images/Home/1_busca.png">
+                        </div>
+                        <div class="textContainerHome">
+                            <p class="stepTitleHome" translate="SEARCH_TAB_MAP_HOME"></p>
+                            <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_TIP"></p>
+                        </div>
+                        <div class="inputContainerHome">
+                            <browser-input-field></browser-input-field>
+                            <div class="currentLocationHomeContainer">
+                                <button class="currentLocationHome"></button>
+                                <p class="subTitleHome" translate="CURRENT_LOCATION"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stepContainerHomeRight">
+                        <div class="stepIconContainerHome">
+                            <img class="stepIconHome" src="./images/Home/2_busca.png">
+                        </div>
+                        <div class="textContainerHome">
+                            <p class="stepTitleHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP"></p>
+                            <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP_TIP"></p>
+                        </div>
+                        <div class="inputContainerHome">
+                            <drop-down-town-directive></drop-down-town-directive>
+                        </div>
+                    </div>
+                    <div class="searchButtonContainerHome">
+                        <button class="searchButtonHome" aria-label="Buscar" translate="MAKE_ROUTE" ng-click="doSearch(result)"></button>
+                    </div>
                 </div>
             </md-tab-body>
         </md-tab>

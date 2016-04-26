@@ -10,12 +10,12 @@ angular.module('map')
         var directionsDisplay;
         var directionsService;
         var userPosition = {};
-        $scope.selectedSite=null;
-        
-        
-        var highlightedMarker=null;
+        $scope.selectedSite = null;
+
+
+        var highlightedMarker = null;
         $scope.isShowingSiteDetail = false;
-       
+
         $scope.loading = false;
         $scope.foundSites = [{name: 'nombre', description: 'desc'}];
         $scope.routeOrigin = '';
@@ -38,47 +38,50 @@ angular.module('map')
             var userCoords = userPosition.lat + "," + userPosition.lng;
             var origin = routeOriginInput.value == MY_LOCATION ? userCoords : routeOriginInput.value;
             var destination = routeDestinationInput.value;
-
             var map = $scope.map.control.getGMap();
+
+            console.log(origin);
+            console.log(destination);
             SiteMarkerService.deleteMarkers();
             MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
-        }
+        };
 
         $scope.goToUserPosition = function () {
             MapService.getUserPosition(setUserPositionAsRouteOrigin, handleLocationError);
-        }
+        };
 
         $scope.clearRouteOrigin = function () {
             $scope.routeOrigin = '';
-        }
+        };
 
         $scope.clearRouteDestination = function () {
             $scope.routeDestination = '';
-        }
+        };
 
         $scope.hideSiteDetail = function (siteIndex) {
             SiteMarkerService.clearSelectedMarker();
-            $scope.isShowingSiteDetail=false;
+            $scope.isShowingSiteDetail = false;
 
-        }
-        $scope.clearHighLightedMarker = function(index){
-            if(!$scope.isShowingSiteDetail){
-            SiteMarkerService.clearHighLightedMarkerByIndex(index);
-        }
-                
-        }
-        $scope.highLightMarker = function(index){
+        };
+
+        $scope.clearHighLightedMarker = function (index) {
+            if (!$scope.isShowingSiteDetail) {
+                SiteMarkerService.clearHighLightedMarkerByIndex(index);
+            }
+        };
+
+        $scope.highLightMarker = function (index) {
             SiteMarkerService.highLightMarkerByIndex(index);
-        }
+        };
 
         $scope.showSiteDetail = function (site, index) {
-            if(index){
+            if (index) {
                 SiteMarkerService.highLightMarkerByIndex(index);
             }
-            $scope.isShowingSiteDetail=true;
-            $scope.selectedSite = site;         
+            $scope.isShowingSiteDetail = true;
+            $scope.selectedSite = site;
             $scope.$apply();
-        }
+        };
 
         $scope.doSearch = function (result) {
             $scope.loading = true;
@@ -93,7 +96,13 @@ angular.module('map')
             }).catch(function (error) {
                 console.log("ocurrio un error", error);
             });
-        }
+        };
+
+        $scope.calcRouteFromUserPosition = function (site) {
+            MapService.getUserPosition(setUserPositionAsRouteOrigin, handleLocationError);
+            routeDestinationInput.value = site.latitud + "," + site.longitud;
+            $scope.calculateRoute();
+        };
 
         function showFoundPlaces() {
             var sites = SearchForResultsFactory.getResults();
@@ -105,11 +114,11 @@ angular.module('map')
                     var position = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
                     var marker = MapService.addMarker(map, position, site.nombre);
 
-                    SiteMarkerService.addSiteMarker(site, marker, map,$scope.showSiteDetail);
-                    
+                    SiteMarkerService.addSiteMarker(site, marker, map, $scope.showSiteDetail);
+
                 }
             }
-            
+
         }
 
 
@@ -155,7 +164,7 @@ angular.module('map')
             $scope.routeOrigin = MY_LOCATION;
             userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
 
-            MapService.addMarker(map, userPosition)
+            MapService.addMarker(map, userPosition);
             map.setCenter(userPosition);
             map.setZoom(15);
         }

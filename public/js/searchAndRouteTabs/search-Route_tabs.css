@@ -49,7 +49,7 @@
 
 
 .searchLabel{
-    font-size: 2em;
+    font-size: 2.5vmin;
     font-family: 'PT Sans', sans-serif;
     font-weight: normal;
     text-align: center;
@@ -67,8 +67,8 @@
 }
 
 .searchIcon{
-    height: 3em;
-    width: 3em;
+    height: 4.5vmin;
+    width: 4.5vmin;
     margin-left: 40%;
 }
 
