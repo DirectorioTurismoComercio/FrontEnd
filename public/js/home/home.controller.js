@@ -23,7 +23,7 @@ angular.module('home')
             }else{
                 siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.formatted_address);
                 siteAndTownSaverService.setDestination($scope.routeToController.routeTo.formatted_address);
-                $location.path('/map');
+                //$location.path('/map');
             }
         }
 

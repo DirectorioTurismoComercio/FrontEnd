@@ -58,7 +58,7 @@ angular.module('map')
 
             $scope.loading = true;
             SiteMarkerService.deleteMarkers();
-            MapService.addMarker(map, destination);
+            //MapService.addMarker(map, destination);
             MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
         };
 
@@ -143,13 +143,13 @@ angular.module('map')
         }
 
         function showSearchedRoute() {
-            $scope.loading = true;
+            /*$scope.loading = true;
             var map = $scope.map.control.getGMap();
             var origin=siteAndTownSaverService.getOrigin();
             var destination=siteAndTownSaverService.getDestination();
             SiteMarkerService.deleteMarkers();
             MapService.addMarker(map, destination);
-            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
+            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);*/
         }
 
 
