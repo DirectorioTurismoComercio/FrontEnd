@@ -47,13 +47,11 @@ angular.module('map')
             MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
             directionsDisplay.setMap($scope.map.control.getGMap());
 
-            if(siteAndTownSaverService.getCurrentSearchedSite()!=null){
-                console.log("Entro a showFoundPlaces");
+            if(siteAndTownSaverService.getCurrentSearchedSite()!=undefined){
                 showFoundPlaces();
             }
 
-            if(siteAndTownSaverService.getOrigin()!=null){
-                console.log("Entro a mostar ruta");
+            if(siteAndTownSaverService.getOrigin()!=undefined){
                 showSearchedRoute();
             }
         }

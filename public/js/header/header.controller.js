@@ -1,7 +1,11 @@
 angular.module('ecosistemaHeader',[])
-    .controller('ecosistemaHeaderController', function ($scope, $translate) {
+    .controller('ecosistemaHeaderController', function ($scope, $translate, $location, siteAndTownSaverService) {
         $scope.changeLanguage=function(language){
-            console.log("Presiono en traducri");
             $translate.use(language);
+        }
+
+        $scope.goToHome=function(){
+            siteAndTownSaverService.resetSearchAndRoute();
+            $location.path('/home');
         }
     });

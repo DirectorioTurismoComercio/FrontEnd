@@ -5,12 +5,16 @@ angular.module('howItWorks')
 
         $scope.goToMapSearchTab = function () {
             siteAndTownSaverService.setSearchedQuery("", "");
-            $location.path('/map');
+            resetAndGoToMap();
         };
 
         $scope.goToMapRouteTab = function () {
             siteAndTownSaverService.setSearchedRoute("", "");
-            $location.path('/map');
+            resetAndGoToMap();
         };
 
+        function resetAndGoToMap(){
+            siteAndTownSaverService.resetSearchAndRoute();
+            $location.path('/map');
+        }
     });
