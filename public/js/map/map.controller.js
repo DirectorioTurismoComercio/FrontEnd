@@ -51,7 +51,9 @@ angular.module('map')
                 showFoundPlaces();
             }
 
-            showSearchedRoute();
+            if(siteAndTownSaverService.getOrigin()!=null){
+                showSearchedRoute();
+            }
         }
 
         $scope.calculateRoute = function () {
