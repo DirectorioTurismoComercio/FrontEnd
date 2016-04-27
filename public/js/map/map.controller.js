@@ -47,11 +47,13 @@ angular.module('map')
             MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
             directionsDisplay.setMap($scope.map.control.getGMap());
 
-            if(siteAndTownSaverService.getOrigin()!=null){
+            if(siteAndTownSaverService.getCurrentSearchedSite()!=null){
+                console.log("Entro a showFoundPlaces");
                 showFoundPlaces();
             }
 
             if(siteAndTownSaverService.getOrigin()!=null){
+                console.log("Entro a mostar ruta");
                 showSearchedRoute();
             }
         }
@@ -64,7 +66,6 @@ angular.module('map')
 
             $scope.loading = true;
             SiteMarkerService.deleteMarkers();
-            //MapService.addMarker(map, destination);
             MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
         };
 
@@ -154,7 +155,6 @@ angular.module('map')
             var origin=siteAndTownSaverService.getOrigin();
             var destination=siteAndTownSaverService.getDestination();
             SiteMarkerService.deleteMarkers();
-            //MapService.addMarker(map, destination);
             MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
         }
 
