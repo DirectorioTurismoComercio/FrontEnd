@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('home', ['ngMaterial'])
+angular.module('home', ['ngMaterial', 'geolocation'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/home', {

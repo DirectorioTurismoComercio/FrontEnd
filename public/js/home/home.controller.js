@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('home')
-    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService, popErrorAlertService) {
+    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService,
+                                            popErrorAlertService, geolocation) {
 
         $scope.routeToController={
             routeFrom:'',
@@ -30,6 +31,16 @@ angular.module('home')
         $scope.goToHowItWorks=function(){
             $location.path('/howitworks');
         }
+
+        $scope.goToUserPosition=function(){
+            console.log("presiono en localizacion usuario");
+            geolocation.getLocation().then(function(data){
+                $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
+                console.log("las coordenadas son", $scope.coords);
+            });
+        }
+
+
 
         function getSites(result){
             SearchForResultsFactory.doSearch(result).then(function (response) {
