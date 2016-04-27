@@ -46,7 +46,11 @@ angular.module('map')
             MapService.addPlaceChangedListener(routeFromAutocomplete, routeOriginInput, checkAllowedPlace)
             MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
             directionsDisplay.setMap($scope.map.control.getGMap());
-            showFoundPlaces();
+
+            if(siteAndTownSaverService.getOrigin()!=null){
+                showFoundPlaces();
+            }
+
             showSearchedRoute();
         }
 
@@ -143,13 +147,13 @@ angular.module('map')
         }
 
         function showSearchedRoute() {
-            /*$scope.loading = true;
+            $scope.loading = true;
             var map = $scope.map.control.getGMap();
             var origin=siteAndTownSaverService.getOrigin();
             var destination=siteAndTownSaverService.getDestination();
             SiteMarkerService.deleteMarkers();
-            MapService.addMarker(map, destination);
-            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);*/
+            //MapService.addMarker(map, destination);
+            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
         }
 
 
