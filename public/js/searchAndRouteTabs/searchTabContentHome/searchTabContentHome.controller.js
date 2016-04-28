@@ -1,7 +1,7 @@
 angular.module('searchAndRouteTabs')
     .controller('searchTabContentHomeController', function ($scope, geolocation, popErrorAlertService,
                                                             siteAndTownSaverService, CUNDINAMARCA_COORDS) {
-
+        var cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
         $scope.loadingCurrentPosition=false;
         $scope.autocompleteOptions = {
             componentRestrictions: {country: 'co'},
@@ -13,7 +13,7 @@ angular.module('searchAndRouteTabs')
 
         $scope.searchIsInCundinamarca = function (latitude, longitude, model) {
             var coords = new google.maps.LatLng(latitude, longitude);
-            var cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
+            cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
 
             if (!google.maps.geometry.poly.containsLocation(coords, cundinamarcaPolygon)) {
                 popErrorAlertService.showPopErrorAlert("El lugar seleccionado no esta disponible por el momento");
