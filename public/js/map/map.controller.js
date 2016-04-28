@@ -4,9 +4,6 @@ angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
                                            SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS, SiteMarkerService,
                                            $location, popErrorAlertService, siteAndTownSaverService) {
-        var MY_LOCATION = 'Mi Ubicación';
-        var routeOriginInput = document.getElementById('routeOrigin');
-        var routeDestinationInput = document.getElementById('routeDestination');
         var directionsDisplay;
         var directionsService;
         var userPosition = {};
@@ -18,8 +15,6 @@ angular.module('map')
 
         $scope.loading = false;
         $scope.foundSites = [{name: 'nombre', description: 'desc'}];
-        $scope.routeOrigin = '';
-        $scope.routeDestination = '';
         $scope.map = {
             center: {
                 latitude: 4.6363623,
@@ -45,11 +40,6 @@ angular.module('map')
         uiGmapIsReady.promise().then(initMap);
 
         function initMap() {
-            var routeFromAutocomplete = MapService.addAutocompleteFeature(routeOriginInput);
-            var routeToAutocomplete = MapService.addAutocompleteFeature(routeDestinationInput);
-
-            MapService.addPlaceChangedListener(routeFromAutocomplete, routeOriginInput, checkAllowedPlace)
-            MapService.addPlaceChangedListener(routeToAutocomplete, routeDestinationInput, checkAllowedPlace)
             directionsDisplay.setMap($scope.map.control.getGMap());
 
             if(siteAndTownSaverService.getCurrentSearchedSite()!=undefined){
@@ -79,14 +69,6 @@ angular.module('map')
         $scope.goToUserPosition = function () {
             $scope.routeToController.routeFrom="Mi posición actual";
             MapService.getUserPosition(setUserPositionAsRouteOrigin, handleLocationError);
-        };
-
-        $scope.clearRouteOrigin = function () {
-            $scope.routeOrigin = '';
-        };
-
-        $scope.clearRouteDestination = function () {
-            $scope.routeDestination = '';
         };
 
         $scope.hideSiteDetail = function (siteIndex) {
@@ -167,16 +149,6 @@ angular.module('map')
         }
 
 
-        function checkAllowedPlace(autocomplete, inputBox) {
-            var latitude = autocomplete.getPlace().geometry.location.lat();
-            var longitude = autocomplete.getPlace().geometry.location.lng();
-
-            if (!MapService.isPlaceInCundinamarca(latitude, longitude, $scope.map.control.getGMap())) {
-                alert("El lugar seleccionado no esta disponible por el momento");
-                inputBox.value = '';
-            }
-        }
-
         function setUserPositionAsRouteOrigin(position) {
             var map = $scope.map.control.getGMap();
             userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
@@ -188,7 +160,7 @@ angular.module('map')
         }
 
         function handleLocationError() {
-            alert("No es posible obtener la ubicación");
+            popErrorAlertService.showPopErrorAlert("No es posible obtener la ubicación");
         }
     })
 ;
