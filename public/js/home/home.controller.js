@@ -18,10 +18,11 @@ angular.module('home')
         };
 
         $scope.calculateRoute=function(){
+            console.log("entro al calcular ruta del home");
             if($scope.routeToController.routeFrom=='' || $scope.routeToController.routeTo==''){
                 popErrorAlertService.showPopErrorAlert("Indique un punto de partida y un destino");
             }else{
-                if(siteAndTownSaverService.getOrigin()==undefined){
+                if($scope.routeToController.routeFrom!="Mi posición actual"){
                     siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.formatted_address);
                 }
                 siteAndTownSaverService.setDestination($scope.routeToController.routeTo.formatted_address);

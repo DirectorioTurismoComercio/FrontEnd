@@ -10,6 +10,8 @@ angular.module('searchAndRouteTabs')
                 var formattedCoords=coords.lat+','+coords.long;
                 $scope.routeToController.routeFrom="Mi posición actual";
                 siteAndTownSaverService.setOrigin(formattedCoords);
+            }).catch(function (error){
+                alert("No es posible obtener la ubicación");
             });
         }
     });

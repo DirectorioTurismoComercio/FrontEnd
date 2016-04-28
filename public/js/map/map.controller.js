@@ -28,6 +28,10 @@ angular.module('map')
             control: {},
             zoom: 9
         };
+        $scope.routeToController={
+            routeFrom:'',
+            routeTo:''
+        }
 
 
         uiGmapGoogleMapApi.then(initServices);
@@ -57,17 +61,22 @@ angular.module('map')
         }
 
         $scope.calculateRoute = function () {
-            var map = $scope.map.control.getGMap();
-            var userCoords = userPosition.lat + "," + userPosition.lng;
-            var origin = routeOriginInput.value == MY_LOCATION ? userCoords : routeOriginInput.value;
-            var destination = routeDestinationInput.value;
-
-            $scope.loading = true;
-            SiteMarkerService.deleteMarkers();
-            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
+            if($scope.routeToController.routeFrom=='' || $scope.routeToController.routeTo==''){
+                popErrorAlertService.showPopErrorAlert("Indique un punto de partida y un destino");
+            }else {
+                if ($scope.routeToController.routeFrom!="Mi posición actual") {
+                    siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.formatted_address);
+                }
+                siteAndTownSaverService.setDestination($scope.routeToController.routeTo.formatted_address);
+                var map = $scope.map.control.getGMap();
+                $scope.loading = true;
+                SiteMarkerService.deleteMarkers();
+                MapService.calulateRoute(siteAndTownSaverService.getOrigin(), siteAndTownSaverService.getDestination(), directionsService, directionsDisplay, map, $scope);
+            }
         };
 
         $scope.goToUserPosition = function () {
+            $scope.routeToController.routeFrom="Mi posición actual";
             MapService.getUserPosition(setUserPositionAsRouteOrigin, handleLocationError);
         };
 
@@ -169,8 +178,8 @@ angular.module('map')
 
         function setUserPositionAsRouteOrigin(position) {
             var map = $scope.map.control.getGMap();
-            $scope.routeOrigin = MY_LOCATION;
             userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
+            siteAndTownSaverService.setOrigin(userPosition);
 
             MapService.addMarker(map, userPosition);
             map.setCenter(userPosition);
