@@ -35,6 +35,7 @@ module.exports = function (config) {
             'public/components/angular-translate/angular-translate.min.js',
             'public/components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
             'public/components/angular-google-places-autocomplete/dist/autocomplete.min.js',
+            'public/components/angularjs-geolocation/dist/angularjs-geolocation.min.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',

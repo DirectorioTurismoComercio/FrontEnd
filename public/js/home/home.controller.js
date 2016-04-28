@@ -21,7 +21,9 @@ angular.module('home')
             if($scope.routeToController.routeFrom=='' || $scope.routeToController.routeTo==''){
                 popErrorAlertService.showPopErrorAlert("Indique un punto de partida y un destino");
             }else{
-                siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.formatted_address);
+                if(siteAndTownSaverService.getOrigin()==undefined){
+                    siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.formatted_address);
+                }
                 siteAndTownSaverService.setDestination($scope.routeToController.routeTo.formatted_address);
                 $location.path('/map');
             }
