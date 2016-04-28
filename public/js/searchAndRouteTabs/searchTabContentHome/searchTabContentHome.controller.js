@@ -1,6 +1,8 @@
 angular.module('searchAndRouteTabs')
     .controller('searchTabContentHomeController', function ($scope, geolocation, popErrorAlertService,
                                                             siteAndTownSaverService, CUNDINAMARCA_COORDS) {
+
+        $scope.loadingCurrentPosition=false;
         $scope.autocompleteOptions = {
             componentRestrictions: {country: 'co'},
         }
@@ -25,12 +27,15 @@ angular.module('searchAndRouteTabs')
         }
 
         $scope.getUserPosition = function () {
+            $scope.loadingCurrentPosition=true;
             geolocation.getLocation().then(function (data) {
                 var coords = {lat: data.coords.latitude, long: data.coords.longitude};
                 var formattedCoords = coords.lat + ',' + coords.long;
                 $scope.routeToController.routeFrom = "Mi posición actual";
                 siteAndTownSaverService.setOrigin(formattedCoords);
+                $scope.loadingCurrentPosition=false;
             }).catch(function (error) {
+                $scope.loadingCurrentPosition=false;
                 popErrorAlertService.showPopErrorAlert("No es posible obtener la ubicación");
             });
         }
