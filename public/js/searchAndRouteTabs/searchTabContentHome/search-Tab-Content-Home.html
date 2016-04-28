@@ -89,7 +89,7 @@
                             <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_TIP"></p>
                         </div>
                         <div class="inputContainerHome">
-                            <input class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeFrom"/>
+                            <input ng-blur="searchIsInCundinamarca(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')" class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeFrom"/>
                             <div class="currentLocationHomeContainer">
                                 <button class="btn btn-default" aria-label="Left Align" ng-click="getUserPosition()">
                                     <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
@@ -107,7 +107,7 @@
                             <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP_TIP"></p>
                         </div>
                         <div class="inputContainerHomeRouteTo">
-                            <input id="routeOriginInput" class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeTo"/>
+                            <input ng-blur="searchIsInCundinamarca(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeTo')" class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeTo"/>
                         </div>
                     </div>
                     <div class="searchButtonContainerHome">
@@ -131,7 +131,7 @@
                             <p class="routeStartingPointTips currentPointText" translate="CURRENT_LOCATION"></p>
                         </div>
                         <div class="inputContainerHomeRouteFrom">
-                            <input id="routeDestinationInput" class="form-control inputFrom" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeFrom"/>
+                            <input ng-blur="searchIsInCundinamarca(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')" class="form-control inputFrom" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeFrom"/>
                             <button class="btn btn-default currentLocationButtonMobile" aria-label="Left Align" ng-click="getUserPosition()">
                                 <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
                             </button>
@@ -149,7 +149,7 @@
                             </div>
                         </div>
                         <div class="inputContainerHome">
-                            <input class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeTo"/>
+                            <input ng-blur="searchIsInCundinamarca(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeTo')" class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeTo"/>
                         </div>
                     </div>
                     <div class="searchButtonContainerHome">

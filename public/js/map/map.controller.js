@@ -41,6 +41,7 @@ angular.module('map')
             directionsService = new GMapApi.DirectionsService();
         }
 
+
         uiGmapIsReady.promise().then(initMap);
 
         function initMap() {
