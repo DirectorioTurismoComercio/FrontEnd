@@ -11,18 +11,17 @@ angular.module('searchAndRouteTabs')
             setSearchedRoutePlaceHolders();
         }
 
+        $scope.deleteText=function(model){
+            clearText(model);
+        }
+
         $scope.searchIsInCundinamarca = function (latitude, longitude, model) {
             var coords = new google.maps.LatLng(latitude, longitude);
             cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
 
             if (!google.maps.geometry.poly.containsLocation(coords, cundinamarcaPolygon)) {
                 popErrorAlertService.showPopErrorAlert("El lugar seleccionado no esta disponible por el momento");
-                if (model == 'routeToController.routeFrom') {
-                    $scope.routeToController.routeFrom = ''
-                }
-                if (model == 'routeToController.routeTo') {
-                    $scope.routeToController.routeTo = ''
-                }
+                clearText(model);
             }
         }
 
@@ -44,5 +43,14 @@ angular.module('searchAndRouteTabs')
             (siteAndTownSaverService.getOrigin().indexOf('4.') > -1 && siteAndTownSaverService.getOrigin().indexOf('-74.') > -1) ?
                 $scope.routeToController.routeFrom = "Mi posición actual" : $scope.routeToController.routeFrom = siteAndTownSaverService.getOrigin();
             $scope.routeToController.routeTo = siteAndTownSaverService.getDestination();
+        }
+
+        function clearText(model){
+            if (model == 'routeToController.routeFrom') {
+                $scope.routeToController.routeFrom = ''
+            }
+            if (model == 'routeToController.routeTo') {
+                $scope.routeToController.routeTo = ''
+            }
         }
     });
