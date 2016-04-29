@@ -136,7 +136,7 @@ angular.module('map')
             var destination = siteAndTownSaverService.getDestination();
 
             SiteMarkerService.deleteMarkers();
-            MapRouteService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
+            MapRouteService.calulateRoute(origin, destination, map, $scope);
         }
 
 
