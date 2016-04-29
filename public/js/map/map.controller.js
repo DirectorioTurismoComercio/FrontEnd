@@ -6,11 +6,7 @@ angular.module('map')
                                            siteAndTownSaverService, MapRouteService) {
         var userPosition = {};
         $scope.selectedSite = null;
-
-
-        var highlightedMarker = null;
         $scope.isShowingSiteDetail = false;
-
         $scope.loading = false;
         $scope.foundSites = [{name: 'nombre', description: 'desc'}];
         $scope.map = {
@@ -131,6 +127,7 @@ angular.module('map')
             $scope.loading = true;
             SiteMarkerService.deleteMarkers();
             MapRouteService.calulateRoute(siteAndTownSaverService.getOrigin(), siteAndTownSaverService.getDestination(), $scope);
+            MapService.clearMarkers();
         }
 
 
@@ -138,6 +135,7 @@ angular.module('map')
             userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
             siteAndTownSaverService.setOrigin(userPosition);
             MapService.moveMapToPosition(userPosition);
+            MapService.addMarker(userPosition);
         }
 
         function handleLocationError() {

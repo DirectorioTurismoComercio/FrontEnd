@@ -5,6 +5,7 @@ angular.module('map')
         var directionsDisplay;
         var directionsService;
         var gMap;
+        var markers = [];
 
 
         function setGMap(_gMap) {
@@ -65,7 +66,7 @@ angular.module('map')
         }
 
         function addMarker(position, label) {
-            return new MarkerWithLabel({
+            var marker = new MarkerWithLabel({
                 position: position,
                 map: gMap,
                 labelContent: label,
@@ -76,6 +77,10 @@ angular.module('map')
                     opacity: 1.0
                 }
             });
+
+            markers.push(marker);
+
+            return marker;
         }
 
 
@@ -99,9 +104,14 @@ angular.module('map')
         }
 
         function moveMapToPosition(position) {
-            addMarker(position);
             gMap.setCenter(position);
             gMap.setZoom(15);
+        }
+
+        function clearMarkers(){
+            markers.forEach(function(marker){
+               marker.setMap(undefined);
+            });
         }
 
         return {
@@ -115,6 +125,7 @@ angular.module('map')
             isPlaceInCundinamarca: isPlaceInCundinamarca,
             addMarker: addMarker,
             coordsToLatLng: coordsToLatLng,
-            moveMapToPosition: moveMapToPosition
+            moveMapToPosition: moveMapToPosition,
+            clearMarkers: clearMarkers
         }
     });

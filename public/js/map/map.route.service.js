@@ -15,7 +15,6 @@ angular.module('map')
                 var points = [];
 
                 if (status == google.maps.DirectionsStatus.OK) {
-                    MapService.getDirectionsDisplay().setOptions({suppressMarkers: true});
                     MapService.getDirectionsDisplay().setDirections(result);
 
                     for (var i = 0; i < result.routes[0].overview_path.length; i++) {
