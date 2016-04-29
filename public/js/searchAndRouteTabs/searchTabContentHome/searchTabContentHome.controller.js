@@ -1,43 +1,39 @@
 angular.module('searchAndRouteTabs')
     .controller('searchTabContentHomeController', function ($scope, geolocation, popErrorAlertService,
-                                                            siteAndTownSaverService, CUNDINAMARCA_COORDS) {
-        var cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
-        $scope.loadingCurrentPosition=false;
+                                                            siteAndTownSaverService, MapService) {
+        $scope.loadingCurrentPosition = false;
         $scope.autocompleteOptions = {
             componentRestrictions: {country: 'co'},
-        }
+        };
 
         if (siteAndTownSaverService.getOrigin() != undefined) {
             setSearchedRoutePlaceHolders();
         }
 
-        $scope.deleteText=function(model){
+        $scope.deleteText = function (model) {
             clearText(model);
-        }
+        };
 
         $scope.searchIsInCundinamarca = function (latitude, longitude, model) {
-            var coords = new google.maps.LatLng(latitude, longitude);
-            cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
-
-            if (!google.maps.geometry.poly.containsLocation(coords, cundinamarcaPolygon)) {
+            if (!MapService.isPlaceInCundinamarca(latitude, longitude)) {
                 popErrorAlertService.showPopErrorAlert("El lugar seleccionado no esta disponible por el momento");
                 clearText(model);
             }
-        }
+        };
 
         $scope.getUserPosition = function () {
-            $scope.loadingCurrentPosition=true;
+            $scope.loadingCurrentPosition = true;
             geolocation.getLocation().then(function (data) {
                 var coords = {lat: data.coords.latitude, long: data.coords.longitude};
                 var formattedCoords = coords.lat + ',' + coords.long;
                 $scope.routeToController.routeFrom = "Mi posición actual";
                 siteAndTownSaverService.setOrigin(formattedCoords);
-                $scope.loadingCurrentPosition=false;
+                $scope.loadingCurrentPosition = false;
             }).catch(function (error) {
-                $scope.loadingCurrentPosition=false;
+                $scope.loadingCurrentPosition = false;
                 popErrorAlertService.showPopErrorAlert("No es posible obtener la ubicación");
             });
-        }
+        };
 
         function setSearchedRoutePlaceHolders() {
             (siteAndTownSaverService.getOrigin().indexOf('4.') > -1 && siteAndTownSaverService.getOrigin().indexOf('-74.') > -1) ?
@@ -45,7 +41,7 @@ angular.module('searchAndRouteTabs')
             $scope.routeToController.routeTo = siteAndTownSaverService.getDestination();
         }
 
-        function clearText(model){
+        function clearText(model) {
             if (model == 'routeToController.routeFrom') {
                 $scope.routeToController.routeFrom = ''
             }

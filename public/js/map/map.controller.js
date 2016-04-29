@@ -1,11 +1,9 @@
 'use strict';
 
 angular.module('map')
-    .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
-                                           SearchForResultsFactory, MapService, SiteMarkerService,
-                                           $location, popErrorAlertService, siteAndTownSaverService) {
-        //var directionsDisplay;
-        //var directionsService;
+    .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory,
+                                           MapService, SiteMarkerService, $location, popErrorAlertService,
+                                           siteAndTownSaverService, MapRouteService) {
         var userPosition = {};
         $scope.selectedSite = null;
 
@@ -53,7 +51,7 @@ angular.module('map')
                 siteAndTownSaverService.setDestination($scope.routeToController.routeTo.formatted_address);
                 $scope.loading = true;
                 SiteMarkerService.deleteMarkers();
-                MapService.calulateRoute(siteAndTownSaverService.getOrigin(), siteAndTownSaverService.getDestination(), $scope);
+                MapRouteService.calulateRoute(siteAndTownSaverService.getOrigin(), siteAndTownSaverService.getDestination(), $scope);
             }
         };
 
@@ -111,7 +109,7 @@ angular.module('map')
                 var origin = userPosition.lat + "," + userPosition.lng;
 
                 MapService.addMarker(userPosition);
-                MapService.calulateRoute(origin, destination, $scope);
+                MapRouteService.calulateRoute(origin, destination, $scope);
             }, handleLocationError);
         };
 
@@ -124,9 +122,9 @@ angular.module('map')
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
                     var position = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
-                    var marker = MapService.addMarker(map, position, site.nombre);
+                    var marker = MapService.addMarker(position, site.nombre);
 
-                    SiteMarkerService.addSiteMarker(site, marker, map, $scope.showSiteDetail);
+                    SiteMarkerService.addSiteMarker(site, marker, $scope.showSiteDetail);
                 }
             }
         }
@@ -138,18 +136,14 @@ angular.module('map')
             var destination = siteAndTownSaverService.getDestination();
 
             SiteMarkerService.deleteMarkers();
-            MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
+            MapRouteService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
         }
 
 
         function setUserPositionAsRouteOrigin(position) {
-            var map = MapService.getGMap();
             userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
             siteAndTownSaverService.setOrigin(userPosition);
-
-            MapService.addMarker(map, userPosition);
-            map.setCenter(userPosition);
-            map.setZoom(15);
+            MapService.moveMapToPosition(userPosition);
         }
 
         function handleLocationError() {

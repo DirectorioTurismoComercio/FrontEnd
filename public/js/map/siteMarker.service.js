@@ -4,46 +4,57 @@ angular.module('map')
     .service('SiteMarkerService', function ($filter, $sce, $templateRequest, $q) {
         var markers = [];
         var selectedMarker = null;
-        function markerOnClick(site,showSiteDetail) {
+
+        function markerOnClick(site, showSiteDetail) {
             return function () {
                 showSiteDetail(site, null);
                 highLightMarker(this);
             };
         }
 
-        var addSiteMarker = function (site, marker, map,showSiteDetail) {
-            marker.addListener('click', markerOnClick(site,showSiteDetail));
+        var addSiteMarker = function (site, marker, showSiteDetail) {
+            marker.addListener('click', markerOnClick(site, showSiteDetail));
 
             markers.push(marker);
-        }
+        };
 
-        var deleteMarkers = function() {
+        var deleteMarkers = function () {
             for (var i = 0; i < markers.length; i++) {
-                markers[i].setGMap(null);
+                markers[i].setMap(null);
             }
-        }
+        };
 
-        var clearHighLightedMarkerByIndex = function(index){
+        var clearHighLightedMarkerByIndex = function (index) {
             clearHighLightedMarker(markers[index]);
-                
-        }
-        var clearSelectedMarker = function(){
-            if(selectedMarker){
+
+        };
+
+        var clearSelectedMarker = function () {
+            if (selectedMarker) {
                 clearHighLightedMarker(selectedMarker);
             }
-        }
-        var highLightMarkerByIndex = function(index){
+        };
+
+        var highLightMarkerByIndex = function (index) {
             highLightMarker(markers[index]);
-        }
-        function clearHighLightedMarker(marker){
-            marker.setIcon('./images/redMarker.png');
+        };
+
+        function clearHighLightedMarker(marker) {
+            setMarkerIcon(marker, './images/redMarker.png');
         }
 
-        function highLightMarker(marker){
+        function highLightMarker(marker) {
             clearSelectedMarker();
             selectedMarker = marker;
-            marker.setIcon('./images/greenMarker.png');
+            setMarkerIcon(marker, './images/greenMarker.png');
         }
+
+        function setMarkerIcon(marker, iconUrl) {
+            if (marker != undefined) {
+                marker.setIcon(iconUrl);
+            }
+        }
+
         return {
             addSiteMarker: addSiteMarker,
             deleteMarkers: deleteMarkers,
