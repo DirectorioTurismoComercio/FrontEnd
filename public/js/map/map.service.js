@@ -32,43 +32,6 @@ angular.module('map')
             return gMap;
         }
 
-        function calulateRoute(origin, destination, $scope) {
-            var routeData = {
-                origin: origin,
-                destination: destination,
-                travelMode: google.maps.TravelMode.DRIVING
-            };
-
-            getDirectionsService().route(routeData, function (result, status) {
-                if (status == google.maps.DirectionsStatus.OK) {
-                    directionsDisplay.setOptions({suppressMarkers: true});
-                    directionsDisplay.setDirections(result);
-
-                    var points = [];
-                    for (var i = 0; i < result.routes[0].overview_path.length; i++) {
-                        points.push([result.routes[0].overview_path[i].lat(), result.routes[0].overview_path[i].lng()]);
-                    }
-                    drawRouteSites(points, gMap, $scope);
-                }
-            });
-        }
-
-        function drawRouteSites(points, $scope) {
-            sitesNearRoute.getSitesNearRoute(points).success(function (sites) {
-
-                    for (var i = 0; i < sites.length; i++) {
-                        var position = coordsToLatLng(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
-                        var marker = addMarker(gMap, position, sites[i].nombre);
-                        SiteMarkerService.addSiteMarker(sites[i], marker, gMap, $scope.showSiteDetail);
-                    }
-                    $scope.loading = false;
-                    $scope.foundSites = sites;
-                })
-                .error(function (error) {
-                    console.log("Hubo un error", error);
-                })
-        }
-
         function getUserPosition(userPositionResolved, errorGettingLocation) {
             var geolocation = $window.navigator.geolocation;
 
@@ -135,17 +98,23 @@ angular.module('map')
             return bounds;
         }
 
+        function moveMapToPosition(position) {
+            addMarker(position);
+            map.setCenter(position);
+            map.setZoom(15);
+        }
+
         return {
             setGMap: setGMap,
             getDirectionsService: getDirectionsService,
             getDirectionsDisplay: getDirectionsDisplay,
             getGMap: getGMap,
-            calulateRoute: calulateRoute,
             getUserPosition: getUserPosition,
             addAutocompleteFeature: addAutocompleteFeature,
             addPlaceChangedListener: addPlaceChangedListener,
             isPlaceInCundinamarca: isPlaceInCundinamarca,
             addMarker: addMarker,
-            coordsToLatLng: coordsToLatLng
+            coordsToLatLng: coordsToLatLng,
+            moveMapToPosition: moveMapToPosition
         }
     });
