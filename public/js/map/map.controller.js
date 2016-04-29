@@ -2,7 +2,7 @@
 
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
-                                           SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS, SiteMarkerService,
+                                           SearchForResultsFactory, MapService, SiteMarkerService,
                                            $location, popErrorAlertService, siteAndTownSaverService) {
         //var directionsDisplay;
         //var directionsService;

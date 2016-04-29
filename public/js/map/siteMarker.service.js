@@ -4,7 +4,7 @@ angular.module('map')
     .service('SiteMarkerService', function ($filter, $sce, $templateRequest, $q) {
         var markers = [];
         var selectedMarker = null;
-        function markerOnClick(map, site,showSiteDetail) {
+        function markerOnClick(site,showSiteDetail) {
             return function () {
                 showSiteDetail(site, null);
                 highLightMarker(this);
@@ -12,7 +12,7 @@ angular.module('map')
         }
 
         var addSiteMarker = function (site, marker, map,showSiteDetail) {
-            marker.addListener('click', markerOnClick(map, site,showSiteDetail));
+            marker.addListener('click', markerOnClick(site,showSiteDetail));
 
             markers.push(marker);
         }

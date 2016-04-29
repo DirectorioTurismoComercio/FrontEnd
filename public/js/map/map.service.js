@@ -6,13 +6,6 @@ angular.module('map')
         var directionsService;
         var gMap;
 
-        function setDirectionsDisplay(_directionsDisplay) {
-            directionsDisplay = _directionsDisplay;
-        }
-
-        function setDirectionsService(_directionsService) {
-            directionsService = _directionsService;
-        }
 
         function setGMap(_gMap) {
             gMap = _gMap;
@@ -143,8 +136,6 @@ angular.module('map')
         }
 
         return {
-            setDirectionsService: setDirectionsService,
-            setDirectionsDisplay: setDirectionsDisplay,
             setGMap: setGMap,
             getDirectionsService: getDirectionsService,
             getDirectionsDisplay: getDirectionsDisplay,
