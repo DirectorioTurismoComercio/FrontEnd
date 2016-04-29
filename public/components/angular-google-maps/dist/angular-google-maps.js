@@ -2262,7 +2262,7 @@ Nicholas McCready - https://twitter.com/nmccready
             return function(gMarker) {
               if (!gMarker.isDrawn) {
                 if (gMarker.doAdd) {
-                  gMarker.setMap(_this.gMap);
+                  gMarker.setGMap(_this.gMap);
                   return gMarker.isDrawn = true;
                 } else {
                   return deletes.push(gMarker);
@@ -2284,7 +2284,7 @@ Nicholas McCready - https://twitter.com/nmccready
 
         MarkerManager.prototype.clear = function() {
           this.gMarkers.each(function(gMarker) {
-            return gMarker.setMap(null);
+            return gMarker.setGMap(null);
           });
           delete this.gMarkers;
           return this.gMarkers = new PropMap();
@@ -2293,9 +2293,9 @@ Nicholas McCready - https://twitter.com/nmccready
         MarkerManager.prototype.handleOptDraw = function(gMarker, optDraw, doAdd) {
           if (optDraw === true) {
             if (doAdd) {
-              gMarker.setMap(this.gMap);
+              gMarker.setGMap(this.gMap);
             } else {
-              gMarker.setMap(null);
+              gMarker.setGMap(null);
             }
             return gMarker.isDrawn = true;
           } else {
@@ -2366,7 +2366,7 @@ Nicholas McCready - https://twitter.com/nmccready
         };
 
         SpiderfierMarkerManager.prototype.add = function(gMarker) {
-          gMarker.setMap(this.markerSpiderfier.map);
+          gMarker.setGMap(this.markerSpiderfier.map);
           this.checkKey(gMarker);
           this.markerSpiderfier.addMarker(gMarker, this.noDrawOnSingleAddRemoves);
           this.propMapGMarkers.put(gMarker.key, gMarker);
@@ -2391,7 +2391,7 @@ Nicholas McCready - https://twitter.com/nmccready
           this.checkKey(gMarker);
           exists = this.propMapGMarkers.get(gMarker.key);
           if (exists) {
-            gMarker.setMap(null);
+            gMarker.setGMap(null);
             this.markerSpiderfier.removeMarker(gMarker, this.noDrawOnSingleAddRemoves);
             this.propMapGMarkers.remove(gMarker.key);
           }
@@ -3228,7 +3228,7 @@ Nicholas McCready - https://twitter.com/nmccready
             EventsHelper.removeEvents(this.listeners);
             EventsHelper.removeEvents(this.internalListeners);
             if ((ref = this.gObject) != null) {
-              ref.setMap(null);
+              ref.setGMap(null);
             }
             return this.gObject = null;
           };
@@ -3266,7 +3266,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
           var path;
           google.maps.event.removeListener(move);
           path = poly.getPath();
-          poly.setMap(null);
+          poly.setGMap(null);
           polys.push(new google.maps.Polygon({
             map: map,
             path: path
@@ -3359,7 +3359,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
               if (child.removeFromManager) {
                 child.gManager.remove(child.gObject);
               }
-              child.gObject.setMap(null);
+              child.gObject.setGMap(null);
               return child.gObject = null;
             }
           }
@@ -4515,7 +4515,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
           }));
           scope.$on('$destroy', function() {
             clean();
-            return gObject.setMap(null);
+            return gObject.setGMap(null);
           });
           $log.info(this);
         }
@@ -4545,7 +4545,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
           this.attrs = attrs;
           this.map = map;
           gObject = new google.maps.drawing.DrawingManager(this.scope.options);
-          gObject.setMap(this.map);
+          gObject.setGMap(this.map);
           listeners = void 0;
           if (this.scope.control != null) {
             this.scope.control.getDrawingManager = function() {
@@ -4575,7 +4575,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
               if (listeners != null) {
                 _this.removeEvents(listeners);
               }
-              gObject.setMap(null);
+              gObject.setGMap(null);
               return gObject = null;
             };
           })(this));
@@ -4743,16 +4743,16 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
             this.doShow = this.scope.show;
           }
           if (this.doShow && (this.gMap != null)) {
-            this.gObject.setMap(this.gMap);
+            this.gObject.setGMap(this.gMap);
           }
           this.scope.$watch('show', (function(_this) {
             return function(newValue, oldValue) {
               if (newValue !== oldValue) {
                 _this.doShow = newValue;
                 if (newValue) {
-                  return _this.gObject.setMap(_this.gMap);
+                  return _this.gObject.setGMap(_this.gMap);
                 } else {
-                  return _this.gObject.setMap(null);
+                  return _this.gObject.setGMap(null);
                 }
               }
             };
@@ -4766,7 +4766,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
           })(this), true);
           this.scope.$on('$destroy', (function(_this) {
             return function() {
-              return _this.gObject.setMap(null);
+              return _this.gObject.setGMap(null);
             };
           })(this));
         }
@@ -4779,7 +4779,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
             this.gObject = this.attrs.namespace === void 0 ? new google.maps[this.attrs.type](this.scope.options) : new google.maps[this.attrs.namespace][this.attrs.type](this.scope.options);
           }
           if ((this.gObject != null) && this.doShow) {
-            this.gObject.setMap(this.gMap);
+            this.gObject.setGMap(this.gMap);
           }
           if ((this.gObject != null) && (this.onLayerCreated != null)) {
             return typeof (base = this.onLayerCreated(this.scope, this.gObject)) === "function" ? base(this.gObject) : void 0;
@@ -5410,7 +5410,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
               if (listeners != null) {
                 _this.removeEvents(listeners);
               }
-              return gObject.setMap(null);
+              return gObject.setGMap(null);
             };
           })(this);
           if (bounds != null) {
@@ -6251,7 +6251,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
                     }
                     removals = uiGmapLodash.differenceObjects(oldValue, newValue);
                     return removals.forEach(function(p) {
-                      return p.setMap(null);
+                      return p.setGMap(null);
                     });
                   });
                 });
@@ -8964,7 +8964,7 @@ InfoBox.prototype.open = function (map, anchor) {
     });
   }
 
-  this.setMap(map);
+  this.setGMap(map);
 
   if (this.div_) {
 
@@ -9006,7 +9006,7 @@ InfoBox.prototype.close = function () {
     this.contextListener_ = null;
   }
 
-  this.setMap(null);
+  this.setGMap(null);
 };
 
 /**
@@ -9283,7 +9283,7 @@ InfoBox.prototype.close = function () {
     };
     ov.onRemove = function () {
     };
-    ov.setMap(map);
+    ov.setGMap(map);
     this.prjov_ = ov;
   }
   /**
@@ -9857,7 +9857,7 @@ InfoBox.prototype.close = function () {
         // Remove the custom control:
         this.controls[d.visualPosition_].removeAt(d.controlIndex_);
       }
-      d.prjov_.setMap(null);
+      d.prjov_.setGMap(null);
       this.dragZoom_ = null;
     }
   };
@@ -10326,7 +10326,7 @@ Cluster.prototype.getBounds = function () {
  * @ignore
  */
 Cluster.prototype.remove = function () {
-  this.clusterIcon_.setMap(null);
+  this.clusterIcon_.setGMap(null);
   this.markers_ = [];
   delete this.markers_;
 };
@@ -10379,7 +10379,7 @@ Cluster.prototype.addMarker = function (marker) {
   } else if (mCount === this.minClusterSize_) {
     // Hide the markers that were showing.
     for (i = 0; i < mCount; i++) {
-      this.markers_[i].setMap(null);
+      this.markers_[i].setGMap(null);
     }
   } else {
     marker.setMap(null);
@@ -10642,7 +10642,7 @@ MarkerClusterer.prototype.onRemove = function () {
   // Put all the managed markers back on the map:
   for (i = 0; i < this.markers_.length; i++) {
     if (this.markers_[i].getMap() !== this.activeMap_) {
-      this.markers_[i].setMap(this.activeMap_);
+      this.markers_[i].setGMap(this.activeMap_);
     }
   }
 
@@ -11274,7 +11274,7 @@ MarkerClusterer.prototype.resetViewport_ = function (opt_hide) {
     marker = this.markers_[i];
     marker.isAdded = false;
     if (opt_hide) {
-      marker.setMap(null);
+      marker.setGMap(null);
     }
   }
 };
@@ -11618,7 +11618,7 @@ MarkerLabel_.getSharedCross = function (crossURL) {
 
 /**
  * Adds the DIV representing the label to the DOM. This method is called
- * automatically when the marker's <code>setMap</code> method is called.
+ * automatically when the marker's <code>setGMap</code> method is called.
  * @private
  */
 MarkerLabel_.prototype.onAdd = function () {
@@ -11825,7 +11825,7 @@ MarkerLabel_.prototype.onAdd = function () {
 
 /**
  * Removes the DIV for the label from the DOM. It also removes all event handlers.
- * This method is called automatically when the marker's <code>setMap(null)</code>
+ * This method is called automatically when the marker's <code>setGMap(null)</code>
  * method is called.
  * @private
  */
@@ -12081,17 +12081,17 @@ function MarkerWithLabel(opt_options) {
 inherits(MarkerWithLabel, google.maps.Marker);
 
 /**
- * Overrides the standard Marker setMap function.
+ * Overrides the standard Marker setGMap function.
  * @param {Map} theMap The map to which the marker is to be added.
  * @private
  */
-MarkerWithLabel.prototype.setMap = function (theMap) {
+MarkerWithLabel.prototype.setGMap = function (theMap) {
 
   // Call the inherited function...
-  google.maps.Marker.prototype.setMap.apply(this, arguments);
+  google.maps.Marker.prototype.setGMap.apply(this, arguments);
 
   // ... then deal with the label:
-  this.label.setMap(theMap);
+  this.label.setGMap(theMap);
 };
 
 // ==ClosureCompiler==
@@ -14806,7 +14806,7 @@ this['OverlappingMarkerSpiderfier'] = (function() {
     lcU[mt.TERRAIN] = lcU[mt.ROADMAP] = '#444';
     lcH[mt.TERRAIN] = lcH[mt.ROADMAP] = '#f00';
     this.ProjHelper = function(map) {
-      return this.setMap(map);
+      return this.setGMap(map);
     };
     this.ProjHelper.prototype = new gm.OverlayView();
     return this.ProjHelper.prototype['draw'] = function() {};
@@ -15209,7 +15209,7 @@ this['OverlappingMarkerSpiderfier'] = (function() {
     for (l = 0, len1 = ref1.length; l < len1; l++) {
       marker = ref1[l];
       if (marker['_omsData'] != null) {
-        marker['_omsData'].leg.setMap(null);
+        marker['_omsData'].leg.setGMap(null);
         if (marker !== markerNotToMove) {
           marker.setPosition(marker['_omsData'].usualPosition);
         }
@@ -15377,7 +15377,7 @@ angular.module('uiGmapgoogle-maps.extensions')
             } else if (mCount === this.minClusterSize_) {
               // Hide the markers that were showing.
               this.markers_.each(function (m) {
-                m.setMap(null);
+                m.setGMap(null);
               });
             } else {
               marker.setMap(null);
@@ -15420,7 +15420,7 @@ angular.module('uiGmapgoogle-maps.extensions')
            * @ignore
            */
           NgMapCluster.prototype.remove = function () {
-            this.clusterIcon_.setMap(null);
+            this.clusterIcon_.setGMap(null);
             this.markers_ = new PropMap();
             delete this.markers_;
           };
@@ -15599,7 +15599,7 @@ angular.module('uiGmapgoogle-maps.extensions')
             this.markers_.each(function (marker) {
               marker.isAdded = false;
               if (opt_hide) {
-                marker.setMap(null);
+                marker.setGMap(null);
               }
             });
           };

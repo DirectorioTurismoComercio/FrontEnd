@@ -7,7 +7,7 @@ angular.module('uiGmapgoogle-maps.mocks', ['uiGmapgoogle-maps'])
   class MapObject
     getMap: =>
       @map
-    setMap: (m) =>
+    setGMap: (m) =>
       @map = m
     setOptions: (o) =>
       @opts = o
@@ -353,7 +353,7 @@ angular.module('uiGmapgoogle-maps.mocks', ['uiGmapgoogle-maps'])
       window.google.maps.MapTypeId = MapTypeId
 
     mockOverlayView: (OverlayView = class OverlayView
-      setMap: () ->) ->
+      setGMap: () ->) ->
         window.google.maps.OverlayView = OverlayView
 
     mockEvent: (event = {}) ->
@@ -458,7 +458,7 @@ angular.module('uiGmapgoogle-maps.mocks', ['uiGmapgoogle-maps'])
           options.draggable = boolean
         @setEditable = (boolean) ->
           options.editable = boolean
-        @setMap = (map) ->
+        @setGMap = (map) ->
           options.map = map
         @setPath = (path) ->
           if options.paths? and options.paths.length > 0

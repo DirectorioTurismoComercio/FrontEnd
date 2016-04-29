@@ -19,7 +19,7 @@ angular.module('map')
 
         var deleteMarkers = function() {
             for (var i = 0; i < markers.length; i++) {
-                markers[i].setMap(null);
+                markers[i].setGMap(null);
             }
         }
 

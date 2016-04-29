@@ -4,8 +4,8 @@ angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady,
                                            SearchForResultsFactory, MapService, CUNDINAMARCA_COORDS, SiteMarkerService,
                                            $location, popErrorAlertService, siteAndTownSaverService) {
-        var directionsDisplay;
-        var directionsService;
+        //var directionsDisplay;
+        //var directionsService;
         var userPosition = {};
         $scope.selectedSite = null;
 
@@ -23,51 +23,42 @@ angular.module('map')
             control: {},
             zoom: 9
         };
-        $scope.routeToController={
-            routeFrom:'',
-            routeTo:''
-        }
-
-
-        uiGmapGoogleMapApi.then(initServices);
-
-        function initServices(GMapApi) {
-            directionsDisplay = new GMapApi.DirectionsRenderer();
-            directionsService = new GMapApi.DirectionsService();
+        $scope.routeToController = {
+            routeFrom: '',
+            routeTo: ''
         }
 
 
         uiGmapIsReady.promise().then(initMap);
 
         function initMap() {
-            directionsDisplay.setMap($scope.map.control.getGMap());
+            MapService.setGMap($scope.map.control.getGMap());
 
-            if(siteAndTownSaverService.getCurrentSearchedSite()!=undefined){
+            if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
                 showFoundPlaces();
             }
 
-            if(siteAndTownSaverService.getOrigin()!=undefined){
+            if (siteAndTownSaverService.getOrigin() != undefined) {
                 showSearchedRoute();
             }
         }
 
         $scope.calculateRoute = function () {
-            if($scope.routeToController.routeFrom=='' || $scope.routeToController.routeTo==''){
+            if ($scope.routeToController.routeFrom == '' || $scope.routeToController.routeTo == '') {
                 popErrorAlertService.showPopErrorAlert("Indique un punto de partida y un destino");
-            }else {
-                if ($scope.routeToController.routeFrom!="Mi posición actual") {
+            } else {
+                if ($scope.routeToController.routeFrom != "Mi posición actual") {
                     siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.formatted_address);
                 }
                 siteAndTownSaverService.setDestination($scope.routeToController.routeTo.formatted_address);
-                var map = $scope.map.control.getGMap();
                 $scope.loading = true;
                 SiteMarkerService.deleteMarkers();
-                MapService.calulateRoute(siteAndTownSaverService.getOrigin(), siteAndTownSaverService.getDestination(), directionsService, directionsDisplay, map, $scope);
+                MapService.calulateRoute(siteAndTownSaverService.getOrigin(), siteAndTownSaverService.getDestination(), $scope);
             }
         };
 
         $scope.goToUserPosition = function () {
-            $scope.routeToController.routeFrom="Mi posición actual";
+            $scope.routeToController.routeFrom = "Mi posición actual";
             MapService.getUserPosition(setUserPositionAsRouteOrigin, handleLocationError);
         };
 
@@ -114,20 +105,21 @@ angular.module('map')
         $scope.showRouteToSite = function (site) {
             MapService.getUserPosition(function (position) {
                 var destination = site.latitud + "," + site.longitud;
-                var map = $scope.map.control.getGMap();
+                var map = MapService.getGMap();
 
                 userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
                 var origin = userPosition.lat + "," + userPosition.lng;
 
-                MapService.addMarker(map, userPosition);
-                MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
+                MapService.addMarker(userPosition);
+                MapService.calulateRoute(origin, destination, $scope);
             }, handleLocationError);
         };
 
         function showFoundPlaces() {
             var sites = SearchForResultsFactory.getResults();
+            var map = MapService.getGMap();
             $scope.foundSites = sites;
-            var map = $scope.map.control.getGMap();
+
             if (sites != undefined) {
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
@@ -141,16 +133,17 @@ angular.module('map')
 
         function showSearchedRoute() {
             $scope.loading = true;
-            var map = $scope.map.control.getGMap();
-            var origin=siteAndTownSaverService.getOrigin();
-            var destination=siteAndTownSaverService.getDestination();
+            var map = MapService.getGMap();
+            var origin = siteAndTownSaverService.getOrigin();
+            var destination = siteAndTownSaverService.getDestination();
+
             SiteMarkerService.deleteMarkers();
             MapService.calulateRoute(origin, destination, directionsService, directionsDisplay, map, $scope);
         }
 
 
         function setUserPositionAsRouteOrigin(position) {
-            var map = $scope.map.control.getGMap();
+            var map = MapService.getGMap();
             userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
             siteAndTownSaverService.setOrigin(userPosition);
 
