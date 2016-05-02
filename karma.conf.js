@@ -42,6 +42,8 @@ module.exports = function (config) {
             'public/js/map/map.controller.js',
             'public/js/home/home.js',
             'public/js/home/home.controller.js',
+            'public/js/registerSite/registerSite.js',
+            'public/js/registerSite/registerSite.controller.js',
             'public/js/businessBrowser/businessBrowser.controller.js',
             'public/js/siteAndTownSaver/siteAndTownService.service.js',
             'public/js/howItWorks/howItWorks.js',

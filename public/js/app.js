@@ -3,13 +3,13 @@
             'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies',
             'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
             'businessBrowser', 'dropDownTowns', 'searchAndRouteTabs', 'siteAndTownSaver', 'siteDetail',
-            'howItWorks', 'popErrorAlert', 'ecosistemaHeader', 'pascalprecht.translate', 'ecosistemaFooter'])
+            'howItWorks', 'popErrorAlert', 'ecosistemaHeader', 'pascalprecht.translate', 'ecosistemaFooter', 'registerSite'])
         .config(function ($interpolateProvider, API_CONFIG, $authProvider, $translateProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');
 
             $authProvider.baseUrl = API_CONFIG.authBaseURL;
-            $authProvider.authToken= 'Token';
+            $authProvider.authToken = 'Token';
 
             $authProvider.facebook({
                 clientId: '1529648703998052',
@@ -23,14 +23,14 @@
             });
 
             $translateProvider.fallbackLanguage('es');
-            $translateProvider.registerAvailableLanguageKeys(['en','es'],{
-                'en_*':'en',
-                'es_*':'es'
+            $translateProvider.registerAvailableLanguageKeys(['en', 'es'], {
+                'en_*': 'en',
+                'es_*': 'es'
             });
 
             $translateProvider.useStaticFilesLoader({
-                prefix:'i18n/locale-',
-                suffix:'.json'
+                prefix: 'i18n/locale-',
+                suffix: '.json'
             });
 
             $translateProvider.useSanitizeValueStrategy('escape');
