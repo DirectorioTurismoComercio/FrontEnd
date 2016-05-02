@@ -36,9 +36,25 @@ describe('Controller: dropDownTownsController', function () {
     }));
 
     it('Should set current searched town', function () {
-        deferred.resolve(['Bogota']);
+        deferred.resolve([
+            {
+                "nombre": "Todo Cundinamarca"
+            },
+            {
+                "id": 1,
+                "nombre": "Bogotá",
+                "latitud": "4.667715085742610000",
+                "longitud": "-74.054495454505900000"
+            },
+            {
+                "id": 2,
+                "nombre": "Boita",
+                "latitud": "4.668280000000000000",
+                "longitud": "-74.055457000000000000"
+            }
+        ]);
         $scope.$apply();
-        $scope.selectTown();
+        $scope.selectTown(0);
         expect(testsiteAndTownSaverService.setCurrentSearchedTown).toHaveBeenCalled();
     });
 
