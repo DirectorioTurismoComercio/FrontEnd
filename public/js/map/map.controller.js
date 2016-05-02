@@ -67,6 +67,7 @@ angular.module('map')
         };
 
         $scope.highLightMarker = function (index) {
+            console.log("Indice",index)
             SiteMarkerService.highLightMarkerByIndex(index);
         };
 
@@ -111,7 +112,7 @@ angular.module('map')
             var sites = SearchForResultsFactory.getResults();
             var map = MapService.getGMap();
             $scope.foundSites = sites;
-
+            
             if (sites != undefined) {
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
