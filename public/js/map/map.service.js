@@ -70,11 +70,11 @@ angular.module('map')
                 position: position,
                 map: gMap,
                 labelContent: label,
-                labelAnchor: new google.maps.Point(22, 0),
+                labelAnchor: new google.maps.Point(22, 20),
                 labelClass: "marker-label",
                 labelStyle: {
                     "font-weight": "bold",
-                    opacity: 1.0
+                    opacity: 1
                 }
             });
 
@@ -108,9 +108,9 @@ angular.module('map')
             gMap.setZoom(15);
         }
 
-        function clearMarkers(){
-            markers.forEach(function(marker){
-               marker.setMap(undefined);
+        function clearMarkers() {
+            markers.forEach(function (marker) {
+                marker.setMap(undefined);
             });
         }
 

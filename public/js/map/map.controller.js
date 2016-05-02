@@ -54,7 +54,7 @@ angular.module('map')
             MapService.getUserPosition(setUserPositionAsRouteOrigin, handleLocationError);
         };
 
-        $scope.hideSiteDetail = function (siteIndex) {
+        $scope.hideSiteDetail = function () {
             SiteMarkerService.clearSelectedMarker();
             $scope.isShowingSiteDetail = false;
 
@@ -67,7 +67,6 @@ angular.module('map')
         };
 
         $scope.highLightMarker = function (index) {
-            console.log("Indice",index)
             SiteMarkerService.highLightMarkerByIndex(index);
         };
 
@@ -98,19 +97,16 @@ angular.module('map')
         $scope.showRouteToSite = function (site) {
             MapService.getUserPosition(function (position) {
                 var destination = site.latitud + "," + site.longitud;
-                var map = MapService.getGMap();
 
                 userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
                 var origin = userPosition.lat + "," + userPosition.lng;
 
-                MapService.addMarker(userPosition);
                 MapRouteService.calulateRoute(origin, destination, $scope);
             }, handleLocationError);
         };
 
         function showFoundPlaces() {
             var sites = SearchForResultsFactory.getResults();
-            var map = MapService.getGMap();
             $scope.foundSites = sites;
             
             if (sites != undefined) {

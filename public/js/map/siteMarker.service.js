@@ -22,8 +22,7 @@ angular.module('map')
             for (var i = 0; i < markers.length; i++) {
                 markers[i].setMap(null);
             }
-            markers=[];
-            console.log('delete markers',markers);
+            markers = [];
         };
 
         var clearHighLightedMarkerByIndex = function (index) {
@@ -38,7 +37,6 @@ angular.module('map')
         };
 
         var highLightMarkerByIndex = function (index) {
-            console.log('markers',markers);
             highLightMarker(markers[index]);
         };
 
