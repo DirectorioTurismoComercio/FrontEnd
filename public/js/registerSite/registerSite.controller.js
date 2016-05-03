@@ -2,7 +2,7 @@
 
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady) {
-        
+
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
             events: {
@@ -12,7 +12,7 @@ angular.module('registerSite')
                         lat: e.latLng.lat(),
                         lng: e.latLng.lng()
                     };
-
+                    MapService.clearMarkers();
                     MapService.addMarker(position, "pepe");
                     $scope.$apply();
                 },
