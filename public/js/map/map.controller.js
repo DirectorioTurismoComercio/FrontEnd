@@ -81,17 +81,13 @@ angular.module('map')
 
         $scope.doSearch = function (result) {
             $scope.loading = true;
-            SearchForResultsFactory.doSearch(result).then(function (response) {
-                if (response.length > 0) {
-                    SiteMarkerService.deleteMarkers();
-                    showFoundPlaces();
-                    $scope.loading = false;
-                } else {
-                    popErrorAlertService.showPopErrorAlert("No se han encontrado resultados");
-                }
-            }).catch(function (error) {
-                console.log("ocurrio un error", error);
-            });
+
+            if(result!=undefined){
+                drawSitesByKeyWord(result);
+            }
+            else{
+                popErrorAlertService.showPopErrorAlert("Por favor ingrese un criterio de busqueda");
+            }
         };
 
         $scope.showRouteToSite = function (site) {
@@ -104,6 +100,20 @@ angular.module('map')
                 MapRouteService.calulateRoute(origin, destination, $scope);
             }, handleLocationError);
         };
+
+        function drawSitesByKeyWord(result){
+            SearchForResultsFactory.doSearch(result).then(function (response) {
+                if (response.length > 0) {
+                    SiteMarkerService.deleteMarkers();
+                    showFoundPlaces();
+                    $scope.loading = false;
+                } else {
+                    popErrorAlertService.showPopErrorAlert("No se han encontrado resultados");
+                }
+            }).catch(function (error) {
+                console.log("ocurrio un error", error);
+            });
+        }
 
         function showFoundPlaces() {
             var sites = SearchForResultsFactory.getResults();
