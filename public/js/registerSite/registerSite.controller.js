@@ -1,19 +1,27 @@
 'use strict';
 
 angular.module('registerSite')
-    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady) {
+    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService) {
+
+        $scope.sitePhoneNumber='';
+        $scope.openingHours='';
+        $scope.businessLocation='';
+        $scope.businessDescription='';
+        $scope.tags='';
+        $scope.businessEmail='';
+        
 
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
             events: {
                 click: function (mapModel, eventName, originalEventArgs) {
                     var e = originalEventArgs[0];
-                    var position = {
+                    $scope.businessLocation = {
                         lat: e.latLng.lat(),
                         lng: e.latLng.lng()
                     };
                     MapService.clearMarkers();
-                    MapService.addMarker(position, "pepe");
+                    MapService.addMarker($scope.businessLocation, "pepe");
                     $scope.$apply();
                 },
             }
@@ -22,6 +30,32 @@ angular.module('registerSite')
         uiGmapIsReady.promise().then(function (map_instances) {
             MapService.setGMap(map_instances[0].map);
         });
+
+
+        $scope.register=function(){
+
+            doFieldValidation($scope.sitePhoneNumber, "Por favor ingrese un número teléfonico, o verifique el número ingresado");
+            doPhoneValidation();
+            doFieldValidation($scope.openingHours, "Por favor ingrese un horario de atención");
+            doFieldValidation($scope.businessName, "Por favor ingrese el nombre del local");
+            doFieldValidation($scope.businessLocation, "Por favor ubique su local haciendo click en el mapa");
+            doFieldValidation($scope.businessDescription, "Por favor ingrese una descripción de su local");
+            doFieldValidation($scope.tags, "Por favor ingrese almenos un tag");
+            doFieldValidation($scope.businessEmail, "Por favor ingrese un correo electrónico");
+
+        }
+
+        function doFieldValidation(field,errorMessage){
+            if(field==''){
+                popErrorAlertService.showPopErrorAlert(errorMessage);
+            }
+        }
+
+        function doPhoneValidation(){
+            if(!/^\d+$/.test($scope.sitePhoneNumber)){
+                popErrorAlertService.showPopErrorAlert("Por favor, verifique el número ingresado")
+            }
+        }
 
 
         $scope.files = null;
