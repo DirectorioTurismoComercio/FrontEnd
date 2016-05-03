@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('registerSite', [])
+angular.module('registerSite', ['ngTagsInput'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/registersite', {

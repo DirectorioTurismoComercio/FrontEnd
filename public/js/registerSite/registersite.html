@@ -1,1 +1,51 @@
 <ecosistema-header-directive style="width: 100%; height: auto"></ecosistema-header-directive>
+<p>FOTO:   </p>
+<form style="display: flex; flex-flow: row wrap;">
+    <input type="file" onchange="angular.element(this).scope().filesChange(this)" multiple/>
+    <button ng-click="upload()">ACA</button>
+</form>
+<p>Telefono:</p>
+<input type="tel" title="Telefono"/>
+<p>horario atencion:</p>
+<input type="text" title="Horario"/>
+<p>Nombre local:</p>
+<input type="text" title="Nombre Local"/>
+<p>Ubicacion</p>
+<input type="text" title="Localización"/>
+<p>Descripción</p>
+<textarea></textarea>
+<p>Tags</p>
+<tags-input ng-model="tags">
+</tags-input>
+<p>Correo</p>
+<input type="email">
+<p>Categoria</p>
+<select>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+</select>
+<p>Subcategoria</p>
+<select>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+</select>
+<ecosistema-footer-directive style="width: 100%"></ecosistema-footer-directive>
+
+
+
+<!--
+    fotos,
+    telefono,
+    horario de atencion,
+    nombre local,
+    gelocalizacion,
+    descripcion corta,
+    palabra clave,
+    correo,
+    categoria -> lista desplegable,
+    subcategoria- lista desplegable
+-->
