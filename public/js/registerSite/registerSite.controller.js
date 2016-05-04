@@ -34,6 +34,7 @@ angular.module('registerSite')
         $scope.register=function(){
             doPhoneOnlyNumbersValidation();
             doEmailPatternValidation();
+            doLocationInsideCundinamarcaValidation();
             doFieldValidation($scope.sitePhoneNumber, "Por favor ingrese un número teléfonico, o verifique el número ingresado");
             doFieldValidation($scope.openingHours, "Por favor ingrese un horario de atención");
             doFieldValidation($scope.businessName, "Por favor ingrese el nombre del local");
@@ -58,6 +59,12 @@ angular.module('registerSite')
         function doEmailPatternValidation(){
             if(!/^.+@.+\..+$/.test($scope.businessEmail)){
                 popErrorAlertService.showPopErrorAlert("Por favor, verifique el email ingresado")
+            }
+        }
+
+        function doLocationInsideCundinamarcaValidation(){
+            if(!MapService.isPlaceInCundinamarca($scope.businessLocation.lat,$scope.businessLocation.lng)){
+                popErrorAlertService.showPopErrorAlert("La ubicación del local está fuera de Cundinamarca")
             }
         }
 
