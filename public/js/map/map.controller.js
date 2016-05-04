@@ -8,7 +8,7 @@ angular.module('map')
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
         $scope.loading = false;
-        $scope.foundSites = [{name: 'nombre', description: 'desc'}];
+        $scope.foundSites = [];
         $scope.map = {
             center: {
                 latitude: 4.6363623,
@@ -82,10 +82,10 @@ angular.module('map')
         $scope.doSearch = function (result) {
             $scope.loading = true;
 
-            if(result!=undefined){
+            if (result != undefined) {
                 drawSitesByKeyWord(result);
             }
-            else{
+            else {
                 popErrorAlertService.showPopErrorAlert("Por favor ingrese un criterio de busqueda");
             }
         };
@@ -101,7 +101,7 @@ angular.module('map')
             }, handleLocationError);
         };
 
-        function drawSitesByKeyWord(result){
+        function drawSitesByKeyWord(result) {
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 if (response.length > 0) {
                     SiteMarkerService.deleteMarkers();
@@ -118,7 +118,7 @@ angular.module('map')
         function showFoundPlaces() {
             var sites = SearchForResultsFactory.getResults();
             $scope.foundSites = sites;
-            
+
             if (sites != undefined) {
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
