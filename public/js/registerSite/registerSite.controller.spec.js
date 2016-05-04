@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: registerSiteController', function () {
-    var registerSiteController, $scope, testpopErrorAlertService;
+    var registerSiteController, $scope, testpopErrorAlertService, testMapService;
 
     beforeEach(module('gemStore'));
     beforeEach(module('registerSite'));
@@ -25,8 +25,10 @@ describe('Controller: registerSiteController', function () {
     beforeEach(inject(function ($controller,$http, $rootScope, MapService, uiGmapIsReady, popErrorAlertService) {
         $scope = $rootScope.$new();
         testpopErrorAlertService=popErrorAlertService;
+        testMapService=MapService;
 
         spyOn(testpopErrorAlertService, 'showPopErrorAlert');
+        spyOn(testMapService, 'isPlaceInCundinamarca');
         registerSiteController = $controller('registerSiteController', {
             $scope: $scope,
             $http: $http,
