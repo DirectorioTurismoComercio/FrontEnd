@@ -3,12 +3,12 @@
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService, CUNDINAMARCA_COORDS, BOGOTA_COORDS) {
 
-        $scope.sitePhoneNumber='';
-        $scope.openingHours='';
-        $scope.businessLocation='';
-        $scope.businessDescription='';
-        $scope.tags='';
-        $scope.businessEmail='';
+        $scope.sitePhoneNumber=undefined;
+        $scope.openingHours=undefined;
+        $scope.businessLocation=undefined;
+        $scope.businessDescription=undefined;
+        $scope.tags=undefined;
+        $scope.businessEmail=undefined;
 
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
@@ -27,7 +27,7 @@ angular.module('registerSite')
         });
 
         $scope.register=function(){
-            console.log("click en submit");
+            console.log("click en submit", $scope.businessLocation);
         }
 
         function getClickedPositionCoordinates(originalEventArgs){
@@ -43,16 +43,21 @@ angular.module('registerSite')
             var isBusinessInsideBogota=MapService.isPlaceInsideBoundaries($scope.businessLocation.lat,$scope.businessLocation.lng, BOGOTA_COORDS);
 
             if(!isBusinessInsideCundinamarca){
-                popErrorAlertService.showPopErrorAlert("La ubicación del local está fuera de Cundinamarca");
+                displayOutsideBoundaryErrorMessage("La ubicación del local está fuera de Cundinamarca");
             }
 
             if(isBusinessInsideBogota){
-                popErrorAlertService.showPopErrorAlert("La ubicación del local está dentro de Bogotá");
+                displayOutsideBoundaryErrorMessage("La ubicación del local está dentro de Bogotá");
             }
 
             if(isBusinessInsideCundinamarca && !isBusinessInsideBogota){
                 MapService.addMarker($scope.businessLocation, "pepe");
             }
+        }
+
+        function displayOutsideBoundaryErrorMessage(message){
+            popErrorAlertService.showPopErrorAlert(message);
+            $scope.businessLocation=undefined;
         }
 
         $scope.files = null;

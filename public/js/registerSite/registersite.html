@@ -75,7 +75,7 @@
     </select>
     <div>
         <button  ng-disabled="businessForm.$invalid" ng-click="register()">REGISTRAR SITIO</button>
-        <span ng-show="businessForm.$invalid">Verifique Los campos</span>
+        <span ng-show="businessForm.$invalid || files==null || businessLocation==undefined">Verifique Los campos</span>
     </div>
 
 </form>
