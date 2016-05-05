@@ -1,3 +1,11 @@
 input.ng-invalid.ng-dirty{
     border:1px solid red;
 }
+
+textarea.ng-invalid.ng-dirty{
+    border:1px solid red;
+}
+
+tags-input.ng-invalid.ng-dirty{
+    border:1px solid red;
+}
