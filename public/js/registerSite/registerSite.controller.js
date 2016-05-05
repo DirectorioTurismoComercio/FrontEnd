@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('registerSite')
-    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService, CUNDINAMARCA_COORDS, BOGOTA_COORDS) {
+    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService, CUNDINAMARCA_COORDS,
+                                                    BOGOTA_COORDS, categories) {
 
         $scope.sitePhoneNumber=undefined;
         $scope.openingHours=undefined;
@@ -22,12 +23,37 @@ angular.module('registerSite')
             }
         };
 
+        $scope.customer ={
+            Country:'',
+            State: '',
+        };
+
+        $scope.countries = categories.getCountry();
+
+        $scope.getCountryStates = function(){
+            $scope.sates = categories.getCountryState($scope.customer.Country);
+            $scope.cities =[];
+        }
+
+        $scope.getCountryStates = function(){
+            $scope.sates = categories.getCountryState($scope.customer.Country);
+            $scope.cities =[];
+        }
+
+        $scope.getStateCities = function(){
+            $scope.cities = categories.getStateCity($scope.customer.State);
+        }
+
         uiGmapIsReady.promise().then(function (map_instances) {
             MapService.setGMap(map_instances[0].map);
         });
 
         $scope.register=function(){
             alert("presiono registrarse");
+        }
+
+        $scope.ver=function(){
+            console.log("el usuiora",$scope.customer);
         }
 
         function getClickedPositionCoordinates(originalEventArgs){

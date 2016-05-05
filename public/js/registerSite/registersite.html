@@ -59,24 +59,41 @@
         <span ng-show="businessForm.businessEmail.$dirty && businessForm.businessEmail.$error.email">Verifique el email</span>
     </div>
 
-    <p>Categoria</p>
-    <select>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
-    </select>
-    <p>Subcategoria</p>
-    <select>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
-    </select>
+
+    <div>
+        <label>Categoria</label>
+        <select ng-model="customer.Country"
+                ng-options="obj.id as obj.country for obj in countries"
+                ng-change="getCountryStates()"
+                ng-required="true"
+                id="country">
+            <option value="">-- Choose Country --</option>
+        </select>
+    </div>
+
+
+    <div>
+        <label>Subcategoria</label>
+        <select ng-model="customer.State"
+                ng-options="x.Id as x.state for x in sates"
+                ng-required="true"
+                id="state">
+            <option value="">-- Choose State --</option>
+        </select>
+    </div>
+
+    <button ng-click="ver()">
+
+    </button>
+
+
+
     <div>
         <button  ng-disabled="businessForm.$invalid || files==null || businessLocation==undefined" ng-click="register()">REGISTRAR SITIO</button>
         <span ng-show="businessForm.$invalid || files==null || businessLocation==undefined">Verifique Los campos</span>
     </div>
+
+
 
 </form>
 
