@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('registerSite')
-    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService) {
+    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService, CUNDINAMARCA_COORDS, BOGOTA_COORDS) {
 
         $scope.sitePhoneNumber='';
         $scope.openingHours='';
@@ -16,7 +16,7 @@ angular.module('registerSite')
                 click: function (mapModel, eventName, originalEventArgs) {
                     getClickedPositionCoordinates(originalEventArgs);
                     MapService.clearMarkers();
-                    drawMarkerIfInsideCundinamarca();
+                    drawMarkerIfIsInsideBoundaries();
                     $scope.$apply();
                 },
             }
@@ -47,10 +47,19 @@ angular.module('registerSite')
             };
         }
 
-        function drawMarkerIfInsideCundinamarca(){
-            if(!MapService.isPlaceInCundinamarca($scope.businessLocation.lat,$scope.businessLocation.lng)){
+        function drawMarkerIfIsInsideBoundaries(){
+            var isBusinessInsideCundinamarca=MapService.isPlaceInsideBoundaries($scope.businessLocation.lat,$scope.businessLocation.lng, CUNDINAMARCA_COORDS);
+            var isBusinessInsideBogota=MapService.isPlaceInsideBoundaries($scope.businessLocation.lat,$scope.businessLocation.lng, BOGOTA_COORDS);
+
+            if(!isBusinessInsideCundinamarca){
                 popErrorAlertService.showPopErrorAlert("La ubicación del local está fuera de Cundinamarca");
-            }else{
+            }
+
+            if(isBusinessInsideBogota){
+                popErrorAlertService.showPopErrorAlert("La ubicación del local está dentro de Bogotá");
+            }
+
+            if(isBusinessInsideCundinamarca && !isBusinessInsideBogota){
                 MapService.addMarker($scope.businessLocation, "pepe");
             }
         }
@@ -81,29 +90,31 @@ angular.module('registerSite')
         }
 
 
+
         $scope.upload = function () {
             console.log("el contenido de files", $scope.files);
 
 
-            var fd = new FormData();
-            var fotos = [];//new FormData();
-            var i = 0;
-            /*angular.forEach($scope.files,function(file) {
-             fotos.push(file);
-             i++;
-             });*/
-            fd.append('URLfoto', $scope.files[0]);
-            fd.append('latitud', -74.12);
-            fd.append('longitud', 4.23);
-            fd.append('nombre', 'Pepe');
 
 
-            console.log("el fd", fd);
+            var fd=new FormData();
+            var i=0;
+            angular.forEach($scope.files,function(file) {
+                fd.append('foto'+i,file);
+                i++;
+            });
+
+            fd.append('latitud',-74.12);
+            fd.append('longitud',4.23);
+            fd.append('nombre','juancho2');
+
+
+            console.log("el fd",fd);
 
             $http.post('http://ecosistema.desarrollo.com:8000/sitio', fd,
                 {
-                    transformRequest: angular.identity,
-                    headers: {'Content-Type': undefined}
+                    transformRequest:angular.identity,
+                    headers: {'Content-Type':undefined}
                 })
                 .success(function (d) {
                     console.log("la respyesat de django", d);

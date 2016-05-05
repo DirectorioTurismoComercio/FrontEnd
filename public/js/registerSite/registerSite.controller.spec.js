@@ -28,7 +28,7 @@ describe('Controller: registerSiteController', function () {
         testMapService=MapService;
 
         spyOn(testpopErrorAlertService, 'showPopErrorAlert');
-        spyOn(testMapService, 'isPlaceInCundinamarca');
+        spyOn(testMapService, 'isPlaceInsideBoundaries');
         registerSiteController = $controller('registerSiteController', {
             $scope: $scope,
             $http: $http,
