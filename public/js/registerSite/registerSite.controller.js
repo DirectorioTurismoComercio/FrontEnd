@@ -28,12 +28,17 @@ angular.module('registerSite')
             }
         };
 
-
         $scope.categories = categories.getCategories();
 
         $scope.getCountryStates = function(){
-            $scope.subcategories = categories.getSubcategories($scope.businessCategories.category);
+            if($scope.businessCategories.category==undefined){
+                $scope.subcategories=undefined;
+                $scope.businessCategories.subcategory=undefined;
+            }else{
+                $scope.subcategories = categories.getSubcategories($scope.businessCategories.category);
+            }
         }
+
 
 
         uiGmapIsReady.promise().then(function (map_instances) {
@@ -43,10 +48,7 @@ angular.module('registerSite')
         $scope.register=function(){
             alert("presiono registrarse");
         }
-
-        $scope.ver=function(){
-            console.log("el usuiora",$scope.businessCategories);
-        }
+        
 
         function getClickedPositionCoordinates(originalEventArgs){
             var e = originalEventArgs[0];
