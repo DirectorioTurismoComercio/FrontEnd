@@ -62,8 +62,8 @@
 
     <div>
         <label>Categoria</label>
-        <select ng-model="customer.Country"
-                ng-options="obj.id as obj.country for obj in countries"
+        <select ng-model="businessCategories.category"
+                ng-options="obj.id as obj.category for obj in categories"
                 ng-change="getCountryStates()"
                 ng-required="true"
                 id="country">
@@ -74,8 +74,8 @@
 
     <div>
         <label>Subcategoria</label>
-        <select ng-model="customer.State"
-                ng-options="x.Id as x.state for x in sates"
+        <select ng-model="businessCategories.subcategory"
+                ng-options="x.Id as x.subcategory for x in subcategories"
                 ng-required="true"
                 id="state">
             <option value="">-- Choose State --</option>

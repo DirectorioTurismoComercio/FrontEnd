@@ -11,6 +11,11 @@ angular.module('registerSite')
         $scope.tags=undefined;
         $scope.businessEmail=undefined;
 
+        $scope.businessCategories ={
+            category:'',
+            subcategory: '',
+        };
+
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
             events: {
@@ -23,26 +28,13 @@ angular.module('registerSite')
             }
         };
 
-        $scope.customer ={
-            Country:'',
-            State: '',
-        };
 
-        $scope.countries = categories.getCountry();
+        $scope.categories = categories.getCategories();
 
         $scope.getCountryStates = function(){
-            $scope.sates = categories.getCountryState($scope.customer.Country);
-            $scope.cities =[];
+            $scope.subcategories = categories.getSubcategories($scope.businessCategories.category);
         }
 
-        $scope.getCountryStates = function(){
-            $scope.sates = categories.getCountryState($scope.customer.Country);
-            $scope.cities =[];
-        }
-
-        $scope.getStateCities = function(){
-            $scope.cities = categories.getStateCity($scope.customer.State);
-        }
 
         uiGmapIsReady.promise().then(function (map_instances) {
             MapService.setGMap(map_instances[0].map);
@@ -53,7 +45,7 @@ angular.module('registerSite')
         }
 
         $scope.ver=function(){
-            console.log("el usuiora",$scope.customer);
+            console.log("el usuiora",$scope.businessCategories);
         }
 
         function getClickedPositionCoordinates(originalEventArgs){

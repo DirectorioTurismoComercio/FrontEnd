@@ -6,31 +6,31 @@ angular.module('businessCategory', [])
         var service = {};
 
 
-        var countrylist = [
-            { "id": 1, "country": "Restaurantes" },
-            { "id": 2, "country": "Tiendas" },
-            { "id": 3, "country": "Entretenimiento" },
+        var categorylist = [
+            { "id": 1, "category": "Restaurantes" },
+            { "id": 2, "category": "Tiendas" },
+            { "id": 3, "category": "Entretenimiento" },
         ];
 
-        var statelist = [
-            {"Id":1, "state":"Comida Rápida", "countryId": 1},
-            {"Id":2, "state":"Económico", "countryId": 1},
-            {"Id":3, "state":"Buffet", "countryId": 1},
-            {"Id":4, "state":"Viveres", "countryId": 2},
-            {"Id":5, "state":"Ropa", "countryId": 2},
-            {"Id":6, "state":"Cine", "countryId": 3},
-            {"Id":7, "state":"Centro Comercial", "countryId": 3},
-            {"Id":8, "state":"Música", "countryId": 3}
+        var subcategorylist = [
+            {"Id":1, "subcategory":"Comida Rápida", "categoryID": 1},
+            {"Id":2, "subcategory":"Económico", "categoryID": 1},
+            {"Id":3, "subcategory":"Buffet", "categoryID": 1},
+            {"Id":4, "subcategory":"Viveres", "categoryID": 2},
+            {"Id":5, "subcategory":"Ropa", "categoryID": 2},
+            {"Id":6, "subcategory":"Cine", "categoryID": 3},
+            {"Id":7, "subcategory":"Centro Comercial", "categoryID": 3},
+            {"Id":8, "subcategory":"Música", "categoryID": 3}
         ];
 
 
-        service.getCountry = function(){
-            return countrylist;
+        service.getCategories = function(){
+            return categorylist;
         };
 
-        service.getCountryState = function(countryId){
-            var states = ($filter('filter')(statelist, {countryId: countryId}));
-            return states;
+        service.getSubcategories = function(categoryID){
+            var subcategories = ($filter('filter')(subcategorylist, {categoryID: categoryID}));
+            return subcategories;
         };
 
 
