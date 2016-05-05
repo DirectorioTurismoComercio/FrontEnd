@@ -80,9 +80,8 @@ angular.module('map')
         };
 
         $scope.doSearch = function (result) {
-            $scope.loading = true;
-
             if (result != undefined) {
+                $scope.loading = true;
                 drawSitesByKeyWord(result);
             }
             else {
