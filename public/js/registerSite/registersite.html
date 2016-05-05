@@ -74,7 +74,7 @@
         <option value="audi">Audi</option>
     </select>
     <div>
-        <button  ng-disabled="businessForm.$invalid" ng-click="register()">REGISTRAR SITIO</button>
+        <button  ng-disabled="businessForm.$invalid || files==null || businessLocation==undefined" ng-click="register()">REGISTRAR SITIO</button>
         <span ng-show="businessForm.$invalid || files==null || businessLocation==undefined">Verifique Los campos</span>
     </div>
 

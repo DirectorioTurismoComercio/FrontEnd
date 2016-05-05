@@ -27,7 +27,7 @@ angular.module('registerSite')
         });
 
         $scope.register=function(){
-            console.log("click en submit", $scope.businessLocation);
+            alert("presiono registrarse");
         }
 
         function getClickedPositionCoordinates(originalEventArgs){
