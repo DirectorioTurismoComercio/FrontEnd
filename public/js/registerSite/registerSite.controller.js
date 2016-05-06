@@ -92,7 +92,7 @@ angular.module('registerSite')
         $scope.upload = function () {
             console.log("el contenido de files", $scope.files);
 
-
+            var categorias=[1,2];
 
 
             var fd=new FormData();
@@ -104,7 +104,10 @@ angular.module('registerSite')
 
             fd.append('latitud',-74.12);
             fd.append('longitud',4.23);
-            fd.append('nombre','juancho2');
+            fd.append('nombre','pepillo12');
+            fd.append('descripcion','bla bla');
+            fd.append('categorias',1);
+            fd.append('categorias',4);
 
 
             console.log("el fd",fd);
