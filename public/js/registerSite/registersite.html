@@ -65,10 +65,11 @@
         <select ng-model="businessCategories.category"
                 ng-options="obj.id as obj.category for obj in categories"
                 ng-change="getCountryStates()"
-                ng-required="true"
-                id="country">
-            <option value="">-- Choose Country --</option>
+                name="catefory"
+                required>
+            <option value="">-- Elija categoria --</option>
         </select>
+        <span ng-show="businessForm.catefory.$error.required">Campo requerido</span>
     </div>
 
 
@@ -76,10 +77,11 @@
         <label>Subcategoria</label>
         <select ng-model="businessCategories.subcategory"
                 ng-options="x.Id as x.subcategory for x in subcategories"
-                ng-required="true"
-                id="state">
-            <option value="">-- Choose State --</option>
+                name="subcategory"
+                required>
+            <option value="">-- Elija subcategoria --</option>
         </select>
+        <span ng-show="businessForm.subcategory.$error.required">Campo requerido</span>
     </div>
 
 
