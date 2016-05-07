@@ -12,5 +12,5 @@ angular.module('constants', [])
     	"user": "/usuario",
         "authBaseURL": 'http://ecosistema.desarrollo.com/backend',
         "sitios":"/ruta/sitios"
-
+        "categorias":"/categorias"
     });

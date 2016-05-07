@@ -63,8 +63,8 @@
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_CATEGORY"></label>
         <select ng-model="businessCategories.category"
-                ng-options="obj.id as obj.category for obj in categories"
-                ng-change="getCountryStates()"
+                ng-options="obj.id as obj.nombre for obj in categories"
+                ng-change="getControllerSubcategories()"
                 name="catefory"
                 required>
             <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
@@ -76,7 +76,7 @@
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_SUBCATEGORY"></label>
         <select ng-model="businessCategories.subcategory"
-                ng-options="x.Id as x.subcategory for x in subcategories"
+                ng-options="x.id as x.nombre for x in subcategories"
                 name="subcategory"
                 required>
             <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY"></option>
