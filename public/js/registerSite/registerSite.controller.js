@@ -2,7 +2,7 @@
 
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService, CUNDINAMARCA_COORDS,
-                                                    BOGOTA_COORDS, categories) {
+                                                    BOGOTA_COORDS, categories, API_CONFIG) {
 
         $scope.sitePhoneNumber = undefined;
         $scope.openingHours = undefined;
@@ -66,7 +66,7 @@ angular.module('registerSite')
             fd.append('categorias', 1);
             fd.append('categorias', 4);
 
-            $http.post('http://ecosistema.desarrollo.com:8000/sitio', fd,
+            $http.post(API_CONFIG.url+API_CONFIG.sitio, fd,
                 {
                     transformRequest: angular.identity,
                     headers: {'Content-Type': undefined}
