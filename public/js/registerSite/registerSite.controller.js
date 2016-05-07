@@ -6,10 +6,12 @@ angular.module('registerSite')
 
         $scope.sitePhoneNumber = undefined;
         $scope.openingHours = undefined;
+        $scope.businessName = undefined;
         $scope.businessLocation = undefined;
         $scope.businessDescription = undefined;
         $scope.tags = undefined;
         $scope.businessEmail = undefined;
+        $scope.files = undefined;
 
         $scope.businessCategories = {
             category: '',
@@ -39,6 +41,44 @@ angular.module('registerSite')
             console.log("Hubo un error", error);
         });
 
+
+        $scope.filesChange = function (elm) {
+            $scope.files = elm.files;
+            $scope.$apply();
+        };
+
+        $scope.register = function () {
+
+            var categorias = [1, 2];
+
+
+            var fd = new FormData();
+            var i = 0;
+            angular.forEach($scope.files, function (file) {
+                fd.append('foto' + i, file);
+                i++;
+            });
+
+            fd.append('latitud', $scope.businessLocation.lat);
+            fd.append('longitud', $scope.businessLocation.lng);
+            fd.append('nombre', $scope.businessName);
+            fd.append('descripcion', $scope.businessDescription);
+            fd.append('categorias', 1);
+            fd.append('categorias', 4);
+
+            $http.post('http://ecosistema.desarrollo.com:8000/sitio', fd,
+                {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                })
+                .success(function (d) {
+                    console.log("la respyesat de django", d);
+                }).error(function (error) {
+                console.log("hubo n error", error);
+            });
+
+        };
+
         $scope.getControllerSubcategories = function () {
             if ($scope.businessCategories.category == undefined) {
                 resetCategoriesModel();
@@ -47,16 +87,13 @@ angular.module('registerSite')
             }
         }
 
-        $scope.register = function () {
-            alert("presiono registrarse");
-        }
 
-        function resetCategoriesModel(){
+        function resetCategoriesModel() {
             $scope.subcategories = undefined;
             $scope.businessCategories.subcategory = undefined;
         }
 
-        function getSubcategories(){
+        function getSubcategories() {
             categories.getSubcategories($scope.businessCategories.category).then(function (response) {
                 $scope.subcategories = response;
             }).catch(function (error) {
@@ -86,57 +123,13 @@ angular.module('registerSite')
             }
 
             if (isBusinessInsideCundinamarca && !isBusinessInsideBogota) {
-                MapService.addMarker($scope.businessLocation, "pepe");
+                MapService.addMarker($scope.businessLocation, $scope.businessName);
             }
         }
 
         function displayOutsideBoundaryErrorMessage(message) {
             popErrorAlertService.showPopErrorAlert(message);
             $scope.businessLocation = undefined;
-        }
-
-        $scope.files = null;
-
-        $scope.filesChange = function (elm) {
-            $scope.files = elm.files;
-            $scope.$apply();
-        }
-
-
-        $scope.upload = function () {
-            console.log("el contenido de files", $scope.files);
-
-            var categorias = [1, 2];
-
-
-            var fd = new FormData();
-            var i = 0;
-            angular.forEach($scope.files, function (file) {
-                fd.append('foto' + i, file);
-                i++;
-            });
-
-            fd.append('latitud', -74.12);
-            fd.append('longitud', 4.23);
-            fd.append('nombre', 'pepillo12');
-            fd.append('descripcion', 'bla bla');
-            fd.append('categorias', 1);
-            fd.append('categorias', 4);
-
-
-            console.log("el fd", fd);
-
-            $http.post('http://ecosistema.desarrollo.com:8000/sitio', fd,
-                {
-                    transformRequest: angular.identity,
-                    headers: {'Content-Type': undefined}
-                })
-                .success(function (d) {
-                    console.log("la respyesat de django", d);
-                }).error(function (error) {
-                console.log("hubo n error", error);
-            });
-
         }
 
     });
