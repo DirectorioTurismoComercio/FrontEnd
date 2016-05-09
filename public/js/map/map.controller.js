@@ -81,6 +81,7 @@ angular.module('map')
 
         $scope.doSearch = function (result) {
             if (result != undefined) {
+                $scope.hideSiteDetail();
                 $scope.loading = true;
                 drawSitesByKeyWord(result);
             }
