@@ -1,4 +1,4 @@
-<ecosistema-header-directive style="width: 100%; height: auto"></ecosistema-header-directive>
+<app-header style="width: 100%; height: auto"></app-header>
 <search-and-route-tabs-section class="searchAndRouteSection"></search-and-route-tabs-section>
 <search-tab-content-map class="searchAndRouteSection"></search-tab-content-map>
 
@@ -7,20 +7,22 @@
 
     <div class="col-md-5 found-sites" ng-show="foundSites.length > 0 && !isShowingSiteDetail">
         <div ng-repeat="site in foundSites" class="row item">
-            <div class="row boton mobile-row" ng-click="showSiteDetail(site, $index)" ng-mouseover="highLightMarker($index)" ng-mouseleave="clearHighLightedMarker($index)">
+            <div class="row boton mobile-row" ng-click="showSiteDetail(site, $index)"
+                 ng-mouseover="highLightMarker($index)" ng-mouseleave="clearHighLightedMarker($index)">
 
                 <div class="text col-md-8 col-xs-8">
                     <h1 class="title">%%site.nombre%%</h1>
                     <p class="desc">%%site.descripcion%%</p>
                 </div>
                 <div class="col-md-4 col-xs-4 image">
-                    <img height="30" ng-src='%%site.fotos[0].URLfoto%%' />
+                    <img height="30" ng-src='%%site.fotos[0].URLfoto%%'/>
                 </div>
             </div>
             <div>
-                <button type="button" class="btn btn-default clase1" ng-click="showRouteToSite(site)">COMO LLEGAR</button>
+                <button type="button" class="btn btn-default clase1" ng-click="showRouteToSite(site)">COMO LLEGAR
+                </button>
             </div>
-        
+
         </div>
     </div>
     <div class="col-md-5 found-sites" ng-show="isShowingSiteDetail">
@@ -28,17 +30,17 @@
         <a href="" ng-click="hideSiteDetail()">Volver a lista de sitios</a>
         <div class="row">
             <div class="text col-md-8">
-                        <h1 class="title">%%selectedSite.nombre%%</h1>
-                        <p class="desc">%%selectedSite.descripcion%%</p>
+                <h1 class="title">%%selectedSite.nombre%%</h1>
+                <p class="desc">%%selectedSite.descripcion%%</p>
             </div>
-        
-         </div>   
-         <div class="row item">
-               <div class="text col-md-4 image"> 
+
+        </div>
+        <div class="row item">
+            <div class="text col-md-4 image">
                 <img ng-src='%%selectedSite.fotos[0].URLfoto%%' class="img-rounded"/>
-                </div>
-        </div>    
-         
+            </div>
+        </div>
+
     </div>
     <div class="col-md-7">
         <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
