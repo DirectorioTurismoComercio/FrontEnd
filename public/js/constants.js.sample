@@ -11,6 +11,7 @@ angular.module('constants', [])
     	"login": "/rest-auth/login",
     	"user": "/usuario",
         "authBaseURL": 'http://ecosistema.desarrollo.com/backend',
-        "sitios":"/ruta/sitios"
-
+        "sitios":"/ruta/sitios",
+        "sitio":"/sitio",
+        "categorias":"/categorias"
     });
