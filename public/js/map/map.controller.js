@@ -109,6 +109,7 @@ angular.module('map')
                     $scope.loading = false;
                 } else {
                     popErrorAlertService.showPopErrorAlert("No se han encontrado resultados");
+                    $scope.loading = false;
                 }
             }).catch(function (error) {
                 console.log("ocurrio un error", error);
