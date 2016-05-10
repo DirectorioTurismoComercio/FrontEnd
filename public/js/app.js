@@ -2,7 +2,7 @@
     angular.module('gemStore', ['ngRoute', 'ngResource', 'ngAnimate', 'ngMaterial',
             'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies',
             'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
-            'businessBrowser', 'dropDownTowns', 'searchAndRouteTabs', 'siteAndTownSaver', 'siteDetail',
+            'businessBrowser', 'dropDownTowns', 'searchAndRouteTabs', 'siteAndTownSaver',
             'howItWorks', 'popErrorAlert', 'appHeader', 'pascalprecht.translate', 'appFooter', 'registerSite',
             'businessCategory'])
         .config(function ($interpolateProvider, API_CONFIG, $authProvider, $translateProvider) {
