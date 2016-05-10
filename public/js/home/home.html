@@ -1,9 +1,11 @@
-<ecosistema-header-directive style="width: 100%; height: auto"></ecosistema-header-directive>
-<div class="carousel">
-    <p class="carouselText" translate="CAROUSEL_TEXT"></p>
-    <button class="howWorksButton" aria-label="¿Cómo funciona?" translate="BUTTON_HOW_IT_WORKS" ng-click="goToHowItWorks()"></button>
+<app-header></app-header>
+<div class="row">
+    <div class="carousel">
+        <p class="carouselText" translate="CAROUSEL_TEXT"></p>
+        <button class="howWorksButton" aria-label="¿Cómo funciona?" translate="BUTTON_HOW_IT_WORKS"
+                ng-click="goToHowItWorks()"></button>
+    </div>
 </div>
 <search-and-route-tabs-section class="searchAndRouteSection"></search-and-route-tabs-section>
 <search-tab-content-home class="searchAndRouteSection"></search-tab-content-home>
-<ecosistema-footer-directive style="width: 100%"></ecosistema-footer-directive>
-
+<app-footer></app-footer>

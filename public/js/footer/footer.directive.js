@@ -1,7 +1,7 @@
-angular.module('ecosistemaFooter',[])
-    .directive('ecosistemaFooterDirective',[function(){
+angular.module('appFooter',[])
+    .directive('appFooter',[function(){
         return {
             restrict: 'E',
-            templateUrl: 'js/footer/ecosistema-footer.html',
+            templateUrl: 'js/footer/app-footer.html',
         }
     }]);

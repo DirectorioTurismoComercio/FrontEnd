@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="gemStore" class="ng-scope">
+<html>
 <head>
     <meta charset="utf-8">
     <title>mercatic</title>
@@ -8,12 +8,8 @@
 
     <link rel="stylesheet" href="components/normalize.css/normalize.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Revisar para que quede local y no desde internet -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-    <!-- Revisar para que quede local y no desde internet -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/general-rules.css"/>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/fonts.css"/>
     <link rel="stylesheet" href="css/autocomplete.css"/>
@@ -30,27 +26,23 @@
     <link rel="stylesheet" href="js/siteDetails/siteDetail.css"/>
 
     <link rel="stylesheet" href="js/howItWorks/howitworks.css"/>
-    <link rel="stylesheet" href="js/header/ecosistema-header.css"/>
-    <link rel="stylesheet" href="js/footer/ecosistema-footer.css"/>
-    <!-- Revisar para que quede local y no desde internet -->
+    <link rel="stylesheet" href="js/header/app-header.css"/>
+    <link rel="stylesheet" href="js/footer/app-footer.css"/>
     <link rel="stylesheet"
           href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
     <link rel="stylesheet" href="css/responsive.css"/>
-    <!-- Para COmercio -->
     <link rel="stylesheet" href="css/final.css"/>
-    <!-- Para Turismo-->
-    <!-- <link rel="stylesheet" href="css/final_turismo.css" /> -->
 
     <link rel="stylesheet" href="js/map/map.css">
     <link rel="stylesheet" href="js/registerSite/registerSite.css">
-
 
     <script type="text/javascript" src="components/angular/angular.js"></script>
     <script type="text/javascript" src="components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="components/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="components/angularjs-filters/filters.js"></script>
     <script type="text/javascript" src="components/angular-translate/angular-translate.min.js"></script>
-    <script type="text/javascript" src="components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script type="text/javascript"
+            src="components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script src="components/angular-google-places-autocomplete/src/autocomplete.js"></script>
     <link rel="stylesheet" href="components/angular-google-places-autocomplete/src/autocomplete.css">
@@ -59,24 +51,16 @@
     <script src="components/ng-tags-input/ng-tags-input.min.js"></script>
     <link rel="stylesheet" type="text/css" href="components/ng-tags-input/ng-tags-input.css">
 
-
     <script type="text/javascript" src="components/angular-resource/angular-resource.js"></script>
-        <script type="text/javascript" src="components/videogular/videogular.min.js"></script><script type="text/javascript" src="components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="components/videogular/videogular.min.js"></script>
+    <script type="text/javascript" src="components/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="components/prefix/prefixfree.min.js"></script>
-
-
-
 </head>
 
-<body>
-<!-- <header class="fixedTop">
-    <page-Navigation></page-Navigation>
-</header> -->
-<!-- /header -->
-<div ng-view="" class="main {{ pageClass }}"></div>
-<!-- <div class="MobileFooter" ng-hide="MobileMenu">
-</div> -->
-<!-- app -->
+<body ng-app="gemStore">
+<div ng-view="" class="container-fluid"></div>
+
+
 <script type="text/javascript" src="components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="components/bootstrap/dist/js/bootstrap.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
@@ -96,7 +80,8 @@
 <script type="text/javascript" src="js/businessBrowser/businessBrowser.controller.js"></script>
 <script type="text/javascript" src="js/dropDownTowns/dropDownTowns.controller.js"></script>
 <script type="text/javascript" src="js/searchAndRouteTabs/searchAndRouteTabs.controller.js"></script>
-<script type="text/javascript" src="js/searchAndRouteTabs/searchTabContentHome/searchTabContentHome.controller.js"></script>
+<script type="text/javascript"
+        src="js/searchAndRouteTabs/searchTabContentHome/searchTabContentHome.controller.js"></script>
 
 <script type="text/javascript" src="js/siteDetails/siteDetail.Controller.js"></script>
 
@@ -133,8 +118,10 @@
 <script type="text/javascript" src="js/businessBrowser/browserInputField.directive.js"></script>
 <script type="text/javascript" src="js/dropDownTowns/dropDownTowns.directive.js"></script>
 <script type="text/javascript" src="js/searchAndRouteTabs/searchAndRouteTabs.directive.js"></script>
-<script type="text/javascript" src="js/searchAndRouteTabs/searchTabContentHome/searchTabContentHome.directive.js"></script>
-<script type="text/javascript" src="js/searchAndRouteTabs/searchTabContentMap/searchTabContentMap.directive.js"></script>
+<script type="text/javascript"
+        src="js/searchAndRouteTabs/searchTabContentHome/searchTabContentHome.directive.js"></script>
+<script type="text/javascript"
+        src="js/searchAndRouteTabs/searchTabContentMap/searchTabContentMap.directive.js"></script>
 <script type="text/javascript" src="js/header/header.directive.js"></script>
 <script type="text/javascript" src="js/footer/footer.directive.js"></script>
 
@@ -165,7 +152,6 @@
 
 <script type="text/javascript" src="js/howItWorks/howItWorks.js"></script>
 <script type="text/javascript" src="js/howItWorks/howItWorks.controller.js"></script>
-
 
 
 <script type="text/javascript" src="js/custom_components/autocomplete.js"></script>

@@ -1,9 +1,4 @@
-html, body{
-    height: 100%;
-    width: 100%;
-}
-
-.ecosistemaHeader{
+.ecosistemaHeader {
     background-color: #285453;
 
     height: 7%;
@@ -13,7 +8,7 @@ html, body{
     justify-content: space-between;
 }
 
-.heaaderLogoContainer{
+.heaaderLogoContainer {
     width: 15%;
     height: 98%;
 
@@ -21,29 +16,28 @@ html, body{
     display: flex;
     flex-flow: column wrap;
 
-
     justify-content: center;
 }
 
-.ecosistemaLogoHeader{
+.ecosistemaLogoHeader {
     height: 100%;
     width: 100%;
 }
 
-.menuContainerHeader{
+.menuContainerHeader {
     margin-right: 2%;
     height: 100%;
     width: 5%;
 }
 
-.menuHeader{
+.menuHeader {
     margin-top: 5%;
     height: 90%;
     background-color: #7F382B;
 }
 
 @media screen and (max-width: 1000px) {
-    .ecosistemaHeader{
+    .ecosistemaHeader {
         height: 8%;
     }
 }

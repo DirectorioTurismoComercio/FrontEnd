@@ -1,8 +1,8 @@
-angular.module('ecosistemaHeader')
-    .directive('ecosistemaHeaderDirective',[function(){
+angular.module('appHeader')
+    .directive('appHeader',[function(){
         return {
             restrict: 'E',
-            templateUrl: 'js/header/ecosistema-header.html',
-            controller: 'ecosistemaHeaderController'
+            templateUrl: 'js/header/app-header.html',
+            controller: 'appHeaderController'
         }
     }]);

@@ -1,10 +1,10 @@
 'use strict';
 
 describe('Controller: HeaderController', function () {
-    var ecosistemaHeaderController, $scope, deferred, translate, location, testsiteAndTownSaverService;
+    var appHeaderController, $scope, deferred, translate, location, testsiteAndTownSaverService;
 
     beforeEach(module('gemStore'));
-    beforeEach(module('ecosistemaHeader'));
+    beforeEach(module('appHeader'));
 
 
     beforeEach(module('gemStore', function ($provide, $translateProvider) {
@@ -34,7 +34,7 @@ describe('Controller: HeaderController', function () {
         spyOn(testsiteAndTownSaverService, 'resetSearchAndRoute');
 
 
-        ecosistemaHeaderController = $controller('ecosistemaHeaderController', {
+        appHeaderController = $controller('appHeaderController', {
             $scope: $scope,
             $translate:translate,
             $location: location,
