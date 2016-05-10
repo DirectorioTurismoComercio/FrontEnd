@@ -7,6 +7,9 @@
 <form name="businessForm">
 
 
+    <business-hours-input model="item.hours"></business-hours-input>
+    <business-hours model="item.hours"></business-hours>
+
     <div style="display: flex; flex-flow: row wrap;">
         <input type="file" onchange="angular.element(this).scope().filesChange(this)" multiple translate="REGISTER_SITE_CONSTANTS.CHOOSE_FILES"/>
     </div>

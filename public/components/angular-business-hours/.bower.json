@@ -1,0 +1,45 @@
+{
+  "name": "angular-business-hours",
+  "version": "0.9.3",
+  "authors": [
+    "Matteo Alessani <alessani@gmail.com>"
+  ],
+  "description": "Let you specify hours for your business place",
+  "main": [
+    "./dist/angular-business-hours.js",
+    "./dist/angular-business-hours.tpl.js"
+  ],
+  "moduleType": [],
+  "keywords": [
+    "hours",
+    "business",
+    "angular"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/extendi/angular-business-hours",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-i18n": "~1.4.8",
+    "angular-translate": "~2.8.1",
+    "lodash": "~3.10.1",
+    "angular-bootstrap": "~0.13.4"
+  },
+  "browser": "./dist/angular-business-hours.js",
+  "_release": "0.9.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.9.3",
+    "commit": "d35b3a22e70954a9f0cfe77fd195f423c016523e"
+  },
+  "_source": "https://github.com/extendi/angular-business-hours.git",
+  "_target": "^0.9.3",
+  "_originalSource": "angular-business-hours",
+  "_direct": true
+}
