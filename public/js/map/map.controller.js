@@ -81,6 +81,7 @@ angular.module('map')
 
         $scope.doSearch = function (result) {
             if (result != undefined) {
+                $scope.hideSiteDetail();
                 $scope.loading = true;
                 drawSitesByKeyWord(result);
             }
@@ -108,6 +109,7 @@ angular.module('map')
                     $scope.loading = false;
                 } else {
                     popErrorAlertService.showPopErrorAlert("No se han encontrado resultados");
+                    $scope.loading = false;
                 }
             }).catch(function (error) {
                 console.log("ocurrio un error", error);
