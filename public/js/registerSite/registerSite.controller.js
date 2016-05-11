@@ -18,7 +18,7 @@ angular.module('registerSite')
             subcategory: '',
         };
 
-        $scope.businessopeningSchedule={
+        $scope.businessOpeningSchedule={
             hours:[]
         };
 
@@ -52,6 +52,8 @@ angular.module('registerSite')
         };
 
         $scope.register = function () {
+
+            console.log("el horario", $scope.businessOpeningSchedule.hours);
 
             var categorias = [1, 2];
 
