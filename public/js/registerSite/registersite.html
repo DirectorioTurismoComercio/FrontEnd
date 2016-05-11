@@ -20,10 +20,10 @@
 
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"></label>
-        <business-hours-input model="businessopeningSchedule.hours"></business-hours-input>
-        <business-hours model="businessopeningSchedule.hours"></business-hours>
-        <span ng-show="businessForm.openingHours.$error.required"
+        <span ng-show="businessOpeningSchedule.hours.length==0"
               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+        <business-hours-input model="businessOpeningSchedule.hours"></business-hours-input>
+        <business-hours model="businessOpeningSchedule.hours"></business-hours>
     </div>
 
 
