@@ -8,12 +8,12 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'extendi.bus
       "business-hours.add_opening": "Add opening hour",
       "business-hours.choose_day": "Choose a day"
     });
-    $translateProvider.translations('it', {
-      "business-hours.weekdays": "Giorni feriali",
-      "business-hours.weekend": "Fine settimana",
-      "business-hours.alldays": "Tutti i giorni",
-      "business-hours.add_opening": "Aggiungi orari di apertura",
-      "business-hours.choose_day": "Scegli un giorno"
+    $translateProvider.translations('en', {
+      "business-hours.weekdays": "Entre semana",
+      "business-hours.weekend": "Fin de semana",
+      "business-hours.alldays": "Todos los días",
+      "business-hours.add_opening": "Agregar horario de atención",
+      "business-hours.choose_day": "Elegir día"
     });
     $translateProvider.preferredLanguage('en');
     return $translateProvider.useSanitizeValueStrategy('escapeParameters');
@@ -25,7 +25,7 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'extendi.bus
       model: "="
     },
     controller: "BusinessHoursCtrl",
-    templateUrl: "templates/hours.html"
+    templateUrl: "components/angular-business-hours/templates/hours.html"
   };
 }).directive('businessHoursInput', function() {
   return {
@@ -34,7 +34,7 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'extendi.bus
       model: "="
     },
     controller: "BusinessHoursCtrl",
-    templateUrl: "templates/hours_input.html"
+    templateUrl: "components/angular-business-hours/templates/hours_input.html"
   };
 }).directive('greaterThan', function() {
   return {
@@ -64,11 +64,12 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'extendi.bus
   "$scope", "$q", "$translate", "$locale", function($scope, $q, $translate, $locale) {
     var dom;
     $scope.days = [0, 1, 2, 3, 4, 5, 6];
-    $scope.days_label = angular.copy($locale.DATETIME_FORMATS.DAY);
+    $scope.days_label =["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
     dom = $scope.days_label.shift();
     $scope.days_label.push(dom);
     $scope.weekdays = [0, 1, 2, 3, 4];
     $scope.weekend = [5, 6];
+    $scope.isDaysListVisible=false;
     $scope.range_hours = function() {
       var hours;
       hours = _.range(0, 24);
@@ -120,13 +121,20 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'extendi.bus
     };
     $scope.add_hour = function() {
       var value;
-      value = $scope.model.length > 0 ? {
+      console.log("dsds", $scope.model.length);
+      value =  $scope.model.length > 0 ? {
         days: []
       } : {
         days: angular.copy($scope.weekdays)
       };
       return $scope.model.push(value);
     };
+
+    $scope.showDaysList=function(){
+      console.log("hizo click en el drop down");
+      $scope.isDaysListVisible=!$scope.isDaysListVisible;
+    };
+
     $scope.remove_hour = function(index) {
       return $scope.model.splice(index, 1);
     };

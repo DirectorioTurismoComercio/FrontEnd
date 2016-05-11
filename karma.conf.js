@@ -37,6 +37,8 @@ module.exports = function (config) {
             'public/components/angular-google-places-autocomplete/dist/autocomplete.min.js',
             'public/components/angularjs-geolocation/dist/angularjs-geolocation.min.js',
             'public/components/ng-tags-input/ng-tags-input.min.js',
+            'public/components/angular-business-hours/dist/angular-business-hours.js',
+            'public/components/angular-business-hours/dist/angular-business-hours.tpl.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
