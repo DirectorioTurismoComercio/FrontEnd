@@ -1,5 +1,5 @@
 'use strict';
-angular.module("extendi.business-hours", ['pascalprecht.translate', 'extendi.business-hours.tpl']).config([
+angular.module("extendi.business-hours", ['pascalprecht.translate']).config([
   '$translateProvider', function($translateProvider) {
     $translateProvider.translations('en', {
       "business-hours.weekdays": "Week days",
@@ -84,11 +84,7 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'extendi.bus
       return _.sortBy(_.where(hours, {
         days: [day]
       }), function(item) {
-        if (item.start.length === 4) {
-          return "0" + item.start;
-        } else {
           return item.start;
-        }
       });
     };
     $scope.toggle_day = function(hour, index) {
@@ -121,7 +117,6 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'extendi.bus
     };
     $scope.add_hour = function() {
       var value;
-      console.log("dsds", $scope.model.length);
       value =  $scope.model.length > 0 ? {
         days: []
       } : {
@@ -131,7 +126,6 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'extendi.bus
     };
 
     $scope.showDaysList=function(){
-      console.log("hizo click en el drop down");
       $scope.isDaysListVisible=!$scope.isDaysListVisible;
     };
 
