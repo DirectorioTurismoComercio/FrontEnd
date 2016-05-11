@@ -5,8 +5,6 @@
 
 
 <form name="businessForm">
-
-
     <div style="display: flex; flex-flow: row wrap;">
         <input type="file" onchange="angular.element(this).scope().filesChange(this)" multiple translate="REGISTER_SITE_CONSTANTS.CHOOSE_FILES"/>
     </div>
@@ -21,7 +19,8 @@
 
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"></label>
-        <input name="openingHours" type="text" ng-model="openingHours" required/>
+        <business-hours-input model="item.hours"></business-hours-input>
+        <business-hours model="item.hours"></business-hours>
         <span ng-show="businessForm.openingHours.$error.required" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
     </div>
 
