@@ -1,27 +1,16 @@
-.ecosistemaHeader {
+.app-header {
+    padding: 7px 5px;
+    margin: 0;
+    border: none;
     background-color: #285453;
-
-    height: 7%;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
 }
 
-.heaaderLogoContainer {
-    width: 15%;
-    height: 98%;
-
-    margin-left: 2%;
-    display: flex;
-    flex-flow: column wrap;
-
-    justify-content: center;
+.app-header .logo-container {
+    padding: 5px 15px;
 }
 
-.ecosistemaLogoHeader {
+.app-header .logo {
     height: 100%;
-    width: 100%;
 }
 
 .menuContainerHeader {
@@ -37,7 +26,7 @@
 }
 
 @media screen and (max-width: 1000px) {
-    .ecosistemaHeader {
+    .app-header {
         height: 8%;
     }
 }

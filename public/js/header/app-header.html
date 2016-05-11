@@ -1,15 +1,24 @@
-<div class="row ecosistemaHeader">
-    <div class="heaaderLogoContainer" ng-click="goToHome()">
-        <img class="ecosistemaLogoHeader" src="./images/logo-mercatic-transparencia.png">
-    </div>
-    <div style="height: auto; display: flex; flex-flow: column wrap">
-        <img style="height: 1.5em; width: 1.5em" src="./images/es-ES.png" ng-click="changeLanguage('es')">
-        <img style="height: 1.5em; width: 1.5em" src="./images/english_flag.png" ng-click="changeLanguage('en')">
-    </div>
+<nav class="navbar navbar-default app-header">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand logo-container" href="#">
+                <img class="logo" src="./images/logo.png">
+            </a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
 
-    <div class="menuContainerHeader">
-        <div class="menuHeader">
-
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">¿Cómo funciona?</a></li>
+                <li><a href="#">Ingreso comercios</a></li>
+                <li><a href="#">Registra tu comercio</a></li>
+                <li><a ng-click="changeLanguage('es')">ES</a></li>
+                <li><a ng-click="changeLanguage('en')">EN</a></li>
+            </ul>
         </div>
     </div>
-</div>
+</nav>
