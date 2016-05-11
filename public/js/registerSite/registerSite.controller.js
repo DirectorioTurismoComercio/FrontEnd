@@ -18,7 +18,7 @@ angular.module('registerSite')
             subcategory: '',
         };
 
-        $scope.item={
+        $scope.businessopeningSchedule={
             hours:[]
         };
 

@@ -2,13 +2,6 @@
 angular.module("extendi.business-hours", ['pascalprecht.translate', 'angular-click-outside']).config([
   '$translateProvider', function($translateProvider) {
     $translateProvider.translations('en', {
-      "business-hours.weekdays": "Week days",
-      "business-hours.weekend": "Weekend",
-      "business-hours.alldays": "All days",
-      "business-hours.add_opening": "Add opening hour",
-      "business-hours.choose_day": "Choose a day"
-    });
-    $translateProvider.translations('en', {
       "business-hours.weekdays": "Entre semana",
       "business-hours.weekend": "Fin de semana",
       "business-hours.alldays": "Todos los días",
@@ -117,7 +110,6 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'angular-cli
     };
     $scope.add_hour = function() {
       var value;
-      console.log("el modelo", $scope.model);
       value =  $scope.model.length > 0 ? {
         days: []
       } : {
@@ -127,15 +119,15 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'angular-cli
     };
 
     $scope.showDaysList=function(index){
-      $scope.activeDaysMenuActive=index;
+      $scope.listDaysMenuActive=index;
     };
 
     $scope.isShowing=function(index){
-      return $scope.activeDaysMenuActive===index;
+      return $scope.listDaysMenuActive===index;
     }
 
     $scope.hideDaysList=function(){
-      $scope.activeDaysMenuActive=undefined;
+      $scope.listDaysMenuActive=undefined;
     }
 
     $scope.remove_hour = function(index) {
@@ -151,4 +143,3 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'angular-cli
   }
 ]);
 
-//# sourceMappingURL=angular-business-hours.js.map

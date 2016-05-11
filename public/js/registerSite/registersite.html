@@ -1,34 +1,37 @@
-
-
-<ecosistema-header-directive style="width: 100%; height: auto"></ecosistema-header-directive>
+<app-header></app-header>
 <label translate="REGISTER_SITE_CONSTANTS.PHOTOS"></label>
-
 
 <form name="businessForm">
     <div style="display: flex; flex-flow: row wrap;">
-        <input type="file" onchange="angular.element(this).scope().filesChange(this)" multiple translate="REGISTER_SITE_CONSTANTS.CHOOSE_FILES"/>
+        <input type="file" onchange="angular.element(this).scope().filesChange(this)" multiple
+               translate="REGISTER_SITE_CONSTANTS.CHOOSE_FILES"/>
     </div>
 
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_PHONE"></label>
-        <input name="sitePhoneNumber" type="tel" ng-pattern="/^\d+$/" ng-minlength="7" ng-maxlength="10" ng-model="sitePhoneNumber" required/>
-        <span ng-show="businessForm.sitePhoneNumber.$error.required" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-        <span ng-show="businessForm.sitePhoneNumber.$dirty && !businessForm.sitePhoneNumber.$valid" translate="REGISTER_SITE_CONSTANTS.PHONE_VALIDATION"></span>
+        <input name="sitePhoneNumber" type="tel" ng-pattern="/^\d+$/" ng-minlength="7" ng-maxlength="10"
+               ng-model="sitePhoneNumber" required/>
+        <span ng-show="businessForm.sitePhoneNumber.$error.required"
+              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+        <span ng-show="businessForm.sitePhoneNumber.$dirty && !businessForm.sitePhoneNumber.$valid"
+              translate="REGISTER_SITE_CONSTANTS.PHONE_VALIDATION"></span>
     </div>
 
 
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"></label>
-        <business-hours-input model="item.hours"></business-hours-input>
-        <business-hours model="item.hours"></business-hours>
-        <span ng-show="businessForm.openingHours.$error.required" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+        <business-hours-input model="businessopeningSchedule.hours"></business-hours-input>
+        <business-hours model="businessopeningSchedule.hours"></business-hours>
+        <span ng-show="businessForm.openingHours.$error.required"
+              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
     </div>
 
 
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_NAME"></label>
         <input name="businessName" type="text" ng-model="businessName" required/>
-        <span ng-show="businessForm.businessName.$error.required" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+        <span ng-show="businessForm.businessName.$error.required"
+              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
     </div>
 
     <div>
@@ -39,7 +42,8 @@
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION"></label>
         <textarea name="businessDescription" ng-model="businessDescription" required></textarea>
-        <span ng-show="businessForm.businessDescription.$error.required" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+        <span ng-show="businessForm.businessDescription.$error.required"
+              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
     </div>
 
     <div>
@@ -53,8 +57,10 @@
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_EMAIL"></label>
         <input name="businessEmail" type="email" ng-model="businessEmail" required>
-        <span ng-show="businessForm.businessEmail.$error.required" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-        <span ng-show="businessForm.businessEmail.$dirty && businessForm.businessEmail.$error.email" translate="REGISTER_SITE_CONSTANTS.EMAIL_VALIDATION"></span>
+        <span ng-show="businessForm.businessEmail.$error.required"
+              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+        <span ng-show="businessForm.businessEmail.$dirty && businessForm.businessEmail.$error.email"
+              translate="REGISTER_SITE_CONSTANTS.EMAIL_VALIDATION"></span>
     </div>
 
 
@@ -79,19 +85,21 @@
                 required>
             <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY"></option>
         </select>
-        <span ng-show="businessForm.subcategory.$error.required" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+        <span ng-show="businessForm.subcategory.$error.required"
+              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
     </div>
 
 
     <div>
-        <button  ng-disabled="businessForm.$invalid || files==null || businessLocation==undefined" ng-click="register()" translate="REGISTER_SITE_CONSTANTS.BUSINESS_REGISTER_BUTTON"></button>
-        <span ng-show="businessForm.$invalid || files==null || businessLocation==undefined" translate="REGISTER_SITE_CONSTANTS.FIELDS_VALIDATION"></span>
+        <button ng-disabled="businessForm.$invalid || files==null || businessLocation==undefined" ng-click="register()"
+                translate="REGISTER_SITE_CONSTANTS.BUSINESS_REGISTER_BUTTON"></button>
+        <span ng-show="businessForm.$invalid || files==null || businessLocation==undefined"
+              translate="REGISTER_SITE_CONSTANTS.FIELDS_VALIDATION"></span>
     </div>
-
 
 
 </form>
 
 
-<ecosistema-footer-directive style="width: 100%"></ecosistema-footer-directive>
+<app-footer></app-footer>
 
