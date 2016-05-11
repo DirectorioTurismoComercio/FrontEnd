@@ -1,0 +1,145 @@
+'use strict';
+angular.module("extendi.business-hours", ['pascalprecht.translate', 'angular-click-outside']).config([
+  '$translateProvider', function($translateProvider) {
+    $translateProvider.translations('en', {
+      "business-hours.weekdays": "Entre semana",
+      "business-hours.weekend": "Fin de semana",
+      "business-hours.alldays": "Todos los días",
+      "business-hours.add_opening": "Agregar horario de atención",
+      "business-hours.choose_day": "Elegir día"
+    });
+    $translateProvider.preferredLanguage('en');
+    return $translateProvider.useSanitizeValueStrategy('escapeParameters');
+  }
+]).directive('businessHours', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      model: "="
+    },
+    controller: "BusinessHoursCtrl",
+    templateUrl: "components/angular-business-hours/templates/hours.html"
+  };
+}).directive('businessHoursInput', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      model: "="
+    },
+    controller: "BusinessHoursCtrl",
+    templateUrl: "components/angular-business-hours/templates/hours_input.html"
+  };
+}).directive('greaterThan', function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, element, attrs, ctrl) {
+      var validate;
+      validate = function(viewValue) {
+        var comparisonModel, end, start;
+        comparisonModel = attrs.greaterThan;
+        if (!viewValue || !comparisonModel) {
+          ctrl.$setValidity('greaterThan', true);
+          return viewValue;
+        }
+        start = comparisonModel.split(":");
+        end = viewValue.split(":");
+        ctrl.$setValidity('greaterThan', (parseInt(start[0], 10) < parseInt(end[0], 10)) || (parseInt(start[0], 10) === parseInt(end[0], 10) && parseInt(start[1], 10) < parseInt(end[1], 10)));
+        return viewValue;
+      };
+      ctrl.$parsers.unshift(validate);
+      ctrl.$formatters.push(validate);
+      return attrs.$observe('greaterThan', function(comparisonModel) {
+        return validate(ctrl.$viewValue);
+      });
+    }
+  };
+}).controller("BusinessHoursCtrl", [
+  "$scope", "$q", "$translate", "$locale", function($scope, $q, $translate, $locale) {
+    var dom;
+    $scope.days = [0, 1, 2, 3, 4, 5, 6];
+    $scope.days_label =["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+    dom = $scope.days_label.shift();
+    $scope.days_label.push(dom);
+    $scope.weekdays = [0, 1, 2, 3, 4];
+    $scope.weekend = [5, 6];
+    $scope.isDaysListVisible=false;
+    $scope.range_hours = function() {
+      var hours;
+      hours = _.range(0, 24);
+      _.flatten(_.map([0, 15, 30, 45], function(mins) {
+        return _.map(hours, function(hour) {
+          return hour + ":" + (_.padLeft(mins, 2, '0'));
+        });
+      }));
+      return _.padLeft(mins, 2, '0');
+    };
+    $scope.hours_for = function(hours, day) {
+      return _.sortBy(_.where(hours, {
+        days: [day]
+      }), function(item) {
+          return item.start;
+      });
+    };
+    $scope.toggle_day = function(hour, index) {
+      var i;
+      if ((i = _.indexOf(hour.days, $scope.days[index])) >= 0) {
+        return hour.days.splice(i, 1);
+      } else {
+        hour.days.push($scope.days[index]);
+        return hour.days = _.sortBy(hour.days, function(day) {
+          return _.indexOf($scope.days, day);
+        });
+      }
+    };
+    $scope.days_group_label = function(days) {
+      if (_.xor(days, $scope.weekdays).length === 0) {
+        return "business-hours.weekdays";
+      }
+      if (_.xor(days, $scope.weekend).length === 0) {
+        return "business-hours.weekend";
+      }
+      if (_.xor(days, $scope.days).length === 0) {
+        return "business-hours.alldays";
+      }
+      if (days.length > 0) {
+        return _.map(days, function(day) {
+          return $scope.days_label[day].slice(0, 3);
+        }).join(",");
+      }
+      return "business-hours.choose_day";
+    };
+    $scope.add_hour = function() {
+      var value;
+      value =  $scope.model.length > 0 ? {
+        days: []
+      } : {
+        days: angular.copy($scope.weekdays)
+      };
+      return $scope.model.push(value);
+    };
+
+    $scope.showDaysList=function(index){
+      $scope.listDaysMenuActive=index;
+    };
+
+    $scope.isShowing=function(index){
+      return $scope.listDaysMenuActive===index;
+    }
+
+    $scope.hideDaysList=function(){
+      $scope.listDaysMenuActive=undefined;
+    }
+
+    $scope.remove_hour = function(index) {
+      return $scope.model.splice(index, 1);
+    };
+    return $scope.checked_day = function(days, day) {
+      if (_.include(days, day)) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+  }
+]);
+

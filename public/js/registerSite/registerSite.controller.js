@@ -18,6 +18,10 @@ angular.module('registerSite')
             subcategory: '',
         };
 
+        $scope.businessopeningSchedule={
+            hours:[]
+        };
+
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
             events: {
