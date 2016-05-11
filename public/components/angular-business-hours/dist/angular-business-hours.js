@@ -1,5 +1,5 @@
 'use strict';
-angular.module("extendi.business-hours", ['pascalprecht.translate']).config([
+angular.module("extendi.business-hours", ['pascalprecht.translate', 'angular-click-outside']).config([
   '$translateProvider', function($translateProvider) {
     $translateProvider.translations('en', {
       "business-hours.weekdays": "Week days",
@@ -128,6 +128,10 @@ angular.module("extendi.business-hours", ['pascalprecht.translate']).config([
     $scope.showDaysList=function(){
       $scope.isDaysListVisible=!$scope.isDaysListVisible;
     };
+
+    $scope.hideDaysList=function(){
+      $scope.isDaysListVisible=false;
+    }
 
     $scope.remove_hour = function(index) {
       return $scope.model.splice(index, 1);

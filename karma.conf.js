@@ -38,7 +38,7 @@ module.exports = function (config) {
             'public/components/angularjs-geolocation/dist/angularjs-geolocation.min.js',
             'public/components/ng-tags-input/ng-tags-input.min.js',
             'public/components/angular-business-hours/dist/angular-business-hours.js',
-            'public/components/angular-business-hours/dist/angular-business-hours.tpl.js',
+            'public/components/angular-click-outside/clickoutside.directive.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
