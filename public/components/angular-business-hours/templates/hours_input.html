@@ -2,11 +2,11 @@
   <a ng-click="remove_hour($index)" class="close push-xsmall-top"><i class="fa fa-times-circle text-md"></i></a>
   
   <div class="btn-group push-small-right" auto-close="outsideClick" dropdown>
-    <button type="button" class="btn btn-default text-left-m size-md" dropdown-toggle aria-expanded="false" ng-click="showDaysList()">
+    <button type="button" class="btn btn-default text-left-m size-md" dropdown-toggle aria-expanded="false" ng-click="showDaysList($index)">
       <span class="caret pull-right push-small-top"></span>
       <span class="text-sm text-boldy">%%days_group_label(hour.days) | translate%%</span>
     </button>
-    <ul id="daysMenuList" click-outside="hideDaysList()" ng-show="isDaysListVisible" class="dropdown-menu-days user-select-none" role="menu">
+    <ul id="daysMenuList" click-outside="hideDaysList()" ng-show="isShowing($index)" class="dropdown-menu-days user-select-none" role="menu">
       <li  ng-repeat="day in days"><a ng-click="toggle_day(hour, $index)"> <i ng-class="{'fa-check': checked_day(hour.days, day), 'text-blank': !checked_day(hour.days, day)}" class="fa fa-fw"></i> %%days_label[day]%%</a></li>
     </ul>
   </div>

@@ -117,6 +117,7 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'angular-cli
     };
     $scope.add_hour = function() {
       var value;
+      console.log("el modelo", $scope.model);
       value =  $scope.model.length > 0 ? {
         days: []
       } : {
@@ -125,12 +126,16 @@ angular.module("extendi.business-hours", ['pascalprecht.translate', 'angular-cli
       return $scope.model.push(value);
     };
 
-    $scope.showDaysList=function(){
-      $scope.isDaysListVisible=!$scope.isDaysListVisible;
+    $scope.showDaysList=function(index){
+      $scope.activeDaysMenuActive=index;
     };
 
+    $scope.isShowing=function(index){
+      return $scope.activeDaysMenuActive===index;
+    }
+
     $scope.hideDaysList=function(){
-      $scope.isDaysListVisible=false;
+      $scope.activeDaysMenuActive=undefined;
     }
 
     $scope.remove_hour = function(index) {
