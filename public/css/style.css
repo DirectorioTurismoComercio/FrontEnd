@@ -123,11 +123,11 @@ header .inbody .navbar-brand span.subhead {
 
 /**  Carousel Fade **/
 
-.carousel.fade {
+.how-it-works.fade {
   opacity: 1;
 }
 
-.carousel.fade .item {
+.how-it-works.fade .item {
   transition: opacity ease-out .7s;
   left: 0;
   opacity: 0;
@@ -137,13 +137,13 @@ header .inbody .navbar-brand span.subhead {
   display: block;
 }
 
-.carousel.fade .item:first-child {
+.how-it-works.fade .item:first-child {
   top: auto;
   opacity: 0;
   position: relative;
 }
 
-.carousel.fade .item.active {
+.how-it-works.fade .item.active {
   opacity: 1;
 }
 
