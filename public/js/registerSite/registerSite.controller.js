@@ -2,7 +2,7 @@
 
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService, CUNDINAMARCA_COORDS,
-                                                    BOGOTA_COORDS, categories, API_CONFIG) {
+                                                    BOGOTA_COORDS, categories, API_CONFIG, siteAndTownSaverService) {
 
         $scope.sitePhoneNumber = undefined;
         $scope.openingHours = undefined;
@@ -69,6 +69,7 @@ angular.module('registerSite')
             fd.append('longitud', $scope.businessLocation.lng);
             fd.append('nombre', $scope.businessName);
             fd.append('descripcion', $scope.businessDescription);
+            fd.append('municipio',siteAndTownSaverService.getCurrentSearchedTown().id);
             fd.append('categorias', 1);
             fd.append('categorias', 4);
 
