@@ -27,13 +27,12 @@ angular.module('registerSite')
             events: {
                 click: function (mapModel, eventName, originalEventArgs) {
                     getClickedPositionCoordinates(originalEventArgs);
-                    MapService.clearMarkers();
-                    drawMarkerIfIsInsideBoundaries();
                     $scope.$apply();
                 },
             }
         };
 
+        var joinOfFormatted_address;
 
         uiGmapIsReady.promise().then(function (map_instances) {
             MapService.setGMap(map_instances[0].map);
@@ -115,18 +114,27 @@ angular.module('registerSite')
                 lat: e.latLng.lat(),
                 lng: e.latLng.lng()
             };
+            getClickedPositionTown();
+        }
+
+        function getClickedPositionTown(){
+            $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.businessLocation.lat+','+$scope.businessLocation.lng+'&sensor=true')
+                .success(function(response){
+                    joinOfFormatted_address=response.results[0].formatted_address+response.results[1].formatted_address;
+                    MapService.clearMarkers();
+                    drawMarkerIfIsInsideBoundaries();
+                });
         }
 
         function drawMarkerIfIsInsideBoundaries() {
-            var isBusinessInsideCundinamarca = MapService.isPlaceInsideBoundaries($scope.businessLocation.lat, $scope.businessLocation.lng, CUNDINAMARCA_COORDS);
             var isBusinessInsideBogota = MapService.isPlaceInsideBoundaries($scope.businessLocation.lat, $scope.businessLocation.lng, BOGOTA_COORDS);
-
-            if (!isBusinessInsideCundinamarca) {
-                displayOutsideBoundaryErrorMessage("La ubicación del local está fuera de Cundinamarca");
-            }
 
             if (isBusinessInsideBogota) {
                 displayOutsideBoundaryErrorMessage("La ubicación del local está dentro de Bogotá");
+            }
+
+            if(!joinOfFormatted_address.includes(siteAndTownSaverService.getCurrentSearchedTown().nombre)){
+                displayOutsideBoundaryErrorMessage("Verifique que la ubicación se encuentre en el municipio seleccionado");
             }
 
             if (isBusinessInsideCundinamarca && !isBusinessInsideBogota) {
