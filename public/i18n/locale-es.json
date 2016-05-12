@@ -34,6 +34,7 @@
     "BUSINESS_LOCATION": "Ubicación del local",
     "BUSINESS_DESCRIPTION": "Descripción del local",
     "BUSINESS_EMAIL": "Correo",
+    "BUSINESS_ADDRESS":"Dirección del local",
     "BUSINESS_CATEGORY": "Categoria",
     "CHOOSE_CATEGORY":"-- Elija categoria --",
     "BUSINESS_SUBCATEGORY": "Subcategoria",

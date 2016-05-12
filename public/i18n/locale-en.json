@@ -34,6 +34,7 @@
     "BUSINESS_LOCATION": "Business current location",
     "BUSINESS_DESCRIPTION": "Business Description",
     "BUSINESS_EMAIL": "Email",
+    "BUSINESS_ADDRESS":"Business address",
     "BUSINESS_CATEGORY": "Category",
     "CHOOSE_CATEGORY":"-- Choose category --",
     "CHOOSE_SUBCATEGORY":"-- Choose subcategory --",
