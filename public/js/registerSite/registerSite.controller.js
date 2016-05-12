@@ -2,7 +2,7 @@
 
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService, CUNDINAMARCA_COORDS,
-                                                    BOGOTA_COORDS, categories, API_CONFIG) {
+                                                    BOGOTA_COORDS, categories, API_CONFIG, $resource) {
 
         $scope.sitePhoneNumber = undefined;
         $scope.openingHours = undefined;
@@ -114,6 +114,17 @@ angular.module('registerSite')
                 lat: e.latLng.lat(),
                 lng: e.latLng.lng()
             };
+            getClickedPositionTown();
+        }
+
+        function getClickedPositionTown(){
+            $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.businessLocation.lat+','+$scope.businessLocation.lng+'&sensor=true')
+                .success(function(response){
+                    console.log("respuesta",response);
+                    console.log("el municipio es en 0", response.results[0].address_components[1].long_name);
+                    console.log("el municipio es en 1", response.results[1].address_components[1].long_name);
+                    console.log("el municipio es en 2", response.results[2].address_components[0].long_name);
+                });
         }
 
         function drawMarkerIfIsInsideBoundaries() {
