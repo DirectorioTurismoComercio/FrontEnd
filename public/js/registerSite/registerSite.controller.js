@@ -2,7 +2,7 @@
 
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService, CUNDINAMARCA_COORDS,
-                                                    BOGOTA_COORDS, categories, API_CONFIG, siteAndTownSaverService) {
+                                                    BOGOTA_COORDS, API_CONFIG, siteAndTownSaverService) {
 
         $scope.sitePhoneNumber = undefined;
         $scope.openingHours = undefined;
@@ -12,15 +12,7 @@ angular.module('registerSite')
         $scope.tags = undefined;
         $scope.businessEmail = undefined;
         $scope.files = undefined;
-
-        $scope.businessCategories = {
-            category: '',
-            subcategory: '',
-        };
-
-        $scope.businessOpeningSchedule={
-            hours:[]
-        };
+        $scope.businessOpeningSchedule=undefined;
 
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
@@ -38,25 +30,12 @@ angular.module('registerSite')
             MapService.setGMap(map_instances[0].map);
         });
 
-        categories.getCategories().then(function (response) {
-            $scope.categories = response;
-        }).catch(function (error) {
-            console.log("Hubo un error", error);
-        });
-
-
         $scope.filesChange = function (elm) {
             $scope.files = elm.files;
             $scope.$apply();
         };
 
         $scope.register = function () {
-
-            console.log("el horario", $scope.businessOpeningSchedule.hours);
-
-            var categorias = [1, 2];
-
-
             var fd = new FormData();
             var i = 0;
             angular.forEach($scope.files, function (file) {
@@ -69,8 +48,7 @@ angular.module('registerSite')
             fd.append('nombre', $scope.businessName);
             fd.append('descripcion', $scope.businessDescription);
             fd.append('municipio',siteAndTownSaverService.getCurrentSearchedTown().id);
-            fd.append('categorias', 1);
-            fd.append('categorias', 4);
+
 
             $http.post(API_CONFIG.url+API_CONFIG.sitio, fd,
                 {
@@ -84,29 +62,6 @@ angular.module('registerSite')
             });
 
         };
-
-        $scope.getControllerSubcategories = function () {
-            if ($scope.businessCategories.category == undefined) {
-                resetCategoriesModel();
-            } else {
-                getSubcategories();
-            }
-        }
-
-
-        function resetCategoriesModel() {
-            $scope.subcategories = undefined;
-            $scope.businessCategories.subcategory = undefined;
-        }
-
-        function getSubcategories() {
-            categories.getSubcategories($scope.businessCategories.category).then(function (response) {
-                $scope.subcategories = response;
-            }).catch(function (error) {
-                console.log("hubo un error", error);
-            });
-        }
-
 
         function getClickedPositionCoordinates(originalEventArgs) {
             var e = originalEventArgs[0];
@@ -127,17 +82,9 @@ angular.module('registerSite')
         }
 
         function drawMarkerIfIsInsideBoundaries() {
-            var isBusinessInsideBogota = MapService.isPlaceInsideBoundaries($scope.businessLocation.lat, $scope.businessLocation.lng, BOGOTA_COORDS);
-
-            if (isBusinessInsideBogota) {
-                displayOutsideBoundaryErrorMessage("La ubicación del local está dentro de Bogotá");
-            }
-
             if(!joinOfFormatted_address.includes(siteAndTownSaverService.getCurrentSearchedTown().nombre)){
                 displayOutsideBoundaryErrorMessage("Verifique que la ubicación se encuentre en el municipio seleccionado");
-            }
-
-            if (isBusinessInsideCundinamarca && !isBusinessInsideBogota) {
+            }else{
                 MapService.addMarker($scope.businessLocation, $scope.businessName);
             }
         }

@@ -67,33 +67,6 @@
               translate="REGISTER_SITE_CONSTANTS.EMAIL_VALIDATION"></span>
     </div>
 
-
-    <div>
-        <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_CATEGORY"></label>
-        <select ng-model="businessCategories.category"
-                ng-options="obj.id as obj.nombre for obj in categories"
-                ng-change="getControllerSubcategories()"
-                name="catefory"
-                required>
-            <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
-        </select>
-        <span ng-show="businessForm.catefory.$error.required" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-    </div>
-
-
-    <div>
-        <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_SUBCATEGORY"></label>
-        <select ng-model="businessCategories.subcategory"
-                ng-options="x.id as x.nombre for x in subcategories"
-                name="subcategory"
-                required>
-            <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY"></option>
-        </select>
-        <span ng-show="businessForm.subcategory.$error.required"
-              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-    </div>
-
-
     <div>
         <button ng-disabled="businessForm.$invalid || files==null || businessLocation==undefined" ng-click="register()"
                 translate="REGISTER_SITE_CONSTANTS.BUSINESS_REGISTER_BUTTON"></button>
