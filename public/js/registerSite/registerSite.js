@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('registerSite', ['ngTagsInput', 'uiGmapgoogle-maps', 'extendi.business-hours'])
+angular.module('registerSite', ['ngTagsInput', 'uiGmapgoogle-maps'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/registersite', {
