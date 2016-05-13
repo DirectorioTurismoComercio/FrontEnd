@@ -20,7 +20,7 @@
 
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"></label>
-        <textarea name="openingHours" type="text" ng-model="openingHours" required></textarea>
+        <input name="openingHours" type="text" ng-model="openingHours" required></input>
         <span ng-show="businessForm.openingHours.$error.required"
               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
 
@@ -57,6 +57,18 @@
         </tags-input>
         <span ng-show="businessForm.tags.$error.required">Campo requerido</span>
     </div>
+
+    <div>
+        <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_CATEGORY"></label>
+        <select ng-model="businessCategories.category"
+                ng-options="obj.id as obj.nombre for obj in categories"
+                name="catefory"
+                required>
+            <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
+        </select>
+        <span ng-show="businessForm.catefory.$error.required" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+    </div>
+
 
 
     <div>

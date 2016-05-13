@@ -2,7 +2,7 @@
 
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService, CUNDINAMARCA_COORDS,
-                                                    BOGOTA_COORDS, API_CONFIG, siteAndTownSaverService) {
+                                                    BOGOTA_COORDS, API_CONFIG, categories, siteAndTownSaverService) {
 
         $scope.sitePhoneNumber = undefined;
         $scope.openingHours = undefined;
@@ -13,6 +13,9 @@ angular.module('registerSite')
         $scope.businessEmail = undefined;
         $scope.businessAddress=undefined;
         $scope.files = undefined;
+        $scope.businessCategories = {
+            category: ''
+        };
 
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
@@ -25,6 +28,12 @@ angular.module('registerSite')
         };
 
         var joinOfFormatted_address;
+
+        categories.getCategories().then(function (response) {
+            $scope.categories = response;
+        }).catch(function (error) {
+            console.log("Hubo un error", error);
+        });
 
         uiGmapIsReady.promise().then(function (map_instances) {
             MapService.setGMap(map_instances[0].map);
@@ -56,6 +65,7 @@ angular.module('registerSite')
             fd.append('horariolocal',$scope.openingHours);
             fd.append('correolocal',$scope.businessEmail);
             fd.append('ubicacionlocal', $scope.businessAddress);
+            fd.append('categorias', $scope.businessCategories.category);
             for(var i=0; i<=$scope.tags.length-1;i++){
                 fd.append('tags', $scope.tags[i].text);
             }
