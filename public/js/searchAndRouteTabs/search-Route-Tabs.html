@@ -1,26 +1,12 @@
-<div class="searchSectionHome">
-    <div class="searchDiv" ng-click="showSearchForm()">
-        <div class="textAndImageContainer">
-            <div class="labelContainer">
-                <p  ng-class="isSearchFormVisible ? 'searchLabelUnderline' : 'labelNotUnderline'" class="searchLabel" translate="SEARCH_TAB"></p>
-            </div>
-        </div>
-        <div class="textAndImageContainer">
-            <div class="labelContainer">
-                <img class="searchIcon" src="./images/botones/Lupa.png">
-            </div>
-        </div>
+<div class="row search-section">
+    <div class="col-xs-6 keyword-search text-center" ng-click="showSearchForm()">
+        <li class="label" ng-class="isSearchFormVisible ? 'keyword-search-underline' : 'no-underline'"
+            translate="SEARCH_TAB"></li>
+        <img class="icon" src="./images/botones/Lupa.png">
     </div>
-    <div class="routeDiv" ng-click="showRouteForm()">
-        <div class="textAndImageContainer">
-            <div class="labelContainer">
-                <p  ng-class="isRouteFormVisible ? 'routeLabelUnderline' : 'labelNotUnderline'" class="searchLabel" translate="PLAN_YOUR_TRIP"></p>
-            </div>
-        </div>
-        <div class="textAndImageContainer">
-            <div class="labelContainer">
-                <img class="searchIcon" src="./images/botones/Lupa.png">
-            </div>
-        </div>
+    <div class="col-xs-6 route-search text-center" ng-click="showRouteForm()">
+        <li class="label" ng-class="isRouteFormVisible ? 'route-search-underline' : 'no-underline'"
+            translate="PLAN_YOUR_TRIP"></li>
+        <img class="icon" src="./images/botones/Lupa.png">
     </div>
 </div>
