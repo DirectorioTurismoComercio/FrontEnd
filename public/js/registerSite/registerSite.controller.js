@@ -36,6 +36,7 @@ angular.module('registerSite')
         };
 
         $scope.register = function () {
+
             var fd = new FormData();
             var i = 0;
             angular.forEach($scope.files, function (file) {
@@ -60,7 +61,7 @@ angular.module('registerSite')
                 }).error(function (error) {
                 console.log("hubo n error", error);
             });
-
+            siteAndTownSaverService.setCurrentSearchedTown(undefined);
         };
 
         function getClickedPositionCoordinates(originalEventArgs) {
