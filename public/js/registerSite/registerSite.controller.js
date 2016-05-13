@@ -37,6 +37,9 @@ angular.module('registerSite')
 
         $scope.register = function () {
 
+
+
+
             var fd = new FormData();
             var i = 0;
             angular.forEach($scope.files, function (file) {
@@ -53,6 +56,10 @@ angular.module('registerSite')
             fd.append('horariolocal',$scope.openingHours);
             fd.append('correolocal',$scope.businessEmail);
             fd.append('ubicacionlocal', $scope.businessAddress);
+            for(var i=0; i<=$scope.tags.length-1;i++){
+                fd.append('tags', $scope.tags[i].text);
+            }
+
 
 
             $http.post(API_CONFIG.url+API_CONFIG.sitio, fd,
