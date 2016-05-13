@@ -11,8 +11,8 @@ angular.module('registerSite')
         $scope.businessDescription = undefined;
         $scope.tags = undefined;
         $scope.businessEmail = undefined;
+        $scope.businessAddress=undefined;
         $scope.files = undefined;
-        $scope.businessOpeningSchedule=undefined;
 
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,

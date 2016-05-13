@@ -20,7 +20,8 @@
 
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"></label>
-        <span ng-show="businessOpeningSchedule.hours.length==0"
+        <textarea name="openingHours" type="text" ng-model="openingHours" required></textarea>
+        <span ng-show="businessForm.openingHours.$error.required"
               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
 
     </div>
@@ -65,6 +66,13 @@
               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
         <span ng-show="businessForm.businessEmail.$dirty && businessForm.businessEmail.$error.email"
               translate="REGISTER_SITE_CONSTANTS.EMAIL_VALIDATION"></span>
+    </div>
+
+    <div>
+        <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS"></label>
+        <input name="businessAddress" type="text" ng-model="businessAddress" required/>
+        <span ng-show="businessForm.businessAddress.$error.required"
+              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
     </div>
 
     <div>
