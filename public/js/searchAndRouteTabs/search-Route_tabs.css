@@ -1,5 +1,4 @@
 .search-section {
-    height: 90px;
 }
 
 .keyword-search {
@@ -8,11 +7,11 @@
 }
 
 .search-section .icon {
-    height: 40px;
+    height: 25px;
 }
 
 .search-section .label {
-    font-size: 2em;
+    font-size: 1em;
     font-family: 'PT Sans', sans-serif;
     color: white;
     padding: 0 5px;
@@ -34,4 +33,32 @@
 
 .route-search-underline {
     border-bottom: 5px solid #ffc520;
+}
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) {
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .keyword-search {
+        padding: 15px 20px;
+    }
+
+    .search-section .icon {
+        height: 40px;
+    }
+
+    .search-section .label {
+        font-size: 2em;
+        padding: 0 5px;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
 }
