@@ -2,7 +2,11 @@
     padding: 7px 5px;
     margin: 0;
     border: none;
-    background-color: #285453;
+    background-color: #0A3C5A !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
 }
 
 .app-header .logo-container {

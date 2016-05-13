@@ -1,9 +1,30 @@
-<div style="width: 100%" ng-show="isSearchFormVisible || isRouteFormVisible">
-    <md-tabs md-dynamic-height="true"  md-stretch-tabs="always">
+<div class="row tab-content keyword-search" ng-show="isSearchFormVisible || isRouteFormVisible">
+    <md-tabs md-dynamic-height="true" md-stretch-tabs="always">
         <md-tab md-active="isSearchFormVisible">
             <md-tab-body>
-
-                <div class="stepsContainerDesktopHome desktopLayout">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img class="icon" src="./images/Home/1_busca.png">
+                            <p class="label1" translate="SEARCH_BY_KEY_WORD"></p>
+                            <div class="input">
+                                <browser-input-field></browser-input-field>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img class="icon" src="./images/Home/2_busca.png">
+                            <p class="label1" translate="SELECT_TOWN"></p>
+                            <div class="input">
+                                <drop-down-town-directive></drop-down-town-directive>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="searchButtonHome" aria-label="Buscar" translate="MAKE_SEARCH"
+                                ng-click="doSearch(result)"></button>
+                    </div>
+                </div>
+                <!--<div class="stepsContainerDesktopHome desktopLayout">
                     <div class="stepContainerHome">
                         <div class="stepIconContainerHome">
                             <img class="stepIconHome" src="./images/Home/1_busca.png">
@@ -32,54 +53,15 @@
                         <p>Espacio para las categorias</p>
                     </div>
                     <div class="searchButtonContainerHome">
-                        <button class="searchButtonHome" aria-label="Buscar" translate="MAKE_SEARCH" ng-click="doSearch(result)"></button>
+                        <button class="searchButtonHome" aria-label="Buscar" translate="MAKE_SEARCH"
+                                ng-click="doSearch(result)"></button>
                     </div>
-                </div>
-
-                <div class="mobileLayout stepsContainerMobileHome">
-                    <div class="stepContainerHomeMobile">
-                        <div class="stepTextMobileContainerHome">
-                            <div class="stepIconContainerHome">
-                                <img class="stepIconHome" src="./images/Home/1_busca.png">
-                            </div>
-                            <div class="textContainerHome">
-                                <p class="stepTitleHome" translate="SEARCH_BY_KEY_WORD"></p>
-                                <p class="subTitleHome" translate="SEARCH_1ST_STEP_TIP"></p>
-                            </div>
-                        </div>
-                        <div class="inputContainerHome">
-                            <browser-input-field></browser-input-field>
-                        </div>
-                        <div class="categoryContainerHome">
-                            <p>espacio de categorias</p>
-                        </div>
-                    </div>
-                    <div class="stepsDividerHomeMobile"></div>
-                    <div class="step2ndContainerHomeMobile">
-                        <div class="step2ndTextMobileContainerHome">
-                            <div class="stepIconContainerHome">
-                                <img class="stepIconHome" src="./images/Home/2_busca.png">
-                            </div>
-                            <div class="textContainerHome">
-                                <p class="step2ndTitleHome" translate="SELECT_TOWN"></p>
-                                <p class="subTitl2ndeHome" translate="SEARCH_2ND_STEP_TIP"></p>
-                            </div>
-                        </div>
-                        <div class="inputContainerHome">
-                            <drop-down-town-directive></drop-down-town-directive>
-                        </div>
-                    </div>
-                    <div class="searchButtonContainerHome">
-                        <button class="searchButtonHome" aria-label="Buscar" translate="MAKE_SEARCH" ng-click="doSearch(result)"></button>
-                    </div>
-                </div>
-
+                </div>-->
             </md-tab-body>
         </md-tab>
         <md-tab md-active="isRouteFormVisible">
             <md-tab-body>
-
-                <div class="routeMenuHome desktopLayout" >
+                <div class="routeMenuHome desktopLayout">
                     <div class="stepContainerHome">
                         <div class="stepIconContainerHome">
                             <img class="stepIconHome" src="./images/Home/1_busca.png">
@@ -89,12 +71,16 @@
                             <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_TIP"></p>
                         </div>
                         <div class="inputContainerHome">
-                            <input ng-focus="deleteText('routeToController.routeFrom')" ng-blur="searchIsInCundinamarca(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')" class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeFrom"/>
+                            <input ng-focus="deleteText('routeToController.routeFrom')"
+                                   ng-blur="searchIsInCundinamarca(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')"
+                                   class="form-control" g-places-autocomplete options="autocompleteOptions"
+                                   ng-model="routeToController.routeFrom"/>
                             <div class="currentLocationHomeContainer">
                                 <button class="btn btn-default" aria-label="Left Align" ng-click="getUserPosition()">
                                     <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
                                 </button>
-                                <md-progress-circular class="loadingSitesOnMap" ng-show="loadingCurrentPosition" md-mode="indeterminate" ></md-progress-circular>
+                                <md-progress-circular class="loadingSitesOnMap" ng-show="loadingCurrentPosition"
+                                                      md-mode="indeterminate"></md-progress-circular>
                                 <p class="subTitleHome currentLocation" translate="CURRENT_LOCATION"></p>
                             </div>
                         </div>
@@ -108,56 +94,18 @@
                             <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP_TIP"></p>
                         </div>
                         <div class="inputContainerHomeRouteTo">
-                            <input ng-focus="deleteText('routeToController.routeTo')" ng-blur="searchIsInCundinamarca(routeToController.routeTo.geometry.location.lat(),routeToController.routeTo.geometry.location.lng(),'routeToController.routeTo')" class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeTo"/>
+                            <input ng-focus="deleteText('routeToController.routeTo')"
+                                   ng-blur="searchIsInCundinamarca(routeToController.routeTo.geometry.location.lat(),routeToController.routeTo.geometry.location.lng(),'routeToController.routeTo')"
+                                   class="form-control" g-places-autocomplete options="autocompleteOptions"
+                                   ng-model="routeToController.routeTo"/>
                         </div>
                     </div>
                     <div class="searchButtonContainerHome">
-                        <button class="searchButtonHome" aria-label="Ruta" translate="MAKE_ROUTE" ng-click="calculateRoute()"></button>
+                        <button class="searchButtonHome" aria-label="Ruta" translate="MAKE_ROUTE"
+                                ng-click="calculateRoute()"></button>
                     </div>
                 </div>
 
-                <div class="mobileLayout stepsContainerMobileHome">
-                    <div class="stepContainerHomeMobile">
-                        <div class="stepTextMobileContainerHome">
-                            <div class="stepIconContainerHome">
-                                <img class="stepIconHome" src="./images/Home/1_busca.png">
-                            </div>
-                            <div class="textContainerHome">
-                                <p class="stepTitleHome" translate="SEARCH_TAB_MAP_HOME"></p>
-                                <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_TIP"></p>
-                            </div>
-                        </div>
-                        <div class="inputContainerHomeRouteFromText">
-                            <p class="routeStartingPointTips startingPointText" translate="STARTING_POINT"></p>
-                            <p class="routeStartingPointTips currentPointText" translate="CURRENT_LOCATION"></p>
-                        </div>
-                        <div class="inputContainerHomeRouteFrom">
-                            <input ng-focus="deleteText('routeToController.routeFrom')" ng-blur="searchIsInCundinamarca(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')" class="form-control inputFrom" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeFrom"/>
-                            <button class="btn btn-default currentLocationButtonMobile" aria-label="Left Align" ng-click="getUserPosition()">
-                                <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
-                            </button>
-                            <md-progress-circular class="loadingSitesOnMap" ng-show="loadingCurrentPosition" md-mode="indeterminate" ></md-progress-circular>
-                        </div>
-                    </div>
-                    <div class="stepsDividerHomeMobile"></div>
-                    <div class="step2ndContainerHomeMobile">
-                        <div class="step2ndTextMobileContainerHome">
-                            <div class="stepIconContainerHome">
-                                <img class="stepIconHome" src="./images/Home/2_busca.png">
-                            </div>
-                            <div class="textContainerHome">
-                                <p class="step2ndTitleHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP"></p>
-                                <p class="subTitl2ndeHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP_TIP"></p>
-                            </div>
-                        </div>
-                        <div class="inputContainerHome">
-                            <input ng-focus="deleteText('routeToController.routeTo')" ng-blur="searchIsInCundinamarca(routeToController.routeTo.geometry.location.lat(),routeToController.routeTo.geometry.location.lng(),'routeToController.routeTo')" class="form-control" g-places-autocomplete options="autocompleteOptions" ng-model="routeToController.routeTo"/>
-                        </div>
-                    </div>
-                    <div class="searchButtonContainerHome">
-                        <button class="searchButtonHome" aria-label="Ruta" translate="MAKE_ROUTE" ng-click="calculateRoute()"></button>
-                    </div>
-                </div>
 
             </md-tab-body>
         </md-tab>

@@ -1,5 +1,3 @@
-/* AUTOCOMPLETE */
-
 .autocomplete{
   width: 100%;
   position: relative;
@@ -7,13 +5,14 @@
 
 .autocomplete input{
   width: 100%;
-  border-radius: 10px;
+  border-radius: 5px;
   font-family: 'PT Sans', sans-serif;
   border: 1px solid #B6EDEA;
   font-weight: normal;
   font-size: 1.5em;
   color: #868684;
   background: #B6EDEA;
+  padding: 5px 10px;
 }
 
 .autocomplete ul{

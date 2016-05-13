@@ -1,4 +1,36 @@
-.mobileLayout{
+.tab-content {
+    padding: 20px 5px;
+}
+
+.keyword-search {
+    background-color: #97D3E8;
+}
+
+.route-search {
+    background-color: #32A2D4;
+}
+
+.tab-content .label1 {
+    color: #2D3C4D;
+    font-size: 1.3em;
+    font-family: 'PT Sans', sans-serif;
+    padding: 0 5px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 250px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.tab-content .icon {
+    height: 40px;
+}
+
+.tab-content .input {
+    display: inline-block;
+}
+
+.mobileLayout {
     display: none;
 }
 
@@ -11,15 +43,13 @@
     justify-content: space-between;
 }
 
-.stepContainerHome{
+.stepContainerHome {
     height: 100%;
     width: 36%;
     margin-left: 14%;
     display: flex;
     flex-flow: row wrap;
 }
-
-
 
 .stepIconContainerHome {
     width: 10%;
@@ -39,7 +69,7 @@
 }
 
 .textContainerHome {
-    width:42%;
+    width: 42%;
     height: 100%;
     margin-top: 3%;
 
@@ -78,18 +108,18 @@
     justify-content: space-around;
 }
 
-.currentLocationHomeContainer{
+.currentLocationHomeContainer {
     display: flex;
     flex-flow: row wrap;
     height: 100%;
 }
 
-.currentLocationHome{
+.currentLocationHome {
     background-color: #0000FF;
     width: 14%;
 }
 
-.categoryContainerHome{
+.categoryContainerHome {
     width: 100%;
 
     height: 5%;
@@ -100,7 +130,6 @@
 
 .searchButtonContainerHome {
     width: 100%;
-
 
     display: flex;
     flex-flow: row wrap;
@@ -125,7 +154,7 @@
     justify-content: center;
 }
 
-.stepContainerHomeRight{
+.stepContainerHomeRight {
     height: 100%;
     width: 36%;
     margin-right: 14%;
@@ -142,7 +171,7 @@
     justify-content: space-between;
 }
 
-.currentLocation{
+.currentLocation {
     margin-left: 10px;
 }
 
@@ -157,22 +186,20 @@
     flex-flow: column wrap;
 }
 
-
-md-tabs-content-wrapper{
+md-tabs-content-wrapper {
     top: 0.1px !important;
 }
 
-md-tabs-canvas{
+md-tabs-canvas {
     height: 0 !important;
 }
 
-
 @media screen and (max-width: 1000px) {
-    .desktopLayout{
+    .desktopLayout {
         display: none;
     }
 
-    .mobileLayout{
+    .mobileLayout {
         display: flex;
     }
 
@@ -184,7 +211,7 @@ md-tabs-canvas{
 
     }
 
-    .stepContainerHomeMobile{
+    .stepContainerHomeMobile {
         height: 65%;
         width: 100%;
 
@@ -192,8 +219,7 @@ md-tabs-canvas{
         flex-flow: column wrap;
     }
 
-
-    .stepTextMobileContainerHome{
+    .stepTextMobileContainerHome {
         width: 100%;
         height: 30%;
 
@@ -203,18 +229,18 @@ md-tabs-canvas{
 
     }
 
-    .stepIconContainerHome{
+    .stepIconContainerHome {
         width: 15%;
         margin-top: 0%;
     }
 
-    .stepIconHome{
+    .stepIconHome {
         height: 6vmin;
         width: 6vmin;
         margin-top: 15%;
     }
 
-    .textContainerHome{
+    .textContainerHome {
         width: 85%;
         margin-top: 0%;
         padding-right: 15%;
@@ -244,7 +270,7 @@ md-tabs-canvas{
         flex-flow: column wrap;
     }
 
-    .inputContainerHomeRouteFromText{
+    .inputContainerHomeRouteFromText {
         width: 70%;
         height: 3%;
         margin: 2% 15% 0% 15%;
@@ -264,28 +290,28 @@ md-tabs-canvas{
         flex-flow: row wrap;
     }
 
-    .routeStartingPointTips{
+    .routeStartingPointTips {
         color: #285453;
         font-size: 2.0vmin;
     }
 
-    .startingPointText{
+    .startingPointText {
         margin-left: 20%;
     }
 
-    .currentPointText{
+    .currentPointText {
         margin-left: 38%;
     }
 
-    .inputFrom{
+    .inputFrom {
         width: 65%;
     }
 
-    .currentLocationButtonMobile{
+    .currentLocationButtonMobile {
         margin-left: 20%;
     }
 
-    .categoryContainerHome{
+    .categoryContainerHome {
         width: 100%;
         height: 60%;
         margin-top: 4%;
@@ -300,7 +326,7 @@ md-tabs-canvas{
         background-color: #5FF0BF;
     }
 
-    .step2ndContainerHomeMobile{
+    .step2ndContainerHomeMobile {
         height: 34.5%;
         width: 100%;
 
@@ -308,7 +334,7 @@ md-tabs-canvas{
         flex-flow: column wrap;
     }
 
-    .step2ndTextMobileContainerHome{
+    .step2ndTextMobileContainerHome {
         width: 100%;
         height: 45%;
 
@@ -317,7 +343,7 @@ md-tabs-canvas{
         flex-flow: row wrap;
     }
 
-    .step2ndTitleHome{
+    .step2ndTitleHome {
         font-size: 3.5vmin;
         color: #2EAAA4;
         font-weight: bold;
@@ -325,7 +351,7 @@ md-tabs-canvas{
 
     }
 
-    .subTitl2ndeHome{
+    .subTitl2ndeHome {
         font-size: 2.7vmin;
         color: #285453;
 

@@ -2,7 +2,7 @@
 }
 
 .keyword-search {
-    background-color: #3BC6D0;
+    background-color: #97D3E8;
     padding: 15px 20px;
 }
 
@@ -13,18 +13,18 @@
 .search-section .label {
     font-size: 1em;
     font-family: 'PT Sans', sans-serif;
-    color: white;
+    color: #2D3C4D;
     padding: 0 5px;
     vertical-align: middle;
 }
 
 .route-search {
-    background-color: #D19637;
+    background-color: #32A2D4;
     padding: 15px 20px;
 }
 
 .keyword-search-underline {
-    border-bottom: 5px solid #5FF0BF;
+    border-bottom: 5px solid #FFE061;
 }
 
 .no-underline {
@@ -32,7 +32,7 @@
 }
 
 .route-search-underline {
-    border-bottom: 5px solid #ffc520;
+    border-bottom: 5px solid #FFC501;
 }
 
 /* Extra small devices (phones, less than 768px) */

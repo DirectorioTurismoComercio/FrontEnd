@@ -7,7 +7,7 @@
 }
 
 .how-it-works .text {
-    color: white;
+    color: #f2f2f2;
     text-align: center;
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
@@ -16,12 +16,12 @@
 }
 
 .button {
-    border: 1px solid #5FF0BF;
+    border: 1px solid #FFC501;
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
     font-size: 2.8vmin;
-    background-color: #5FF0BF;
-    color: #285453;
+    background-color: #FFC501;
+    color: #2D3C4D;
     padding: 5px;
     margin-top: 2%;
     margin-bottom: 5%;
