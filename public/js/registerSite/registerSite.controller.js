@@ -49,6 +49,10 @@ angular.module('registerSite')
             fd.append('nombre', $scope.businessName);
             fd.append('descripcion', $scope.businessDescription);
             fd.append('municipio',siteAndTownSaverService.getCurrentSearchedTown().id);
+            fd.append('telefono',$scope.sitePhoneNumber);
+            fd.append('horariolocal',$scope.openingHours);
+            fd.append('correolocal',$scope.businessEmail);
+            fd.append('ubicacionlocal', $scope.businessAddress);
 
 
             $http.post(API_CONFIG.url+API_CONFIG.sitio, fd,
