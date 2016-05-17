@@ -91,6 +91,8 @@ angular.module('map')
         };
 
         $scope.showRouteToSite = function (site) {
+            $scope.loading = true;
+            SiteMarkerService.deleteMarkers();
             MapService.getUserPosition(function (position) {
                 var destination = site.latitud + "," + site.longitud;
 
