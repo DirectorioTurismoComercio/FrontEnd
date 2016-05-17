@@ -30,52 +30,53 @@
         </md-tab>
         <md-tab md-active="isRouteFormVisible">
             <md-tab-body>
-                <div class="routeMenuHome desktopLayout">
-                    <div class="stepContainerHome">
-                        <div class="stepIconContainerHome">
-                            <img class="stepIconHome" src="./images/Home/1_busca.png">
+                <div class="col-xs-12 tab-content route-search">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="icon" src="./images/icons/paso1.png">
+                                    <p class="label1" translate="SEARCH_TAB_MAP_HOME"></p>
+                                    <p class="label1" translate="SEARCH_TAB_MAP_HOME_TIP"></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <input ng-focus="deleteText('routeToController.routeFrom')"
+                                           ng-blur="searchIsInCundinamarca(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')"
+                                           class="form-control" g-places-autocomplete options="autocompleteOptions"
+                                           ng-model="routeToController.routeFrom"/>
+                                    <div class="">
+                                        <img class="icon" src="./images/icons/mi-ubicacion.png"
+                                             ng-click="getUserPosition()">
+                                        <md-progress-circular class="loadingSitesOnMap" ng-show="loadingCurrentPosition"
+                                                              md-mode="indeterminate"></md-progress-circular>
+                                        <p class="tip" translate="CURRENT_LOCATION"></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="textContainerHome">
-                            <p class="stepTitleHome" translate="SEARCH_TAB_MAP_HOME"></p>
-                            <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_TIP"></p>
-                        </div>
-                        <div class="inputContainerHome">
-                            <input ng-focus="deleteText('routeToController.routeFrom')"
-                                   ng-blur="searchIsInCundinamarca(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')"
-                                   class="form-control" g-places-autocomplete options="autocompleteOptions"
-                                   ng-model="routeToController.routeFrom"/>
-                            <div class="currentLocationHomeContainer">
-                                <button class="btn btn-default" aria-label="Left Align" ng-click="getUserPosition()">
-                                    <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
-                                </button>
-                                <md-progress-circular class="loadingSitesOnMap" ng-show="loadingCurrentPosition"
-                                                      md-mode="indeterminate"></md-progress-circular>
-                                <p class="subTitleHome currentLocation" translate="CURRENT_LOCATION"></p>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="icon" src="./images/icons/paso2.png">
+                                    <p class="label1" translate="SEARCH_TAB_MAP_HOME_2NDSTEP"></p>
+                                    <p class="tip" translate="SEARCH_TAB_MAP_HOME_2NDSTEP_TIP"></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <input ng-focus="deleteText('routeToController.routeTo')"
+                                           ng-blur="searchIsInCundinamarca(routeToController.routeTo.geometry.location.lat(),routeToController.routeTo.geometry.location.lng(),'routeToController.routeTo')"
+                                           class="form-control" g-places-autocomplete options="autocompleteOptions"
+                                           ng-model="routeToController.routeTo"/>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="stepContainerHomeRight">
-                        <div class="stepIconContainerHome">
-                            <img class="stepIconHome" src="./images/Home/2_busca.png">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <button class="button" aria-label="Ruta" translate="MAKE_ROUTE"
+                                    ng-click="calculateRoute()"></button>
                         </div>
-                        <div class="textContainerHome">
-                            <p class="stepTitleHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP"></p>
-                            <p class="subTitleHome" translate="SEARCH_TAB_MAP_HOME_2NDSTEP_TIP"></p>
-                        </div>
-                        <div class="inputContainerHomeRouteTo">
-                            <input ng-focus="deleteText('routeToController.routeTo')"
-                                   ng-blur="searchIsInCundinamarca(routeToController.routeTo.geometry.location.lat(),routeToController.routeTo.geometry.location.lng(),'routeToController.routeTo')"
-                                   class="form-control" g-places-autocomplete options="autocompleteOptions"
-                                   ng-model="routeToController.routeTo"/>
-                        </div>
-                    </div>
-                    <div class="searchButtonContainerHome">
-                        <button class="searchButtonHome" aria-label="Ruta" translate="MAKE_ROUTE"
-                                ng-click="calculateRoute()"></button>
                     </div>
                 </div>
-
-
             </md-tab-body>
         </md-tab>
     </md-tabs>
