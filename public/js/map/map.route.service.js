@@ -8,18 +8,17 @@ angular.module('map')
             var routeData = {
                 origin: {
                     lat: (typeof origin.lat === "function") ? origin.lat() : origin.lat,
-                    lng: (typeof origin.lat === "function") ? origin.lng() : origin.lng
+                    lng: (typeof origin.lng === "function") ? origin.lng() : origin.lng
                 },
                 destination: {
-                    lat: destination.lat(),
-                    lng: destination.lng()
+                    lat: (typeof destination.lat === "function") ? destination.lat() : destination.lat,
+                    lng: (typeof destination.lat === "function") ? destination.lng() : destination.lng
                 },
                 travelMode: google.maps.TravelMode.DRIVING
             };
 
             MapService.getDirectionsService().route(routeData, function (result, status) {
                 var points = [];
-
                 if (status == google.maps.DirectionsStatus.OK) {
                     MapService.getDirectionsDisplay().setDirections(result);
 

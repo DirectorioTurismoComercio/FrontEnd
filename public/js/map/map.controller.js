@@ -88,11 +88,8 @@ angular.module('map')
             $scope.loading = true;
             SiteMarkerService.deleteMarkers();
             MapService.getUserPosition(function (position) {
-                var destination = site.latitud + "," + site.longitud;
-
-                userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
-                var origin = userPosition.lat + "," + userPosition.lng;
-
+                var destination=MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
+                var origin = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
                 MapRouteService.calulateRoute(origin, destination, $scope);
             }, handleLocationError);
         };
