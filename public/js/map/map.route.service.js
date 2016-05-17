@@ -61,14 +61,22 @@ angular.module('map')
                 })
         }
 
+        function transformPointName(point){
+            if((point.formatted_address).indexOf(point.name)>-1){
+                return point.formatted_address;
+            }else{
+                return point.name+", "+point.formatted_address;
+            }
+        }
+
         function setOriginData(originData){
             siteAndTownSaverService.setOrigin(originData.geometry.location);
-            siteAndTownSaverService.setCurrentOriginPlaceName(originData.formatted_address);
+            siteAndTownSaverService.setCurrentOriginPlaceName(transformPointName(originData));
         }
 
         function setDestinationData(destinationData){
             siteAndTownSaverService.setDestination(destinationData.geometry.location);
-            siteAndTownSaverService.setCurrentDestinationPlaceName(destinationData.formatted_address);
+            siteAndTownSaverService.setCurrentDestinationPlaceName(transformPointName(destinationData));
         }
 
         return {
