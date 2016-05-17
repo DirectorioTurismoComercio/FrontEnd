@@ -7,7 +7,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
+                <img class="hamburguer-icon" src="./images/icons/hamburguesa.png">
             </button>
         </div>
 
@@ -16,8 +16,16 @@
                 <li><a href="#/howitworks">¿Cómo funciona?</a></li>
                 <li><a href="">Ingreso comercios</a></li>
                 <li><a href="">Registra tu comercio</a></li>
-                <li><a ng-click="changeLanguage('es')">ES</a></li>
-                <li><a ng-click="changeLanguage('en')">EN</a></li>
+                <li>
+                    <a class="language-buttons">
+                        <div class="language-button" ng-click="changeLanguage('es')"
+                             ng-class="selectedLanguage == 'es' ? 'selected-language' : ''">ES
+                        </div>
+                        <div class="language-button left-bar" ng-click="changeLanguage('en')"
+                             ng-class="selectedLanguage == 'en' ? 'selected-language' : ''">EN
+                        </div>
+                    </a>
+                <li></li>
             </ul>
         </div>
     </div>

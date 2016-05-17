@@ -1,6 +1,9 @@
 angular.module('appHeader', [])
     .controller('appHeaderController', function ($scope, $translate, $location, siteAndTownSaverService) {
+        $scope.selectedLanguage = 'es';
+
         $scope.changeLanguage = function (language) {
+            $scope.selectedLanguage = language;
             $translate.use(language);
         }
 
