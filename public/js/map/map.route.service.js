@@ -2,13 +2,13 @@
 
 angular.module('map')
     .service('MapRouteService', function ($window, CUNDINAMARCA_COORDS, $http, MapService, sitesNearRoute,
-                                          SiteMarkerService) {
+                                          SiteMarkerService, popErrorAlertService, siteAndTownSaverService) {
 
         function calulateRoute(origin, destination, $scope) {
             var routeData = {
                 origin: {
-                    lat: (typeof origin.lat ==="function")? origin.lat() : origin.lat,
-                    lng: (typeof origin.lat ==="function")? origin.lng() : origin.lng
+                    lat: (typeof origin.lat === "function") ? origin.lat() : origin.lat,
+                    lng: (typeof origin.lat === "function") ? origin.lng() : origin.lng
                 },
                 destination: {
                     lat: destination.lat(),
@@ -32,6 +32,19 @@ angular.module('map')
             });
         }
 
+        function setOriginAndDestinationdata(originData, destinationData) {
+            if (originData == '' || destinationData == '') {
+                popErrorAlertService.showPopErrorAlert("Indique un punto de partida y un destino");
+                return false;
+            } else {
+                if (originData != "Mi posición actual") {
+                    setOriginData(originData);
+                }
+                setDestinationData(destinationData);
+                return true;
+            }
+        }
+
         function drawRouteSites(points, $scope) {
             sitesNearRoute.getSitesNearRoute(points).success(function (sites) {
 
@@ -48,7 +61,18 @@ angular.module('map')
                 })
         }
 
+        function setOriginData(originData){
+            siteAndTownSaverService.setOrigin(originData.geometry.location);
+            siteAndTownSaverService.setCurrentOriginPlaceName(originData.formatted_address);
+        }
+
+        function setDestinationData(destinationData){
+            siteAndTownSaverService.setDestination(destinationData.geometry.location);
+            siteAndTownSaverService.setCurrentDestinationPlaceName(destinationData.formatted_address);
+        }
+
         return {
-            calulateRoute: calulateRoute
+            calulateRoute: calulateRoute,
+            setOriginAndDestinationdata: setOriginAndDestinationdata
         }
     });

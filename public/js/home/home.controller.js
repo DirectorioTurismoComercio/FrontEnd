@@ -1,42 +1,34 @@
 'use strict';
 
 angular.module('home')
-    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService, popErrorAlertService) {
+    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService, popErrorAlertService, MapRouteService) {
 
-        $scope.routeToController={
-            routeFrom:'',
-            routeTo:''
+        $scope.routeToController = {
+            routeFrom: '',
+            routeTo: ''
         }
 
         $scope.doSearch = function (result) {
-            if(result!= undefined){
+            if (result != undefined) {
                 getSites(result);
             }
-            else{
+            else {
                 popErrorAlertService.showPopErrorAlert("Por favor ingrese un criterio de busqueda");
             }
         };
 
-        $scope.calculateRoute=function(){
-            if($scope.routeToController.routeFrom=='' || $scope.routeToController.routeTo==''){
-                popErrorAlertService.showPopErrorAlert("Indique un punto de partida y un destino");
-            }else{
-                if($scope.routeToController.routeFrom!="Mi posición actual"){
-                    siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.geometry.location);
-                    siteAndTownSaverService.setCurrentOriginPlaceName($scope.routeToController.routeFrom.formatted_address);
-                }
-                siteAndTownSaverService.setDestination($scope.routeToController.routeTo.geometry.location);
-                siteAndTownSaverService.setCurrentDestinationPlaceName($scope.routeToController.routeTo.formatted_address);
+        $scope.calculateRoute = function () {
+            if(MapRouteService.setOriginAndDestinationdata($scope.routeToController.routeFrom, $scope.routeToController.routeTo, 'home')){
                 siteAndTownSaverService.setSearchedRoute("", "");
                 $location.path('/map');
             }
-        }
+        };
 
-        $scope.goToHowItWorks=function(){
+        $scope.goToHowItWorks = function () {
             $location.path('/howitworks');
         }
 
-        function getSites(result){
+        function getSites(result) {
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 if (response.length > 0) {
                     siteAndTownSaverService.setCurrentSearchedSite(result);

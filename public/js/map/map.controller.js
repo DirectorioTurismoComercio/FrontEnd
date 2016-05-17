@@ -38,15 +38,7 @@ angular.module('map')
         }
 
         $scope.calculateRoute = function () {
-            if ($scope.routeToController.routeFrom == '' || $scope.routeToController.routeTo == '') {
-                popErrorAlertService.showPopErrorAlert("Indique un punto de partida y un destino");
-            } else {
-                if ($scope.routeToController.routeFrom != "Mi posición actual") {
-                    siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.geometry.location);
-                    siteAndTownSaverService.setCurrentOriginPlaceName($scope.routeToController.routeFrom.formatted_address);
-                }
-                siteAndTownSaverService.setDestination($scope.routeToController.routeTo.geometry.location);
-                siteAndTownSaverService.setCurrentDestinationPlaceName($scope.routeToController.routeTo.formatted_address);
+            if(MapRouteService.setOriginAndDestinationdata($scope.routeToController.routeFrom, $scope.routeToController.routeTo)){
                 showRoute();
             }
         };
