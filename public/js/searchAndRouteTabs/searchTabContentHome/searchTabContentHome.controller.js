@@ -1,6 +1,6 @@
 angular.module('searchAndRouteTabs')
     .controller('searchTabContentHomeController', function ($scope, geolocation, popErrorAlertService,
-                                                            siteAndTownSaverService, CUNDINAMARCA_COORDS) {
+                                                            siteAndTownSaverService, CUNDINAMARCA_COORDS, MapService) {
         var cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
         $scope.loadingCurrentPosition = false;
         $scope.autocompleteOptions = {
@@ -28,10 +28,9 @@ angular.module('searchAndRouteTabs')
         $scope.getUserPosition = function () {
             $scope.loadingCurrentPosition = true;
             geolocation.getLocation().then(function (data) {
-                var coords = {lat: data.coords.latitude, long: data.coords.longitude};
-                var formattedCoords = coords.lat + ',' + coords.long;
+                var coords = MapService.coordsToLatLng(data.coords.latitude, data.coords.longitude);
                 $scope.routeToController.routeFrom = "Mi posición actual";
-                siteAndTownSaverService.setOrigin(formattedCoords);
+                siteAndTownSaverService.setOrigin(coords);
                 $scope.loadingCurrentPosition = false;
             }).catch(function (error) {
                 $scope.loadingCurrentPosition = false;
@@ -40,9 +39,9 @@ angular.module('searchAndRouteTabs')
         };
 
         function setSearchedRoutePlaceHolders() {
-            (siteAndTownSaverService.getOrigin().indexOf('4.') > -1 && siteAndTownSaverService.getOrigin().indexOf('-74.') > -1) ?
-                $scope.routeToController.routeFrom = "Mi posición actual" : $scope.routeToController.routeFrom = siteAndTownSaverService.getOrigin();
-            $scope.routeToController.routeTo = siteAndTownSaverService.getDestination();
+            (typeof siteAndTownSaverService.getOrigin().lat === "function") ?
+                $scope.routeToController.routeFrom = siteAndTownSaverService.getCurrentOriginPlaceName() : $scope.routeToController.routeFrom = "Mi posición actual";
+            $scope.routeToController.routeTo = siteAndTownSaverService.getCurrentDestinationPlaceName();
         }
 
         function clearText(model) {

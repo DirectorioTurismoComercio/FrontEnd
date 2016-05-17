@@ -6,8 +6,14 @@ angular.module('map')
 
         function calulateRoute(origin, destination, $scope) {
             var routeData = {
-                origin: origin,
-                destination: destination,
+                origin: {
+                    lat: (typeof origin.lat ==="function")? origin.lat() : origin.lat,
+                    lng: (typeof origin.lat ==="function")? origin.lng() : origin.lng
+                },
+                destination: {
+                    lat: destination.lat(),
+                    lng: destination.lng()
+                },
                 travelMode: google.maps.TravelMode.DRIVING
             };
 
@@ -41,7 +47,6 @@ angular.module('map')
                     console.log("Hubo un error", error);
                 })
         }
-
 
         return {
             calulateRoute: calulateRoute

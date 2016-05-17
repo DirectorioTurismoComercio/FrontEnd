@@ -44,6 +44,18 @@ describe('siteAndTownSaver Service', function () {
         expect(siteAndTownSaverService.getDestination()).toBe('Tobia');
     });
 
+    it('should set and get current origin place name', function () {
+        var currentOriginPlaceName='Tenjo';
+        siteAndTownSaverService.setCurrentOriginPlaceName(currentOriginPlaceName);
+        expect(siteAndTownSaverService.getCurrentOriginPlaceName()).toBe('Tenjo');
+    });
+
+    it('should set and get current destination place name', function () {
+        var currentDestinationPlaceName='Chía';
+        siteAndTownSaverService.setCurrentDestinationPlaceName(currentDestinationPlaceName);
+        expect(siteAndTownSaverService.getCurrentDestinationPlaceName()).toBe('Chía');
+    });
+
     it('should set and get Searched query', function () {
         siteAndTownSaverService.setSearchedQuery(searchedQuery.query, searchedQuery.town);
         var receivedSearchedQuery=siteAndTownSaverService.getSearchedQuery();

@@ -42,9 +42,11 @@ angular.module('map')
                 popErrorAlertService.showPopErrorAlert("Indique un punto de partida y un destino");
             } else {
                 if ($scope.routeToController.routeFrom != "Mi posición actual") {
-                    siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.formatted_address);
+                    siteAndTownSaverService.setOrigin($scope.routeToController.routeFrom.geometry.location);
+                    siteAndTownSaverService.setCurrentOriginPlaceName($scope.routeToController.routeFrom.formatted_address);
                 }
-                siteAndTownSaverService.setDestination($scope.routeToController.routeTo.formatted_address);
+                siteAndTownSaverService.setDestination($scope.routeToController.routeTo.geometry.location);
+                siteAndTownSaverService.setCurrentDestinationPlaceName($scope.routeToController.routeTo.formatted_address);
                 showRoute();
             }
         };
