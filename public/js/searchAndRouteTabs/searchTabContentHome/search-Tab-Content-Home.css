@@ -1,9 +1,20 @@
 .tab-content {
-    padding: 20px 5px;
+    padding: 0;
 }
 
 .keyword-search {
-    background-color: #97D3E8;
+}
+
+.keyword-search .button {
+    width: 200px;
+    height: 50px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    background-color: #FFC501;
+    color: #2D3C4D;
+    padding: 5px 10px;
+    margin: 7px 0px;
 }
 
 .route-search {
@@ -12,9 +23,10 @@
 
 .tab-content .label1 {
     color: #2D3C4D;
-    font-size: 1.3em;
+    font-size: 0.9em;
     font-family: 'PT Sans', sans-serif;
-    padding: 0 5px;
+    font-weight: 300;
+    padding: 15px 5px;
     vertical-align: middle;
     display: inline-block;
     width: 250px;
@@ -23,167 +35,11 @@
 }
 
 .tab-content .icon {
-    height: 40px;
+    height: 30px;
 }
 
 .tab-content .input {
     display: inline-block;
-}
-
-.mobileLayout {
-    display: none;
-}
-
-.stepsContainerDesktopHome {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-}
-
-.stepContainerHome {
-    height: 100%;
-    width: 36%;
-    margin-left: 14%;
-    display: flex;
-    flex-flow: row wrap;
-}
-
-.stepIconContainerHome {
-    width: 10%;
-    height: 100%;
-    margin-top: 3%;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-
-}
-
-.stepIconHome {
-    height: 3vmin;
-    width: 3vmin;
-    margin-left: 10%;
-}
-
-.textContainerHome {
-    width: 42%;
-    height: 100%;
-    margin-top: 3%;
-
-    display: flex;
-    flex-flow: column wrap;
-}
-
-.titleContainerHome {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-flow: column wrap;
-}
-
-.stepTitleHome {
-    color: #2EAAA4;
-    font-size: 1.8vmin;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: bold;
-    margin-top: 3%;
-}
-
-.subTitleHome {
-    color: #285453;
-    font-size: 1.5vmin;
-}
-
-.inputContainerHome {
-    width: 48%;
-    height: auto;
-    margin-top: 3%;
-    padding-right: 2%;
-    padding-left: 2%;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-around;
-}
-
-.currentLocationHomeContainer {
-    display: flex;
-    flex-flow: row wrap;
-    height: 100%;
-}
-
-.currentLocationHome {
-    background-color: #0000FF;
-    width: 14%;
-}
-
-.categoryContainerHome {
-    width: 100%;
-
-    height: 5%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
-.searchButtonContainerHome {
-    width: 100%;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-
-}
-
-.searchButtonHome {
-    width: 30%;
-    height: 3%;
-    margin: 1% 35% 1% 35%;
-    border: 1px solid #B6EDEA;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: bold;
-    font-size: 1.8vmin;
-    background-color: #B6EDEA;
-    color: #2B91C8;
-    padding: 5px;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
-.stepContainerHomeRight {
-    height: 100%;
-    width: 36%;
-    margin-right: 14%;
-    display: flex;
-    flex-flow: row wrap;
-}
-
-.routeMenuHome {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-}
-
-.currentLocation {
-    margin-left: 10px;
-}
-
-.inputContainerHomeRouteTo {
-    width: 48%;
-    height: auto;
-    margin-top: 3%;
-    padding-top: 2%;
-    padding-right: 2%;
-    padding-left: 2%;
-    display: flex;
-    flex-flow: column wrap;
 }
 
 md-tabs-content-wrapper {
@@ -194,187 +50,46 @@ md-tabs-canvas {
     height: 0 !important;
 }
 
-@media screen and (max-width: 1000px) {
-    .desktopLayout {
-        display: none;
-    }
-
-    .mobileLayout {
-        display: flex;
-    }
-
-    .stepsContainerMobileHome {
-        width: 100%;
-
-        display: flex;
-        flex-flow: column wrap;
-
-    }
-
-    .stepContainerHomeMobile {
-        height: 65%;
-        width: 100%;
-
-        display: flex;
-        flex-flow: column wrap;
-    }
-
-    .stepTextMobileContainerHome {
-        width: 100%;
-        height: 30%;
-
-        margin-top: 11%;
-        display: flex;
-        flex-flow: row wrap;
-
-    }
-
-    .stepIconContainerHome {
-        width: 15%;
-        margin-top: 0%;
-    }
-
-    .stepIconHome {
-        height: 6vmin;
-        width: 6vmin;
-        margin-top: 15%;
-    }
-
-    .textContainerHome {
-        width: 85%;
-        margin-top: 0%;
-        padding-right: 15%;
-    }
-
-    .stepTitleHome {
-        color: #2EAAA4;
-        font-size: 3.8vmin;
-        margin-top: 3%;
-    }
-
-    .subTitleHome {
-        color: #285453;
-        font-size: 3.0vmin;
-        margin-top: 0%;
-    }
-
-    .inputContainerHome {
-        width: 44%;
-        height: 3%;
-        margin-top: 2%;
-        margin-bottom: 2%;
-        margin-left: 15%;
-        padding-right: 0%;
-        padding-left: 0%;
-        display: flex;
-        flex-flow: column wrap;
-    }
-
-    .inputContainerHomeRouteFromText {
-        width: 70%;
-        height: 3%;
-        margin: 2% 15% 0% 15%;
-        padding-right: 0%;
-        padding-left: 0%;
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    .inputContainerHomeRouteFrom {
-        width: 70%;
-        height: 3%;
-        margin: 0% 15% 2% 15%;
-        padding-right: 0%;
-        padding-left: 0%;
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    .routeStartingPointTips {
-        color: #285453;
-        font-size: 2.0vmin;
-    }
-
-    .startingPointText {
-        margin-left: 20%;
-    }
-
-    .currentPointText {
-        margin-left: 38%;
-    }
-
-    .inputFrom {
-        width: 65%;
-    }
-
-    .currentLocationButtonMobile {
-        margin-left: 20%;
-    }
-
-    .categoryContainerHome {
-        width: 100%;
-        height: 60%;
-        margin-top: 4%;
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    .stepsDividerHomeMobile {
-        width: 90%;
-        margin: 0% 5% 0% 5%;
-        height: 2px;
-        background-color: #5FF0BF;
-    }
-
-    .step2ndContainerHomeMobile {
-        height: 34.5%;
-        width: 100%;
-
-        display: flex;
-        flex-flow: column wrap;
-    }
-
-    .step2ndTextMobileContainerHome {
-        width: 100%;
-        height: 45%;
-
-        margin-top: 3%;
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    .step2ndTitleHome {
-        font-size: 3.5vmin;
-        color: #2EAAA4;
-        font-weight: bold;
-        margin-top: 3%;
-
-    }
-
-    .subTitl2ndeHome {
-        font-size: 2.7vmin;
-        color: #285453;
-
-    }
-
-    .searchButtonHome {
-        width: 90%;
-        height: 5%;
-        margin: 1% 5% 0% 5%;
-        border: 1px solid #B6EDEA;
-        font-family: 'PT Sans', sans-serif;
-        font-weight: bold;
-        font-size: 2.5vmin;
-        background-color: #B6EDEA;
-        color: #2B91C8;
-        padding: 5px;
-
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) {
+    .tab-content {
+        padding: 20px 0px !important;
     }
 }
 
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .tab-content {
+        padding: 20px 5px;
+    }
 
+    .keyword-search {
+    }
+
+    .route-search {
+    }
+
+    .tab-content .label1 {
+        font-size: 1.3em;
+        font-weight: 300;
+        padding: 0 5px;
+        width: 250px;
+    }
+
+    .tab-content .icon {
+        height: 40px;
+    }
+
+    .tab-content .input {
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
 
 

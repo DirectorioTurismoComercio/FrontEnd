@@ -15,17 +15,13 @@
     width: 80%;
 }
 
-.button {
-    border: 1px solid #FFC501;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: bold;
-    font-size: 2.8vmin;
+.how-it-works .button {
+    border: none;
     background-color: #FFC501;
     color: #2D3C4D;
-    padding: 5px;
-    margin-top: 2%;
-    margin-bottom: 5%;
     padding: 10px 20px;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 .searchAndRouteSection {

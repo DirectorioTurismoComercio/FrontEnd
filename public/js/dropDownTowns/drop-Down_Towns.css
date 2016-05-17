@@ -1,10 +1,15 @@
 .dropDownTowns{
-    width: 82%;
-    padding: 0%;
-    margin-bottom: 10%;
-    height: 1%;
-    border-radius: 10px;
-    border: 1px solid #B6EDEA;
-    background: #B6EDEA;
+    width: 250px;
+    padding: 2px 10px;
+    border-radius: 5px;
+    border: none;
+    background: #fff;
     color: #868684;
+    font-size: 1.1em;
+}
+
+.md-select-label {
+    border: none !important;
+    padding: 0 !important;
+    min-height: inherit !important;
 }
