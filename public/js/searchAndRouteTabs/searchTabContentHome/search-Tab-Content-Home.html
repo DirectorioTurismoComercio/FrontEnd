@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input ng-focus="deleteText('routeToController.routeFrom')"
-                                           ng-blur="searchIsInCundinamarca(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')"
+                                           ng-blur="searchFieldIsFill(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')"
                                            class="form-control" g-places-autocomplete options="autocompleteOptions"
                                            ng-model="routeToController.routeFrom"/>
                                     <div class="">
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input ng-focus="deleteText('routeToController.routeTo')"
-                                           ng-blur="searchIsInCundinamarca(routeToController.routeTo.geometry.location.lat(),routeToController.routeTo.geometry.location.lng(),'routeToController.routeTo')"
+                                           ng-blur="searchFieldIsFill(routeToController.routeTo.geometry.location.lat(),routeToController.routeTo.geometry.location.lng(),'routeToController.routeTo')"
                                            class="form-control" g-places-autocomplete options="autocompleteOptions"
                                            ng-model="routeToController.routeTo"/>
                                 </div>

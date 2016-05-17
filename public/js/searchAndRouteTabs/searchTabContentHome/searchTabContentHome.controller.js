@@ -15,13 +15,11 @@ angular.module('searchAndRouteTabs')
             clearText(model);
         };
 
-        $scope.searchIsInCundinamarca = function (latitude, longitude, model) {
-            var coords = new google.maps.LatLng(latitude, longitude);
-            cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
-
-            if (!google.maps.geometry.poly.containsLocation(coords, cundinamarcaPolygon)) {
-                popErrorAlertService.showPopErrorAlert("El lugar seleccionado no esta disponible por el momento");
-                clearText(model);
+        $scope.searchFieldIsFill = function (latitude, longitude, model) {
+            if (latitude == undefined || longitude == undefined) {
+                checkEmptyField(model);
+            } else {
+                serachIfSiteIsInCundinamarca(latitude, longitude, model);
             }
         };
 
@@ -42,6 +40,24 @@ angular.module('searchAndRouteTabs')
             (typeof siteAndTownSaverService.getOrigin().lat === "function") ?
                 $scope.routeToController.routeFrom = siteAndTownSaverService.getCurrentOriginPlaceName() : $scope.routeToController.routeFrom = "Mi posición actual";
             $scope.routeToController.routeTo = siteAndTownSaverService.getCurrentDestinationPlaceName();
+        }
+
+        function checkEmptyField(model){
+            if(model=='routeToController.routeFrom'){
+                popErrorAlertService.showPopErrorAlert('Por favor no olvide ingresar un punto de partida');
+            }
+            if(model=='routeToController.routeTo'){
+                popErrorAlertService.showPopErrorAlert('Por favor no olvide ingresar un punto de destino');
+            }
+        }
+
+        function serachIfSiteIsInCundinamarca(latitude, longitude, model) {
+            var coords = new google.maps.LatLng(latitude, longitude);
+            cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
+            if (!google.maps.geometry.poly.containsLocation(coords, cundinamarcaPolygon)) {
+                popErrorAlertService.showPopErrorAlert("El lugar seleccionado no esta disponible por el momento");
+                clearText(model);
+            }
         }
 
         function clearText(model) {
