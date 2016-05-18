@@ -1,5 +1,9 @@
 {
-  "BUTTON_HOW_IT_WORKS": "¿Cómo funciona?",
+  "HEADER_CONSTANTS":{
+    "LOGIN_TRADER":"Ingreso comerciante",
+    "REGISTER_BUSINESS":"Registra tu comercio"
+  },
+  "HOW_IT_WORKS": "¿Cómo funciona?",
   "CAROUSEL_TEXT": "Descubre lo que Cundinamarca tiene para ofrecerte en parques naturales",
   "SEARCH_TAB": "¿Qué buscas?",
   "PLAN_YOUR_TRIP": "Arma tu ruta",

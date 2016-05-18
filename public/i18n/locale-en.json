@@ -1,5 +1,9 @@
 {
-  "BUTTON_HOW_IT_WORKS": "How it works?",
+  "HEADER_CONSTANTS":{
+    "LOGIN_TRADER":"Login trader",
+    "REGISTER_BUSINESS":"Register your business"
+  },
+  "HOW_IT_WORKS": "How it works?",
   "CAROUSEL_TEXT": "Discover what Cundinamarca has to offer about natural parks",
   "SEARCH_TAB": "¿What are you looking for?",
   "PLAN_YOUR_TRIP": "Plan your trip",
