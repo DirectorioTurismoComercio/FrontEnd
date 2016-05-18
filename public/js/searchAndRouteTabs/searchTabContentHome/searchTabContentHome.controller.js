@@ -16,9 +16,7 @@ angular.module('searchAndRouteTabs')
         };
 
         $scope.searchFieldIsFill = function (latitude, longitude, model) {
-            if (latitude == undefined || longitude == undefined) {
-                checkEmptyField(model);
-            } else {
+            if (latitude != undefined || longitude != undefined) {
                 serachIfSiteIsInCundinamarca(latitude, longitude, model);
             }
         };
@@ -40,15 +38,6 @@ angular.module('searchAndRouteTabs')
             (typeof siteAndTownSaverService.getOrigin().lat === "function") ?
                 $scope.routeToController.routeFrom = siteAndTownSaverService.getCurrentOriginPlaceName() : $scope.routeToController.routeFrom = "Mi posición actual";
             $scope.routeToController.routeTo = siteAndTownSaverService.getCurrentDestinationPlaceName();
-        }
-
-        function checkEmptyField(model){
-            if(model=='routeToController.routeFrom'){
-                popErrorAlertService.showPopErrorAlert('Por favor no olvide ingresar un punto de partida');
-            }
-            if(model=='routeToController.routeTo'){
-                popErrorAlertService.showPopErrorAlert('Por favor no olvide ingresar un punto de destino');
-            }
         }
 
         function serachIfSiteIsInCundinamarca(latitude, longitude, model) {
