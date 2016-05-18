@@ -1,11 +1,6 @@
 .search-section {
 }
 
-.keyword-search {
-    background-color: #97D3E8;
-    padding: 15px 20px;
-}
-
 .search-section .icon {
     height: 25px;
 }
@@ -19,21 +14,22 @@
     border-radius: 0;
 }
 
+.keyword-search {
+    background-color: #97D3E8;
+    padding: 15px 20px;
+}
+
 .route-search {
     background-color: #32A2D4;
     padding: 15px 20px;
 }
 
-.keyword-search-underline {
-    border-bottom: 5px solid #FDE64E;
+.underline {
+    border-bottom: 3px solid #FDE64E;
 }
 
 .no-underline {
     border-bottom: none;
-}
-
-.route-search-underline {
-    border-bottom: 5px solid #FDE64E;
 }
 
 /* Extra small devices (phones, less than 768px) */
@@ -53,6 +49,10 @@
     .search-section .label {
         font-size: 2em;
         padding: 0 5px;
+    }
+
+    .underline {
+        border-width: 5px;
     }
 }
 

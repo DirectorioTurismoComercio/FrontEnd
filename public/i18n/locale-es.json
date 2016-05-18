@@ -1,7 +1,7 @@
 {
-  "HEADER_CONSTANTS":{
-    "LOGIN_TRADER":"Ingreso comerciante",
-    "REGISTER_BUSINESS":"Registra tu comercio"
+  "HEADER_CONSTANTS": {
+    "LOGIN_TRADER": "Ingreso comerciante",
+    "REGISTER_BUSINESS": "Registra tu comercio"
   },
   "HOW_IT_WORKS": "¿Cómo funciona?",
   "CAROUSEL_TEXT": "Descubre lo que Cundinamarca tiene para ofrecerte en parques naturales",
@@ -31,22 +31,23 @@
   "HOW_IT_WORKS_3RD_STEP_DESCRIPTION": "Planea tu aventura y sorpéndete con las maravillas de Cundinamarca",
   "REGISTER_SITE_CONSTANTS": {
     "PHOTOS": "Fotos",
-    "CHOOSE_IMAGES":"Elegir imágenes",
+    "CHOOSE_IMAGES": "Elegir imágenes",
     "BUSINESS_PHONE": "Teléfono",
     "BUSINESS_OPENINGHOURS": "Horario de atención",
     "BUSINESS_NAME": "Nombre del local",
     "BUSINESS_LOCATION": "Ubicación del local",
     "BUSINESS_DESCRIPTION": "Descripción del local",
     "BUSINESS_EMAIL": "Correo",
-    "BUSINESS_ADDRESS":"Dirección del local",
+    "BUSINESS_ADDRESS": "Dirección del local",
     "BUSINESS_CATEGORY": "Categoria",
-    "CHOOSE_CATEGORY":"-- Elija categoria --",
+    "CHOOSE_CATEGORY": "-- Elija categoria --",
     "BUSINESS_SUBCATEGORY": "Subcategoria",
-    "CHOOSE_SUBCATEGORY":"-- Elija subcategoria --",
+    "CHOOSE_SUBCATEGORY": "-- Elija subcategoria --",
     "BUSINESS_REGISTER_BUTTON": "Registrar local",
-    "REQUIRED_FIELD":"Campo requerido",
-    "PHONE_VALIDATION":"Debe ser un número telefónico de mínimo 7 y máximo 10 digitos",
-    "EMAIL_VALIDATION":"Verifique el correo",
-    "FIELDS_VALIDATION":"Verifique Los campos"
-  }
+    "REQUIRED_FIELD": "Campo requerido",
+    "PHONE_VALIDATION": "Debe ser un número telefónico de mínimo 7 y máximo 10 digitos",
+    "EMAIL_VALIDATION": "Verifique el correo",
+    "FIELDS_VALIDATION": "Verifique Los campos"
+  },
+  "STARTING_POINT_TIP": "Indica tu punto de partida"
 }

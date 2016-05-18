@@ -14,7 +14,7 @@
     margin: 15px 0;
 }
 
-.tab-content .label1 {
+.tab-content .data-label {
     color: #2D3C4D;
     font-size: 1.1em;
     font-weight: bolder;
@@ -27,6 +27,19 @@
     margin: 0;
 }
 
+.tab-content .data-description {
+    color: #2D3C4D;
+    font-size: 1.1em;
+    font-weight: normal;
+    padding: 0;
+    vertical-align: middle;
+    display: inline-block;
+    width: 230px;
+    text-align: justify;
+    vertical-align: middle;
+    margin: 0;
+}
+
 .tab-content .icon {
     height: 30px;
 }
@@ -35,8 +48,19 @@
     display: inline-block;
 }
 
-.tab-content .data-input {
+.tab-content .input-section {
     padding: 15px 10px;
+}
+
+.route-search .data-label {
+    width: 230px;
+    padding: 0;
+}
+
+.route-search .tip {
+    font-size: 0.9em;
+    color: #fff;
+    margin: 0;
 }
 
 md-tabs-content-wrapper {
@@ -60,7 +84,7 @@ md-tabs-canvas {
         padding: 20px 5px;
     }
 
-    .tab-content .label1 {
+    .tab-content .data-label {
         font-size: 1.3em;
         padding: 0 5px;
         width: 250px;
@@ -74,6 +98,10 @@ md-tabs-canvas {
         width: 400px;
         font-size: 1.3em;
         margin: 15px 0 0 0;
+    }
+
+    .route-search .data-label {
+        padding: 0;
     }
 }
 

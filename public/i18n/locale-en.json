@@ -1,7 +1,7 @@
 {
-  "HEADER_CONSTANTS":{
-    "LOGIN_TRADER":"Login trader",
-    "REGISTER_BUSINESS":"Register your business"
+  "HEADER_CONSTANTS": {
+    "LOGIN_TRADER": "Login trader",
+    "REGISTER_BUSINESS": "Register your business"
   },
   "HOW_IT_WORKS": "How it works?",
   "CAROUSEL_TEXT": "Discover what Cundinamarca has to offer about natural parks",
@@ -31,23 +31,23 @@
   "HOW_IT_WORKS_3RD_STEP_DESCRIPTION": "Plan your adventure and be amazed with the wonders of Cundinamarca",
   "REGISTER_SITE_CONSTANTS": {
     "PHOTOS": "Photos",
-    "CHOOSE_IMAGES":"Choose images",
+    "CHOOSE_IMAGES": "Choose images",
     "BUSINESS_PHONE": "Phone number",
     "BUSINESS_OPENINGHOURS": "Opening hours",
     "BUSINESS_NAME": "Business Name",
     "BUSINESS_LOCATION": "Business current location",
     "BUSINESS_DESCRIPTION": "Business Description",
     "BUSINESS_EMAIL": "Email",
-    "BUSINESS_ADDRESS":"Business address",
+    "BUSINESS_ADDRESS": "Business address",
     "BUSINESS_CATEGORY": "Category",
-    "CHOOSE_CATEGORY":"-- Choose category --",
-    "CHOOSE_SUBCATEGORY":"-- Choose subcategory --",
+    "CHOOSE_CATEGORY": "-- Choose category --",
+    "CHOOSE_SUBCATEGORY": "-- Choose subcategory --",
     "BUSINESS_SUBCATEGORY": "Subcategory",
     "BUSINESS_REGISTER_BUTTON": "Register Business",
-    "REQUIRED_FIELD":"Required field",
-    "PHONE_VALIDATION":"It must be a phone number with min. 7 and max. 10 digits",
-    "EMAIL_VALIDATION":"Verify the email",
-    "FIELDS_VALIDATION":"Verify all the fields"
-
-  }
+    "REQUIRED_FIELD": "Required field",
+    "PHONE_VALIDATION": "It must be a phone number with min. 7 and max. 10 digits",
+    "EMAIL_VALIDATION": "Verify the email",
+    "FIELDS_VALIDATION": "Verify all the fields"
+  },
+  "STARTING_POINT_TIP": "Your starting point"
 }
