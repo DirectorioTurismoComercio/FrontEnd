@@ -1,6 +1,6 @@
 angular.module('dropDownTowns', [])
-    .controller('dropDownTownsController', function ($scope, MunicipiosFactory, siteAndTownSaverService) {
-        setSelectlabelTownShowed();
+    .controller('dropDownTownsController', function ($scope, MunicipiosFactory, siteAndTownSaverService, $translate, $rootScope) {
+
 
         $scope.selectTown = function (index) {
             siteAndTownSaverService.setCurrentSearchedTown($scope.municipios[index]);
@@ -9,13 +9,24 @@ angular.module('dropDownTowns', [])
 
         MunicipiosFactory.getTowns().then(function (response) {
             $scope.municipios = response;
-            $scope.isonregistersite != true ? addOption('Todo Cundinamarca') : addOption('Seleccione municipio');
+            setSelectlabelTownShowed();
         }).catch(function (error) {
             console.log("Ocurrio un error", error);
         });
 
+        $rootScope.$on('$translateChangeSuccess', function () {
+            if($translate.use()=='es'){
+                addOption('Todo Cundinamarca');
+            }
+
+            if($translate.use()=='en'){
+                addOption('All Cundinamarca');
+            }
+            setSelectlabelTownShowed();
+        });
+
         function addOption(name) {
-            $scope.municipios.splice(0, 0, {
+            $scope.municipios.splice(0, 1, {
                 nombre: name,
             });
         }
@@ -23,16 +34,21 @@ angular.module('dropDownTowns', [])
         function setSelectlabelTownShowed() {
             var currentSelectedTown = siteAndTownSaverService.getCurrentSearchedTown();
             if (currentSelectedTown == null) {
-                $scope.isonregistersite != true ? setSelectedTown('Todo Cundinamarca') : setSelectedTown('Seleccione municipio');
+                setAllCundinamarcaLabel();
             }
             else {
-                setSelectedTown(currentSelectedTown.nombre);
+                $scope.selectedTown = currentSelectedTown.nombre;
             }
         }
 
-        function setSelectedTown(name) {
-            $scope.selectedTown = {
-                nombre: name,
+        function setAllCundinamarcaLabel(){
+            if($translate.use()=='es'){
+                $scope.selectedTown = 'Todo Cundinamarca';
+            }
+
+            if($translate.use()=='en'){
+                $scope.selectedTown = 'All Cundinamarca';
             }
         }
+
     });
