@@ -3,28 +3,28 @@
 }
 
 .tab-content .button {
-    width: 200px;
-    height: 50px;
+    width: 250px;
+    height: 40px;
     border: none;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
     background-color: #FFC501;
     color: #2D3C4D;
     padding: 5px 10px;
-    margin: 7px 0px;
+    margin: 15px 0;
 }
 
 .tab-content .label1 {
     color: #2D3C4D;
-    font-size: 0.9em;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 300;
+    font-size: 1.1em;
+    font-weight: bolder;
     padding: 15px 5px;
     vertical-align: middle;
     display: inline-block;
     width: 250px;
     text-align: left;
     vertical-align: middle;
+    margin: 0;
 }
 
 .tab-content .icon {
@@ -33,6 +33,10 @@
 
 .tab-content .input {
     display: inline-block;
+}
+
+.tab-content .data-input {
+    padding: 15px 10px;
 }
 
 md-tabs-content-wrapper {
@@ -46,7 +50,7 @@ md-tabs-canvas {
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .tab-content {
-        padding: 20px 0px !important;
+        padding: 0px !important;
     }
 }
 
@@ -56,24 +60,20 @@ md-tabs-canvas {
         padding: 20px 5px;
     }
 
-    .keyword-search {
-    }
-
-    .route-search {
-    }
-
     .tab-content .label1 {
         font-size: 1.3em;
-        font-weight: 300;
         padding: 0 5px;
         width: 250px;
     }
 
     .tab-content .icon {
-        height: 40px;
+        height: 50px;
     }
 
-    .tab-content .input {
+    .tab-content .button {
+        width: 400px;
+        font-size: 1.3em;
+        margin: 15px 0 0 0;
     }
 }
 
