@@ -4,7 +4,6 @@ angular.module('businessBrowser', [])
         setValue();
 
         $scope.lookForSuggestions = function (typedthings) {
-            console.log("entro a sugerencias");
             $scope.newresults = ResultRetriever.getresults(typedthings, "SuggestionsFactory");
             $scope.newresults.then(function (data) {
                 $scope.results = data;
