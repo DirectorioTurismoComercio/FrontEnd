@@ -6,7 +6,7 @@
 
 (function(){
   angular.module('gemStore')
-  .directive('autocomplete', function() {
+  .directive('autocomplete', function($translate, $rootScope) {
   var index = -1;
   return {
     restrict: 'E',
@@ -97,6 +97,15 @@
         $scope.setIndex(-1);
       };
 
+      $rootScope.$on('$translateChangeSuccess', function () {
+        if($translate.use()=='en'){
+          $scope.attrs.placeholder='What are you looking for?';
+        }
+        if($translate.use()=='es')
+        {
+          $scope.attrs.placeholder='¿Qué buscas?';
+        }
+      });
 
     }],
     link: function(scope, element, attrs){
@@ -110,7 +119,7 @@
 
       // Default atts
       scope.attrs = {
-        "placeholder": "start typing...",
+        "placeholder": "¿Qué buscas?",
         "class": "",
         "id": "",
         "inputclass": "",
