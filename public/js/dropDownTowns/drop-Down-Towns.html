@@ -1,4 +1,5 @@
-<md-select class="dropDownTowns" ng-model="selectedTown" aria-label="municipios" placeholder=%%selectedTown.nombre%%>
+<md-select class="dropDownTowns" ng-model="selectedTown" aria-label="municipios">
+    <md-select-label>%%selectedTown.nombre%%</md-select-label>
     <md-option ng-repeat="municipio in municipios" value="%%municipio.id%%"
                  ng-click="selectTown($index)">
         %%municipio.nombre%%
