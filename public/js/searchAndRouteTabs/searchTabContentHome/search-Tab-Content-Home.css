@@ -63,6 +63,24 @@
     margin: 0;
 }
 
+.route-search .icon {
+    vertical-align: top;
+}
+
+.route-search .my-position-icon {
+    height: 25px;
+}
+
+.route-search .inline-block {
+    display: inline-block;
+}
+
+.route-search .label-with-description {
+    width: 240px;
+    display: inline-block;
+    vertical-align: top
+}
+
 md-tabs-content-wrapper {
     top: 0.1px !important;
 }
@@ -102,6 +120,14 @@ md-tabs-canvas {
 
     .route-search .data-label {
         padding: 0;
+    }
+
+    .route-search .my-position-icon {
+        height: 25px;
+    }
+
+    .route-search .inline-block {
+        display: block;
     }
 }
 

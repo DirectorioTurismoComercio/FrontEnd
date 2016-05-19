@@ -33,55 +33,42 @@
                 <div class="col-xs-12 tab-content route-search">
                     <div class="row">
                         <div class="col-md-6 input-section">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-7">
-                                    <div class="col-xs-2">
-                                        <img class="icon" src="./images/icons/paso1.png">
-                                    </div>
-                                    <div class="col-xs-10">
-                                        <p class="data-label" translate="SEARCH_TAB_MAP_HOME"></p>
-                                        <p class="data-description" translate="SEARCH_TAB_MAP_HOME_TIP"></p>
-                                    </div>
+                            <img class="icon" src="./images/icons/paso1.png">
+                            <div class="label-with-description">
+                                <p class="data-label" translate="SEARCH_TAB_MAP_HOME"></p>
+                                <p class="data-description" translate="SEARCH_TAB_MAP_HOME_TIP"></p>
+                            </div>
+                            <div class="input">
+                                <div class="inline-block">
+                                    <p class="tip" translate="STARTING_POINT_TIP"></p>
+                                    <input ng-focus="deleteText('routeToController.routeFrom')"
+                                           ng-blur="searchFieldIsFill(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')"
+                                           class="form-control" g-places-autocomplete options="autocompleteOptions"
+                                           ng-model="routeToController.routeFrom"/>
                                 </div>
-                                <div class="col-xs-12 col-md-5">
-                                    <div class="col-xs-6 col-md-12">
-                                        <p class="tip" translate="STARTING_POINT_TIP"></p>
-                                        <input ng-focus="deleteText('routeToController.routeFrom')"
-                                               ng-blur="searchFieldIsFill(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')"
-                                               class="form-control" g-places-autocomplete options="autocompleteOptions"
-                                               ng-model="routeToController.routeFrom"/>
-                                    </div>
-                                    <div class="col-xs-6 col-md-12">
-                                        <p class="tip" translate="CURRENT_LOCATION"></p>
-                                        <img class="icon" src="./images/icons/mi-ubicacion.png"
-                                             ng-click="getUserPosition()">
-                                    </div>
+                                <div class="inline-block">
+                                    <p class="tip" translate="CURRENT_LOCATION"></p>
+                                    <img class="my-position-icon" src="./images/icons/mi-ubicacion.png"
+                                         ng-click="getUserPosition()">
+                                    <!--<md-progress-circular class="loadingSitesOnMap"  ng-show="loadingCurrentPosition" md-mode="indeterminate"></md-progress-circular>-->
                                 </div>
-
-                                <!--<md-progress-circular class="loadingSitesOnMap"
-                                                      ng-show="loadingCurrentPosition"
-                                                      md-mode="indeterminate"></md-progress-circular>-->
                             </div>
                         </div>
-                        <div class="col-md-6 input-section">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-7">
-                                    <div class="col-xs-2">
-                                        <img class="icon" src="./images/icons/paso2.png">
-                                    </div>
-                                    <div class="col-xs-10">
-                                        <p class="data-label" translate="SEARCH_TAB_MAP_HOME_2NDSTEP"></p>
-                                        <p class="data-description" translate="SEARCH_TAB_MAP_HOME_2NDSTEP_TIP"></p>
-                                    </div>
-                                </div>
 
-                                <div class="col-xs-12 col-md-5">
-                                    <input ng-focus="deleteText('routeToController.routeTo')"
-                                           ng-blur="searchFieldIsFill(routeToController.routeTo.geometry.location.lat(),routeToController.routeTo.geometry.location.lng(),'routeToController.routeTo')"
-                                           class="form-control" g-places-autocomplete
-                                           options="autocompleteOptions"
-                                           ng-model="routeToController.routeTo"/>
-                                </div>
+
+                        <div class="col-md-6 input-section">
+                            <img class="icon" src="./images/icons/paso2.png">
+                            <div class="label-with-description">
+                                <p class="data-label" translate="SEARCH_TAB_MAP_HOME_2NDSTEP"></p>
+                                <p class="data-description" translate="SEARCH_TAB_MAP_HOME_2NDSTEP_TIP"></p>
+                            </div>
+
+                            <div class="input">
+                                <input ng-focus="deleteText('routeToController.routeTo')"
+                                       ng-blur="searchFieldIsFill(routeToController.routeTo.geometry.location.lat(),routeToController.routeTo.geometry.location.lng(),'routeToController.routeTo')"
+                                       class="form-control" g-places-autocomplete
+                                       options="autocompleteOptions"
+                                       ng-model="routeToController.routeTo"/>
                             </div>
                         </div>
                     </div>

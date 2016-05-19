@@ -53,10 +53,6 @@
                     templateUrl: 'templates/profile/profile-update.html',
                     required_roles: 'user'
                 })
-                .when('/comoFunciona', {
-                    controller: 'ComoFuncionaController',
-                    templateUrl: 'templates/signin/como_funciona.html'
-                })
                 .when('/index', {
                     templateUrl: 'templates/index.html',
                 })
