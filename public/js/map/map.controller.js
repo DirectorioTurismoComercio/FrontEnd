@@ -11,8 +11,8 @@ angular.module('map')
         $scope.foundSites = [];
         $scope.map = {
             center: {
-                latitude: 4.6363623,
-                longitude: -74.0854427
+                latitude: siteAndTownSaverService.getCurrentSearchedTown()==undefined ? 4.6363623 : parseFloat(siteAndTownSaverService.getCurrentSearchedTown().latitud),
+                longitude: siteAndTownSaverService.getCurrentSearchedTown()==undefined ? -74.0854427 : parseFloat(siteAndTownSaverService.getCurrentSearchedTown().longitud)
             },
             control: {},
             zoom: 9
@@ -100,12 +100,9 @@ angular.module('map')
         };
 
         function centerMap(selectedTown) {
-            console.log("municipio sleccionado", selectedTown);
             if ((selectedTown.nombre).indexOf('Cundinamarca') == -1) {
-                console.log("entro a otro municpio"),
                 centerMapToSelectedTown(selectedTown);
             } else {
-                console.log("entro a cundinamarca");
                 centerMapToCundinamrca();
             }
         }

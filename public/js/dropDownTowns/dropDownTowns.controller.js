@@ -29,6 +29,8 @@ angular.module('dropDownTowns', [])
         function addOption(name) {
             $scope.municipios.splice(0, 1, {
                 nombre: name,
+                latitud: 4.6363623,
+                longitud: -74.0854427
             });
         }
 
