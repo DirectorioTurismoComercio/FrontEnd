@@ -30,6 +30,7 @@ angular.module('map')
 
             if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
                 showFoundPlaces();
+
             }
 
             if (siteAndTownSaverService.getOrigin() != undefined) {
@@ -38,7 +39,7 @@ angular.module('map')
         }
 
         $scope.calculateRoute = function () {
-            if(MapRouteService.setOriginAndDestinationdata($scope.routeToController.routeFrom, $scope.routeToController.routeTo)){
+            if (MapRouteService.setOriginAndDestinationdata($scope.routeToController.routeFrom, $scope.routeToController.routeTo)) {
                 showRoute();
             }
         };
@@ -77,6 +78,10 @@ angular.module('map')
             if (result != undefined) {
                 $scope.hideSiteDetail();
                 $scope.loading = true;
+                var selectedTown = siteAndTownSaverService.getCurrentSearchedTown();
+                if (selectedTown != undefined) {
+                    centerMap(selectedTown);
+                }
                 drawSitesByKeyWord(result);
             }
             else {
@@ -88,11 +93,32 @@ angular.module('map')
             $scope.loading = true;
             SiteMarkerService.deleteMarkers();
             MapService.getUserPosition(function (position) {
-                var destination=MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
+                var destination = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
                 var origin = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
                 MapRouteService.calulateRoute(origin, destination, $scope);
             }, handleLocationError);
         };
+
+        function centerMap(selectedTown) {
+            console.log("municipio sleccionado", selectedTown);
+            if ((selectedTown.nombre).indexOf('Cundinamarca') == -1) {
+                console.log("entro a otro municpio"),
+                centerMapToSelectedTown(selectedTown);
+            } else {
+                console.log("entro a cundinamarca");
+                centerMapToCundinamrca();
+            }
+        }
+
+        function centerMapToSelectedTown(selectedTown) {
+            var townPosition = MapService.coordsToLatLng(parseFloat(selectedTown.latitud), parseFloat(selectedTown.longitud));
+            MapService.moveMapToPosition(townPosition, 12);
+        }
+
+        function centerMapToCundinamrca() {
+            var cundinamarcaPosition = MapService.coordsToLatLng($scope.map.center.latitude, $scope.map.center.longitude);
+            MapService.moveMapToPosition(cundinamarcaPosition, 9);
+        }
 
         function drawSitesByKeyWord(result) {
             SearchForResultsFactory.doSearch(result).then(function (response) {
@@ -135,7 +161,7 @@ angular.module('map')
         function setUserPositionAsRouteOrigin(position) {
             userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
             siteAndTownSaverService.setOrigin(userPosition);
-            MapService.moveMapToPosition(userPosition);
+            MapService.moveMapToPosition(userPosition, 12);
             MapService.addMarker(userPosition);
         }
 

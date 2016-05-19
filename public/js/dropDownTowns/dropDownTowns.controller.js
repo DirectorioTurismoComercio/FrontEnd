@@ -44,15 +44,15 @@ angular.module('dropDownTowns', [])
 
         function setCundinamarcaLabel() {
             if ($translate.use() == 'es') {
-                checkLabelDependOnTemplate('Todo Cundinamarca', 'Seleccione municipio');
+                setLabelDependOnTemplate('Todo Cundinamarca', 'Seleccione municipio');
             }
 
             if ($translate.use() == 'en') {
-                checkLabelDependOnTemplate('All Cundinamarca', 'Select town');
+                setLabelDependOnTemplate('All Cundinamarca', 'Select town');
             }
         }
 
-        function checkLabelDependOnTemplate(homeMessage, registerSiteMessage) {
+        function setLabelDependOnTemplate(homeMessage, registerSiteMessage) {
             if ($scope.isonregistersite != true) {
                 $scope.selectedTown = homeMessage;
             } else {
