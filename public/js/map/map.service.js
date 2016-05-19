@@ -103,9 +103,9 @@ angular.module('map')
             return bounds;
         }
 
-        function moveMapToPosition(position) {
+        function moveMapToPosition(position,zoom) {
             gMap.setCenter(position);
-            gMap.setZoom(15);
+            gMap.setZoom(zoom);
         }
 
         function clearMarkers() {

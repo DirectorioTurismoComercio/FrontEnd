@@ -10,11 +10,10 @@
             };
 
             function doSearch(result) {
-                var municipio=siteAndTownSaverService.getCurrentSearchedTown();
+                var town=siteAndTownSaverService.getCurrentSearchedTown();
                 var querySet=undefined;
-                console.log("el municipio sel", municipio);
-                if(municipio){
-                    querySet={search: result, id_municipio:municipio.id};
+                if(town){
+                    querySet={search: result, id_municipio:town.id};
                 }
                 else{
                     querySet={search: result};
