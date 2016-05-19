@@ -1,3 +1,12 @@
+html {
+    font-family: 'PT Sans', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
 .container-fluid {
     padding-left: 0;
     padding-right: 0;
@@ -10,3 +19,34 @@
 .no-padding {
     padding: 0;
 }
+
+.button {
+    width: 80%;
+    height: 40px;
+    border: none;
+    font-weight: bold;
+    font-size: 100%;
+    background-color: #FFC501;
+    color: #2D3C4D;
+    padding: 0;
+}
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) {
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .button {
+        width: 50%;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+

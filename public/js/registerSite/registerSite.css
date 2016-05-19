@@ -1,11 +1,58 @@
-input.ng-invalid.ng-dirty{
-    border:1px solid red;
+.register-site {
+
 }
 
-textarea.ng-invalid.ng-dirty{
-    border:1px solid red;
+.register-site .header {
+    background-color: #efefef;
 }
 
-tags-input.ng-invalid.ng-dirty{
-    border:1px solid red;
+.icon-container {
+    padding: 10px 0px;
+}
+
+.icon > i {
+    position: relative;
+    top: calc(50% - 10px); /* 50% - 3/4 of icon height */
+}
+
+.progress-bar1 {
+    padding: 10px 0 0;
+    list-style: none;
+    height: 30px;
+    width: 100%;
+    font-size: 0;
+}
+
+.progress-bar1 > li {
+    display: inline-block;
+    width: calc(100% / 4);
+    height: 15px;
+    background: #b6b6b6;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    border-left: 0px;
+}
+
+.progress-bar1 li:first-child {
+    border-left: 1px solid #000;
+}
+
+.progress-bar1 .done-step {
+    background: #26d23a;
+}
+
+.progress-bar1 .current-step {
+    background: #DE6525;
+}
+
+input.ng-invalid.ng-dirty {
+    border: 1px solid red;
+}
+
+textarea.ng-invalid.ng-dirty {
+    border: 1px solid red;
+}
+
+tags-input.ng-invalid.ng-dirty {
+    border: 1px solid red;
 }

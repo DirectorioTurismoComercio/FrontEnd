@@ -1,4 +1,45 @@
-<app-header></app-header>
+<div class="register-site">
+    <wizard on-finish="finishedWizard()" hide-indicators="true">
+        <div class="row header">
+            <div class="col-xs-2 col-md-1 text-center icon-container" wz-previous>
+                <i class="fa fa-arrow-left fa-lg " aria-hidden="true"></i>
+            </div>
+            <h4 class="col-xs-8 col-md-10 text-center">Página 2</h4>
+            <div class="col-xs-2 col-md-1 text-center icon-container" wz-next>
+                <i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
+            </div>
+        </div>
+        <ul class="progress-bar1">
+            <li class="done-step"></li>
+            <li class="current-step"></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <wz-step wz-title="Starting">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <input class="button" type="submit" wz-next value="Siguiente"/>
+                </div>
+            </div>
+        </wz-step>
+        <wz-step wz-title="Continuing">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <input class="button" type="submit" wz-next value="Siguiente"/>
+                </div>
+            </div>
+        </wz-step>
+        <wz-step wz-title="More steps">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <input class="button" type="submit" wz-next value="Finalizar"/>
+                </div>
+            </div>
+        </wz-step>
+    </wizard>
+</div>
+
 <label translate="REGISTER_SITE_CONSTANTS.PHOTOS"></label>
 
 <form name="businessForm">
@@ -68,7 +109,6 @@
         </select>
         <span ng-show="businessForm.catefory.$error.required" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
     </div>
-
 
 
     <div>
