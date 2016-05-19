@@ -3,7 +3,7 @@
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory,
                                            MapService, SiteMarkerService, $location, popErrorAlertService,
-                                           siteAndTownSaverService, MapRouteService) {
+                                           siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS) {
         var userPosition = {};
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
@@ -20,13 +20,15 @@ angular.module('map')
         $scope.routeToController = {
             routeFrom: '',
             routeTo: ''
-        }
+        };
+
 
 
         uiGmapIsReady.promise().then(initMap);
 
         function initMap() {
             MapService.setGMap($scope.map.control.getGMap());
+            setCundinamarcaPolygon();
 
             if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
                 showFoundPlaces();
@@ -98,6 +100,17 @@ angular.module('map')
                 MapRouteService.calulateRoute(origin, destination, $scope);
             }, handleLocationError);
         };
+
+        function setCundinamarcaPolygon(){
+            new google.maps.Polygon({
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.1,
+                strokeWeight: 2,
+                fillColor: '#bbffff',
+                paths: CUNDINAMARCA_COORDS,
+                map: $scope.map.control.getGMap()
+            });
+        }
 
         function centerMap(selectedTown) {
             if ((selectedTown.nombre).indexOf('Cundinamarca') == -1) {
