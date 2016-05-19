@@ -9,19 +9,19 @@ angular.module('dropDownTowns', [])
 
         MunicipiosFactory.getTowns().then(function (response) {
             $scope.municipios = response;
-            $scope.isonregistersite!=true ? addOption('Todo Cundinamarca') : addOption('Seleccione municipio');
+            $scope.isonregistersite != true ? addOption('Todo Cundinamarca') : addOption('Seleccione municipio');
             setSelectlabelTownShowed();
         }).catch(function (error) {
             console.log("Ocurrio un error", error);
         });
 
         $rootScope.$on('$translateChangeSuccess', function () {
-            if($translate.use()=='es'){
-                $scope.isonregistersite!=true ? addOption('Todo Cundinamarca') : addOption('Seleccione municipio');
+            if ($translate.use() == 'es') {
+                $scope.isonregistersite != true ? addOption('Todo Cundinamarca') : addOption('Seleccione municipio');
             }
 
-            if($translate.use()=='en'){
-                $scope.isonregistersite!=true ? addOption('All Cundinamarca') : addOption('Select town');
+            if ($translate.use() == 'en') {
+                $scope.isonregistersite != true ? addOption('All Cundinamarca') : addOption('Select town');
             }
             setSelectlabelTownShowed();
         });
@@ -34,32 +34,28 @@ angular.module('dropDownTowns', [])
 
         function setSelectlabelTownShowed() {
             var currentSelectedTown = siteAndTownSaverService.getCurrentSearchedTown();
-            if (currentSelectedTown == undefined) {
+            if (currentSelectedTown == undefined || (currentSelectedTown.nombre).indexOf('Cundinamarca') > -1 || (currentSelectedTown.nombre).indexOf('Selec') > -1) {
                 setCundinamarcaLabel();
             }
             else {
-                if((currentSelectedTown.nombre).indexOf('Cundinamarca')>-1 || (currentSelectedTown.nombre).indexOf('Selec')>-1){
-                    setCundinamarcaLabel();
-                }else{
-                    $scope.selectedTown = currentSelectedTown.nombre;
-                }
+                $scope.selectedTown = currentSelectedTown.nombre;
             }
         }
 
-        function setCundinamarcaLabel(){
-            if($translate.use()=='es'){
+        function setCundinamarcaLabel() {
+            if ($translate.use() == 'es') {
                 checkLabelDependOnTemplate('Todo Cundinamarca', 'Seleccione municipio');
             }
 
-            if($translate.use()=='en'){
+            if ($translate.use() == 'en') {
                 checkLabelDependOnTemplate('All Cundinamarca', 'Select town');
             }
         }
 
-        function checkLabelDependOnTemplate(homeMessage,registerSiteMessage){
-            if($scope.isonregistersite!=true){
+        function checkLabelDependOnTemplate(homeMessage, registerSiteMessage) {
+            if ($scope.isonregistersite != true) {
                 $scope.selectedTown = homeMessage;
-            }else{
+            } else {
                 $scope.selectedTown = registerSiteMessage;
             }
         }
