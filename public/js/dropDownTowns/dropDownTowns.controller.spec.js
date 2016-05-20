@@ -62,6 +62,6 @@ describe('Controller: dropDownTownsController', function () {
         deferred.resolve(['Bogota']);
         $scope.$apply();
         testsiteAndTownSaverService.getCurrentSearchedTown(null);
-        expect($scope.selectedTown.nombre).toBe('Todo Cundinamarca');
+        expect($scope.selectedTown).toBe('Todo Cundinamarca');
     });
 });

@@ -38,7 +38,7 @@ describe('Controller: businessBrowserController', function () {
     }));
 
     it('Should show the last searched site', function () {
-        expect($scope.browserBusinessPlaceholder).toBe('business');
+        expect($scope.result).toBe('business');
     });
 
     it('Should show suggestions while user is typing', function () {
