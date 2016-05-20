@@ -40,6 +40,7 @@ module.exports = function (config) {
             'public/components/ng-tags-input/ng-tags-input.min.js',
             'public/components/angular-business-hours/dist/angular-business-hours.js',
             'public/components/angular-click-outside/clickoutside.directive.js',
+            'public/components/angular-wizard/dist/angular-wizard.min.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
