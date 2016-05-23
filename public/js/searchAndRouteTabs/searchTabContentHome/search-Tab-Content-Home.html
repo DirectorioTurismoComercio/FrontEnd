@@ -4,14 +4,14 @@
             <md-tab-body>
                 <div class="col-xs-12 tab-content keyword-search">
                     <div class="row">
-                        <div class="col-md-6 input-section">
+                        <div class="col-md-6 input-section align-first">
                             <img class="icon" src="./images/icons/paso1.png">
                             <p class="data-label" translate="SEARCH_BY_KEY_WORD"></p>
                             <div class="input">
                                 <browser-input-field></browser-input-field>
                             </div>
                         </div>
-                        <div class="col-md-6 input-section">
+                        <div class="col-md-6 input-section align-second">
                             <img class="icon" src="./images/icons/paso2.png">
                             <p class="data-label" translate="SELECT_TOWN"></p>
                             <div class="input">
@@ -32,7 +32,7 @@
             <md-tab-body>
                 <div class="col-xs-12 tab-content route-search">
                     <div class="row">
-                        <div class="col-md-6 input-section">
+                        <div class="col-md-6 input-section align-first">
                             <img class="icon" src="./images/icons/paso1.png">
                             <div class="label-with-description">
                                 <p class="data-label" translate="SEARCH_TAB_MAP_HOME"></p>
@@ -47,7 +47,7 @@
                                            ng-model="routeToController.routeFrom"/>
                                 </div>
                                 <div class="inline-block">
-                                    <p class="tip" translate="CURRENT_LOCATION"></p>
+                                    <p class="tip md-margin-top" translate="CURRENT_LOCATION"></p>
                                     <img class="my-position-icon" src="./images/icons/mi-ubicacion.png"
                                          ng-click="getUserPosition()">
                                     <!--<md-progress-circular class="loadingSitesOnMap"  ng-show="loadingCurrentPosition" md-mode="indeterminate"></md-progress-circular>-->
@@ -56,7 +56,7 @@
                         </div>
 
 
-                        <div class="col-md-6 input-section">
+                        <div class="col-md-6 input-section align-second">
                             <img class="icon" src="./images/icons/paso2.png">
                             <div class="label-with-description">
                                 <p class="data-label" translate="SEARCH_TAB_MAP_HOME_2NDSTEP"></p>

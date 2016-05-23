@@ -61,6 +61,7 @@
     font-size: 0.9em;
     color: #fff;
     margin: 0;
+    padding: 5px 0px;
 }
 
 .route-search .icon {
@@ -79,6 +80,22 @@
     width: 240px;
     display: inline-block;
     vertical-align: top
+}
+
+.keyword-search .align-first {
+    text-align: center;
+}
+
+.keyword-search .align-second {
+    text-align: center;
+}
+
+.route-search .align-first {
+    text-align: left;
+}
+
+.route-search .align-second {
+    text-align: left;
 }
 
 md-tabs-content-wrapper {
@@ -128,6 +145,26 @@ md-tabs-canvas {
 
     .route-search .inline-block {
         display: block;
+    }
+
+    .keyword-search .align-first {
+        text-align: right;
+    }
+
+    .keyword-search .align-second {
+        text-align: left;
+    }
+
+    .route-search .align-first {
+        text-align: right;
+    }
+
+    .route-search .align-second {
+        text-align: left;
+    }
+
+    .md-margin-top {
+        margin-top: 5px !important;
     }
 }
 
