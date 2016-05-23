@@ -21,7 +21,8 @@
     color: #2D3C4D;
     padding: 10px 20px;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1em;
+    width: 50%;
 }
 
 .searchAndRouteSection {
@@ -36,4 +37,24 @@
 
     display: flex;
     flex-flow: row wrap;
+}
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) {
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .how-it-works .button {
+        font-size: 1.2em;
+        width: 15%;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
 }
