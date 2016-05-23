@@ -22,7 +22,7 @@
     padding: 10px 20px;
     font-weight: bold;
     font-size: 1em;
-    width: 50%;
+    width: 60%;
 }
 
 .searchAndRouteSection {
@@ -34,7 +34,6 @@
     background-color: whitesmoke;
     width: 100%;
     height: auto;
-
     display: flex;
     flex-flow: row wrap;
 }

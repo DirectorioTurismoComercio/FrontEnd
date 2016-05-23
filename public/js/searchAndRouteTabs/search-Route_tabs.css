@@ -3,6 +3,7 @@
 
 .search-section .icon {
     height: 25px;
+    margin-top: 3px;
 }
 
 .search-section .label {
@@ -25,7 +26,7 @@
 }
 
 .underline {
-    border-bottom: 3px solid #FDE64E;
+    border-bottom: 2px solid #FDE64E;
 }
 
 .no-underline {
@@ -44,6 +45,7 @@
 
     .search-section .icon {
         height: 40px;
+        margin-top: 0px;
     }
 
     .search-section .label {

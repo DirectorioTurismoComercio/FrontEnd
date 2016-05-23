@@ -29,6 +29,9 @@ body {
     background-color: #FFC501;
     color: #2D3C4D;
     padding: 0;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 /* Extra small devices (phones, less than 768px) */
