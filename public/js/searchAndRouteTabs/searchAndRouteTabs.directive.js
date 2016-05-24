@@ -1,4 +1,4 @@
-angular.module('searchAndRouteTabs')
+angular.module('searchTabs')
     .directive('searchAndRouteTabsSection',[function(){
         return {
             restrict: 'E',

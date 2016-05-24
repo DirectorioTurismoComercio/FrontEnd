@@ -1,4 +1,4 @@
-angular.module('searchAndRouteTabs')
+angular.module('searchTabs')
     .controller('searchTabContentHomeController', function ($scope, geolocation, popErrorAlertService,
                                                             siteAndTownSaverService, CUNDINAMARCA_COORDS, MapService) {
         var cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
