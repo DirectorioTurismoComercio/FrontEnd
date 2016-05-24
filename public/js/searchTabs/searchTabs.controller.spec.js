@@ -11,7 +11,7 @@ describe('Controller: searchAndRouteTabs', function () {
 
         spyOn(testsiteAndTownSaverService, 'getCurrentSearchedSite').and.returnValue('business');
 
-        searchAndRouteTabsController = $controller('searchAndRouteTabsController', {
+        searchAndRouteTabsController = $controller('searchTabsController', {
             $scope: scope,
             siteAndTownSaverService:testsiteAndTownSaverService
         });

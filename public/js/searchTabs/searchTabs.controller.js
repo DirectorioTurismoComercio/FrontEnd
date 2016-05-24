@@ -1,5 +1,5 @@
 angular.module('searchTabs', ['google.places', 'geolocation'])
-    .controller('searchAndRouteTabsController', function ($scope, siteAndTownSaverService) {
+    .controller('searchTabsController', function ($scope, siteAndTownSaverService) {
         $scope.isSearchFormVisible = false;
         $scope.isRouteFormVisible = false;
         showSearchFormIfUserHasMadeASearch();

@@ -1,5 +1,5 @@
 angular.module('searchTabs')
-    .controller('searchTabContentHomeController', function ($scope, geolocation, popErrorAlertService,
+    .controller('searchTabsContentController', function ($scope, geolocation, popErrorAlertService,
                                                             siteAndTownSaverService, CUNDINAMARCA_COORDS, MapService) {
         var cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
         $scope.loadingCurrentPosition = false;
