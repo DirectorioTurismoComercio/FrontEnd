@@ -1,6 +1,8 @@
 .how-it-works {
     padding: 10% 0;
-    background-color: #59585B;
+    background: #000 url('../../images/how-it-works-background.jpg') no-repeat 0 15%;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
