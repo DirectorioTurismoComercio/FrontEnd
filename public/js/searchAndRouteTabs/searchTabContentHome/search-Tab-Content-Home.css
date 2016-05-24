@@ -75,6 +75,7 @@
 
 .route-search .inline-block {
     display: inline-block;
+    margin-left: 10px;
 }
 
 .route-search .label-with-description {
