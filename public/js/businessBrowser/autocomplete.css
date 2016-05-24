@@ -4,7 +4,8 @@
 }
 
 .autocomplete input{
-  width: 250px;
+  width: 200px;
+  height: 34px;
   border-radius: 5px;
   font-size: 1.1em;
   padding: 2px 10px;

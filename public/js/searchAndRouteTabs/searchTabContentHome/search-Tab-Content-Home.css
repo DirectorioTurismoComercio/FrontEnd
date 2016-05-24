@@ -42,6 +42,7 @@
 
 .tab-content .icon {
     height: 30px;
+    margin: 0 1%;
 }
 
 .tab-content .input {
@@ -49,7 +50,7 @@
 }
 
 .tab-content .input-section {
-    padding: 15px 10px;
+    padding: 3% 2%;
 }
 
 .route-search .data-label {
@@ -79,7 +80,8 @@
 .route-search .label-with-description {
     width: 240px;
     display: inline-block;
-    vertical-align: top
+    vertical-align: top;
+    margin-bottom: 2%;
 }
 
 .keyword-search .align-first {
@@ -96,6 +98,21 @@
 
 .route-search .align-second {
     text-align: left;
+}
+
+.tab-content .separator {
+    border: none;
+    height: 2px;
+    width: 90%;
+    margin: 2% auto;
+}
+
+.keyword-search .separator {
+    background-color: #32A2D4;
+}
+
+.route-search .separator {
+    background-color: #0A3C5A;
 }
 
 md-tabs-content-wrapper {
@@ -153,6 +170,7 @@ md-tabs-canvas {
 
     .keyword-search .align-second {
         text-align: left;
+        border-left: 2px solid #32A2D4;
     }
 
     .route-search .align-first {
@@ -161,11 +179,24 @@ md-tabs-canvas {
 
     .route-search .align-second {
         text-align: left;
+        border-left:2px solid #0A3C5A;
     }
 
+    /*.route-search .label-with-description {
+        margin-bottom: 2%;
+    }*/
     .md-margin-top {
         margin-top: 5px !important;
     }
+
+    .tab-content .separator {
+        display: none;
+/*        height: 160px;
+        width: 2px;
+        margin: auto 0;
+        display: inline-block;*/
+    }
+
 }
 
 /* Medium devices (desktops, 992px and up) */
