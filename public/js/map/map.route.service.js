@@ -2,22 +2,12 @@
 
 angular.module('map')
     .service('MapRouteService', function ($window, CUNDINAMARCA_COORDS, $http, MapService, sitesNearRoute,
-                                          SiteMarkerService, popErrorAlertService, siteAndTownSaverService) {
+                                          SiteMarkerService, messageService, siteAndTownSaverService) {
 
-        function calulateRoute(origin, destination, $scope) {
-            var routeData = {
-                origin: {
-                    lat: (typeof origin.lat === "function") ? origin.lat() : origin.lat,
-                    lng: (typeof origin.lng === "function") ? origin.lng() : origin.lng
-                },
-                destination: {
-                    lat: (typeof destination.lat === "function") ? destination.lat() : destination.lat,
-                    lng: (typeof destination.lat === "function") ? destination.lng() : destination.lng
-                },
-                travelMode: google.maps.TravelMode.DRIVING
-            };
+        function calulateRoute(routeRequest, $scope) {
+            routeRequest.travelMode = google.maps.TravelMode.DRIVING;
 
-            MapService.getDirectionsService().route(routeData, function (result, status) {
+            MapService.getDirectionsService().route(routeRequest, function (result, status) {
                 var points = [];
                 if (status == google.maps.DirectionsStatus.OK) {
                     MapService.getDirectionsDisplay().setDirections(result);
@@ -33,7 +23,7 @@ angular.module('map')
 
         function setOriginAndDestinationdata(originData, destinationData) {
             if (originData == '' || destinationData == '') {
-                popErrorAlertService.showPopErrorAlert("Indique un punto de partida y un destino");
+                messageService.showErrorMessage("Indique un punto de partida y un destino");
                 return false;
             } else {
                 if (originData != "Mi posición actual") {
@@ -60,20 +50,20 @@ angular.module('map')
                 })
         }
 
-        function transformPointName(point){
-            if((point.formatted_address).indexOf(point.name)>-1){
+        function transformPointName(point) {
+            if ((point.formatted_address).indexOf(point.name) > -1) {
                 return point.formatted_address;
-            }else{
-                return point.name+", "+point.formatted_address;
+            } else {
+                return point.name + ", " + point.formatted_address;
             }
         }
 
-        function setOriginData(originData){
+        function setOriginData(originData) {
             siteAndTownSaverService.setOrigin(originData.geometry.location);
             siteAndTownSaverService.setCurrentOriginPlaceName(transformPointName(originData));
         }
 
-        function setDestinationData(destinationData){
+        function setDestinationData(destinationData) {
             siteAndTownSaverService.setDestination(destinationData.geometry.location);
             siteAndTownSaverService.setCurrentDestinationPlaceName(transformPointName(destinationData));
         }

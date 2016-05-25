@@ -19,18 +19,18 @@ describe('Controller: MapController', function () {
 
     }));
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, popErrorAlertService) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, messageService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
-        testpopErrorAlertService = popErrorAlertService;
+        testpopErrorAlertService = messageService;
 
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
-        spyOn(testpopErrorAlertService, 'showPopErrorAlert');
+        spyOn(testpopErrorAlertService, 'showErrorMessage');
 
         MapController = $controller('MapController', {
             $scope: $scope,
-            popErrorAlertService: testpopErrorAlertService,
+            messageService: testpopErrorAlertService,
             SearchForResultsFactory: SearchForResultsFactory,
             MapService:MapService
         });
@@ -40,6 +40,6 @@ describe('Controller: MapController', function () {
         $scope.doSearch();
         deferred.resolve([]);
         $scope.$apply();
-        expect(testpopErrorAlertService.showPopErrorAlert).toHaveBeenCalled();
+        expect(testpopErrorAlertService.showErrorMessage).toHaveBeenCalled();
     });
 });

@@ -1,12 +1,12 @@
 describe('popErrorAlert Service', function () {
 
-    var popErrorAlertService, mdDialog;
+    var messageService, mdDialog;
 
     beforeEach(module('gemStore'));
     beforeEach(module('popErrorAlert'));
     beforeEach(inject(function ($injector) {
 
-        popErrorAlertService = $injector.get('popErrorAlertService');
+        messageService = $injector.get('messageService');
         mdDialog = $injector.get('$mdDialog');
 
         spyOn(mdDialog, 'show');
@@ -14,7 +14,7 @@ describe('popErrorAlert Service', function () {
     }));
 
     it('should set and get current searched site', function () {
-        popErrorAlertService.showPopErrorAlert('message');
+        messageService.showErrorMessage('message');
         expect(mdDialog.show).toHaveBeenCalled();
     });
 });

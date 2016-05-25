@@ -41,28 +41,34 @@ angular.module('map')
             }
         }
 
-        function addAutocompleteFeature(inputBox) {
+        function addAutocompleteFeature(inputBox, placeChangedCallback) {
             var options = {
                 bounds: calculatePolygonBounds(),
                 componentRestrictions: {
                     country: "co"
                 }
             };
+            var autocomplete = new google.maps.places.Autocomplete(inputBox, options);
 
-            return new google.maps.places.Autocomplete(inputBox, options);
+            if (placeChangedCallback != undefined) {
+                autocomplete.addListener('place_changed', function () {
+                    placeChangedCallback(autocomplete, inputBox);
+                });
+            }
+
+            return autocomplete;
         }
 
-        function addPlaceChangedListener(autocomplete, inputBox, callback) {
-            autocomplete.addListener('place_changed', function () {
-                callback(autocomplete, inputBox);
-            });
+
+        function isPlaceInsideRegion(latLngLiteralPlaceLocation, regionCoords) {
+            var placeLocation = latLngLiteralToLatLng(latLngLiteralPlaceLocation);
+            var regionPolygon = new google.maps.Polygon({paths: regionCoords});
+
+            return google.maps.geometry.poly.containsLocation(placeLocation, regionPolygon);
         }
 
-        function isPlaceInsideBoundaries(latitude, longitude, region) {
-            var coords = new google.maps.LatLng(latitude, longitude);
-            var regionPolygon = new google.maps.Polygon({paths: region});
-
-            return google.maps.geometry.poly.containsLocation(coords, regionPolygon);
+        function isPlaceInsideCundinamarca(latLngLiteralPlaceLocation) {
+            return isPlaceInsideRegion(latLngLiteralPlaceLocation, CUNDINAMARCA_COORDS);
         }
 
         function addMarker(position, label) {
@@ -91,6 +97,18 @@ angular.module('map')
             }
         }
 
+        function latLngLiteralToLatLng(latLngLiteral) {
+            return new google.maps.LatLng(latLngLiteral.lat, latLngLiteral.lng);
+        }
+
+        function placeToLatLngLiteral(place) {
+            try {
+                return place.geometry.location.toJSON();
+            } catch (err) {
+                return undefined;
+            }
+        }
+
         function calculatePolygonBounds() {
             var bounds = new google.maps.LatLngBounds();
             var cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
@@ -103,7 +121,7 @@ angular.module('map')
             return bounds;
         }
 
-        function moveMapToPosition(position,zoom) {
+        function moveMapToPosition(position, zoom) {
             gMap.setCenter(position);
             gMap.setZoom(zoom);
         }
@@ -121,10 +139,12 @@ angular.module('map')
             getGMap: getGMap,
             getUserPosition: getUserPosition,
             addAutocompleteFeature: addAutocompleteFeature,
-            addPlaceChangedListener: addPlaceChangedListener,
-            isPlaceInsideBoundaries: isPlaceInsideBoundaries,
+            isPlaceInsideRegion: isPlaceInsideRegion,
+            isPlaceInsideCundinamarca: isPlaceInsideCundinamarca,
             addMarker: addMarker,
             coordsToLatLng: coordsToLatLng,
+            latLngLiteralToLatLng: latLngLiteralToLatLng,
+            placeToLatLngLiteral: placeToLatLngLiteral,
             moveMapToPosition: moveMapToPosition,
             clearMarkers: clearMarkers
         }

@@ -1,9 +1,15 @@
 angular.module('searchTabs', ['google.places', 'geolocation'])
-    .controller('searchTabsController', function ($scope, geolocation, popErrorAlertService,
+    .controller('searchTabsController', function ($scope, geolocation, messageService,
                                                   siteAndTownSaverService, CUNDINAMARCA_COORDS,
                                                   MapService) {
+        var initializedFields = false;
         $scope.isSearchFormVisible = false;
         $scope.isRouteFormVisible = false;
+        var routeRequest = {
+            origin: undefined,
+            destination: undefined
+        };
+
         showSearchFormIfUserHasMadeASearch();
 
         $scope.showSearchForm = function () {
@@ -14,6 +20,49 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.showRouteForm = function () {
             $scope.isSearchFormVisible = false;
             $scope.isRouteFormVisible = !$scope.isRouteFormVisible;
+            initRouteSearchAutocomplete();
+        }
+
+        $scope.calculateRoute = function () {
+            if (routeRequest.origin == undefined) {
+                messageService.showErrorMessage("ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN");
+            } else if (routeRequest.destination == undefined) {
+                messageService.showErrorMessage("ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION");
+            } else {
+                $scope.showRoute(routeRequest);
+            }
+        };
+
+        function initRouteSearchAutocomplete() {
+            if (!initializedFields) {
+                var originRouteInput = document.getElementById('route-origin');
+                var destinationRouteInput = document.getElementById('route-destination');
+
+                MapService.addAutocompleteFeature(originRouteInput, routeOriginChanged);
+                MapService.addAutocompleteFeature(destinationRouteInput, routeDestinationChanged);
+
+                initializedFields = true;
+            }
+        }
+
+        function routeOriginChanged(autocomplete, inputBox) {
+            routeRequest.origin = getSelectedPlace(autocomplete, inputBox);
+        }
+
+        function routeDestinationChanged(autocomplete, inputBox) {
+            routeRequest.destination = getSelectedPlace(autocomplete, inputBox);
+        }
+
+        function getSelectedPlace(autocomplete, inputBox) {
+            var placeLocation = MapService.placeToLatLngLiteral(autocomplete.getPlace());
+            var isPlaceInsideCundinamarca = MapService.isPlaceInsideCundinamarca(placeLocation);
+
+            if (!isPlaceInsideCundinamarca) {
+                messageService.showErrorMessage("ERROR_PLACE_OUTSIDE_CUNDINAMARCA");
+                inputBox.value = '';
+            }
+
+            return placeLocation;
         }
 
         function showSearchFormIfUserHasMadeASearch() {
@@ -32,26 +81,11 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             }
         }
 
-
-        var cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
         $scope.loadingCurrentPosition = false;
-        $scope.autocompleteOptions = {
-            componentRestrictions: {country: 'co'},
-        };
 
         if (siteAndTownSaverService.getOrigin() != undefined) {
             setSearchedRoutePlaceHolders();
         }
-
-        $scope.deleteText = function (model) {
-            clearText(model);
-        };
-
-        $scope.searchFieldIsFill = function (latitude, longitude, model) {
-            if (latitude != undefined || longitude != undefined) {
-                serachIfSiteIsInCundinamarca(latitude, longitude, model);
-            }
-        };
 
         $scope.getUserPosition = function () {
             $scope.loadingCurrentPosition = true;
@@ -62,7 +96,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 $scope.loadingCurrentPosition = false;
             }).catch(function (error) {
                 $scope.loadingCurrentPosition = false;
-                popErrorAlertService.showPopErrorAlert("No es posible obtener la ubicación");
+                messageService.showErrorMessage("ERROR_UNAVAILABLE_LOCATION");
             });
         };
 
@@ -72,21 +106,16 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             $scope.routeToController.routeTo = siteAndTownSaverService.getCurrentDestinationPlaceName();
         }
 
-        function serachIfSiteIsInCundinamarca(latitude, longitude, model) {
-            var coords = new google.maps.LatLng(latitude, longitude);
-            cundinamarcaPolygon = new google.maps.Polygon({paths: CUNDINAMARCA_COORDS});
-            if (!google.maps.geometry.poly.containsLocation(coords, cundinamarcaPolygon)) {
-                popErrorAlertService.showPopErrorAlert("El lugar seleccionado no esta disponible por el momento");
-                clearText(model);
+        $scope.clear = function () {
+            event.target.value = '';
+            switch (event.target.id) {
+                case 'route-origin':
+                    routeRequest.origin = undefined;
+                    break;
+                case 'route-destination':
+                    routeRequest.destination = undefined;
+                    break;
             }
         }
-
-        function clearText(model) {
-            if (model == 'routeToController.routeFrom') {
-                $scope.routeToController.routeFrom = ''
-            }
-            if (model == 'routeToController.routeTo') {
-                $scope.routeToController.routeTo = ''
-            }
-        }
-    });
+    })
+;

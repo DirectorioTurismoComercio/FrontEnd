@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('home')
-    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService, popErrorAlertService, MapRouteService) {
+    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService, messageService, MapRouteService) {
 
         $scope.routeToController = {
             routeFrom: '',
@@ -13,15 +13,14 @@ angular.module('home')
                 getSites(result);
             }
             else {
-                popErrorAlertService.showPopErrorAlert("Por favor ingrese un criterio de busqueda");
+                messageService.showErrorMessage("Por favor ingrese un criterio de busqueda");
             }
         };
 
-        $scope.calculateRoute = function () {
-            if(MapRouteService.setOriginAndDestinationdata($scope.routeToController.routeFrom, $scope.routeToController.routeTo, 'home')){
-                siteAndTownSaverService.setSearchedRoute("", "");
-                $location.path('/map');
-            }
+
+        $scope.showRoute = function (routeRequest) {
+            MapRouteService.calulateRoute(routeRequest, $scope);
+            $location.path('/map');
         };
 
         $scope.goToHowItWorks = function () {
@@ -34,10 +33,11 @@ angular.module('home')
                     siteAndTownSaverService.setCurrentSearchedSite(result);
                     $location.path('/map');
                 } else {
-                    popErrorAlertService.showPopErrorAlert("No se han encontrado resultados");
+                    messageService.showErrorMessage("No se han encontrado resultados");
                 }
             }).catch(function (error) {
                 console.log("ocurrio un error", error);
             });
         }
-    });
+    })
+;

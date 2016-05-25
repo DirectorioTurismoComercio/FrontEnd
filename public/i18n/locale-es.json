@@ -49,5 +49,9 @@
     "EMAIL_VALIDATION": "Verifique el correo",
     "FIELDS_VALIDATION": "Verifique Los campos"
   },
-  "STARTING_POINT_TIP": "Indica tu punto de partida"
+  "STARTING_POINT_TIP": "Indica tu punto de partida",
+  "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
+  "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
+  "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN": "Debes elegir tu punto de partida",
+  "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "Debes elegir tu destino"
 }

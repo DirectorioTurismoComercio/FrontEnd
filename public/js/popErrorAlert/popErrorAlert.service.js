@@ -1,13 +1,15 @@
 'use strict';
 
-angular.module('popErrorAlert', [])
-    .service('popErrorAlertService', function ($mdDialog) {
+angular.module('message', [])
+    .service('messageService', function ($mdDialog, $translate) {
 
         return {
-            showPopErrorAlert: showPopErrorAlert,
+            showErrorMessage: showErrorMessage
         }
 
-        function showPopErrorAlert(message) {
+        function showErrorMessage(messageId) {
+            var message = $translate.instant(messageId);
+
             $mdDialog.show(
                 $mdDialog.alert()
                     .parent(angular.element(document.querySelector('#alertPop')))

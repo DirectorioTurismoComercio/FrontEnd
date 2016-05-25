@@ -55,10 +55,8 @@
                             <div class="input">
                                 <div class="inline-block">
                                     <p class="tip" translate="STARTING_POINT_TIP"></p>
-                                    <input ng-focus="deleteText('routeToController.routeFrom')"
-                                           ng-blur="searchFieldIsFill(routeToController.routeFrom.geometry.location.lat(),routeToController.routeFrom.geometry.location.lng(),'routeToController.routeFrom')"
-                                           class="form-control" g-places-autocomplete options="autocompleteOptions"
-                                           ng-model="routeToController.routeFrom"/>
+                                    <input id="route-origin" ng-focus="clear(this)"
+                                           class="form-control"/>
                                 </div>
                                 <div class="inline-block">
                                     <p class="tip md-margin-top" translate="CURRENT_LOCATION"></p>
@@ -78,11 +76,8 @@
                             </div>
 
                             <div class="input" style="margin-left: 10px">
-                                <input ng-focus="deleteText('routeToController.routeTo')"
-                                       ng-blur="searchFieldIsFill(routeToController.routeTo.geometry.location.lat(),routeToController.routeTo.geometry.location.lng(),'routeToController.routeTo')"
-                                       class="form-control" g-places-autocomplete
-                                       options="autocompleteOptions"
-                                       ng-model="routeToController.routeTo"/>
+                                <input id="route-destination" ng-focus="clear(this)"
+                                       class="form-control"/>
                             </div>
                         </div>
                     </div>

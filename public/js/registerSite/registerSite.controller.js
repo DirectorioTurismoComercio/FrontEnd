@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('registerSite')
-    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, popErrorAlertService, CUNDINAMARCA_COORDS,
+    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, messageService, CUNDINAMARCA_COORDS,
                                                     BOGOTA_COORDS, API_CONFIG, categories, siteAndTownSaverService) {
 
         $scope.sitePhoneNumber = undefined;
@@ -112,7 +112,7 @@ angular.module('registerSite')
         }
 
         function displayOutsideBoundaryErrorMessage(message) {
-            popErrorAlertService.showPopErrorAlert(message);
+            messageService.showErrorMessage(message);
             $scope.businessLocation = undefined;
         }
 

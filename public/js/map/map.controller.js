@@ -2,7 +2,7 @@
 
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory,
-                                           MapService, SiteMarkerService, $location, popErrorAlertService,
+                                           MapService, SiteMarkerService, $location, messageService,
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS) {
         var userPosition = {};
         $scope.selectedSite = null;
@@ -11,8 +11,8 @@ angular.module('map')
         $scope.foundSites = [];
         $scope.map = {
             center: {
-                latitude: siteAndTownSaverService.getCurrentSearchedTown()==undefined ? 4.6363623 : parseFloat(siteAndTownSaverService.getCurrentSearchedTown().latitud),
-                longitude: siteAndTownSaverService.getCurrentSearchedTown()==undefined ? -74.0854427 : parseFloat(siteAndTownSaverService.getCurrentSearchedTown().longitud)
+                latitude: siteAndTownSaverService.getCurrentSearchedTown() == undefined ? 4.6363623 : parseFloat(siteAndTownSaverService.getCurrentSearchedTown().latitud),
+                longitude: siteAndTownSaverService.getCurrentSearchedTown() == undefined ? -74.0854427 : parseFloat(siteAndTownSaverService.getCurrentSearchedTown().longitud)
             },
             control: {},
             zoom: 9
@@ -21,7 +21,6 @@ angular.module('map')
             routeFrom: '',
             routeTo: ''
         };
-
 
 
         uiGmapIsReady.promise().then(initMap);
@@ -40,10 +39,8 @@ angular.module('map')
             }
         }
 
-        $scope.calculateRoute = function () {
-            if (MapRouteService.setOriginAndDestinationdata($scope.routeToController.routeFrom, $scope.routeToController.routeTo)) {
-                showRoute();
-            }
+        $scope.showRoute = function (routeRequest) {
+            MapRouteService.calulateRoute(routeRequest, $scope);
         };
 
         $scope.goToUserPosition = function () {
@@ -87,7 +84,7 @@ angular.module('map')
                 drawSitesByKeyWord(result);
             }
             else {
-                popErrorAlertService.showPopErrorAlert("Por favor ingrese un criterio de busqueda");
+                messageService.showErrorMessage("Por favor ingrese un criterio de busqueda");
             }
         };
 
@@ -101,7 +98,7 @@ angular.module('map')
             }, handleLocationError);
         };
 
-        function setCundinamarcaPolygon(){
+        function setCundinamarcaPolygon() {
             new google.maps.Polygon({
                 strokeColor: '#FF0000',
                 strokeOpacity: 0.1,
@@ -137,7 +134,7 @@ angular.module('map')
                     showFoundPlaces();
                     $scope.loading = false;
                 } else {
-                    popErrorAlertService.showPopErrorAlert("No se han encontrado resultados");
+                    messageService.showErrorMessage("No se han encontrado resultados");
                     $scope.loading = false;
                 }
             }).catch(function (error) {
@@ -176,7 +173,7 @@ angular.module('map')
         }
 
         function handleLocationError() {
-            popErrorAlertService.showPopErrorAlert("No es posible obtener la ubicación");
+            messageService.showErrorMessage("No es posible obtener la ubicación");
         }
     })
 ;

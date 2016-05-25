@@ -22,16 +22,16 @@ describe('Controller: HomeController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $location, siteAndTownSaverService, popErrorAlertService) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $location, siteAndTownSaverService, messageService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         location = $location;
         testsiteAndTownSaverService=siteAndTownSaverService;
-        testpopErrorAlertService=popErrorAlertService;
+        testpopErrorAlertService=messageService;
 
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
-        spyOn(testpopErrorAlertService, 'showPopErrorAlert');
+        spyOn(testpopErrorAlertService, 'showErrorMessage');
         spyOn(location, 'path');
         spyOn(testsiteAndTownSaverService, 'setCurrentSearchedSite');
 
@@ -40,7 +40,7 @@ describe('Controller: HomeController', function () {
             SearchForResultsFactory: SearchForResultsFactory,
             $location: location,
             siteAndTownSaverService:testsiteAndTownSaverService,
-            popErrorAlertService:popErrorAlertService
+            popErrorAlertService:messageService
         });
     }));
 
@@ -54,19 +54,19 @@ describe('Controller: HomeController', function () {
         $scope.doSearch();
         deferred.resolve([]);
         $scope.$apply();
-        expect(testpopErrorAlertService.showPopErrorAlert).toHaveBeenCalled();
+        expect(testpopErrorAlertService.showErrorMessage).toHaveBeenCalled();
     });
 
     it('Should show error message if make route with no origin', function () {
         $scope.routeToController.routeFrom='';
         $scope.calculateRoute();
-        expect(testpopErrorAlertService.showPopErrorAlert).toHaveBeenCalled();
+        expect(testpopErrorAlertService.showErrorMessage).toHaveBeenCalled();
     });
 
     it('Should show error message if make route with no destination', function () {
         $scope.routeToController.routeTo='';
         $scope.calculateRoute();
-        expect(testpopErrorAlertService.showPopErrorAlert).toHaveBeenCalled();
+        expect(testpopErrorAlertService.showErrorMessage).toHaveBeenCalled();
     });
 
     it('Should redirects to map page', function () {
@@ -87,6 +87,6 @@ describe('Controller: HomeController', function () {
         $scope.doSearch();
         deferred.resolve(['Repuesta']);
         $scope.$apply();
-        expect(testpopErrorAlertService.showPopErrorAlert).toHaveBeenCalled();
+        expect(testpopErrorAlertService.showErrorMessage).toHaveBeenCalled();
     });
 });
