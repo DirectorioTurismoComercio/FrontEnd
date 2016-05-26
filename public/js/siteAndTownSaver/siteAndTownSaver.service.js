@@ -13,7 +13,10 @@ angular.module('siteAndTownSaver', [])
         var currentDestination = undefined;
         var currentOriginPlaceName = undefined;
         var currentDestinationPlaceName = undefined;
-        var initializedFields = false;
+        var sectionData = {
+            route: {},
+            keyword: undefined
+        };
 
         return {
             setCurrentSearchedSite: setCurrentSearchedSite,
@@ -35,16 +38,8 @@ angular.module('siteAndTownSaver', [])
             getSearchedRoute: getSearchedRoute,
             resetSearch: resetSearch,
             openSection: openSection,
-            initializedFields:initializedFields
-        }
-
-        /*        function setOpenSection(site) {
-         currentSearchedSite = site;
-         }
-
-         function getCurrentSearchedSite() {
-         return currentSearchedSite;
-         }*/
+            sectionData: sectionData
+        };
 
         function setCurrentSearchedSite(site) {
             currentSearchedSite = site;

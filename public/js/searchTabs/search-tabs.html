@@ -56,7 +56,7 @@
                                 <div class="inline-block">
                                     <p class="tip" translate="STARTING_POINT_TIP"></p>
                                     <input id="route-origin" ng-focus="clear()"
-                                           class="form-control"/>
+                                           class="form-control" ng-model="route.originName"/>
                                 </div>
                                 <div class="inline-block">
                                     <p class="tip md-margin-top" translate="CURRENT_LOCATION"></p>
@@ -77,7 +77,7 @@
 
                             <div class="input" style="margin-left: 10px">
                                 <input id="route-destination" ng-focus="clear()"
-                                       class="form-control"/>
+                                       class="form-control" ng-model="route.destinationName"/>
                             </div>
                         </div>
                     </div>

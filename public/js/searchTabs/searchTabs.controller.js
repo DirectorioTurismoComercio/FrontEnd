@@ -8,6 +8,8 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.isSearchFormVisible = false;
         $scope.isRouteFormVisible = false;
         $scope.loadingCurrentPosition = false;
+        $scope.route = siteAndTownSaverService.sectionData.route;
+        $scope.keyword = siteAndTownSaverService.sectionData.keyword;
         var initializedFields = false;
         var originRouteInput;
         var destinationRouteInput;
@@ -60,34 +62,54 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         }
 
         function routeOriginChanged(autocomplete, inputBox) {
-            routeRequest.origin = getSelectedPlace(autocomplete, inputBox);
+            var place = getSelectedPlace(autocomplete, inputBox);
+
+            try {
+                routeRequest.origin = place.location;
+                siteAndTownSaverService.sectionData.route.originName = place.name;
+            } catch (err) {
+                routeRequest.origin = undefined;
+                siteAndTownSaverService.sectionData.route.originName = undefined;
+            }
         }
 
         function routeDestinationChanged(autocomplete, inputBox) {
-            routeRequest.destination = getSelectedPlace(autocomplete, inputBox);
+            var place = getSelectedPlace(autocomplete, inputBox);
+
+            try {
+                routeRequest.destination = place.location;
+                siteAndTownSaverService.sectionData.route.destinationName = place.name;
+            } catch (err) {
+                routeRequest.destination = undefined;
+                siteAndTownSaverService.sectionData.route.destinationName = undefined;
+            }
         }
 
+
         function getSelectedPlace(autocomplete, inputBox) {
-            var placeLocation = MapService.placeToLatLngLiteral(autocomplete.getPlace());
-            var isPlaceInsideCundinamarca = MapService.isPlaceInsideCundinamarca(placeLocation);
+            var place = {};
+            var isPlaceInsideCundinamarca;
+
+            place.location = MapService.placeToLatLngLiteral(autocomplete.getPlace());
+            place.name = autocomplete.getPlace().formatted_address;
+            isPlaceInsideCundinamarca = MapService.isPlaceInsideCundinamarca(place.location);
 
             if (!isPlaceInsideCundinamarca) {
                 messageService.showErrorMessage("ERROR_PLACE_OUTSIDE_CUNDINAMARCA");
                 inputBox.value = '';
-                placeLocation = undefined;
+                place = undefined;
             }
 
-            return placeLocation;
+            return place;
         }
-
 
         $scope.getUserPosition = function () {
             $scope.loadingCurrentPosition = true;
             geolocation.getLocation().then(function (data) {
                 var myPosition = MapService.coordsToLatLngLiteral(data.coords.latitude, data.coords.longitude);
-                originRouteInput.value = $translate.instant("MY_POSITION");
+                $scope.route.originName = $translate.instant("MY_POSITION");
+                siteAndTownSaverService.sectionData.route.originName = $scope.route.originName;
                 routeRequest.origin = myPosition;
-                siteAndTownSaverService.setOrigin(myPosition);
 
                 $scope.loadingCurrentPosition = false;
             }).catch(function (error) {
