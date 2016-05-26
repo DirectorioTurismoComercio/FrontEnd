@@ -34,6 +34,8 @@ describe('Controller: HomeController', function () {
         spyOn(testpopErrorAlertService, 'showErrorMessage');
         spyOn(location, 'path');
         spyOn(testsiteAndTownSaverService, 'setCurrentSearchedSite');
+        spyOn(testsiteAndTownSaverService, 'resetSearchAndRoute');
+
 
         homeController = $controller('HomeController', {
             $scope: $scope,
@@ -44,6 +46,10 @@ describe('Controller: HomeController', function () {
         });
     }));
 
+
+    it('Should reset searched sites or routes variables on load home', function () {
+        expect(testsiteAndTownSaverService.resetSearchAndRoute).toHaveBeenCalled();
+    });
 
     it('Should redirects to How it Works Page', function () {
         $scope.goToHowItWorks();

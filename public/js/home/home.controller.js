@@ -8,6 +8,8 @@ angular.module('home')
             routeTo: ''
         }
 
+        siteAndTownSaverService.resetSearchAndRoute();
+
         $scope.doSearch = function (result) {
             if (result != undefined) {
                 getSites(result);

@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: HeaderController', function () {
-    var appHeaderController, $scope, deferred, translate, location, testsiteAndTownSaverService;
+    var appHeaderController, $scope, deferred, translate;
 
     beforeEach(module('gemStore'));
     beforeEach(module('appHeader'));
@@ -22,23 +22,16 @@ describe('Controller: HeaderController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller, $rootScope, $q, $translate, $location, siteAndTownSaverService) {
+    beforeEach(inject(function ($controller, $rootScope, $q, $translate) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         translate=$translate;
-        location = $location;
-        testsiteAndTownSaverService=siteAndTownSaverService;
 
         spyOn(translate, 'use');
-        spyOn(location, 'path');
-        spyOn(testsiteAndTownSaverService, 'resetSearchAndRoute');
-
 
         appHeaderController = $controller('appHeaderController', {
             $scope: $scope,
-            $translate:translate,
-            $location: location,
-            siteAndTownSaverService:testsiteAndTownSaverService,
+            $translate:translate
         });
     }));
 
@@ -46,17 +39,6 @@ describe('Controller: HeaderController', function () {
     it('Should transate clicking on some country flag', function () {
         $scope.changeLanguage();
         expect(translate.use).toHaveBeenCalled();
-    });
-
-    it('Should reset every searched site, town and route when user clicks logo', function () {
-        $scope.goToHome();
-        expect(testsiteAndTownSaverService.resetSearchAndRoute).toHaveBeenCalled();
-    });
-
-
-    it('Should redirect to home when user clicks logo', function () {
-        $scope.goToHome();
-        expect(location.path).toHaveBeenCalled();
     });
 
 });
