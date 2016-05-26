@@ -1,27 +1,41 @@
 angular.module('searchTabs', ['google.places', 'geolocation'])
-    .controller('searchTabsController', function ($scope, geolocation, messageService,
+    .controller('searchTabsController', function ($scope, geolocation, messageService, $timeout,
                                                   siteAndTownSaverService, CUNDINAMARCA_COORDS,
-                                                  MapService) {
-        var initializedFields = false;
+                                                  MapService, $translate, KEYWORD_SEARCH_SECTION,
+                                                  ROUTE_SEARCH_SECTION) {
+        $scope.KEYWORD_SEARCH_SECTION = KEYWORD_SEARCH_SECTION;
+        $scope.ROUTE_SEARCH_SECTION = ROUTE_SEARCH_SECTION;
         $scope.isSearchFormVisible = false;
         $scope.isRouteFormVisible = false;
+        $scope.loadingCurrentPosition = false;
+        var initializedFields = false;
+        var originRouteInput;
+        var destinationRouteInput;
         var routeRequest = {
             origin: undefined,
             destination: undefined
         };
 
-        showSearchFormIfUserHasMadeASearch();
+        $timeout(function () {
+            $scope.showSelectedSection(siteAndTownSaverService.openSection);
+        }, 0);
 
-        $scope.showSearchForm = function () {
-            $scope.isRouteFormVisible = false;
-            $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
-        }
+        $scope.showSelectedSection = function (section) {
+            switch (section) {
+                case KEYWORD_SEARCH_SECTION:
+                    $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
+                    $scope.isRouteFormVisible = false;
+                    siteAndTownSaverService.openSection = $scope.isSearchFormVisible ? KEYWORD_SEARCH_SECTION : undefined;
+                    break;
+                case ROUTE_SEARCH_SECTION:
+                    $scope.isSearchFormVisible = false;
+                    $scope.isRouteFormVisible = !$scope.isRouteFormVisible;
+                    siteAndTownSaverService.openSection = $scope.isRouteFormVisible ? ROUTE_SEARCH_SECTION : undefined;
+                    initRouteSearchAutocomplete();
+                    break;
+            }
+        };
 
-        $scope.showRouteForm = function () {
-            $scope.isSearchFormVisible = false;
-            $scope.isRouteFormVisible = !$scope.isRouteFormVisible;
-            initRouteSearchAutocomplete();
-        }
 
         $scope.calculateRoute = function () {
             if (routeRequest.origin == undefined) {
@@ -35,8 +49,8 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         function initRouteSearchAutocomplete() {
             if (!initializedFields) {
-                var originRouteInput = document.getElementById('route-origin');
-                var destinationRouteInput = document.getElementById('route-destination');
+                originRouteInput = document.getElementById('route-origin');
+                destinationRouteInput = document.getElementById('route-destination');
 
                 MapService.addAutocompleteFeature(originRouteInput, routeOriginChanged);
                 MapService.addAutocompleteFeature(destinationRouteInput, routeDestinationChanged);
@@ -66,34 +80,15 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             return placeLocation;
         }
 
-        function showSearchFormIfUserHasMadeASearch() {
-            if (siteAndTownSaverService.getCurrentSearchedSite() != null) {
-                $scope.isSearchFormVisible = true;
-            }
-
-            if (siteAndTownSaverService.getSearchedQuery() != undefined) {
-                $scope.isSearchFormVisible = true;
-                siteAndTownSaverService.resetSearch();
-            }
-
-            if (siteAndTownSaverService.getSearchedRoute() != undefined) {
-                $scope.isRouteFormVisible = true;
-                siteAndTownSaverService.resetSearch();
-            }
-        }
-
-        $scope.loadingCurrentPosition = false;
-
-        if (siteAndTownSaverService.getOrigin() != undefined) {
-            setSearchedRoutePlaceHolders();
-        }
 
         $scope.getUserPosition = function () {
             $scope.loadingCurrentPosition = true;
             geolocation.getLocation().then(function (data) {
-                var coords = MapService.coordsToLatLngLiteral(data.coords.latitude, data.coords.longitude);
-                $scope.routeToController.routeFrom = "Mi posición actual";
-                siteAndTownSaverService.setOrigin(coords);
+                var myPosition = MapService.coordsToLatLngLiteral(data.coords.latitude, data.coords.longitude);
+                originRouteInput.value = $translate.instant("MY_POSITION");
+                routeRequest.origin = myPosition;
+                siteAndTownSaverService.setOrigin(myPosition);
+
                 $scope.loadingCurrentPosition = false;
             }).catch(function (error) {
                 $scope.loadingCurrentPosition = false;
@@ -101,11 +96,6 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             });
         };
 
-        function setSearchedRoutePlaceHolders() {
-            (typeof siteAndTownSaverService.getOrigin().lat === "function") ?
-                $scope.routeToController.routeFrom = siteAndTownSaverService.getCurrentOriginPlaceName() : $scope.routeToController.routeFrom = "Mi posición actual";
-            $scope.routeToController.routeTo = siteAndTownSaverService.getCurrentDestinationPlaceName();
-        }
 
         $scope.clear = function () {
             event.target.value = '';

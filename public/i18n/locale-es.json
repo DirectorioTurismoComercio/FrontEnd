@@ -53,5 +53,6 @@
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN": "Debes elegir tu punto de partida",
-  "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "Debes elegir tu destino"
+  "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "Debes elegir tu destino",
+  "MY_POSITION": "Mi posición actual"
 }

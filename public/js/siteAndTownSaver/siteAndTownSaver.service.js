@@ -1,37 +1,50 @@
 'use strict';
 
 angular.module('siteAndTownSaver', [])
+    .constant('KEYWORD_SEARCH_SECTION', '1')
+    .constant('ROUTE_SEARCH_SECTION', '2')
     .service('siteAndTownSaverService', function () {
+        var openSection;
         var searchedQuery;
-        var searchedRoute=undefined;
+        var searchedRoute = undefined;
         var currentSearchedSite = undefined;
         var currentSearchedTown = undefined;
-        var currentOrigin=undefined;
-        var currentDestination=undefined;
-        var currentOriginPlaceName=undefined;
-        var currentDestinationPlaceName=undefined;
+        var currentOrigin = undefined;
+        var currentDestination = undefined;
+        var currentOriginPlaceName = undefined;
+        var currentDestinationPlaceName = undefined;
+        var initializedFields = false;
 
         return {
             setCurrentSearchedSite: setCurrentSearchedSite,
             getCurrentSearchedSite: getCurrentSearchedSite,
             setCurrentSearchedTown: setCurrentSearchedTown,
             getCurrentSearchedTown: getCurrentSearchedTown,
-            setOrigin:setOrigin,
-            getOrigin:getOrigin,
-            setDestination:setDestination,
-            getDestination:getDestination,
-            setCurrentOriginPlaceName:setCurrentOriginPlaceName,
-            getCurrentOriginPlaceName:getCurrentOriginPlaceName,
-            setCurrentDestinationPlaceName:setCurrentDestinationPlaceName,
-            getCurrentDestinationPlaceName:getCurrentDestinationPlaceName,
-            resetSearchAndRoute:resetSearchAndRoute,
+            setOrigin: setOrigin,
+            getOrigin: getOrigin,
+            setDestination: setDestination,
+            getDestination: getDestination,
+            setCurrentOriginPlaceName: setCurrentOriginPlaceName,
+            getCurrentOriginPlaceName: getCurrentOriginPlaceName,
+            setCurrentDestinationPlaceName: setCurrentDestinationPlaceName,
+            getCurrentDestinationPlaceName: getCurrentDestinationPlaceName,
+            resetSearchAndRoute: resetSearchAndRoute,
             setSearchedQuery: setSearchedQuery,
             getSearchedQuery: getSearchedQuery,
             setSearchedRoute: setSearchedRoute,
             getSearchedRoute: getSearchedRoute,
-            resetSearch: resetSearch
-
+            resetSearch: resetSearch,
+            openSection: openSection,
+            initializedFields:initializedFields
         }
+
+        /*        function setOpenSection(site) {
+         currentSearchedSite = site;
+         }
+
+         function getCurrentSearchedSite() {
+         return currentSearchedSite;
+         }*/
 
         function setCurrentSearchedSite(site) {
             currentSearchedSite = site;
@@ -49,43 +62,43 @@ angular.module('siteAndTownSaver', [])
             return currentSearchedTown;
         }
 
-        function setOrigin(origin){
-            currentOrigin=origin;
+        function setOrigin(origin) {
+            currentOrigin = origin;
         }
 
-        function getOrigin(){
+        function getOrigin() {
             return currentOrigin;
         }
 
-        function setDestination(destination){
-            currentDestination=destination;
+        function setDestination(destination) {
+            currentDestination = destination;
         }
 
-        function getDestination(){
+        function getDestination() {
             return currentDestination;
         }
 
-        function setCurrentOriginPlaceName(name){
-            currentOriginPlaceName=name;
+        function setCurrentOriginPlaceName(name) {
+            currentOriginPlaceName = name;
         }
 
-        function getCurrentOriginPlaceName(){
+        function getCurrentOriginPlaceName() {
             return currentOriginPlaceName;
         }
 
-        function setCurrentDestinationPlaceName(name){
-            currentDestinationPlaceName=name;
+        function setCurrentDestinationPlaceName(name) {
+            currentDestinationPlaceName = name;
         }
 
-        function getCurrentDestinationPlaceName(){
+        function getCurrentDestinationPlaceName() {
             return currentDestinationPlaceName;
         }
 
-        function resetSearchAndRoute(){
-            currentSearchedSite=undefined;
-            currentSearchedTown=undefined;
-            currentOrigin=undefined;
-            currentDestination=undefined;
+        function resetSearchAndRoute() {
+            currentSearchedSite = undefined;
+            currentSearchedTown = undefined;
+            currentOrigin = undefined;
+            currentDestination = undefined;
         }
 
         function setSearchedQuery(query, town) {
