@@ -60,6 +60,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             if (!isPlaceInsideCundinamarca) {
                 messageService.showErrorMessage("ERROR_PLACE_OUTSIDE_CUNDINAMARCA");
                 inputBox.value = '';
+                placeLocation = undefined;
             }
 
             return placeLocation;
@@ -90,7 +91,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.getUserPosition = function () {
             $scope.loadingCurrentPosition = true;
             geolocation.getLocation().then(function (data) {
-                var coords = MapService.coordsToLatLng(data.coords.latitude, data.coords.longitude);
+                var coords = MapService.coordsToLatLngLiteral(data.coords.latitude, data.coords.longitude);
                 $scope.routeToController.routeFrom = "Mi posición actual";
                 siteAndTownSaverService.setOrigin(coords);
                 $scope.loadingCurrentPosition = false;

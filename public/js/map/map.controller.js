@@ -93,8 +93,8 @@ angular.module('map')
             SiteMarkerService.deleteMarkers();
             MapService.getUserPosition(function (position) {
                 var routeRequest = {
-                    destination: MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud)),
-                    origin: MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude)
+                    destination: MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud)),
+                    origin: MapService.coordsToLatLngLiteral(position.coords.latitude, position.coords.longitude)
                 };
                 MapRouteService.calculateRoute(routeRequest, $scope);
             }, handleLocationError);
@@ -120,12 +120,12 @@ angular.module('map')
         }
 
         function centerMapToSelectedTown(selectedTown) {
-            var townPosition = MapService.coordsToLatLng(parseFloat(selectedTown.latitud), parseFloat(selectedTown.longitud));
+            var townPosition = MapService.coordsToLatLngLiteral(parseFloat(selectedTown.latitud), parseFloat(selectedTown.longitud));
             MapService.moveMapToPosition(townPosition, 12);
         }
 
         function centerMapToCundinamrca() {
-            var cundinamarcaPosition = MapService.coordsToLatLng($scope.map.center.latitude, $scope.map.center.longitude);
+            var cundinamarcaPosition = MapService.coordsToLatLngLiteral($scope.map.center.latitude, $scope.map.center.longitude);
             MapService.moveMapToPosition(cundinamarcaPosition, 9);
         }
 
@@ -151,7 +151,7 @@ angular.module('map')
             if (sites != undefined) {
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
-                    var position = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
+                    var position = MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud));
                     var marker = MapService.addMarker(position, site.nombre);
 
                     SiteMarkerService.addSiteMarker(site, marker, $scope.showSiteDetail);
@@ -168,7 +168,7 @@ angular.module('map')
 
 
         function setUserPositionAsRouteOrigin(position) {
-            userPosition = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
+            userPosition = MapService.coordsToLatLngLiteral(position.coords.latitude, position.coords.longitude);
             siteAndTownSaverService.setOrigin(userPosition);
             MapService.moveMapToPosition(userPosition, 12);
             MapService.addMarker(userPosition);

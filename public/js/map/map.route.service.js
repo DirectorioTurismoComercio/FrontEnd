@@ -38,7 +38,7 @@ angular.module('map')
             sitesNearRoute.getSitesNearRoute(points).success(function (sites) {
 
                     for (var i = 0; i < sites.length; i++) {
-                        var position = MapService.coordsToLatLng(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
+                        var position = MapService.coordsToLatLngLiteral(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
                         var marker = MapService.addMarker(position, sites[i].nombre);
                         SiteMarkerService.addSiteMarker(sites[i], marker, $scope.showSiteDetail);
                     }

@@ -90,7 +90,7 @@ angular.module('map')
         }
 
 
-        function coordsToLatLng(latitude, longitude) {
+        function coordsToLatLngLiteral(latitude, longitude) {
             return {
                 lat: latitude,
                 lng: longitude
@@ -142,7 +142,7 @@ angular.module('map')
             isPlaceInsideRegion: isPlaceInsideRegion,
             isPlaceInsideCundinamarca: isPlaceInsideCundinamarca,
             addMarker: addMarker,
-            coordsToLatLng: coordsToLatLng,
+            coordsToLatLngLiteral: coordsToLatLngLiteral,
             latLngLiteralToLatLng: latLngLiteralToLatLng,
             placeToLatLngLiteral: placeToLatLngLiteral,
             moveMapToPosition: moveMapToPosition,
