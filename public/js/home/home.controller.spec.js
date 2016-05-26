@@ -57,17 +57,6 @@ describe('Controller: HomeController', function () {
         expect(testpopErrorAlertService.showErrorMessage).toHaveBeenCalled();
     });
 
-    it('Should show error message if make route with no origin', function () {
-        $scope.routeToController.routeFrom='';
-        $scope.calculateRoute();
-        expect(testpopErrorAlertService.showErrorMessage).toHaveBeenCalled();
-    });
-
-    it('Should show error message if make route with no destination', function () {
-        $scope.routeToController.routeTo='';
-        $scope.calculateRoute();
-        expect(testpopErrorAlertService.showErrorMessage).toHaveBeenCalled();
-    });
 
     it('Should redirects to map page', function () {
         $scope.doSearch('bar');

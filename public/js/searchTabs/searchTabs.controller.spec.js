@@ -1,19 +1,22 @@
 'use strict';
 
 describe('Controller: searchAndRouteTabs', function () {
-    var searchAndRouteTabsController, scope, testsiteAndTownSaverService;
+    var searchAndRouteTabsController, scope, testsiteAndTownSaverService, testMapService;
 
     beforeEach(module('gemStore'));
 
-    beforeEach(inject(function ($controller, $rootScope, siteAndTownSaverService) {
+    beforeEach(inject(function ($controller, $rootScope, siteAndTownSaverService, MapService) {
         scope = $rootScope.$new();
         testsiteAndTownSaverService=siteAndTownSaverService;
+        testMapService=MapService;
 
         spyOn(testsiteAndTownSaverService, 'getCurrentSearchedSite').and.returnValue('business');
+        spyOn(MapService,'addAutocompleteFeature');
 
         searchAndRouteTabsController = $controller('searchTabsController', {
             $scope: scope,
-            siteAndTownSaverService:testsiteAndTownSaverService
+            siteAndTownSaverService:testsiteAndTownSaverService,
+            MapService:testMapService
         });
     }));
 
