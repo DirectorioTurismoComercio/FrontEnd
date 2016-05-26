@@ -19,7 +19,7 @@ angular.module('home')
 
 
         $scope.showRoute = function (routeRequest) {
-            MapRouteService.calulateRoute(routeRequest, $scope);
+            MapRouteService.calculateRoute(routeRequest, $scope);
             $location.path('/map');
         };
 

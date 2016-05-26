@@ -4,7 +4,7 @@ angular.module('map')
     .service('MapRouteService', function ($window, CUNDINAMARCA_COORDS, $http, MapService, sitesNearRoute,
                                           SiteMarkerService, messageService, siteAndTownSaverService) {
 
-        function calulateRoute(routeRequest, $scope) {
+        function calculateRoute(routeRequest, $scope) {
             routeRequest.travelMode = google.maps.TravelMode.DRIVING;
 
             MapService.getDirectionsService().route(routeRequest, function (result, status) {
@@ -69,7 +69,7 @@ angular.module('map')
         }
 
         return {
-            calulateRoute: calulateRoute,
+            calculateRoute: calculateRoute,
             setOriginAndDestinationdata: setOriginAndDestinationdata
         }
     });

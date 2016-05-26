@@ -40,7 +40,7 @@ angular.module('map')
         }
 
         $scope.showRoute = function (routeRequest) {
-            MapRouteService.calulateRoute(routeRequest, $scope);
+            MapRouteService.calculateRoute(routeRequest, $scope);
         };
 
         $scope.goToUserPosition = function () {
@@ -92,9 +92,11 @@ angular.module('map')
             $scope.loading = true;
             SiteMarkerService.deleteMarkers();
             MapService.getUserPosition(function (position) {
-                var destination = MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud));
-                var origin = MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude);
-                MapRouteService.calulateRoute(origin, destination, $scope);
+                var routeRequest = {
+                    destination: MapService.coordsToLatLng(parseFloat(site.latitud), parseFloat(site.longitud)),
+                    origin: MapService.coordsToLatLng(position.coords.latitude, position.coords.longitude)
+                };
+                MapRouteService.calculateRoute(routeRequest, $scope);
             }, handleLocationError);
         };
 
@@ -160,7 +162,7 @@ angular.module('map')
         function showRoute() {
             $scope.loading = true;
             SiteMarkerService.deleteMarkers();
-            MapRouteService.calulateRoute(siteAndTownSaverService.getOrigin(), siteAndTownSaverService.getDestination(), $scope);
+            MapRouteService.calculateRoute(siteAndTownSaverService.getOrigin(), siteAndTownSaverService.getDestination(), $scope);
             MapService.clearMarkers();
         }
 
