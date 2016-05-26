@@ -6,7 +6,7 @@ angular.module('map')
 
         function calculateRoute(routeRequest, $scope) {
             routeRequest.travelMode = google.maps.TravelMode.DRIVING;
-
+            MapService.clearMarkers();
             MapService.getDirectionsService().route(routeRequest, function (result, status) {
                 var points = [];
                 if (status == google.maps.DirectionsStatus.OK) {
