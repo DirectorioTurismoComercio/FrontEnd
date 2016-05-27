@@ -48,7 +48,6 @@ angular.module('map')
                     }
                     $scope.loading = false;
                     $scope.foundSites = sites;
-                    console.log($scope);
                 })
                 .error(function (error) {
                     console.log("Hubo un error", error);

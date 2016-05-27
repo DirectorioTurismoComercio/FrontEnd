@@ -95,13 +95,20 @@ angular.module('map')
             $scope.loading = true;
             SiteMarkerService.deleteMarkers();
             MapService.getUserPosition(function (position) {
-                var routeRequest = {
-                    destination: MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud)),
-                    origin: MapService.coordsToLatLngLiteral(position.coords.latitude, position.coords.longitude)
-                };
-                MapRouteService.calculateRoute(routeRequest, $scope);
-            }, handleLocationError);
-        };
+                    var routeRequest = {
+                        origin: {
+                            location: MapService.geolocationToLatLngLiteral(position.coords)
+                        },
+                        destination: {
+                            location: MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud))
+                        }
+                    };
+
+                    MapRouteService.calculateRoute(routeRequest, $scope);
+                }, handleLocationError
+            );
+        }
+        ;
 
         function setCundinamarcaPolygon() {
             new google.maps.Polygon({
@@ -160,14 +167,6 @@ angular.module('map')
                     SiteMarkerService.addSiteMarker(site, marker, $scope.showSiteDetail);
                 }
             }
-        }
-
-
-        function setUserPositionAsRouteOrigin(position) {
-            userPosition = MapService.coordsToLatLngLiteral(position.coords.latitude, position.coords.longitude);
-            siteAndTownSaverService.setOrigin(userPosition);
-            MapService.moveMapToPosition(userPosition, 12);
-            MapService.addMarker(userPosition);
         }
 
         function handleLocationError() {

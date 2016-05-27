@@ -97,6 +97,13 @@ angular.module('map')
             }
         }
 
+        function geolocationToLatLngLiteral(geolocation) {
+            return {
+                lat: geolocation.latitude,
+                lng: geolocation.longitude
+            }
+        }
+
         function latLngLiteralToLatLng(latLngLiteral) {
             return new google.maps.LatLng(latLngLiteral.lat, latLngLiteral.lng);
         }
@@ -145,6 +152,7 @@ angular.module('map')
             coordsToLatLngLiteral: coordsToLatLngLiteral,
             latLngLiteralToLatLng: latLngLiteralToLatLng,
             placeToLatLngLiteral: placeToLatLngLiteral,
+            geolocationToLatLngLiteral: geolocationToLatLngLiteral,
             moveMapToPosition: moveMapToPosition,
             clearMarkers: clearMarkers
         }
