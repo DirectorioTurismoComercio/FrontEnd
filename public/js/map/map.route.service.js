@@ -5,9 +5,13 @@ angular.module('map')
                                           SiteMarkerService, messageService, siteAndTownSaverService) {
 
         function calculateRoute(routeRequest, $scope) {
-            routeRequest.travelMode = google.maps.TravelMode.DRIVING;
+            var route = {
+                travelMode: google.maps.TravelMode.DRIVING,
+                origin: routeRequest.origin.location,
+                destination: routeRequest.destination.location
+            };
             MapService.clearMarkers();
-            MapService.getDirectionsService().route(routeRequest, function (result, status) {
+            MapService.getDirectionsService().route(route, function (result, status) {
                 var points = [];
                 if (status == google.maps.DirectionsStatus.OK) {
                     MapService.getDirectionsDisplay().setDirections(result);
@@ -44,6 +48,7 @@ angular.module('map')
                     }
                     $scope.loading = false;
                     $scope.foundSites = sites;
+                    console.log($scope);
                 })
                 .error(function (error) {
                     console.log("Hubo un error", error);

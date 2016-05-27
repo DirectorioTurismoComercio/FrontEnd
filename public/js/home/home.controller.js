@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('home')
-    .controller('HomeController', function ($scope, SearchForResultsFactory, $location, $mdDialog, siteAndTownSaverService, messageService, MapRouteService) {
+    .controller('HomeController', function ($scope, SearchForResultsFactory,
+                                            $location, $mdDialog, siteAndTownSaverService,
+                                            messageService) {
 
         $scope.routeToController = {
             routeFrom: '',
@@ -20,8 +22,7 @@ angular.module('home')
         };
 
 
-        $scope.showRoute = function (routeRequest) {
-            MapRouteService.calculateRoute(routeRequest, $scope);
+        $scope.showRoute = function () {
             $location.path('/map');
         };
 

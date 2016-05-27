@@ -31,17 +31,24 @@ angular.module('map')
 
             if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
                 showFoundPlaces();
-
             }
 
-            if (siteAndTownSaverService.getOrigin() != undefined) {
-                showRoute();
+            showSearchedRoute();
+        }
+
+
+        function showSearchedRoute() {
+            if (siteAndTownSaverService.searchedRoute.origin != undefined) {
+                $scope.loading = true;
+                SiteMarkerService.deleteMarkers();
+                MapRouteService.calculateRoute(siteAndTownSaverService.searchedRoute, $scope);
+                MapService.clearMarkers();
             }
         }
 
-        $scope.showRoute = function (routeRequest) {
-            MapRouteService.calculateRoute(routeRequest, $scope);
-        };
+        $scope.showRoute = function () {
+            showSearchedRoute();
+        }
 
         $scope.goToUserPosition = function () {
             $scope.routeToController.routeFrom = "Mi posición actual";
@@ -157,13 +164,6 @@ angular.module('map')
                     SiteMarkerService.addSiteMarker(site, marker, $scope.showSiteDetail);
                 }
             }
-        }
-
-        function showRoute() {
-            $scope.loading = true;
-            SiteMarkerService.deleteMarkers();
-            MapRouteService.calculateRoute(siteAndTownSaverService.getOrigin(), siteAndTownSaverService.getDestination(), $scope);
-            MapService.clearMarkers();
         }
 
 

@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: MapController', function () {
-    var MapController, $scope, testpopErrorAlertService,deferred;
+    var MapController, $scope, testpopErrorAlertService, deferred;
 
     beforeEach(module('gemStore'));
 
@@ -32,7 +32,7 @@ describe('Controller: MapController', function () {
             $scope: $scope,
             messageService: testpopErrorAlertService,
             SearchForResultsFactory: SearchForResultsFactory,
-            MapService:MapService
+            MapService: MapService
         });
     }));
 

@@ -8,15 +8,10 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.isSearchFormVisible = false;
         $scope.isRouteFormVisible = false;
         $scope.loadingCurrentPosition = false;
-        $scope.route = siteAndTownSaverService.sectionData.route;
-        $scope.keyword = siteAndTownSaverService.sectionData.keyword;
+        $scope.searchedRoute = siteAndTownSaverService.searchedRoute;
         var initializedFields = false;
         var originRouteInput;
         var destinationRouteInput;
-        var routeRequest = {
-            origin: undefined,
-            destination: undefined
-        };
 
         $timeout(function () {
             $scope.showSelectedSection(siteAndTownSaverService.openSection);
@@ -40,12 +35,12 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
 
         $scope.calculateRoute = function () {
-            if (routeRequest.origin == undefined) {
+            if ($scope.searchedRoute.origin == undefined) {
                 messageService.showErrorMessage("ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN");
-            } else if (routeRequest.destination == undefined) {
+            } else if ($scope.searchedRoute.destination == undefined) {
                 messageService.showErrorMessage("ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION");
             } else {
-                $scope.showRoute(routeRequest);
+                $scope.showRoute();
             }
         };
 
@@ -65,33 +60,31 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             var place = getSelectedPlace(autocomplete, inputBox);
 
             try {
-                routeRequest.origin = place.location;
-                siteAndTownSaverService.sectionData.route.originName = place.name;
+                setSearchedRouteOrigin(place);
             } catch (err) {
-                routeRequest.origin = undefined;
-                siteAndTownSaverService.sectionData.route.originName = undefined;
+                setSearchedRouteOrigin(undefined);
             }
         }
+
 
         function routeDestinationChanged(autocomplete, inputBox) {
             var place = getSelectedPlace(autocomplete, inputBox);
 
             try {
-                routeRequest.destination = place.location;
-                siteAndTownSaverService.sectionData.route.destinationName = place.name;
+                setSearchedRouteDestination(place);
             } catch (err) {
-                routeRequest.destination = undefined;
-                siteAndTownSaverService.sectionData.route.destinationName = undefined;
+                setSearchedRouteDestination(undefined);
             }
         }
 
 
         function getSelectedPlace(autocomplete, inputBox) {
-            var place = {};
             var isPlaceInsideCundinamarca;
+            var place = {
+                location: MapService.placeToLatLngLiteral(autocomplete.getPlace()),
+                name: autocomplete.getPlace().formatted_address
+            };
 
-            place.location = MapService.placeToLatLngLiteral(autocomplete.getPlace());
-            place.name = autocomplete.getPlace().formatted_address;
             isPlaceInsideCundinamarca = MapService.isPlaceInsideCundinamarca(place.location);
 
             if (!isPlaceInsideCundinamarca) {
@@ -103,18 +96,30 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             return place;
         }
 
+        function setSearchedRouteDestination(place) {
+            $scope.searchedRoute.destination = place;
+            siteAndTownSaverService.searchedRoute.destination = place;
+        }
+
+        function setSearchedRouteOrigin(place) {
+            $scope.searchedRoute.origin = place;
+            siteAndTownSaverService.searchedRoute.origin = place;
+        }
+
         $scope.getUserPosition = function () {
             $scope.loadingCurrentPosition = true;
             geolocation.getLocation().then(function (data) {
                 var myPosition = MapService.coordsToLatLngLiteral(data.coords.latitude, data.coords.longitude);
-                $scope.route.originName = $translate.instant("MY_POSITION");
-                siteAndTownSaverService.sectionData.route.originName = $scope.route.originName;
-                routeRequest.origin = myPosition;
+                setSearchedRouteOrigin({
+                    name: $translate.instant("MY_POSITION"),
+                    location: myPosition
+                });
 
                 $scope.loadingCurrentPosition = false;
             }).catch(function (error) {
                 $scope.loadingCurrentPosition = false;
                 messageService.showErrorMessage("ERROR_UNAVAILABLE_LOCATION");
+                console.log(error);
             });
         };
 
@@ -123,10 +128,10 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             event.target.value = '';
             switch (event.target.id) {
                 case 'route-origin':
-                    routeRequest.origin = undefined;
+                    setSearchedRouteOrigin(undefined);
                     break;
                 case 'route-destination':
-                    routeRequest.destination = undefined;
+                    setSearchedRouteDestination(undefined);
                     break;
             }
         }

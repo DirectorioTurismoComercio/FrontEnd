@@ -4,15 +4,22 @@ angular.module('siteAndTownSaver', [])
     .constant('KEYWORD_SEARCH_SECTION', '1')
     .constant('ROUTE_SEARCH_SECTION', '2')
     .service('siteAndTownSaverService', function () {
-        var openSection;
+        var openSection = undefined;
         var searchedQuery;
-        var searchedRoute = undefined;
         var currentSearchedSite = undefined;
         var currentSearchedTown = undefined;
         var currentOrigin = undefined;
         var currentDestination = undefined;
         var currentOriginPlaceName = undefined;
         var currentDestinationPlaceName = undefined;
+        var searchedRoute = {
+            origin: undefined,
+            destination: undefined
+        };
+        var searchedKeyword = {
+            keyword: undefined,
+            town: undefined
+        };
         var sectionData = {
             route: {},
             keyword: undefined
@@ -38,6 +45,8 @@ angular.module('siteAndTownSaver', [])
             getSearchedRoute: getSearchedRoute,
             resetSearch: resetSearch,
             openSection: openSection,
+            searchedRoute: searchedRoute,
+            searchedKeyword: searchedKeyword,
             sectionData: sectionData
         };
 
