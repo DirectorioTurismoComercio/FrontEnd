@@ -5,11 +5,6 @@ angular.module('home')
                                             $location, $mdDialog, siteAndTownSaverService,
                                             messageService) {
 
-        $scope.routeToController = {
-            routeFrom: '',
-            routeTo: ''
-        }
-
         siteAndTownSaverService.resetSearchAndRoute();
 
         $scope.doSearch = function (result) {

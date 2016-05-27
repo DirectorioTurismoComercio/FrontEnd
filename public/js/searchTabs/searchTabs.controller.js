@@ -106,14 +106,24 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             siteAndTownSaverService.searchedRoute.origin = place;
         }
 
+        function moveMapToUserPosition(userPosition) {
+            try {
+                MapService.moveMapToPosition(userPosition, 12);
+                MapService.addMarker(userPosition);
+            } catch (error) {
+            }
+        }
+
         $scope.getUserPosition = function () {
             $scope.loadingCurrentPosition = true;
             geolocation.getLocation().then(function (data) {
-                var myPosition = MapService.coordsToLatLngLiteral(data.coords.latitude, data.coords.longitude);
+                var userPosition = MapService.coordsToLatLngLiteral(data.coords.latitude, data.coords.longitude);
                 setSearchedRouteOrigin({
                     name: $translate.instant("MY_POSITION"),
-                    location: myPosition
+                    location: userPosition
                 });
+
+                moveMapToUserPosition(userPosition);
 
                 $scope.loadingCurrentPosition = false;
             }).catch(function (error) {

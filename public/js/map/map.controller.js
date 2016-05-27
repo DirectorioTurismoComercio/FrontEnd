@@ -50,10 +50,6 @@ angular.module('map')
             showSearchedRoute();
         }
 
-        $scope.goToUserPosition = function () {
-            $scope.routeToController.routeFrom = "Mi posición actual";
-            MapService.getUserPosition(setUserPositionAsRouteOrigin, handleLocationError);
-        };
 
         $scope.hideSiteDetail = function () {
             SiteMarkerService.clearSelectedMarker();
