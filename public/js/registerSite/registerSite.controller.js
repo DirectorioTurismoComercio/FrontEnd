@@ -2,7 +2,7 @@
 
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, messageService, CUNDINAMARCA_COORDS,
-                                                    BOGOTA_COORDS, API_CONFIG, categories, siteAndTownSaverService) {
+                                                    BOGOTA_COORDS, API_CONFIG, categories, siteAndTownSaverService, $translate) {
 
         $scope.sitePhoneNumber = undefined;
         $scope.openingHours = undefined;
@@ -68,7 +68,7 @@ angular.module('registerSite')
             fd.append('correolocal',$scope.businessEmail);
             fd.append('ubicacionlocal', $scope.businessAddress);
             fd.append('categorias', $scope.businessCategories.category);
-            fb.append('usuario',1);
+            fd.append('usuario',1);
             for(var i=0; i<=$scope.tags.length-1;i++){
                 fd.append('tags', $scope.tags[i].text);
             }
@@ -81,7 +81,7 @@ angular.module('registerSite')
                     headers: {'Content-Type': undefined}
                 })
                 .success(function (d) {
-                    console.log("la respyesat de django", d);
+                    messageService.showSuccessMessage("REGISTER_COMPLETE","SUCCESS_TITLE_MESSAGE");
                 }).error(function (error) {
                 console.log("hubo n error", error);
             });

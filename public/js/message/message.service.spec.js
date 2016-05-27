@@ -32,8 +32,13 @@ describe('popErrorAlert Service', function () {
 
     }));
 
-    it('should call mdDialog', function () {
+    it('Error message should call mdDialog', function () {
         messageService.showErrorMessage('message');
+        expect(mdDialog.show).toHaveBeenCalled();
+    });
+
+    it('Success message should call mdDialog', function () {
+        messageService.showSuccessMessage('message','title');
         expect(mdDialog.show).toHaveBeenCalled();
     });
 });
