@@ -26,7 +26,7 @@ describe('Controller: registerSiteController', function () {
         $scope = $rootScope.$new();
         testMapService=MapService;
 
-        spyOn(testMapService, 'isPlaceInsideBoundaries');
+        spyOn(testMapService, 'clearRoute');
         registerSiteController = $controller('registerSiteController', {
             $scope: $scope,
             $http: $http,
@@ -34,5 +34,9 @@ describe('Controller: registerSiteController', function () {
             uiGmapIsReady:uiGmapIsReady,
         });
     }));
+
+    it('Should clear routes', function () {
+        expect(testMapService.clearRoute).toHaveBeenCalled();
+    });
 
 });

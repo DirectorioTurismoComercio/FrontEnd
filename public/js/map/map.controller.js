@@ -77,6 +77,7 @@ angular.module('map')
         };
 
         $scope.doSearch = function (result) {
+            MapService.clearRoute();
             if (result != undefined) {
                 $scope.hideSiteDetail();
                 $scope.loading = true;

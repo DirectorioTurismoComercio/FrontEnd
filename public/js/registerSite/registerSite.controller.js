@@ -29,6 +29,8 @@ angular.module('registerSite')
 
         var joinOfFormatted_address;
 
+        MapService.clearRoute();
+
         categories.getCategories().then(function (response) {
             $scope.categories = response;
         }).catch(function (error) {
