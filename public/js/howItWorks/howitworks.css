@@ -8,7 +8,7 @@
 
 .videoContainer{
     width: 100%;
-    height: 500px;
+    height: 68vmin;
     background-color: grey;
   
     display: flex;
@@ -93,7 +93,7 @@
     }
 
     .videoContainer{
-        height: 30%;
+        height: 45vmin;
     }
 
     .videoHowItWorks{
