@@ -5,7 +5,7 @@ describe('Controller: searchAndRouteTabs', function () {
 
     beforeEach(module('gemStore'));
 
-    beforeEach(inject(function ($controller, $rootScope, siteAndTownSaverService, MapService) {
+    beforeEach(inject(function ($controller, $rootScope, siteAndTownSaverService, MapService, KEYWORD_SEARCH_SECTION, ROUTE_SEARCH_SECTION) {
         scope = $rootScope.$new();
         testsiteAndTownSaverService=siteAndTownSaverService;
         testMapService=MapService;
@@ -16,40 +16,39 @@ describe('Controller: searchAndRouteTabs', function () {
         searchAndRouteTabsController = $controller('searchTabsController', {
             $scope: scope,
             siteAndTownSaverService:testsiteAndTownSaverService,
-            MapService:testMapService
+            MapService:testMapService,
+            KEYWORD_SEARCH_SECTION:KEYWORD_SEARCH_SECTION,
+            ROUTE_SEARCH_SECTION:ROUTE_SEARCH_SECTION
         });
     }));
 
     it('should show searchForm if user has made a business search', function () {
+        scope.showSelectedSection(scope.KEYWORD_SEARCH_SECTION);
         expect(scope.isSearchFormVisible).toBe(true);
     });
 
     it('should set to false isRouteFormVisible when showSearchForm', function () {
-        scope.isRouteFormVisible=true;
-        scope.showSearchForm();
+        scope.showSelectedSection(scope.KEYWORD_SEARCH_SECTION);
         expect(scope.isRouteFormVisible).toBe(false);
     });
 
     it('should toggle isSearchFormVisible property when showSearchForm', function () {
-        scope.isSearchFormVisible=false;
-        scope.showSearchForm();
+        scope.showSelectedSection(scope.KEYWORD_SEARCH_SECTION);
         expect(scope.isSearchFormVisible).toBe(true);
-        scope.showSearchForm();
+        scope.showSelectedSection(scope.KEYWORD_SEARCH_SECTION);
         expect(scope.isSearchFormVisible).toBe(false);
     });
 
     it('should set to false isSearchFormVisible when showRouteForm', function () {
-        scope.isSearchFormVisible=true;
-        scope.showRouteForm();
+        scope.showSelectedSection(scope.ROUTE_SEARCH_SECTION);
         expect(scope.isSearchFormVisible).toBe(false);
     });
 
     it('should toggle isRouteFormVisible property when showRouteForm', function () {
-        scope.isRouteFormVisible=true;
-        scope.showRouteForm();
-        expect(scope.isRouteFormVisible).toBe(false);
-        scope.showRouteForm();
+        scope.showSelectedSection(scope.ROUTE_SEARCH_SECTION);
         expect(scope.isRouteFormVisible).toBe(true);
+        scope.showSelectedSection(scope.ROUTE_SEARCH_SECTION);
+        expect(scope.isRouteFormVisible).toBe(false);
     });
 });
 
