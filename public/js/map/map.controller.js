@@ -33,17 +33,17 @@ angular.module('map')
                 showFoundPlaces();
             }
 
-            showSearchedRoute();
+            if (siteAndTownSaverService.searchedRoute.origin != undefined && siteAndTownSaverService.getCurrentSearchedSite() == undefined) {
+                showSearchedRoute();
+            }
         }
 
 
         function showSearchedRoute() {
-            if (siteAndTownSaverService.searchedRoute.origin != undefined) {
-                $scope.loading = true;
-                SiteMarkerService.deleteMarkers();
-                MapRouteService.calculateRoute(siteAndTownSaverService.searchedRoute, $scope);
-                MapService.clearMarkers();
-            }
+            $scope.loading = true;
+            SiteMarkerService.deleteMarkers();
+            MapRouteService.calculateRoute(siteAndTownSaverService.searchedRoute, $scope);
+            MapService.clearMarkers();
         }
 
         $scope.showRoute = function () {
