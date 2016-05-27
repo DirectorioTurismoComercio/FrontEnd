@@ -66,6 +66,7 @@ angular.module('registerSite')
             fd.append('correolocal',$scope.businessEmail);
             fd.append('ubicacionlocal', $scope.businessAddress);
             fd.append('categorias', $scope.businessCategories.category);
+            fb.append('usuario',1);
             for(var i=0; i<=$scope.tags.length-1;i++){
                 fd.append('tags', $scope.tags[i].text);
             }
