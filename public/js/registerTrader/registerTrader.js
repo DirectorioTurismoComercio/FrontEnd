@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('registerTrader', [])
+angular.module('registerTrader', ['auth'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/registertrader', {

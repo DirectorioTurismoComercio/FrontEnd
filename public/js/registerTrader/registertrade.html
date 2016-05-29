@@ -1,28 +1,28 @@
 <app-header></app-header>
-<p>Registrate con <a ng-click="getSocialMediaInfo('facebook')">Facebook</a> o <a ng-click="getSocialMediaInfo('google')">Google</a></p>
+<p>Registrate con <a ng-click="authenticate('facebook')">Facebook</a> o <a ng-click="authenticate('google')">Google</a></p>
 <form name="traderInfoForm">
     <div>
         <label>Nombre</label>
-        <input name="traderName" type="text" ng-model="traderName" required>
+        <input name="traderName" type="text" ng-model="usuario.nombres" required>
     </div>
 
     <div>
         <label>apellido</label>
-        <input name="traderLastName" type="text" ng-model="traderLastName" requred>
+        <input name="traderLastName" type="text" ng-model="usuario.apellidos" requred>
     </div>
 
 
     <div>
         <label>correo electrónico</label>
-        <input name="traderEmail" type="email" ng-model="traderEmail" required>
+        <input name="traderEmail" type="email" ng-model="usuario.correo" required>
     </div>
 
     <div>
         <label>Contraseña</label>
-        <input name="traderPassword" type="password" ng-model="traderPassword" required>
+        <input name="traderPassword" type="password" ng-model="usuario.password" required>
     </div>
 
-    <button ng-disabled="traderInfoForm.$invalid" ng-click="registerTraderInfo()">Registrarme</button>
+    <button ng-disabled="traderInfoForm.$invalid" ng-click="save()">Registrarme</button>
 
 </form>
 <app-footer></app-footer>

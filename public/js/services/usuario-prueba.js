@@ -2,7 +2,7 @@ angular.module('gemStore')
 .factory('UserByToken', ['$resource','Constantes',
 	function($resource, Constantes){						
 		return {
-	    	us: function (token) {	    		
+	    	getUser: function (token) {	    		
 	        	return $resource(Constantes.url+'/usuario', {}, {
 		    	    query: {
 		        	    method: 'GET',
@@ -13,7 +13,7 @@ angular.module('gemStore')
 		        })
 		    },
 
-		    up: function (token) {	    		
+		    putUser: function (token) {	    		
 	        	return $resource(Constantes.url+'/usuario', {}, {
 		    	    update: {
 		        	    method: 'PUT',
