@@ -33,6 +33,7 @@
     "BUSINESS_PHONE": "Teléfono",
     "BUSINESS_OPENINGHOURS": "Horario de atención",
     "BUSINESS_NAME": "Nombre del local",
+    "SELECT_TOWN": "Selecciona el municpio",
     "BUSINESS_LOCATION": "Ubicación del local",
     "BUSINESS_DESCRIPTION": "Descripción del local",
     "BUSINESS_EMAIL": "Correo",
