@@ -145,6 +145,14 @@ angular.module('map')
             });
         }
 
+        function setPinOnUserPosition(userPosition) {
+            try {
+                moveMapToPosition(userPosition, 12);
+                addMarker(userPosition);
+            } catch (error) {
+            }
+        }
+
         return {
             setGMap: setGMap,
             getDirectionsService: getDirectionsService,
@@ -161,6 +169,7 @@ angular.module('map')
             geolocationToLatLngLiteral: geolocationToLatLngLiteral,
             moveMapToPosition: moveMapToPosition,
             clearMarkers: clearMarkers,
-            clearRoute: clearRoute
+            clearRoute: clearRoute,
+            setPinOnUserPosition: setPinOnUserPosition
         }
     });

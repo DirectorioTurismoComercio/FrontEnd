@@ -106,14 +106,6 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             siteAndTownSaverService.searchedRoute.origin = place;
         }
 
-        function moveMapToUserPosition(userPosition) {
-            try {
-                MapService.moveMapToPosition(userPosition, 12);
-                MapService.addMarker(userPosition);
-            } catch (error) {
-            }
-        }
-
         $scope.getUserPosition = function () {
             $scope.loadingCurrentPosition = true;
             geolocation.getLocation().then(function (data) {
@@ -123,7 +115,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                     location: userPosition
                 });
 
-                moveMapToUserPosition(userPosition);
+                MapService.setPinOnUserPosition(userPosition);
 
                 $scope.loadingCurrentPosition = false;
             }).catch(function (error) {
