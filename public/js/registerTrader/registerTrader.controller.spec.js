@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: registerTraderController', function () {
-    var registerTradeController, $scope, deferred;
+    var registerTradeController, $scope, deferred, testauthenticationService;
 
     beforeEach(module('gemStore'));
     beforeEach(module('registerTrader'));
@@ -22,14 +22,18 @@ describe('Controller: registerTraderController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller,$q,$rootScope,$auth) {
+    beforeEach(inject(function ($controller,$q,$rootScope,$auth, authenticationService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
+        testauthenticationService=authenticationService;
 
         spyOn($auth, 'authenticate').and.returnValue(deferred.promise);
+        spyOn(testauthenticationService, 'logout');
+        spyOn(testauthenticationService, 'loginSocialMedia').and.returnValue(deferred.promise);
         registerTradeController = $controller('registerTradeController', {
             $scope: $scope,
-            $auth:$auth
+            $auth:$auth,
+            authenticationService:testauthenticationService
         });
     }));
 
@@ -41,11 +45,11 @@ describe('Controller: registerTraderController', function () {
                 email:'pepe@grillo.com'
             }
         };
-        $scope.getSocialMediaInfo();
+        $scope.authenticate();
         deferred.resolve(response);
         $scope.$apply();
-        expect($scope.traderName).toBe('Pepe Pepito');
-        expect($scope.traderLastName).toBe('Pepillo Grillo');
-        expect($scope.traderEmail).toBe('pepe@grillo.com');
+        expect($scope.usuario.nombres).toBe('Pepe Pepito');
+        expect($scope.usuario.apellidos).toBe('Pepillo Grillo');
+        expect($scope.usuario.correo).toBe('pepe@grillo.com');
     });
 });
