@@ -51,22 +51,32 @@ describe('Controller: dropDownTownsController', function () {
         });
     }));
 
-    it('should set Todo Cundinamarca in first place if page is in spanish language', function(){
-        spyOn(testtranslate, 'use').and.returnValue('es');
+    function setMunicipiosOnSearchTab (){
         $scope.isonregistersite=false;
         deferred.resolve(response);
         $scope.$apply();
         $scope.municipios=response;
+    }
+
+    it('should set Todo Cundinamarca in first place if page is in spanish language and is in searchTab', function(){
+        spyOn(testtranslate, 'use').and.returnValue('es');
+        setMunicipiosOnSearchTab();
         expect($scope.municipios[0].nombre).toBe('Todo Cundinamarca');
     });
 
-    it('should set All Cundinamarca in first place if page is in english language', function(){
+    it('should set All Cundinamarca in first place if page is in english language and is in searchTab', function(){
         spyOn(testtranslate, 'use').and.returnValue('en');
-        $scope.isonregistersite=false;
+        setMunicipiosOnSearchTab();
+        expect($scope.municipios[0].nombre).toBe('All Cundinamarca');
+    });
+
+    it('Should set Seleccione municipio in first place if is on registersite', function(){
+        spyOn(testtranslate, 'use').and.returnValue('es');
+        $scope.isonregistersite=true;
         deferred.resolve(response);
         $scope.$apply();
         $scope.municipios=response;
-        expect($scope.municipios[0].nombre).toBe('All Cundinamarca');
+        expect($scope.municipios[0].nombre).toBe('Seleccione municipio');
     });
 
     it('Should set current searched town', function () {
