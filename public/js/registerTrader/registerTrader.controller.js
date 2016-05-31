@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('registerTrader')
-    .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, UserFactory) {
+    .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, UserFactory,$location) {
         $scope.usuario = new UserFactory();
         $scope.traderName=undefined;
         $scope.traderLastName=undefined;
@@ -31,8 +31,8 @@ angular.module('registerTrader')
 
         $scope.save =function () {
                     var promesa;
-
-                    var credentials = {
+                    redirectToRegisterSite();
+                    /*var credentials = {
                             email: $scope.usuario.correo,
                             password: $scope.usuario.password
                         };                  
@@ -65,11 +65,12 @@ angular.module('registerTrader')
                         }
                         ;
                     }).finally(function () {
-                    });
+                    });*/
                 };
         function redirectToRegisterSite(){
              $scope.load = false;
-             $location.path('/registersite');
+             $location.path('/businessinformation.html');
         }
+
 
     });

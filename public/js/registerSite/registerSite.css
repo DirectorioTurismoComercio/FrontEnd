@@ -25,7 +25,7 @@
 
 .progress-bar1 > li {
     display: inline-block;
-    width: calc(100% / 4);
+    width: calc(100% / 5);
     height: 15px;
     background: #b6b6b6;
     box-sizing: border-box;
@@ -55,4 +55,21 @@ textarea.ng-invalid.ng-dirty {
 
 tags-input.ng-invalid.ng-dirty {
     border: 1px solid red;
+}
+
+.next-button{
+    padding: 5% 0% 10% 0%;
+}
+.next-button .button{
+    border: none;
+    background-color: #FFC501;
+    color: #2D3C4D;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+
+}
+.inputField{
+    padding-top: 10%;
 }

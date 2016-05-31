@@ -1,0 +1,94 @@
+
+.header{
+	height: 60px;
+	width: 100%;
+	background-color: #0A3C5A;
+	
+}
+.header .text{
+	font-size: 1.1em;
+	font-family: 'PT Sans', sans-serif;
+	font-weight: bold;
+	color: #F2F2F2;
+	position: absolute;
+	top:3%;
+	left: 35%;
+
+}
+.header .backButton{
+   color: #FFC501;
+   font-size: 50px;
+   	position: absolute;
+	top:1%;
+	cursor: pointer;
+}
+
+.social-button{
+	padding: 2% 0% 0% 0%;
+	
+}
+.form{
+	padding: 2% 10% 0% 10%;
+	
+}
+.form .control{
+	padding: 3% 0% 0% 0%;
+}
+.form .error{
+	color: #FF0000;
+}
+.icon{
+	position: absolute;
+	right: 1%;
+	top: 10px;
+	color: #2D3C4D;
+}
+
+input[type="text"]
+{
+    color: #2D3C4D;
+    font-size: 1.6em;
+}
+input[type="email"]
+{
+	color: #2D3C4D;
+    font-size: 1.6em;
+}
+input[type="password"]
+{
+	color: #2D3C4D;
+    font-size: 1.6em;
+}
+.middle-text p{
+	padding: 4% 0% 0% 0%;
+	text-align: center;
+	color: #2D3C4D;
+	font-size: 1.1em;
+	font-weight: bold;
+	font-family: 'PT Sans', sans-serif;
+}
+.register-button{
+	padding: 5% 0% 0% 0%;
+}
+.register-button .button{
+	border: none;
+    background-color: #FFC501;
+    color: #2D3C4D;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+
+}
+.bottom-text p{
+  text-align: center;
+  	font-size: 1.1em;
+	font-family: 'PT Sans', sans-serif;
+	font-weight: bold;
+}
+.already-registered-text{
+	color: #2D3C4D;
+}
+.signup-text{
+	color: #32A2D4;
+}

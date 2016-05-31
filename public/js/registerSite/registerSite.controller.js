@@ -2,7 +2,8 @@
 
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, messageService, CUNDINAMARCA_COORDS,
-                                                    BOGOTA_COORDS, API_CONFIG, categories, siteAndTownSaverService,authenticationService) {
+                                                    BOGOTA_COORDS, API_CONFIG, categories, siteAndTownSaverService,
+                                                    $location,authenticationService) {
 
         $scope.sitePhoneNumber = undefined;
         $scope.openingHours = undefined;
@@ -115,6 +116,10 @@ angular.module('registerSite')
         function displayOutsideBoundaryErrorMessage(message) {
             messageService.showErrorMessage(message);
             $scope.businessLocation = undefined;
+        }
+
+        $scope.changeView = function(view){
+            $location.path(view); 
         }
 
     });

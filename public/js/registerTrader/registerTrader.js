@@ -8,4 +8,5 @@ angular.module('registerTrader', ['auth'])
                 controller: 'registerTradeController'
             });
 
+
     });

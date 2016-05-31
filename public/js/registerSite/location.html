@@ -1,0 +1,32 @@
+<div class="header"><div class="glyphicon glyphicon-menu-left backButton" ng-click="changeView('businessinformation')"></div><p class="text">Ubicación de tu negocio</p></div>
+<ul class="progress-bar1">
+            <li class="done-step"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+<label translate="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS"></label>
+       
+<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">	
+    	<div>
+        <input class="form-control" name="businessAddress" type="text" ng-model="businessAddress" required/>
+        <span ng-show="businessForm.businessAddress.$error.required"
+              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+    	</div>
+        </div>
+        <div class="col-xs-1"></div>
+
+</div>
+<div>
+        <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION"></label>
+        <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events"></ui-gmap-google-map>
+</div>
+<div class="row next-button">
+        <div class="col-xs-4"></div>
+    <div class="button col-xs-4" ng-disabled="traderInfoForm.$invalid" ng-click="changeView('photos')">Siguiente</div>
+    <div class="col-xs-4"></div>
+</div>

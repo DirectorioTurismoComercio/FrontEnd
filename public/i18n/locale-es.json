@@ -32,6 +32,7 @@
   "REGISTER_SITE_CONSTANTS": {
     "PHOTOS": "Fotos",
     "CHOOSE_IMAGES": "Elegir imágenes",
+    "BUSINESS_INFORMATION":"Información de tu negocio",
     "BUSINESS_PHONE": "Teléfono",
     "BUSINESS_OPENINGHOURS": "Horario de atención",
     "BUSINESS_NAME": "Nombre del local",
@@ -48,6 +49,21 @@
     "PHONE_VALIDATION": "Debe ser un número telefónico de mínimo 7 y máximo 10 digitos",
     "EMAIL_VALIDATION": "Verifique el correo",
     "FIELDS_VALIDATION": "Verifique Los campos"
+  },
+  "REGISTER_USER_CONSTANTS":{
+    "CREATE_ACCOUNT": "Crea tu cuenta",
+    "SIGNUP_WITH_FACEBOOK": "Regístrate con Facebook",
+    "SIGNUP_WITH_GOOGLE": "Regístrate con Google",
+    "USE_EMAIL_ACCOUNT": "O usa tu dirección de correo electrónico",
+    "TRADER_ALREADY_REGISTER": "¿Ya eres comerciante registrado?",
+    "SIGNIN_MESSAGE": "Inicia sesión",
+    "SIGNUP_BUTTON": "Regístrate",
+    "FIRST_NAME": "nombres",
+    "LAST_NAME": "apellidos",
+    "EMAIL": "correo",
+    "PASSWORD": "contraseña",
+    "EMAIL_VALIDATION": "Verifique el correo",
+    "REQUIRED_FIELD": "campo olbigatorio*"
   },
   "STARTING_POINT_TIP": "Indica tu punto de partida",
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
