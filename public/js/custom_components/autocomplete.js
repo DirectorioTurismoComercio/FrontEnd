@@ -118,8 +118,17 @@
       var attr = '';
 
       // Default atts
+      var placeholder;
+      if($translate.use()=='en'){
+        placeholder='I am searching...';
+      }
+      if($translate.use()=='es')
+      {
+        placeholder='Busco...';
+      }
+
       scope.attrs = {
-        "placeholder": "Busco...",
+        "placeholder": placeholder,
         "class": "",
         "id": "",
         "inputclass": "",
