@@ -99,11 +99,11 @@
 
       $rootScope.$on('$translateChangeSuccess', function () {
         if($translate.use()=='en'){
-          $scope.attrs.placeholder='What are you looking for?';
+          $scope.attrs.placeholder='I am searching...';
         }
         if($translate.use()=='es')
         {
-          $scope.attrs.placeholder='¿Qué buscas?';
+          $scope.attrs.placeholder='Busco...';
         }
       });
 
@@ -119,7 +119,7 @@
 
       // Default atts
       scope.attrs = {
-        "placeholder": "¿Qué buscas?",
+        "placeholder": "Busco...",
         "class": "",
         "id": "",
         "inputclass": "",
