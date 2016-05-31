@@ -3,12 +3,13 @@
 angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory,
                                             $location, $mdDialog, siteAndTownSaverService,
-                                            messageService) {
+                                            messageService, MapService) {
 
         siteAndTownSaverService.resetSearchAndRoute();
 
         $scope.doSearch = function (result) {
             if (result != undefined) {
+                MapService.clearRoute();
                 getSites(result);
             }
             else {

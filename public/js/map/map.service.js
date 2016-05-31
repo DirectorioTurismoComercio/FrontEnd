@@ -139,6 +139,12 @@ angular.module('map')
             });
         }
 
+        function clearRoute() {
+            getDirectionsDisplay().setDirections({
+                routes: []
+            });
+        }
+
         return {
             setGMap: setGMap,
             getDirectionsService: getDirectionsService,
@@ -154,6 +160,7 @@ angular.module('map')
             placeToLatLngLiteral: placeToLatLngLiteral,
             geolocationToLatLngLiteral: geolocationToLatLngLiteral,
             moveMapToPosition: moveMapToPosition,
-            clearMarkers: clearMarkers
+            clearMarkers: clearMarkers,
+            clearRoute: clearRoute
         }
     });

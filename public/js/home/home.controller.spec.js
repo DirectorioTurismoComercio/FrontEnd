@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: HomeController', function () {
-    var homeController, $scope, deferred, location, testsiteAndTownSaverService, testpopErrorAlertService;
+    var homeController, $scope, deferred, location, testsiteAndTownSaverService, testpopErrorAlertService, MapServiceTest;
 
     beforeEach(module('gemStore'));
     beforeEach(module('home'));
@@ -22,12 +22,13 @@ describe('Controller: HomeController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $location, siteAndTownSaverService, messageService) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $location, siteAndTownSaverService, messageService, MapService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         location = $location;
         testsiteAndTownSaverService=siteAndTownSaverService;
         testpopErrorAlertService=messageService;
+        MapServiceTest=MapService;
 
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
@@ -35,6 +36,7 @@ describe('Controller: HomeController', function () {
         spyOn(location, 'path');
         spyOn(testsiteAndTownSaverService, 'setCurrentSearchedSite');
         spyOn(testsiteAndTownSaverService, 'resetSearchAndRoute');
+        spyOn(MapServiceTest,'clearRoute');
 
 
         homeController = $controller('HomeController', {
@@ -61,6 +63,11 @@ describe('Controller: HomeController', function () {
         deferred.resolve([]);
         $scope.$apply();
         expect(testpopErrorAlertService.showErrorMessage).toHaveBeenCalled();
+    });
+
+    it('Should clear routes before making a keyword search', function () {
+        $scope.doSearch('keyword');
+        expect(MapServiceTest.clearRoute).toHaveBeenCalled();
     });
 
 

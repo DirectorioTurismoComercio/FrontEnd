@@ -69,7 +69,7 @@ angular.module('registerTrader')
                 };
         function redirectToRegisterSite(){
              $scope.load = false;
-             $location.path('/businessinformation.html');
+             $location.path('/businessinformation');
         }
 
 

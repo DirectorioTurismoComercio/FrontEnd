@@ -8,7 +8,7 @@
 
 .videoContainer{
     width: 100%;
-    height: 500px;
+    height: 68vmin;
     background-color: grey;
   
     display: flex;
@@ -68,7 +68,6 @@
 
 .sectionText{
     width: 90%;
-    margin-top: 3%;
     height: auto;
     margin-left: 10%;
     display: flex;
@@ -93,7 +92,7 @@
     }
 
     .videoContainer{
-        height: 30%;
+        height: 45vmin;
     }
 
     .videoHowItWorks{
@@ -144,7 +143,7 @@
         margin-left: 5%;
         height: 2px;
         margin-bottom: 2%;
-        background-color: #5FF0BF;
+        background-color: #32A2D4 ;
     }
 
     .title{
