@@ -55,12 +55,10 @@ angular.module('dropDownTowns', [])
 
         function setCundinamarcaLabel() {
             if ($translate.use() == 'es') {
-                console.log("entro a cundinamarca español");
                 setLabelDependOnTemplate('Todo Cundinamarca', 'Seleccione municipio');
             }
 
             if ($translate.use() == 'en') {
-                console.log("entro a cundinamarca inglés");
                 setLabelDependOnTemplate('All Cundinamarca', 'Select town');
             }
         }
