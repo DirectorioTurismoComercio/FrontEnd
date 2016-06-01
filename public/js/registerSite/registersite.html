@@ -76,12 +76,13 @@
     </div>
 
     <div>
-        <label translate="SELECT_TOWN"></label>
+        <label translate="REGISTER_SITE_CONSTANTS.SELECT_TOWN"></label>
         <drop-down-town-directive isonregistersite="true"></drop-down-town-directive>
     </div>
 
     <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION"></label>
+        <button ng-click="getUserPosition()">Mi posición</button>
         <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events"></ui-gmap-google-map>
     </div>
 

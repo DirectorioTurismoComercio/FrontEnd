@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: registerSiteController', function () {
-    var registerSiteController, $scope, testpopErrorAlertService, testMapService;
+    var registerSiteController, $scope, deferred, testMapService, testgeolocation, testcategories;
 
     beforeEach(module('gemStore'));
     beforeEach(module('registerSite'));
@@ -22,21 +22,42 @@ describe('Controller: registerSiteController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller,$http, $rootScope, MapService, uiGmapIsReady) {
+    beforeEach(inject(function ($controller, $http, $rootScope, $q, MapService, uiGmapIsReady, geolocation, categories) {
         $scope = $rootScope.$new();
-        testMapService=MapService;
+        testMapService = MapService;
+        deferred = $q.defer();
+        testgeolocation = geolocation;
+        testcategories=categories;
 
         spyOn(testMapService, 'clearRoute');
+        spyOn(testMapService, 'setPinOnUserPosition');
+        spyOn(geolocation, 'getLocation').and.returnValue(deferred.promise);
+        spyOn(categories, 'getCategories').and.returnValue(deferred.promise);
         registerSiteController = $controller('registerSiteController', {
             $scope: $scope,
             $http: $http,
             MapService: MapService,
-            uiGmapIsReady:uiGmapIsReady,
+            uiGmapIsReady: uiGmapIsReady,
+            geolocation: testgeolocation,
+            categories:testcategories
         });
     }));
 
     it('Should clear routes', function () {
         expect(testMapService.clearRoute).toHaveBeenCalled();
+    });
+
+    it('Should  get user position when clicks on current position button', function () {
+        $scope.getUserPosition();
+        deferred.resolve({
+                coords: {
+                    latitude: 1,
+                    longitude: 1
+                }
+
+        });
+        $scope.$apply();
+        expect(testMapService.setPinOnUserPosition).toHaveBeenCalled();
     });
 
 });

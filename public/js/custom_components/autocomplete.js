@@ -99,11 +99,11 @@
 
       $rootScope.$on('$translateChangeSuccess', function () {
         if($translate.use()=='en'){
-          $scope.attrs.placeholder='What are you looking for?';
+          $scope.attrs.placeholder='I am searching...';
         }
         if($translate.use()=='es')
         {
-          $scope.attrs.placeholder='¿Qué buscas?';
+          $scope.attrs.placeholder='Busco...';
         }
       });
 
@@ -118,8 +118,17 @@
       var attr = '';
 
       // Default atts
+      var placeholder;
+      if($translate.use()=='en'){
+        placeholder='I am searching...';
+      }
+      if($translate.use()=='es')
+      {
+        placeholder='Busco...';
+      }
+
       scope.attrs = {
-        "placeholder": "¿Qué buscas?",
+        "placeholder": placeholder,
         "class": "",
         "id": "",
         "inputclass": "",

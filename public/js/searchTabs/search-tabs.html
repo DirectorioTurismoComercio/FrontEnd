@@ -1,12 +1,12 @@
 <div class="row search-section">
     <div class="col-xs-6 keyword-search text-center" ng-click="showSelectedSection(KEYWORD_SEARCH_SECTION)">
         <li class="label" ng-class="isSearchFormVisible ? 'underline' : 'no-underline'"
-            translate="SEARCH_TAB"></li>
+            translate="TABS_CONSTANTS.SEARCH_TAB"></li>
         <img class="icon" src="./images/icons/que-buscas.png">
     </div>
     <div class="col-xs-6 route-search text-center" ng-click="showSelectedSection(ROUTE_SEARCH_SECTION)">
         <li class="label" ng-class="isRouteFormVisible ? 'underline' : 'no-underline'"
-            translate="PLAN_YOUR_TRIP"></li>
+            translate="TABS_CONSTANTS.PLAN_YOUR_TRIP"></li>
         <img class="icon" src="./images/icons/arma-tu-ruta.png">
     </div>
 </div>
@@ -18,8 +18,8 @@
                 <div class="col-xs-12 tab-content keyword-search">
                     <div class="row">
                         <div class="col-md-6 input-section align-first">
-                            <img class="icon" src="./images/icons/paso222.png">
-                            <p class="data-label" translate="SEARCH_BY_KEY_WORD"></p>
+                            <img class="icon" src="./images/icons/paso1.png">
+                            <p class="data-label" translate="TABS_CONSTANTS.SEARCH_BY_KEY_WORD"></p>
                             <div class="input">
                                 <browser-input-field></browser-input-field>
                             </div>
@@ -27,7 +27,7 @@
                         <div class="separator"></div>
                         <div class="col-md-6 input-section align-second">
                             <img class="icon" src="./images/icons/paso2.png">
-                            <p class="data-label" translate="SELECT_TOWN"></p>
+                            <p class="data-label" translate="TABS_CONSTANTS.SELECT_TOWN"></p>
                             <div class="input">
                                 <drop-down-town-directive></drop-down-town-directive>
                             </div>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 text-center">
-                            <button class="button" aria-label="Buscar" translate="MAKE_SEARCH"
+                            <button class="button" aria-label="Buscar" translate="TABS_CONSTANTS.MAKE_SEARCH"
                                     ng-click="doSearch(result)"></button>
                         </div>
                     </div>
@@ -49,17 +49,17 @@
                         <div class="col-md-6 input-section align-first">
                             <img class="icon" src="./images/icons/paso1.png">
                             <div class="label-with-description">
-                                <p class="data-label" translate="SEARCH_TAB_MAP_HOME"></p>
-                                <p class="data-description" translate="SEARCH_TAB_MAP_HOME_TIP"></p>
+                                <p class="data-label" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT"></p>
+                                <p class="data-description" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT_TIP"></p>
                             </div>
                             <div class="input">
                                 <div class="inline-block">
-                                    <p class="tip" translate="STARTING_POINT_TIP"></p>
+                                    <p class="tip" translate="TABS_CONSTANTS.STARTING_POINT_TIP"></p>
                                     <input id="route-origin" ng-focus="clear()"
                                            class="form-control" ng-model="searchedRoute.origin.name"/>
                                 </div>
                                 <div class="inline-block">
-                                    <p class="tip md-margin-top" translate="CURRENT_LOCATION"></p>
+                                    <p class="tip md-margin-top" translate="TABS_CONSTANTS.CURRENT_LOCATION"></p>
                                     <img class="my-position-icon" src="./images/icons/mi-ubicacion.png"
                                          ng-click="getUserPosition()">
                                     <md-progress-circular class="loadingSitesOnMap" ng-show="loadingCurrentPosition"
@@ -71,8 +71,8 @@
                         <div class="col-md-6 input-section align-second">
                             <img class="icon" src="./images/icons/paso2.png">
                             <div class="label-with-description">
-                                <p class="data-label" translate="SEARCH_TAB_MAP_HOME_2NDSTEP"></p>
-                                <p class="data-description" translate="SEARCH_TAB_MAP_HOME_2NDSTEP_TIP"></p>
+                                <p class="data-label" translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT"></p>
+                                <p class="data-description" translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT_TIP"></p>
                             </div>
 
                             <div class="input" style="margin-left: 10px">
@@ -83,7 +83,7 @@
                     </div>
 
                     <div class="col-xs-12 text-center">
-                        <button class="button" aria-label="Ruta" translate="MAKE_ROUTE"
+                        <button class="button" aria-label="Ruta" translate="TABS_CONSTANTS.MAKE_ROUTE"
                                 ng-click="calculateRoute()"></button>
                     </div>
                 </div>

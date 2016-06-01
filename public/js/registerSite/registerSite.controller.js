@@ -3,7 +3,7 @@
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, messageService, CUNDINAMARCA_COORDS,
                                                     BOGOTA_COORDS, API_CONFIG, categories,
-                                                    $location,authenticationService, siteAndTownSaverService, $translate) {
+                                                    $location,authenticationService, siteAndTownSaverService, $translate,geolocation) {
 
         $scope.sitePhoneNumber = undefined;
         $scope.openingHours = undefined;
@@ -46,6 +46,17 @@ angular.module('registerSite')
             $scope.files = elm.files;
             $scope.$apply();
         };
+
+        $scope.getUserPosition=function(){
+            geolocation.getLocation().then(function (data) {
+                var userPosition = MapService.coordsToLatLngLiteral(data.coords.latitude, data.coords.longitude);
+                MapService.setPinOnUserPosition(userPosition);
+            }).catch(function (error) {
+                messageService.showErrorMessage("ERROR_UNAVAILABLE_LOCATION");
+                console.log(error);
+            });
+        }
+
 
         $scope.register = function () {
 

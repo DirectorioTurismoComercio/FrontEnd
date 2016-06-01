@@ -1,41 +1,39 @@
 {
   "HEADER_CONSTANTS": {
-    "LOGIN_TRADER": "Ingreso comerciante",
-    "REGISTER_BUSINESS": "Registra tu comercio"
+    "LOGIN_TRADER": "Login trader",
+    "REGISTER_BUSINESS": "Register your business"
   },
-  "HOW_IT_WORKS": "¿Cómo funciona?",
-  "CAROUSEL_TEXT": "Descubre lo que Cundinamarca tiene para ofrecerte en parques naturales",
-  "SEARCH_TAB": "¿Qué buscas?",
-  "PLAN_YOUR_TRIP": "Arma tu ruta",
-  "SEARCH_BY_KEY_WORD": "Busca por palabra clave o selecciona una categoría",
-  "SEARCH_1ST_STEP_TIP": "Nuestro buscador te ayudará a ubicar lo que necesitas",
-  "SELECT_TOWN": "Selecciona el municipio",
-  "SEARCH_2ND_STEP_TIP": "Selecciona el municipio de tu interés",
-  "MAKE_SEARCH": "Realizar búsqueda",
-  "SEARCH_TAB_MAP": "en",
-  "SEARCH_TAB_MAP_HOME": "Indica tu punto de partida",
-  "SEARCH_TAB_MAP_HOME_TIP": "Puedes seleccionar un punto de partida o usar tu ubicación actual como inicio de ruta",
-  "SEARCH_TAB_MAP_HOME_2NDSTEP": "Indica tu destino",
-  "SEARCH_TAB_MAP_HOME_2NDSTEP_TIP": "Selecciona el municipio de tu interés",
-  "STARTING_POINT": "Punto de partida",
-  "CURRENT_LOCATION": "Usa mi ubicación",
-  "MAKE_ROUTE": "Armar ruta",
-  "HOW_IT_WORKS_REGISTER_STEP": "1 Regístrate",
-  "HOW_IT_WORKS_REGISTER_STEP_MOBILE": "1 Regístrate",
-  "HOW_IT_WORKS_1ST_STEP_DESCRIPTION": "Sé parte de la comunidad y aprovecha las ventajas que Cundinamarcapp tiene para tí",
-  "HOW_IT_WORKS_SEARCH_STEP": "1 Encuentra lo que te gusta",
-  "HOW_IT_WORKS_SEARCH_STEP_MOBILE": "1 Encuentra lo que te gusta",
-  "HOW_IT_WORKS_2ND_STEP_DESCRIPTION": "Nuestro buscador te ayudará a ubicar lo que necesitas",
-  "HOW_IT_WORKS_TRIP_STEP": "2 Arma tu ruta",
-  "HOW_IT_WORKS_TRIP_STEP_MOBILE": "2 Arma tu ruta",
-  "HOW_IT_WORKS_3RD_STEP_DESCRIPTION": "Planea tu aventura y sorpéndete con las maravillas de Cundinamarca",
+  "HOME_CONSTANTS":{
+    "CAROUSEL_TEXT": "Discover the secrets Cundinamarca has for you",
+    "HOW_IT_WORKS": "How does it works?"
+  },
+  "TABS_CONSTANTS":{
+    "SEARCH_TAB": "Search",
+    "SEARCH_BY_KEY_WORD": "Search using key words or a category",
+    "SELECT_TOWN": "Choose a municipality for your search",
+    "MAKE_SEARCH": "Search",
+    "PLAN_YOUR_TRIP": "Plan your route",
+    "ROUTE_STARTING_POINT": "Choose starting point",
+    "ROUTE_STARTING_POINT_TIP": "You can choose a starting point or allow the app to use your current location as your starting point",
+    "STARTING_POINT_TIP": "Choose starting point",
+    "CURRENT_LOCATION": "Use my current location",
+    "ROUTE_DESTINATION_POINT": "Choose destination",
+    "ROUTE_DESTINATION_POINT_TIP": "Pick the municipality you are heading to",
+    "MAKE_ROUTE": "Show me this route on the map"
+  },
+  "HOW_IT_WORKS_CONSTANTS":{
+    "HOW_IT_WORKS_SEARCH_STEP": "1 Find here what interests you the most",
+    "HOW_IT_WORKS_SEARCH_STEP_DESCRIPTION": "You can search what interest you the most, using key words or by category",
+    "HOW_IT_WORKS_ROUTE_STEP": "2 Plan your route",
+    "HOW_IT_WORKS_ROUTE_STEP_DESCRIPTION": "Customize your route to travel through Cundinamarca and explore the options the way has for you"
+  },
   "REGISTER_SITE_CONSTANTS": {
     "PHOTOS": "Fotos",
     "CHOOSE_IMAGES": "Elegir imágenes",
-    "BUSINESS_INFORMATION":"Información de tu negocio",
     "BUSINESS_PHONE": "Teléfono",
     "BUSINESS_OPENINGHOURS": "Horario de atención",
     "BUSINESS_NAME": "Nombre del local",
+    "SELECT_TOWN": "Selecciona el municpio",
     "BUSINESS_LOCATION": "Ubicación del local",
     "BUSINESS_DESCRIPTION": "Descripción del local",
     "BUSINESS_EMAIL": "Correo",
@@ -50,29 +48,12 @@
     "EMAIL_VALIDATION": "Verifique el correo",
     "FIELDS_VALIDATION": "Verifique Los campos"
   },
-  "REGISTER_USER_CONSTANTS":{
-    "CREATE_ACCOUNT": "Crea tu cuenta",
-    "SIGNUP_WITH_FACEBOOK": "Regístrate con Facebook",
-    "SIGNUP_WITH_GOOGLE": "Regístrate con Google",
-    "USE_EMAIL_ACCOUNT": "O usa tu dirección de correo electrónico",
-    "TRADER_ALREADY_REGISTER": "¿Ya eres comerciante registrado?",
-    "SIGNIN_MESSAGE": "Inicia sesión",
-    "SIGNUP_BUTTON": "Regístrate",
-    "FIRST_NAME": "nombres",
-    "LAST_NAME": "apellidos",
-    "EMAIL": "correo",
-    "PASSWORD": "contraseña",
-    "EMAIL_VALIDATION": "Verifique el correo",
-    "REQUIRED_FIELD": "campo olbigatorio*"
-  },
-  "STARTING_POINT_TIP": "Indica tu punto de partida",
-  "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
+  "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
-  "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN": "Debes elegir tu punto de partida",
-  "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "Debes elegir tu destino",
-  "MY_POSITION": "Mi posición actual",
-  "SUCCESS_TITLE_MESSAGE":"Completado",
-  "REGISTER_COMPLETE":"El registro fue exitoso"
-
+  "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN": "You must choose your starting point",
+  "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "You must choose your destination",
+  "MY_POSITION": "My position",
+  "SUCCESS_TITLE_MESSAGE":"Success",
+  "REGISTER_COMPLETE":"your site registration is done"
 
 }
