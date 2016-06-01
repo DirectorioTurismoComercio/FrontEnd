@@ -37,12 +37,6 @@
 .form .error{
 	color: #FF0000;
 }
-.icon{
-	position: absolute;
-	right: 1%;
-	top: 10px;
-	color: #2D3C4D;
-}
 
 input[type="text"]
 {
