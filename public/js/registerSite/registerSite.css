@@ -73,3 +73,21 @@ tags-input.ng-invalid.ng-dirty {
 .inputField{
     padding-top: 10%;
 }
+input[type="tel"]
+{
+    color: #2D3C4D;
+    font-size: 1.6em;
+}
+input[type="textarea"]
+{
+    color: #2D3C4D;
+    font-size: 1.6em;
+}
+textarea.description{
+
+    font-size: 1.6em;
+}
+.select-town{
+
+    font-size: 1.6em;
+}

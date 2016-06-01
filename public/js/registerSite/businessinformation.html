@@ -1,7 +1,7 @@
 <div class="header"><div class="glyphicon glyphicon-menu-left backButton"></div><p class="text">Información de tu negocio</p></div>
 <ul class="progress-bar1">
             <li class="done-step"></li>
-            <li></li>
+            <li class="done-step"></li>
             <li></li>
             <li></li>
             <li></li>
@@ -24,7 +24,7 @@
 		<div class="col-xs-1"><span class="glyphicon glyphicon-earphone icon"></span> </div>
 		<div class="col-xs-10">	
         
-        <input placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_PHONE" name="sitePhoneNumber" class="form-control control" type="tel" ng-pattern="/^\d+$/" ng-minlength="7" ng-maxlength="10"
+        <input placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_PHONE" name="sitePhoneNumber" class="form-control" type="tel" ng-pattern="/^\d+$/" ng-minlength="7" ng-maxlength="10"
                ng-model="sitePhoneNumber" required />
         <span ng-show="businessForm.sitePhoneNumber.$error.required"
               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
@@ -37,7 +37,7 @@
 <div class="row inputField">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">	
-        <drop-down-town-directive isonregistersite="true" class="drop-down-towns"></drop-down-town-directive>
+        <drop-down-town-directive isonregistersite="true" class="drop-down-towns select-town"></drop-down-town-directive>
         </div>
         <div class="col-xs-1"></div>
 </div>
@@ -46,14 +46,14 @@
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">	
         
-        <textarea placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION" class="form-control" name="businessDescription" ng-model="businessDescription" required></textarea>
+        <textarea placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION" class="form-control description" name="businessDescription" ng-model="businessDescription" required></textarea>
         <span ng-show="businessForm.businessDescription.$error.required"
               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
         </div>
         <div class="col-xs-1"></div>
 
 </div>
-<div class="row">
+<div class="row inputField">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">	
     	<span>Escribe los dias y horarios de atención de tu negocio. Ejemplo:</span>
@@ -62,7 +62,7 @@
         <div class="col-xs-1"></div>
 
 </div>
-<div class="row">
+<div class="row inputField">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">	
         
@@ -77,7 +77,7 @@
         <div class="col-xs-1"></div>
 
 </div>
-<div class="row">
+<div class="row inputField">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">	
     	<span>Selecciona la categoría que corresponda a la actividad principal de tu negocio</span>
@@ -85,7 +85,7 @@
         <div class="col-xs-1"></div>
 
 </div>
-<div class="row">
+<div class="row inputField">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">	
         
@@ -105,7 +105,7 @@
 
 </div>
 
-<div class="row">
+<div class="row inputField">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">	
     	<span>Para que tus clientes identifiquen tu negocio fácilmente, ingresa etiquetas separadas por comas. Ejemplo:</span>
@@ -114,7 +114,7 @@
         <div class="col-xs-1"></div>
 
 </div>
-<div class="row">
+<div class="row inputField">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">	
 		<label>Tags</label>
