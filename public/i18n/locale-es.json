@@ -3,11 +3,11 @@
     "LOGIN_TRADER": "Ingreso comerciante",
     "REGISTER_BUSINESS": "Registra tu comercio"
   },
-  "HOME_CONSTANTS":{
+  "HOME_CONSTANTS": {
     "CAROUSEL_TEXT": "Descubre los secretos que Cundinamarca guarda para ti",
     "HOW_IT_WORKS": "¿Cómo funciona?"
   },
-  "TABS_CONSTANTS":{
+  "TABS_CONSTANTS": {
     "SEARCH_TAB": "¿Qué buscas?",
     "SEARCH_BY_KEY_WORD": "Busca por palabra clave o selecciona una categoría",
     "SELECT_TOWN": "Selecciona el municipio para tu búsqueda",
@@ -21,17 +21,33 @@
     "ROUTE_DESTINATION_POINT_TIP": "Indica el municipio al que te diriges",
     "MAKE_ROUTE": "Trazar esta ruta"
   },
-  "HOW_IT_WORKS_CONSTANTS":{
+  "HOW_IT_WORKS_CONSTANTS": {
     "HOW_IT_WORKS_SEARCH_STEP": "1 Encuentra lo que te gusta",
     "HOW_IT_WORKS_SEARCH_STEP_DESCRIPTION": "Puedes buscar lo que más te interesa a través de palabras clave o usando categorías",
     "HOW_IT_WORKS_ROUTE_STEP": "2 Arma tu ruta",
     "HOW_IT_WORKS_ROUTE_STEP_DESCRIPTION": "Personaliza tu ruta para viajar por Cundinamarca y explora las opciones que el camino tiene para ti"
+  },
+  "REGISTER_USER_CONSTANTS": {
+    "CREATE_ACCOUNT": "Crea tu cuenta",
+    "SIGNUP_WITH_FACEBOOK": "Regístrate con Facebook",
+    "SIGNUP_WITH_GOOGLE": "Regístrate con Google",
+    "USE_EMAIL_ACCOUNT": "O usa tu dirección de correo electrónico",
+    "TRADER_ALREADY_REGISTER": "¿Ya eres comerciante registrado?",
+    "SIGNIN_MESSAGE": "Inicia sesión",
+    "SIGNUP_BUTTON": "Regístrate",
+    "FIRST_NAME": "nombres",
+    "LAST_NAME": "apellidos",
+    "EMAIL": "correo",
+    "PASSWORD": "contraseña",
+    "EMAIL_VALIDATION": "Verifique el correo",
+    "REQUIRED_FIELD": "campo olbigatorio*"
   },
   "REGISTER_SITE_CONSTANTS": {
     "PHOTOS": "Fotos",
     "CHOOSE_IMAGES": "Elegir imágenes",
     "BUSINESS_PHONE": "Teléfono",
     "BUSINESS_OPENINGHOURS": "Horario de atención",
+    "BUSINESS_INFORMATION": "Información de tu negocio",
     "BUSINESS_NAME": "Nombre del local",
     "SELECT_TOWN": "Selecciona el municpio",
     "BUSINESS_LOCATION": "Ubicación del local",
@@ -53,8 +69,6 @@
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN": "Debes elegir tu punto de partida",
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "Debes elegir tu destino",
   "MY_POSITION": "Mi posición actual",
-  "SUCCESS_TITLE_MESSAGE":"Completado",
-  "REGISTER_COMPLETE":"El registro fue exitoso"
-
-
+  "SUCCESS_TITLE_MESSAGE": "Completado",
+  "REGISTER_COMPLETE": "El registro fue exitoso"
 }
