@@ -17,7 +17,6 @@ angular.module('registerSite')
         $scope.businessCategories = {
             category: ''
         };
-        console.log("usuario",authenticationService.getUser());
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
             events: {
@@ -27,6 +26,8 @@ angular.module('registerSite')
                 },
             }
         };
+
+        $scope.flowPhotos = {};
 
         var joinOfFormatted_address;
 
@@ -41,6 +42,10 @@ angular.module('registerSite')
         uiGmapIsReady.promise().then(function (map_instances) {
             MapService.setGMap(map_instances[0].map);
         });
+
+        $scope.subir=function(){
+            console.log("El arreglo del flow",$scope.flowPhotos);
+        }
 
         $scope.filesChange = function (elm) {
             $scope.files = elm.files;

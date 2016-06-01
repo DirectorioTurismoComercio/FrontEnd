@@ -12,3 +12,40 @@
     <div class="button col-xs-4" ng-disabled="traderInfoForm.$invalid" ng-click="changeView('summary')">Siguiente</div>
     <div class="col-xs-4"></div>
 </div>
+
+<div flow-init flow-prevent-drop
+     flow-drag-enter="style={border: '5px solid green'}"
+     flow-drag-leave="style={}"
+     ng-style="style"
+     flow-name="flowPhotos.flow"
+     class="container">
+
+    <div class="row">
+        <div class="span6">
+            <h2>Inputs:</h2>
+            <input type="file" flow-btn/>
+        </div>
+    <table class="table table-hover table-bordered table-striped" flow-transfers>
+        <thead>
+        <tr>
+            <th>preview</th>
+            <th>Settings</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="file in transfers">
+            <td><img flow-img="$flow.files[$index]" /></td>
+            <td>
+                <div class="btn-group">
+                    <a class="btn btn-mini btn-danger" ng-click="file.cancel()">
+                        Cancel
+                    </a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<button ng-click="subir()   ">SUBIR</button>

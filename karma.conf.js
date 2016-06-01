@@ -42,6 +42,8 @@ module.exports = function (config) {
             'public/components/angular-business-hours/dist/angular-business-hours.js',
             'public/components/angular-click-outside/clickoutside.directive.js',
             'public/components/angular-wizard/dist/angular-wizard.min.js',
+            'public/components/flow.js/dist/flow.min.js',
+            'public/components/ng-flow/dist/ng-flow.min.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
