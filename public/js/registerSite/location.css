@@ -44,6 +44,12 @@
     height: 4vmin;
 }
 
+.boton{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
 /* xs devices */
 @media (max-width: 767px) {
     .topMarginHeader{
