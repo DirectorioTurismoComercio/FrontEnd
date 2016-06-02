@@ -10,10 +10,24 @@ angular.module('businessBrowser', [])
             }).catch(function (error) {
                 console.log("ocurrio un error", error);
             });
-        }
+        };
+
+        $scope.keyPressed = function () {
+            switch (event.which) {
+                case 13:
+                    $scope.$parent.doSearch($scope.result);
+                    break;
+
+                case 27:
+                    $scope.result = "";
+                    break;
+            }
+
+            event.preventDefault();
+        };
 
         function setValue() {
-            $scope.result= (siteAndTownSaverService.getCurrentSearchedSite() == null) ? undefined : siteAndTownSaverService.getCurrentSearchedSite();
+            $scope.result = (siteAndTownSaverService.getCurrentSearchedSite() == null) ? undefined : siteAndTownSaverService.getCurrentSearchedSite();
         }
     });
 
