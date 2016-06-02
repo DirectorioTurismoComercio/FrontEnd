@@ -1,39 +1,39 @@
-<app-header></app-header>
-
-<div class="row">
-
+<div class="hidden-xs hidden-sm">
+    <app-header></app-header>
+</div>
+<div class="row topMarginHeader">
     <div class="col-md-4  col-md-offset-4 centerColumnNoPadding" >
         <div class="header container-fluid"><div class="glyphicon glyphicon-menu-left backButton" ng-click="changeView('businessinformation')"></div><p class="text">Ubicación de tu negocio</p></div>
-        <ul class="progress-bar1 progressBarPadding">
+        <ul class="progress-bar1 progressBarPadding topMarginElements">
             <li class="done-step"></li>
             <li></li>
             <li></li>
             <li></li>
             <li></li>
         </ul>
-        <form role="businessAddressForm">
+        <form class="topMarginElements" role="businessAddressForm">
             <div class="form-group has-feedback businessAddressText">
                 <input type="text" class="form-control businessAddressInput"  name="businessAddress2" type="text" ng-model="businessAddress" placeholder="Dirección de tu negocio" required/>
                 <i ng-show="businessAddress==undefined"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessAddress"></i>
             </div>
         </form>
 
-        <div class="row businessAddressText">
-            <div  class="col-md-8 col-lg-9 centerColumnNoPadding">
+        <div class="row businessAddressText topMarginElements">
+            <div  class="col-xs-8 col-sm-8 col-md-8 col-lg-9 centerColumnNoPadding">
                 <label class="texto-claroBusinessLocation" translate="REGISTER_SITE_CONSTANTS.BUSINESS_GET_USER_LOCATION_TIP"></label>
             </div>
-            <div  class="col-md-2 col-md-offset-1">
+            <div  class="col-xs-2 col-sm-2 col-md-2 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <img class="getUserPositionBusinessAddressButton" src="./images/icons/mi-ubicacion.png"
                      ng-click="getUserPosition()">
             </div>
         </div>
-        <label class="businessAddressText texto-oscuroBusinessLocation" translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION_TIP"></label>
-        <div class="progressBarPadding">
+        <label class="businessAddressText texto-oscuroBusinessLocation topMarginElements" translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION_TIP"></label>
+        <div class="progressBarPadding topMarginElements">
             <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events"></ui-gmap-google-map>
         </div>
-        <div class="row next-button">
+        <div class="row next-button topMarginElements">
             <div class="col-xs-4"></div>
-            <button class="button col-xs-4" ng-disabled="businessAddress==undefined" ng-click="changeView('photos')">Siguiente</button>
+            <button class="button col-xs-4" ng-disabled="businessAddress==undefined" ng-click="changeView('photos')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
             <div class="col-xs-4"></div>
         </div>
     </div>

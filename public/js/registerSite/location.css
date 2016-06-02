@@ -1,3 +1,11 @@
+.topMarginElements{
+    margin-top: 3% !important;
+}
+
+.topMarginHeader{
+    margin-top: 3%;
+}
+
 .centerColumnNoPadding{
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -6,6 +14,7 @@
 .progressBarPadding{
     padding-left: 15px !important;
     padding-right: 15px !important;
+
 }
 
 .businessAddressText{
@@ -34,3 +43,37 @@
 .getUserPositionBusinessAddressButton{
     height: 4vmin;
 }
+
+/* xs devices */
+@media (max-width: 767px) {
+    .topMarginHeader{
+        margin-top: 0%;
+    }
+
+    .getUserPositionBusinessAddressButton{
+        height: 12vmin;
+    }
+}
+
+/* sm devices */
+@media (min-width:768px) {
+    .topMarginHeader{
+        margin-top: 0%;
+    }
+
+    .getUserPositionBusinessAddressButton{
+        height: 8vmin;
+    }
+}
+
+/* md devices */
+@media(min-width:992px){
+    .topMarginHeader{
+        margin-top: 3%;
+    }
+
+    .getUserPositionBusinessAddressButton{
+        height: 4vmin;
+    }
+}
+
