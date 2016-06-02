@@ -1,3 +1,9 @@
+<app-header></app-header>
+
+
+
+
+
 <div class="header"><div class="glyphicon glyphicon-menu-left backButton" ng-click="changeView('businessinformation')"></div><p class="text">Ubicación de tu negocio</p></div>
 <ul class="progress-bar1">
             <li class="done-step"></li>
@@ -21,6 +27,7 @@
         <div class="col-xs-1"></div>
 
 </div>
+<button ng-click="getUserPosition()">Mi posición</button>
 <div>
         <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION"></label>
         <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events"></ui-gmap-google-map>
