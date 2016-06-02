@@ -51,6 +51,8 @@
     "BUSINESS_NAME": "Nombre del local",
     "SELECT_TOWN": "Selecciona el municpio",
     "BUSINESS_LOCATION": "Ubicación del local",
+    "BUSINESS_GET_USER_LOCATION_TIP":"Usa tu ubicación actual para indicar en el mapa dónde se encuentra tu negocio",
+    "BUSINESS_LOCATION_TIP":"Puedes colocar un marcador en el mapa sobre la ubicación exacta de tu negocio",
     "BUSINESS_DESCRIPTION": "Descripción del local",
     "BUSINESS_EMAIL": "Correo",
     "BUSINESS_ADDRESS": "Dirección del local",

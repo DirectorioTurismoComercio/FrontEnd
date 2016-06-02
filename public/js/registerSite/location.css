@@ -1,0 +1,36 @@
+.centerColumnNoPadding{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.progressBarPadding{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+.businessAddressText{
+    width: 83%;
+    margin-left: 8.5%;
+}
+
+.businessAddressInput{
+    background-color: #F2F2F2;
+    font-family: "PT Sans";
+    color: #2D3C4D;
+}
+
+.glyphiconBusinessAddress{
+    color: #00b3ee;
+}
+
+.texto-claroBusinessLocation{
+    color: #32A2D4;
+}
+
+.texto-oscuroBusinessLocation{
+    color: #2D3C4D;
+}
+
+.getUserPositionBusinessAddressButton{
+    height: 4vmin;
+}
