@@ -41,17 +41,17 @@
 input[type="text"]
 {
     color: #2D3C4D;
-    font-size: 1.6em;
+    font-size: 1.2em;
 }
 input[type="email"]
 {
 	color: #2D3C4D;
-    font-size: 1.6em;
+    font-size: 1.2em;
 }
 input[type="password"]
 {
 	color: #2D3C4D;
-    font-size: 1.6em;
+    font-size: 1.2em;
 }
 .middle-text p{
 	padding: 4% 0% 0% 0%;

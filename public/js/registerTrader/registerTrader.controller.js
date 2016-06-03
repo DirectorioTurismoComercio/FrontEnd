@@ -2,13 +2,14 @@
 
 angular.module('registerTrader')
     .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, UserFactory,$location) {
+        $scope.submitted=false;
         $scope.usuario = new UserFactory();
         $scope.traderName=undefined;
         $scope.traderLastName=undefined;
         $scope.traderEmail=undefined;
         $scope.traderPassword;
         authenticationService.logout();
-    
+        $scope.usuario.nombres="roberto";
 
 
         $scope.authenticate = function (provider) {
@@ -32,7 +33,12 @@ angular.module('registerTrader')
 
         $scope.save =function () {
                     var promesa;
-                    redirectToRegisterSite();
+                    $scope.submitted=true;
+                    console.log($scope.usuario.nombres);
+                    if($scope.traderInfoForm.$valid){
+                        redirectToRegisterSite();
+                    }
+                 
                     /*var credentials = {
                             email: $scope.usuario.correo,
                             password: $scope.usuario.password

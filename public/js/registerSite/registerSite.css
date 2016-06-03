@@ -76,20 +76,19 @@ tags-input.ng-invalid.ng-dirty {
 input[type="tel"]
 {
     color: #2D3C4D;
-    font-size: 1.6em;
+    font-size: 1.2em;
 }
 input[type="textarea"]
 {
     color: #2D3C4D;
-    font-size: 1.6em;
+    font-size: 1.2em;
 }
 textarea.description{
 
-    font-size: 1.6em;
+    font-size: 1.2em;
 }
 .select-town{
-
-    font-size: 1.6em;
+    font-size: 1.2em;
 }
 
 .thumbnail {
