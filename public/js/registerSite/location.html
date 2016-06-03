@@ -11,10 +11,11 @@
             <li></li>
             <li></li>
         </ul>
-        <form class="topMarginElements" role="businessAddressForm">
+        <form name="registerSiteForm" class="topMarginElements" role="businessAddressForm">
             <div class="form-group has-feedback businessAddressText">
                 <input type="text" class="form-control businessAddressInput" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS" name="businessAddress2" type="text" ng-model="$parent.businessAddress" placeholder="Dirección de tu negocio" required/>
                 <i ng-show="businessAddress==undefined"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessAddress"></i>
+                <span ng-show="businessAddress==undefined && registerSiteForm.businessAddress2.$dirty" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
         </form>
 
@@ -31,8 +32,8 @@
         <div class="progressBarPadding topMarginElements">
             <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events"></ui-gmap-google-map>
         </div>
-        <div class=" next-button boton topMarginElements">
-            <button class="button" ng-disabled="businessAddress==undefined" ng-click="changeView('photos')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
+        <div class=" next-button NextButtonRegister topMarginElements">
+            <button class="button" ng-disabled="businessAddress==undefined || businessLocation.lat==undefined" ng-click="changeView('photos')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
         </div>
     </div>
 </div>

@@ -15,10 +15,8 @@ angular.module('registerSite')
         $scope.businessEmail = siteInformationService.businessEmail;
         $scope.businessAddress = siteInformationService.businessAddress;
         $scope.files = undefined;
-        $scope.businessCategories = {
-            category: ''
-        };
-        
+        $scope.businessCategories = siteInformationService.businessCategories;
+
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
             events: {
@@ -105,8 +103,11 @@ angular.module('registerSite')
         };
 
         $scope.changeView = function (view) {
-            saveSiteInformation();
-            $location.path(view);
+            if($scope.registerSiteForm.$valid){
+                saveSiteInformation();
+                $location.path(view);
+            }
+
         }
 
         function getClickedPositionCoordinates(originalEventArgs) {
@@ -150,5 +151,6 @@ angular.module('registerSite')
             siteInformationService.tags = $scope.tags;
             siteInformationService.businessEmail = $scope.businessEmail;
             siteInformationService.businessAddress = $scope.businessAddress;
+            siteInformationService.businessCategories = $scope.businessCategories;
         }
     });
