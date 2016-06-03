@@ -124,3 +124,15 @@ textarea.description{
     overflow: hidden;
     display: block;
 }
+.texto{
+    font-weight: bold;
+
+}
+.texto-claro-business{
+    
+    color: #32A2D4;
+}
+
+.texto-oscuro-business{
+    color: #2D3C4D;
+}
