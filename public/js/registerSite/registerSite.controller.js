@@ -6,6 +6,7 @@ angular.module('registerSite')
                                                     $location,authenticationService, siteAndTownSaverService, $translate,geolocation) {
 
         $scope.sitePhoneNumber = undefined;
+        $scope.whatsapp = undefined;
         $scope.openingHours = undefined;
         $scope.businessName = undefined;
         $scope.businessLocation = undefined;
