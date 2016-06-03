@@ -1,47 +1,48 @@
 <app-header></app-header>
 <search-tabs></search-tabs>
 
-<div class="row">
-    <md-progress-circular class="loadingSitesOnMap" md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+<div class="row search-results">
+    <md-progress-circular class="loading" md-mode="indeterminate"
+                          ng-show="loading"></md-progress-circular>
 
-    <div class="col-md-5 found-sites" ng-show="foundSites.length > 0 && !isShowingSiteDetail">
-        <div ng-repeat="site in foundSites" class="row item">
-            <div class="row boton mobile-row" ng-click="showSiteDetail(site, $index)"
-                 ng-mouseover="highLightMarker($index)" ng-mouseleave="clearHighLightedMarker($index)">
+    <div class="col-md-6 col-md-push-6 map">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
+    </div>
 
-                <div class="text col-md-8 col-xs-8">
-                    <h1 class="title">%%site.nombre%%</h1>
-                    <p class="desc">%%site.descripcion%%</p>
-                </div>
-                <div class="col-md-4 col-xs-4 image">
+    <div class="col-md-6 col-md-pull-6 result-list">
+        <div class="list-group" ng-show="foundSites.length > 0 && !isShowingSiteDetail">
+            <a class="list-group-item list-item" ng-repeat="site in foundSites"
+               ng-click="showSiteDetail(site, $index)" ng-mouseover="highLightMarker($index)"
+               ng-mouseleave="clearHighLightedMarker($index)">
+
+                <h4 class="list-group-item-heading">%%site.nombre%%</h4>
+                <p class="list-group-item-text">%%site.descripcion%%</p>
+
+                <div class="img-thumbnail right">
                     <img height="30" ng-src='%%site.fotos[0].URLfoto%%'/>
                 </div>
-            </div>
-            <div>
-                <button type="button" class="btn btn-default clase1" ng-click="showRouteToSite(site)">COMO LLEGAR
-                </button>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-md-5 found-sites" ng-show="isShowingSiteDetail">
-        <div>Detalles del sitio</div>
-        <a href="" ng-click="hideSiteDetail()">Volver a lista de sitios</a>
-        <div class="row">
-            <div class="text col-md-8">
-                <h1 class="title">%%selectedSite.nombre%%</h1>
-                <p class="desc">%%selectedSite.descripcion%%</p>
-            </div>
-
-        </div>
-        <div class="row item">
-            <div class="text col-md-4 image">
-                <img ng-src='%%selectedSite.fotos[0].URLfoto%%' class="img-rounded"/>
-            </div>
+                <div>
+                    <button type="button" class="btn btn-default clase1" ng-click="showRouteToSite(site)">COMO LLEGAR
+                    </button>
+                </div>
+            </a>
         </div>
 
-    </div>
-    <div class="col-md-7">
-        <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
+        <div ng-show="isShowingSiteDetail">
+            <div>Detalles del sitio</div>
+            <a href="" ng-click="hideSiteDetail()">Volver a lista de sitios</a>
+            <div class="row">
+                <div class="text col-md-8">
+                    <h1 class="title">%%selectedSite.nombre%%</h1>
+                    <p class="desc">%%selectedSite.descripcion%%</p>
+                </div>
+
+            </div>
+            <div class="row item">
+                <div class="text col-md-4 image">
+                    <img ng-src='%%selectedSite.fotos[0].URLfoto%%' class="img-rounded"/>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

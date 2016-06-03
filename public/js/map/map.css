@@ -6,20 +6,18 @@
     top: 0px;
 }*/
 
-.angular-google-map-container {
+.search-results .map {
+    padding: 0;
+}
+
+.search-results .angular-google-map-container {
     height: 50vh;
 }
 
-.map-control {
-    margin: 20px;
+.search-results .result-list {
 }
 
-.found-sites {
-    max-height: 50vh;
-    overflow: auto;
-}
-
-.loadingSitesOnMap {
+.search-results .loading {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -27,44 +25,22 @@
     z-index: 1;
 }
 
-.item {
-    border: none;
-    padding: 10px 0px;
-    margin: 25px 10px;
-    background: #fafafa;
+.result-list .list-item {
+
 }
 
-.item .text {
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) {
 }
 
-.item .title {
-    padding: 0;
-    text-align: left;
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
 }
 
-.item .desc {
-    text-align: justify;
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
 }
 
-.item .image img {
-    width: 100%;
-    height: 100%;
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
 }
-.row .boton{
-    background-color: white;
-}
-
-.row .boton:hover{
-    background-color: #F2F2F2;
-    cursor: pointer; 
-}
-
-@media screen and (max-width: 1000px) {
-    .container{
-     display: flex;
-    flex-direction:column-reverse;
-    }
-    .mobile-image{
-        height: 20px;
-    }
-}    
