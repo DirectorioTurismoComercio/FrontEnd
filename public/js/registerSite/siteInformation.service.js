@@ -11,6 +11,9 @@ angular.module('registerSite')
         var tags=undefined;
         var businessEmail=undefined;
         var businessAddress=undefined;
+        var businessCategories = {
+            category: ''
+        };
 
         return {
             sitePhoneNumber:sitePhoneNumber,
@@ -21,7 +24,8 @@ angular.module('registerSite')
             businessDescription:businessDescription,
             tags:tags,
             businessEmail:businessEmail,
-            businessAddress:businessAddress
+            businessAddress:businessAddress,
+            businessCategories:businessCategories
         };
 
 
