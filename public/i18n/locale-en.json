@@ -58,6 +58,7 @@
     "BUSINESS_LOCATION_TIP":"Puedes colocar un marcador en el mapa sobre la ubicación exacta de tu negocio",
     "BUSINESS_DESCRIPTION": "Descripción del local",
     "BUSINESS_EMAIL": "Correo",
+    "BUSINESS_WHATS_APP": "Whatsapp",
     "BUSINESS_ADDRESS": "Dirección del local",
     "BUSINESS_CATEGORY": "Categoria",
     "CHOOSE_CATEGORY": "-- Elija categoria --",
