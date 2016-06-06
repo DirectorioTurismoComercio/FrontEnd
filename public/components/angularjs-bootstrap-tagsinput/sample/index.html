@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="angularApp" ng-controller="MainController">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta charset="utf-8">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="../bower_components/jquery/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+
+    <link href="../dist/angularjs-bootstrap-tagsinput.css" rel="stylesheet"/>
+    <script src="../dist/angularjs-bootstrap-tagsinput.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body style="margin: 15px">
+
+    <div>
+        <input ng-model="tagsProperties.manualTag" class="form-control" type="text" placeholder="Input manual tag"><br/>
+        <button ng-click="addTag()" class="btn btn-primary" type="button">Add Tag</button>
+        <button ng-click="removeTag()" class="btn btn-warning" type="button">Remove Tag</button>
+        <button ng-click="clearTags()" class="btn btn-danger" type="button">Clear Tags</button>
+    </div>
+    <br/>
+    <div tagsinput tagsinput-id="tagsProperties.tagsinputId"
+         init-tags="tagsProperties.initTags"
+         maxtags="tagsProperties.maxTags"
+         maxlength="tagsProperties.maxLength"
+         placeholder="tagsProperties.placeholder"
+         delimiter=","
+         readonly="true"
+         corrector="correctPhoneNumber(tag)"
+         matcher="validatePhoneNumber(tag)"
+         onchanged="onTagsChange(data)"
+         onadded="onTagsAdded(data)"
+         onremoved="onTagsRemoved(data)"
+         onreset="onTagsReset()"></div>
+
+    <div class="event-logs" ng-repeat="log in eventLogs track by $index">
+        {{log}}
+    </div>
+
+<style>
+    .angularjs-bootstrap-tagsinput {
+        width: 400px;
+    }
+    .angularjs-bootstrap-tagsinput [data-role=tags] {
+        height: 100px;
+    }
+    .angularjs-bootstrap-tagsinput [data-role=tagsinput].tagsinput-maxtags {
+        display: none;
+    }
+</style>
+</body>
+
+</html>

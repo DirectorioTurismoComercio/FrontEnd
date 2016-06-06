@@ -139,3 +139,9 @@ textarea.description{
 .texto-oscuro-business{
     color: #2D3C4D;
 }
+tags-input input {
+width: 100%;
+min-width: 250px;
+background-color: white;
+}
+
