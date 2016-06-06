@@ -28,6 +28,10 @@
     color: #2D3C4D;
 }
 
+.errorField{
+    color:#ff0000;
+}
+
 .glyphiconBusinessAddress{
     color: #00b3ee;
 }
@@ -44,11 +48,13 @@
     height: 4vmin;
 }
 
-.boton{
+.NextButtonRegister{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
+
+.
 
 /* xs devices */
 @media (max-width: 767px) {

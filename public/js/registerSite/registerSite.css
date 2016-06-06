@@ -127,6 +127,10 @@ textarea.description{
     font-weight: bold;
 
 }
+.business-text{
+    width: 83%;
+    margin-left: 8.5%;
+}
 .texto-claro-business{
     
     color: #32A2D4;

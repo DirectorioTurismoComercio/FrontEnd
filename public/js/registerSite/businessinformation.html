@@ -1,9 +1,10 @@
 <div class="hidden-xs hidden-sm">
     <app-header></app-header>
 </div>
+<form name="registerSiteForm">
 <div class="row topMarginHeader">
     <div class="col-md-4  col-md-offset-4 centerColumnNoPadding" >
-        <div class="header container-fluid"><div class="glyphicon glyphicon-menu-left backButton" ng-click="changeView('businessinformation')"></div><p class="text" translate="REGISTER_SITE_CONSTANTS.SUMMARY"></p></div>
+        <div class="header container-fluid"><div class="glyphicon glyphicon-menu-left backButton" ng-click="changeView('businessinformation')"></div><p class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_INFORMATION"></p></div>
         <ul class="progress-bar1 progressBarPadding topMarginElements">
             <li class="done-step"></li>
             <li></li>
@@ -11,7 +12,8 @@
             <li></li>
             <li></li>
         </ul>
-        <label class="businessAddressText texto-claroBusinessLocation topMarginElements" translate="REGISTER_SITE_CONSTANTS.BUSINESS_INFORMATION_CONFIRMATION_PAGE"></label>
+
+        
         <div class="row businessAddressText topMarginElements">
             <div class="col-xs-2" >
                 <img class="confirmRegisterIcons" src="./images/registerIcons/nombre-negocio.png">
@@ -19,7 +21,9 @@
             <div class="col-xs-10">
                 <input type="text" placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_NAME" class="form-control businessAddressInput"  name="businessName" type="text" ng-model="$parent.businessName" placeholder="Nombre negocio" required/>
             </div>
-        </div>
+
+        </div>    
+
         <div class="row businessAddressText topMarginElements">
             <div class="col-xs-2" >
                 <img class="confirmRegisterIcons" src="./images/registerIcons/telefono.png">
@@ -39,16 +43,23 @@
         <div class="input topMarginElements businessAddressText">
             <drop-down-town-directive></drop-down-town-directive>
         </div>
+             
+        <div class="input topMarginElements ">
+            <textarea placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION" class="businessAddressInput businessAddressText" name="businessDescription" ng-model="businessDescription" required></textarea>
+        </div>
         
-        <label class="businessAddressText texto-claroBusinessLocation topMarginElements" translate="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION_CONFIRMATION_PAGE"></label>
-        <div class="input topMarginElements ">
-            <textarea class="businessAddressInput businessAddressText" name="businessDescription" ng-model="businessDescription" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION" required></textarea>
+        <div class="row businessAddressText topMarginElements">
+        <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT"></span><span class="texto-claro-business" translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT_EXAMPLE"></span>
         </div>
-        <label class="businessAddressText texto-claroBusinessLocation topMarginElements" translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"></label>
+
         <div class="input topMarginElements ">
-            <textarea class="businessAddressInput businessAddressText" name="businessDescription" ng-model="openingHours" required></textarea>
+            <textarea placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS" class="businessAddressInput businessAddressText" name="businessDescription" ng-model="openingHours" required></textarea>
         </div>
-        <label class="businessAddressText texto-claroBusinessLocation topMarginElements" translate="REGISTER_SITE_CONSTANTS.BUSINESS_CATEGORY"></label>
+
+        <div class="row businessAddressText topMarginElements">
+        <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY_TEXT"></span>
+        </div>
+
         <div class="topMarginElements">
             <select ng-model="businessCategories.category"
                     ng-options="obj.id as obj.nombre for obj in categories"
@@ -58,19 +69,21 @@
                 <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
             </select>
         </div>
-        <label class="businessAddressText texto-claroBusinessLocation topMarginElements" translate="REGISTER_SITE_CONSTANTS.BUSINESS_TAGS_CONFIRMATION_PAGE"></label>
+
+        <div class="row businessAddressText topMarginElements">
+        <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT"></span><span class="texto-claro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT_EXAMPLE"></span>
+        </div>
+
         <div class="topMarginElements">
             <tags-input class="businessAddressText businessAddressInput" name="tags" ng-model="tags" add-on-comma=true replace-spaces-with-dashes=false required>
             </tags-input>
         </div>
-        <div class=" next-button boton topMarginElements input">
-            <button class="button" ng-disabled="businessAddress==undefined" translate="REGISTER_SITE_CONSTANTS.COMPLETE_REGISTRATION_BUTTON"></button>
+        <div class=" next-button NextButtonRegister topMarginElements">
+            <button class="button" ng-disabled="businessAddress==undefined || businessLocation.lat==undefined" ng-click="changeView('photos')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
         </div>
     </div>
 </div>
-
-
-
+</form>
 
 
 
