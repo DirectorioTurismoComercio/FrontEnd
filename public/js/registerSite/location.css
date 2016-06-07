@@ -80,6 +80,10 @@
 
 }
 
+.angular-google-map-container {
+    height: 50vh;
+}
+
 /* sm devices */
 @media (min-width:768px) {
     .topMarginHeader{
