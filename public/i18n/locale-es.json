@@ -69,14 +69,15 @@
     "CHOOSE_SUBCATEGORY": "-- Elija subcategoria --",
     "BUSINESS_REGISTER_BUTTON": "Registrar local",
     "REQUIRED_FIELD": "Campo requerido",
-    "PHONE_VALIDATION": "Debe ser un número telefónico de mínimo 7 y máximo 10 digitos",
+    "PHONE_VALIDATION": "Campo requerido, debe ser un número telefónico de mínimo 7 y máximo 10 digitos",
     "EMAIL_VALIDATION": "Verifique el correo",
     "FIELDS_VALIDATION": "Verifique Los campos",
     "TAGS_TEXT":"Para que tus clientes identifiquen tu negocio fácilmente, ingresa etiquetas separadas por comas. Ejemplo:",
     "TAGS_TEXT_EXAMPLE": "baño, wifi, camping.",
     "NEXT_BUTTON":"Siguiente",
     "SUMMARY":"Resumen y confirmación",
-    "NEXT_BUTTON":"Siguiente",
+    "TERMS_AND_CONDITIONS_LABEL":"Términos y condiciones",
+    "TERMS_AND_CONDITIONS":"contenido de los términos y condiciones",
     "COMPLETE_REGISTRATION_BUTTON":"Terminar registro"
 
   },
