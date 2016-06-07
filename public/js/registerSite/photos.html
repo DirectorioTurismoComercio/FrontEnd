@@ -1,16 +1,19 @@
 <app-header></app-header>
-<div class="header"><div class="glyphicon glyphicon-menu-left backButton" ng-click="changeView('location')"></div><p class="text">Fotografías de tu negocio</p></div>
+<div class="header">
+    <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeView('location', true)">
+        <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+    </div>    <p class="text">Fotografías de tu negocio</p></div>
 <ul class="progress-bar1">
-            <li class="done-step"></li>
-            <li class="done-step"></li>
-            <li class="done-step"></li>
-            <li></li>
-            <li></li>
-        </ul>
+    <li class="done-step"></li>
+    <li class="done-step"></li>
+    <li class="done-step"></li>
+    <li></li>
+    <li></li>
+</ul>
 
 <div class="row next-button">
-        <div class="col-xs-4"></div>
-    <div class="button col-xs-4"  ng-click="changeView('summary')">Siguiente</div>
+    <div class="col-xs-4"></div>
+    <div class="button col-xs-4" ng-click="changeView('summary')">Siguiente</div>
     <div class="col-xs-4"></div>
 </div>
 
@@ -27,9 +30,9 @@
     <div>
 
         <div ng-repeat="file in $flow.files" class="gallery-box">
-            <span >%%file.name%%</span>
+            <span>%%file.name%%</span>
             <div class="thumbnail" ng-show="$flow.files.length">
-                <img flow-img="file" />
+                <img flow-img="file"/>
             </div>
             <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
                 <div class="progress-bar" role="progressbar"

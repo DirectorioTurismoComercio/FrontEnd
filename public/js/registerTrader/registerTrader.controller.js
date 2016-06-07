@@ -12,6 +12,10 @@ angular.module('registerTrader')
         $scope.usuario.nombres=undefined;
 
 
+        $scope.changeView = function (view) {
+            $location.path(view);
+        }
+
         $scope.authenticate = function (provider) {
                         $auth.authenticate(provider).then(function (response) {
                         $scope.load = true;

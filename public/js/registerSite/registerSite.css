@@ -158,6 +158,7 @@ background-color: white;
     height: 100%;
     width: auto;
     padding-top: 15px;
+    z-index: 2;
 }
 
 .registerHeaderBackIcon{
