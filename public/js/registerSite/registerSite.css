@@ -139,6 +139,15 @@ textarea.description{
 .texto-oscuro-business{
     color: #2D3C4D;
 }
+.glyphiconBusinessStar{
+    margin-right: 4%;
+    color: #00b3ee;
+}
+.glyphiconBusinessDescriptionStar{
+    margin-right: 10%;
+    color: #00b3ee;
+}
+
 tags-input input {
 width: 100%;
 min-width: 250px;

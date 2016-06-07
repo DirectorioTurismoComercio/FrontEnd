@@ -7,7 +7,7 @@
         <div class="header container-fluid"><div class="glyphicon glyphicon-menu-left backButton" ng-click="changeView('businessinformation')"></div><p class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_INFORMATION"></p></div>
         <ul class="progress-bar1 progressBarPadding topMarginElements">
             <li class="done-step"></li>
-            <li></li>
+            <li class="done-step"></li>
             <li></li>
             <li></li>
             <li></li>
@@ -20,6 +20,8 @@
             </div>
             <div class="col-xs-10">
                 <input type="text" placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_NAME" class="form-control businessAddressInput"  name="businessName" type="text" ng-model="$parent.businessName" placeholder="Nombre negocio" required/>
+                <i ng-show="businessName==undefined"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessStar"></i>
+                <span ng-show="businessName==undefined && registerSiteForm.businessName.$dirty" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
 
         </div>    
@@ -30,6 +32,9 @@
             </div>
             <div class="col-xs-10">
                 <input type="text" class="form-control businessAddressInput"  name="businessPhone" type="text" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_PHONE" ng-model="sitePhoneNumber" placeholder="Teléfono" required/>
+
+                <i ng-show="businessPhone==undefined"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessStar"></i>
+                <span ng-show="businessPhone==undefined && registerSiteForm.businessPhone.$dirty" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
         </div>
         <div class="row businessAddressText topMarginElements">
@@ -37,7 +42,9 @@
                 <img class="confirmRegisterIcons" src="./images/registerIcons/whatsapp.png">
             </div>
             <div class="col-xs-10">
-                <input type="text" class="form-control businessAddressInput"  name="businessWhatsapp" type="text" ng-model="whatsapp" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WHATS_APP"  required/>
+                <input type="text" class="form-control businessAddressInput"  name="businessWhatsapp" type="text" ng-model="whatsapp" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WHATS_APP"/>
+
+         
             </div>
         </div>
         <div class="input topMarginElements businessAddressText">
@@ -45,7 +52,11 @@
         </div>
              
         <div class="input topMarginElements ">
-            <textarea placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION" class="businessAddressInput businessAddressText" name="businessDescription" ng-model="businessDescription" required></textarea>
+            <div class="col-xs-12" >
+            <textarea placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION" class="form-control businessAddressInput businessAddressText" name="businessDescription" ng-model="businessDescription" required></textarea>
+            <i ng-show="true"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessDescriptionStar"></i>
+                <span ng-show="businessDescription==undefined && registerSiteForm.businessDescription.$dirty" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            </div>    
         </div>
         
         <div class="row businessAddressText topMarginElements">
@@ -53,7 +64,7 @@
         </div>
 
         <div class="input topMarginElements ">
-            <textarea placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS" class="businessAddressInput businessAddressText" name="businessDescription" ng-model="openingHours" required></textarea>
+            <textarea placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS" class="form-control businessAddressInput businessAddressText" name="openingHours" ng-model="openingHours"></textarea>
         </div>
 
         <div class="row businessAddressText topMarginElements">
@@ -61,13 +72,17 @@
         </div>
 
         <div class="topMarginElements">
+            <div class="col-xs-12" >
             <select ng-model="businessCategories.category"
                     ng-options="obj.id as obj.nombre for obj in categories"
                     name="catefory"
-                    class="businessAddressInput businessAddressText"
+                    class="form-control businessAddressInput businessAddressText"
                     required>
                 <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
             </select>
+            <i ng-show="businessDescription==undefined"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessDescriptionStar"></i>
+                <span ng-show="businessDescription==undefined && registerSiteForm.businessDescription.$dirty" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            </div>    
         </div>
 
         <div class="row businessAddressText topMarginElements">
@@ -75,7 +90,7 @@
         </div>
 
         <div class="topMarginElements">
-            <tags-input class="businessAddressText businessAddressInput" name="tags" ng-model="tags" add-on-comma=true replace-spaces-with-dashes=false required>
+            <tags-input class="businessAddressText businessAddressInput" name="tags" ng-model="tags" placeholder="Etiquetas" add-on-comma=true replace-spaces-with-dashes=false required>
             </tags-input>
         </div>
         <div class=" next-button NextButtonRegister topMarginElements">

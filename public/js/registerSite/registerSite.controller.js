@@ -83,7 +83,7 @@ angular.module('registerSite')
             fd.append('correolocal', $scope.businessEmail);
             fd.append('ubicacionlocal', $scope.businessAddress);
             fd.append('categorias', $scope.businessCategories.category);
-            fd.append('usuario', 1);
+            fd.append('usuario', authenticationService.getUser().id);
             for (var i = 0; i <= $scope.tags.length - 1; i++) {
                 fd.append('tags', $scope.tags[i].text);
             }
@@ -108,6 +108,9 @@ angular.module('registerSite')
                 $location.path(view);
             }
 
+        }
+        $scope.save = function(){
+            console.log("guardar sitio");
         }
 
         function getClickedPositionCoordinates(originalEventArgs) {
@@ -153,4 +156,5 @@ angular.module('registerSite')
             siteInformationService.businessAddress = $scope.businessAddress;
             siteInformationService.businessCategories = $scope.businessCategories;
         }
+
     });
