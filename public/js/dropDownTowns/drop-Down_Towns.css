@@ -2,11 +2,18 @@
     height: 34px;
     padding: 2px 10px;
     border-radius: 5px;
-    border: none;
-    background: #fff;
     color: #B3B3B3;
     font-size: 1.1em;
     margin: 0;
+}
+
+.dropDownTownsSearchBackgroundColor{
+    background: #fff;
+}
+
+.dropDownTownsRegisterBackgroundColor{
+    background: #F2F2F2;
+    border:1px solid #ccc
 }
 
 .md-select-label {

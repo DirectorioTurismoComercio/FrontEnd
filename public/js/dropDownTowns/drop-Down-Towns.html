@@ -1,4 +1,4 @@
-<md-select class="dropDownTowns" ng-model="selectedTown" aria-label="municipios">
+<md-select ng-class="isonregistersite ? 'dropDownTownsRegisterBackgroundColor' : 'dropDownTownsSearchBackgroundColor' " class="dropDownTowns" ng-model="selectedTown" aria-label="municipios">
     <md-option ng-repeat="municipio in municipios" value="%%municipio.nombre%%"
                  ng-click="selectTown($index)">
         %%municipio.nombre%%
