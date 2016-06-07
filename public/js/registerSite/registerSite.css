@@ -154,3 +154,15 @@ min-width: 250px;
 background-color: white;
 }
 
+.registerHeaderBackIconcontainer{
+    height: 100%;
+    width: auto;
+    padding-top: 15px;
+}
+
+.registerHeaderBackIcon{
+    height: 30px;
+}
+
+
+
