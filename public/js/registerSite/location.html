@@ -15,7 +15,7 @@
             <div class="form-group has-feedback businessAddressText">
                 <input type="text" class="form-control businessAddressInput" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS" name="businessAddress2" type="text" ng-model="$parent.businessAddress" placeholder="Dirección de tu negocio" required/>
                 <i ng-show="businessAddress==undefined"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessAddress"></i>
-                <span ng-show="businessAddress==undefined && registerSiteForm.businessAddress2.$dirty" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+                <span ng-show="showRequiredFieldMessage && registerSiteForm.businessAddress2.$error.required" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
         </form>
 
@@ -31,9 +31,10 @@
         <label class="businessAddressText texto-oscuroBusinessLocation topMarginElements" translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION_TIP"></label>
         <div class="progressBarPadding topMarginElements">
             <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events"></ui-gmap-google-map>
+            <span ng-show="showRequiredFieldMessage && businessLocation.lat==undefined" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
         </div>
         <div class=" next-button NextButtonRegister topMarginElements">
-            <button class="button" ng-disabled="businessAddress==undefined || businessLocation.lat==undefined" ng-click="changeView('summary')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
+            <button class="button" ng-click="changeView('summary')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
         </div>
     </div>
 </div>
