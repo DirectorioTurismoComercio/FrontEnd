@@ -13,7 +13,7 @@
         </ul>
         <form name="registerSiteForm" class="topMarginElements" role="businessAddressForm">
             <div class="form-group has-feedback businessAddressText">
-                <input type="text" class="form-control businessAddressInput" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS" name="businessAddress2" type="text" ng-model="$parent.businessAddress" placeholder="Dirección de tu negocio" required/>
+                <input type="text" class="form-control businessAddressInput" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS" name="businessAddress2" type="text" ng-model="$parent.businessAddress" required/>
                 <i ng-show="businessAddress==undefined"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessAddress"></i>
                 <span ng-show="showRequiredFieldMessage && registerSiteForm.businessAddress2.$error.required" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>

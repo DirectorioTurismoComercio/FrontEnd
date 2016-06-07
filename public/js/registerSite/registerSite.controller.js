@@ -112,7 +112,12 @@ angular.module('registerSite')
             }
         }
         $scope.save = function(){
-            console.log("guardar sitio");
+            if($scope.registerSiteForm.$valid){
+                console.log("guardar sitio");
+            }else{
+                $scope.showRequiredFieldMessage=true;
+            }
+
         }
 
         function getClickedPositionCoordinates(originalEventArgs) {

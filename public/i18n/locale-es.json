@@ -76,6 +76,8 @@
     "TAGS_TEXT_EXAMPLE": "baño, wifi, camping.",
     "NEXT_BUTTON":"Siguiente",
     "SUMMARY":"Resumen y confirmación",
+    "TERMS_AND_CONDITIONS_LABEL":"Términos y condiciones",
+    "TERMS_AND_CONDITIONS":"contenido de los términos y condiciones",
     "COMPLETE_REGISTRATION_BUTTON":"Terminar registro"
 
   },
