@@ -151,7 +151,7 @@ textarea.description{
 tags-input input {
 width: 100%;
 min-width: 250px;
-background-color: white;
+background-color: #F2F2F2;
 }
 
 .registerHeaderBackIconcontainer{

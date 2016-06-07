@@ -23,7 +23,7 @@ tags-input .tags {
   overflow: hidden;
   word-wrap: break-word;
   cursor: text;
-  background-color: #fff;
+  background-color: #F2F2F2;
   border: 1px solid darkgray;
   box-shadow: 1px 1px 1px 0 lightgray inset;
   height: 100%;
