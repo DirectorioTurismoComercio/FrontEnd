@@ -86,3 +86,8 @@ input[type="password"]
 .signup-text{
 	color: #32A2D4;
 }
+
+.glyphiconRegisterStar{
+	margin-right: 0%;
+	color: #00b3ee;
+}
