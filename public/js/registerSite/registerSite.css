@@ -165,5 +165,13 @@ background-color: white;
     height: 30px;
 }
 
+.emailTraderContainer{
+    margin-top: 5px;
+}
+
+.registerTraderLineSeparator{
+    background-color: #0A3C5A;
+    height: 2px;
+}
 
 

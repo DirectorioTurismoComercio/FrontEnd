@@ -91,3 +91,7 @@ input[type="password"]
 	margin-right: 0%;
 	color: #00b3ee;
 }
+
+.registerTrader-button{
+	padding: 5% 0% 5% 0%;
+}
