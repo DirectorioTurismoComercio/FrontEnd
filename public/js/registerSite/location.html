@@ -1,9 +1,13 @@
 <div class="hidden-xs hidden-sm">
     <app-header></app-header>
 </div>
-<div class="row topMarginHeader">
-    <div class="col-md-4  col-md-offset-4 centerColumnNoPadding" >
-        <div class="header container-fluid"><div class="glyphicon glyphicon-menu-left backButton" ng-click="changeView('businessinformation')"></div><p class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION"></p></div>
+<div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPort">
+    <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
+        <div class="header container-fluid">
+            <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeView('businessinformation')">
+                <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+            </div>
+            <p class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION"></p></div>
         <ul class="progress-bar1 progressBarPadding topMarginElements">
             <li class="done-step"></li>
             <li class="done-step"></li>
@@ -13,28 +17,36 @@
         </ul>
         <form name="registerSiteForm" class="topMarginElements" role="businessAddressForm">
             <div class="form-group has-feedback businessAddressText">
-                <input type="text" class="form-control businessAddressInput" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS" name="businessAddress2" type="text" ng-model="$parent.businessAddress" required/>
-                <i ng-show="businessAddress==undefined"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessAddress"></i>
-                <span ng-show="showRequiredFieldMessage && registerSiteForm.businessAddress2.$error.required" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+                <input type="text" class="form-control businessAddressInput" translate
+                       translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS" name="businessAddress2"
+                       type="text" ng-model="$parent.businessAddress" required/>
+                <i ng-show="businessAddress==undefined"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessAddress"></i>
+                <span ng-show="showRequiredFieldMessage && registerSiteForm.businessAddress2.$error.required"
+                      class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
         </form>
 
         <div class="row businessAddressText topMarginElements">
-            <div  class="col-xs-8 col-sm-8 col-md-8 col-lg-9 centerColumnNoPadding">
-                <label class="texto-claroBusinessLocation" translate="REGISTER_SITE_CONSTANTS.BUSINESS_GET_USER_LOCATION_TIP"></label>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-9 centerColumnNoPadding">
+                <label class="texto-claroBusinessLocation"
+                       translate="REGISTER_SITE_CONSTANTS.BUSINESS_GET_USER_LOCATION_TIP"></label>
             </div>
-            <div  class="col-xs-2 col-sm-2 col-md-2 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <img class="getUserPositionBusinessAddressButton" src="./images/icons/mi-ubicacion.png"
                      ng-click="getUserPosition()">
             </div>
         </div>
-        <label class="businessAddressText texto-oscuroBusinessLocation topMarginElements" translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION_TIP"></label>
+        <label class="businessAddressText texto-oscuroBusinessLocation topMarginElements"
+               translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION_TIP"></label>
         <div class="progressBarPadding topMarginElements">
             <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events"></ui-gmap-google-map>
-            <span ng-show="showRequiredFieldMessage && businessLocation.lat==undefined" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            <span ng-show="showRequiredFieldMessage && businessLocation.lat==undefined" class="errorField"
+                  translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
         </div>
         <div class=" next-button NextButtonRegister topMarginElements">
-            <button class="button" ng-click="changeView('summary')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
+            <button class="button" ng-click="changeView('summary')"
+                    translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
         </div>
     </div>
 </div>
