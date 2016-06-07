@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('registerTrader')
-    .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, UserFactory,$location) {
+    .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, UserFactory,$location, $mdDialog) {
         $scope.submitted=false;
         $scope.usuario = new UserFactory();
         $scope.traderName=undefined;

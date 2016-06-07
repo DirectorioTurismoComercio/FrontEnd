@@ -5,6 +5,7 @@ angular.module('registerSite')
                                                     BOGOTA_COORDS, API_CONFIG, categories,
                                                     $location, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation) {
 
+
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
         $scope.whatsapp = siteInformationService.whatsapp;
         $scope.openingHours = siteInformationService.openingHours;
@@ -26,7 +27,7 @@ angular.module('registerSite')
                 },
             }
         };
-
+        $scope.showRequiredFieldMessage=false;
         $scope.flowPhotos = {};
 
         var joinOfFormatted_address;
@@ -106,8 +107,9 @@ angular.module('registerSite')
             if($scope.registerSiteForm.$valid){
                 saveSiteInformation();
                 $location.path(view);
+            }else{
+                $scope.showRequiredFieldMessage=true;
             }
-
         }
         $scope.save = function(){
             console.log("guardar sitio");

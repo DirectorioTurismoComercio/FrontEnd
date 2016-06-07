@@ -66,7 +66,7 @@
     "CHOOSE_SUBCATEGORY": "-- Elija subcategoria --",
     "BUSINESS_REGISTER_BUTTON": "Registrar local",
     "REQUIRED_FIELD": "Campo requerido",
-    "PHONE_VALIDATION": "Debe ser un número telefónico de mínimo 7 y máximo 10 digitos",
+    "PHONE_VALIDATION": "Required field, must be a minimum 7 and maximum 10 digits number",
     "EMAIL_VALIDATION": "Verifique el correo",
     "FIELDS_VALIDATION": "Verifique Los campos",
     "SUMMARY":"Resumen y confirmación",

@@ -7,7 +7,7 @@
         <ul class="progress-bar1 progressBarPadding topMarginElements">
             <li class="done-step"></li>
             <li class="done-step"></li>
-            <li class="done-step"></li>
+            <li></li>
             <li></li>
             <li></li>
         </ul>
@@ -33,7 +33,7 @@
             <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events"></ui-gmap-google-map>
         </div>
         <div class=" next-button NextButtonRegister topMarginElements">
-            <button class="button" ng-disabled="businessAddress==undefined || businessLocation.lat==undefined" ng-click="changeView('photos')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
+            <button class="button" ng-disabled="businessAddress==undefined || businessLocation.lat==undefined" ng-click="changeView('summary')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
         </div>
     </div>
 </div>
