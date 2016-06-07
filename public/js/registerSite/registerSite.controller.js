@@ -103,14 +103,19 @@ angular.module('registerSite')
             siteAndTownSaverService.setCurrentSearchedTown(undefined);
         };
 
-        $scope.changeView = function (view) {
-            if($scope.registerSiteForm.$valid){
-                saveSiteInformation();
-                $location.path(view);
+        $scope.changeView = function (view, backward) {
+            if(backward!=true){
+                if($scope.registerSiteForm.$valid){
+                    saveSiteInformation();
+                    $location.path(view);
+                }else{
+                    $scope.showRequiredFieldMessage=true;
+                }
             }else{
-                $scope.showRequiredFieldMessage=true;
+                $location.path(view);
             }
-        }
+        };
+
         $scope.save = function(){
             if($scope.registerSiteForm.$valid){
                 console.log("guardar sitio");

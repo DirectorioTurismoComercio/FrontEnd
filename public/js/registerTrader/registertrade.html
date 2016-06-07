@@ -1,81 +1,119 @@
-<div class="header"><div class="glyphicon glyphicon-menu-left backButton"></div><p class="text" translate="REGISTER_USER_CONSTANTS.CREATE_ACCOUNT"></p></div>
-
-<div class="row">
-<div class="social-button col-xs-1"></div>    
-<div class="social-button col-xs-10">
-<a class="btn btn-block btn-social btn-facebook btn-lg" ng-click="authenticate('facebook')">
-    <span class="fa fa-facebook"></span> 
-    <span translate="REGISTER_USER_CONSTANTS.SIGNUP_WITH_FACEBOOK"></span>
-</a>
-</div>
-<div class="social-button col-xs-1"></div> 
+<div class="hidden-xs hidden-sm">
+    <app-header></app-header>
 </div>
 
-<div class="row">
-<div class="social-button col-xs-1"></div>
-<div class="social-button col-xs-10">
-<a class="btn btn-block btn-social btn-lg btn-google" ng-click="authenticate('google')">
-    <span class="fa fa-google"></span> 
-    <span translate="REGISTER_USER_CONSTANTS.SIGNUP_WITH_GOOGLE"></span>
-</a>
-</div>
-<div class="social-button col-xs-1"></div>
-</div>
+<div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPort">
+    <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
+        <div class="header container-fluid">
+            <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeView('home')">
+                <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+            </div>
+            <p class="text" translate="REGISTER_USER_CONSTANTS.CREATE_ACCOUNT"></p></div>
 
-<div class="row middle-text">
-        <div class="col-xs-3"></div>
-        <p class="col-xs-6" translate="REGISTER_USER_CONSTANTS.USE_EMAIL_ACCOUNT"></p>
-        <div class="col-xs-3"></div>
-</div>
+        <div class="row topMarginHeader">
+            <div class="social-button col-xs-1"></div>
+            <div class="social-button col-xs-10">
+                <a class="btn btn-block btn-social btn-facebook btn-lg" ng-click="authenticate('facebook')">
+                    <span class="fa fa-facebook"></span>
+                    <span translate="REGISTER_USER_CONSTANTS.SIGNUP_WITH_FACEBOOK"></span>
+                </a>
+            </div>
+            <div class="social-button col-xs-1"></div>
+        </div>
 
+        <div class="row topMarginHeader">
+            <div class="social-button col-xs-1"></div>
+            <div class="social-button col-xs-10">
+                <a class="btn btn-block btn-social btn-lg btn-google" ng-click="authenticate('google')">
+                    <span class="fa fa-google"></span>
+                    <span translate="REGISTER_USER_CONSTANTS.SIGNUP_WITH_GOOGLE"></span>
+                </a>
+            </div>
+            <div class="social-button col-xs-1"></div>
+        </div>
 
-<form name="traderInfoForm" class="form-group form">
-    <div class="row control">
-        <div class="col-xs-1"></div>
-        <input name="firstname" placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_USER_CONSTANTS.FIRST_NAME" class="form-control col-xs-10" name="firstname" type="text" ng-model="usuario.nombres" required>
-        <div class="col-xs-1"></div>
-    </div>
+        <div class="row middle-text topMarginHeader">
+            <div class="col-xs-3"></div>
+            <p class="col-xs-6" translate="REGISTER_USER_CONSTANTS.USE_EMAIL_ACCOUNT"></p>
+            <div class="col-xs-3"></div>
+        </div>
+
+        <form name="traderInfoForm" class="form-group form">
+            <div class="row control topMarginHeader">
+                <div class="col-xs-1"></div>
+                <input name="firstname" placeholder="Regular Placeholder" translate
+                       translate-attr-placeholder="REGISTER_USER_CONSTANTS.FIRST_NAME" class="form-control col-xs-10"
+                       name="firstname" type="text" ng-model="usuario.nombres" required>
+                <div class="col-xs-1"></div>
+            </div>
    <span class="error" ng-show="submitted && traderInfoForm.firstname.$error.required"
-              translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+         translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
-    <div class="row control">
-        <div class="col-xs-1"></div>
-        <input placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_USER_CONSTANTS.LAST_NAME" type="text" class="form-control col-xs-10" name="lastname" ng-model="usuario.apellidos" required>
-        <div class="col-xs-1"></div>
-    </div>
+            <div class="row control">
+                <div class="col-xs-1 topMarginHeader"></div>
+                <input placeholder="Regular Placeholder" translate
+                       translate-attr-placeholder="REGISTER_USER_CONSTANTS.LAST_NAME" type="text"
+                       class="form-control col-xs-10"
+                       name="lastname" ng-model="usuario.apellidos" required>
+                <div class="col-xs-1"></div>
+            </div>
     <span class="error" ng-show="submitted && traderInfoForm.lastname.$error.required"
-              translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
-    <div class="row control">
-        <div class="col-xs-1"></div>
-        <input input placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_USER_CONSTANTS.EMAIL" class="form-control col-xs-10" name="email" type="email" ng-model="usuario.correo" required>
-        <div class="col-xs-1"></div>
-    </div>
+            <div class="row control">
+                <div class="col-xs-1 topMarginHeader"></div>
+                <input input placeholder="Regular Placeholder" translate
+                       translate-attr-placeholder="REGISTER_USER_CONSTANTS.EMAIL" class="form-control col-xs-10"
+                       name="email"
+                       type="email" ng-model="usuario.correo" required>
+                <div class="col-xs-1"></div>
+            </div>
      <span class="error" ng-show="submitted && traderInfoForm.email.$error.required"
-              translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+           translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
      <span class="error" ng-show="submitted && traderInfoForm.email.$error.email"
-              translate="REGISTER_USER_CONSTANTS.EMAIL_VALIDATION"></span>
+           translate="REGISTER_USER_CONSTANTS.EMAIL_VALIDATION"></span>
 
-    <div class="row control">
-        <div class="col-xs-1"></div>
-        <input input placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_USER_CONSTANTS.PASSWORD" class="form-control col-xs-10" name="password" type="password" ng-model="usuario.password" required>
-        <div class="col-xs-1"></div>
-    </div>
+            <div class="row control">
+                <div class="col-xs-1 topMarginHeader"></div>
+                <input input placeholder="Regular Placeholder" translate
+                       translate-attr-placeholder="REGISTER_USER_CONSTANTS.PASSWORD" class="form-control col-xs-10"
+                       name="password" type="password" ng-model="usuario.password" required>
+                <div class="col-xs-1"></div>
+            </div>
    <span class="error" ng-show="submitted && traderInfoForm.password.$error.required"
-              translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+         translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+        </form>
 
-    
-</form>
-<div class="next-button boton topMarginElements">
-  <div class="col-xs-1"></div>
-    <button class="button col-xs-10" ng-click="save()"><span translate="REGISTER_USER_CONSTANTS.SIGNUP_BUTTON"></span></button>
-    <div class="col-xs-1"></div>
-</div>
-<div class="bottom-text">
-  <div class="col-xs-3"></div>
-  <div class="col-xs-6">
-    <p class="already-registered-text" translate="REGISTER_USER_CONSTANTS.TRADER_ALREADY_REGISTER"></p>
-    <p class="signup-text" translate="REGISTER_USER_CONSTANTS.SIGNIN_MESSAGE"></p>
+        <div class=" next-button NextButtonRegister topMarginElements">
+            <button class="button" ng-click="save()"
+                    translate="REGISTER_USER_CONSTANTS.SIGNUP_BUTTON"></button>
+        </div>
+
+        <div class="bottom-text ">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+                <p class="already-registered-text" translate="REGISTER_USER_CONSTANTS.TRADER_ALREADY_REGISTER"></p>
+                <p class="signup-text" translate="REGISTER_USER_CONSTANTS.SIGNIN_MESSAGE"></p>
+            </div>
+            <div class="col-xs-3"></div>
+        </div>
+
     </div>
-  <div class="col-xs-3"></div>
-</div>
+
+    <!--
+
+    <div class="next-button boton topMarginElements">
+        <div class="col-xs-1"></div>
+        <button class="button col-xs-10" ng-click="save()"><span translate="REGISTER_USER_CONSTANTS.SIGNUP_BUTTON"></span>
+        </button>
+        <div class="col-xs-1"></div>
+    </div>
+    <div class="bottom-text">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
+            <p class="already-registered-text" translate="REGISTER_USER_CONSTANTS.TRADER_ALREADY_REGISTER"></p>
+            <p class="signup-text" translate="REGISTER_USER_CONSTANTS.SIGNIN_MESSAGE"></p>
+        </div>
+        <div class="col-xs-3"></div>
+    </div>
+    -->
