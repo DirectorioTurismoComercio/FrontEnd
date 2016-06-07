@@ -1,9 +1,17 @@
+.backgroundFillViewPort{
+    height: 100vh
+}
+
 .topMarginElements{
     margin-top: 3% !important;
 }
 
 .topMarginHeader{
-    margin-top: 3%;
+    padding-top: 3%;
+}
+
+.registerSiteFormBackgroundColor{
+    background-color: #FFF;
 }
 
 .centerColumnNoPadding{
@@ -59,33 +67,47 @@
 /* xs devices */
 @media (max-width: 767px) {
     .topMarginHeader{
-        margin-top: 0%;
+        padding-top: 0%;
     }
 
     .getUserPositionBusinessAddressButton{
         height: 12vmin;
     }
+
+    .registerSiteBackgroundColor{
+        background-color: #FFF;
+    }
+
 }
 
 /* sm devices */
 @media (min-width:768px) {
     .topMarginHeader{
-        margin-top: 0%;
+        padding-top: 0%;
     }
 
     .getUserPositionBusinessAddressButton{
         height: 8vmin;
+    }
+
+
+    .registerSiteBackgroundColor{
+        background-color: #FFF;
     }
 }
 
 /* md devices */
 @media(min-width:992px){
     .topMarginHeader{
-        margin-top: 3%;
+        padding-top: 3%;
     }
 
     .getUserPositionBusinessAddressButton{
         height: 4vmin;
+    }
+
+    .registerSiteBackgroundColor{
+        background-color: #E4EDEF;
     }
 }
 
