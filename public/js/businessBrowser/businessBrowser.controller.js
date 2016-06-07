@@ -13,7 +13,6 @@ angular.module('businessBrowser', [])
         };
 
         $scope.keyPressed = function () {
-            console.log($scope);
             switch (event.which) {
                 case 13:
                     $scope.doSearch($scope.result);

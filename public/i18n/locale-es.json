@@ -86,5 +86,6 @@
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "Debes elegir tu destino",
   "MY_POSITION": "Mi posición actual",
   "SUCCESS_TITLE_MESSAGE": "Completado",
-  "REGISTER_COMPLETE": "El registro fue exitoso"
+  "REGISTER_COMPLETE": "El registro fue exitoso",
+  "HOW_TO_GET_THERE":"¿Cómo llegar?"
 }
