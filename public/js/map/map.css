@@ -11,11 +11,11 @@
 }
 
 .search-results .icon {
-    width: 30px;
+    width: 40px;
 }
 
 .search-results .angular-google-map-container {
-    height: 70vh;
+    height: 50vh;
 }
 
 .search-results .result-list {
@@ -30,9 +30,9 @@
 }
 
 .result-list {
-    padding: 5% 2%;
-    overflow-y: auto;
-    max-height: 60vh;
+    padding: 3% 5%;
+    /*overflow-y: auto;
+    max-height: 60vh;*/
 }
 
 .result-list .list-item {
@@ -45,16 +45,26 @@
 }
 
 .list-item h3 {
+    text-align: left;
     font-weight: bold;
     margin: 0;
 }
 
 .list-item h4 {
+    text-align: left;
     font-weight: bold;
 }
 
 .list-item .info {
     padding: 0;
+}
+
+.info .description {
+    text-align: justify;
+}
+
+.info:focus {
+    outline: none;
 }
 
 .list-item img {
@@ -63,6 +73,13 @@
 
 #get-there {
     padding: 0;
+    cursor: pointer;
+}
+
+#get-there h3 {
+    display: inline-block;
+    font-weight: normal;
+    vertical-align: middle;
 }
 
 /* Extra small devices (phones, less than 768px) */
@@ -73,6 +90,12 @@
 @media (min-width: 768px) {
     .search-results .angular-google-map-container {
         height: 87vh;
+    }
+
+    .result-list {
+        padding: 1% 2%;
+        overflow-y: auto;
+        max-height: 87vh;
     }
 }
 

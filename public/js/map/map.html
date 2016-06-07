@@ -20,16 +20,16 @@
                     <div class="col-xs-8 info">
                         <h3 class="">%%site.nombre%%</h3>
                         <h4 class="">%%site.municipio%%Fusagasugá</h4>
-                        <p class="">%%site.descripcion%%</p>
+                        <p class="description">%%site.descripcion%%</p>
                     </div>
                     <div class="col-xs-4">
                         <img class="img-responsive" ng-src='%%site.fotos[0].URLfoto%%'/>
                     </div>
                 </div>
                 <div class="row">
-                    <div id="get-there" class="col-sm-6">
+                    <div id="get-there" class="col-sm-6" ng-click="showRouteToSite(site)">
                         <img class="icon" src="./images/icons/arma-tu-ruta.png">
-                        <label translate="HOW_TO_GET_THERE"></label>
+                        <h3 translate="HOW_TO_GET_THERE"></h3>
                     </div>
                 </div>
             </div>
