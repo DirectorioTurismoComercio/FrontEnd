@@ -1,4 +1,3 @@
-<app-header></app-header>
 <div class="header"><div class="glyphicon glyphicon-menu-left backButton"></div><p class="text" translate="REGISTER_USER_CONSTANTS.CREATE_ACCOUNT"></p></div>
 
 <div class="row">
@@ -36,7 +35,7 @@
         <input name="firstname" placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_USER_CONSTANTS.FIRST_NAME" class="form-control col-xs-10" name="firstname" type="text" ng-model="usuario.nombres" required>
         <div class="col-xs-1"></div>
     </div>
-   <span class="error" ng-show="traderInfoForm.firstname.$error.required"
+   <span class="error" ng-show="submitted && traderInfoForm.firstname.$error.required"
               translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
     <div class="row control">
@@ -44,7 +43,7 @@
         <input placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_USER_CONSTANTS.LAST_NAME" type="text" class="form-control col-xs-10" name="lastname" ng-model="usuario.apellidos" required>
         <div class="col-xs-1"></div>
     </div>
-    <span class="error" ng-show="traderInfoForm.lastname.$error.required"
+    <span class="error" ng-show="submitted && traderInfoForm.lastname.$error.required"
               translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
     <div class="row control">
@@ -52,9 +51,9 @@
         <input input placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_USER_CONSTANTS.EMAIL" class="form-control col-xs-10" name="email" type="email" ng-model="usuario.correo" required>
         <div class="col-xs-1"></div>
     </div>
-     <span class="error" ng-show="traderInfoForm.email.$error.required"
+     <span class="error" ng-show="submitted && traderInfoForm.email.$error.required"
               translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
-     <span class="error" ng-show="traderInfoForm.email.$dirty && traderInfoForm.email.$error.email"
+     <span class="error" ng-show="submitted && traderInfoForm.email.$error.email"
               translate="REGISTER_USER_CONSTANTS.EMAIL_VALIDATION"></span>
 
     <div class="row control">
@@ -62,17 +61,21 @@
         <input input placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_USER_CONSTANTS.PASSWORD" class="form-control col-xs-10" name="password" type="password" ng-model="usuario.password" required>
         <div class="col-xs-1"></div>
     </div>
-   <span class="error" ng-show="traderInfoForm.password.$error.required"
+   <span class="error" ng-show="submitted && traderInfoForm.password.$error.required"
               translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
-    <div class="row register-button">
-        <div class="col-xs-4"></div>
-    <button class="button col-xs-4" ng-disabled="traderInfoForm.$invalid" ng-click="save()"><span translate="REGISTER_USER_CONSTANTS.SIGNUP_BUTTON"></span></button>
-    <div class="col-xs-4"></div>
-    </div>
+    
 </form>
+<div class="next-button boton topMarginElements">
+  <div class="col-xs-1"></div>
+    <button class="button col-xs-10" ng-click="save()"><span translate="REGISTER_USER_CONSTANTS.SIGNUP_BUTTON"></span></button>
+    <div class="col-xs-1"></div>
+</div>
 <div class="bottom-text">
+  <div class="col-xs-3"></div>
+  <div class="col-xs-6">
     <p class="already-registered-text" translate="REGISTER_USER_CONSTANTS.TRADER_ALREADY_REGISTER"></p>
     <p class="signup-text" translate="REGISTER_USER_CONSTANTS.SIGNIN_MESSAGE"></p>
-
+    </div>
+  <div class="col-xs-3"></div>
 </div>

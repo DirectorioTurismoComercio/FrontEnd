@@ -2,19 +2,20 @@
 
 angular.module('registerTrader')
     .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, UserFactory,$location) {
+        $scope.submitted=false;
         $scope.usuario = new UserFactory();
         $scope.traderName=undefined;
         $scope.traderLastName=undefined;
         $scope.traderEmail=undefined;
         $scope.traderPassword;
         authenticationService.logout();
-    
+        $scope.usuario.nombres=undefined;
 
 
         $scope.authenticate = function (provider) {
                         $auth.authenticate(provider).then(function (response) {
                         $scope.load = true;
-                        fillFormWithUserData(response);
+                       // fillFormWithUserData(response);
                         $auth.setToken(response.data.token);
                         var credentials = {
                             username: response.data.username
@@ -32,18 +33,27 @@ angular.module('registerTrader')
 
         $scope.save =function () {
                     var promesa;
-                    redirectToRegisterSite();
-                    /*var credentials = {
+                    $scope.submitted=true;
+                    var deferred;
+                    var credentials;
+                    if($scope.traderInfoForm.$valid){
+                        deferred = $q.defer();
+                        promesa = $scope.usuario.$save();
+                    
+                 
+                    credentials = {
                             email: $scope.usuario.correo,
                             password: $scope.usuario.password
-                        };                  
-                    promesa = $scope.usuario.$save();
+                        };   
+                    }                   
                     
-                    var deferred = $q.defer();
+                    
+                     
                     promesa.then(function (data) {
                                   authenticationService.setUserByToken(data.key,deferred).finally(
                                     function(){
-                                  redirectToRegisterSite()
+                                    console.log("usuario id",authenticationService);
+                                    redirectToRegisterSite()
                                     }
                                   );
                             
@@ -66,7 +76,7 @@ angular.module('registerTrader')
                         }
                         ;
                     }).finally(function () {
-                    });*/
+                    });
                 };
 
         function fillFormWithUserData(userData){

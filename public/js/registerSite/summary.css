@@ -1,0 +1,24 @@
+.confirmRegisterIcons{
+    height: 4vmin;
+}
+
+/* xs devices */
+@media (max-width: 767px) {
+    .confirmRegisterIcons{
+        height: 8vmin;
+    }
+}
+
+/* sm devices */
+@media (min-width:768px) {
+    .confirmRegisterIcons{
+        height: 8vmin;
+    }
+}
+
+/* md devices */
+@media(min-width:992px){
+    .confirmRegisterIcons{
+        height: 4vmin;
+    }
+}

@@ -1,136 +1,104 @@
-<app-header></app-header>
-<div class="header"><div class="glyphicon glyphicon-menu-left backButton"></div><p class="text">Información de tu negocio</p></div>
-<ul class="progress-bar1">
+<div class="hidden-xs hidden-sm">
+    <app-header></app-header>
+</div>
+<form name="registerSiteForm">
+<div class="row topMarginHeader">
+    <div class="col-md-4  col-md-offset-4 centerColumnNoPadding" >
+        <div class="header container-fluid"><div class="glyphicon glyphicon-menu-left backButton" ng-click="changeView('businessinformation')"></div><p class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_INFORMATION"></p></div>
+        <ul class="progress-bar1 progressBarPadding topMarginElements">
             <li class="done-step"></li>
             <li class="done-step"></li>
             <li></li>
             <li></li>
             <li></li>
         </ul>
-<form class="form">
 
-<div class="row">
         
-        <div class="col-xs-1"><span class=" glyphicon glyphicon-home icon"></span> </div>
-        <div class="col-xs-10">	
-        <input placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_NAME" name="businessName" class="form-control" type="text" ng-model="businessName" required/>
-        <span ng-show="businessForm.businessName.$error.required"
-              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-          </div>
-        <div class="col-xs-1"></div>
-</div>
+        <div class="row businessAddressText topMarginElements">
+            <div class="col-xs-2" >
+                <img class="confirmRegisterIcons" src="./images/registerIcons/nombre-negocio.png">
+            </div>
+            <div class="col-xs-10">
+                <input type="text" placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_NAME" class="form-control businessAddressInput"  name="businessName" type="text" ng-model="$parent.businessName" placeholder="Nombre negocio" required/>
+                <i ng-show="businessName==undefined"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessStar"></i>
+                <span ng-show="businessName==undefined && registerSiteForm.businessName.$dirty" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            </div>
 
-<div class="row inputField">
-		
-		<div class="col-xs-1"><span class="glyphicon glyphicon-earphone icon"></span> </div>
-		<div class="col-xs-10">	
+        </div>    
+
+        <div class="row businessAddressText topMarginElements">
+            <div class="col-xs-2" >
+                <img class="confirmRegisterIcons" src="./images/registerIcons/telefono.png">
+            </div>
+            <div class="col-xs-10">
+                <input type="text" class="form-control businessAddressInput"  name="businessPhone" type="text" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_PHONE" ng-model="sitePhoneNumber" placeholder="Teléfono" required/>
+
+                <i ng-show="businessPhone==undefined"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessStar"></i>
+                <span ng-show="businessPhone==undefined && registerSiteForm.businessPhone.$dirty" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            </div>
+        </div>
+        <div class="row businessAddressText topMarginElements">
+            <div class="col-xs-2" >
+                <img class="confirmRegisterIcons" src="./images/registerIcons/whatsapp.png">
+            </div>
+            <div class="col-xs-10">
+                <input type="text" class="form-control businessAddressInput"  name="businessWhatsapp" type="text" ng-model="whatsapp" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WHATS_APP"/>
+
+         
+            </div>
+        </div>
+        <div class="input topMarginElements businessAddressText">
+            <drop-down-town-directive></drop-down-town-directive>
+        </div>
+             
+        <div class="input topMarginElements ">
+            <div class="col-xs-12" >
+            <textarea placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION" class="form-control businessAddressInput businessAddressText" name="businessDescription" ng-model="businessDescription" required></textarea>
+            <i ng-show="true"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessDescriptionStar"></i>
+                <span ng-show="businessDescription==undefined && registerSiteForm.businessDescription.$dirty" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            </div>    
+        </div>
         
-        <input placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_PHONE" name="sitePhoneNumber" class="form-control" type="tel" ng-pattern="/^\d+$/" ng-minlength="7" ng-maxlength="10"
-               ng-model="sitePhoneNumber" required />
-        <span ng-show="businessForm.sitePhoneNumber.$error.required"
-              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-        <span ng-show="businessForm.sitePhoneNumber.$dirty && !businessForm.sitePhoneNumber.$valid"
-              translate="REGISTER_SITE_CONSTANTS.PHONE_VALIDATION"></span>
-         </div>
-        <div class="col-xs-1"></div>      
-</div>
-
-<div class="row inputField">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-10">	
-        <drop-down-town-directive isonregistersite="true" class="drop-down-towns select-town"></drop-down-town-directive>
+        <div class="row businessAddressText topMarginElements">
+        <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT"></span><span class="texto-claro-business" translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT_EXAMPLE"></span>
         </div>
-        <div class="col-xs-1"></div>
-</div>
 
-<div class="row inputField">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-10">	
-        
-        <textarea placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION" class="form-control description" name="businessDescription" ng-model="businessDescription" required></textarea>
-        <span ng-show="businessForm.businessDescription.$error.required"
-              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+        <div class="input topMarginElements ">
+            <textarea placeholder="Regular Placeholder" translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS" class="form-control businessAddressInput businessAddressText" name="openingHours" ng-model="openingHours"></textarea>
         </div>
-        <div class="col-xs-1"></div>
 
-</div>
-<div class="row inputField">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-10">	
-    	<span>Escribe los dias y horarios de atención de tu negocio. Ejemplo:</span>
-    	<span>Lunes a viernes, 8:00 am a 6:00 pm, Sábado 10:00 am a 5:00pm</span>
+        <div class="row businessAddressText topMarginElements">
+        <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY_TEXT"></span>
         </div>
-        <div class="col-xs-1"></div>
 
-</div>
-<div class="row inputField">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-10">	
-        
-        <div>
-        <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"></label>
-        <input class="form-control" name="openingHours" type="text" ng-model="openingHours" required></input>
-        <span ng-show="businessForm.openingHours.$error.required"
-              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-
-    	</div>
+        <div class="topMarginElements">
+            <div class="col-xs-12" >
+            <select ng-model="businessCategories.category"
+                    ng-options="obj.id as obj.nombre for obj in categories"
+                    name="catefory"
+                    class="form-control businessAddressInput businessAddressText"
+                    required>
+                <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
+            </select>
+            <i ng-show="businessDescription==undefined"  class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessDescriptionStar"></i>
+                <span ng-show="businessDescription==undefined && registerSiteForm.businessDescription.$dirty" class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            </div>    
         </div>
-        <div class="col-xs-1"></div>
 
-</div>
-<div class="row inputField">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-10">	
-    	<span>Selecciona la categoría que corresponda a la actividad principal de tu negocio</span>
+        <div class="row businessAddressText topMarginElements">
+        <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT"></span><span class="texto-claro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT_EXAMPLE"></span>
         </div>
-        <div class="col-xs-1"></div>
 
-</div>
-<div class="row inputField">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-10">	
-        
-        <div>
-      <label translate="REGISTER_SITE_CONSTANTS.BUSINESS_CATEGORY"></label>
-        <select class="form-control" ng-model="businessCategories.category"
-                ng-options="obj.id as obj.nombre for obj in categories"
-                name="catefory"
-                required>
-            <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
-        </select>
-        <span ng-show="businessForm.catefory.$error.required" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-
-    	</div>
+        <div class="topMarginElements">
+            <tags-input class="businessAddressText businessAddressInput" name="tags" ng-model="tags" placeholder="Etiquetas" add-on-comma=true replace-spaces-with-dashes=false required>
+            </tags-input>
         </div>
-        <div class="col-xs-1"></div>
-
-</div>
-
-<div class="row inputField">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-10">	
-    	<span>Para que tus clientes identifiquen tu negocio fácilmente, ingresa etiquetas separadas por comas. Ejemplo:</span>
-    	<span>baño, wifi, camping.</span>
+        <div class=" next-button NextButtonRegister topMarginElements">
+            <button class="button" ng-disabled="businessAddress==undefined || businessLocation.lat==undefined" ng-click="changeView('photos')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
         </div>
-        <div class="col-xs-1"></div>
-
-</div>
-<div class="row inputField">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-10">	
-		<label>Tags</label>
-        <tags-input name="tags" ng-model="tags" add-on-comma=true replace-spaces-with-dashes=false required>
-        </tags-input>
-        <span ng-show="businessForm.tags.$error.required">Campo requerido</span>
-        </div>
-        <div class="col-xs-1"></div>
-
-</div>
-<div class="row next-button">
-        <div class="col-xs-4"></div>
-    <div class="button col-xs-4" ng-disabled="traderInfoForm.$invalid" ng-click="changeView('location')">Siguiente</div>
-    <div class="col-xs-4"></div>
+    </div>
 </div>
 </form>
 
-   
+
+

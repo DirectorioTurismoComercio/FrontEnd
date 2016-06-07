@@ -1,3 +1,11 @@
+.topMarginElements{
+    margin-top: 3% !important;
+}
+
+.topMarginHeader{
+    margin-top: 3%;
+}
+
 .centerColumnNoPadding{
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -6,6 +14,7 @@
 .progressBarPadding{
     padding-left: 15px !important;
     padding-right: 15px !important;
+
 }
 
 .businessAddressText{
@@ -17,6 +26,10 @@
     background-color: #F2F2F2;
     font-family: "PT Sans";
     color: #2D3C4D;
+}
+
+.errorField{
+    color:#ff0000;
 }
 
 .glyphiconBusinessAddress{
@@ -34,3 +47,45 @@
 .getUserPositionBusinessAddressButton{
     height: 4vmin;
 }
+
+.NextButtonRegister{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.
+
+/* xs devices */
+@media (max-width: 767px) {
+    .topMarginHeader{
+        margin-top: 0%;
+    }
+
+    .getUserPositionBusinessAddressButton{
+        height: 12vmin;
+    }
+}
+
+/* sm devices */
+@media (min-width:768px) {
+    .topMarginHeader{
+        margin-top: 0%;
+    }
+
+    .getUserPositionBusinessAddressButton{
+        height: 8vmin;
+    }
+}
+
+/* md devices */
+@media(min-width:992px){
+    .topMarginHeader{
+        margin-top: 3%;
+    }
+
+    .getUserPositionBusinessAddressButton{
+        height: 4vmin;
+    }
+}
+
