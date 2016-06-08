@@ -16,22 +16,50 @@
             <li></li>
             <li></li>
         </ul>
+
         <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
                translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO_TIP"></label>
+
         <div class="mainPhotoContainer">
             <label class="topMarginElements texto-claroBusinessLocation"
                    translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO"></label>
             <div flow-init="{singleFile:true}"
                  flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
                 <div ng-show="!$flow.files.length">
-                    <img class="btn" ng-show="!$flow.files.length" flow-btn src="./images/registerIcons/foto-subir.png"/>
+                    <img class="btn" ng-show="!$flow.files.length" flow-btn
+                         src="./images/registerIcons/foto-subir.png"/>
                 </div>
                 <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
                     <img class="selectedMainPhoto" flow-img="$flow.files[0]"/>
-                    <img class="deletePhoto deletePhotoSize" ng-click="$flow.cancel()" src="./images/registerIcons/foto-borrar.png">
+                    <img class="deletePhoto deletePhotoSize" ng-click="$flow.cancel()"
+                         src="./images/registerIcons/foto-borrar.png">
                 </div>
             </div>
         </div>
+
+        <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
+               translate="REGISTER_SITE_CONSTANTS.UPLOAD_SECONDARY_PHOTOS_TIP"></label>
+
+        <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
+               translate="REGISTER_SITE_CONSTANTS.BUSINESS_FACADE_PHOTOS"></label>
+
+        <div class="topMarginElements businessAddressText">
+            <div flow-init
+                 flow-name="flowPhotos.flow"
+                 flow-files-submitted="$flow.upload()"
+                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+                
+                <div ng-repeat="file in $flow.files" class="gallery-box">
+                    <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
+                        <img flow-img="file"/>
+                        <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
+                             src="./images/registerIcons/foto-borrar.png">
+                    </div>
+                </div>
+                <img class="btn" flow-btn src="./images/registerIcons/foto-subir.png"/>
+            </div>
+        </div>
+
 
         <!--<div flow-init
              flow-name="flowPhotos.flow"
