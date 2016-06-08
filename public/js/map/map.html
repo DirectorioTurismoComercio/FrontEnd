@@ -1,55 +1,63 @@
 <app-header></app-header>
-<search-tabs></search-tabs>
+
 
 <div class="row search-results">
     <md-progress-circular class="loading" md-mode="indeterminate"
                           ng-show="loading"></md-progress-circular>
 
-    <div class="col-md-6 col-md-push-6 map">
-        <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
+    <div class="col-md-6 no-padding">
+        <search-tabs></search-tabs>
+        <div class="map" ng-if="isMobileDevice()" ng-show="showMap">
+            <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
+        </div>
+
+        <div class="result-list">
+            <div class="" ng-show="foundSites.length > 0 && !isShowingSiteDetail">
+                <div ng-repeat="site in foundSites"
+                     ng-mouseover="highLightMarker($index)"
+                     ng-mouseleave="clearHighLightedMarker($index)">
+                    <div class="list-item">
+                        <div class="row" ng-click="showSiteDetail(site, $index)">
+                            <div class="col-xs-8 info">
+                                <h3 class="">%%site.nombre%%</h3>
+                                <h4 class="">%%site.municipio.nombre%%</h4>
+                                <p class="description">%%site.descripcion%%</p>
+                            </div>
+                            <div class="col-xs-4 image">
+                                <img class="img-responsive" ng-src='%%site.fotos[0].URLfoto%%'/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="get-there" class="col-sm-6" ng-click="showRouteToSite(site)">
+                                <img class="icon" src="./images/icons/arma-tu-ruta.png">
+                                <h3 translate="HOW_TO_GET_THERE"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-separator"></div>
+                </div>
+            </div>
+
+            <div ng-show="isShowingSiteDetail">
+                <div>Detalles del sitio</div>
+                <a href="" ng-click="hideSiteDetail()">Volver a lista de sitios</a>
+                <div class="row">
+                    <div class="text col-md-8">
+                        <h1 class="title">%%selectedSite.nombre%%</h1>
+                        <p class="desc">%%selectedSite.descripcion%%</p>
+                    </div>
+
+                </div>
+                <div class="row item">
+                    <div class="text col-md-4 image">
+                        <img ng-src='%%selectedSite.fotos[0].URLfoto%%' class="img-rounded"/>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="col-md-6 col-md-pull-6 result-list">
-        <div class="" ng-show="foundSites.length > 0 && !isShowingSiteDetail">
-            <div class="list-item"
-                 ng-repeat="site in foundSites"
-                 ng-mouseover="highLightMarker($index)"
-                 ng-mouseleave="clearHighLightedMarker($index)">
-
-                <div class="row" ng-click="showSiteDetail(site, $index)">
-                    <div class="col-xs-8 info">
-                        <h3 class="">%%site.nombre%%</h3>
-                        <h4 class="">%%site.municipio%%Fusagasugá</h4>
-                        <p class="description">%%site.descripcion%%</p>
-                    </div>
-                    <div class="col-xs-4 image">
-                        <img class="img-responsive" ng-src='%%site.fotos[0].URLfoto%%'/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div id="get-there" class="col-sm-6" ng-click="showRouteToSite(site)">
-                        <img class="icon" src="./images/icons/arma-tu-ruta.png">
-                        <h3 translate="HOW_TO_GET_THERE"></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div ng-show="isShowingSiteDetail">
-            <div>Detalles del sitio</div>
-            <a href="" ng-click="hideSiteDetail()">Volver a lista de sitios</a>
-            <div class="row">
-                <div class="text col-md-8">
-                    <h1 class="title">%%selectedSite.nombre%%</h1>
-                    <p class="desc">%%selectedSite.descripcion%%</p>
-                </div>
-
-            </div>
-            <div class="row item">
-                <div class="text col-md-4 image">
-                    <img ng-src='%%selectedSite.fotos[0].URLfoto%%' class="img-rounded"/>
-                </div>
-            </div>
-        </div>
+    <div class="col-md-6 map" ng-if="!isMobileDevice()">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
     </div>
 </div>

@@ -21,6 +21,7 @@ angular.module('map')
             routeFrom: '',
             routeTo: ''
         };
+        $scope.showMap = false;
 
 
         uiGmapIsReady.promise().then(initMap);
@@ -32,6 +33,7 @@ angular.module('map')
             if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
                 showFoundPlaces();
             }
+            showFoundPlaces();
 
             if (siteAndTownSaverService.searchedRoute.origin != undefined && siteAndTownSaverService.getCurrentSearchedSite() == undefined) {
                 showSearchedRoute();
@@ -41,6 +43,7 @@ angular.module('map')
 
         function showSearchedRoute() {
             $scope.loading = true;
+            $scope.showMap = true;
             SiteMarkerService.deleteMarkers();
             MapRouteService.calculateRoute(siteAndTownSaverService.searchedRoute, $scope);
             MapService.clearMarkers();
@@ -94,6 +97,7 @@ angular.module('map')
 
         $scope.showRouteToSite = function (site) {
             $scope.loading = true;
+            $scope.showMap = true;
             SiteMarkerService.deleteMarkers();
             MapService.getUserPosition(function (position) {
                     var routeRequest = {
@@ -173,5 +177,9 @@ angular.module('map')
         function handleLocationError() {
             messageService.showErrorMessage("No es posible obtener la ubicación");
         }
+
+        $scope.isMobileDevice = function () {
+            return $window.innerWidth < 768;
+        };
     })
 ;
