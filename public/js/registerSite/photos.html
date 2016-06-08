@@ -24,7 +24,8 @@
             <label class="topMarginElements texto-claroBusinessLocation"
                    translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO"></label>
             <div flow-init="{singleFile:true}"
-                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
+                 flow-name="flowMainPhoto.flow">
                 <div ng-show="!$flow.files.length">
                     <img class="btn" ng-show="!$flow.files.length" flow-btn
                          src="./images/registerIcons/foto-subir.png"/>
@@ -45,7 +46,7 @@
 
         <div class="topMarginElements businessAddressText">
             <div flow-init
-                 flow-name="flowPhotos.flow"
+                 flow-name="flowFacadePhotos.flow"
                  flow-files-submitted="$flow.upload()"
                  flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
 
@@ -65,7 +66,7 @@
 
         <div class="topMarginElements businessAddressText">
             <div flow-init
-                 flow-name="flowPhotos.flow"
+                 flow-name="flowInsidePhotos.flow"
                  flow-files-submitted="$flow.upload()"
                  flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
 
@@ -81,11 +82,11 @@
         </div>
 
         <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.BUSINESS_INSIDE_PHOTOS"></label>
+               translate="REGISTER_SITE_CONSTANTS.BUSINESS_PRODUCTS_PHOTOS"></label>
 
         <div class="topMarginElements businessAddressText">
             <div flow-init
-                 flow-name="flowPhotos.flow"
+                 flow-name="flowProductsPhotos.flow"
                  flow-files-submitted="$flow.upload()"
                  flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
 
@@ -100,7 +101,7 @@
             </div>
         </div>
 
-        <!--<button ng-click="subir()">SUBIR</button> -->
+        <button ng-click="subir()">SUBIR</button>
         <div class="row">
             <div class="col-xs-12 next-button NextButtonRegister topMarginElements">
                 <button class="button" ng-click="changeView('summary')"
