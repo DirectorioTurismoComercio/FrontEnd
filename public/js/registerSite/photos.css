@@ -1,5 +1,63 @@
+.backgroundFillViewPortPhotos{
+    height: 100%;
+}
+
+.PhotosFormPadding{
+    margin-bottom: 2%;
+}
+
 .mainPhotoContainer{
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+}
+
+.mainPhotoImagesContainer{
+    position: relative;
+}
+
+.selectedMainPhoto{
+    z-index: -1;
+}
+.rowPhotos{
+    border: none !important;
+    margin: 0% !important;
+}
+
+.rowPhotosButton{
+    height: 134px;
+    width: 146px;
+    padding: 6px 12px 6px 12px;
+}
+
+.deletePhoto{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
+
+.selectedRowPhotos{
+    max-height: 300px !important;
+    max-width: 180% !important;
+}
+
+/* xs devices */
+@media (max-width: 767px) {
+    .deletePhotoSize{
+        height: 6vmin !important;
+    }
+}
+
+/* sm devices */
+@media (min-width:768px) {
+    .deletePhotoSize{
+        height: 6vmin !important;
+    }
+}
+
+/* md devices */
+@media(min-width:992px){
+    .deletePhotoSize{
+        height: 2vmin !important;
+    }
 }

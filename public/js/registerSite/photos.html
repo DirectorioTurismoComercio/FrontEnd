@@ -2,8 +2,8 @@
     <app-header></app-header>
 </div>
 
-<div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortLocation">
-    <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
+<div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortPhotos">
+    <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor PhotosFormPadding">
         <div class="header container-fluid">
             <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeView('location', true)">
                 <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
@@ -16,126 +16,96 @@
             <li></li>
             <li></li>
         </ul>
+
         <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
                translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO_TIP"></label>
+
         <div class="mainPhotoContainer">
             <label class="topMarginElements texto-claroBusinessLocation"
                    translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO"></label>
             <div flow-init="{singleFile:true}"
                  flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
                 <div ng-show="!$flow.files.length">
-                    <img class="btn" ng-show="!$flow.files.length" flow-btn src="./images/registerIcons/foto-subir.png"/>
+                    <img class="btn" ng-show="!$flow.files.length" flow-btn
+                         src="./images/registerIcons/foto-subir.png"/>
                 </div>
-                <div class="thumbnail" ng-show="$flow.files.length">
-                    <img flow-img="$flow.files[0]"/>
-                </div>
-                <div>
-                  <span class="btn btn-danger" ng-show="$flow.files.length"
-                        ng-click="$flow.cancel()">
-                    Remove
-                  </span>
+                <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
+                    <img class="selectedMainPhoto" flow-img="$flow.files[0]"/>
+                    <img class="deletePhoto deletePhotoSize" ng-click="$flow.cancel()"
+                         src="./images/registerIcons/foto-borrar.png">
                 </div>
             </div>
         </div>
 
-        <!--<div flow-init
-             flow-name="flowPhotos.flow"
-             flow-files-submitted="$flow.upload()"
-             flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
-            <div class="drop" flow-drop ng-class="dropClass">
-                <span class="btn btn-default" flow-btn>Subir imágenes</span>
-            </div>
+        <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
+               translate="REGISTER_SITE_CONSTANTS.UPLOAD_SECONDARY_PHOTOS_TIP"></label>
 
-            <br/>
+        <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
+               translate="REGISTER_SITE_CONSTANTS.BUSINESS_FACADE_PHOTOS"></label>
 
-            <div>
-                <div ng-repeat="file in $flow.files" class="gallery-box">
-                    <span>%%file.name%%</span>
-                    <div class="thumbnail" ng-show="$flow.files.length">
-                        <img flow-img="file"/>
-                    </div>
-                    <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
-                        <div class="progress-bar" role="progressbar"
-                             aria-valuenow="{{file.progress() * 100}}"
-                             aria-valuemin="0"
-                             aria-valuemax="100"
-                             ng-style="{width: (file.progress() * 100) + '%'}">
-                            <span class="sr-only">%%file.progress()%%  Complete</span>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-xs btn-danger" ng-click="file.cancel()">
-                            Remove
-                        </a>
+        <div class="topMarginElements businessAddressText">
+            <div flow-init
+                 flow-name="flowPhotos.flow"
+                 flow-files-submitted="$flow.upload()"
+                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+
+                <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
+                    <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
+                        <img class="selectedRowPhotos" flow-img="file"/>
+                        <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
+                             src="./images/registerIcons/foto-borrar.png">
                     </div>
                 </div>
-                <div class="clear"></div>
+                <img class="rowPhotosButton" flow-btn src="./images/registerIcons/foto-subir.png"/>
             </div>
-        </div>-->
+        </div>
 
-        <div class=" next-button NextButtonRegister topMarginElements">
-            <button class="button" ng-click="changeView('summary')"
-                    translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
+        <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
+               translate="REGISTER_SITE_CONSTANTS.BUSINESS_INSIDE_PHOTOS"></label>
+
+        <div class="topMarginElements businessAddressText">
+            <div flow-init
+                 flow-name="flowPhotos.flow"
+                 flow-files-submitted="$flow.upload()"
+                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+
+                <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
+                    <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
+                        <img class="selectedRowPhotos" flow-img="file"/>
+                        <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
+                             src="./images/registerIcons/foto-borrar.png">
+                    </div>
+                </div>
+                <img class="rowPhotosButton" flow-btn src="./images/registerIcons/foto-subir.png"/>
+            </div>
+        </div>
+
+        <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
+               translate="REGISTER_SITE_CONSTANTS.BUSINESS_INSIDE_PHOTOS"></label>
+
+        <div class="topMarginElements businessAddressText">
+            <div flow-init
+                 flow-name="flowPhotos.flow"
+                 flow-files-submitted="$flow.upload()"
+                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+
+                <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
+                    <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
+                        <img class="selectedRowPhotos" flow-img="file"/>
+                        <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
+                             src="./images/registerIcons/foto-borrar.png">
+                    </div>
+                </div>
+                <img class="rowPhotosButton" flow-btn src="./images/registerIcons/foto-subir.png"/>
+            </div>
+        </div>
+
+        <!--<button ng-click="subir()">SUBIR</button> -->
+        <div class="row">
+            <div class="col-xs-12 next-button NextButtonRegister topMarginElements">
+                <button class="button" ng-click="changeView('summary')"
+                        translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
+            </div>
         </div>
     </div>
 </div>
-
-
-<!--
-<div class="header">
-    <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeView('location', true)">
-        <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
-    </div>    <p class="text">Fotografías de tu negocio</p></div>
-<ul class="progress-bar1">
-    <li class="done-step"></li>
-    <li class="done-step"></li>
-    <li class="done-step"></li>
-    <li></li>
-    <li></li>
-</ul>
-
-<div class="row next-button">
-    <div class="col-xs-4"></div>
-    <div class="button col-xs-4" ng-click="changeView('summary')">Siguiente</div>
-    <div class="col-xs-4"></div>
-</div>
-
-<div flow-init
-     flow-name="flowPhotos.flow"
-     flow-files-submitted="$flow.upload()"
-     flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
-    <div class="drop" flow-drop ng-class="dropClass">
-        <span class="btn btn-default" flow-btn>Subir imágenes</span>
-    </div>
-
-    <br/>
-
-    <div>
-
-        <div ng-repeat="file in $flow.files" class="gallery-box">
-            <span>%%file.name%%</span>
-            <div class="thumbnail" ng-show="$flow.files.length">
-                <img flow-img="file"/>
-            </div>
-            <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
-                <div class="progress-bar" role="progressbar"
-                     aria-valuenow="{{file.progress() * 100}}"
-                     aria-valuemin="0"
-                     aria-valuemax="100"
-                     ng-style="{width: (file.progress() * 100) + '%'}">
-                    <span class="sr-only">%%file.progress()%%  Complete</span>
-                </div>
-            </div>
-            <div class="btn-group">
-                <a class="btn btn-xs btn-danger" ng-click="file.cancel()">
-                    Remove
-                </a>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-
-<button ng-click="subir()">SUBIR</button>
-
--->
