@@ -54,17 +54,15 @@
     color: #2D3C4D;
 }
 
-.getUserPositionBusinessAddressButton{
-    height: 4vmin;
-}
-
 .NextButtonRegister{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 
-.
+.angular-google-map-container {
+    height: 50vh;
+}
 
 /* xs devices */
 @media (max-width: 767px) {
@@ -80,10 +78,6 @@
         background-color: #FFF;
     }
 
-}
-
-.angular-google-map-container {
-    height: 50vh;
 }
 
 /* sm devices */
