@@ -49,6 +49,8 @@
     "UPLOAD_MAIN_PHOTO":"Foto principal",
     "UPLOAD_SECONDARY_PHOTOS_TIP":"Sube una o varias fotografías de tu negocio para que tus clientes conozcan tu local y tus productos",
     "BUSINESS_FACADE_PHOTOS":"Fotos de la fachada de tu negocio",
+    "BUSINESS_INSIDE_PHOTOS":"Fotos del interior de tu negocio",
+    "BUSINESS_PRODUCTS_PHOTOS":"Fotos de tus productos o servicios",
     "CHOOSE_IMAGES": "Elegir imágenes",
     "BUSINESS_PHONE": "Teléfono",
     "BUSINESS_OPENINGHOURS": "Horario de atención",

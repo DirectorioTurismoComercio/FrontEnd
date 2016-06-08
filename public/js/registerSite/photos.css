@@ -1,3 +1,11 @@
+.backgroundFillViewPortPhotos{
+    height: 100%;
+}
+
+.PhotosFormPadding{
+    margin-bottom: 2%;
+}
+
 .mainPhotoContainer{
     display: flex;
     flex-flow: column wrap;
@@ -26,6 +34,11 @@
     position: absolute;
     right: 10px;
     bottom: 5px;
+}
+
+.selectedRowPhotos{
+    max-height: 300px !important;
+    max-width: 180% !important;
 }
 
 /* xs devices */
