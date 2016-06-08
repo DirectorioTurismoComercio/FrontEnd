@@ -78,7 +78,7 @@ angular.module('registerSite')
             fd.append('longitud', $scope.businessLocation.lng);
             fd.append('nombre', $scope.businessName);
             fd.append('descripcion', $scope.businessDescription);
-            fd.append('municipio', siteAndTownSaverService.getCurrentSearchedTown().id);
+            fd.append('municipio_id', siteAndTownSaverService.getCurrentSearchedTown().id);
             fd.append('telefono', $scope.sitePhoneNumber);
             fd.append('horariolocal', $scope.openingHours);
             fd.append('correolocal', $scope.businessEmail);
