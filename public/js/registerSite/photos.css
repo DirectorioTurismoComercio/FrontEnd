@@ -3,3 +3,38 @@
     flex-flow: column wrap;
     align-items: center;
 }
+
+.mainPhotoImagesContainer{
+    position: relative;
+}
+
+.selectedMainPhoto{
+    z-index: -1;
+}
+
+.deletePhoto{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
+
+/* xs devices */
+@media (max-width: 767px) {
+    .deletePhotoSize{
+        height: 6vmin !important;
+    }
+}
+
+/* sm devices */
+@media (min-width:768px) {
+    .deletePhotoSize{
+        height: 6vmin !important;
+    }
+}
+
+/* md devices */
+@media(min-width:992px){
+    .deletePhotoSize{
+        height: 2vmin !important;
+    }
+}

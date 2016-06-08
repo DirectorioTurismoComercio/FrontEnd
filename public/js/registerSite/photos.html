@@ -26,14 +26,9 @@
                 <div ng-show="!$flow.files.length">
                     <img class="btn" ng-show="!$flow.files.length" flow-btn src="./images/registerIcons/foto-subir.png"/>
                 </div>
-                <div class="thumbnail" ng-show="$flow.files.length">
-                    <img flow-img="$flow.files[0]"/>
-                </div>
-                <div>
-                  <span class="btn btn-danger" ng-show="$flow.files.length"
-                        ng-click="$flow.cancel()">
-                    Remove
-                  </span>
+                <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
+                    <img class="selectedMainPhoto" flow-img="$flow.files[0]"/>
+                    <img class="deletePhoto deletePhotoSize" ng-click="$flow.cancel()" src="./images/registerIcons/foto-borrar.png">
                 </div>
             </div>
         </div>
