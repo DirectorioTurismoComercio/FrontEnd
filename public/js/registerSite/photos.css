@@ -11,6 +11,16 @@
 .selectedMainPhoto{
     z-index: -1;
 }
+.rowPhotos{
+    border: none !important;
+    margin: 0% !important;
+}
+
+.rowPhotosButton{
+    height: 134px;
+    width: 146px;
+    padding: 6px 12px 6px 12px;
+}
 
 .deletePhoto{
     position: absolute;

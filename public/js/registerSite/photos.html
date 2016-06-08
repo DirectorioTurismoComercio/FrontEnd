@@ -48,15 +48,15 @@
                  flow-name="flowPhotos.flow"
                  flow-files-submitted="$flow.upload()"
                  flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
-                
-                <div ng-repeat="file in $flow.files" class="gallery-box">
+
+                <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos">
                     <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
                         <img flow-img="file"/>
                         <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
                              src="./images/registerIcons/foto-borrar.png">
                     </div>
                 </div>
-                <img class="btn" flow-btn src="./images/registerIcons/foto-subir.png"/>
+                <img class="rowPhotosButton" flow-btn src="./images/registerIcons/foto-subir.png"/>
             </div>
         </div>
 
