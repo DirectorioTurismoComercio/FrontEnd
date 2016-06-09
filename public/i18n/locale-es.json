@@ -40,7 +40,7 @@
     "EMAIL": "Correo electrónico",
     "PASSWORD": "Contraseña",
     "EMAIL_VALIDATION": "Verifique el correo",
-    "REQUIRED_FIELD": "campo olbigatorio*"
+    "REQUIRED_FIELD": "campo obligatorio*"
   },
   "REGISTER_SITE_CONSTANTS": {
     "PHOTOS": "Fotos",
