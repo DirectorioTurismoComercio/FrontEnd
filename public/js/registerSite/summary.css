@@ -2,21 +2,18 @@
     height: 140vh;
 }
 
-.confirmRegisterIcons{
-    height: 4vmin;
-}
 
 /* xs devices */
 @media (max-width: 767px) {
     .confirmRegisterIcons{
-        height: 8vmin;
+        height: 12vmin;
     }
 }
 
 /* sm devices */
 @media (min-width:768px) {
     .confirmRegisterIcons{
-        height: 8vmin;
+        height: 12vmin;
     }
 }
 
