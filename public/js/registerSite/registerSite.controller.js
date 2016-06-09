@@ -160,24 +160,20 @@ angular.module('registerSite')
         };
 
         $scope.save = function () {
-            ngDialog.open({
-                template: 'js/registerSite/completeRegistration.html',
-                width: 'auto',
-                showClose: false,
-                scope: $scope
-            });
-
-            /*
-             if($scope.registerSiteForm.$valid){
-             console.log("guardar sitio");
-             }else{
-             $scope.showRequiredFieldMessage=true;
-             }*/
-
+            if ($scope.registerSiteForm.$valid) {
+                ngDialog.open({
+                    template: 'js/registerSite/completeRegistration.html',
+                    width: 'auto',
+                    showClose: false,
+                    scope: $scope
+                });
+            } else {
+                $scope.showRequiredFieldMessage = true;
+            }
         }
 
 
-        $scope.doneRegistration=function(){
+        $scope.doneRegistration = function () {
             ngDialog.close();
             $location.path('home');
         }
