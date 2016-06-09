@@ -8,6 +8,7 @@ angular.module('registerSite')
 
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
         $scope.whatsapp = siteInformationService.whatsapp;
+        $scope.web = siteInformationService.web;
         $scope.openingHours = siteInformationService.openingHours;
         $scope.businessName = siteInformationService.businessName;
         $scope.businessLocation = siteInformationService.businessLocation;
@@ -219,6 +220,7 @@ angular.module('registerSite')
         function saveSiteInformation() {
             siteInformationService.sitePhoneNumber = $scope.sitePhoneNumber;
             siteInformationService.whatsapp = $scope.whatsapp;
+            siteInformationService.web = $scope.web;
             siteInformationService.openingHours = $scope.openingHours;
             siteInformationService.businessName = $scope.businessName;
             siteInformationService.businessLocation = $scope.businessLocation;

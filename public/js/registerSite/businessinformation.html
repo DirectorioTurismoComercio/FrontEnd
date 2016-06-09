@@ -64,6 +64,16 @@
 
                 </div>
             </div>
+            <div class="row businessAddressText topMarginElements">
+                <div class="col-xs-2">
+                    <img class="confirmRegisterIcons" src="./images/registerIcons/web.png">
+                </div>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control businessAddressInput" name="businessWeb" type="text"
+                           ng-model="$parent.web" translate
+                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WEB"/>
+                </div>
+            </div>
             <div class="input topMarginElements businessAddressText">
                 <drop-down-town-directive isonregistersite="true"></drop-down-town-directive>
                 <span ng-show="showRequiredFieldMessage && siteAndTownSaverService.getCurrentSearchedTown().id==undefined"

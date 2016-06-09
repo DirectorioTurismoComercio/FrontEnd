@@ -68,6 +68,7 @@
     "BUSINESS_DESCRIPTION": "Business description",
     "BUSINESS_EMAIL": "Email",
     "BUSINESS_WHATS_APP": "Whatsapp",
+    "BUSINESS_WEB": "Web page",
     "BUSINESS_ADDRESS": "Business address",
     "BUSINESS_CATEGORY": "Category",
     "CHOOSE_CATEGORY": "-- Choose category --",

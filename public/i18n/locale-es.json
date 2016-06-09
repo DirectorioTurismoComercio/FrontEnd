@@ -68,6 +68,7 @@
     "BUSINESS_DESCRIPTION": "Descripción de tu local",
     "BUSINESS_EMAIL": "Correo",
     "BUSINESS_WHATS_APP": "Whatsapp",
+    "BUSINESS_WEB": "Página web",
     "BUSINESS_ADDRESS": "Dirección del local",
     "BUSINESS_CATEGORY": "Categoria",
     "CHOOSE_CATEGORY": "-- Elija categoria --",

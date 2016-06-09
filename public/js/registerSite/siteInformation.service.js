@@ -4,6 +4,7 @@ angular.module('registerSite')
     .service('siteInformationService', function () {
         var sitePhoneNumber = undefined;
         var whatsapp=undefined;
+        var web=undefined;
         var openingHours=undefined;
         var businessName=undefined;
         var businessLocation=undefined;
@@ -18,6 +19,7 @@ angular.module('registerSite')
         return {
             sitePhoneNumber:sitePhoneNumber,
             whatsapp:whatsapp,
+            web:web,
             openingHours:openingHours,
             businessName:businessName,
             businessLocation:businessLocation,
