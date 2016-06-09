@@ -44,7 +44,7 @@ module.exports = function (config) {
             'public/components/angular-wizard/dist/angular-wizard.min.js',
             'public/components/flow.js/dist/flow.min.js',
             'public/components/ng-flow/dist/ng-flow.min.js',
-            'public/components/ngDialog/js/ngDialog.min.js',
+            'public/components/ng-dialog/js/ngDialog.min.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
