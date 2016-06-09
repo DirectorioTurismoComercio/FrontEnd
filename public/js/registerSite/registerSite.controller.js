@@ -34,6 +34,7 @@ angular.module('registerSite')
         $scope.flowInsidePhotos = {};
         $scope.flowProductsPhotos = {};
 
+
         var joinOfFormatted_address;
 
         MapService.clearRoute();
@@ -54,6 +55,8 @@ angular.module('registerSite')
             var productsPhotos = 0;
 
             var fd = new FormData();
+
+
 
             appendPhotos($scope.flowFacadePhotos.flow.files, facadePhotos, 'fotosFachada', fd);
             appendPhotos($scope.flowInsidePhotos.flow.files, insidePhotos, 'fotosInterior', fd);
@@ -112,11 +115,15 @@ angular.module('registerSite')
             var fd = new FormData();
             var i = 0;
 
+
+
             angular.forEach($scope.files, function (file) {
                 fd.append('foto' + i, file);
                 console.log("la foto", file);
                 i++;
             });
+
+
 
             fd.append('latitud', $scope.businessLocation.lat);
             fd.append('longitud', $scope.businessLocation.lng);
@@ -181,7 +188,7 @@ angular.module('registerSite')
 
         function appendPhotos(arrayPhotos, photosCounter, model, fd) {
             angular.forEach(arrayPhotos, function (file) {
-                fd.append(model + photosCounter, file);
+                fd.append(model + photosCounter, file.file);
                 photosCounter++;
             });
         }
