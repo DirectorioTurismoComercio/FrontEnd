@@ -77,7 +77,7 @@
             <div class="input topMarginElements businessAddressText col-xs-12">
                 <drop-down-town-directive isonregistersite="true"></drop-down-town-directive>
                 <span ng-show="showRequiredFieldMessage && siteAndTownSaverService.getCurrentSearchedTown().id==undefined"
-                      class="errorField businessAddressText" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+                      class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
 
             <div class="input topMarginElements col-xs-12">
@@ -85,8 +85,8 @@
                                   translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION"
                                   class="form-control businessAddressInput businessAddressText"
                                   name="businessDescription" ng-model="$parent.businessDescription" required></textarea>
-                    <i ng-show="businessDescription==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessDescriptionStar"></i>
+                <i ng-show="businessDescription==undefined"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessDescriptionStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.businessDescription.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
@@ -111,20 +111,19 @@
             </div>
 
             <div class="topMarginElements col-xs-12">
-                    <select ng-model="businessCategories.category"
-                            ng-options="obj.id as obj.nombre for obj in categories"
-                            name="catefory"
-                            class="form-control businessAddressInput businessAddressText"
-                            required>
-                        <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
-                    </select>
-                    <i ng-show="businessCategories==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessDescriptionStar"></i>
+                <select ng-model="businessCategories.category"
+                        ng-options="obj.id as obj.nombre for obj in categories"
+                        name="catefory"
+                        class="form-control businessAddressInput businessAddressText"
+                        required>
+                    <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
+                </select>
+                <i ng-show="businessCategories.category==''"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconCategoryStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.catefory.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
-
             <div class="row businessAddressText topMarginElements col-xs-12">
                 <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT"></span><span
                     class="texto-claro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT_EXAMPLE"></span>

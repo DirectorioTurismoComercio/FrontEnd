@@ -152,6 +152,11 @@ textarea.description{
     color: #00b3ee;
 }
 
+.glyphiconCategoryStar{
+    margin-right: 12%;
+    color: #00b3ee;
+}
+
 tags-input input {
 width: 100%;
 min-width: 250px;

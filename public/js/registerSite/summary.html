@@ -5,7 +5,7 @@
     <div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortSummary">
         <div class="col-md-4  col-md-offset-4 centerColumnNoPadding PhotosFormPadding registerSiteFormBackgroundColor">
             <div class="header container-fluid">
-                <div ng-click="changeView('photos', true)" class="col-xs-1 registerHeaderBackIconcontainer" >
+                <div ng-click="changeView('photos', true)" class="col-xs-1 registerHeaderBackIconcontainer">
                     <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
                 </div>
                 <p class="text" translate="REGISTER_SITE_CONSTANTS.SUMMARY"></p>
@@ -110,44 +110,44 @@
                                   class="form-control businessAddressInput businessAddressText"
                                   name="businessOpeningHours" ng-model="$parent.openingHours"></textarea>
             </div>
-                <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
-                       translate="REGISTER_SITE_CONSTANTS.BUSINESS_CATEGORY"></label>
-                <div class="topMarginElements col-xs-12">
+            <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
+                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_CATEGORY"></label>
+            <div class="topMarginElements col-xs-12">
 
-                        <select ng-model="businessCategories.category"
-                                ng-options="obj.id as obj.nombre for obj in categories"
-                                name="catefory"
-                                class="form-control businessAddressInput businessAddressText"
-                                required>
-                            <option selected="businessCategories" value=""
-                                    translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
-                        </select>
-                        <i ng-show="businessCategories==undefined"
-                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessDescriptionStar"></i>
+                <select ng-model="businessCategories.category"
+                        ng-options="obj.id as obj.nombre for obj in categories"
+                        name="catefory"
+                        class="form-control businessAddressInput businessAddressText"
+                        required>
+                    <option selected="businessCategories" value=""
+                            translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
+                </select>
+                <i ng-show="businessCategories.category==''"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconCategoryStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.catefory.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
 
-                </div>
-                <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
-                       translate="REGISTER_SITE_CONSTANTS.BUSINESS_TAGS_CONFIRMATION_PAGE"></label>
-                <div class="topMarginElements col-xs-12">
-                    <tags-input class="businessAddressText businessAddressInput" name="tags" ng-model="tags"
-                                add-on-comma=true
-                                replace-spaces-with-dashes=false>
-                    </tags-input>
-                </div>
-                <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
-                       translate="REGISTER_SITE_CONSTANTS.TERMS_AND_CONDITIONS_LABEL"></label>
-                <div class="input topMarginElements col-xs-12">
+            </div>
+            <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
+                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_TAGS_CONFIRMATION_PAGE"></label>
+            <div class="topMarginElements col-xs-12">
+                <tags-input class="businessAddressText businessAddressInput" name="tags" ng-model="tags"
+                            add-on-comma=true
+                            replace-spaces-with-dashes=false>
+                </tags-input>
+            </div>
+            <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
+                   translate="REGISTER_SITE_CONSTANTS.TERMS_AND_CONDITIONS_LABEL"></label>
+            <div class="input topMarginElements col-xs-12">
                     <textarea class="form-control businessAddressInput businessAddressText "
                               translate="REGISTER_SITE_CONSTANTS.TERMS_AND_CONDITIONS" readonly></textarea>
-                </div>
-                <div class=" next-button NextButtonRegister topMarginElements col-xs-12">
-                    <button class="button" translate="REGISTER_SITE_CONSTANTS.COMPLETE_REGISTRATION_BUTTON"
-                            ng-click="save()">
-                    </button>
-                </div>
+            </div>
+            <div class=" next-button NextButtonRegister topMarginElements col-xs-12">
+                <button class="button" translate="REGISTER_SITE_CONSTANTS.COMPLETE_REGISTRATION_BUTTON"
+                        ng-click="save()">
+                </button>
             </div>
         </div>
+    </div>
 </form>
