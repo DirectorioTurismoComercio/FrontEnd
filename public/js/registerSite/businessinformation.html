@@ -74,14 +74,13 @@
                            translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WEB"/>
                 </div>
             </div>
-            <div class="input topMarginElements businessAddressText">
+            <div class="input topMarginElements businessAddressText col-xs-12">
                 <drop-down-town-directive isonregistersite="true"></drop-down-town-directive>
                 <span ng-show="showRequiredFieldMessage && siteAndTownSaverService.getCurrentSearchedTown().id==undefined"
                       class="errorField businessAddressText" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
 
-            <div class="input topMarginElements ">
-                <div class="col-xs-12">
+            <div class="input topMarginElements col-xs-12">
                         <textarea placeholder="Regular Placeholder" translate
                                   translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION"
                                   class="form-control businessAddressInput businessAddressText"
@@ -91,31 +90,27 @@
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.businessDescription.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-                </div>
             </div>
 
-            <div class="row businessAddressText topMarginElements">
+            <div class="row businessAddressText  col-xs-12">
                     <span class="texto-oscuro-business"
                           translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT"></span><span
                     class="texto-claro-business"
                     translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT_EXAMPLE"></span>
             </div>
 
-            <div class="input topMarginElements ">
-                <div class="col-xs-12">
+            <div class="input topMarginElements col-xs-12">
                         <textarea placeholder="Regular Placeholder" translate
                                   translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"
                                   class="form-control businessAddressInput businessAddressText"
                                   name="businessOpeningHours" ng-model="$parent.openingHours"></textarea>
-                </div>
             </div>
 
-            <div class="row businessAddressText topMarginElements">
+            <div class="row businessAddressText col-xs-12">
                 <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY_TEXT"></span>
             </div>
 
-            <div class="topMarginElements">
-                <div class="col-xs-12">
+            <div class="topMarginElements col-xs-12">
                     <select ng-model="businessCategories.category"
                             ng-options="obj.id as obj.nombre for obj in categories"
                             name="catefory"
@@ -128,27 +123,23 @@
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.catefory.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-                </div>
             </div>
 
-            <div class="row businessAddressText topMarginElements">
+            <div class="row businessAddressText topMarginElements col-xs-12">
                 <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT"></span><span
                     class="texto-claro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT_EXAMPLE"></span>
             </div>
 
-            <div class="topMarginElements">
+            <div class="topMarginElements col-xs-12">
                 <tags-input class="businessAddressText businessAddressInput" name="tags" ng-model="tags"
                             placeholder="Tags" add-on-comma=true replace-spaces-with-dashes=false>
                 </tags-input>
 
-
             </div>
-            <div class=" next-button NextButtonRegister topMarginElements">
+            <div class=" next-button NextButtonRegister topMarginElements col-xs-12">
                 <button class="button"
                         ng-click="changeView('location')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
             </div>
-
-
         </div>
     </div>
 </form>
