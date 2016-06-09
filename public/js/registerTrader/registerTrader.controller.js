@@ -19,7 +19,6 @@ angular.module('registerTrader')
         $scope.authenticate = function (provider) {
                         $auth.authenticate(provider).then(function (response) {
                         $scope.load = true;
-                       // fillFormWithUserData(response);
                         $auth.setToken(response.data.token);
                         var credentials = {
                             username: response.data.username
@@ -82,13 +81,7 @@ angular.module('registerTrader')
                     }).finally(function () {
                     });
                 };
-
-        function fillFormWithUserData(userData){
-            $scope.usuario.nombres=userData.data.first_name;
-            $scope.usuario.apellidos=userData.data.last_name;
-            $scope.usuario.correo=userData.data.email;
-        }
-
+        
         function redirectToRegisterSite(){
              $scope.load = false;
              $location.path('/businessinformation');

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('registerSite', ['ngTagsInput', 'uiGmapgoogle-maps', 'flow'])
+angular.module('registerSite', ['ngTagsInput', 'uiGmapgoogle-maps', 'flow', 'ngDialog'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/registersite', {

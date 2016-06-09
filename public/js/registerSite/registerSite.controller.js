@@ -3,7 +3,7 @@
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, messageService, CUNDINAMARCA_COORDS,
                                                     BOGOTA_COORDS, API_CONFIG, categories,
-                                                    $location, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation) {
+                                                    $location, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog) {
 
 
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
@@ -27,11 +27,11 @@ angular.module('registerSite')
                 },
             }
         };
-        $scope.showRequiredFieldMessage=false;
+        $scope.showRequiredFieldMessage = false;
         $scope.flowMainPhoto = {};
-        $scope.flowFacadePhotos={};
-        $scope.flowInsidePhotos={};
-        $scope.flowProductsPhotos={};
+        $scope.flowFacadePhotos = {};
+        $scope.flowInsidePhotos = {};
+        $scope.flowProductsPhotos = {};
 
         var joinOfFormatted_address;
 
@@ -49,14 +49,14 @@ angular.module('registerSite')
 
         $scope.subir = function () {
             var facadePhotos = 0;
-            var insidePhotos =0;
-            var productsPhotos=0;
+            var insidePhotos = 0;
+            var productsPhotos = 0;
 
             var fd = new FormData();
 
-            appendPhotos($scope.flowFacadePhotos.flow.files, facadePhotos, 'fotosFachada',fd);
-            appendPhotos($scope.flowInsidePhotos.flow.files, insidePhotos, 'fotosInterior',fd);
-            appendPhotos($scope.flowProductsPhotos.flow.files, productsPhotos, 'fotosProductos',fd);
+            appendPhotos($scope.flowFacadePhotos.flow.files, facadePhotos, 'fotosFachada', fd);
+            appendPhotos($scope.flowInsidePhotos.flow.files, insidePhotos, 'fotosInterior', fd);
+            appendPhotos($scope.flowProductsPhotos.flow.files, productsPhotos, 'fotosProductos', fd);
 
 
             fd.append('latitud', $scope.businessLocation.lat);
@@ -147,29 +147,42 @@ angular.module('registerSite')
         };
 
         $scope.changeView = function (view, backward) {
-            if(backward!=true){
-                if($scope.registerSiteForm.$valid){
+            if (backward != true) {
+                if ($scope.registerSiteForm.$valid) {
                     saveSiteInformation();
                     $location.path(view);
-                }else{
-                    $scope.showRequiredFieldMessage=true;
+                } else {
+                    $scope.showRequiredFieldMessage = true;
                 }
-            }else{
+            } else {
                 $location.path(view);
             }
         };
 
-        $scope.save = function(){
-            if($scope.registerSiteForm.$valid){
-                console.log("guardar sitio");
-            }else{
-                $scope.showRequiredFieldMessage=true;
-            }
+        $scope.save = function () {
+            ngDialog.open({
+                template: 'js/registerSite/completeRegistration.html',
+                width: 'auto',
+                showClose: false,
+                scope: $scope
+            });
+
+            /*
+             if($scope.registerSiteForm.$valid){
+             console.log("guardar sitio");
+             }else{
+             $scope.showRequiredFieldMessage=true;
+             }*/
 
         }
 
 
-        function appendPhotos(arrayPhotos,photosCounter,model,fd){
+        $scope.doneRegistration=function(){
+            ngDialog.close();
+            $location.path('home');
+        }
+
+        function appendPhotos(arrayPhotos, photosCounter, model, fd) {
             angular.forEach(arrayPhotos, function (file) {
                 fd.append('model' + photosCounter, file);
                 photosCounter++;
@@ -207,7 +220,7 @@ angular.module('registerSite')
             $scope.businessLocation = undefined;
         }
 
-        function saveSiteInformation(){
+        function saveSiteInformation() {
             siteInformationService.sitePhoneNumber = $scope.sitePhoneNumber;
             siteInformationService.whatsapp = $scope.whatsapp;
             siteInformationService.openingHours = $scope.openingHours;

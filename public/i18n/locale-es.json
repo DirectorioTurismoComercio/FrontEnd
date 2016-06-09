@@ -85,7 +85,11 @@
     "SUMMARY":"Resumen y confirmación",
     "TERMS_AND_CONDITIONS_LABEL":"Términos y condiciones",
     "TERMS_AND_CONDITIONS":"contenido de los términos y condiciones",
-    "COMPLETE_REGISTRATION_BUTTON":"Terminar registro"
+    "COMPLETE_REGISTRATION_BUTTON":"Terminar registro",
+    "COMPLETE_REGISTRATION_HEADER":"Registro completo",
+    "COMPLETE_REGISTRATION_TITLE":"Gracias por inscribirte",
+    "COMPLETE_REGISTRATION_TEXT":"Ya formas parte de la comunidad Marca_app. Entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
+    "COMPLETE_REGISTRATION_POPUP_BUTTON":"Continuar"
 
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",

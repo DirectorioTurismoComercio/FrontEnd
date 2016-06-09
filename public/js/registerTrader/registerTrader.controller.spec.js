@@ -37,19 +37,4 @@ describe('Controller: registerTraderController', function () {
         });
     }));
 
-    it('Should get FB or Google data and set Fullname and email', function () {
-        var response={
-            data:{
-                first_name:'Pepe Pepito',
-                last_name:'Pepillo Grillo',
-                email:'pepe@grillo.com'
-            }
-        };
-        $scope.authenticate();
-        deferred.resolve(response);
-        $scope.$apply();
-        expect($scope.usuario.nombres).toBe('Pepe Pepito');
-        expect($scope.usuario.apellidos).toBe('Pepillo Grillo');
-        expect($scope.usuario.correo).toBe('pepe@grillo.com');
-    });
 });
