@@ -5,7 +5,8 @@ angular.module('dropDownTowns')
             templateUrl: 'js/dropDownTowns/drop-Down-Towns.html',
             controller: 'dropDownTownsController',
             scope:{
-                isonregistersite:'='
+                isonregistersite:'=',
+                municipio:'='
             }
 
         }
