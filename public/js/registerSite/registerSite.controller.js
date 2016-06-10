@@ -174,6 +174,9 @@ angular.module('registerSite')
 
         $scope.save = function () {
             if ($scope.registerSiteForm.$valid) {
+
+
+
                 ngDialog.open({
                     template: 'js/registerSite/completeRegistration.html',
                     width: 'auto',
