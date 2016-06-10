@@ -5,7 +5,7 @@ angular.module('dropDownTowns', [])
         $scope.selectTown = function (index) {
             siteAndTownSaverService.setCurrentSearchedTown($scope.municipios[index]);
             $scope.selectedTown = $scope.municipios[index].nombre;
-            $scope.municipio=$scope.selectedTown;
+            $scope.town=$scope.selectedTown;
         };
 
         MunicipiosFactory.getTowns().then(function (response) {

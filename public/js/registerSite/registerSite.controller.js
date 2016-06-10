@@ -34,7 +34,7 @@ angular.module('registerSite')
         $scope.flowInsidePhotos = {};
         $scope.flowProductsPhotos = {};
 
-        $scope.municipio=undefined;
+        $scope.town=undefined;
 
         var joinOfFormatted_address;
 

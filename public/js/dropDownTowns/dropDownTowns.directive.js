@@ -6,8 +6,7 @@ angular.module('dropDownTowns')
             controller: 'dropDownTownsController',
             scope:{
                 isonregistersite:'=',
-                municipio:'='
+                town:'='
             }
-
         }
     }]);
