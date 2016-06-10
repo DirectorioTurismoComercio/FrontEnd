@@ -51,6 +51,7 @@ angular.module('registerSite')
         });
 
         $scope.subir = function () {
+            var mainPhoto = 0;
             var facadePhotos = 0;
             var insidePhotos = 0;
             var productsPhotos = 0;
@@ -58,23 +59,22 @@ angular.module('registerSite')
             var fd = new FormData();
 
 
+            appendPhotos($scope.flowMainPhoto.flow.files, mainPhoto, 'fotos_PRINCIPAL', fd);
+            appendPhotos($scope.flowFacadePhotos.flow.files, facadePhotos, 'fotos_FACHADA', fd);
+            appendPhotos($scope.flowInsidePhotos.flow.files, insidePhotos, 'fotos_INTERIOR', fd);
+            appendPhotos($scope.flowProductsPhotos.flow.files, productsPhotos, 'fotos_PRODUCTOS', fd);
 
-            appendPhotos($scope.flowFacadePhotos.flow.files, facadePhotos, 'fotosFachada', fd);
-            appendPhotos($scope.flowInsidePhotos.flow.files, insidePhotos, 'fotosInterior', fd);
-            appendPhotos($scope.flowProductsPhotos.flow.files, productsPhotos, 'fotosProductos', fd);
-
-
-            fd.append('latitud', $scope.businessLocation.lat);
-            fd.append('longitud', $scope.businessLocation.lng);
-            fd.append('nombre', $scope.businessName);
-            fd.append('descripcion', $scope.businessDescription);
-            fd.append('municipio_id', siteAndTownSaverService.getCurrentSearchedTown().id);
-            fd.append('telefono', $scope.sitePhoneNumber);
-            fd.append('horariolocal', $scope.openingHours);
-            fd.append('correolocal', $scope.businessEmail);
-            fd.append('ubicacionlocal', $scope.businessAddress);
-            fd.append('categorias', $scope.businessCategories.category);
-            fd.append('usuario', authenticationService.getUser().id);
+            fd.append('latitud', 4.5659418);
+            fd.append('longitud', -74.5643313);
+            fd.append('nombre', 'Tienda de Pepe');
+            fd.append('descripcion', 'Descripcion tienda de Pepe');
+            fd.append('municipio_id', 1);
+            fd.append('telefono', 1234567);
+            fd.append('horariolocal', 'Horario tienda de pepe');
+            fd.append('correolocal','pepe@pepe.com');
+            fd.append('ubicacionlocal', 'direccion de pepe');
+            fd.append('categorias', 1);
+            fd.append('usuario', 1);
             try{
                 for (var i = 0; i <= $scope.tags.length - 1; i++) {
                     fd.append('tags', $scope.tags[i].text);
