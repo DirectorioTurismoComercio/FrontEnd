@@ -15,18 +15,7 @@ angular.module('registerSite')
         var businessCategories = {
             category: ''
         };
-        var flowMainPhoto={
-            flow:{
-                defaults:{
-                    allowDuplicateUploads:''
-                }
-            }
-        };
-
-        var flowFacadePhotos={};
-        var flowInsidePhotos={};
-        var flowProductsPhotos={};
-
+        var formData=undefined;
 
         return {
             sitePhoneNumber:sitePhoneNumber,
@@ -40,10 +29,7 @@ angular.module('registerSite')
             businessEmail:businessEmail,
             businessAddress:businessAddress,
             businessCategories:businessCategories,
-            flowMainPhoto:flowMainPhoto,
-            flowFacadePhotos:flowFacadePhotos,
-            flowInsidePhotos:flowInsidePhotos,
-            flowProductsPhotos:flowProductsPhotos,
+            formData:formData
         };
 
 
