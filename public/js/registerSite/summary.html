@@ -28,7 +28,7 @@
                            ng-model="$parent.businessName" placeholder="Regular Placeholder"
                            translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_NAME" required/>
                     <i ng-show="businessName==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessStar"></i>
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.businessName.$error.required"
                               class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
                 </div>
@@ -44,7 +44,7 @@
                            translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_PHONE"
                            ng-model="$parent.sitePhoneNumber" required/>
                     <i ng-show="sitePhoneNumber==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessStar"></i>
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessStar"></i>
                     <span ng-show="showRequiredFieldMessage && registerSiteForm.businessPhone.$error.required"
                           class="errorField" translate="REGISTER_SITE_CONSTANTS.PHONE_VALIDATION"></span>
                 </div>
@@ -71,6 +71,8 @@
             </div>
             <div class="input topMarginElements businessAddressText col-xs-12">
                 <drop-down-town-directive isonregistersite="true" municipio="municipio"></drop-down-town-directive>
+                <i ng-show="municipio==undefined"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconTownStar"></i>
                 <span ng-show="showRequiredFieldMessage && municipio==undefined"
                       class="errorField " translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
@@ -81,7 +83,7 @@
                            translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS"
                            name="businessAddress2" type="text" ng-model="$parent.businessAddress" required/>
                     <i ng-show="businessAddress==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessAddress"></i>
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessAddress"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.businessAddress2.$error.required"
                               class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
                 </div>
@@ -95,7 +97,7 @@
                                   class="form-control businessAddressInput businessAddressText "
                                   name="businessDescription" ng-model="$parent.businessDescription" required></textarea>
                 <i ng-show="businessDescription==undefined"
-                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessDescriptionStar"></i>
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessDescriptionStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.businessDescription.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
@@ -123,7 +125,7 @@
                             translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
                 </select>
                 <i ng-show="businessCategories.category==''"
-                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconCategoryStar"></i>
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.catefory.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
