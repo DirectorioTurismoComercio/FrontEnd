@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('registerSite')
-    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, messageService, CUNDINAMARCA_COORDS,
-                                                    BOGOTA_COORDS, API_CONFIG, categories,
-                                                    $location, $q, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog) {
+    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, messageService,
+                                                    API_CONFIG, categories,
+                                                    $location, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog) {
 
 
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
@@ -16,14 +16,11 @@ angular.module('registerSite')
         $scope.tags = siteInformationService.tags;
         $scope.businessEmail = siteInformationService.businessEmail;
         $scope.businessAddress = siteInformationService.businessAddress;
-        $scope.files = undefined;
         $scope.businessCategories = siteInformationService.businessCategories;
         $scope.flowMainPhoto = {};
         $scope.flowFacadePhotos = {};
         $scope.flowInsidePhotos = {};
         $scope.flowProductsPhotos = {};
-
-
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
             events: {
@@ -52,53 +49,12 @@ angular.module('registerSite')
         });
 
         $scope.register = function () {
-            if($scope.registerSiteForm.$valid){
-                var fd = siteInformationService.formData;
-
-                fd.append('latitud', $scope.businessLocation.lat);
-                fd.append('longitud', $scope.businessLocation.lng);
-                fd.append('nombre', $scope.businessName);
-                fd.append('descripcion', $scope.businessDescription);
-                fd.append('municipio_id', siteAndTownSaverService.getCurrentSearchedTown().id);
-                fd.append('telefono', $scope.sitePhoneNumber);
-                fd.append('horariolocal', $scope.openingHours);
-                fd.append('correolocal', $scope.businessEmail);
-                fd.append('ubicacionlocal', $scope.businessAddress);
-                fd.append('categorias', $scope.businessCategories.category);
-                fd.append('usuario', authenticationService.getUser().id);
-
-                try {
-                    for (var i = 0; i <= $scope.tags.length - 1; i++) {
-                        fd.append('tags', $scope.tags[i].text);
-                    }
-                } catch (error) {
-                }
-
-
-                $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
-                    {
-                        transformRequest: angular.identity,
-                        headers: {'Content-Type': undefined}
-                    })
-                    .success(function (d) {
-                        ngDialog.open({
-                            template: 'js/registerSite/completeRegistration.html',
-                            width: 'auto',
-                            showClose: false,
-                            scope: $scope
-                        });
-                    }).error(function (error) {
-                    console.log("hubo n error", error);
-                });
-                siteAndTownSaverService.setCurrentSearchedTown(undefined);
-            }else{
+            if ($scope.registerSiteForm.$valid) {
+                buildSiteFormData();
+                sendSiteDataToServer();
+            } else {
                 $scope.showRequiredFieldMessage = true;
             }
-        };
-
-        $scope.filesChange = function (elm) {
-            $scope.files = elm.files;
-            $scope.$apply();
         };
 
         $scope.getUserPosition = function () {
@@ -111,9 +67,8 @@ angular.module('registerSite')
             });
         }
 
-        $scope.changeView = function (view, backward) {
-            if (backward == 'form') {
-                console.log("location");
+        $scope.changeView = function (view, logic) {
+            if (logic == 'form') {
                 if ($scope.registerSiteForm.$valid) {
                     saveSiteInformation();
                     $location.path(view);
@@ -122,23 +77,12 @@ angular.module('registerSite')
                 }
             }
 
-            if (backward == 'photos') {
-                var fd = new FormData();
-                var mainPhoto = 0;
-                var facadePhotos = 0;
-                var insidePhotos = 0;
-                var productsPhotos = 0;
-
-                appendPhotos($scope.flowMainPhoto.flow.files, mainPhoto, 'fotos_PRINCIPAL', fd);
-                appendPhotos($scope.flowFacadePhotos.flow.files, facadePhotos, 'fotos_FACHADA', fd);
-                appendPhotos($scope.flowInsidePhotos.flow.files, insidePhotos, 'fotos_INTERIOR', fd);
-                appendPhotos($scope.flowProductsPhotos.flow.files, productsPhotos, 'fotos_PRODUCTOS', fd);
-                siteInformationService.formData = fd;
-
+            if (logic == 'photos') {
+                buildSitePhotosFormData();
                 $location.path(view);
             }
 
-            if (backward == true) {
+            if (logic == true) {
                 $location.path(view);
             }
         };
@@ -148,7 +92,60 @@ angular.module('registerSite')
             $location.path('home');
         }
 
-        function appendPhotos(arrayPhotos, photosCounter, model, fd) {
+        function buildSiteFormData() {
+            var fd = siteInformationService.formData;
+
+            fd.append('latitud', $scope.businessLocation.lat);
+            fd.append('longitud', $scope.businessLocation.lng);
+            fd.append('nombre', $scope.businessName);
+            fd.append('descripcion', $scope.businessDescription);
+            fd.append('municipio_id', siteAndTownSaverService.getCurrentSearchedTown().id);
+            fd.append('telefono', $scope.sitePhoneNumber);
+            fd.append('horariolocal', $scope.openingHours);
+            fd.append('correolocal', $scope.businessEmail);
+            fd.append('ubicacionlocal', $scope.businessAddress);
+            fd.append('categorias', $scope.businessCategories.category);
+            fd.append('usuario', authenticationService.getUser().id);
+
+            try {
+                for (var i = 0; i <= $scope.tags.length - 1; i++) {
+                    fd.append('tags', $scope.tags[i].text);
+                }
+            } catch (error) {
+            }
+        }
+
+        function buildSitePhotosFormData(){
+            var fd = new FormData();
+
+            appendPhotos($scope.flowMainPhoto.flow.files, 'fotos_PRINCIPAL', fd);
+            appendPhotos($scope.flowFacadePhotos.flow.files, 'fotos_FACHADA', fd);
+            appendPhotos($scope.flowInsidePhotos.flow.files, 'fotos_INTERIOR', fd);
+            appendPhotos($scope.flowProductsPhotos.flow.files, 'fotos_PRODUCTOS', fd);
+            siteInformationService.formData = fd;
+        }
+
+        function sendSiteDataToServer(){
+            $http.post(API_CONFIG.url + API_CONFIG.sitio, siteInformationService.formData,
+                {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                })
+                .success(function (d) {
+                    siteAndTownSaverService.setCurrentSearchedTown(undefined);
+                    ngDialog.open({
+                        template: 'js/registerSite/completeRegistration.html',
+                        width: 'auto',
+                        showClose: false,
+                        scope: $scope
+                    });
+                }).error(function (error) {
+                console.log("hubo un error", error);
+            });
+        }
+
+        function appendPhotos(arrayPhotos, model, fd) {
+            var photosCounter=0;
             angular.forEach(arrayPhotos, function (file) {
                 fd.append(model + photosCounter, file.file);
                 photosCounter++;
