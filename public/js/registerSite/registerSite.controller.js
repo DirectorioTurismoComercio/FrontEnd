@@ -75,9 +75,13 @@ angular.module('registerSite')
             fd.append('ubicacionlocal', $scope.businessAddress);
             fd.append('categorias', $scope.businessCategories.category);
             fd.append('usuario', authenticationService.getUser().id);
-            for (var i = 0; i <= $scope.tags.length - 1; i++) {
-                fd.append('tags', $scope.tags[i].text);
+            try{
+                for (var i = 0; i <= $scope.tags.length - 1; i++) {
+                    fd.append('tags', $scope.tags[i].text);
+                }
+            }catch(error){
             }
+
 
 
             $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
