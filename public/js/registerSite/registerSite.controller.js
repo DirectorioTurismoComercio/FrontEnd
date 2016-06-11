@@ -3,7 +3,7 @@
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, messageService,
                                                     API_CONFIG, categories,
-                                                    $location, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog) {
+                                                    $location,MunicipiosFactory, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog) {
 
 
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
@@ -17,6 +17,7 @@ angular.module('registerSite')
         $scope.businessEmail = siteInformationService.businessEmail;
         $scope.businessAddress = siteInformationService.businessAddress;
         $scope.businessCategories = siteInformationService.businessCategories;
+        $scope.businessMunicipality = siteInformationService.businessMunicipality;
         $scope.flowMainPhoto = {};
         $scope.flowFacadePhotos = {};
         $scope.flowInsidePhotos = {};
@@ -32,7 +33,6 @@ angular.module('registerSite')
         };
 
         $scope.showRequiredFieldMessage = false;
-        $scope.town = undefined;
 
         var joinOfFormatted_address;
 
@@ -42,6 +42,13 @@ angular.module('registerSite')
             $scope.categories = response;
         }).catch(function (error) {
             console.log("Hubo un error", error);
+        });
+
+
+        MunicipiosFactory.getTowns().then(function (response) {
+            $scope.municipalities = response;
+        }).catch(function (error) {
+            console.log("Ocurrio un error", error);
         });
 
         uiGmapIsReady.promise().then(function (map_instances) {
@@ -99,7 +106,7 @@ angular.module('registerSite')
             fd.append('longitud', $scope.businessLocation.lng);
             fd.append('nombre', $scope.businessName);
             fd.append('descripcion', $scope.businessDescription);
-            fd.append('municipio_id', siteAndTownSaverService.getCurrentSearchedTown().id);
+            fd.append('municipio_id', $scope.businessMunicipality);
             fd.append('telefono', $scope.sitePhoneNumber);
             fd.append('horariolocal', $scope.openingHours);
             fd.append('correolocal', $scope.businessEmail);
@@ -171,7 +178,8 @@ angular.module('registerSite')
         }
 
         function drawMarkerIfIsInsideBoundaries() {
-            if (!joinOfFormatted_address.includes(siteAndTownSaverService.getCurrentSearchedTown().nombre)) {
+            var selectedMunicipalityName=$scope.municipalities[$scope.businessMunicipality-1].nombre;
+            if (!joinOfFormatted_address.includes(selectedMunicipalityName)) {
                 displayOutsideBoundaryErrorMessage("Verifique que la ubicación se encuentre en el municipio seleccionado");
             } else {
                 MapService.addMarker($scope.businessLocation, $scope.businessName);
@@ -196,6 +204,7 @@ angular.module('registerSite')
             siteInformationService.businessEmail = $scope.businessEmail;
             siteInformationService.businessAddress = $scope.businessAddress;
             siteInformationService.businessCategories = $scope.businessCategories;
+            siteInformationService.businessMunicipality = $scope.businessMunicipality;
         }
 
     });

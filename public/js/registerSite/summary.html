@@ -69,12 +69,22 @@
                            translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WEB"/>
                 </div>
             </div>
-            <div class="input topMarginElements businessAddressText col-xs-12">
-                <drop-down-town-directive isonregistersite="true" town="municipio"></drop-down-town-directive>
-                <i ng-show="municipio==undefined"
-                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconTownStar"></i>
-                <span ng-show="showRequiredFieldMessage && municipio==undefined"
-                      class="errorField " translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            <div class="topMarginElements col-xs-12">
+
+                <select ng-model="businessMunicipality"
+                        ng-options="obj.id as obj.nombre for obj in municipalities"
+                        name="municipality"
+                        class="form-control businessAddressInput businessAddressText"
+                        required>
+                    <option selected="businessMunicipality" value=""
+                            translate="REGISTER_SITE_CONSTANTS.SELECT_TOWN"></option>
+                </select>
+                <i ng-show="businessMunicipality==undefined"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
+                        <span ng-show="showRequiredFieldMessage && registerSiteForm.municipality.$error.required"
+                              class="errorField businessAddressText"
+                              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+
             </div>
 
             <div class="input topMarginElements businessAddressText col-xs-12">

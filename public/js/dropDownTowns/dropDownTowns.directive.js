@@ -3,10 +3,6 @@ angular.module('dropDownTowns')
         return {
             restrict: 'E',
             templateUrl: 'js/dropDownTowns/drop-Down-Towns.html',
-            controller: 'dropDownTownsController',
-            scope:{
-                isonregistersite:'=',
-                town:'='
-            }
+            controller: 'dropDownTownsController'
         }
     }]);

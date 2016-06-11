@@ -15,6 +15,7 @@ angular.module('registerSite')
         var businessCategories = {
             category: ''
         };
+        var businessMunicipality=undefined;
         var formData=undefined;
 
         return {
@@ -29,6 +30,7 @@ angular.module('registerSite')
             businessEmail:businessEmail,
             businessAddress:businessAddress,
             businessCategories:businessCategories,
+            businessMunicipality:businessMunicipality,
             formData:formData
         };
 
