@@ -7,13 +7,13 @@
 
     <div class="col-md-6 no-padding">
         <search-tabs></search-tabs>
-        <div class="map" ng-if="isMobileDevice()" ng-show="showMap">
+        <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode">
             <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
         </div>
 
         <div class="result-list">
-            <div class="" ng-show="foundSites.length > 0 && !isShowingSiteDetail">
-                <div ng-if="!isMobileDevice()"
+            <div ng-show="foundSites.length > 0 && !isShowingSiteDetail">
+                <div ng-if="!showResultListHorizontally()"
                      ng-repeat="site in foundSites"
                      ng-mouseover="highLightMarker($index)"
                      ng-mouseleave="clearHighLightedMarker($index)">
@@ -40,7 +40,7 @@
                 </div>
 
 
-                <ul rn-carousel ng-if="isMobileDevice()" class="image" style="height: 200px;">
+                <ul rn-carousel ng-if="showResultListHorizontally()" class="image" style="height: 200px;">
                     <li ng-repeat="site in foundSites"
                         ng-mouseover="highLightMarker($index)"
                         ng-mouseleave="clearHighLightedMarker($index)">
@@ -56,17 +56,10 @@
                                          ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div id="get-there" class="col-sm-6" ng-click="showRouteToSite(site)">
-                                    <img class="icon" src="./images/icons/arma-tu-ruta.png">
-                                    <h3 translate="HOW_TO_GET_THERE"></h3>
-                                </div>
-                            </div>
                         </div>
                         <div class="item-separator hidden-xs hidden-sm"></div>
                     </li>
                 </ul>
-
             </div>
 
             <div ng-show="isShowingSiteDetail">
