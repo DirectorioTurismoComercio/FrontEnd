@@ -97,6 +97,21 @@
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
+    .list-item h3 {
+        font-size: 0.9em;
+    }
+
+    .list-item h4 {
+        font-size: 0.8em;
+    }
+
+    .info .description {
+        font-size: 0.8em;
+    }
+
+    .search-results .icon {
+        width: 25px;
+    }
 }
 
 /* Small devices (tablets, 768px and up) */

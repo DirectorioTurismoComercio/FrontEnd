@@ -86,6 +86,10 @@ angular.module('map')
             $scope.$apply();
         };
 
+        $scope.showSiteInOtherView = function (site, index) {
+            //Launch view
+        };
+
         $scope.doSearch = function (result) {
             $scope.resulListInCompactMode = false;
             MapService.clearRoute();

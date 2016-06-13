@@ -36,16 +36,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item-separator hidden-xs hidden-sm"></div>
+                    <div class="item-separator"></div>
                 </div>
-
 
                 <ul rn-carousel ng-if="showResultListHorizontally()" class="image" style="height: 200px;">
                     <li ng-repeat="site in foundSites"
                         ng-mouseover="highLightMarker($index)"
                         ng-mouseleave="clearHighLightedMarker($index)">
                         <div class="list-item">
-                            <div class="row" ng-click="showSiteDetail(site, $index)">
+                            <div class="row" ng-click="showSiteInOtherView(site, $index)">
                                 <div class="col-xs-8 info">
                                     <h3 class="">%%site.nombre%%</h3>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
@@ -57,7 +56,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item-separator hidden-xs hidden-sm"></div>
                     </li>
                 </ul>
             </div>
