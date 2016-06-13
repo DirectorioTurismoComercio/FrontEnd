@@ -2,7 +2,7 @@
 
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory,
-                                           MapService, SiteMarkerService, $location, messageService,
+                                           MapService, SiteMarkerService, $location, messageService, $timeout,
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS) {
         var userPosition = {};
         $scope.selectedSite = null;
@@ -40,10 +40,17 @@ angular.module('map')
             }
         }
 
+        function reloadMap() {
+            $timeout(function () {
+                google.maps.event.trigger($scope.map.control.getGMap(), 'resize');
+            });
+        }
+
 
         function showSearchedRoute() {
             $scope.loading = true;
             $scope.showMap = true;
+            reloadMap();
             SiteMarkerService.deleteMarkers();
             MapRouteService.calculateRoute(siteAndTownSaverService.searchedRoute, $scope);
             MapService.clearMarkers();
@@ -98,6 +105,7 @@ angular.module('map')
         $scope.showRouteToSite = function (site) {
             $scope.loading = true;
             $scope.showMap = true;
+            reloadMap();
             SiteMarkerService.deleteMarkers();
             MapService.getUserPosition(function (position) {
                     var routeRequest = {
@@ -179,7 +187,7 @@ angular.module('map')
         }
 
         $scope.isMobileDevice = function () {
-            return $window.innerWidth < 768;
+            return $window.innerWidth < 992;
         };
     })
 ;
