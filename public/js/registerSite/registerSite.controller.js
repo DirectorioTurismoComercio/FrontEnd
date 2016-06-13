@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('registerSite')
-    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, messageService, CUNDINAMARCA_COORDS,
-                                                    BOGOTA_COORDS, API_CONFIG, categories,
-                                                    $location, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation) {
+    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, messageService,
+                                                    API_CONFIG, categories,
+                                                    $location,MunicipiosFactory, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog) {
 
 
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
         $scope.whatsapp = siteInformationService.whatsapp;
+        $scope.web = siteInformationService.web;
         $scope.openingHours = siteInformationService.openingHours;
         $scope.businessName = siteInformationService.businessName;
         $scope.businessLocation = siteInformationService.businessLocation;
@@ -15,9 +16,12 @@ angular.module('registerSite')
         $scope.tags = siteInformationService.tags;
         $scope.businessEmail = siteInformationService.businessEmail;
         $scope.businessAddress = siteInformationService.businessAddress;
-        $scope.files = undefined;
         $scope.businessCategories = siteInformationService.businessCategories;
-
+        $scope.businessMunicipality = siteInformationService.businessMunicipality;
+        $scope.flowMainPhoto = {};
+        $scope.flowFacadePhotos = {};
+        $scope.flowInsidePhotos = {};
+        $scope.flowProductsPhotos = {};
         $scope.map = {
             center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
             events: {
@@ -27,11 +31,8 @@ angular.module('registerSite')
                 },
             }
         };
-        $scope.showRequiredFieldMessage=false;
-        $scope.flowMainPhoto = {};
-        $scope.flowFacadePhotos={};
-        $scope.flowInsidePhotos={};
-        $scope.flowProductsPhotos={};
+
+        $scope.showRequiredFieldMessage = false;
 
         var joinOfFormatted_address;
 
@@ -43,56 +44,24 @@ angular.module('registerSite')
             console.log("Hubo un error", error);
         });
 
+
+        MunicipiosFactory.getTowns().then(function (response) {
+            $scope.municipalities = response;
+        }).catch(function (error) {
+            console.log("Ocurrio un error", error);
+        });
+
         uiGmapIsReady.promise().then(function (map_instances) {
             MapService.setGMap(map_instances[0].map);
         });
 
-        $scope.subir = function () {
-            var facadePhotos = 0;
-            var insidePhotos =0;
-            var productsPhotos=0;
-
-            var fd = new FormData();
-
-            appendPhotos($scope.flowFacadePhotos.flow.files, facadePhotos, 'fotosFachada',fd);
-            appendPhotos($scope.flowInsidePhotos.flow.files, insidePhotos, 'fotosInterior',fd);
-            appendPhotos($scope.flowProductsPhotos.flow.files, productsPhotos, 'fotosProductos',fd);
-
-
-            fd.append('latitud', $scope.businessLocation.lat);
-            fd.append('longitud', $scope.businessLocation.lng);
-            fd.append('nombre', $scope.businessName);
-            fd.append('descripcion', $scope.businessDescription);
-            fd.append('municipio_id', siteAndTownSaverService.getCurrentSearchedTown().id);
-            fd.append('telefono', $scope.sitePhoneNumber);
-            fd.append('horariolocal', $scope.openingHours);
-            fd.append('correolocal', $scope.businessEmail);
-            fd.append('ubicacionlocal', $scope.businessAddress);
-            fd.append('categorias', $scope.businessCategories.category);
-            fd.append('usuario', authenticationService.getUser().id);
-            for (var i = 0; i <= $scope.tags.length - 1; i++) {
-                fd.append('tags', $scope.tags[i].text);
+        $scope.register = function () {
+            if ($scope.registerSiteForm.$valid) {
+                buildSiteFormData();
+                sendSiteDataToServer();
+            } else {
+                $scope.showRequiredFieldMessage = true;
             }
-
-
-            $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
-                {
-                    transformRequest: angular.identity,
-                    headers: {'Content-Type': undefined}
-                })
-                .success(function (d) {
-                    messageService.showSuccessMessage("REGISTER_COMPLETE", "SUCCESS_TITLE_MESSAGE");
-                }).error(function (error) {
-                console.log("hubo n error", error);
-            });
-            siteAndTownSaverService.setCurrentSearchedTown(undefined);
-
-
-        };
-
-        $scope.filesChange = function (elm) {
-            $scope.files = elm.files;
-            $scope.$apply();
         };
 
         $scope.getUserPosition = function () {
@@ -105,73 +74,87 @@ angular.module('registerSite')
             });
         }
 
+        $scope.changeView = function (view, logic) {
+            if (logic == 'form') {
+                if ($scope.registerSiteForm.$valid) {
+                    saveSiteInformation();
+                    $location.path(view);
+                } else {
+                    $scope.showRequiredFieldMessage = true;
+                }
+            }
 
-        $scope.register = function () {
+            if (logic == 'photos') {
+                buildSitePhotosFormData();
+                $location.path(view);
+            }
 
-            var fd = new FormData();
-            var i = 0;
+            if (logic == true) {
+                $location.path(view);
+            }
+        };
 
-            angular.forEach($scope.files, function (file) {
-                fd.append('foto' + i, file);
-                console.log("la foto", file);
-                i++;
-            });
+        $scope.doneRegistration = function () {
+            ngDialog.close();
+            $location.path('home');
+        }
+
+        function buildSiteFormData() {
+            var fd = siteInformationService.formData;
 
             fd.append('latitud', $scope.businessLocation.lat);
             fd.append('longitud', $scope.businessLocation.lng);
             fd.append('nombre', $scope.businessName);
             fd.append('descripcion', $scope.businessDescription);
-            fd.append('municipio_id', siteAndTownSaverService.getCurrentSearchedTown().id);
+            fd.append('municipio_id', $scope.businessMunicipality);
             fd.append('telefono', $scope.sitePhoneNumber);
             fd.append('horariolocal', $scope.openingHours);
             fd.append('correolocal', $scope.businessEmail);
             fd.append('ubicacionlocal', $scope.businessAddress);
             fd.append('categorias', $scope.businessCategories.category);
             fd.append('usuario', authenticationService.getUser().id);
-            for (var i = 0; i <= $scope.tags.length - 1; i++) {
-                fd.append('tags', $scope.tags[i].text);
+
+            try {
+                for (var i = 0; i <= $scope.tags.length - 1; i++) {
+                    fd.append('tags', $scope.tags[i].text);
+                }
+            } catch (error) {
             }
+        }
 
+        function buildSitePhotosFormData(){
+            var fd = new FormData();
 
-            $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
+            appendPhotos($scope.flowMainPhoto.flow.files, 'fotos_PRINCIPAL', fd);
+            appendPhotos($scope.flowFacadePhotos.flow.files, 'fotos_FACHADA', fd);
+            appendPhotos($scope.flowInsidePhotos.flow.files, 'fotos_INTERIOR', fd);
+            appendPhotos($scope.flowProductsPhotos.flow.files, 'fotos_PRODUCTOS', fd);
+            siteInformationService.formData = fd;
+        }
+
+        function sendSiteDataToServer(){
+            $http.post(API_CONFIG.url + API_CONFIG.sitio, siteInformationService.formData,
                 {
                     transformRequest: angular.identity,
                     headers: {'Content-Type': undefined}
                 })
                 .success(function (d) {
-                    messageService.showSuccessMessage("REGISTER_COMPLETE", "SUCCESS_TITLE_MESSAGE");
+                    siteAndTownSaverService.setCurrentSearchedTown(undefined);
+                    ngDialog.open({
+                        template: 'js/registerSite/completeRegistration.html',
+                        width: 'auto',
+                        showClose: false,
+                        scope: $scope
+                    });
                 }).error(function (error) {
-                console.log("hubo n error", error);
+                console.log("hubo un error", error);
             });
-            siteAndTownSaverService.setCurrentSearchedTown(undefined);
-        };
-
-        $scope.changeView = function (view, backward) {
-            if(backward!=true){
-                if($scope.registerSiteForm.$valid){
-                    saveSiteInformation();
-                    $location.path(view);
-                }else{
-                    $scope.showRequiredFieldMessage=true;
-                }
-            }else{
-                $location.path(view);
-            }
-        };
-
-        $scope.save = function(){
-            if($scope.registerSiteForm.$valid){
-                console.log("guardar sitio");
-            }else{
-                $scope.showRequiredFieldMessage=true;
-            }
-
         }
 
-
-        function appendPhotos(arrayPhotos,photosCounter,model,fd){
+        function appendPhotos(arrayPhotos, model, fd) {
+            var photosCounter=0;
             angular.forEach(arrayPhotos, function (file) {
-                fd.append('model' + photosCounter, file);
+                fd.append(model + photosCounter, file.file);
                 photosCounter++;
             });
         }
@@ -195,7 +178,8 @@ angular.module('registerSite')
         }
 
         function drawMarkerIfIsInsideBoundaries() {
-            if (!joinOfFormatted_address.includes(siteAndTownSaverService.getCurrentSearchedTown().nombre)) {
+            var selectedMunicipalityName=$scope.municipalities[$scope.businessMunicipality-1].nombre;
+            if (!joinOfFormatted_address.includes(selectedMunicipalityName)) {
                 displayOutsideBoundaryErrorMessage("Verifique que la ubicación se encuentre en el municipio seleccionado");
             } else {
                 MapService.addMarker($scope.businessLocation, $scope.businessName);
@@ -207,9 +191,11 @@ angular.module('registerSite')
             $scope.businessLocation = undefined;
         }
 
-        function saveSiteInformation(){
+
+        function saveSiteInformation() {
             siteInformationService.sitePhoneNumber = $scope.sitePhoneNumber;
             siteInformationService.whatsapp = $scope.whatsapp;
+            siteInformationService.web = $scope.web;
             siteInformationService.openingHours = $scope.openingHours;
             siteInformationService.businessName = $scope.businessName;
             siteInformationService.businessLocation = $scope.businessLocation;
@@ -218,6 +204,7 @@ angular.module('registerSite')
             siteInformationService.businessEmail = $scope.businessEmail;
             siteInformationService.businessAddress = $scope.businessAddress;
             siteInformationService.businessCategories = $scope.businessCategories;
+            siteInformationService.businessMunicipality = $scope.businessMunicipality;
         }
 
     });

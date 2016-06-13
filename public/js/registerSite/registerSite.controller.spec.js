@@ -22,7 +22,7 @@ describe('Controller: registerSiteController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller, $http, $rootScope, $q, MapService, uiGmapIsReady, geolocation, categories) {
+    beforeEach(inject(function ($controller, $http, $rootScope, $q, MapService, uiGmapIsReady, geolocation, categories, MunicipiosFactory) {
         $scope = $rootScope.$new();
         testMapService = MapService;
         deferred = $q.defer();
@@ -33,13 +33,15 @@ describe('Controller: registerSiteController', function () {
         spyOn(testMapService, 'setPinOnUserPosition');
         spyOn(geolocation, 'getLocation').and.returnValue(deferred.promise);
         spyOn(categories, 'getCategories').and.returnValue(deferred.promise);
+        spyOn(MunicipiosFactory, 'getTowns').and.returnValue(deferred.promise);
         registerSiteController = $controller('registerSiteController', {
             $scope: $scope,
             $http: $http,
             MapService: MapService,
             uiGmapIsReady: uiGmapIsReady,
             geolocation: testgeolocation,
-            categories:testcategories
+            categories:testcategories,
+            MunicipiosFactory:MunicipiosFactory
         });
     }));
 

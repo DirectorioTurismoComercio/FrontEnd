@@ -61,10 +61,11 @@ tags-input.ng-invalid.ng-dirty {
     border: 1px solid red;
 }
 
-.next-button{
+.next-button {
     padding: 5% 0% 10% 0%;
 }
-.next-button .button{
+
+.next-button .button {
     border: none;
     background-color: #FFC501;
     color: #2D3C4D;
@@ -74,24 +75,27 @@ tags-input.ng-invalid.ng-dirty {
     text-align: center;
 
 }
-.inputField{
+
+.inputField {
     padding-top: 10%;
 }
-input[type="tel"]
-{
+
+input[type="tel"] {
     color: #2D3C4D;
     font-size: 1.2em;
 }
-input[type="textarea"]
-{
+
+input[type="textarea"] {
     color: #2D3C4D;
     font-size: 1.2em;
 }
-textarea.description{
+
+textarea.description {
 
     font-size: 1.2em;
 }
-.select-town{
+
+.select-town {
     font-size: 1.2em;
 }
 
@@ -101,6 +105,7 @@ textarea.description{
     overflow: hidden;
     word-break: normal;
 }
+
 .thumbnail img {
     max-width: 200px;
     max-height: 150px;
@@ -115,61 +120,79 @@ textarea.description{
     border: 1px solid #ddd;
     overflow: hidden;
 }
+
 .gallery-box .progress {
     margin-bottom: 0;
 }
+
 .gallery-box .thumbnail {
     height: 188px;
     width: 188px;
 }
+
 .gallery-box .title {
     height: 22px;
     overflow: hidden;
     display: block;
 }
-.texto{
+
+.texto {
     font-weight: bold;
 
 }
-.business-text{
+
+.business-text {
     width: 83%;
     margin-left: 8.5%;
 }
-.texto-claro-business{
-    
+
+.texto-claro-business {
+
     color: #32A2D4;
 }
 
-.texto-oscuro-business{
+.texto-oscuro-business {
     color: #2D3C4D;
 }
-.glyphiconBusinessStar{
-    margin-right: 4%;
+
+.glyphiconStarColor {
     color: #00b3ee;
 }
-.glyphiconBusinessDescriptionStar{
+
+.glyphiconBusinessStar {
+    margin-right: 4%;
+}
+
+.glyphiconBusinessDescriptionStar {
     margin-right: 10%;
-    color: #00b3ee;
+}
+
+.glyphiconCategoryStar {
+    margin-right: 12%;
+}
+
+.glyphiconTownStar {
+    margin-right: 9%;
 }
 
 tags-input input {
-width: 100%;
-min-width: 250px;
-background-color: #F2F2F2;
+    width: 100%;
+    min-width: 100%;
+    background-color: #F2F2F2;
 }
 
-.registerHeaderBackIconcontainer{
+.registerHeaderBackIconcontainer {
     height: 100%;
     width: auto;
     padding-top: 15px;
     z-index: 2;
 }
 
-.registerHeaderBackIcon{
+.registerHeaderBackIcon {
     height: 30px;
 }
 
-.emailTraderContainer{
+.emailTraderContainer {
     margin-top: 5px;
 }
 

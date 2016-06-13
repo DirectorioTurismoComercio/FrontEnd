@@ -24,7 +24,7 @@
                                 <p class="description">%%site.descripcion%%</p>
                             </div>
                             <div class="col-xs-4 image">
-                                <img class="img-responsive" ng-src='%%site.fotos[0].URLfoto%%'/>
+                                <img class="img-responsive" ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
                             </div>
                         </div>
                         <div class="row">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="row item">
                     <div class="text col-md-4 image">
-                        <img ng-src='%%selectedSite.fotos[0].URLfoto%%' class="img-rounded"/>
+                        <img ng-src="%%(selectedSite.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%" class="img-rounded"/>
                     </div>
                 </div>
             </div>

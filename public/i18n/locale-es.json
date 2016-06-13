@@ -40,7 +40,7 @@
     "EMAIL": "Correo electrónico",
     "PASSWORD": "Contraseña",
     "EMAIL_VALIDATION": "Verifique el correo",
-    "REQUIRED_FIELD": "campo olbigatorio*"
+    "REQUIRED_FIELD": "campo obligatorio*"
   },
   "REGISTER_SITE_CONSTANTS": {
     "PHOTOS": "Fotos",
@@ -68,6 +68,7 @@
     "BUSINESS_DESCRIPTION": "Descripción de tu local",
     "BUSINESS_EMAIL": "Correo",
     "BUSINESS_WHATS_APP": "Whatsapp",
+    "BUSINESS_WEB": "Página web",
     "BUSINESS_ADDRESS": "Dirección del local",
     "BUSINESS_CATEGORY": "Categoria",
     "CHOOSE_CATEGORY": "-- Elija categoria --",
@@ -85,7 +86,11 @@
     "SUMMARY":"Resumen y confirmación",
     "TERMS_AND_CONDITIONS_LABEL":"Términos y condiciones",
     "TERMS_AND_CONDITIONS":"contenido de los términos y condiciones",
-    "COMPLETE_REGISTRATION_BUTTON":"Terminar registro"
+    "COMPLETE_REGISTRATION_BUTTON":"Terminar registro",
+    "COMPLETE_REGISTRATION_HEADER":"Registro completo",
+    "COMPLETE_REGISTRATION_TITLE":"Gracias por inscribirte",
+    "COMPLETE_REGISTRATION_TEXT":"Ya formas parte de la comunidad Marca_app. Entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
+    "COMPLETE_REGISTRATION_POPUP_BUTTON":"Continuar"
 
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",

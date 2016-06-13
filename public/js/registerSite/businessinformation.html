@@ -2,8 +2,8 @@
     <app-header></app-header>
 </div>
 <form name="registerSiteForm">
-    <div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortLocation">
-        <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
+    <div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortSummary">
+        <div class="col-md-4  col-md-offset-4 centerColumnNoPadding PhotosFormPadding registerSiteFormBackgroundColor">
             <div class="header container-fluid">
                 <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeView('registertrader',true)">
                     <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
@@ -29,7 +29,7 @@
                            class="form-control businessAddressInput" name="businessName" type="text"
                            ng-model="$parent.businessName" required/>
                     <i ng-show="businessName==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessStar"></i>
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.businessName.$error.required"
                               class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
                 </div>
@@ -47,7 +47,7 @@
                            ng-model="$parent.sitePhoneNumber" name="sitePhoneNumber2" required/>
 
                     <i ng-show="sitePhoneNumber==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessStar"></i>
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessStar"></i>
                     <span ng-show="showRequiredFieldMessage && registerSiteForm.businessPhone.$error.required"
                           class="errorField" translate="REGISTER_SITE_CONSTANTS.PHONE_VALIDATION"></span>
                 </div>
@@ -64,81 +64,90 @@
 
                 </div>
             </div>
-            <div class="input topMarginElements businessAddressText">
-                <drop-down-town-directive isonregistersite="true"></drop-down-town-directive>
-                <span ng-show="showRequiredFieldMessage && siteAndTownSaverService.getCurrentSearchedTown().id==undefined"
-                      class="errorField businessAddressText" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            <div class="row businessAddressText topMarginElements">
+                <div class="col-xs-2">
+                    <img class="confirmRegisterIcons" src="./images/registerIcons/web.png">
+                </div>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control businessAddressInput" name="businessWeb" type="text"
+                           ng-model="$parent.web" translate
+                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WEB"/>
+                </div>
+            </div>
+            <div class="topMarginElements col-xs-12">
+                <select ng-model="businessMunicipality"
+                        ng-options="obj.id as obj.nombre for obj in municipalities"
+                        name="municipality"
+                        class="form-control businessAddressInput businessAddressText"
+                        required>
+                    <option value="" translate="REGISTER_SITE_CONSTANTS.SELECT_TOWN"></option>
+                </select>
+                <i ng-show="businessMunicipality==undefined"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
+                        <span ng-show="showRequiredFieldMessage && registerSiteForm.municipality.$error.required"
+                              class="errorField businessAddressText"
+                              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
 
-            <div class="input topMarginElements ">
-                <div class="col-xs-12">
+            <div class="input topMarginElements col-xs-12">
                         <textarea placeholder="Regular Placeholder" translate
                                   translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION"
                                   class="form-control businessAddressInput businessAddressText"
                                   name="businessDescription" ng-model="$parent.businessDescription" required></textarea>
-                    <i ng-show="businessDescription==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessDescriptionStar"></i>
+                <i ng-show="businessDescription==undefined"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessDescriptionStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.businessDescription.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-                </div>
             </div>
 
-            <div class="row businessAddressText topMarginElements">
+            <div class="row businessAddressText  col-xs-12">
                     <span class="texto-oscuro-business"
                           translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT"></span><span
                     class="texto-claro-business"
                     translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT_EXAMPLE"></span>
             </div>
 
-            <div class="input topMarginElements ">
-                <div class="col-xs-12">
+            <div class="input topMarginElements col-xs-12">
                         <textarea placeholder="Regular Placeholder" translate
                                   translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"
                                   class="form-control businessAddressInput businessAddressText"
                                   name="businessOpeningHours" ng-model="$parent.openingHours"></textarea>
-                </div>
             </div>
 
-            <div class="row businessAddressText topMarginElements">
+            <div class="row businessAddressText col-xs-12">
                 <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY_TEXT"></span>
             </div>
 
-            <div class="topMarginElements">
-                <div class="col-xs-12">
-                    <select ng-model="businessCategories.category"
-                            ng-options="obj.id as obj.nombre for obj in categories"
-                            name="catefory"
-                            class="form-control businessAddressInput businessAddressText"
-                            required>
-                        <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
-                    </select>
-                    <i ng-show="businessCategories==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessDescriptionStar"></i>
+            <div class="topMarginElements col-xs-12">
+                <select ng-model="businessCategories.category"
+                        ng-options="obj.id as obj.nombre for obj in categories"
+                        name="catefory"
+                        class="form-control businessAddressInput businessAddressText"
+                        required>
+                    <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
+                </select>
+                <i ng-show="businessCategories.category==''"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.catefory.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-                </div>
             </div>
-
-            <div class="row businessAddressText topMarginElements">
+            <div class="row businessAddressText topMarginElements col-xs-12">
                 <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT"></span><span
                     class="texto-claro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT_EXAMPLE"></span>
             </div>
 
-            <div class="topMarginElements">
+            <div class="topMarginElements col-xs-12">
                 <tags-input class="businessAddressText businessAddressInput" name="tags" ng-model="tags"
                             placeholder="Tags" add-on-comma=true replace-spaces-with-dashes=false>
                 </tags-input>
 
-
             </div>
-            <div class=" next-button NextButtonRegister topMarginElements">
+            <div class=" next-button NextButtonRegister topMarginElements col-xs-12">
                 <button class="button"
-                        ng-click="changeView('location')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
+                        ng-click="changeView('location','form')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
             </div>
-
-
         </div>
     </div>
 </form>

@@ -40,7 +40,7 @@
     "EMAIL": "Email",
     "PASSWORD": "Password",
     "EMAIL_VALIDATION": "Verifique el correo",
-    "REQUIRED_FIELD": "campo olbigatorio*"
+    "REQUIRED_FIELD": "Required field*"
   },
   "REGISTER_SITE_CONSTANTS": {
     "PHOTOS": "Photos",
@@ -68,6 +68,7 @@
     "BUSINESS_DESCRIPTION": "Business description",
     "BUSINESS_EMAIL": "Email",
     "BUSINESS_WHATS_APP": "Whatsapp",
+    "BUSINESS_WEB": "Web page",
     "BUSINESS_ADDRESS": "Business address",
     "BUSINESS_CATEGORY": "Category",
     "CHOOSE_CATEGORY": "-- Choose category --",
@@ -84,8 +85,13 @@
     "SUMMARY": "Summary and confirmation",
     "NEXT_BUTTON": "Next",
     "TERMS_AND_CONDITIONS_LABEL": "Terms and conditions",
-    "TERMS_AND_CONDITIONS": "contenido de los términos y condiciones en ingles",
-    "COMPLETE_REGISTRATION_BUTTON": "Register"
+    "TERMS_AND_CONDITIONS": "Terms and conditions content",
+    "COMPLETE_REGISTRATION_BUTTON": "Register",
+    "COMPLETE_REGISTRATION_HEADER":"Complete registration",
+    "COMPLETE_REGISTRATION_TITLE":"Thanks for register",
+    "COMPLETE_REGISTRATION_TEXT":"You already be part of Marca_app comunity. Entering to your profile you can edit your information to update data, register more business or subsidiaries whenever you need.",
+    "COMPLETE_REGISTRATION_POPUP_BUTTON":"Continue"
+
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",

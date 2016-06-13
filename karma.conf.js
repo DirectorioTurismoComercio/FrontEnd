@@ -44,6 +44,7 @@ module.exports = function (config) {
             'public/components/angular-wizard/dist/angular-wizard.min.js',
             'public/components/flow.js/dist/flow.min.js',
             'public/components/ng-flow/dist/ng-flow.min.js',
+            'public/components/ng-dialog/js/ngDialog.min.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
@@ -77,18 +78,26 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'public/templates/directives/side-bar.html': 'ng-html2js'
+            'public/templates/directives/side-bar.html': 'ng-html2js',
+            'public/js/**/*.js':['coverage']
         },
 
         ngHtml2JsPreprocessor: {
             stripPrefix: 'public/'
         },
 
+        coverageReporter: {
+            type: 'html',
+            dir: 'coverage/',
+            file : 'coverage.txt'
+        },
+
+
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['progress', 'coverage'],
 
 
         // web server port
