@@ -33,6 +33,7 @@ angular.module('registerSite')
         };
 
         $scope.showRequiredFieldMessage = false;
+        $scope.waitingRegister=false;
 
         var joinOfFormatted_address;
 
@@ -56,6 +57,7 @@ angular.module('registerSite')
         });
 
         $scope.register = function () {
+            $scope.waitingRegister=true;
             if ($scope.registerSiteForm.$valid) {
                 buildSiteFormData();
                 sendSiteDataToServer();
@@ -140,6 +142,7 @@ angular.module('registerSite')
                 })
                 .success(function (d) {
                     siteAndTownSaverService.setCurrentSearchedTown(undefined);
+                    $scope.waitingRegister=false;
                     ngDialog.open({
                         template: 'js/registerSite/completeRegistration.html',
                         width: 'auto',
@@ -169,7 +172,7 @@ angular.module('registerSite')
         }
 
         function getClickedPositionTown() {
-            $http.get('https://crossorigin.me/http://maps.googleapis.com/maps/api/geocode/json?latlng=' + $scope.businessLocation.lat + ',' + $scope.businessLocation.lng + '&sensor=true')
+            $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + $scope.businessLocation.lat + ',' + $scope.businessLocation.lng + '&sensor=true')
                 .success(function (response) {
                     joinOfFormatted_address = response.results[0].formatted_address + response.results[1].formatted_address;
                     MapService.clearMarkers();
