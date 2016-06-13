@@ -1,5 +1,5 @@
 (function () {
-    angular.module('gemStore', ['ngRoute', 'ngResource', 'ngAnimate', 'ngMaterial',
+    angular.module('gemStore', ['ngRoute', 'ngResource', 'ngAnimate', 'ngMaterial', 'angular-carousel',
             'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies',
             'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
             'businessBrowser', 'dropDownTowns', 'searchTabs', 'siteAndTownSaver', 'howItWorks',

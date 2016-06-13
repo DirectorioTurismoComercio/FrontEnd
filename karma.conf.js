@@ -45,6 +45,8 @@ module.exports = function (config) {
             'public/components/flow.js/dist/flow.min.js',
             'public/components/ng-flow/dist/ng-flow.min.js',
             'public/components/ng-dialog/js/ngDialog.min.js',
+            'public/components/angular-touch/angular-touch.js',
+            'public/components/angular-carousel/dist/angular-carousel.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
