@@ -155,7 +155,13 @@
                     <textarea class="form-control businessAddressInput businessAddressText "
                               translate="REGISTER_SITE_CONSTANTS.TERMS_AND_CONDITIONS" readonly></textarea>
             </div>
-            <div class=" next-button NextButtonRegister topMarginElements col-xs-12">
+
+            <div class="next-button col-xs-12 NextButtonRegister">
+                <md-progress-circular class="loading" md-mode="indeterminate"
+                ng-show="waitingRegister"></md-progress-circular>
+            </div>
+
+            <div class="next-button NextButtonRegister topMarginElements col-xs-12">
                 <button class="button" translate="REGISTER_SITE_CONSTANTS.COMPLETE_REGISTRATION_BUTTON"
                         ng-click="register()">
                 </button>
