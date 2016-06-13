@@ -146,6 +146,12 @@ md-tabs-canvas {
     .tab-content .icon {
         height: 50px;
     }
+    .tab-content .input {
+    display: block;
+      width: 250px;
+      margin-left: 40%;
+    }
+
 
     .tab-content .button {
         width: 400px;
@@ -166,20 +172,20 @@ md-tabs-canvas {
     }
 
     .keyword-search .align-first {
-        text-align: right;
+        text-align: center;
     }
 
     .keyword-search .align-second {
-        text-align: left;
+        text-align: center;
         border-left: 2px solid #32A2D4;
     }
 
     .route-search .align-first {
-        text-align: right;
+        text-align: center;
     }
 
     .route-search .align-second {
-        text-align: left;
+        text-align: center;
         border-left:2px solid #0A3C5A;
     }
 
@@ -202,6 +208,28 @@ md-tabs-canvas {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    .route-search .align-first {
+        text-align: right;
+    }
+
+    .route-search .align-second {
+        text-align: left;
+        border-left:2px solid #0A3C5A;
+    }
+      .keyword-search .align-first {
+        text-align: right;
+    }
+
+    .keyword-search .align-second {
+        text-align: left;
+        border-left: 2px solid #32A2D4;
+    }
+        .tab-content .input {
+    display: inline-block;
+
+    }
+
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
