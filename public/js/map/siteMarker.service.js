@@ -41,13 +41,13 @@ angular.module('map')
         };
 
         function clearHighLightedMarker(marker) {
-            setMarkerIcon(marker, './images/redMarker.png');
+            setMarkerIcon(marker, marker.normalIcon);
         }
 
         function highLightMarker(marker) {
             clearSelectedMarker();
             selectedMarker = marker;
-            setMarkerIcon(marker, './images/greenMarker.png');
+            setMarkerIcon(marker, marker.lightedIcon);
         }
 
         function setMarkerIcon(marker, iconUrl) {

@@ -180,7 +180,7 @@ angular.module('map')
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
                     var position = MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud));
-                    var marker = MapService.addMarker(position, site.nombre);
+                    var marker = MapService.addMarkerWithCategoryIcon(position, site.nombre, site.categorias[0]);
 
                     SiteMarkerService.addSiteMarker(site, marker, $scope.showSiteDetail);
                 }

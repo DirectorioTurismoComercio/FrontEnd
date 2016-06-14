@@ -71,17 +71,21 @@ angular.module('map')
             return isPlaceInsideRegion(latLngLiteralPlaceLocation, CUNDINAMARCA_COORDS);
         }
 
-        function addMarker(position, label) {
+        function addMarker(position, label, icon, normalIcon, lightedIcon) {
             var marker = new MarkerWithLabel({
                 position: position,
                 map: gMap,
                 labelContent: label,
+                icon: icon,
+                animation: google.maps.Animation.DROP,
                 labelAnchor: new google.maps.Point(22, 20),
                 labelClass: "marker-label",
                 labelStyle: {
                     "font-weight": "bold",
                     opacity: 1
-                }
+                },
+                lightedIcon: lightedIcon,
+                normalIcon: normalIcon
             });
 
             markers.push(marker);
@@ -89,6 +93,55 @@ angular.module('map')
             return marker;
         }
 
+        function addMarkerWithCategoryIcon(position, label, categoryId) {
+            return addMarker(position, label, getCategoryIcon(categoryId, false), getCategoryIcon(categoryId, false), getCategoryIcon(categoryId, true));
+        }
+
+        function getCategoryIcon(categoryId, lightedIcon) {
+            var iconFolder = lightedIcon ? 'images/icons/categories/lighted/' : 'images/icons/categories/';
+            var url = iconFolder;
+
+            switch (categoryId) {
+                case 1:
+                    url += 'naturaleza-agroturismo.png';
+                    break;
+                case 2:
+                    url += 'deporte.png';
+                    break;
+                case 3:
+                    url += 'costumbres-creencias.png';
+                    break;
+                case 4:
+                    url += 'arte-cultura.png';
+                    break;
+                case 5:
+                    url += 'comida-bebida.png';
+                    break;
+                case 6:
+                    url += 'entretenimiento.png';
+                    break;
+                case 7:
+                    url += 'comercio.png';
+                    break;
+                case 8:
+                    url += 'transporte.png';
+                    break;
+                case 9:
+                    url += 'hospedaje-salud.png';
+                    break;
+                default:
+                    url = "images/icons/pin-ubicacion-local.png";
+            }
+
+
+            var icon = {
+                url: url,
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(40, 40)
+            };
+
+            return icon;
+        }
 
         function coordsToLatLngLiteral(latitude, longitude) {
             return {
@@ -170,6 +223,7 @@ angular.module('map')
             moveMapToPosition: moveMapToPosition,
             clearMarkers: clearMarkers,
             clearRoute: clearRoute,
-            setPinOnUserPosition: setPinOnUserPosition
+            setPinOnUserPosition: setPinOnUserPosition,
+            addMarkerWithCategoryIcon: addMarkerWithCategoryIcon
         }
     });
