@@ -3,6 +3,9 @@ angular.module('searchTabs')
         return {
             restrict: 'E',
             templateUrl: 'js/searchTabs/search-tabs.html',
-            controller: 'searchTabsController'
+            controller: 'searchTabsController',
+            scope:{
+                isonmap:'='
+            }
         }
     }]);

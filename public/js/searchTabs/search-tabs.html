@@ -15,8 +15,10 @@
     <md-tabs md-dynamic-height="true" md-stretch-tabs="always">
         <md-tab md-active="isSearchFormVisible">
             <md-tab-body>
-                <div class="col-xs-12 tab-content keyword-search">
+                 <div ng-show="!isonmap" class="col-xs-12 tab-content keyword-search">
                     <div class="row">
+
+
                         <div class="col-md-6 input-section align-first">
                             <img class="icon" src="./images/icons/paso1.png">
                             <p class="data-label" translate="TABS_CONSTANTS.SEARCH_BY_KEY_WORD"></p>
@@ -32,14 +34,36 @@
                                 <drop-down-town-directive></drop-down-town-directive>
                             </div>
                         </div>
+
+
                     </div>
-                    <div class="row">
+
+
+                    <div class="row" ng-show="!isonmap">
                         <div class="col-xs-12 text-center">
                             <button class="button" aria-label="Buscar" translate="TABS_CONSTANTS.MAKE_SEARCH"
                                     ng-click="doSearch(result)"></button>
                         </div>
                     </div>
                 </div>
+
+
+                <div ng-show="isonmap" class="row tab-content keyword-search">
+                    <div class="col-xs-4 col-xs-offset-1 input">
+                        <browser-input-field isonmapview="true"></browser-input-field>
+                    </div>
+                    <div class="col-xs-1 input">
+                        <p class="searchMapTip" translate="TABS_CONSTANTS.IN_TIP"></p>
+                    </div>
+                    <div class="col-xs-4 input">
+                        <drop-down-town-directive></drop-down-town-directive>
+                    </div>
+                    <div class="col-xs-1 col-xs-offset-1 input"  ng-click="doSearch(result)">
+                        <img class="icon"src="./images/armar-ruta.png">
+                    </div>
+                </div>
+
+
             </md-tab-body>
         </md-tab>
         <md-tab md-active="isRouteFormVisible">

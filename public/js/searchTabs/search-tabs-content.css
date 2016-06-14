@@ -116,6 +116,10 @@
     background-color: #0A3C5A;
 }
 
+.searchMapTip{
+    text-align: center;
+}
+
 md-tabs-content-wrapper {
     top: 0.1px !important;
 }
@@ -169,9 +173,17 @@ md-tabs-canvas {
         text-align: right;
     }
 
+    .keyword-search .align-first-map {
+        text-align: center;
+    }
+
     .keyword-search .align-second {
         text-align: left;
         border-left: 2px solid #32A2D4;
+    }
+
+    .keyword-search .align-second-map {
+        text-align: center;
     }
 
     .route-search .align-first {

@@ -19,7 +19,8 @@
     "CURRENT_LOCATION": "Usa mi ubicación",
     "ROUTE_DESTINATION_POINT": "Selecciona tu destino",
     "ROUTE_DESTINATION_POINT_TIP": "Indica el municipio al que te diriges",
-    "MAKE_ROUTE": "Trazar esta ruta"
+    "MAKE_ROUTE": "Trazar esta ruta",
+    "IN_TIP":"en"
   },
   "HOW_IT_WORKS_CONSTANTS": {
     "HOW_IT_WORKS_SEARCH_STEP": "1 Encuentra lo que te gusta",
