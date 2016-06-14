@@ -17,26 +17,26 @@ angular.module('dropDownTowns', [])
 
         $rootScope.$on('$translateChangeSuccess', function () {
             if ($translate.use() == 'es') {
-                $scope.isonregistersite != true ? addOption('Todo Cundinamarca') : addOption('Seleccione municipio');
+                $scope.isonregistersite != true ? addOption('Todo Cundinamarca',1) : addOption('Seleccione municipio',1);
             }
 
             if ($translate.use() == 'en') {
-                $scope.isonregistersite != true ? addOption('All Cundinamarca') : addOption('Select town');
+                $scope.isonregistersite != true ? addOption('All Cundinamarca',1) : addOption('Select town',1);
             }
             setSelectlabelTownShowed();
         });
 
         function setFirstOption(spanish,english){
             if($translate.use() == 'es'){
-                addOption(spanish)
+                addOption(spanish,0)
             }
             if($translate.use() == 'en'){
-                addOption(english)
+                addOption(english,0)
             }
         }
 
-        function addOption(name) {
-            $scope.municipios.splice(0, 0, {
+        function addOption(name,deleteItemsNumber) {
+            $scope.municipios.splice(0, deleteItemsNumber, {
                 nombre: name,
                 latitud: 4.6363623,
                 longitud: -74.0854427

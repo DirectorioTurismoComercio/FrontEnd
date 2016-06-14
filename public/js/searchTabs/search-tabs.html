@@ -15,10 +15,9 @@
     <md-tabs md-dynamic-height="true" md-stretch-tabs="always">
         <md-tab md-active="isSearchFormVisible">
             <md-tab-body>
+
                  <div ng-show="!isonmap" class="col-xs-12 tab-content keyword-search">
                     <div class="row">
-
-
                         <div class="col-md-6 input-section align-first">
                             <img class="icon" src="./images/icons/paso1.png">
                             <p class="data-label" translate="TABS_CONSTANTS.SEARCH_BY_KEY_WORD"></p>
@@ -34,11 +33,7 @@
                                 <drop-down-town-directive></drop-down-town-directive>
                             </div>
                         </div>
-
-
                     </div>
-
-
                     <div class="row" ng-show="!isonmap">
                         <div class="col-xs-12 text-center">
                             <button class="button" aria-label="Buscar" translate="TABS_CONSTANTS.DO_SEARCH"
@@ -59,7 +54,7 @@
                         <drop-down-town-directive></drop-down-town-directive>
                     </div>
                     <div class="col-xs-1 col-xs-offset-1 input"  ng-click="doSearch(result)">
-                        <img class="icon"src="./images/armar-ruta.png">
+                        <img class="iconDoSearchMap"src="./images/armar-ruta.png">
                     </div>
                 </div>
 
