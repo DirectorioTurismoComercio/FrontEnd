@@ -122,6 +122,14 @@
 
 .searchMapTip{
     text-align: center;
+    color: #2D3C4D;
+    font-size: 1.1em;
+    font-weight: bolder;
+}
+
+.iconDoSearchMap{
+    height: 3vmin;
+    width: 3vmin;
 }
 
 md-tabs-content-wrapper {
@@ -198,10 +206,6 @@ md-tabs-canvas {
     .keyword-search .align-second {
         text-align: center;
         
-    }
-
-    .keyword-search .align-second-map {
-        text-align: center;
     }
 
     .route-search .align-first {
