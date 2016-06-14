@@ -191,6 +191,10 @@ md-tabs-canvas {
         text-align: center;
     }
 
+    .keyword-search .align-first-map {
+        text-align: center;
+    }
+
     .keyword-search .align-second {
         text-align: center;
         
@@ -221,6 +225,12 @@ md-tabs-canvas {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+
+    .keyword-search .align-second-map {
+        text-align: center;
+    }
+
+
     .route-search .align-first {
         text-align: right;
     }
