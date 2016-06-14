@@ -1,6 +1,6 @@
 (function () {
     angular.module('gemStore', ['ngRoute', 'ngResource', 'ngAnimate', 'ngMaterial', 'angular-carousel',
-            'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies',
+            'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies', 'directives.clamp',
             'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
             'businessBrowser', 'dropDownTowns', 'searchTabs', 'siteAndTownSaver', 'howItWorks',
             'message', 'appHeader', 'pascalprecht.translate', 'appFooter', 'registerSite',
