@@ -196,14 +196,15 @@ md-tabs-canvas {
         margin-top: 5px !important;
     }
 
-    .tab-content .separator {
+/*    .tab-content .separator {
         display: none;
-/*        height: 160px;
+        height: 160px;
         width: 2px;
         margin: auto 0;
-        display: inline-block;*/
-    }
-
+        display: inline-block;
+}
+        */
+    
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -227,6 +228,10 @@ md-tabs-canvas {
         .tab-content .input {
     display: inline-block;
 
+    }
+    .tab-content .separator {
+        display: none;
+     
     }
 
 
