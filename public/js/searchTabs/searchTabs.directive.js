@@ -5,7 +5,10 @@ angular.module('searchTabs')
             templateUrl: 'js/searchTabs/search-tabs.html',
             controller: 'searchTabsController',
             scope:{
-                isonmap:'='
+                isonmap:'=',
+                result:'=',
+                doSearch:'&',
+                showRoute:'&'
             }
         }
     }]);
