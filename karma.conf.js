@@ -47,6 +47,7 @@ module.exports = function (config) {
             'public/components/ng-dialog/js/ngDialog.min.js',
             'public/components/angular-touch/angular-touch.js',
             'public/components/angular-carousel/dist/angular-carousel.js',
+            'public/components/ng-clamp/ng-clamp.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
