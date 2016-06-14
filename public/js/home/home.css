@@ -44,16 +44,27 @@
 @media (max-width: 767px) {
 }
 
+@media (min-width: 500px) {
+    .how-it-works .button {
+        font-size: 1em;
+        width: 40%;
+    }
+}
 /* Small devices (tablets, 768px and up) */
+
 @media (min-width: 768px) {
     .how-it-works .button {
-        font-size: 1.2em;
-        width: 15%;
+        font-size: 1.0em;
+        width: 22%;
     }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+      .how-it-works .button {
+        font-size: 1.2em;
+        width: 19%;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
