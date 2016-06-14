@@ -33,6 +33,7 @@ angular.module('registerSite')
         };
 
         $scope.showRequiredFieldMessage = false;
+        $scope.waitingRegister=false;
 
         var joinOfFormatted_address;
 
@@ -56,6 +57,7 @@ angular.module('registerSite')
         });
 
         $scope.register = function () {
+            $scope.waitingRegister=true;
             if ($scope.registerSiteForm.$valid) {
                 buildSiteFormData();
                 sendSiteDataToServer();
@@ -140,6 +142,7 @@ angular.module('registerSite')
                 })
                 .success(function (d) {
                     siteAndTownSaverService.setCurrentSearchedTown(undefined);
+                    $scope.waitingRegister=false;
                     ngDialog.open({
                         template: 'js/registerSite/completeRegistration.html',
                         width: 'auto',

@@ -6,14 +6,15 @@
                           ng-show="loading"></md-progress-circular>
 
     <div class="col-md-6 no-padding">
-        <search-tabs></search-tabs>
-        <div class="map" ng-if="isMobileDevice()" ng-show="showMap">
+        <search-tabs isonmap="true" result="result"  do-search="doSearch(result)" show-route="showRoute()"></search-tabs>
+        <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode">
             <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
         </div>
 
         <div class="result-list">
-            <div class="" ng-show="foundSites.length > 0 && !isShowingSiteDetail">
-                <div ng-repeat="site in foundSites"
+            <div ng-show="foundSites.length > 0 && !isShowingSiteDetail">
+                <div ng-if="!showResultListHorizontally()"
+                     ng-repeat="site in foundSites"
                      ng-mouseover="highLightMarker($index)"
                      ng-mouseleave="clearHighLightedMarker($index)">
                     <div class="list-item">
@@ -24,7 +25,8 @@
                                 <p class="description">%%site.descripcion%%</p>
                             </div>
                             <div class="col-xs-4 image">
-                                <img class="img-responsive" ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                <img class="img-responsive"
+                                     ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
                             </div>
                         </div>
                         <div class="row">
@@ -34,8 +36,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item-separator hidden-xs hidden-sm"></div>
+                    <div class="item-separator"></div>
                 </div>
+
+                <ul rn-carousel ng-if="showResultListHorizontally()" class="image" style="height: 200px;">
+                    <li ng-repeat="site in foundSites"
+                        ng-mouseover="highLightMarker($index)"
+                        ng-mouseleave="clearHighLightedMarker($index)">
+                        <div class="list-item">
+                            <div class="row" ng-click="showSiteInOtherView(site, $index)">
+                                <div class="col-xs-8 info">
+                                    <h3 class="">%%site.nombre%%</h3>
+                                    <h4 class="">%%site.municipio.nombre%%</h4>
+                                    <p class="description">%%site.descripcion%%</p>
+                                </div>
+                                <div class="col-xs-4 image">
+                                    <img class="img-responsive"
+                                         ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
             <div ng-show="isShowingSiteDetail">
@@ -54,6 +76,8 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 

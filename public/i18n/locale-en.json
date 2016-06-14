@@ -19,7 +19,8 @@
     "CURRENT_LOCATION": "Use my current location",
     "ROUTE_DESTINATION_POINT": "Choose destination",
     "ROUTE_DESTINATION_POINT_TIP": "Pick the municipality you are heading to",
-    "MAKE_ROUTE": "Show me this route on the map"
+    "MAKE_ROUTE": "Show me this route on the map",
+    "IN_TIP":"in"
   },
   "HOW_IT_WORKS_CONSTANTS": {
     "HOW_IT_WORKS_SEARCH_STEP": "1 Find here what interests you the most",

@@ -21,7 +21,7 @@ angular.module('map')
             routeFrom: '',
             routeTo: ''
         };
-        $scope.showMap = false;
+        $scope.resulListInCompactMode = false;
 
 
         uiGmapIsReady.promise().then(initMap);
@@ -49,7 +49,7 @@ angular.module('map')
 
         function showSearchedRoute() {
             $scope.loading = true;
-            $scope.showMap = true;
+            $scope.resulListInCompactMode = true;
             reloadMap();
             SiteMarkerService.deleteMarkers();
             MapRouteService.calculateRoute(siteAndTownSaverService.searchedRoute, $scope);
@@ -86,7 +86,12 @@ angular.module('map')
             $scope.$apply();
         };
 
+        $scope.showSiteInOtherView = function (site, index) {
+            //Launch view
+        };
+
         $scope.doSearch = function (result) {
+            $scope.resulListInCompactMode = false;
             MapService.clearRoute();
             if (result != undefined) {
                 $scope.hideSiteDetail();
@@ -104,7 +109,7 @@ angular.module('map')
 
         $scope.showRouteToSite = function (site) {
             $scope.loading = true;
-            $scope.showMap = true;
+            $scope.resulListInCompactMode = true;
             reloadMap();
             SiteMarkerService.deleteMarkers();
             MapService.getUserPosition(function (position) {
@@ -188,6 +193,10 @@ angular.module('map')
 
         $scope.isMobileDevice = function () {
             return $window.innerWidth < 992;
+        };
+
+        $scope.showResultListHorizontally = function () {
+            return $scope.isMobileDevice() && $scope.resulListInCompactMode;
         };
     })
 ;

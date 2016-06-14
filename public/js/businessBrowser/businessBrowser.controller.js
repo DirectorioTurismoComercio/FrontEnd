@@ -15,7 +15,8 @@ angular.module('businessBrowser', [])
         $scope.keyPressed = function () {
             switch (event.which) {
                 case 13:
-                    $scope.doSearch($scope.result);
+                    var searchedKeyWord=$scope.result;
+                    $scope.doSearch(searchedKeyWord);
                     break;
 
                 case 27:
