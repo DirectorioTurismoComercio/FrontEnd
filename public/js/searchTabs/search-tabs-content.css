@@ -29,7 +29,7 @@
 
 .tab-content .data-description {
     color: #2D3C4D;
-    font-size: 1.1em;
+    font-size: 1.3em;
     font-weight: normal;
     padding: 0;
     vertical-align: middle;
@@ -49,6 +49,10 @@
     display: inline-block;
 }
 
+.tab-content .input-route {
+    display: inline-block;
+}
+
 .tab-content .input-section {
     padding: 3% 2%;
 }
@@ -59,7 +63,7 @@
 }
 
 .route-search .tip {
-    font-size: 0.9em;
+    font-size: 1.1em;
     color: #fff;
     margin: 0;
     padding: 5px 0px;
@@ -116,6 +120,10 @@
     background-color: #0A3C5A;
 }
 
+.searchMapTip{
+    text-align: center;
+}
+
 md-tabs-content-wrapper {
     top: 0.1px !important;
 }
@@ -130,7 +138,16 @@ md-tabs-canvas {
         padding: 0px !important;
     }
 }
+@media (min-width: 500px) and (max-width: 992px){
+    .tab-content .input {
+    display: block;
+      width: 250px;
+      margin-top: 2%;
+      margin-left: 35%;
+    }
 
+
+}
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .tab-content {
@@ -146,6 +163,7 @@ md-tabs-canvas {
     .tab-content .icon {
         height: 50px;
     }
+
 
     .tab-content .button {
         width: 400px;
@@ -166,13 +184,52 @@ md-tabs-canvas {
     }
 
     .keyword-search .align-first {
-        text-align: right;
+        text-align: center;
+    }
+
+    .keyword-search .align-first-map {
+        text-align: center;
+    }
+
+    .keyword-search .align-first-map {
+        text-align: center;
     }
 
     .keyword-search .align-second {
-        text-align: left;
-        border-left: 2px solid #32A2D4;
+        text-align: center;
+        
     }
+
+    .keyword-search .align-second-map {
+        text-align: center;
+    }
+
+    .route-search .align-first {
+        text-align: center;
+    }
+
+    .route-search .align-second {
+        text-align: center;
+
+    }
+
+  
+    .md-margin-top {
+        margin-top: 5px !important;
+    }
+
+
+
+    
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+    .keyword-search .align-second-map {
+        text-align: center;
+    }
+
 
     .route-search .align-first {
         text-align: right;
@@ -182,26 +239,35 @@ md-tabs-canvas {
         text-align: left;
         border-left:2px solid #0A3C5A;
     }
-
-    /*.route-search .label-with-description {
-        margin-bottom: 2%;
-    }*/
-    .md-margin-top {
-        margin-top: 5px !important;
+      .keyword-search .align-first {
+        text-align: right;
     }
 
+    .keyword-search .align-second {
+        text-align: left;
+        border-left: 2px solid #32A2D4;
+    }
+        .tab-content .input {
+    display: inline-block;
+
+    }
+         .tab-content .input-route {
+    display: inline-block;
+
+    }
     .tab-content .separator {
         display: none;
-/*        height: 160px;
-        width: 2px;
-        margin: auto 0;
-        display: inline-block;*/
+     
     }
+
+.tab-content .data-description {
+    font-size: 1.1em;
 
 }
 
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+
+
+
 }
 
 /* Large devices (large desktops, 1200px and up) */

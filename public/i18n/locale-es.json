@@ -11,7 +11,7 @@
     "SEARCH_TAB": "¿Qué buscas?",
     "SEARCH_BY_KEY_WORD": "Busca por palabra clave o selecciona una categoría",
     "SELECT_TOWN": "Selecciona el municipio para tu búsqueda",
-    "MAKE_SEARCH": "Realizar búsqueda",
+    "DO_SEARCH": "Realizar búsqueda",
     "PLAN_YOUR_TRIP": "Arma tu ruta",
     "ROUTE_STARTING_POINT": "Selecciona tu punto de partida",
     "ROUTE_STARTING_POINT_TIP": "Puedes seleccionar un punto de partida o permitirle a la aplicación usar tu ubicación como inicio de ruta",
@@ -19,7 +19,8 @@
     "CURRENT_LOCATION": "Usa mi ubicación",
     "ROUTE_DESTINATION_POINT": "Selecciona tu destino",
     "ROUTE_DESTINATION_POINT_TIP": "Indica el municipio al que te diriges",
-    "MAKE_ROUTE": "Trazar esta ruta"
+    "MAKE_ROUTE": "Trazar esta ruta",
+    "IN_TIP":"en"
   },
   "HOW_IT_WORKS_CONSTANTS": {
     "HOW_IT_WORKS_SEARCH_STEP": "1 Encuentra lo que te gusta",
