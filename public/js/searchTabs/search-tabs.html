@@ -15,26 +15,31 @@
     <md-tabs md-dynamic-height="true" md-stretch-tabs="always">
         <md-tab md-active="isSearchFormVisible">
             <md-tab-body>
-
-                 <div ng-show="!isonmap" class="col-xs-12 tab-content keyword-search">
+                <!--SearchTab Home And SearchTab Mobile Map-->
+                 <div ng-show="!isonmap || isMobile" class="col-xs-12 tab-content keyword-search">
                     <div class="row">
                         <div class="col-md-6 input-section align-first">
-                            <img class="icon" src="./images/icons/paso1.png">
-                            <p class="data-label" translate="TABS_CONSTANTS.SEARCH_BY_KEY_WORD"></p>
+                            <img ng-show="!isonmap" class="icon" src="./images/icons/paso1.png">
+                            <p ng-show="!isonmap" class="data-label" translate="TABS_CONSTANTS.SEARCH_BY_KEY_WORD"></p>
                             <div class="input">
                                 <browser-input-field isonmapview="false" result="result"  do-search="doSearch(result)" show-route="showRoute()"></browser-input-field>
                             </div>
                         </div>
-                        <div class="separator"></div>
+                        <div ng-show="!isonmap" class="separator"></div>
+                        <div ng-show="isonmap && isMobile" class="row separatorMarginRowMap">
+                            <div class="col-xs-5 separatorMobileMap"></div>
+                            <p class="col-xs-2 searchMapTip" translate="TABS_CONSTANTS.IN_TIP"></p>
+                            <div class="col-xs-5 separatorMobileMap"></div>
+                        </div>
                         <div class="col-md-6  input-section align-second">
-                            <img class="icon" src="./images/icons/paso2.png">
-                            <p class="data-label" translate="TABS_CONSTANTS.SELECT_TOWN"></p>
+                            <img ng-show="!isonmap" class="icon" src="./images/icons/paso2.png">
+                            <p ng-show="!isonmap" class="data-label" translate="TABS_CONSTANTS.SELECT_TOWN"></p>
                             <div class="input">
                                 <drop-down-town-directive></drop-down-town-directive>
                             </div>
                         </div>
                     </div>
-                    <div class="row" ng-show="!isonmap">
+                    <div class="row" ng-show="!isonmap || isMobile">
                         <div class="col-xs-12 text-center">
                             <button class="button" aria-label="Buscar" translate="TABS_CONSTANTS.DO_SEARCH"
                                     ng-click="doSearch(result)"></button>
@@ -42,8 +47,8 @@
                     </div>
                 </div>
 
-
-                <div ng-show="isonmap" class="row tab-content keyword-search">
+                <!--SearchTab Map Desktop-->
+                <div ng-show="isonmap && !isMobile" class="row tab-content keyword-search">
                     <div class="col-xs-4 col-xs-offset-1 input">
                         <browser-input-field isonmapview="true" result="result"  do-search="doSearch(result)" show-route="showRoute()"></browser-input-field>
                     </div>

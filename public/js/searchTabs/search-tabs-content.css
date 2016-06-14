@@ -132,6 +132,16 @@
     width: 3vmin;
 }
 
+.separatorMobileMap{
+    height: 2px;
+    background-color: #32A2D4;
+    margin: 2% auto;
+}
+
+.separatorMarginRowMap{
+    margin: auto 10px  !important;
+}
+
 md-tabs-content-wrapper {
     top: 0.1px !important;
 }
