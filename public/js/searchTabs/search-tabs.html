@@ -141,6 +141,12 @@
                            translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT_MAP"></p>
                     </div>
                 </diV>
+                <diV ng-show="isonmap && !isMobile" class="row route-search route-map-no-up-padding">
+                    <div class="col-xs-4 col-xs-offset-1 input route-map-no-left-padding">
+                        <img class="my-position-icon" src="./images/icons/mi-ubicacion.png" ng-click="getUserPosition()">
+                        <p class="tip current-location-tip-map" translate="TABS_CONSTANTS.CURRENT_LOCATION"></p>
+                    </div>
+                </diV>
             </md-tab-body>
         </md-tab>
     </md-tabs>
