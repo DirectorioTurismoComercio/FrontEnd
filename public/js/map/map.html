@@ -1,16 +1,17 @@
 <app-header></app-header>
 
-
 <div class="row search-results">
     <md-progress-circular class="loading" md-mode="indeterminate"
                           ng-show="loading"></md-progress-circular>
 
     <div class="col-md-6 no-padding">
+        <div ng-show="isShowingSiteDetail" class="detail-site-search-route"></div>
+        <div ng-show="!isShowingSiteDetail">
         <search-tabs isonmap="true" result="result"  do-search="doSearch(result)" show-route="showRoute()"></search-tabs>
         <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode">
             <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
         </div>
-
+        </div>
         <div class="result-list">
             <div ng-show="foundSites.length > 0 && !isShowingSiteDetail">
                 <div ng-if="!showResultListHorizontally()"
@@ -61,7 +62,7 @@
             </div>
 
             <div ng-show="isShowingSiteDetail">
-                <div>Detalles del sitio</div>
+                
                 <a href="" ng-click="hideSiteDetail()">Volver a lista de sitios</a>
                <div class="row">
                 <carousel images="selectedSite.fotos">
