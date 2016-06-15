@@ -14,13 +14,16 @@
     "DO_SEARCH": "Realizar búsqueda",
     "PLAN_YOUR_TRIP": "Arma tu ruta",
     "ROUTE_STARTING_POINT": "Selecciona tu punto de partida",
+    "ROUTE_STARTING_POINT_MAP": "Salida",
     "ROUTE_STARTING_POINT_TIP": "Puedes seleccionar un punto de partida o permitirle a la aplicación usar tu ubicación como inicio de ruta",
     "STARTING_POINT_TIP": "Indica tu punto de partida",
     "CURRENT_LOCATION": "Usa mi ubicación",
     "ROUTE_DESTINATION_POINT": "Selecciona tu destino",
+    "ROUTE_DESTINATION_POINT_MAP": "Destino",
     "ROUTE_DESTINATION_POINT_TIP": "Indica el municipio al que te diriges",
     "MAKE_ROUTE": "Trazar esta ruta",
-    "IN_TIP":"en"
+    "IN_TIP":"en",
+    "TO_TIP":"hasta"
   },
   "HOW_IT_WORKS_CONSTANTS": {
     "HOW_IT_WORKS_SEARCH_STEP": "1 Encuentra lo que te gusta",

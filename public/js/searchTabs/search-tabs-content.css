@@ -132,6 +132,33 @@
     width: 3vmin;
 }
 
+.separatorMobileMap{
+    height: 2px;
+    background-color: #32A2D4;
+    margin: 2% auto;
+}
+
+.separatorMarginRowMap{
+    margin: auto 10px  !important;
+}
+
+.route-map-no-up-padding{
+    padding-top: 0px !important;
+}
+
+.route-map-no-bottom-padding{
+    padding-bottom: 0px !important;
+}
+
+.route-map-no-left-padding{
+    padding-left: 0px !important;
+}
+
+.current-location-tip-map{
+    display: inline-block;
+    padding-left: 15px !important;
+}
+
 md-tabs-content-wrapper {
     top: 0.1px !important;
 }
