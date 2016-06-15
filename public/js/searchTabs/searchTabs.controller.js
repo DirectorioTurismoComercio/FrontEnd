@@ -14,6 +14,8 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         var destinationRouteInput;
         var originRouteInputMap;
         var destinationRouteInputMap;
+        var originRouteInputMapMobile;
+        var destinationRouteInputMapMobile;
 
         getViewPortSize();
 
@@ -69,6 +71,12 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
                 MapService.addAutocompleteFeature(originRouteInputMap, routeOriginChanged);
                 MapService.addAutocompleteFeature(destinationRouteInputMap, routeDestinationChanged);
+
+                originRouteInputMapMobile = document.getElementById('route-origin-map-mobile');
+                destinationRouteInputMapMobile = document.getElementById('route-destination-map-mobile');
+
+                MapService.addAutocompleteFeature(originRouteInputMapMobile, routeOriginChanged);
+                MapService.addAutocompleteFeature(destinationRouteInputMapMobile, routeDestinationChanged);
 
                 initializedFields = true;
             }

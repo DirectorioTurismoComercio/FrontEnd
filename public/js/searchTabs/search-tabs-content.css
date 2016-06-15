@@ -314,7 +314,7 @@ md-tabs-canvas {
     }
 
     .is-desktop{
-        display: flex;
+        display: block;
     }
 
 }
@@ -326,7 +326,7 @@ md-tabs-canvas {
     }
 
     .is-desktop{
-        display: flex;
+        display: block;
     }
 }
 

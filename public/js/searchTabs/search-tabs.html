@@ -93,18 +93,17 @@
         <md-tab md-active="isRouteFormVisible">
             <md-tab-body>
                 <!--RouteTab Home-->
-                <div ng-show="!isonmap || isMobile" class="col-xs-12 tab-content route-search">
+                <div ng-show="!isonmap" class="col-xs-12 tab-content route-search">
                     <div class="row">
                         <div class="col-md-6 input-section align-first">
-                            <img ng-show="!isonmap" class="icon" src="./images/icons/paso1.png">
-                            <div ng-show="!isonmap" class="label-with-description">
+                            <img class="icon" src="./images/icons/paso1.png">
+                            <div class="label-with-description">
                                 <p class="data-label" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT"></p>
                                 <p class="data-description" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT_TIP"></p>
                             </div>
-                            <div class="input-route">
+                            <div class="input">
                                 <div class="inline-block">
-                                    <p ng-show="!isonmap" class="tip" translate="TABS_CONSTANTS.STARTING_POINT_TIP"></p>
-                                    <p ng-show="isonmap && isMobile" class="tip" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT_MAP"></p>
+                                    <p class="tip" translate="TABS_CONSTANTS.STARTING_POINT_TIP"></p>
                                     <input id="route-origin" ng-focus="clear()"
                                            class="form-control" ng-model="searchedRoute.origin.name"/>
                                 </div>
@@ -119,14 +118,13 @@
                         </div>
                         <div class="separator"></div>
                         <div class="col-md-6 input-section align-second">
-                            <img ng-show="!isonmap" class="icon" src="./images/icons/paso2.png">
-                            <div ng-show="!isonmap" class="label-with-description">
+                            <img class="icon" src="./images/icons/paso2.png">
+                            <div class="label-with-description">
                                 <p class="data-label" translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT"></p>
                                 <p class="data-description" translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT_TIP"></p>
                             </div>
 
-                            <div class="input-route" style="margin-left: 10px">
-                                <p ng-show="isonmap && isMobile" class="tip" translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT_MAP"></p>
+                            <div class="input" style="margin-left: 10px">
                                 <input id="route-destination" ng-focus="clear()"
                                        class="form-control" ng-model="searchedRoute.destination.name"/>
                             </div>
@@ -139,38 +137,77 @@
                     </div>
                 </div>
 
-                <!--RouteTab Map Desktop-->
-                <div ng-show="isonmap && !isMobile" class="row tab-content route-search route-map-no-bottom-padding">
-                    <div class="col-xs-4 col-xs-offset-1 input">
-                        <input id="route-origin-map" ng-focus="clear()"
-                               class="form-control" ng-model="searchedRoute.origin.name"/></div>
-                    <div class="col-xs-1 input">
-                        <p class="searchMapTip" translate="TABS_CONSTANTS.TO_TIP"></p>
+                <!--RouteTab Desktop Map-->
+                <div ng-show="isonmap" class="is-desktop">
+                    <div class="row tab-content route-search route-map-no-bottom-padding">
+                        <div class="col-xs-4 col-xs-offset-1 input">
+                            <input id="route-origin-map" ng-focus="clear()"
+                                   class="form-control" ng-model="searchedRoute.origin.name"/></div>
+                        <div class="col-xs-1 input">
+                            <p class="searchMapTip" translate="TABS_CONSTANTS.TO_TIP"></p>
+                        </div>
+                        <div class="col-xs-4 input">
+                            <input id="route-destination-map" ng-focus="clear()"
+                                   class="form-control" ng-model="searchedRoute.destination.name"/>
+                        </div>
+                        <div class="col-xs-1 col-xs-offset-1 route-map-no-left-padding input"
+                             ng-click="calculateRoute()">
+                            <img class="iconDoSearchMap" src="./images/armar-ruta.png">
+                        </div>
                     </div>
-                    <div class="col-xs-4 input">
-                        <input id="route-destination-map" ng-focus="clear()"
-                               class="form-control" ng-model="searchedRoute.destination.name"/>
+                    <diV class="row route-search route-map-no-up-padding">
+                        <div class="col-xs-4 col-xs-offset-1 input route-map-no-left-padding">
+                            <p class="tip col-xs-4 col-xs-offset-1"
+                               translate="TABS_CONSTANTS.ROUTE_STARTING_POINT_MAP"></p>
+                        </div>
+                        <div class="col-xs-4 col-xs-offset-1 input">
+                            <p class="tip col-xs-4 col-xs-offset-1"
+                               translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT_MAP"></p>
+                        </div>
+                    </diV>
+                    <diV class="row route-search route-map-no-up-padding">
+                        <div class="col-xs-4 col-xs-offset-1 input route-map-no-left-padding">
+                            <img class="my-position-icon" src="./images/icons/mi-ubicacion.png"
+                                 ng-click="getUserPosition()">
+                            <p class="tip current-location-tip-map" translate="TABS_CONSTANTS.CURRENT_LOCATION"></p>
+                        </div>
+                    </diV>
+                </div>
+
+                <!--RouteTab Mobile Map-->
+                <div ng-show="isonmap" class="col-xs-12 tab-content route-search is-mobile">
+                    <div class="row">
+                        <div class="col-md-6 input-section align-first">
+                            <div class="input">
+                                <div class="inline-block">
+                                    <p class="tip" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT_MAP"></p>
+                                    <input id="route-origin-map-mobile" ng-focus="clear()"
+                                           class="form-control" ng-model="searchedRoute.origin.name"/>
+                                </div>
+                                <div class="inline-block">
+                                    <p class="tip md-margin-top" translate="TABS_CONSTANTS.CURRENT_LOCATION"></p>
+                                    <img class="my-position-icon" src="./images/icons/mi-ubicacion.png"
+                                         ng-click="getUserPosition()">
+                                    <md-progress-circular class="loadingSitesOnMap" ng-show="loadingCurrentPosition"
+                                                          md-mode="indeterminate"></md-progress-circular>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="col-md-6 input-section align-second">
+                            <div class="input" style="margin-left: 10px">
+                                <p class="tip" translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT_MAP"></p>
+                                <input id="route-destination-map-mobile" ng-focus="clear()"
+                                       class="form-control" ng-model="searchedRoute.destination.name"/>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-xs-1 col-xs-offset-1 route-map-no-left-padding input" ng-click="calculateRoute()">
-                        <img class="iconDoSearchMap" src="./images/armar-ruta.png">
+
+                    <div class="col-xs-12 text-center">
+                        <button class="button" aria-label="Ruta" translate="TABS_CONSTANTS.MAKE_ROUTE"
+                                ng-click="calculateRoute()"></button>
                     </div>
                 </div>
-                <diV ng-show="isonmap && !isMobile" class="row route-search route-map-no-up-padding">
-                    <div class="col-xs-4 col-xs-offset-1 input route-map-no-left-padding">
-                        <p class="tip col-xs-4 col-xs-offset-1"
-                           translate="TABS_CONSTANTS.ROUTE_STARTING_POINT_MAP"></p>
-                    </div>
-                    <div class="col-xs-4 col-xs-offset-1 input">
-                        <p class="tip col-xs-4 col-xs-offset-1"
-                           translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT_MAP"></p>
-                    </div>
-                </diV>
-                <diV ng-show="isonmap && !isMobile" class="row route-search route-map-no-up-padding">
-                    <div class="col-xs-4 col-xs-offset-1 input route-map-no-left-padding">
-                        <img class="my-position-icon" src="./images/icons/mi-ubicacion.png" ng-click="getUserPosition()">
-                        <p class="tip current-location-tip-map" translate="TABS_CONSTANTS.CURRENT_LOCATION"></p>
-                    </div>
-                </diV>
             </md-tab-body>
         </md-tab>
     </md-tabs>
