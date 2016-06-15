@@ -74,14 +74,15 @@
                 <div ng-show="!isonmap || isMobile" class="col-xs-12 tab-content route-search">
                     <div class="row">
                         <div class="col-md-6 input-section align-first">
-                            <img class="icon" src="./images/icons/paso1.png">
-                            <div class="label-with-description">
+                            <img ng-show="!isonmap" class="icon" src="./images/icons/paso1.png">
+                            <div ng-show="!isonmap" class="label-with-description">
                                 <p class="data-label" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT"></p>
                                 <p class="data-description" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT_TIP"></p>
                             </div>
                             <div class="input-route">
                                 <div class="inline-block">
-                                    <p class="tip" translate="TABS_CONSTANTS.STARTING_POINT_TIP"></p>
+                                    <p ng-show="!isonmap" class="tip" translate="TABS_CONSTANTS.STARTING_POINT_TIP"></p>
+                                    <p ng-show="isonmap && isMobile" class="tip" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT_MAP"></p>
                                     <input id="route-origin" ng-focus="clear()"
                                            class="form-control" ng-model="searchedRoute.origin.name"/>
                                 </div>
@@ -96,13 +97,14 @@
                         </div>
                         <div class="separator"></div>
                         <div class="col-md-6 input-section align-second">
-                            <img class="icon" src="./images/icons/paso2.png">
-                            <div class="label-with-description">
+                            <img ng-show="!isonmap" class="icon" src="./images/icons/paso2.png">
+                            <div ng-show="!isonmap" class="label-with-description">
                                 <p class="data-label" translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT"></p>
                                 <p class="data-description" translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT_TIP"></p>
                             </div>
 
                             <div class="input-route" style="margin-left: 10px">
+                                <p ng-show="isonmap && isMobile" class="tip" translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT_MAP"></p>
                                 <input id="route-destination" ng-focus="clear()"
                                        class="form-control" ng-model="searchedRoute.destination.name"/>
                             </div>
