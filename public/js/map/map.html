@@ -63,17 +63,14 @@
             <div ng-show="isShowingSiteDetail">
                 <div>Detalles del sitio</div>
                 <a href="" ng-click="hideSiteDetail()">Volver a lista de sitios</a>
-               <div class="row" style="margin-top:30%; height: 50px;">
-                <ul rn-carousel rn-carousel-controls style="height: 200px;">
-                    <li ng-repeat="photo in (selectedSite.fotos)">
-                        <p>url %%photo.URLfoto%%</p>
-                        <img ng-src="%%photo.URLfoto%%" class="img-rounded"/>
-                    </li>
+               <div class="row">
+                <carousel images="selectedSite.fotos">
+                   
 
-                </ul> 
-                <a ng-click="prev()" class="carousel-control left" style="margin-top:30%">AAAA&lsaquo;</a>
-                <a ng-click="next()" class="carousel-control right">AAA&rsaquo;</a>
+                </carousel> 
+        
                 </div>
+           
                 <div class="row">
                     <div class="text col-md-8">
                         <h1 class="title">%%selectedSite.nombre%%</h1>
