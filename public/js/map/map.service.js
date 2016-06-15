@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('map')
-    .service('MapService', function ($window, CUNDINAMARCA_COORDS, $http, API_CONFIG, SiteMarkerService, sitesNearRoute) {
+    .service('MapService', function ($window, CUNDINAMARCA_COORDS) {
         var directionsDisplay;
         var directionsService;
         var gMap;
@@ -71,7 +71,7 @@ angular.module('map')
             return isPlaceInsideRegion(latLngLiteralPlaceLocation, CUNDINAMARCA_COORDS);
         }
 
-        function addMarker(position, label, icon, normalIcon, lightedIcon) {
+        function addMarker(position, label, icon) {
             var marker = new MarkerWithLabel({
                 position: position,
                 map: gMap,
@@ -83,9 +83,7 @@ angular.module('map')
                 labelStyle: {
                     "font-weight": "bold",
                     opacity: 1
-                },
-                lightedIcon: lightedIcon,
-                normalIcon: normalIcon
+                }
             });
 
             markers.push(marker);
@@ -94,7 +92,14 @@ angular.module('map')
         }
 
         function addMarkerWithCategoryIcon(position, label, categoryId) {
-            return addMarker(position, label, getCategoryIcon(categoryId, false), getCategoryIcon(categoryId, false), getCategoryIcon(categoryId, true));
+            var normalIcon = getCategoryIcon(categoryId, false);
+            var lightedIcon = getCategoryIcon(categoryId, true);
+            var marker = addMarker(position, label, normalIcon);
+
+            marker.normalIcon = normalIcon;
+            marker.lightedIcon = lightedIcon;
+
+            return marker;
         }
 
         function getCategoryIcon(categoryId, lightedIcon) {
@@ -133,14 +138,15 @@ angular.module('map')
                     url = "images/icons/pin-ubicacion-local.png";
             }
 
+            return createIcon(url);
+        }
 
-            var icon = {
-                url: url,
+        function createIcon(iconUrl) {
+            return {
+                url: iconUrl,
                 origin: new google.maps.Point(0, 0),
                 scaledSize: new google.maps.Size(40, 40)
-            };
-
-            return icon;
+            }
         }
 
         function coordsToLatLngLiteral(latitude, longitude) {
@@ -224,6 +230,7 @@ angular.module('map')
             clearMarkers: clearMarkers,
             clearRoute: clearRoute,
             setPinOnUserPosition: setPinOnUserPosition,
-            addMarkerWithCategoryIcon: addMarkerWithCategoryIcon
+            addMarkerWithCategoryIcon: addMarkerWithCategoryIcon,
+            createIcon: createIcon
         }
     });

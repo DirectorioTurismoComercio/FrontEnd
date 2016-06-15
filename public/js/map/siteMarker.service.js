@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('map')
-    .service('SiteMarkerService', function ($filter, $sce, $templateRequest, $q) {
+    .service('SiteMarkerService', function () {
         var markers = [];
         var selectedMarker = null;
 
@@ -37,21 +37,28 @@ angular.module('map')
         };
 
         var highLightMarkerByIndex = function (index) {
-            highLightMarker(markers[index]);
+            try {
+                highLightMarker(markers[index]);
+            } catch (err) {
+                console.error(markers);
+            }
         };
 
         function clearHighLightedMarker(marker) {
-            setMarkerIcon(marker, marker.normalIcon);
+            if (marker) {
+                setMarkerIcon(marker, marker.normalIcon);
+            }
         }
 
         function highLightMarker(marker) {
-            clearSelectedMarker();
-            selectedMarker = marker;
-            setMarkerIcon(marker, marker.lightedIcon);
+            if (marker) {
+                selectedMarker = marker;
+                setMarkerIcon(marker, marker.lightedIcon);
+            }
         }
 
         function setMarkerIcon(marker, iconUrl) {
-            if (marker != undefined) {
+            if (marker) {
                 marker.setIcon(iconUrl);
             }
         }
