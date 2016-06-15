@@ -101,13 +101,13 @@
                                 <p class="data-label" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT"></p>
                                 <p class="data-description" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT_TIP"></p>
                             </div>
-                            <div class="input">
+                            <div class="input route-map-no-bottom-padding">
                                 <div class="inline-block">
                                     <p class="tip" translate="TABS_CONSTANTS.STARTING_POINT_TIP"></p>
                                     <input id="route-origin" ng-focus="clear()"
                                            class="form-control" ng-model="searchedRoute.origin.name"/>
                                 </div>
-                                <div class="inline-block">
+                                <div style="margin-left: 10px">
                                     <p class="tip md-margin-top" translate="TABS_CONSTANTS.CURRENT_LOCATION"></p>
                                     <img class="my-position-icon" src="./images/icons/mi-ubicacion.png"
                                          ng-click="getUserPosition()">
@@ -178,7 +178,7 @@
                 <div ng-show="isonmap" class="col-xs-12 tab-content route-search is-mobile">
                     <div class="row">
                         <div class="col-md-6 input-section align-first">
-                            <div class="input">
+                            <div class="input" style="margin-left: 10px;">
                                 <div class="inline-block">
                                     <p class="tip" translate="TABS_CONSTANTS.ROUTE_STARTING_POINT_MAP"></p>
                                     <input id="route-origin-map-mobile" ng-focus="clear()"
@@ -196,9 +196,11 @@
                         <div class="separator"></div>
                         <div class="col-md-6 input-section align-second">
                             <div class="input" style="margin-left: 10px">
-                                <p class="tip" translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT_MAP"></p>
-                                <input id="route-destination-map-mobile" ng-focus="clear()"
-                                       class="form-control" ng-model="searchedRoute.destination.name"/>
+                                <div class="inline-block">
+                                    <p class="tip" translate="TABS_CONSTANTS.ROUTE_DESTINATION_POINT_MAP"></p>
+                                    <input id="route-destination-map-mobile" ng-focus="clear()"
+                                           class="form-control" ng-model="searchedRoute.destination.name"/>
+                                </div>
                             </div>
                         </div>
                     </div>
