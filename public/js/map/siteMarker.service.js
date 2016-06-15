@@ -37,11 +37,7 @@ angular.module('map')
         };
 
         var highLightMarkerByIndex = function (index) {
-            try {
-                highLightMarker(markers[index]);
-            } catch (err) {
-                console.error(markers);
-            }
+            highLightMarker(markers[index]);
         };
 
         function clearHighLightedMarker(marker) {
@@ -51,6 +47,8 @@ angular.module('map')
         }
 
         function highLightMarker(marker) {
+            clearSelectedMarker();
+
             if (marker) {
                 selectedMarker = marker;
                 setMarkerIcon(marker, marker.lightedIcon);

@@ -33,7 +33,7 @@ angular.module('map')
             if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
                 showFoundPlaces();
             }
-            showFoundPlaces();
+            //showFoundPlaces();
 
             if (siteAndTownSaverService.searchedRoute.origin != undefined && siteAndTownSaverService.getCurrentSearchedSite() == undefined) {
                 showSearchedRoute();
