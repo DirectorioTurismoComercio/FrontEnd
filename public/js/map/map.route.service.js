@@ -41,17 +41,17 @@ angular.module('map')
         function drawRouteSites(points, $scope) {
             sitesNearRoute.getSitesNearRoute(points).success(function (sites) {
 
-                    for (var i = 0; i < sites.length; i++) {
-                        var position = MapService.coordsToLatLngLiteral(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
-                        var marker = MapService.addMarker(position, sites[i].nombre);
-                        SiteMarkerService.addSiteMarker(sites[i], marker, $scope.showSiteDetail);
-                    }
-                    $scope.loading = false;
-                    $scope.foundSites = sites;
-                })
-                .error(function (error) {
-                    console.log("Hubo un error", error);
-                })
+                for (var i = 0; i < sites.length; i++) {
+                    var position = MapService.coordsToLatLngLiteral(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
+                    var marker = MapService.addMarkerWithCategoryIcon(position, sites[i].nombre, sites[i].categorias[0]);
+                    SiteMarkerService.addSiteMarker(sites[i], marker, $scope.showSiteDetail);
+                }
+
+                $scope.loading = false;
+                $scope.foundSites = sites;
+            }).error(function (error) {
+                console.log("Hubo un error", error);
+            })
         }
 
         function transformPointName(point) {

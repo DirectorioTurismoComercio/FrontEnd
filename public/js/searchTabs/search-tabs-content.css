@@ -120,38 +120,43 @@
     background-color: #0A3C5A;
 }
 
-.searchMapTip{
+.searchMapTip {
     text-align: center;
     color: #2D3C4D;
     font-size: 1.1em;
     font-weight: bolder;
 }
 
-.iconDoSearchMap{
-    height: 3vmin;
-    width: 3vmin;
+.iconDoSearchMap {
+    height: 34px;
+    width: 34px;
 }
 
-.separatorMobileMap{
+.separatorMobileMap {
     height: 2px;
     background-color: #32A2D4;
     margin: 2% auto;
 }
 
-.separatorMarginRowMap{
-    margin: auto 10px  !important;
+.separatorMarginRowMap {
+    margin: auto 10px !important;
 }
 
-.route-map-no-up-padding{
+.route-map-no-up-padding {
     padding-top: 0px !important;
 }
 
-.route-map-no-bottom-padding{
+.route-map-no-bottom-padding {
     padding-bottom: 0px !important;
 }
 
-.route-map-no-left-padding{
+.route-map-no-left-padding {
     padding-left: 0px !important;
+}
+
+.current-location-tip-map {
+    display: inline-block;
+    padding-left: 15px !important;
 }
 
 md-tabs-content-wrapper {
@@ -167,17 +172,28 @@ md-tabs-canvas {
     .tab-content {
         padding: 0px !important;
     }
+
+
+    .is-desktop{
+        display: none;
+    }
 }
-@media (min-width: 500px) and (max-width: 992px){
+
+@media (min-width: 500px) and (max-width: 992px) {
     .tab-content .input {
-    display: block;
-      width: 250px;
-      margin-top: 2%;
-      margin-left: 35%;
+        display: block;
+        width: 250px;
+        margin-top: 2%;
+        margin-left: 35%;
     }
 
 
+    .is-desktop{
+        display: none;
+    }
+
 }
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .tab-content {
@@ -193,7 +209,6 @@ md-tabs-canvas {
     .tab-content .icon {
         height: 50px;
     }
-
 
     .tab-content .button {
         width: 400px;
@@ -227,7 +242,7 @@ md-tabs-canvas {
 
     .keyword-search .align-second {
         text-align: center;
-        
+
     }
 
     .route-search .align-first {
@@ -239,14 +254,14 @@ md-tabs-canvas {
 
     }
 
-  
     .md-margin-top {
         margin-top: 5px !important;
     }
 
+    .is-desktop{
+        display: none;
+    }
 
-
-    
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -256,16 +271,16 @@ md-tabs-canvas {
         text-align: center;
     }
 
-
     .route-search .align-first {
         text-align: right;
     }
 
     .route-search .align-second {
         text-align: left;
-        border-left:2px solid #0A3C5A;
+        border-left: 2px solid #0A3C5A;
     }
-      .keyword-search .align-first {
+
+    .keyword-search .align-first {
         text-align: right;
     }
 
@@ -273,31 +288,46 @@ md-tabs-canvas {
         text-align: left;
         border-left: 2px solid #32A2D4;
     }
-        .tab-content .input {
-    display: inline-block;
+
+    .tab-content .input {
+        display: inline-block;
 
     }
-         .tab-content .input-route {
-    display: inline-block;
+
+    .tab-content .input-route {
+        display: inline-block;
 
     }
+
     .tab-content .separator {
         display: none;
-     
+
     }
 
-.tab-content .data-description {
-    font-size: 1.1em;
+    .tab-content .data-description {
+        font-size: 1.1em;
 
-}
+    }
 
+    .is-mobile{
+        display: none;
+    }
 
-
+    .is-desktop{
+        display: flex;
+    }
 
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+    .is-mobile{
+        display: none;
+    }
+
+    .is-desktop{
+        display: flex;
+    }
 }
 
 
