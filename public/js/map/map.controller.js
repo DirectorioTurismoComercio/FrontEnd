@@ -23,7 +23,6 @@ angular.module('map')
         };
         $scope.resulListInCompactMode = false;
 
-
         uiGmapIsReady.promise().then(initMap);
 
         function initMap() {

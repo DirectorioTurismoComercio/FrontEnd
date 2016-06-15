@@ -339,6 +339,7 @@ angular.module('angular-carousel').run(['$templateCache', function($templateCach
                         };
 
                         scope.prevSlide = function(slideOptions) {
+                            console.log("slide")
                             var index = scope.carouselIndex - 1;
                             if (index < 0) {
                                 index = currentSlides.length - 1;
