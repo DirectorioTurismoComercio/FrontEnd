@@ -32,12 +32,16 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 case KEYWORD_SEARCH_SECTION:
                     $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
                     $scope.isRouteFormVisible = false;
-                    siteAndTownSaverService.openSection = $scope.isSearchFormVisible ? KEYWORD_SEARCH_SECTION : undefined;
+                    if(!$scope.isMobile){
+                        siteAndTownSaverService.openSection = $scope.isSearchFormVisible ? KEYWORD_SEARCH_SECTION : undefined;
+                    }
                     break;
                 case ROUTE_SEARCH_SECTION:
                     $scope.isSearchFormVisible = false;
                     $scope.isRouteFormVisible = !$scope.isRouteFormVisible;
-                    siteAndTownSaverService.openSection = $scope.isRouteFormVisible ? ROUTE_SEARCH_SECTION : undefined;
+                    if(!$scope.isMobile){
+                        siteAndTownSaverService.openSection = $scope.isRouteFormVisible ? ROUTE_SEARCH_SECTION : undefined;
+                    }
                     initRouteSearchAutocomplete();
                     break;
             }
@@ -56,6 +60,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         function getViewPortSize(){
             $scope.isMobile=$window.innerWidth<992;
+            console.log("es mobil", $scope.isMobile);
         }
 
         function initRouteSearchAutocomplete() {
