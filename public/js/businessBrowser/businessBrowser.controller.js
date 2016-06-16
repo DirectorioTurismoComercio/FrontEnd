@@ -1,5 +1,5 @@
 angular.module('businessBrowser', [])
-    .controller('businessBrowserController', function ($scope, ResultRetriever, siteAndTownSaverService) {
+    .controller('businessBrowserController', function ($scope, ResultRetriever, siteAndTownSaverService, $rootScope) {
 
         setValue();
 
@@ -16,7 +16,10 @@ angular.module('businessBrowser', [])
             switch (event.which) {
                 case 13:
                     var searchedKeyWord=$scope.result;
-                    $scope.doSearch(searchedKeyWord);
+                    var keyWordObject={
+                        keyword:searchedKeyWord
+                    };
+                    $rootScope.$broadcast('businessbrowser::keypressed', keyWordObject);
                     break;
 
                 case 27:

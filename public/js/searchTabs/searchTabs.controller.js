@@ -32,14 +32,14 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 case KEYWORD_SEARCH_SECTION:
                     $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
                     $scope.isRouteFormVisible = false;
-                    if(!$scope.isMobile){
+                    if (!$scope.isMobile) {
                         siteAndTownSaverService.openSection = $scope.isSearchFormVisible ? KEYWORD_SEARCH_SECTION : undefined;
                     }
                     break;
                 case ROUTE_SEARCH_SECTION:
                     $scope.isSearchFormVisible = false;
                     $scope.isRouteFormVisible = !$scope.isRouteFormVisible;
-                    if(!$scope.isMobile){
+                    if (!$scope.isMobile) {
                         siteAndTownSaverService.openSection = $scope.isRouteFormVisible ? ROUTE_SEARCH_SECTION : undefined;
                     }
                     initRouteSearchAutocomplete();
@@ -47,12 +47,13 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             }
         };
 
-        $scope.doSearchByKeyWord=function(result){
-            if($scope.isMobile){
-                $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
-            }
-            $scope.doSearch(result);
-        }
+        $scope.$on('businessbrowser::keypressed', function (event, args) {
+            calldoSearch(args.keyword);
+        });
+
+        $scope.doSearchByKeyWord = function (result) {
+            calldoSearch(result);
+        };
 
 
         $scope.calculateRoute = function () {
@@ -61,15 +62,22 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             } else if ($scope.searchedRoute.destination == undefined) {
                 messageService.showErrorMessage("ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION");
             } else {
-                if($scope.isMobile){
+                if ($scope.isMobile) {
                     $scope.isRouteFormVisible = !$scope.isRouteFormVisible;
                 }
                 $scope.showRoute();
             }
         };
 
-        function getViewPortSize(){
-            $scope.isMobile=$window.innerWidth<992;
+        function calldoSearch(result) {
+            if ($scope.isMobile) {
+                $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
+            }
+            $scope.doSearch(result);
+        }
+
+        function getViewPortSize() {
+            $scope.isMobile = $window.innerWidth < 992;
         }
 
         function initRouteSearchAutocomplete() {
