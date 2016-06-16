@@ -14,6 +14,8 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         var destinationRouteInput;
         var originRouteInputMap;
         var destinationRouteInputMap;
+        var originRouteInputMapMobile;
+        var destinationRouteInputMapMobile;
 
         getViewPortSize();
 
@@ -30,16 +32,27 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 case KEYWORD_SEARCH_SECTION:
                     $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
                     $scope.isRouteFormVisible = false;
-                    siteAndTownSaverService.openSection = $scope.isSearchFormVisible ? KEYWORD_SEARCH_SECTION : undefined;
+                    if(!$scope.isMobile){
+                        siteAndTownSaverService.openSection = $scope.isSearchFormVisible ? KEYWORD_SEARCH_SECTION : undefined;
+                    }
                     break;
                 case ROUTE_SEARCH_SECTION:
                     $scope.isSearchFormVisible = false;
                     $scope.isRouteFormVisible = !$scope.isRouteFormVisible;
-                    siteAndTownSaverService.openSection = $scope.isRouteFormVisible ? ROUTE_SEARCH_SECTION : undefined;
+                    if(!$scope.isMobile){
+                        siteAndTownSaverService.openSection = $scope.isRouteFormVisible ? ROUTE_SEARCH_SECTION : undefined;
+                    }
                     initRouteSearchAutocomplete();
                     break;
             }
         };
+
+        $scope.doSearchByKeyWord=function(result){
+            if($scope.isMobile){
+                $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
+            }
+            $scope.doSearch(result);
+        }
 
 
         $scope.calculateRoute = function () {
@@ -48,6 +61,9 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             } else if ($scope.searchedRoute.destination == undefined) {
                 messageService.showErrorMessage("ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION");
             } else {
+                if($scope.isMobile){
+                    $scope.isRouteFormVisible = !$scope.isRouteFormVisible;
+                }
                 $scope.showRoute();
             }
         };
@@ -69,6 +85,12 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
                 MapService.addAutocompleteFeature(originRouteInputMap, routeOriginChanged);
                 MapService.addAutocompleteFeature(destinationRouteInputMap, routeDestinationChanged);
+
+                originRouteInputMapMobile = document.getElementById('route-origin-map-mobile');
+                destinationRouteInputMapMobile = document.getElementById('route-destination-map-mobile');
+
+                MapService.addAutocompleteFeature(originRouteInputMapMobile, routeOriginChanged);
+                MapService.addAutocompleteFeature(destinationRouteInputMapMobile, routeDestinationChanged);
 
                 initializedFields = true;
             }

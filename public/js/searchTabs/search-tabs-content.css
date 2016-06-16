@@ -154,10 +154,16 @@
     padding-left: 0px !important;
 }
 
+
 .current-location-tip-map {
     display: inline-block;
     padding-left: 15px !important;
 }
+
+.place-origin-input-width{
+    width: 240px !important;
+}
+
 
 md-tabs-content-wrapper {
     top: 0.1px !important;
@@ -177,6 +183,10 @@ md-tabs-canvas {
     .is-desktop{
         display: none;
     }
+
+    .route-map-no-bottom-padding {
+        margin-left: 0px !important;
+    }
 }
 
 @media (min-width: 500px) and (max-width: 992px) {
@@ -190,6 +200,10 @@ md-tabs-canvas {
 
     .is-desktop{
         display: none;
+    }
+
+    .route-map-no-bottom-padding {
+        margin-left: 0px !important;
     }
 
 }
@@ -262,6 +276,10 @@ md-tabs-canvas {
         display: none;
     }
 
+    .route-map-no-bottom-padding {
+        margin-left: 0px !important;
+    }
+
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -314,7 +332,7 @@ md-tabs-canvas {
     }
 
     .is-desktop{
-        display: flex;
+        display: block;
     }
 
 }
@@ -326,7 +344,7 @@ md-tabs-canvas {
     }
 
     .is-desktop{
-        display: flex;
+        display: block;
     }
 }
 
