@@ -47,6 +47,13 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             }
         };
 
+        $scope.doSearchByKeyWord=function(result){
+            if($scope.isMobile){
+                $scope.isSearchFormVisible = !$scope.isSearchFormVisible;
+            }
+            $scope.doSearch(result);
+        }
+
 
         $scope.calculateRoute = function () {
             if ($scope.searchedRoute.origin == undefined) {
