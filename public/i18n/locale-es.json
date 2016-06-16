@@ -46,6 +46,10 @@
     "EMAIL_VALIDATION": "Verifique el correo",
     "REQUIRED_FIELD": "campo obligatorio*"
   },
+  "SITE_DETAIL_CONSTANTS": {
+    "DESCRIPTION": "Descripción",
+    "OPENINGHOURS":"Horario de Atención"
+    },
   "REGISTER_SITE_CONSTANTS": {
     "PHOTOS": "Fotos",
     "BUSINESS_PHOTOS_PAGE":"Fotografías de tu negocio",

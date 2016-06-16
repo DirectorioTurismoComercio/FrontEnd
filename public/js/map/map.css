@@ -94,7 +94,7 @@
 #get-there:focus {
     outline: none;
 }
-.detail-site-search-route{
+.site-detail-search-route{
     background-color: #2F6586;
     height: 60px;
     width: 100%;
@@ -107,7 +107,7 @@
     
 }
 
-.detail-site-search-route .back-button {
+.site-detail-search-route .back-button {
     padding: 0;
     cursor: pointer;
     padding-left: 4%;   
@@ -115,7 +115,7 @@
     
 }
 
-.detail-site-search-route .get-there {
+.site-detail-search-route .get-there {
     padding: 0% 2% 0% 2%;
     cursor: pointer;
     background-color: #32A2D4;
@@ -127,19 +127,51 @@
 
 }
 
-.detail-site-search-route .get-there p {
+.site-detail-search-route .get-there p {
     
     font-weight: bold;
     font-size: 1.3em;
     align-self: flex-end;
 }
 
-.detail-site-search-route .get-there img {
+.site-detail-search-route .get-there img {
     
     height: 15%;
     width: 15%;
     align-self: center;
 }
+.site-detail{
+    padding: 2% 2% 2% 2%;
+
+}
+.site-detail .name{
+    color: #32A2D4;
+    font-weight: bold;
+    font-size: 1.6em;
+
+}
+.site-detail .location{
+    color: #2D3C4D;
+    font-size: 1.1em;
+    font-weight: bold;
+
+}
+.site-detail .dark-text{
+    color: #2D3C4D;
+
+}
+.site-detail .light-text{
+    color: #32A2D4;
+}
+.site-detail .item{
+    padding-top: 1%;
+}
+
+.site-detail img{
+    height: 5%;
+    width: 5%;
+}
+
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {

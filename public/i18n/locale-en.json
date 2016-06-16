@@ -45,7 +45,11 @@
     "PASSWORD": "Password",
     "EMAIL_VALIDATION": "Verifique el correo",
     "REQUIRED_FIELD": "Required field*"
-  },
+  },  
+    "SITE_DETAIL_CONSTANTS": {
+    "DESCRIPTION": "Description",
+    "OPENINGHOURS":"Opening hours"
+    },
   "REGISTER_SITE_CONSTANTS": {
     "PHOTOS": "Photos",
     "BUSINESS_PHOTOS_PAGE":"Your Business photos",

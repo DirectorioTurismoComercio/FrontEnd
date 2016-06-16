@@ -5,7 +5,7 @@
                           ng-show="loading"></md-progress-circular>
 
     <div class="col-md-6 no-padding">
-        <div ng-show="isShowingSiteDetail" class="detail-site-search-route">
+        <div ng-show="isShowingSiteDetail" class="site-detail-search-route">
                 
                 <div ng-click="hideSiteDetail()" class="back-button">
                 <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
@@ -72,8 +72,6 @@
             </div>
 
             <div ng-show="isShowingSiteDetail">
-                
-                <a href="" ng-click="hideSiteDetail()">Volver a lista de sitios</a>
                <div class="row">
                 <carousel images="selectedSite.fotos">
                    
@@ -83,17 +81,39 @@
                 </div>
            
                 <div class="row">
-                    <div class="text col-md-8">
-                        <h1 class="title">%%selectedSite.nombre%%</h1>
-                        <p clamp="3" class="desc">%%selectedSite.descripcion%%</p>
+                    <div class="site-detail col-md-12">
+                        <h1 class="name">%%selectedSite.nombre%%</h1>
+                        <h2 class="location">%%selectedSite.municipio.nombre%%</h2>
+                        <div class="item">
+                            <img src="./images/icons/site-detail/descripcion.png">
+                            <span class="light-text" translate="SITE_DETAIL_CONSTANTS.DESCRIPTION"></span>
+                            <p class="dark-text">%%selectedSite.descripcion%%</p>
+                        </div>    
+                        <div class="item">
+                            <img src="./images/icons/site-detail/horario.png">
+                            <span class="light-text" translate="SITE_DETAIL_CONSTANTS.OPENINGHOURS"></span>
+                            <p class="dark-text">%%selectedSite.horariolocal%%</p>
+                        </div>
+                        <div class="item">
+                            <img src="./images/icons/site-detail/direccion.png">
+                            <span class="dark-text">%%selectedSite.ubicacionlocal%%</span>
+                        </div>
+                        <div class="item">
+                            <img src="./images/icons/site-detail/telefono.png">
+                            <span class="dark-text">%%selectedSite.telefono%%</span>
+                        </div>
+                        <div class="item">
+                            <img src="./images/icons/site-detail/whatsapp.png">
+                            <span class="dark-text">%%selectedSite.whatsapp%%</span>
+                        </div>    
+                        <div class="item">
+                            <img src="./images/icons/site-detail/web.png">
+                            <span class="light-text">%%selectedSite.web%%</span>
+                        </div>    
                     </div>
 
                 </div>
-                <div class="row item">
-                    <div class="text col-md-4 image">
-                        <img ng-src="%%(selectedSite.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%" class="img-rounded"/>
-                    </div>
-                </div>
+                
             </div>
 
 
