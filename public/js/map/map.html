@@ -5,7 +5,17 @@
                           ng-show="loading"></md-progress-circular>
 
     <div class="col-md-6 no-padding">
-        <div ng-show="isShowingSiteDetail" class="detail-site-search-route"></div>
+        <div ng-show="isShowingSiteDetail" class="detail-site-search-route">
+                
+                <div ng-click="hideSiteDetail()" class="back-button">
+                <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+                </div>
+                <div class="get-there"  ng-click="showRouteToSite(site)" class="search-button">
+                        <p translate="HOW_TO_GET_THERE"></p>
+                        <img class="icon" src="./images/icons/arma-tu-ruta.png">
+                 </div>
+                 
+        </div>
         <div ng-show="!isShowingSiteDetail">
         <search-tabs isonmap="true" result="result"  do-search="doSearch(result)" show-route="showRoute()"></search-tabs>
         <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode">
