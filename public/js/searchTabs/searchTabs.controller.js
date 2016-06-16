@@ -54,13 +54,15 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             } else if ($scope.searchedRoute.destination == undefined) {
                 messageService.showErrorMessage("ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION");
             } else {
+                if($scope.isMobile){
+                    $scope.isRouteFormVisible = !$scope.isRouteFormVisible;
+                }
                 $scope.showRoute();
             }
         };
 
         function getViewPortSize(){
             $scope.isMobile=$window.innerWidth<992;
-            console.log("es mobil", $scope.isMobile);
         }
 
         function initRouteSearchAutocomplete() {
