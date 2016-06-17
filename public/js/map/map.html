@@ -89,7 +89,7 @@
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.DESCRIPTION"></span>
                             <p class="dark-text">%%selectedSite.descripcion%%</p>
                         </div>    
-                        <div class="item">
+                        <div ng-show="selectedSite.horariolocal!==''" class="item">
                             <img src="./images/icons/site-detail/horario.png">
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.OPENINGHOURS"></span>
                             <p class="dark-text">%%selectedSite.horariolocal%%</p>
@@ -98,15 +98,15 @@
                             <img src="./images/icons/site-detail/direccion.png">
                             <span class="dark-text">%%selectedSite.ubicacionlocal%%</span>
                         </div>
-                        <div class="item">
+                        <div ng-show="selectedSite.telefono!==''" class="item">
                             <img src="./images/icons/site-detail/telefono.png">
                             <span class="dark-text">%%selectedSite.telefono%%</span>
                         </div>
-                        <div class="item">
+                        <div ng-show="selectedSite.whatsapp!==''" class="item">
                             <img src="./images/icons/site-detail/whatsapp.png">
                             <span class="dark-text">%%selectedSite.whatsapp%%</span>
                         </div>    
-                        <div class="item">
+                        <div ng-show="selectedSite.web!==''" class="item">
                             <img src="./images/icons/site-detail/web.png">
                             <span class="light-text">%%selectedSite.web%%</span>
                         </div>    
