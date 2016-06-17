@@ -95,10 +95,6 @@ angular.module('map')
             if (result != undefined) {
                 $scope.hideSiteDetail();
                 $scope.loading = true;
-                var selectedTown = siteAndTownSaverService.getCurrentSearchedTown();
-                if (selectedTown != undefined) {
-                    centerMap(selectedTown);
-                }
                 drawSitesByKeyWord(result);
             }
             else {
@@ -174,7 +170,10 @@ angular.module('map')
         function showFoundPlaces() {
             var sites = SearchForResultsFactory.getResults();
             $scope.foundSites = sites;
-
+            var selectedTown = siteAndTownSaverService.getCurrentSearchedTown();
+            if (selectedTown != undefined) {
+                centerMap(selectedTown);
+            }
             if (sites != undefined) {
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
