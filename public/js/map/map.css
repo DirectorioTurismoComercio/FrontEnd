@@ -171,7 +171,14 @@
     height: 5%;
     width: 5%;
 }
-
+.dialog-window-photos{
+    
+}
+.dialog-window-photos .close-button{
+    margin-left: 80%;
+    width: 20px;
+    height: 20px;
+}
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {

@@ -1,0 +1,31 @@
+
+<div class="wrapper">
+            <h1>Connected Carousels Drective</h1>
+            
+            <p>This example shows how to connect two carousels together so that one carousels acts as a navigation for the other.</p>
+            
+            <div class="connected-carousels">
+                <div class="stage">
+                    <div class="carousel carousel-stage">
+                        <ul>
+                             <li ng-repeat="img in images"><img src="%%img.URLfoto%%" width="600" height="400" alt=""></li> 
+                        </ul>
+                    </div>
+                    <p class="photo-credits">
+                        
+                    </p>
+                    <a href="javascript:void(0)" class="prev prev-stage"><span>&lsaquo;</span></a>
+                    <a href="javascript:void(0)" class="next next-stage"><span>&rsaquo;</span></a>
+                </div>
+
+                <div class="navigation">
+                    <a href="javascript:void(0)" class="prev prev-navigation">&lsaquo;</a>
+                    <a href="javascript:void(0)" class="next next-navigation">&rsaquo;</a>
+                    <div class="carousel carousel-navigation">
+                        <ul>
+                             <li ng-repeat="img in images"><img src="%%img.URLfoto%%" width="50" height="50" alt=""></li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+</div>

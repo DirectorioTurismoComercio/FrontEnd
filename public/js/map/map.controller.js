@@ -2,7 +2,7 @@
 
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory,
-                                           MapService, SiteMarkerService, $location, messageService, $timeout,
+                                           MapService, ngDialog, SiteMarkerService, $location, messageService, $timeout,
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS) {
         var userPosition = {};
         $scope.selectedSite = null;
@@ -197,5 +197,20 @@ angular.module('map')
         $scope.showResultListHorizontally = function () {
             return $scope.isMobileDevice() && $scope.resulListInCompactMode;
         };
+        $scope.openDialogWindowPhotos = function () {
+   
+             ngDialog.open({
+                        template: 'js/map/dialogWindowPhotos.html',
+                        width: 'auto',
+                        showClose: false,
+                        scope: $scope,
+                        closeByEscape: false,
+                        closeByDocument: false
+                    });
+        }
+        $scope.closeDialogWindowPhotos = function() {
+               console.log("closeDialogWindowPhotos");
+               ngDialog.close();
+        }
     })
 ;

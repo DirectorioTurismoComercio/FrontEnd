@@ -5,7 +5,8 @@ angular.module('map')
         replace: true,
         transclude: false,
         scope:{
-                images:'='
+                images:'=',
+                imageClickEvent:'&'
             },
         templateUrl: 'js/custom_components/carousel/carousel.html',
         link: function link(scope, element, attrs) {
