@@ -101,22 +101,18 @@
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
 
-            <div class="row businessAddressText  col-xs-12">
-                    <span class="texto-oscuro-business"
-                          translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT"></span><span
-                    class="texto-claro-business"
-                    translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT_EXAMPLE"></span>
-            </div>
-
             <div class="input topMarginElements col-xs-12">
                         <textarea placeholder="Regular Placeholder" translate
                                   translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"
                                   class="form-control businessAddressInput businessAddressText"
                                   name="businessOpeningHours" ng-model="$parent.openingHours"></textarea>
             </div>
-
-            <div class="row businessAddressText col-xs-12">
-                <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY_TEXT"></span>
+            <div class="row businessAddressText  col-xs-12">
+                    <span class="texto-oscuro-business"
+                          translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT"> </span>
+                <span
+                    class="texto-claro-business"
+                    translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT_EXAMPLE"></span>
             </div>
 
             <div class="topMarginElements col-xs-12">
@@ -133,9 +129,9 @@
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
-            <div class="row businessAddressText topMarginElements col-xs-12">
-                <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT"></span><span
-                    class="texto-claro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT_EXAMPLE"></span>
+
+            <div class="row businessAddressText col-xs-12">
+                <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY_TEXT"></span>
             </div>
 
             <div class="topMarginElements col-xs-12">
@@ -144,6 +140,12 @@
                 </tags-input>
 
             </div>
+
+            <div class="row businessAddressText col-xs-12">
+                <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT"></span> <span
+                    class="texto-claro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT_EXAMPLE"></span>
+            </div>
+
             <div class=" next-button NextButtonRegister topMarginElements col-xs-12">
                 <button class="button"
                         ng-click="changeView('location','form')" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>

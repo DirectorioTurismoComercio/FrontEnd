@@ -63,7 +63,7 @@
     "BUSINESS_PHONE": "Teléfono",
     "BUSINESS_OPENINGHOURS": "Horario de atención",
     "BUSINESS_OPENINGHOURS_TEXT": "Escribe los dias y horarios de atención de tu negocio. Ejemplo: ",
-    "BUSINESS_OPENINGHOURS_TEXT_EXAMPLE": "Lunes a viernes, 8:00 am a 6:00 pm, Sábado 10:00 am a 5:00pm",
+    "BUSINESS_OPENINGHOURS_TEXT_EXAMPLE": " Lunes a viernes, 8:00 am a 6:00 pm, Sábado 10:00 am a 5:00pm",
     "BUSINESS_INFORMATION": "Información de tu negocio",
     "BUSINESS_INFORMATION_CONFIRMATION_PAGE": "Información del negocio",
     "BUSINESS_DESCRIPTION_CONFIRMATION_PAGE":"Descripción",
