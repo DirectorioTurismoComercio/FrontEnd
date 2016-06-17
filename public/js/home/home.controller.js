@@ -35,7 +35,7 @@ angular.module('home')
                     messageService.showErrorMessage("No se han encontrado resultados");
                 }
             }).catch(function (error) {
-                console.log("ocurrio un error", error);
+                messageService.showErrorMessage("GET_SITES_ERROR");
             });
         }
     })

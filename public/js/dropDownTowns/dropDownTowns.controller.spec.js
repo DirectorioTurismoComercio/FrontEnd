@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: dropDownTownsController', function () {
-    var dropDownTownsController, $scope, deferred, testsiteAndTownSaverService, testtranslate;
+    var dropDownTownsController, $scope, deferred, testsiteAndTownSaverService, testtranslate, testmessageService;
     var response = [
         {
             "id": 1,
@@ -33,21 +33,23 @@ describe('Controller: dropDownTownsController', function () {
 
     }));
 
-    beforeEach(inject(function ($controller, $rootScope, $q, siteAndTownSaverService, MunicipiosFactory, $translate) {
+    beforeEach(inject(function ($controller, $rootScope, $q, siteAndTownSaverService, MunicipiosFactory, $translate, messageService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         testsiteAndTownSaverService = siteAndTownSaverService;
+        testmessageService=messageService;
         testtranslate = $translate;
 
         spyOn(MunicipiosFactory, 'getTowns').and.returnValue(deferred.promise);
-
+        spyOn(testmessageService, 'showErrorMessage');
         spyOn(testsiteAndTownSaverService, 'setCurrentSearchedTown');
 
         dropDownTownsController = $controller('dropDownTownsController', {
             $scope: $scope,
             MunicipiosFactory: MunicipiosFactory,
             siteAndTownSaverService: testsiteAndTownSaverService,
-            $translate: testtranslate
+            $translate: testtranslate,
+            messageService:testmessageService
         });
     }));
 
@@ -113,5 +115,6 @@ describe('Controller: dropDownTownsController', function () {
         deferred.reject();
         $scope.municipios = response;
         $scope.$apply();
+        expect(testmessageService.showErrorMessage).toHaveBeenCalled();
     });
 });

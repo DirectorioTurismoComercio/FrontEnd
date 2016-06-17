@@ -76,6 +76,7 @@ describe('Controller: HomeController', function () {
         $scope.doSearch('casa');
         deferred.reject();
         $scope.$apply();
+        expect(testmessageService.showErrorMessage).toHaveBeenCalled();
     });
 
     it('Should clear routes before making a keyword search', function () {

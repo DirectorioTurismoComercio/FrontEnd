@@ -1,5 +1,5 @@
 angular.module('dropDownTowns', [])
-    .controller('dropDownTownsController', function ($scope, MunicipiosFactory, siteAndTownSaverService, $translate, $rootScope) {
+    .controller('dropDownTownsController', function ($scope, MunicipiosFactory, siteAndTownSaverService, $translate, $rootScope,messageService) {
 
 
         $scope.selectTown = function (index) {
@@ -12,7 +12,7 @@ angular.module('dropDownTowns', [])
             $scope.isonregistersite != true ? setFirstOption('Todo Cundinamarca','All Cundinamarca') : setFirstOption('Seleccione municipio','Seleccione municipio');
             setSelectlabelTownShowed();
         }).catch(function (error) {
-            console.log("Ocurrio un error", error);
+            messageService.showErrorMessage("GET_TOWNS_ERROR");
         });
 
         $rootScope.$on('$translateChangeSuccess', function () {

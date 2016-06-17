@@ -108,5 +108,9 @@
   "MY_POSITION": "My position",
   "SUCCESS_TITLE_MESSAGE": "Success",
   "REGISTER_COMPLETE": "your site registration is done",
-  "HOW_TO_GET_THERE": "¿How to get there?"
+  "HOW_TO_GET_THERE": "¿How to get there?",
+  "GET_SITES_ERROR":"The search option is unavailable in this moment. Please reload the page",
+  "GET_TOWNS_ERROR":"The towns list is unavailable in this moment. Please reload the page"
+
+
 }
