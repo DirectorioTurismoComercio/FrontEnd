@@ -159,6 +159,7 @@ angular.module('map')
                     showFoundPlaces();
                     $scope.loading = false;
                 } else {
+                    $scope.foundSites=0;
                     messageService.showErrorMessage("No se han encontrado resultados");
                     $scope.loading = false;
                 }
