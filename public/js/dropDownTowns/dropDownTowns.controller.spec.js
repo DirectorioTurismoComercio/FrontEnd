@@ -2,7 +2,7 @@
 
 describe('Controller: dropDownTownsController', function () {
     var dropDownTownsController, $scope, deferred, testsiteAndTownSaverService, testtranslate;
-    var response=[
+    var response = [
         {
             "id": 1,
             "nombre": "Bogotá",
@@ -33,11 +33,11 @@ describe('Controller: dropDownTownsController', function () {
 
     }));
 
-    beforeEach(inject(function ($controller, $rootScope, $q,siteAndTownSaverService, MunicipiosFactory, $translate) {
+    beforeEach(inject(function ($controller, $rootScope, $q, siteAndTownSaverService, MunicipiosFactory, $translate) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
-        testsiteAndTownSaverService=siteAndTownSaverService;
-        testtranslate=$translate;
+        testsiteAndTownSaverService = siteAndTownSaverService;
+        testtranslate = $translate;
 
         spyOn(MunicipiosFactory, 'getTowns').and.returnValue(deferred.promise);
 
@@ -45,37 +45,37 @@ describe('Controller: dropDownTownsController', function () {
 
         dropDownTownsController = $controller('dropDownTownsController', {
             $scope: $scope,
-            MunicipiosFactory:MunicipiosFactory,
-            siteAndTownSaverService:testsiteAndTownSaverService,
-            $translate:testtranslate
+            MunicipiosFactory: MunicipiosFactory,
+            siteAndTownSaverService: testsiteAndTownSaverService,
+            $translate: testtranslate
         });
     }));
 
-    function setMunicipiosOnSearchTab (){
-        $scope.isonregistersite=false;
+    function setMunicipiosOnSearchTab() {
+        $scope.isonregistersite = false;
         deferred.resolve(response);
         $scope.$apply();
-        $scope.municipios=response;
+        $scope.municipios = response;
     }
 
-    it('should set Todo Cundinamarca in first place if page is in spanish language and is in searchTab', function(){
+    it('should set Todo Cundinamarca in first place if page is in spanish language and is in searchTab', function () {
         spyOn(testtranslate, 'use').and.returnValue('es');
         setMunicipiosOnSearchTab();
         expect($scope.municipios[0].nombre).toBe('Todo Cundinamarca');
     });
 
-    it('should set All Cundinamarca in first place if page is in english language and is in searchTab', function(){
+    it('should set All Cundinamarca in first place if page is in english language and is in searchTab', function () {
         spyOn(testtranslate, 'use').and.returnValue('en');
         setMunicipiosOnSearchTab();
         expect($scope.municipios[0].nombre).toBe('All Cundinamarca');
     });
 
-    it('Should set Seleccione municipio in first place if is on registersite', function(){
+    it('Should set Seleccione municipio in first place if is on registersite', function () {
         spyOn(testtranslate, 'use').and.returnValue('es');
-        $scope.isonregistersite=true;
+        $scope.isonregistersite = true;
         deferred.resolve(response);
         $scope.$apply();
-        $scope.municipios=response;
+        $scope.municipios = response;
         expect($scope.municipios[0].nombre).toBe('Seleccione municipio');
     });
 
@@ -107,5 +107,11 @@ describe('Controller: dropDownTownsController', function () {
         $scope.$apply();
         testsiteAndTownSaverService.getCurrentSearchedTown(null);
         expect($scope.selectedTown).toBe('Todo Cundinamarca');
+    });
+
+    it('Should catch error if cant get towns', function () {
+        deferred.reject();
+        $scope.municipios = response;
+        $scope.$apply();
     });
 });

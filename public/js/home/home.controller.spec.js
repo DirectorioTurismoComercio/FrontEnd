@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: HomeController', function () {
-    var homeController, $scope, deferred, location, testsiteAndTownSaverService, testpopErrorAlertService, MapServiceTest;
+    var homeController, $scope, deferred, location, testsiteAndTownSaverService, testmessageService, MapServiceTest;
 
     beforeEach(module('gemStore'));
     beforeEach(module('home'));
@@ -27,12 +27,12 @@ describe('Controller: HomeController', function () {
         deferred = $q.defer();
         location = $location;
         testsiteAndTownSaverService=siteAndTownSaverService;
-        testpopErrorAlertService=messageService;
+        testmessageService=messageService;
         MapServiceTest=MapService;
 
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
-        spyOn(testpopErrorAlertService, 'showErrorMessage');
+        spyOn(testmessageService, 'showErrorMessage');
         spyOn(location, 'path');
         spyOn(testsiteAndTownSaverService, 'setCurrentSearchedSite');
         spyOn(testsiteAndTownSaverService, 'resetSearchAndRoute');
@@ -58,11 +58,24 @@ describe('Controller: HomeController', function () {
         expect(location.path).toHaveBeenCalled();
     });
 
-    it('Should show error message if search has zero results', function () {
+    it('Should show error message if search input has no keyword', function () {
         $scope.doSearch();
         deferred.resolve([]);
         $scope.$apply();
-        expect(testpopErrorAlertService.showErrorMessage).toHaveBeenCalled();
+        expect(testmessageService.showErrorMessage).toHaveBeenCalled();
+    });
+
+    it('Should show error message if search has zero results', function () {
+        $scope.doSearch('casa');
+        deferred.resolve([]);
+        $scope.$apply();
+        expect(testmessageService.showErrorMessage).toHaveBeenCalled();
+    });
+
+    it('Should show catch error if has no response', function () {
+        $scope.doSearch('casa');
+        deferred.reject();
+        $scope.$apply();
     });
 
     it('Should clear routes before making a keyword search', function () {
@@ -89,6 +102,12 @@ describe('Controller: HomeController', function () {
         $scope.doSearch();
         deferred.resolve(['Repuesta']);
         $scope.$apply();
-        expect(testpopErrorAlertService.showErrorMessage).toHaveBeenCalled();
+        expect(testmessageService.showErrorMessage).toHaveBeenCalled();
     });
+
+    it('Should go to map to show the route', function () {
+        $scope.showRoute();
+        expect(location.path).toHaveBeenCalled();
+    });
+
 });

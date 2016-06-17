@@ -85,4 +85,12 @@ describe('siteAndTownSaver Service', function () {
         expect(siteAndTownSaverService.getOrigin()).toBe(undefined);
         expect(siteAndTownSaverService.getDestination()).toBe(undefined);
     });
+
+    it('should reset Searched Query and route', function () {
+        siteAndTownSaverService.setSearchedQuery('query','town');
+        siteAndTownSaverService.setSearchedRoute('query','town');
+        siteAndTownSaverService.resetSearch();
+        expect(siteAndTownSaverService.getSearchedQuery()).toBe(undefined);
+        expect(siteAndTownSaverService.getSearchedRoute()).toBe(undefined);
+    });
 });
