@@ -154,8 +154,8 @@ angular.module('map')
 
         function drawSitesByKeyWord(result) {
             SearchForResultsFactory.doSearch(result).then(function (response) {
+                SiteMarkerService.deleteMarkers();
                 if (response.length > 0) {
-                    SiteMarkerService.deleteMarkers();
                     showFoundPlaces();
                     $scope.loading = false;
                 } else {
