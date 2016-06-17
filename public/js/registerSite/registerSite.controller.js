@@ -22,15 +22,6 @@ angular.module('registerSite')
         $scope.flowFacadePhotos = {};
         $scope.flowInsidePhotos = {};
         $scope.flowProductsPhotos = {};
-        $scope.map = {
-            center: {latitude: 4.6363623, longitude: -74.0854427}, control: {}, zoom: 9,
-            events: {
-                click: function (mapModel, eventName, originalEventArgs) {
-                    getClickedPositionCoordinates(originalEventArgs);
-                    $scope.$apply();
-                },
-            }
-        };
 
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
@@ -48,13 +39,17 @@ angular.module('registerSite')
 
         MunicipiosFactory.getTowns().then(function (response) {
             $scope.municipalities = response;
+            centerMapOnSelectedTown();
         }).catch(function (error) {
             console.log("Ocurrio un error", error);
         });
 
         uiGmapIsReady.promise().then(function (map_instances) {
             MapService.setGMap(map_instances[0].map);
+            var townPosition = MapService.coordsToLatLngLiteral(parseFloat( $scope.municipalities[$scope.businessMunicipality].latitud), parseFloat($scope.municipalities[$scope.businessMunicipality].longitud));
+            MapService.moveMapToPosition(townPosition, 12);
         });
+
 
         $scope.register = function () {
             if ($scope.registerSiteForm.$valid) {
@@ -99,6 +94,24 @@ angular.module('registerSite')
         $scope.doneRegistration = function () {
             ngDialog.close();
             $location.path('home');
+        }
+
+
+        function centerMapOnSelectedTown(){
+            try {
+                $scope.map = {
+                    center: {
+                        latitude: $scope.businessMunicipality == undefined ? 4.6363623 : parseFloat($scope.municipalities[$scope.businessMunicipality - 1].latitud),
+                        longitude: $scope.municipalities == undefined ? -74.0854427 : parseFloat($scope.municipalities[$scope.businessMunicipality - 1].longitud)
+                    }, control: {}, zoom: 9,
+                    events: {
+                        click: function (mapModel, eventName, originalEventArgs) {
+                            getClickedPositionCoordinates(originalEventArgs);
+                            $scope.$apply();
+                        },
+                    }
+                };
+            }catch (err){}
         }
 
         function buildSiteFormData() {
