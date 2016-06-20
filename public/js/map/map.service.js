@@ -92,8 +92,8 @@ angular.module('map')
         }
 
         function addMarkerWithCategoryIcon(position, label, categoryId) {
-            var normalIcon = getCategoryIcon(categoryId, false);
-            var lightedIcon = getCategoryIcon(categoryId, true);
+            var normalIcon = getCategoryNormalIcon(categoryId);
+            var lightedIcon = getCategoryLightedIcon(categoryId);
             var marker = addMarker(position, label, normalIcon);
 
             marker.normalIcon = normalIcon;
@@ -102,8 +102,17 @@ angular.module('map')
             return marker;
         }
 
-        function getCategoryIcon(categoryId, lightedIcon) {
-            var iconFolder = lightedIcon ? 'images/icons/categories/lighted/' : 'images/icons/categories/';
+        function getCategoryNormalIcon(categoryId) {
+            var iconFolder = 'images/icons/categories/';
+            return getCategoryIcon(iconFolder, categoryId, 40);
+        }
+
+        function getCategoryLightedIcon(categoryId) {
+            var iconFolder = 'images/icons/categories/lighted/';
+            return getCategoryIcon(iconFolder, categoryId, 50);
+        }
+
+        function getCategoryIcon(iconFolder, categoryId, iconSize) {
             var url = iconFolder;
 
             switch (categoryId) {
@@ -138,14 +147,14 @@ angular.module('map')
                     url = "images/icons/pin-ubicacion-local.png";
             }
 
-            return createIcon(url);
+            return createIcon(url, iconSize);
         }
 
-        function createIcon(iconUrl) {
+        function createIcon(iconUrl, iconSize) {
             return {
                 url: iconUrl,
                 origin: new google.maps.Point(0, 0),
-                scaledSize: new google.maps.Size(40, 40)
+                scaledSize: new google.maps.Size(iconSize, iconSize)
             }
         }
 
