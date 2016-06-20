@@ -1,4 +1,27 @@
-.app-footer {
-    background-color: #0A3C5A;
-    height: 60px;
+.app-footer .img {
+    background: #fff url("../../images/icons/footer/a.Extra-small-device.png") center no-repeat;
+    background-size: auto 227px;
+    height: 247px;
+}
+
+@media (max-width: 767px) {
+}
+
+@media (min-width: 768px) {
+    .app-footer .img {
+        background-image: url("../../images/icons/footer/b.Small-devices.png");
+        background-size: auto 121px;
+        height: 151px;
+    }
+}
+
+@media (min-width: 992px) {
+    .app-footer .img {
+        background-image: url("../../images/icons/footer/c.Medium-large-devices.png");
+        background-size: auto 116px;
+        height: 146px;
+    }
+}
+
+@media (min-width: 1200px) {
 }
