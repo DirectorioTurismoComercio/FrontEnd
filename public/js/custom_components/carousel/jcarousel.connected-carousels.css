@@ -6,7 +6,6 @@
 .connected-carousels .stage {
     width: 620px;
     margin: 20px auto;
-    position: relative;
 }
 
 .connected-carousels .photo-credits {
@@ -100,14 +99,9 @@
     right: 0;
 }
 
-.connected-carousels .prev-stage.inactive,
-.connected-carousels .next-stage.inactive {
-    display: none;
-}
 
 .connected-carousels .prev-stage span,
 .connected-carousels .next-stage span {
-    display: none;
     position: absolute;
     top: 50%;
     width: 30px;
@@ -176,4 +170,26 @@
 .connected-carousels .next-navigation.inactive {
     opacity: .5;
     cursor: default;
+}
+
+
+/* xs devices */
+@media (max-width: 767px) {
+    .arrow-icon{
+        height: 12vmin;
+    }
+}
+
+/* sm devices */
+@media (min-width:768px) {
+    .arrow-icon{
+        height: 12vmin;
+    }
+}
+
+/* md devices */
+@media(min-width:992px){
+    .arrow-icon{
+        height: 4vmin;
+    }
 }
