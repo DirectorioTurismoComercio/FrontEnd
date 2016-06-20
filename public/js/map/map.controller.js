@@ -85,10 +85,6 @@ angular.module('map')
             $scope.$apply();
         };
 
-        $scope.showSiteInOtherView = function (site, index) {
-            //Launch view
-        };
-
         $scope.doSearch = function (result) {
             $scope.resulListInCompactMode = false;
             MapService.clearRoute();
@@ -159,7 +155,7 @@ angular.module('map')
                     showFoundPlaces();
                     $scope.loading = false;
                 } else {
-                    $scope.foundSites=0;
+                    $scope.foundSites = 0;
                     messageService.showErrorMessage("No se han encontrado resultados");
                     $scope.loading = false;
                 }
@@ -198,19 +194,19 @@ angular.module('map')
             return $scope.isMobileDevice() && $scope.resulListInCompactMode;
         };
         $scope.openDialogWindowPhotos = function () {
-   
-             ngDialog.open({
-                        template: 'js/map/dialogWindowPhotos.html',
-                        width: 'auto',
-                        showClose: false,
-                        scope: $scope,
-                        closeByEscape: false,
-                        closeByDocument: false
-                    });
+
+            ngDialog.open({
+                template: 'js/map/dialogWindowPhotos.html',
+                width: 'auto',
+                showClose: false,
+                scope: $scope,
+                closeByEscape: false,
+                closeByDocument: false
+            });
         }
-        $scope.closeDialogWindowPhotos = function() {
-               console.log("closeDialogWindowPhotos");
-               ngDialog.close();
+        $scope.closeDialogWindowPhotos = function () {
+            console.log("closeDialogWindowPhotos");
+            ngDialog.close();
         }
     })
 ;
