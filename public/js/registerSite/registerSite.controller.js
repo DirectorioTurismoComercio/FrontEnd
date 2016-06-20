@@ -158,7 +158,7 @@ angular.module('registerSite')
                     $scope.waitingRegister = false;
                     clearData();
                     ngDialog.open({
-                        template: 'js/map/dialogWindowPhotos.html',
+                        template: 'js/registerSite/completeRegistration.html',
                         width: 'auto',
                         showClose: false,
                         scope: $scope,
