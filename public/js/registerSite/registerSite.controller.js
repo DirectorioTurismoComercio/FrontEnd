@@ -24,13 +24,8 @@ angular.module('registerSite')
         $scope.flowProductsPhotos = {};
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
-        $scope.mainPhotoHasBeenclicked=false;
+        $scope.showMainPhotoRequired=false;
         var joinOfFormatted_address;
-
-
-        $scope.$watch('firstTimeSelectMainPhoto',function(){
-            $scope.mainPhotoHasBeenclicked= true;
-        });
 
         MapService.clearRoute();
 
@@ -53,6 +48,10 @@ angular.module('registerSite')
             var townPosition = MapService.coordsToLatLngLiteral(parseFloat($scope.municipalities[$scope.businessMunicipality].latitud), parseFloat($scope.municipalities[$scope.businessMunicipality].longitud));
             MapService.moveMapToPosition(townPosition, 12);
         });
+
+        $scope.mainPhotoOnClick=function(){
+            $scope.showMainPhotoRequired=false;
+        }
 
 
         $scope.register = function () {
@@ -87,8 +86,13 @@ angular.module('registerSite')
             }
 
             if (logic == 'photos') {
-                buildSitePhotosFormData();
-                $location.path(view);
+                if($scope.flowMainPhoto.flow.files.length!=0){
+                    buildSitePhotosFormData();
+                    $location.path(view);
+                }else{
+                    $scope.showMainPhotoRequired=true;
+                }
+               
             }
 
             if (logic == true) {
