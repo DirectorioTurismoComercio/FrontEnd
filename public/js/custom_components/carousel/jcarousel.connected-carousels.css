@@ -85,7 +85,7 @@
 .connected-carousels .next-stage {
     display: block;
     position: absolute;
-    top: 0;
+    top: 50%;
     width: 305px;
     height: 410px;
     color: #fff;
@@ -93,10 +93,13 @@
 
 .connected-carousels .prev-stage {
     left: 0;
+    padding-left: 20px;
 }
 
 .connected-carousels .next-stage {
     right: 0;
+    width: auto !important;
+    padding-right: 20px;
 }
 
 
@@ -172,6 +175,15 @@
     cursor: default;
 }
 
+.modal-window-photos{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.photos-carousel-container{
+    display: flex;
+    flex-flow: row wrap;
+}
 
 /* xs devices */
 @media (max-width: 767px) {

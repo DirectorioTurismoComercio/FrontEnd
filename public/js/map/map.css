@@ -172,10 +172,12 @@
     width: 5%;
 }
 .dialog-window-photos{
-    
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:center;
 }
 .dialog-window-photos .close-button{
-    margin-left: 80%;
+    margin-left: 96%;
     width: 20px;
     height: 20px;
 }
