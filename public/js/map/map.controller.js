@@ -208,5 +208,15 @@ angular.module('map')
             console.log("closeDialogWindowPhotos");
             ngDialog.close();
         }
+
+        $scope.isEmpty = function (field) {
+            var isEmpty = true;
+
+            if (field) {
+                isEmpty = field.trim().length == 0 || field.trim() == 0;
+            }
+
+            return isEmpty;
+        };
     })
 ;

@@ -6,21 +6,22 @@
 
     <div class="col-md-6 no-padding">
         <div ng-show="isShowingSiteDetail" class="site-detail-search-route">
-                
-                <div ng-click="hideSiteDetail()" class="back-button">
+
+            <div ng-click="hideSiteDetail()" class="back-button">
                 <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
-                </div>
-                <div class="get-there"  ng-click="showRouteToSite(site)" class="search-button">
-                        <p translate="HOW_TO_GET_THERE"></p>
-                        <img class="icon" src="./images/icons/arma-tu-ruta.png">
-                 </div>
-                 
+            </div>
+            <div class="get-there" ng-click="showRouteToSite(site)" class="search-button">
+                <p translate="HOW_TO_GET_THERE"></p>
+                <img class="icon" src="./images/icons/arma-tu-ruta.png">
+            </div>
+
         </div>
         <div ng-show="!isShowingSiteDetail">
-        <search-tabs isonmap="true" result="result"  do-search="doSearch(result)" show-route="showRoute()"></search-tabs>
-        <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode">
-            <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
-        </div>
+            <search-tabs isonmap="true" result="result" do-search="doSearch(result)"
+                         show-route="showRoute()"></search-tabs>
+            <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode">
+                <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
+            </div>
         </div>
         <div class="result-list">
             <div ng-show="foundSites.length > 0 && !isShowingSiteDetail">
@@ -72,14 +73,14 @@
             </div>
 
             <div ng-show="isShowingSiteDetail">
-               <div class="row">
-                <carousel images="selectedSite.fotos" image-click-event="openDialogWindowPhotos()">
-                   
+                <div class="row">
+                    <carousel images="selectedSite.fotos" image-click-event="openDialogWindowPhotos()">
 
-                </carousel> 
-        
+
+                    </carousel>
+
                 </div>
-           
+
                 <div class="row">
                     <div class="site-detail col-md-12">
                         <h1 class="name">%%selectedSite.nombre%%</h1>
@@ -88,8 +89,8 @@
                             <img src="./images/icons/site-detail/descripcion.png">
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.DESCRIPTION"></span>
                             <p class="dark-text">%%selectedSite.descripcion%%</p>
-                        </div>    
-                        <div ng-show="selectedSite.horariolocal!==''" class="item">
+                        </div>
+                        <div ng-show="!isEmpty(selectedSite.horariolocal)" class="item">
                             <img src="./images/icons/site-detail/horario.png">
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.OPENINGHOURS"></span>
                             <p class="dark-text">%%selectedSite.horariolocal%%</p>
@@ -102,18 +103,18 @@
                             <img src="./images/icons/site-detail/telefono.png">
                             <span class="dark-text">%%selectedSite.telefono%%</span>
                         </div>
-                        <div ng-show="selectedSite.whatsapp!==''" class="item">
+                        <div ng-show="!isEmpty(selectedSite.whatsapp)" class="item">
                             <img src="./images/icons/site-detail/whatsapp.png">
                             <span class="dark-text">%%selectedSite.whatsapp%%</span>
-                        </div>    
-                        <div ng-show="selectedSite.web!==''" class="item">
+                        </div>
+                        <div ng-show="!isEmpty(selectedSite.web)" class="item">
                             <img src="./images/icons/site-detail/web.png">
                             <span class="light-text">%%selectedSite.web%%</span>
-                        </div>    
+                        </div>
                     </div>
 
                 </div>
-                
+
             </div>
 
 
