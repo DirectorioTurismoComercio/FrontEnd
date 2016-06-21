@@ -35,6 +35,10 @@
     padding: 5% 3%;
 }
 
+.result-list .no-results {
+    color: #B3B3B3;
+}
+
 .item-separator {
     width: 100%;
     height: 2px;
@@ -94,7 +98,8 @@
 #get-there:focus {
     outline: none;
 }
-.site-detail-search-route{
+
+.site-detail-search-route {
     background-color: #2F6586;
     height: 60px;
     width: 100%;
@@ -103,16 +108,15 @@
     padding-top: 1%;
     padding-bottom: 1%;
     padding-right: 1%;
-    
-    
+
 }
 
 .site-detail-search-route .back-button {
     padding: 0;
     cursor: pointer;
-    padding-left: 4%;   
+    padding-left: 4%;
     align-self: center;
-    
+
 }
 
 .site-detail-search-route .get-there {
@@ -123,60 +127,67 @@
     width: 30%;
     display: flex;
     justify-content: space-between;
-    
 
 }
 
 .site-detail-search-route .get-there p {
-    
+
     font-weight: bold;
     font-size: 1.3em;
     align-self: flex-end;
 }
 
 .site-detail-search-route .get-there img {
-    
+
     height: 15%;
     width: 15%;
     align-self: center;
 }
-.site-detail{
+
+.site-detail {
     padding: 2% 2% 2% 2%;
 
 }
-.site-detail .name{
+
+.site-detail .name {
     color: #32A2D4;
     font-weight: bold;
     font-size: 1.6em;
 
 }
-.site-detail .location{
+
+.site-detail .location {
     color: #2D3C4D;
     font-size: 1.1em;
     font-weight: bold;
 
 }
-.site-detail .dark-text{
+
+.site-detail .dark-text {
     color: #2D3C4D;
 
 }
-.site-detail .light-text{
+
+.site-detail .light-text {
     color: #32A2D4;
 }
-.site-detail .item{
+
+.site-detail .item {
     padding-top: 1%;
 }
 
-.site-detail img{
+.site-detail img {
     height: 5%;
     width: 5%;
 }
-.dialog-window-photos{
+
+.dialog-window-photos {
     display: flex;
     flex-flow: row wrap;
-    justify-content:center;
+    justify-content: center;
 }
-.dialog-window-photos .close-button{
+
+.dialog-window-photos .close-button {
     margin-left: 96%;
     width: 20px;
     height: 20px;
@@ -218,6 +229,10 @@
         border-radius: 15px 15px 15px 15px;
         -moz-border-radius: 15px 15px 15px 15px;
         -webkit-border-radius: 15px 15px 15px 15px;
+    }
+
+    .result-list .no-results {
+        font-size: 1.5em;
     }
 }
 

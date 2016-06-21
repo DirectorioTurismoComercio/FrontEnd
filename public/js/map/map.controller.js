@@ -9,6 +9,7 @@ angular.module('map')
         $scope.isShowingSiteDetail = false;
         $scope.loading = false;
         $scope.foundSites = [];
+        $scope.noResults = false;
         $scope.map = {
             center: {
                 latitude: siteAndTownSaverService.getCurrentSearchedTown() == undefined ? 4.6363623 : parseFloat(siteAndTownSaverService.getCurrentSearchedTown().latitud),
@@ -151,6 +152,8 @@ angular.module('map')
         function drawSitesByKeyWord(result) {
             SearchForResultsFactory.doSearch(result).then(function (response) {
                 SiteMarkerService.deleteMarkers();
+                $scope.noResults = response.length == 0;
+
                 if (response.length > 0) {
                     showFoundPlaces();
                     $scope.loading = false;

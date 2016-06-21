@@ -24,6 +24,9 @@
             </div>
         </div>
         <div class="result-list">
+            <div ng-if="noResults" class="center-block text-center">
+                <h4 class="no-results" translate="NO_RESULTS"></h4>
+            </div>
             <div ng-show="foundSites.length > 0 && !isShowingSiteDetail">
                 <div ng-if="!showResultListHorizontally()"
                      ng-repeat="site in foundSites"
