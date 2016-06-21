@@ -22,11 +22,15 @@ angular.module('registerSite')
         $scope.flowFacadePhotos = {};
         $scope.flowInsidePhotos = {};
         $scope.flowProductsPhotos = {};
-
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
-
+        $scope.mainPhotoHasBeenclicked=false;
         var joinOfFormatted_address;
+
+
+        $scope.$watch('firstTimeSelectMainPhoto',function(){
+            $scope.mainPhotoHasBeenclicked= true;
+        });
 
         MapService.clearRoute();
 
@@ -72,6 +76,7 @@ angular.module('registerSite')
         }
 
         $scope.changeView = function (view, logic) {
+            console.log("la foto principal", $scope.flowMainPhoto);
             if (logic == 'form') {
                 if ($scope.registerSiteForm.$valid) {
                     saveSiteInformation();
@@ -87,6 +92,7 @@ angular.module('registerSite')
             }
 
             if (logic == true) {
+                saveSiteInformation();
                 $location.path(view);
             }
         };
