@@ -191,12 +191,18 @@ angular.module('registerSite')
         }
 
         function getClickedPositionTown() {
-            $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + $scope.businessLocation.lat + ',' + $scope.businessLocation.lng + '&sensor=true')
+            $http({
+                method: 'GET',
+                url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + $scope.businessLocation.lat + ',' + $scope.businessLocation.lng + '&sensor=true',
+                skipAuthorization: true  // `Authorization: Bearer <token>` will not be sent on this request.
+            })
                 .success(function (response) {
                     joinOfFormatted_address = response.results[0].formatted_address + response.results[1].formatted_address;
                     MapService.clearMarkers();
                     drawMarkerIfIsInsideBoundaries();
-                });
+                }).error(function (error) {
+                console.log("paso algo", error);
+            });
         }
 
         function drawMarkerIfIsInsideBoundaries() {
