@@ -46,7 +46,7 @@ angular.module('registerSite')
 
         uiGmapIsReady.promise().then(function (map_instances) {
             MapService.setGMap(map_instances[0].map);
-            var townPosition = MapService.coordsToLatLngLiteral(parseFloat( $scope.municipalities[$scope.businessMunicipality].latitud), parseFloat($scope.municipalities[$scope.businessMunicipality].longitud));
+            var townPosition = MapService.coordsToLatLngLiteral(parseFloat($scope.municipalities[$scope.businessMunicipality].latitud), parseFloat($scope.municipalities[$scope.businessMunicipality].longitud));
             MapService.moveMapToPosition(townPosition, 12);
         });
 
@@ -97,7 +97,7 @@ angular.module('registerSite')
         }
 
 
-        function centerMapOnSelectedTown(){
+        function centerMapOnSelectedTown() {
             try {
                 $scope.map = {
                     center: {
@@ -111,7 +111,8 @@ angular.module('registerSite')
                         },
                     }
                 };
-            }catch (err){}
+            } catch (err) {
+            }
         }
 
         function buildSiteFormData() {
@@ -123,11 +124,13 @@ angular.module('registerSite')
             fd.append('descripcion', $scope.businessDescription);
             fd.append('municipio_id', $scope.businessMunicipality);
             fd.append('telefono', $scope.sitePhoneNumber);
-            fd.append('horariolocal', $scope.openingHours);
+            fd.append('horariolocal', $scope.openingHours || "");
             fd.append('correolocal', $scope.businessEmail);
             fd.append('ubicacionlocal', $scope.businessAddress);
             fd.append('categorias', $scope.businessCategories.category);
             fd.append('usuario', authenticationService.getUser().id);
+            fd.append('web', $scope.web);
+            fd.append('whatsapp', $scope.whatsapp);
 
             try {
                 for (var i = 0; i <= $scope.tags.length - 1; i++) {
