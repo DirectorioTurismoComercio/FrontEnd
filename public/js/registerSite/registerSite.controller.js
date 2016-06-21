@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('registerSite')
-    .controller('registerSiteController', function ($scope, $http, MapService, uiGmapIsReady, messageService,
+    .controller('registerSiteController', function ($scope, $auth, $http, MapService, uiGmapIsReady, messageService,
                                                     API_CONFIG, categories,
                                                     $location, MunicipiosFactory, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog) {
 
@@ -93,7 +93,11 @@ angular.module('registerSite')
 
         $scope.doneRegistration = function () {
             ngDialog.close();
-            $location.path('home');
+            $auth.logout();
+            authenticationService.logout().then(function(){
+                $location.path('home');
+            });
+
         }
 
 
@@ -160,6 +164,7 @@ angular.module('registerSite')
                     siteAndTownSaverService.setCurrentSearchedTown(undefined);
                     $scope.waitingRegister = false;
                     clearData();
+
                     ngDialog.open({
                         template: 'js/registerSite/completeRegistration.html',
                         width: 'auto',

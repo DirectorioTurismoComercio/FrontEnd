@@ -8,7 +8,6 @@ angular.module('registerTrader')
         $scope.traderLastName=undefined;
         $scope.traderEmail=undefined;
         $scope.traderPassword;
-        authenticationService.logout();
         $scope.usuario.nombres=undefined;
 
 
