@@ -75,7 +75,6 @@ angular.module('registerSite')
         }
 
         $scope.changeView = function (view, logic) {
-            console.log("la foto principal", $scope.flowMainPhoto);
             if (logic == 'form') {
                 if ($scope.registerSiteForm.$valid) {
                     saveSiteInformation();
@@ -216,7 +215,7 @@ angular.module('registerSite')
                     MapService.clearMarkers();
                     drawMarkerIfIsInsideBoundaries();
                 }).error(function (error) {
-                console.log("paso algo", error);
+                console.log("error", error);
             });
         }
 
