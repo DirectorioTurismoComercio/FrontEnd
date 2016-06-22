@@ -2,6 +2,20 @@
     height: 100%;
 }
 
+.photo-asterisk{
+    position: inherit;
+}
+
+.topMarginmainPhotolabel{
+    margin-top: 6% !important;
+}
+
+.title-main-photo-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
 .PhotosFormPadding{
     margin-bottom: 2%;
 }

@@ -17,17 +17,22 @@
             <li></li>
         </ul>
 
+
         <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
                translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO_TIP"></label>
 
         <div class="mainPhotoContainer">
-            <label class="topMarginElements texto-claroBusinessLocation"
-                   translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO"></label>
+            <div class="title-main-photo-container">
+                <i ng-show="flowMainPhoto.flow.files.length==0"
+                        class="form-control-feedback photo-asterisk  glyphicon glyphicon-asterisk glyphiconStarColor"></i>
+                <label class="topMarginmainPhotolabel texto-claroBusinessLocation"
+                       translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO"></label>
+            </div>
             <div flow-init="{singleFile:true}"
                  flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
                  flow-name="flowMainPhoto.flow">
                 <div ng-show="!$flow.files.length">
-                    <img class="btn" ng-show="!$flow.files.length" flow-btn
+                    <img class="btn" ng-show="!$flow.files.length" flow-btn ng-click="mainPhotoOnClick()"
                          src="./images/registerIcons/foto-subir.png"/>
                 </div>
                 <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
@@ -36,6 +41,8 @@
                          src="./images/registerIcons/foto-borrar.png">
                 </div>
             </div>
+                    <span ng-show="showMainPhotoRequired"
+                          class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
         </div>
 
         <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"

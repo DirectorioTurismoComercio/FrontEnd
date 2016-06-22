@@ -22,10 +22,9 @@ angular.module('registerSite')
         $scope.flowFacadePhotos = {};
         $scope.flowInsidePhotos = {};
         $scope.flowProductsPhotos = {};
-
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
-
+        $scope.showMainPhotoRequired=false;
         var joinOfFormatted_address;
 
         MapService.clearRoute();
@@ -49,6 +48,10 @@ angular.module('registerSite')
             var townPosition = MapService.coordsToLatLngLiteral(parseFloat($scope.municipalities[$scope.businessMunicipality].latitud), parseFloat($scope.municipalities[$scope.businessMunicipality].longitud));
             MapService.moveMapToPosition(townPosition, 12);
         });
+
+        $scope.mainPhotoOnClick=function(){
+            $scope.showMainPhotoRequired=false;
+        }
 
 
         $scope.register = function () {
@@ -82,11 +85,17 @@ angular.module('registerSite')
             }
 
             if (logic == 'photos') {
-                buildSitePhotosFormData();
-                $location.path(view);
+                if($scope.flowMainPhoto.flow.files.length!=0){
+                    buildSitePhotosFormData();
+                    $location.path(view);
+                }else{
+                    $scope.showMainPhotoRequired=true;
+                }
+               
             }
 
             if (logic == true) {
+                saveSiteInformation();
                 $location.path(view);
             }
         };
@@ -206,7 +215,7 @@ angular.module('registerSite')
                     MapService.clearMarkers();
                     drawMarkerIfIsInsideBoundaries();
                 }).error(function (error) {
-                console.log("paso algo", error);
+                console.log("error", error);
             });
         }
 
