@@ -173,11 +173,6 @@
     padding-top: 1%;
 }
 
-.site-detail img {
-    height: 5%;
-    width: 5%;
-}
-
 .dialog-window-photos {
     display: flex;
     flex-flow: row wrap;
@@ -219,6 +214,11 @@
     .detail-icon{
        height: 8vmin;
     }
+
+    .site-detail img {
+        height: 8vmin;
+        width: 8vmin;
+    }
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -247,12 +247,20 @@
     .detail-icon{
         height: 8vmin;
     }
+    .site-detail img {
+        height: 8vmin;
+        width: 8vmin;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .detail-icon{
         height: 2.5vmin;
+    }
+    .site-detail img {
+        height: 5%;
+        width: 5%;
     }
 }
 
