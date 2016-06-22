@@ -1,10 +1,8 @@
 /** Stage container **/
 
 
-
-
 .connected-carousels .stage {
-    width: 320px;
+    width: 375px;
     margin: 20px auto;
 }
 
@@ -16,10 +14,10 @@
 
 .connected-carousels .carousel-stage {
     height: 400px;
-    background-color: red;
 }
 .connected-carousels .carousel-stage img{
     width: 375px;
+
 }
 
 
@@ -93,9 +91,9 @@
 .connected-carousels .next-stage {
     display: block;
     position: absolute;
-    top: 50%;
+    top: 15%;
     width: 305px;
-    height: 410px;
+    height: 110px;
     color: #fff;
 }
 
@@ -192,24 +190,84 @@
     display: flex;
     flex-flow: row wrap;
 }
+   .arrow-icon{
+        height: 12vmin;
+    }
 
-/* xs devices */
-@media (max-width: 767px) {
+/* sm devices */
+@media (min-width: 600px) {
     .arrow-icon{
         height: 12vmin;
     }
+    .connected-carousels .stage {
+    width: 600px;
+    margin: 20px auto;
+    }
+
+
+    .connected-carousels .navigation {
+    width: 260px;
+    position: relative;
+    }
+
+    .connected-carousels .carousel-stage {
+    height: 400px;
+    }
+    .connected-carousels .carousel-stage img{
+    width: 600px;
+
+    }
+
 }
+
 
 /* sm devices */
 @media (min-width:768px) {
     .arrow-icon{
         height: 12vmin;
     }
+    .connected-carousels .stage {
+    width: 768px;
+    margin: 20px auto;
+    }
+
+
+    .connected-carousels .navigation {
+    width: 260px;
+    position: relative;
+    }
+
+    .connected-carousels .carousel-stage {
+    height: 600px;
+    }
+    .connected-carousels .carousel-stage img{
+    width: 768px;
+    height: 500px;
+    }
+
 }
 
 /* md devices */
 @media(min-width:992px){
     .arrow-icon{
         height: 4vmin;
+    }
+     .connected-carousels .stage {
+    width: 992px;
+    margin: 20px auto;
+    }
+
+
+    .connected-carousels .navigation {
+    width: 260px;
+    position: relative;
+    }
+
+    .connected-carousels .carousel-stage {
+    height: 650px;
+    }
+    .connected-carousels .carousel-stage img{
+    width: 992px;
+    height: 600px;
     }
 }
