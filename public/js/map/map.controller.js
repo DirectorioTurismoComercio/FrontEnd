@@ -7,6 +7,7 @@ angular.module('map')
         var userPosition = {};
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
+        $scope.isOnSitedetails = false;
         $scope.loading = false;
         $scope.foundSites = [];
         $scope.noResults = false;
@@ -23,6 +24,7 @@ angular.module('map')
             routeTo: ''
         };
         $scope.resulListInCompactMode = false;
+
 
         uiGmapIsReady.promise().then(initMap);
 
@@ -64,7 +66,7 @@ angular.module('map')
         $scope.hideSiteDetail = function () {
             SiteMarkerService.clearSelectedMarker();
             $scope.isShowingSiteDetail = false;
-
+            $scope.isOnSitedetails = false;
         };
 
         $scope.clearHighLightedMarker = function (index) {
@@ -82,8 +84,10 @@ angular.module('map')
                 SiteMarkerService.highLightMarkerByIndex(index);
             }
             $scope.isShowingSiteDetail = true;
+            $scope.isOnSitedetails = true;
             $scope.selectedSite = site;
-            $scope.$apply();
+            reloadMap();
+            //$scope.$apply();
         };
 
         $scope.doSearch = function (result) {
