@@ -26,20 +26,20 @@
                     controller: 'SignoutController',
                     templateUrl: 'templates/signout/signout.html',
                 })
-                .when('/auth', {
+                .when('/login', {
                     controller: 'AuthController',
                     templateUrl: 'templates/auth/auth.html',
                 })
-                .when('/auth/changepass', {
+                .when('/login/changepass', {
                     controller: 'ChangePassController',
                     templateUrl: 'templates/auth/changepass.html',
                     required_roles: 'user'
                 })
-                .when('/auth/recovery', {
+                .when('/login/recovery', {
                     controller: 'RecoveryController',
                     templateUrl: 'templates/auth/recoverypass.html',
                 })
-                .when('/auth/forgotpass/:uid/:token', {
+                .when('/login/forgotpass/:uid/:token', {
                     controller: 'ForgotPassController',
                     templateUrl: 'templates/auth/forgotpass.html',
                 })

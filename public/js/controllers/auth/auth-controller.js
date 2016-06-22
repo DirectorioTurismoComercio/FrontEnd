@@ -3,20 +3,8 @@
         .controller('AuthController', ['$scope', 'Constantes', '$location', '$mdDialog', 'navBar',
             'authenticationService', '$auth', '$http', 'API_CONFIG', '$window', '$q', 'registroService',
             function ($scope, Constantes, $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, registroService) {
-                $scope.ruta = Constantes.ruta_imagenes + "botones/";
-                $scope.anterior = $scope.ruta + 'boton-regresar.png';
                 $scope.load = false;
-                $scope.toggleRight = function () {
-                    navBar.open();
-                }
 
-                $scope.close = function () {
-                    navBar.close();
-                }
-
-                $scope.menu_bar = function (view) {
-                    registroService.changeView(view)
-                }
 
                 $scope.login = function () {
                     if ($scope.login.email != undefined && $scope.login.contrasena != undefined) {
@@ -33,8 +21,7 @@
                     }
                 }
 
-                $scope.forgot = function () {
-                    $location.path('/auth/recovery');
+                $scope.forgottenPassword = function () {
                 }
 
 
