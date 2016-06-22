@@ -138,9 +138,6 @@
 }
 
 .site-detail-search-route .get-there img {
-
-    height: 15%;
-    width: 15%;
     align-self: center;
 }
 
@@ -193,6 +190,13 @@
     height: 20px;
 }
 
+.get-there-mobile{
+    width: auto !important;
+}
+
+.detail-icon{
+    margin-left: 10px;
+}
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
@@ -210,6 +214,10 @@
 
     .search-results .icon {
         width: 25px;
+    }
+
+    .detail-icon{
+       height: 8vmin;
     }
 }
 
@@ -235,10 +243,17 @@
     .result-list .no-results {
         font-size: 1.5em;
     }
+
+    .detail-icon{
+        height: 8vmin;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    .detail-icon{
+        height: 2.5vmin;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
