@@ -17,12 +17,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         var originRouteInputMapMobile;
         var destinationRouteInputMapMobile;
 
-        getViewPortSize();
-
-        angular.element($window).bind('orientationchange', function () {
-            $route.reload();
-        });
-
+       
         $timeout(function () {
             $scope.showSelectedSection(siteAndTownSaverService.openSection);
         }, 0);
@@ -76,9 +71,6 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             $scope.doSearch(result);
         }
 
-        function getViewPortSize() {
-            $scope.isMobile = $window.innerWidth < 992;
-        }
 
         function initRouteSearchAutocomplete() {
             if (!initializedFields) {
