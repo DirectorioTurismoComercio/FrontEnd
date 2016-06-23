@@ -109,7 +109,12 @@ angular.module('map')
 
         function getCategoryLightedIcon(categoryId) {
             var iconFolder = 'images/icons/categories/lighted/';
-            return getCategoryIcon(iconFolder, categoryId, 50);
+            if($window.innerWidth < 992){
+                return getCategoryIcon(iconFolder, categoryId, 60);
+            }else{
+                return getCategoryIcon(iconFolder, categoryId, 80);
+            }
+
         }
 
         function getCategoryIcon(iconFolder, categoryId, iconSize) {
