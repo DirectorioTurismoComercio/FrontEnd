@@ -181,12 +181,20 @@
 }
 
 .dialog-window-photos .close-button {
+    width: 100px;
+    height: 100px;
+    padding: 50px 50px 50px 50px;
+    z-index: 10;
     margin-left: 96%;
     margin-top: -2%;
+}
+.dialog-window-photos .close-button img{
+
     width: 20px;
     height: 20px;
     z-index: 10;
 }
+
 
 .get-there-mobile{
     width: auto !important;

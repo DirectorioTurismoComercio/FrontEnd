@@ -1,48 +1,87 @@
-<div class="row">
-    <div class="col-md-12 center-block">
-        <h4 class="text-center" translate="LOGIN.LOGIN_WITH_SOCIAL_NETWORKS"></h4>
-    </div>
-    <div class="col-md-12 text-center">
-        <img src="images/botones/borrar.png"/>
-        <button class="button" ng-click="authenticate('facebook')" translate="LOGIN.LOGIN_WITH_FACEBOOK"/>
-    </div>
-    <div class="col-md-12 text-center">
-        <img src="images/botones/borrar.png"/>
-        <button class="button" ng-click="authenticate('google')" translate="LOGIN.LOGIN_WITH_GOOGLE"/>
-    </div>
+<div class="hidden-xs hidden-sm">
+    <app-header></app-header>
+</div>
 
-    <hr>
-    <div class="col-md-12 center-block">
-        <h4 class="text-center" translate="LOGIN.LOGIN_WITH_ACCOUNT"></h4>
-    </div>
+<div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPort">
+    <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
+        <div class="header container-fluid">
+            
+            <p class="text" translate="LOGIN.TRADER_LOGIN"></p></div>
 
-    <div class="col-md-12 text-center">
-        <form novalidate name="form" autocomplete="off">
-            <input class="form-control" type="email" ng-model="login.email" name="usuario" ng-pattern="/^.+@.+\..+$/"
-                   translate translate-attr-placeholder="LOGIN.EMAIL_INPUT" required>
-            <div ng-messages="form.usuario.$error">
-                <div ng-message="required">Por favor digite su nombre de usuario</div>
-                <div ng-message="pattern">El usuario debe tener el formato de un correo (ejemplo@correo.com)</div>
+        <div class="row topMarginHeader">
+            <div class="social-button col-xs-1"></div>
+            <div class="social-button col-xs-10">
+                <a class="btn btn-block btn-social btn-facebook btn-lg" ng-click="authenticate('facebook')">
+                    <span class="fa fa-facebook"></span>
+                    <span translate="LOGIN.LOGIN_WITH_FACEBOOK"></span>
+                </a>
             </div>
+            <div class="social-button col-xs-1"></div>
+        </div>
 
-            <input class="form-control" type="password" ng-model="login.contrasena" name="contrasena"
-                   translate translate-attr-placeholder="LOGIN.PASSWORD_INPUT" required>
-            <div ng-messages="form.contrasena.$error">
-                <div ng-message="required">Por favor digite su contraseña</div>
+        <div class="row topMarginHeader">
+            <div class="social-button col-xs-1"></div>
+            <div class="social-button col-xs-10">
+                <a class="btn btn-block btn-social btn-lg btn-google" ng-click="authenticate('google')">
+                    <span class="fa fa-google"></span>
+                    <span translate="LOGIN.LOGIN_WITH_GOOGLE"></span>
+                </a>
             </div>
+            <div class="social-button col-xs-1"></div>
+        </div>
+        <form name="traderInfoForm" class="form-group form">
+        <div class="row middle-text topMarginHeader">
+            <div class="col-xs-3 registerTraderLineSeparator middleLineSeparator"></div>
+            <p class="col-xs-6" translate="LOGIN.LOGIN_WITH_ACCOUNT"></p>
+            <div class="col-xs-3 registerTraderLineSeparator middleLineSeparator"></div>
+        </div>
 
-            <a class="col-md-12" ng-click="forgottenPassword()" translate="LOGIN.FORGOTTEN_PASSWORD"></a>
+      
+            <div class="row control">
+                <div class="col-xs-2 container-fluid">
+                    <img class="confirmRegisterIcons" src="./images/registerIcons/mail.png">
+                </div>
+                <div class="container-fluid col-xs-10 emailTraderContainer">
+                    <input input placeholder="Regular Placeholder" translate
+                           translate-attr-placeholder="LOGIN.EMAIL_INPUT" class="form-control col-xs-10 businessAddressInput"
+                           name="email"
+                           type="email" ng-model="login.email" required>
 
-            <button id="login" class="button" translate="LOGIN.LOGIN_BUTTON" ng-click="login()"/>
+                    <i ng-show="usuario.correo==undefined"
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                </div>
+            </div>
+     <span class="error" ng-show="submitted && traderInfoForm.email.$error.required"
+           translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+     <span class="error" ng-show="submitted && traderInfoForm.email.$error.email"
+           translate="REGISTER_USER_CONSTANTS.EMAIL_VALIDATION"></span>
+
+            <div class="row control topMarginHeader">
+                <div class="container-fluid col-xs-12">
+                    <input input placeholder="Regular Placeholder" translate
+                           translate-attr-placeholder="LOGIN.PASSWORD_INPUT" class="form-control col-xs-10 businessAddressInput"
+                           name="password" type="password" ng-model="login.contrasena" required>
+
+                    <i ng-show="usuario.password==undefined"
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                </div>
+            </div>
+   <span class="error" ng-show="submitted && traderInfoForm.password.$error.required"
+         translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+
+         <a ng-click="forgottenPassword()" translate="LOGIN.FORGOTTEN_PASSWORD"></a>
+        <div class="registerTrader-button NextButtonRegister topMarginElements">
+            <button id="login" class="button" translate="LOGIN.LOGIN_BUTTON" ng-click="login()"></button>
+        </div>
+
+
+        <div class="registerTraderLineSeparator row col-xs-12"></div>
         </form>
-    </div>
-    <div id="alertPop" ng-cloak></div>
 
-    <div class="col-md-12 text-center">
+        <div id="alertPop" ng-cloak></div>
+
+        <div class="col-md-12 text-center">
         <h4 class="text-center" translate="LOGIN.STILL_NO_USER"></h4><span translate="LOGIN.REGISTER"></span>
-    </div>
-</div>
+        </div>
 
-<div layout='row' layout-align="center center">
-    <md-progress-circular md-mode="indeterminate" ng-show="load"></md-progress-circular>
-</div>
+    </div>
