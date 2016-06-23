@@ -204,6 +204,25 @@
     margin-left: 10px;
 }
 
+.horizontal-detail-container{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.detail-arrow-container{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    background-color: white !important;
+}
+
+.detail-horizontal-container{
+    display: flex;
+    flex-flow: column wrap;
+
+}
+
 .display-h-inline{
     display: inline-block;
 }
