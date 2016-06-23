@@ -252,7 +252,8 @@
     }
 
     .detail-icon{
-        height: 8vmin;
+        height: 3vmin;
+
     }
     .site-detail img {
         height: 8vmin;
@@ -273,4 +274,13 @@
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+    .detail-icon{
+        height: 2.5vmin;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1200px) and (min-height: 800px) and (max-height: 800px){
+    .detail-icon{
+        height: 3.5vmin;
+    }
 }
