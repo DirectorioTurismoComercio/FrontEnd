@@ -136,14 +136,15 @@ angular.module('registerSite')
             fd.append('nombre', $scope.businessName);
             fd.append('descripcion', $scope.businessDescription);
             fd.append('municipio_id', $scope.businessMunicipality);
-            fd.append('telefono', $scope.sitePhoneNumber);
-            fd.append('horariolocal', $scope.openingHours || "");
-            fd.append('correolocal', $scope.businessEmail);
+            if($scope.sitePhoneNumber) fd.append('telefono', $scope.sitePhoneNumber);
+            if($scope.openingHours) fd.append('horariolocal', $scope.openingHours);
+            if($scope.businessEmail)  fd.append('correolocal', $scope.businessEmail);
             fd.append('ubicacionlocal', $scope.businessAddress);
             fd.append('categorias', $scope.businessCategories.category);
             fd.append('usuario', authenticationService.getUser().id);
-            fd.append('web', $scope.web);
-            fd.append('whatsapp', $scope.whatsapp);
+            if($scope.web) fd.append('web', $scope.web); 
+            if($scope.whatsapp) fd.append('whatsapp', $scope.whatsapp);
+            
 
             try {
                 for (var i = 0; i <= $scope.tags.length - 1; i++) {
