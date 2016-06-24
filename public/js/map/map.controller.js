@@ -212,7 +212,6 @@ angular.module('map')
             });
         }
         $scope.closeDialogWindowPhotos = function () {
-            console.log("closeDialogWindowPhotos");
             ngDialog.close();
         }
 

@@ -5,8 +5,8 @@ angular.module('map')
         replace: true,
         transclude: false,
          scope:{
-                 images:'='
-        
+                 images:'=',
+                 closeFunction: '&'
              },
         templateUrl: 'js/custom_components/carousel/connected-carousel.html',
         link: function link(scope, element, attrs) {
@@ -80,6 +80,7 @@ angular.module('map')
                 target: '-=1'
             });
 
+
         $('.next-navigation')
             .on('jcarouselcontrol:inactive', function() {
                 $(this).addClass('inactive');
@@ -90,7 +91,11 @@ angular.module('map')
             .jcarouselControl({
                 target: '+=1'
             });
-      
+            
+            $('.close-button')
+            .on('click', function() {
+                scope.closeFunction();
+            })
         }
     }
 }]);
