@@ -25,7 +25,13 @@ angular.module('registerTrader')
                         var deferred = $q.defer()
                         authenticationService.loginSocialMedia(credentials, response.data.token, deferred).finally(
                             function (){
+                                if(authenticationService.getUser().sitios.length==0){
                                 redirectToRegisterSite();
+                                }
+                                else{
+                                redirectToProfile();    
+                                }
+
                             }
                         );
                     }).catch(function (error) {
@@ -54,7 +60,6 @@ angular.module('registerTrader')
                     promesa.then(function (data) {
                                   authenticationService.setUserByToken(data.key,deferred).finally(
                                     function(){
-                                    console.log("usuario id",authenticationService);
                                     redirectToRegisterSite()
                                     }
                                   );
@@ -85,6 +90,9 @@ angular.module('registerTrader')
              $scope.load = false;
              $location.path('/businessinformation');
         }
-
+        function redirectToProfile(){
+             $scope.load = false;
+             $location.path('/profileMain');
+        }
 
     });
