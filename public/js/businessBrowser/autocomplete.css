@@ -22,7 +22,6 @@
 }
 
 .autocomplete ul{
-  position: absolute;
   left: 0.1em;
   top: 1.8em;
   width: 105%;
