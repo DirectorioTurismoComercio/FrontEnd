@@ -57,7 +57,7 @@ angular.module('login')
 
         function redirectToProfileMain() {
             $scope.load = false;
-            $location.path('/profileMain');
+            $location.path('/accountinfo');
         }
     })
 ;

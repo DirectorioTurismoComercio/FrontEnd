@@ -41,7 +41,7 @@
                 })
                 .when('/profileMain', {
                     controller: 'ProfileMainController',
-                    templateUrl: 'templates/profile/profile-main.html',
+                    templateUrl: 'templates/profile/accountInfo.html',
                     required_roles: 'user'
                 })
                 .when('/profileUpdate', {

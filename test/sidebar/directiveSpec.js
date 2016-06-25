@@ -37,7 +37,7 @@ describe('side-bar', function () {
 
     beforeEach(function() {
         httpBackend.whenGET('templates/signin/signin.html').respond(200, '');
-        httpBackend.whenGET('templates/profile/profile-main.html').respond(200, '');
+        httpBackend.whenGET('templates/profile/accountInfo.html').respond(200, '');
 
         element = compile("<side-bar></side-bar>")(rootScope);
 
