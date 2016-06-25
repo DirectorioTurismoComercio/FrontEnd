@@ -26,10 +26,6 @@
                     controller: 'SignoutController',
                     templateUrl: 'templates/signout/signout.html',
                 })
-                .when('/login', {
-                    controller: 'AuthController',
-                    templateUrl: 'templates/auth/auth.html',
-                })
                 .when('/login/changepass', {
                     controller: 'ChangePassController',
                     templateUrl: 'templates/auth/changepass.html',

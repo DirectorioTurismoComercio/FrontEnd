@@ -4,7 +4,6 @@ angular.module('gemStore')
             'templates/signin/signin.html',
             'templates/signup/personal-data.html',
             'templates/signup/profile-summary.html',
-            'templates/auth/auth.html',
             'templates/home/home.html'
         ];
 
