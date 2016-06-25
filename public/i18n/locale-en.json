@@ -101,6 +101,7 @@
     "COMPLETE_REGISTRATION_POPUP_BUTTON": "Continue"
   },
   "LOGIN": {
+    "TRADER_LOGIN": "Login",
     "LOGIN_WITH_SOCIAL_NETWORKS": "Login with your social networks",
     "LOGIN_WITH_FACEBOOK": "Login with Facebook",
     "LOGIN_WITH_GOOGLE": "Login with Google",
