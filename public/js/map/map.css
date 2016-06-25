@@ -212,6 +212,24 @@
     background-color: #F2F2F2;
 }
 
+.back-blue-arrow{
+    padding-left: 0px !important;
+}
+
+.forward-blue-arrow{
+    padding-right: 0px !important;
+}
+
+.detail-arrow{
+    height: 1em;
+}
+
+.vertical-align-arrow{
+    display: flex;
+    align-items: center;
+}
+
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
