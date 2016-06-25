@@ -43,9 +43,9 @@
                 <div class="container-fluid col-xs-12">
                     <input name="firstname" placeholder="Regular Placeholder" translate
                            translate-attr-placeholder="REGISTER_USER_CONSTANTS.FIRST_NAME" class="form-control col-xs-10 businessAddressInput"
-                           name="firstname" type="text" ng-model="usuario.nombres" required>
+                           name="firstname" type="text" ng-model="userData.nombres" required>
 
-                    <i ng-show="usuario.nombres==undefined"
+                    <i ng-show="userData.nombres==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
 
@@ -57,9 +57,9 @@
                     <input placeholder="Regular Placeholder" translate
                            translate-attr-placeholder="REGISTER_USER_CONSTANTS.LAST_NAME" type="text"
                            class="form-control col-xs-10 businessAddressInput"
-                           name="lastname" ng-model="usuario.apellidos" required>
+                           name="lastname" ng-model="userData.apellidos" required>
 
-                    <i ng-show="usuario.apellidos==undefined"
+                    <i ng-show="userData.apellidos==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
             </div>
@@ -74,9 +74,9 @@
                     <input input placeholder="Regular Placeholder" translate
                            translate-attr-placeholder="REGISTER_USER_CONSTANTS.EMAIL" class="form-control col-xs-10 businessAddressInput"
                            name="email"
-                           type="email" ng-model="usuario.correo" required>
+                           type="email" ng-model="userData.correo" required>
 
-                    <i ng-show="usuario.correo==undefined"
+                    <i ng-show="userData.correo==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
             </div>
@@ -89,9 +89,9 @@
                 <div class="container-fluid col-xs-12">
                     <input input placeholder="Regular Placeholder" translate
                            translate-attr-placeholder="REGISTER_USER_CONSTANTS.PASSWORD" class="form-control col-xs-10 businessAddressInput"
-                           name="password" type="password" ng-model="usuario.password" required>
+                           name="password" type="password" ng-model="userData.password" required>
 
-                    <i ng-show="usuario.password==undefined"
+                    <i ng-show="userData.password==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
             </div>

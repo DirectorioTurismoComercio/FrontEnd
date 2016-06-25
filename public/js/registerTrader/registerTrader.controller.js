@@ -10,6 +10,13 @@ angular.module('registerTrader')
         $scope.traderPassword;
         $scope.usuario.nombres=undefined;
 
+        $scope.userData={
+            nombres:undefined,
+            apellidos:undefined,
+            correo:undefined,
+            password:undefined
+        }
+
 
         $scope.changeView = function (view) {
             $location.path(view);
@@ -45,6 +52,7 @@ angular.module('registerTrader')
                     var deferred;
                     var credentials;
                     if($scope.traderInfoForm.$valid){
+                        setUserInfo();
                         deferred = $q.defer();
                         promesa = $scope.usuario.$save();
                     
@@ -85,6 +93,13 @@ angular.module('registerTrader')
                     }).finally(function () {
                     });
                 };
+
+        function setUserInfo(){
+            $scope.usuario.nombres=$scope.userData.nombres;
+            $scope.usuario.apellidos=$scope.userData.apellidos;
+            $scope.usuario.correo=$scope.userData.correo;
+            $scope.usuario.password=$scope.userData.password;
+        }
         
         function redirectToRegisterSite(){
              $scope.load = false;
