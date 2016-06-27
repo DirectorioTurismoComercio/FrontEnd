@@ -107,7 +107,7 @@ angular.module('registerTrader')
         }
         function redirectToProfile(){
              $scope.load = false;
-             $location.path('/profileMain');
+             $location.path('/accountinfo');
         }
 
     });
