@@ -156,15 +156,12 @@ angular.module('map')
                 selectedTown = cundinamarca;
             }
 
-            (selectedTown.nombre).indexOf('Cundinamarca') > -1 ?  centerMap(cundinamarca, 9) : centerMap(selectedTown, 9);
+            centerMap(selectedTown, 9);
         }
 
         function goBackToCenterMap() {
             if (hasMadeRoute == false) {
-                var selectedTown = siteAndTownSaverService.getCurrentSearchedTown();
-                selectedTown == undefined ? centerMap($scope.map.center, 9) : centerMap(selectedTown, 9);
-
-
+                centerMapOnSearchedTown();
             } else {
                 centerMap($scope.map.center, $scope.routeMapZoom);
             }
