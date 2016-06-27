@@ -59,6 +59,7 @@ angular.module('map')
         }
 
         $scope.showRoute = function () {
+            siteAndTownSaverService.setCurrentSearchedTown(undefined);
             showSearchedRoute();
         }
 
@@ -67,6 +68,8 @@ angular.module('map')
             SiteMarkerService.clearSelectedMarker();
             $scope.isShowingSiteDetail = false;
             $scope.isOnSitedetails = false;
+            var selectedTown = siteAndTownSaverService.getCurrentSearchedTown();
+            selectedTown == undefined ? centerMapToCundinamrca() : centerMap(selectedTown);
         };
 
         $scope.clearHighLightedMarker = function (index) {
@@ -80,6 +83,7 @@ angular.module('map')
         };
 
         $scope.showSiteDetail = function (site, index) {
+            centerMapToSelectedTown(site);
             if (index) {
                 SiteMarkerService.highLightMarkerByIndex(index);
             }
@@ -145,7 +149,7 @@ angular.module('map')
 
         function centerMapToSelectedTown(selectedTown) {
             var townPosition = MapService.coordsToLatLngLiteral(parseFloat(selectedTown.latitud), parseFloat(selectedTown.longitud));
-            MapService.moveMapToPosition(townPosition, 12);
+            MapService.moveMapToPosition(townPosition, 15);
         }
 
         function centerMapToCundinamrca() {
