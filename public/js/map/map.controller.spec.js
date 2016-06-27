@@ -34,6 +34,7 @@ describe('Controller: MapController', function () {
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
         spyOn(testpopErrorAlertService, 'showErrorMessage');
         spyOn(MapServiceTest, 'clearRoute');
+        spyOn(MapServiceTest, 'moveMapToPosition');
         spyOn(SearchForResultsFactory,'getResults').and.returnValue(sitesResponse);
 
         MapController = $controller('MapController', {
