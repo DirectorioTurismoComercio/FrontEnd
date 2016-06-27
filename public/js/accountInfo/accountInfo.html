@@ -83,9 +83,24 @@
             </div>
 
             <div class="registerTraderLineSeparator row col-xs-12"></div>
-        </form>
-        <div class="row">
+            <div class="row">
             <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_BUSINESS"></p>
         </div>
+
+        <div ng-repeat="sitio in usuario.sitios">
+        <div class="row registered-business">
+        <div class="col-xs-4 image">
+        <img class="img-responsive" ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+        </div>
+        <div>
+              <h3>%%sitio.nombre%%</h3>    
+              <p>%%sitio.ubicacionlocal%%</p>    
+              <p>%%sitio.telefono%%</p>    
+        </div>      
+        </div>
+        </form>
+        
+        
+
     </div>
 </div>

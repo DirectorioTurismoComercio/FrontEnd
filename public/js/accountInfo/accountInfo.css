@@ -3,3 +3,15 @@
     font-size: 2em;
     color: #2D3C4D;
 }
+.register{
+	background-color: #F2F2F2;
+}
+
+.registered-business{ 
+	margin-top: 2%;
+	background-color: #F2F2F2;
+	height: 150px;
+	padding: 2% 2% 2% 2%;
+	display: flex;
+  	align-items: center;
+}
