@@ -5,6 +5,8 @@ angular.module('map')
                                            MapService, ngDialog, SiteMarkerService, $location, messageService, $timeout,
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS) {
         var userPosition = {};
+        var hasMadeRoute=false;
+        $scope.routeMapZoom=undefined;
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
         $scope.isOnSitedetails = false;
@@ -59,6 +61,8 @@ angular.module('map')
         }
 
         $scope.showRoute = function () {
+            hasMadeRoute=true;
+            siteAndTownSaverService.setCurrentSearchedTown(undefined);
             showSearchedRoute();
         }
 
@@ -67,6 +71,8 @@ angular.module('map')
             SiteMarkerService.clearSelectedMarker();
             $scope.isShowingSiteDetail = false;
             $scope.isOnSitedetails = false;
+            goBackToCenterMap();
+
         };
 
         $scope.clearHighLightedMarker = function (index) {
@@ -80,6 +86,7 @@ angular.module('map')
         };
 
         $scope.showSiteDetail = function (site, index) {
+            centerMapToSelectedTown(site);
             if (index) {
                 SiteMarkerService.highLightMarkerByIndex(index);
             }
@@ -143,14 +150,27 @@ angular.module('map')
             }
         }
 
+        function goBackToCenterMap (){
+            if(hasMadeRoute==false){
+                var selectedTown = siteAndTownSaverService.getCurrentSearchedTown();
+                selectedTown == undefined ? centerMapToCundinamrca() : centerMap(selectedTown);
+            }else{
+                centerMapToRoute();
+            }
+        }
+
         function centerMapToSelectedTown(selectedTown) {
             var townPosition = MapService.coordsToLatLngLiteral(parseFloat(selectedTown.latitud), parseFloat(selectedTown.longitud));
-            MapService.moveMapToPosition(townPosition, 12);
+            MapService.moveMapToPosition(townPosition, 15);
         }
 
         function centerMapToCundinamrca() {
             var cundinamarcaPosition = MapService.coordsToLatLngLiteral($scope.map.center.latitude, $scope.map.center.longitude);
             MapService.moveMapToPosition(cundinamarcaPosition, 9);
+        }
+        function centerMapToRoute() {
+            var cundinamarcaPosition = MapService.coordsToLatLngLiteral($scope.map.center.latitude, $scope.map.center.longitude);
+            MapService.moveMapToPosition(cundinamarcaPosition, $scope.routeMapZoom);
         }
 
         function drawSitesByKeyWord(result) {
@@ -172,6 +192,7 @@ angular.module('map')
         }
 
         function showFoundPlaces() {
+            hasMadeRoute=false;
             var sites = SearchForResultsFactory.getResults();
             $scope.foundSites = sites;
             var selectedTown = siteAndTownSaverService.getCurrentSearchedTown();
