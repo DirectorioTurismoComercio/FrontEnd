@@ -53,15 +53,12 @@
                     <div class="item-separator"></div>
                 </div>
 
-                <ul rn-carousel ng-if="showResultListHorizontally()" class="image" style="height: 200px;">
+                <ul rn-carousel rn-carousel-controls ng-if="showResultListHorizontally()" class="image" style="height: 110px;">
                     <li ng-repeat="site in foundSites"
                         ng-mouseover="highLightMarker($index)"
                         ng-mouseleave="clearHighLightedMarker($index)">
                         <div class="list-item list-item-background">
                             <div class="row vertical-align-arrow" ng-click="showSiteDetail(site, $index)">
-                                <div  class="col-xs-1 back-blue-arrow">
-                                    <img ng-show="$index!=0" class="detail-arrow" src="./images/icons/site-detail/flecha-atras-azul.png">
-                                </div>
                                 <div class="col-xs-7 info">
                                     <h3 class="">%%site.nombre%%</h3>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
@@ -70,9 +67,6 @@
                                 <div class="col-xs-3 image">
                                     <img class="img-responsive"
                                          ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
-                                </div>
-                                <div  class="col-xs-1 detail-arrow-container forward-blue-arrow">
-                                    <img ng-show="$index!=(foundSites.length-1)" class="detail-arrow" src="./images/icons/site-detail/flecha-adelante-azul.png">
                                 </div>
                             </div>
                             <div class="row">
