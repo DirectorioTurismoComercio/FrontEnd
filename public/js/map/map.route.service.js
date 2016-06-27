@@ -49,6 +49,7 @@ angular.module('map')
 
                 $scope.loading = false;
                 $scope.foundSites = sites;
+                $scope.routeMapZoom=$scope.map.zoom;
             }).error(function (error) {
                 console.log("Hubo un error", error);
             })
