@@ -60,6 +60,8 @@ module.exports = function (config) {
             'public/js/registerTrader/registerTrader.controller.js',
             'public/js/businessBrowser/businessBrowser.controller.js',
             'public/js/siteAndTownSaver/siteAndTownService.service.js',
+            'public/js/accountInfo/accountInfo.js',
+            'public/js/login/login.js',
             'public/js/howItWorks/howItWorks.js',
             'public/js/howItWorks/howItWorks.controller.js',
             'public/js/popErrorAlert/popErrorAlert.service.js',
