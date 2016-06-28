@@ -102,11 +102,11 @@ angular.module('registerSite')
 
         $scope.doneRegistration = function () {
             ngDialog.close();
-            $auth.logout();
+            /*$auth.logout();
             authenticationService.logout().then(function(){
                 $location.path('home');
-            });
-
+            });*/
+            $location.path('accountinfo');
         }
 
 
