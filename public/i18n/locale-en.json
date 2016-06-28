@@ -132,5 +132,7 @@
   "HOW_TO_GET_THERE": "¿How to get there?",
   "GET_SITES_ERROR": "The search option is unavailable in this moment. Please reload the page",
   "GET_TOWNS_ERROR": "The towns list is unavailable in this moment. Please reload the page",
-  "NO_RESULTS": "Sorry, there are no results for this search. Please try with different words."
+  "NO_RESULTS": "Sorry, there are no results for this search. Please try with different words.",
+  "BAD_LOGIN":"Incorrect user or password"
+
 }

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('login')
-    .controller('loginController', function ($scope, Constantes, $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, registroService) {
+    .controller('loginController', function ($scope, Constantes, $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, messageService) {
         $scope.load = false;
 
 
@@ -12,7 +12,7 @@ angular.module('login')
                     .then(function () {
                         redirectToProfileMain();
                     }).catch(function (error) {
-                    showErrorDialog('Los datos de acceso no son correctos, por favor verifique.');
+                    messageService.showErrorMessage("BAD_LOGIN");
                     $scope.load = false;
                 });
             } else {
