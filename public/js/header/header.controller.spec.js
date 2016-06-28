@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: HeaderController', function () {
-    var appHeaderController, $scope, deferred, translate, testsiteAndTownSaverService, testLocation;
+    var appHeaderController, $scope, deferred, translate, testsiteAndTownSaverService, testLocation, testauthenticationService, test$auth;
 
     beforeEach(module('gemStore'));
     beforeEach(module('appHeader'));
@@ -22,21 +22,27 @@ describe('Controller: HeaderController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller, $rootScope, $q, $translate, siteAndTownSaverService,$location) {
+    beforeEach(inject(function ($controller, $rootScope, $q, $translate, siteAndTownSaverService,$location, authenticationService, $auth) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         translate=$translate;
         testsiteAndTownSaverService=siteAndTownSaverService;
         testLocation=$location;
+        testauthenticationService=authenticationService;
+        test$auth=$auth;
 
         spyOn(translate, 'use');
         spyOn(siteAndTownSaverService, 'resetSearchAndRoute');
         spyOn($location,'path');
+        spyOn(authenticationService,'logout').and.returnValue(deferred.promise);
+        spyOn($auth,'logout');
         appHeaderController = $controller('appHeaderController', {
             $scope: $scope,
             $translate:translate,
             siteAndTownSaverService:testsiteAndTownSaverService,
-            $location:$location
+            $location:$location,
+            authenticationService:testauthenticationService,
+            $auth:test$auth
         });
     }));
 
@@ -54,6 +60,13 @@ describe('Controller: HeaderController', function () {
     it('Should go to home on logo click', function () {
         $scope.goToHome();
         expect(testLocation.path).toHaveBeenCalled();
+    });
+
+    it('Should log out when user click on log out link', function () {
+        $scope.logOut();
+        deferred.resolve([]);
+        $scope.$apply();
+        expect(test$auth.logout).toHaveBeenCalled();
     });
 
 });

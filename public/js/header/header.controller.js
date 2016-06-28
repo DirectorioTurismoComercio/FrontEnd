@@ -1,7 +1,8 @@
 angular.module('appHeader', [])
-    .controller('appHeaderController', function ($scope, $translate, $location, siteAndTownSaverService) {
+    .controller('appHeaderController', function ($scope, $translate, $location, siteAndTownSaverService,isUserLoggedIn, authenticationService, $auth) {
 
         $scope.selectedLanguage=$translate.use();
+        $scope.isUserLoggedIn=isUserLoggedIn();
 
         $scope.changeLanguage = function (language) {
             $scope.selectedLanguage = language;
@@ -11,5 +12,12 @@ angular.module('appHeader', [])
         $scope.goToHome = function () {
             siteAndTownSaverService.resetSearchAndRoute();
             $location.path('/home');
+        }
+
+        $scope.logOut=function(){
+            $auth.logout();
+            authenticationService.logout().then(function(){
+                $location.path('home');
+            });
         }
     });
