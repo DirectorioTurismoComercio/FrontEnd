@@ -76,6 +76,45 @@
    <span class="error" ng-show="submitted && traderInfoForm.password.$error.required"
          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
+            <div class="row control topMarginHeader">
+                <div class="container-fluid col-xs-12">
+                    <input input placeholder="Regular Placeholder" translate
+                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.OLD_PASSWORD" class="form-control col-xs-10 businessAddressInput"
+                           name="oldpassword" type="password" ng-model="usuario.oldpassword" required>
+
+                    <i ng-show="usuario.oldpassword==undefined"
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                </div>
+            </div>
+   <span class="error" ng-show="submitted && traderInfoForm.oldpassword.$error.required"
+         translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+
+            <div class="row control topMarginHeader">
+                <div class="container-fluid col-xs-12">
+                    <input input placeholder="Regular Placeholder" translate
+                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.NEW_PASSWORD" class="form-control col-xs-10 businessAddressInput"
+                           name="newpassword" type="password" ng-model="usuario.newpassword" required>
+
+                    <i ng-show="usuario.newpassword==undefined"
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                </div>
+            </div>
+   <span class="error" ng-show="submitted && traderInfoForm.newpassword.$error.required"
+         translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+
+            <div class="row control topMarginHeader">
+                <div class="container-fluid col-xs-12">
+                    <input input placeholder="Regular Placeholder" translate
+                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.CONFIRM_NEW_PASSWORD" class="form-control col-xs-10 businessAddressInput"
+                           name="confirmnewpassword" type="password" ng-model="usuario.confirmnewpassword" required>
+
+                    <i ng-show="usuario.confirmnewpassword==undefined"
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                </div>
+            </div>
+   <span class="error" ng-show="submitted && traderInfoForm.newpassword.$error.required"
+         translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+
 
             <div class="registerTrader-button NextButtonRegister topMarginElements">
                 <button class="button" ng-click="save()"

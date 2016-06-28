@@ -45,6 +45,9 @@
     "LAST_NAME": "Apellido",
     "EMAIL": "Correo electrónico",
     "PASSWORD": "Contraseña",
+    "OLD_PASSWORD":"Contraseña anterior",
+    "NEW_PASSWORD":"Contraseña nueva",
+    "CONFIRM_NEW_PASSWORD":"Confirmar contraseña",
     "EMAIL_VALIDATION": "Verifique el correo",
     "REQUIRED_FIELD": "campo obligatorio*"
   },

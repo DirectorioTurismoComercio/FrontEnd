@@ -46,7 +46,10 @@
     "LAST_NAME": "Last Name",
     "EMAIL": "Email",
     "PASSWORD": "Password",
-    "EMAIL_VALIDATION": "Verifique el correo",
+    "OLD_PASSWORD":"Previous password",
+    "NEW_PASSWORD":"New password",
+    "CONFIRM_NEW_PASSWORD":"Confirm new password",
+    "EMAIL_VALIDATION": "Check email",
     "REQUIRED_FIELD": "Required field*"
   },
   "SITE_DETAIL_CONSTANTS": {
