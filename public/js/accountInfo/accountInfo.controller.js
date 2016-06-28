@@ -6,13 +6,16 @@ angular.module('accountInfo')
         $scope.showRequiredFieldMessage = false;
         $scope.usuario = authenticationService.getUser();
 
-        console.log("usuario", $scope.usuario);
+        authenticationService.getUserData($scope.usuario.token)
+            .success(function (response) {
+                $scope.usuario = response;
+            });
 
         $scope.save = function () {
-            if($scope.traderInfoForm.$valid){
+            if ($scope.traderInfoForm.$valid) {
 
-            }else{
-                $scope.showRequiredFieldMessage=true;
+            } else {
+                $scope.showRequiredFieldMessage = true;
             }
         }
 

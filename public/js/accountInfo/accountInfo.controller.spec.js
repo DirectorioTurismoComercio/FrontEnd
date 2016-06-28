@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: AccountInfoController', function () {
-    var AccountInfoController, $scope, location;
+    var AccountInfoController, $scope, location, testauthenticationService;
 
     beforeEach(module('gemStore'));
     beforeEach(module('home'));
@@ -25,8 +25,10 @@ describe('Controller: AccountInfoController', function () {
     beforeEach(inject(function ($controller, $rootScope, $location, authenticationService) {
         $scope = $rootScope.$new();
         location = $location;
+        testauthenticationService=authenticationService;
 
         spyOn(location, 'path');
+        spyOn(testauthenticationService, 'getUser').and.returnValue({token:'12'});
 
 
         AccountInfoController = $controller('AccountInfoController', {
