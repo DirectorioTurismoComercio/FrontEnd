@@ -20,7 +20,7 @@ module.exports = function (config) {
             'node_modules/angular-mocks/angular-mocks.js',
             'node_modules/satellizer/satellizer.min.js',
             'public/components/satellizer/satellizer.js',
-            'public/components/angular-route/angular-route.min.js',
+            'public/components/angular-route/angular-route.js',
             'public/components/angular-resource/angular-resource.min.js',
             'node_modules/angular-animate/angular-animate.min.js',
             'public/components/angular-material/angular-material.min.js',
