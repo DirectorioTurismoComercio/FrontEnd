@@ -1,12 +1,12 @@
 'use strict';
 angular.module('accountInfo')
-    .controller('AccountInfoController', function ($scope, Constantes, $location, navBar, $mdToast,
-                                                   authenticationService, registroService, $window) {
+    .controller('AccountInfoController', function ($scope, $location,
+                                                   authenticationService) {
         $scope.usuario = authenticationService.getUser();
         
         console.log("usuario", $scope.usuario);
 
-        $scope.menu_bar = function (view) {
-            registroService.changeView(view)
+        $scope.addBusiness=function(){
+            $location.path('businessinformation');
         }
     });

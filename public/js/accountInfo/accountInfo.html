@@ -20,7 +20,8 @@
             <div class="row control topMarginHeader">
                 <div class="container-fluid col-xs-12">
                     <input name="firstname" placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.FIRST_NAME" class="form-control col-xs-10 businessAddressInput"
+                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.FIRST_NAME"
+                           class="form-control col-xs-10 businessAddressInput"
                            name="firstname" type="text" ng-model="usuario.nombres" required>
 
                     <i ng-show="usuario.nombres==undefined"
@@ -50,7 +51,8 @@
                 </div>
                 <div class="container-fluid col-xs-10 emailTraderContainer">
                     <input input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.EMAIL" class="form-control col-xs-10 businessAddressInput"
+                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.EMAIL"
+                           class="form-control col-xs-10 businessAddressInput"
                            name="email"
                            type="email" ng-model="usuario.correo" required>
 
@@ -66,7 +68,8 @@
             <div class="row control topMarginHeader">
                 <div class="container-fluid col-xs-12">
                     <input input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.PASSWORD" class="form-control col-xs-10 businessAddressInput"
+                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.PASSWORD"
+                           class="form-control col-xs-10 businessAddressInput"
                            name="password" type="password" ng-model="usuario.password" required>
 
                     <i ng-show="usuario.password==undefined"
@@ -79,7 +82,8 @@
             <div class="row control topMarginHeader">
                 <div class="container-fluid col-xs-12">
                     <input input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.OLD_PASSWORD" class="form-control col-xs-10 businessAddressInput"
+                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.OLD_PASSWORD"
+                           class="form-control col-xs-10 businessAddressInput"
                            name="oldpassword" type="password" ng-model="usuario.oldpassword" required>
 
                     <i ng-show="usuario.oldpassword==undefined"
@@ -92,7 +96,8 @@
             <div class="row control topMarginHeader">
                 <div class="container-fluid col-xs-12">
                     <input input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.NEW_PASSWORD" class="form-control col-xs-10 businessAddressInput"
+                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.NEW_PASSWORD"
+                           class="form-control col-xs-10 businessAddressInput"
                            name="newpassword" type="password" ng-model="usuario.newpassword" required>
 
                     <i ng-show="usuario.newpassword==undefined"
@@ -105,7 +110,8 @@
             <div class="row control topMarginHeader">
                 <div class="container-fluid col-xs-12">
                     <input input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.CONFIRM_NEW_PASSWORD" class="form-control col-xs-10 businessAddressInput"
+                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.CONFIRM_NEW_PASSWORD"
+                           class="form-control col-xs-10 businessAddressInput"
                            name="confirmnewpassword" type="password" ng-model="usuario.confirmnewpassword" required>
 
                     <i ng-show="usuario.confirmnewpassword==undefined"
@@ -123,23 +129,29 @@
 
             <div class="registerTraderLineSeparator row col-xs-12"></div>
             <div class="row">
-            <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_BUSINESS"></p>
-        </div>
+                <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_BUSINESS"></p>
+            </div>
 
-        <div ng-repeat="sitio in usuario.sitios">
-        <div class="row registered-business">
-        <div class="col-xs-4 image">
-        <img class="img-responsive" ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
-        </div>
-        <div>
-              <h3>%%sitio.nombre%%</h3>    
-              <p>%%sitio.ubicacionlocal%%</p>    
-              <p>%%sitio.telefono%%</p>    
-        </div>      
-        </div>
+            <div ng-repeat="sitio in usuario.sitios">
+                <div class="row registered-business">
+                    <div class="col-xs-4 image">
+                        <img class="img-responsive" ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                    </div>
+                    <div>
+                        <h3>%%sitio.nombre%%</h3>
+                        <p>%%sitio.ubicacionlocal%%</p>
+                        <p>%%sitio.telefono%%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="registerTrader-button NextButtonRegister topMarginElements">
+                <button class="button" ng-click="addBusiness()"
+                        translate="ACCOUNT_INFO.ADD_BUSINESS"></button>
+            </div>
+
         </form>
-        
-        
+
 
     </div>
 </div>
