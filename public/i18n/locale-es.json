@@ -2,7 +2,8 @@
   "HEADER_CONSTANTS": {
     "LOGIN_TRADER": "Ingreso comerciante",
     "REGISTER_BUSINESS": "Registra tu comercio",
-    "LOG_OUT":"Cerrar sesión"
+    "LOG_OUT":"Cerrar sesión",
+    "MY_ACCOUNT":"Mi cuenta"
   },
   "HOME_CONSTANTS": {
     "CAROUSEL_TEXT": "Descubre los secretos que Cundinamarca guarda para ti",

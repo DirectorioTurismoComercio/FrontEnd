@@ -2,7 +2,9 @@
   "HEADER_CONSTANTS": {
     "LOGIN_TRADER": "Login trader",
     "REGISTER_BUSINESS": "Register your business",
-    "LOG_OUT":"Log out"
+    "LOG_OUT":"Log out",
+    "MY_ACCOUNT":"My account"
+
   },
   "HOME_CONSTANTS": {
     "CAROUSEL_TEXT": "Discover the secrets Cundinamarca has for you",
