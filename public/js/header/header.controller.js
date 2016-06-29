@@ -1,5 +1,5 @@
 angular.module('appHeader', [])
-    .controller('appHeaderController', function ($scope, $translate, $location, siteAndTownSaverService,isUserLoggedIn, authenticationService, $auth, $route, $cookies,$cookieStore, $http) {
+    .controller('appHeaderController', function ($scope, $translate, $location, siteAndTownSaverService,isUserLoggedIn, authenticationService, $auth, $route) {
 
         $scope.selectedLanguage=$translate.use();
         $scope.isUserLoggedIn=isUserLoggedIn();
@@ -16,9 +16,8 @@ angular.module('appHeader', [])
 
         $scope.logOut=function(){
             $auth.logout();
-
+            $auth.removeToken();
             authenticationService.logout().then(function(){
-
                 $location.path('home');
                 $route.reload();
             });
