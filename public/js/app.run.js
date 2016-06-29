@@ -1,11 +1,12 @@
 angular.module('gemStore')
-    .run(function ($rootScope, $location, isUserLoggedIn) {
+    .run(function ($rootScope, $location, isUserLoggedIn, $http, $cookies) {
         var forbiddenURLsToForce=[
             'templates/signin/signin.html',
             'templates/signup/personal-data.html',
             'templates/signup/profile-summary.html',
             'templates/home/home.html'
         ];
+
 
         $rootScope.$on('$routeChangeStart', function (event, nextView) {
             if (nextView.required_roles !== undefined) {
