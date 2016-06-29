@@ -3,7 +3,7 @@
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $auth, $http, MapService, uiGmapIsReady, messageService,
                                                     API_CONFIG, categories,
-                                                    $location, MunicipiosFactory, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog) {
+                                                    $location, MunicipiosFactory, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog,  $cookies) {
 
 
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
@@ -161,6 +161,10 @@ angular.module('registerSite')
         }
 
         function sendSiteDataToServer() {
+
+                                                console.log("la cookie en la creacion del sitio", $cookies['csrftoken']);
+         $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
+
             $http.post(API_CONFIG.url + API_CONFIG.sitio, siteInformationService.formData,
                 {
                     transformRequest: angular.identity,
