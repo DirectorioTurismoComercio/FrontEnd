@@ -16,6 +16,12 @@ angular.module('map')
                 if (status == google.maps.DirectionsStatus.OK) {
                     MapService.getDirectionsDisplay().setDirections(result);
 
+                    var leg = result.routes[0].legs[0];
+                    var originIcon = MapService.createIcon('images/icons/salida-mapa.png', 50);
+                    var destinationIcon = MapService.createIcon('images/icons/llegada-mapa.png', 50);
+                    MapService.addMarker(leg.start_location, 'origin', originIcon);
+                    MapService.addMarker(leg.end_location, 'destination', destinationIcon);
+
                     for (var i = 0; i < result.routes[0].overview_path.length; i++) {
                         points.push([result.routes[0].overview_path[i].lat(), result.routes[0].overview_path[i].lng()]);
                     }
@@ -49,7 +55,7 @@ angular.module('map')
 
                 $scope.loading = false;
                 $scope.foundSites = sites;
-                $scope.routeMapZoom=$scope.map.zoom;
+                $scope.routeMapZoom = $scope.map.zoom;
             }).error(function (error) {
                 console.log("Hubo un error", error);
             })

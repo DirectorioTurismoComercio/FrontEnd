@@ -16,6 +16,7 @@ angular.module('map')
         function getDirectionsDisplay() {
             if (directionsDisplay == undefined) {
                 directionsDisplay = new google.maps.DirectionsRenderer();
+                directionsDisplay.setOptions({suppressMarkers: true});
             }
 
             return directionsDisplay;
@@ -109,9 +110,9 @@ angular.module('map')
 
         function getCategoryLightedIcon(categoryId) {
             var iconFolder = 'images/icons/categories/lighted/';
-            if($window.innerWidth < 992){
+            if ($window.innerWidth < 992) {
                 return getCategoryIcon(iconFolder, categoryId, 60);
-            }else{
+            } else {
                 return getCategoryIcon(iconFolder, categoryId, 80);
             }
 
