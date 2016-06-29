@@ -16,6 +16,7 @@ angular.module('appHeader', [])
 
         $scope.logOut=function(){
             $auth.logout();
+            $auth.removeToken();
             authenticationService.logout().then(function(){
                 $location.path('home');
                 $route.reload();

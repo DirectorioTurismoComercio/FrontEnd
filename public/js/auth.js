@@ -75,6 +75,9 @@
 			},
 			reset: function() {
 				clearUserData();
+			},
+			getUserData: function(token){
+				return  $http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + token} });
 			}
 		}
 	}]);
