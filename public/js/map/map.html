@@ -109,15 +109,15 @@
                         </div>
                         <div class="item">
                             <img src="./images/icons/site-detail/telefono.png">
-                            <span class="dark-text">%%selectedSite.telefono%%</span>
+                            <span class="dark-text"><a ng-href="tel:%%selectedSite.telefono%%">%%selectedSite.telefono%%</a></span>
                         </div>
                         <div ng-show="!isEmpty(selectedSite.whatsapp)" class="item">
                             <img src="./images/icons/site-detail/whatsapp.png">
-                            <span class="dark-text">%%selectedSite.whatsapp%%</span>
+                            <span class="dark-text"><a ng-href="tel:%%selectedSite.whatsapp%%">%%selectedSite.whatsapp%%</a></span>
                         </div>
                         <div ng-show="!isEmpty(selectedSite.web)" class="item">
                             <img src="./images/icons/site-detail/web.png">
-                            <span class="light-text">%%selectedSite.web%%</span>
+                            <span class="light-text"><a ng-href="%%selectedSite.web%%">%%selectedSite.web%%</a></span>
                         </div>
                     </div>
                 </div>
