@@ -104,6 +104,7 @@ angular.module('map')
                 $scope.hideSiteDetail();
                 $scope.loading = true;
                 centerMapOnSearchedTown();
+                MapService.clearMarkers();
                 drawSitesByKeyWord(result);
             }
             else {
@@ -157,7 +158,7 @@ angular.module('map')
                 selectedTown = cundinamarca;
                 zoom = 9;
             }
-            
+
             centerMap(selectedTown, zoom);
         }
 
