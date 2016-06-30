@@ -206,7 +206,7 @@ angular.module('registerSite')
         function getClickedPositionTown() {
             $http({
                 method: 'GET',
-                url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + $scope.businessLocation.lat + ',' + $scope.businessLocation.lng + '&sensor=true',
+                url: API_CONFIG.getTownOnMapClickURL + $scope.businessLocation.lat + ',' + $scope.businessLocation.lng + '&sensor=true',
                 skipAuthorization: true  // `Authorization: Bearer <token>` will not be sent on this request.
             })
                 .success(function (response) {

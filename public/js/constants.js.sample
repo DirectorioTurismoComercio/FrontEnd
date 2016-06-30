@@ -13,5 +13,7 @@ angular.module('constants', [])
         "authBaseURL": 'http://ecosistema.desarrollo.com/backend',
         "sitios":"/ruta/sitios",
         "sitio":"/sitio",
-        "categorias":"/categorias"
+        "categorias":"/categorias",
+        "getTownOnMapClickURL":'http://maps.googleapis.com/maps/api/geocode/json?latlng='
+
     });
