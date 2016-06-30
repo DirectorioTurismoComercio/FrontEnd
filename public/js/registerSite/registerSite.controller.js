@@ -3,7 +3,7 @@
 angular.module('registerSite')
     .controller('registerSiteController', function ($scope, $auth, $http, MapService, uiGmapIsReady, messageService,
                                                     API_CONFIG, categories,
-                                                    $location, MunicipiosFactory, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog,  $cookies) {
+                                                    $location, MunicipiosFactory, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog, $cookies) {
 
 
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
@@ -24,7 +24,7 @@ angular.module('registerSite')
         $scope.flowProductsPhotos = {};
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
-        $scope.showMainPhotoRequired=false;
+        $scope.showMainPhotoRequired = false;
         var joinOfFormatted_address;
 
         MapService.clearRoute();
@@ -49,8 +49,8 @@ angular.module('registerSite')
             MapService.moveMapToPosition(townPosition, 12);
         });
 
-        $scope.mainPhotoOnClick=function(){
-            $scope.showMainPhotoRequired=false;
+        $scope.mainPhotoOnClick = function () {
+            $scope.showMainPhotoRequired = false;
         }
 
 
@@ -85,13 +85,13 @@ angular.module('registerSite')
             }
 
             if (logic == 'photos') {
-                if($scope.flowMainPhoto.flow.files.length!=0){
+                if ($scope.flowMainPhoto.flow.files.length != 0) {
                     buildSitePhotosFormData();
                     $location.path(view);
-                }else{
-                    $scope.showMainPhotoRequired=true;
+                } else {
+                    $scope.showMainPhotoRequired = true;
                 }
-               
+
             }
 
             if (logic == true) {
@@ -132,15 +132,15 @@ angular.module('registerSite')
             fd.append('nombre', $scope.businessName);
             fd.append('descripcion', $scope.businessDescription);
             fd.append('municipio_id', $scope.businessMunicipality);
-            if($scope.sitePhoneNumber) fd.append('telefono', $scope.sitePhoneNumber);
-            if($scope.openingHours) fd.append('horariolocal', $scope.openingHours);
-            if($scope.businessEmail)  fd.append('correolocal', $scope.businessEmail);
+            if ($scope.sitePhoneNumber) fd.append('telefono', $scope.sitePhoneNumber);
+            if ($scope.openingHours) fd.append('horariolocal', $scope.openingHours);
+            if ($scope.businessEmail)  fd.append('correolocal', $scope.businessEmail);
             fd.append('ubicacionlocal', $scope.businessAddress);
             fd.append('categorias', $scope.businessCategories.category);
             fd.append('usuario', authenticationService.getUser().id);
-            if($scope.web) fd.append('web', $scope.web); 
-            if($scope.whatsapp) fd.append('whatsapp', $scope.whatsapp);
-            
+            if ($scope.web) fd.append('web', $scope.web);
+            if ($scope.whatsapp) fd.append('whatsapp', $scope.whatsapp);
+
 
             try {
                 for (var i = 0; i <= $scope.tags.length - 1; i++) {
@@ -161,9 +161,7 @@ angular.module('registerSite')
         }
 
         function sendSiteDataToServer() {
-
-                                                console.log("la cookie en la creacion del sitio", $cookies['csrftoken']);
-         $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
+            $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
 
             $http.post(API_CONFIG.url + API_CONFIG.sitio, siteInformationService.formData,
                 {

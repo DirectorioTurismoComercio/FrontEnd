@@ -143,20 +143,22 @@ angular.module('map')
             });
         }
 
-        function centerMapOnSearchedTown(){
+        function centerMapOnSearchedTown() {
             var cundinamarca = {
                 nombre: 'Cundinamarca',
                 latitud: 4.6363623,
                 longitud: -74.0854427
             };
+            var zoom = 12;
 
             var selectedTown = siteAndTownSaverService.getCurrentSearchedTown();
 
-            if (selectedTown == undefined) {
+            if(selectedTown==undefined || (selectedTown.nombre).indexOf('Cundinamarca') > -1){
                 selectedTown = cundinamarca;
+                zoom = 9;
             }
-
-            centerMap(selectedTown, 9);
+            
+            centerMap(selectedTown, zoom);
         }
 
         function goBackToCenterMap() {
@@ -201,6 +203,7 @@ angular.module('map')
             hasMadeRoute = false;
             var sites = SearchForResultsFactory.getResults();
             $scope.foundSites = sites;
+            centerMapOnSearchedTown();
             if (sites != undefined) {
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
