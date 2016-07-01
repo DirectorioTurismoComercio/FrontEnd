@@ -92,6 +92,7 @@ angular.module('map')
             $scope.isShowingSiteDetail = true;
             $scope.isOnSitedetails = true;
             $scope.selectedSite = site;
+            checkSelectedSiteWebPage();
             reloadMap();
             $timeout(function() {
                 centerMap(site, 15);
@@ -220,6 +221,18 @@ angular.module('map')
 
         function handleLocationError() {
             messageService.showErrorMessage("No es posible obtener la ubicación");
+        }
+
+        function checkSelectedSiteWebPage(){
+            if(($scope.selectedSite.web).indexOf('http://')>-1 ){
+                $scope.selectedSite.web=($scope.selectedSite.web).substring(7,($scope.selectedSite.web).length);
+            }
+            if(($scope.selectedSite.web).indexOf('https://')>-1){
+                $scope.selectedSite.web=($scope.selectedSite.web).substring(8,($scope.selectedSite.web).length);
+            };
+            if(($scope.selectedSite.web).indexOf('www.')==-1){
+                $scope.selectedSite.web='www.'+$scope.selectedSite.web;
+            }
         }
 
         $scope.isMobileDevice = function () {
