@@ -129,9 +129,10 @@
                 <button class="button" ng-click="save()"
                         translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
             </div>
-
+      </form>
             <div class="registerTraderLineSeparator row col-xs-12"></div>
             <div class="row">
+      <form>        
                 <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_BUSINESS"></p>
             </div>
 
@@ -141,9 +142,11 @@
                         <img class="img-responsive" ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
                     </div>
                     <div>
+                        
                         <h3>%%sitio.nombre%%</h3>
                         <p>%%sitio.ubicacionlocal%%</p>
-                        <p>%%sitio.telefono%%</p>
+                        <p>%%sitio.telefono%% <button class="button" ng-click="editSite(sitio)"
+                        translate="ACCOUNT_INFO.EDIT_SITE"></button></p>
                     </div>
                 </div>
             </div>

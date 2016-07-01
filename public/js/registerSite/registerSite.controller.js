@@ -144,8 +144,12 @@ angular.module('registerSite')
         function buildSiteFormData() {
             var fd = siteInformationService.formData;
 
-            fd.append('latitud', $scope.businessLocation.lat);
-            fd.append('longitud', $scope.businessLocation.lng);
+            // fd.append('latitud', $scope.businessLocation.lat);
+            // fd.append('longitud', $scope.businessLocation.lng);
+
+            fd.append('latitud', 7.88);
+            fd.append('longitud', 3.14);
+
             fd.append('nombre', $scope.businessName);
             fd.append('descripcion', $scope.businessDescription);
             fd.append('municipio_id', $scope.businessMunicipality);
@@ -153,6 +157,7 @@ angular.module('registerSite')
             if ($scope.openingHours) fd.append('horariolocal', $scope.openingHours);
             if ($scope.businessEmail)  fd.append('correolocal', $scope.businessEmail);
             fd.append('ubicacionlocal', $scope.businessAddress);
+            console.log('categorias',$scope.businessCategories.category);
             fd.append('categorias', $scope.businessCategories.category);
             fd.append('usuario', authenticationService.getUser().id);
             if ($scope.web) fd.append('web', $scope.web);
@@ -179,13 +184,14 @@ angular.module('registerSite')
 
         function sendSiteDataToServer() {
             $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
-
-            $http.post(API_CONFIG.url + API_CONFIG.sitio, siteInformationService.formData,
+            
+            if(siteInformationService.siteId)
+            {    
+               $http.put(API_CONFIG.url + "/sitio/detail/"+siteInformationService.siteId, siteInformationService.formData,                
                 {
                     transformRequest: angular.identity,
                     headers: {'Content-Type': undefined}
-                })
-                .success(function (d) {
+                }).success(function (d) {
                     siteAndTownSaverService.setCurrentSearchedTown(undefined);
                     $scope.waitingRegister = false;
                     clearData();
@@ -201,6 +207,35 @@ angular.module('registerSite')
                 }).error(function (error) {
                 console.log("hubo un error", error);
             });
+
+            }
+            else
+            {    
+            save = $http.post(API_CONFIG.url + API_CONFIG.sitio, siteInformationService.formData,
+                {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                }).success(function (d) {
+                    siteAndTownSaverService.setCurrentSearchedTown(undefined);
+                    $scope.waitingRegister = false;
+                    clearData();
+
+                    ngDialog.open({
+                        template: 'js/registerSite/completeRegistration.html',
+                        width: 'auto',
+                        showClose: false,
+                        scope: $scope,
+                        closeByEscape: false,
+                        closeByDocument: false
+                    });
+                }).error(function (error) {
+                console.log("hubo un error", error);
+            });
+            }    
+
+
+
+            
         }
 
         function appendPhotos(arrayPhotos, model, fd) {

@@ -124,7 +124,8 @@
     "ACCOUNT_INFO_SUBTITLE":"Información de cuenta",
     "REGISTERED_BUSINESS":"Negocios registrados",
     "ADD_BUSINESS":"Añadir un negocio",
-    "PASSWORDS_MUST_BE_EQUAL":"La contraseña nueva y la de confirmación deben ser las mismas"
+    "PASSWORDS_MUST_BE_EQUAL":"La contraseña nueva y la de confirmación deben ser las mismas",
+    "EDIT_SITE":"Editar"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
