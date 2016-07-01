@@ -75,29 +75,41 @@ angular.module('registerSite')
         }
 
         $scope.changeView = function (view, logic) {
-            if (logic == 'form') {
-                if ($scope.registerSiteForm.$valid) {
-                    saveSiteInformation();
-                    $location.path(view);
-                } else {
-                    $scope.showRequiredFieldMessage = true;
-                }
+
+            switch (logic) {
+                case 'form':
+                    if ($scope.registerSiteForm.$valid) {
+                        saveDataAndChangeView(view);
+                    } else {
+                        $scope.showRequiredFieldMessage = true;
+                    }
+                    break;
+
+                case 'photos':
+                    if ($scope.flowMainPhoto.flow.files.length != 0) {
+                        buildSitePhotosFormData();
+                        $location.path(view);
+                    } else {
+                        $scope.showMainPhotoRequired = true;
+                    }
+                    break;
+
+                case 'location':
+                    if ($scope.businessLocation != undefined) {
+                        saveDataAndChangeView(view);
+                    } else {
+                        $scope.showRequiredFieldMessage = true;
+                    }
+                    break;
+
+                case true:
+                    if(view=='location'){
+                        $scope.businessLocation=undefined;
+                    }
+                    saveDataAndChangeView(view);
+                    break;
             }
 
-            if (logic == 'photos') {
-                if ($scope.flowMainPhoto.flow.files.length != 0) {
-                    buildSitePhotosFormData();
-                    $location.path(view);
-                } else {
-                    $scope.showMainPhotoRequired = true;
-                }
-
-            }
-
-            if (logic == true) {
-                saveSiteInformation();
-                $location.path(view);
-            }
         };
 
         $scope.doneRegistration = function () {
@@ -105,6 +117,11 @@ angular.module('registerSite')
             $location.path('accountinfo');
         }
 
+
+        function saveDataAndChangeView(view){
+            saveSiteInformation();
+            $location.path(view);
+        }
 
         function centerMapOnSelectedTown() {
             try {
