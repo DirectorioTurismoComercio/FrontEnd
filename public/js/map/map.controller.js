@@ -150,7 +150,7 @@ angular.module('map')
                 latitud: 4.6363623,
                 longitud: -74.0854427
             };
-            var zoom = 12;
+            var zoom = 14;
 
             var selectedTown = siteAndTownSaverService.getCurrentSearchedTown();
 
