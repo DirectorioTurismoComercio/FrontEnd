@@ -105,7 +105,11 @@ angular.module('map')
 
         function getCategoryNormalIcon(categoryId) {
             var iconFolder = 'images/icons/categories/';
-            return getCategoryIcon(iconFolder, categoryId, 40);
+            if ($window.innerWidth < 992) {
+                return getCategoryIcon(iconFolder, categoryId, 40);
+            } else {
+                return getCategoryIcon(iconFolder, categoryId, 60);
+            }
         }
 
         function getCategoryLightedIcon(categoryId) {
@@ -115,9 +119,8 @@ angular.module('map')
             } else {
                 return getCategoryIcon(iconFolder, categoryId, 80);
             }
-
         }
-
+        
         function getCategoryIcon(iconFolder, categoryId, iconSize) {
             var url = iconFolder;
 
@@ -152,7 +155,6 @@ angular.module('map')
                 default:
                     url = "images/icons/pin-ubicacion-local.png";
             }
-
             return createIcon(url, iconSize);
         }
 
