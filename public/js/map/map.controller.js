@@ -86,7 +86,6 @@ angular.module('map')
         };
 
         $scope.showSiteDetail = function (site, index) {
-            centerMap(site, 15);
             if (index) {
                 SiteMarkerService.highLightMarkerByIndex(index);
             }
@@ -94,6 +93,9 @@ angular.module('map')
             $scope.isOnSitedetails = true;
             $scope.selectedSite = site;
             reloadMap();
+            $timeout(function() {
+                centerMap(site, 15);
+            }, 100);
             //$scope.$apply();
         };
 
