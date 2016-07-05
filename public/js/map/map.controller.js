@@ -94,7 +94,7 @@ angular.module('map')
             $scope.selectedSite = site;
             checkSelectedSiteWebPage();
             reloadMap();
-            $timeout(function() {
+            $timeout(function () {
                 centerMap(site, 15);
             }, 100);
             //$scope.$apply();
@@ -157,7 +157,7 @@ angular.module('map')
 
             var selectedTown = siteAndTownSaverService.getCurrentSearchedTown();
 
-            if(selectedTown==undefined || (selectedTown.nombre).indexOf('Cundinamarca') > -1){
+            if (selectedTown == undefined || (selectedTown.nombre).indexOf('Cundinamarca') > -1) {
                 selectedTown = cundinamarca;
                 zoom = 9;
             }
@@ -223,15 +223,16 @@ angular.module('map')
             messageService.showErrorMessage("No es posible obtener la ubicación");
         }
 
-        function checkSelectedSiteWebPage(){
-            if(($scope.selectedSite.web).indexOf('http://')>-1 ){
-                $scope.selectedSite.web=($scope.selectedSite.web).substring(7,($scope.selectedSite.web).length);
+        function checkSelectedSiteWebPage() {
+            if (($scope.selectedSite.web).indexOf('http://') > -1) {
+                $scope.selectedSite.web = ($scope.selectedSite.web).substring(7, ($scope.selectedSite.web).length);
             }
-            if(($scope.selectedSite.web).indexOf('https://')>-1){
-                $scope.selectedSite.web=($scope.selectedSite.web).substring(8,($scope.selectedSite.web).length);
-            };
-            if(($scope.selectedSite.web).indexOf('www.')==-1){
-                $scope.selectedSite.web='www.'+$scope.selectedSite.web;
+            if (($scope.selectedSite.web).indexOf('https://') > -1) {
+                $scope.selectedSite.web = ($scope.selectedSite.web).substring(8, ($scope.selectedSite.web).length);
+            }
+            ;
+            if (($scope.selectedSite.web).indexOf('www.') == -1) {
+                $scope.selectedSite.web = 'www.' + $scope.selectedSite.web;
             }
         }
 
@@ -250,7 +251,8 @@ angular.module('map')
                 showClose: false,
                 scope: $scope,
                 closeByEscape: false,
-                closeByDocument: false
+                closeByDocument: false,
+                closeByNavigation: true,
             });
         }
         $scope.closeDialogWindowPhotos = function () {
