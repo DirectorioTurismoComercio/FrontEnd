@@ -17,11 +17,16 @@
 
 @media (min-width: 992px) {
     .app-footer .img {
-        background-image: url("../../images/icons/footer/c.Medium-large-devices.png");
+        background-image: url("../../images/icons/footer/c.Medium-devices.png");
         background-size: auto 116px;
         height: 146px;
     }
 }
 
 @media (min-width: 1200px) {
+    .app-footer .img {
+        background-image: url("../../images/icons/footer/d.Large-devices.png");
+        background-size: auto 102px;
+        height: 132px;
+    }
 }
