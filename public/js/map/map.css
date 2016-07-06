@@ -181,16 +181,13 @@
 }
 
 .dialog-window-photos .close-button {
-    width: 100px;
-    height: 100px;
-    padding: 50px 50px 50px 50px;
+    padding: 0px 10px;
     z-index: 10;
-    margin-left: 96%;
+    margin-left: 73%;
     margin-top: -2%;
 }
 
 .dialog-window-photos .close-button img {
-
     width: 20px;
     height: 20px;
     z-index: 10;
@@ -316,6 +313,10 @@
         height: 8vmin;
         width: 8vmin;
     }
+
+    .dialog-window-photos .close-button {
+        /*margin-left: 87%;*/
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -327,6 +328,10 @@
     .site-detail img {
         height: 5%;
         width: 5%;
+    }
+
+    .dialog-window-photos .close-button {
+        margin-left: 92%;
     }
 }
 
