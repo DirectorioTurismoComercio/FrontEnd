@@ -250,9 +250,9 @@ angular.module('map')
                 width: 'auto',
                 showClose: false,
                 scope: $scope,
-                closeByEscape: true,
-                closeByDocument: true,
-                closeByNavigation: true
+                closeByEscape: false,
+                closeByDocument: false,
+                closeByNavigation: true,
             });
         }
         $scope.closeDialogWindowPhotos = function () {
