@@ -17,6 +17,7 @@ angular.module('registerSite')
         };
         var businessMunicipality=undefined;
         var formData=undefined;
+        var mainPhoto=[];
 
         return {
             sitePhoneNumber:sitePhoneNumber,
@@ -31,7 +32,8 @@ angular.module('registerSite')
             businessAddress:businessAddress,
             businessCategories:businessCategories,
             businessMunicipality:businessMunicipality,
-            formData:formData
+            formData:formData,
+            mainPhoto:mainPhoto
         };
 
 

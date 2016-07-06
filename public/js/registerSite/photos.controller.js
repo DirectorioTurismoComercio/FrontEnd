@@ -3,17 +3,22 @@
 angular.module('registerSite')
     .controller('registerPhotosController', function ($scope, $auth, $http, MapService, uiGmapIsReady, messageService,
                                                     API_CONFIG, categories,
-                                                    $location, MunicipiosFactory, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog, $cookies) {
+                                                    $location, MunicipiosFactory, authenticationService, siteAndTownSaverService,
+                                                      siteInformationService, $translate, geolocation, ngDialog, $cookies) {
 
 
 
+        $scope.$on('$viewContentLoaded', function(){
+            if(siteInformationService.mainPhoto.length!=0){
+                $scope.flowMainPhoto.flow.files = siteInformationService.mainPhoto;
+            }
+        });
         $scope.flowMainPhoto = {};
         $scope.flowFacadePhotos = {};
         $scope.flowInsidePhotos = {};
         $scope.flowProductsPhotos = {};
         $scope.showRequiredFieldMessage = false;
         $scope.showMainPhotoRequired = false;
-
 
         $scope.mainPhotoOnClick = function () {
             $scope.showMainPhotoRequired = false;
@@ -22,11 +27,12 @@ angular.module('registerSite')
         $scope.changeViewSummary = function () {
                     if ($scope.flowMainPhoto.flow.files.length != 0) {
                         buildSitePhotosFormData();
+                        siteInformationService.mainPhoto=$scope.flowMainPhoto.flow.files;
                         $location.path('/summary');
                     } else {
                         $scope.showMainPhotoRequired = true;
                     }
-                
+
         };
 
 
