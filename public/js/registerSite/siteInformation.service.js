@@ -16,7 +16,6 @@ angular.module('registerSite')
             category: ''
         };
         var businessMunicipality=undefined;
-        var formData=undefined;
         var mainPhoto=[];
         var facadePhotos=[];
         var insidePhotos=[];
@@ -35,7 +34,6 @@ angular.module('registerSite')
             businessAddress:businessAddress,
             businessCategories:businessCategories,
             businessMunicipality:businessMunicipality,
-            formData:formData,
             mainPhoto:mainPhoto,
             facadePhotos:facadePhotos,
             insidePhotos:insidePhotos,

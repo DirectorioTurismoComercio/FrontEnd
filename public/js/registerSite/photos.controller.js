@@ -24,7 +24,6 @@ angular.module('registerSite')
 
         $scope.changeViewSummary = function () {
                     if ($scope.flowMainPhoto.flow.files.length != 0) {
-                        buildSitePhotosFormData();
                         savePhotosTemporally();
                         $location.path('/summary');
                     } else {
@@ -61,23 +60,5 @@ angular.module('registerSite')
             if(siteInformationService.productsPhotos.length!=0){
                 $scope.flowProductsPhotos.flow.files = siteInformationService.productsPhotos;
             }
-        }
-
-        function buildSitePhotosFormData() {
-            var fd = new FormData();
-
-            appendPhotos($scope.flowMainPhoto.flow.files, 'fotos_PRINCIPAL', fd);
-            appendPhotos($scope.flowFacadePhotos.flow.files, 'fotos_FACHADA', fd);
-            appendPhotos($scope.flowInsidePhotos.flow.files, 'fotos_INTERIOR', fd);
-            appendPhotos($scope.flowProductsPhotos.flow.files, 'fotos_PRODUCTOS', fd);
-            siteInformationService.formData = fd;
-        }
-
-        function appendPhotos(arrayPhotos, model, fd) {
-            var photosCounter = 0;
-            angular.forEach(arrayPhotos, function (file) {
-                fd.append(model + photosCounter, file.file);
-                photosCounter++;
-            });
         }
     });

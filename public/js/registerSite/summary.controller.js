@@ -20,6 +20,7 @@ angular.module('registerSite')
         $scope.businessMunicipality = siteInformationService.businessMunicipality;
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
+        var fd = new FormData();
 
         categories.getCategories().then(function (response) {
             $scope.categories = response;
@@ -57,8 +58,6 @@ angular.module('registerSite')
 
 
         function buildSiteFormData() {
-            var fd = siteInformationService.formData;
-
             fd.append('latitud', $scope.businessLocation.lat);
             fd.append('longitud', $scope.businessLocation.lng);
             fd.append('nombre', $scope.businessName);
@@ -80,12 +79,27 @@ angular.module('registerSite')
                 }
             } catch (error) {
             }
+
+            appendPhotos( siteInformationService.mainPhoto, 'fotos_PRINCIPAL', fd);
+            appendPhotos( siteInformationService.facadePhotos, 'fotos_FACHADA', fd);
+            appendPhotos(siteInformationService.insidePhotos, 'fotos_INTERIOR', fd);
+            appendPhotos(siteInformationService.productsPhotos, 'fotos_PRODUCTOS', fd);
+
+
+        }
+
+        function appendPhotos(arrayPhotos, model, fd) {
+            var photosCounter = 0;
+            angular.forEach(arrayPhotos, function (file) {
+                fd.append(model + photosCounter, file.file);
+                photosCounter++;
+            });
         }
 
         function sendSiteDataToServer() {
             $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
 
-            $http.post(API_CONFIG.url + API_CONFIG.sitio, siteInformationService.formData,
+            $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
                 {
                     transformRequest: angular.identity,
                     headers: {'Content-Type': undefined}
