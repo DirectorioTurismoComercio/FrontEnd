@@ -9,19 +9,19 @@ angular.module('registerSite', ['ngTagsInput', 'uiGmapgoogle-maps', 'flow', 'ngD
             })
             .when('/businessinformation', {
                 templateUrl: 'js/registerSite/businessinformation.html',
-                controller: 'registerSiteController'
+                controller: 'businessInformationController'
             })
             .when('/location', {
                 templateUrl: 'js/registerSite/location.html',
-                controller: 'registerSiteController'
+                controller: 'locationController'
             })
             .when('/photos', {
                 templateUrl: 'js/registerSite/photos.html',
-                controller: 'registerSiteController'
+                controller: 'registerPhotosController'
             })
             .when('/summary', {
                 templateUrl: 'js/registerSite/summary.html',
-                controller: 'registerSiteController'
+                controller: 'summaryController'
             })
             ;
 
