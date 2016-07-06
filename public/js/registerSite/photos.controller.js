@@ -9,9 +9,7 @@ angular.module('registerSite')
 
 
         $scope.$on('$viewContentLoaded', function(){
-            if(siteInformationService.mainPhoto.length!=0){
-                $scope.flowMainPhoto.flow.files = siteInformationService.mainPhoto;
-            }
+            checkSelectedPhotos();
         });
         $scope.flowMainPhoto = {};
         $scope.flowFacadePhotos = {};
@@ -27,7 +25,7 @@ angular.module('registerSite')
         $scope.changeViewSummary = function () {
                     if ($scope.flowMainPhoto.flow.files.length != 0) {
                         buildSitePhotosFormData();
-                        siteInformationService.mainPhoto=$scope.flowMainPhoto.flow.files;
+                        savePhotosTemporally();
                         $location.path('/summary');
                     } else {
                         $scope.showMainPhotoRequired = true;
@@ -38,6 +36,31 @@ angular.module('registerSite')
 
         $scope.changeViewLocation=function(){
              $location.path('/location');
+        }
+
+        function savePhotosTemporally(){
+            siteInformationService.mainPhoto=$scope.flowMainPhoto.flow.files;
+            siteInformationService.facadePhotos=$scope.flowFacadePhotos.flow.files;
+            siteInformationService.insidePhotos=$scope.flowInsidePhotos.flow.files;
+            siteInformationService.productsPhotos=$scope.flowProductsPhotos.flow.files;
+        }
+
+        function checkSelectedPhotos(){
+            if(siteInformationService.mainPhoto.length!=0){
+                $scope.flowMainPhoto.flow.files = siteInformationService.mainPhoto;
+            }
+
+            if(siteInformationService.facadePhotos.length!=0){
+                $scope.flowFacadePhotos.flow.files = siteInformationService.facadePhotos;
+            }
+
+            if(siteInformationService.insidePhotos.length!=0){
+                $scope.flowInsidePhotos.flow.files = siteInformationService.insidePhotos;
+            }
+
+            if(siteInformationService.productsPhotos.length!=0){
+                $scope.flowProductsPhotos.flow.files = siteInformationService.productsPhotos;
+            }
         }
 
         function buildSitePhotosFormData() {
