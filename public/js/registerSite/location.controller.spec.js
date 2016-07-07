@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: registerSiteController', function () {
+describe('Controller: locationController', function () {
     var registerSiteController, $scope, deferred, testMapService, testgeolocation, testcategories;
 
     beforeEach(module('gemStore'));
@@ -34,7 +34,7 @@ describe('Controller: registerSiteController', function () {
         spyOn(geolocation, 'getLocation').and.returnValue(deferred.promise);
         spyOn(categories, 'getCategories').and.returnValue(deferred.promise);
         spyOn(MunicipiosFactory, 'getTowns').and.returnValue(deferred.promise);
-        registerSiteController = $controller('registerSiteController', {
+        registerSiteController = $controller('locationController', {
             $scope: $scope,
             $http: $http,
             MapService: MapService,
@@ -52,10 +52,10 @@ describe('Controller: registerSiteController', function () {
     it('Should  get user position when clicks on current position button', function () {
         $scope.getUserPosition();
         deferred.resolve({
-                coords: {
-                    latitude: 1,
-                    longitude: 1
-                }
+            coords: {
+                latitude: 1,
+                longitude: 1
+            }
 
         });
         $scope.$apply();

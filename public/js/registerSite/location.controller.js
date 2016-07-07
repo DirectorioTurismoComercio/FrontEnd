@@ -3,7 +3,7 @@
 angular.module('registerSite')
     .controller('locationController', function ($scope, $auth, $http, $timeout, MapService, uiGmapIsReady, messageService,
                                                 API_CONFIG, categories,
-                                                $location, MunicipiosFactory, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog, $cookies) {
+                                                $location, MunicipiosFactory, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation) {
 
 
         $scope.businessMunicipality = siteInformationService.businessMunicipality;
