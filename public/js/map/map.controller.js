@@ -6,6 +6,7 @@ angular.module('map')
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS) {
         var userPosition = {};
         var hasMadeRoute = false;
+        var photosPopUp=undefined;
         $scope.routeMapZoom = undefined;
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
@@ -136,6 +137,14 @@ angular.module('map')
         }
         ;
 
+        $scope.$on("$locationChangeStart", function(event, next, current) {
+            if (photosPopUp!=undefined) {
+                event.preventDefault();
+                ngDialog.close();
+                photosPopUp=undefined;
+            }
+        });
+
         function setCundinamarcaPolygon() {
             new google.maps.Polygon({
                 strokeColor: '#FF0000',
@@ -245,7 +254,7 @@ angular.module('map')
         };
         $scope.openDialogWindowPhotos = function () {
 
-            ngDialog.open({
+            photosPopUp=ngDialog.open({
                 template: 'js/map/dialogWindowPhotos.html',
                 width: 'auto',
                 showClose: false,
@@ -257,6 +266,7 @@ angular.module('map')
         }
         $scope.closeDialogWindowPhotos = function () {
             ngDialog.close();
+            photosPopUp=undefined;
         }
 
         $scope.isEmpty = function (field) {
