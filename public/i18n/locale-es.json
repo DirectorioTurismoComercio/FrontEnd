@@ -137,5 +137,7 @@
   "GET_SITES_ERROR": "No es posible usar el buscador en este momento intentalo más tarde o vuelve a cargar la página",
   "GET_TOWNS_ERROR": "No es posible cargar el listado de municipios, por favor intentalo más tarde o vuelve a cargar la página",
   "NO_RESULTS": "Lo sentimos, no hay resultados para esta búsqueda. Por favor intente con otras palabras",
-  "BAD_LOGIN":"El usuario o contraseña son incorrectos"
+  "BAD_LOGIN":"El usuario o contraseña son incorrectos",
+  "REGISTER_SUCCESS":"Te has registrado exitosamente en cundinamarcapp, ahora puedes registrar tu comercio"
+
 }
