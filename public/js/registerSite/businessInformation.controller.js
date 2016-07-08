@@ -55,6 +55,10 @@ angular.module('registerSite')
             }
         });
 
+         $scope.deleteBusinessLocation=function(){
+             $scope.businessLocation=undefined;
+        }
+
         function saveDataAndChangeView(view) {
             saveSiteInformation();
             $location.path(view);
