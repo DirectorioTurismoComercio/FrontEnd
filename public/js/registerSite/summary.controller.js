@@ -151,9 +151,9 @@ angular.module('registerSite')
             siteInformationService.businessCategories = undefined;
             siteInformationService.businessMunicipality = undefined;
             siteInformationService.mainPhoto=[];
-            siteAndTownSaverService.facadePhotos=[];
-            siteAndTownSaverService.insidePhotos=[];
-            siteAndTownSaverService.productsPhotos=[];
+            siteInformationService.facadePhotos=[];
+            siteInformationService.insidePhotos=[];
+            siteInformationService.productsPhotos=[];
         }
 
     });
