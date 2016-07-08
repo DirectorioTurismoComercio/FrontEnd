@@ -50,7 +50,9 @@ angular.module('registerSite')
         };
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
-            next.$$route.controller=='registerTradeController' ? $location.path('/home') : $location.path('/accountinfo');
+            if(next.$$route.controller=='registerTradeController') {
+                $location.path('/home');
+            }
         });
 
         function saveDataAndChangeView(view) {
