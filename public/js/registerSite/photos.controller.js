@@ -19,6 +19,11 @@ angular.module('registerSite')
 
         $scope.isrotated = false;
 
+        var lastFacadeFileIndex;
+        var lastInsideFileIndex;
+        var lastProductsFileIndex;
+
+
         $scope.mainPhotoOnClick = function () {
             $scope.showMainPhotoRequired = false;
         }
@@ -32,6 +37,10 @@ angular.module('registerSite')
             }
 
         };
+
+        $scope.changeViewLocation = function () {
+            $location.path('/location');
+        }
 
 
         function savePhotosTemporally() {
@@ -59,64 +68,112 @@ angular.module('registerSite')
             }
         }
 
-        $scope.onImgLoad = function (event, element) {
-            getOrientation($scope.flowMainPhoto.flow.files[0].file, function (orientation) {
-                if (orientation == 6) {
-                    $scope.isrotated = true;
-                    $scope.$apply();
-                } else {
-                    $scope.isrotated = false;
-                    $scope.$apply();
-                }
-            });
+
+        $scope.imgLoadedCallback=function(flowObject,fileIndex){
+           switch (flowObject) {
+               case 'mainPhoto':
+                   processImage($scope.flowMainPhoto.flow,0);
+                   break;
+
+               case 'facadePhotos':
+                   if(fileIndex!=lastFacadeFileIndex){
+                       lastFacadeFileIndex=fileIndex;
+                       processImage($scope.flowFacadePhotos.flow,fileIndex);
+                   }
+               break;
+
+               case 'flowInsidePhotos':
+                   if(fileIndex!=lastInsideFileIndex){
+                       lastInsideFileIndex=fileIndex;
+                       processImage($scope.flowInsidePhotos.flow,fileIndex);
+                   }
+                   break;
+
+               case 'flowProductsPhotos':
+                   if(fileIndex!=lastProductsFileIndex){
+                       lastProductsFileIndex=fileIndex;
+                       processImage($scope.flowProductsPhotos.flow,fileIndex);
+                   }
+                   break;
+           }
 
         }
 
-        function getOrientation(file, callback) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-
-                var view = new DataView(e.target.result);
-                if (view.getUint16(0, false) != 0xFFD8) return callback(-2);
-                var length = view.byteLength, offset = 2;
-                while (offset < length) {
-                    var marker = view.getUint16(offset, false);
-                    offset += 2;
-                    if (marker == 0xFFE1) {
-                        if (view.getUint32(offset += 2, false) != 0x45786966) return callback(-1);
-                        var little = view.getUint16(offset += 6, false) == 0x4949;
-                        offset += view.getUint32(offset + 4, little);
-                        var tags = view.getUint16(offset, little);
-                        offset += 2;
-                        for (var i = 0; i < tags; i++)
-                            if (view.getUint16(offset + (i * 12), little) == 0x0112)
-                                return callback(view.getUint16(offset + (i * 12) + 8, little));
+        function processImage(flowObject,fileIndex){
+            EXIF.getData(flowObject.files[fileIndex].file,function() {
+                var orientation = EXIF.getTag(this,"Orientation");
+                var can = document.createElement("canvas");
+                var ctx = can.getContext('2d');
+                var thisImage = new Image;
+                thisImage.onload = function() {
+                    can.width  = thisImage.width;
+                    can.height = thisImage.height;
+                    ctx.save();
+                    var width  = can.width;  var styleWidth  = can.style.width;
+                    var height = can.height; var styleHeight = can.style.height;
+                    if (orientation) {
+                        if (orientation > 4) {
+                            can.width  = height; can.style.width  = styleHeight;
+                            can.height = width;  can.style.height = styleWidth;
+                        }
+                        switch (orientation) {
+                            case 2: ctx.translate(width, 0);     ctx.scale(-1,1); break;
+                            case 3: ctx.translate(width,height); ctx.rotate(Math.PI); break;
+                            case 4: ctx.translate(0,height);     ctx.scale(1,-1); break;
+                            case 5: ctx.rotate(0.5 * Math.PI);   ctx.scale(1,-1); break;
+                            case 6: ctx.rotate(0.5 * Math.PI);   ctx.translate(0,-height); break;
+                            case 7: ctx.rotate(0.5 * Math.PI);   ctx.translate(width,-height); ctx.scale(-1,1); break;
+                            case 8: ctx.rotate(-0.5 * Math.PI);  ctx.translate(-width,0); break;
+                        }
                     }
-                    else if ((marker & 0xFF00) != 0xFF00) break;
-                    else offset += view.getUint16(offset, false);
+
+                    ctx.drawImage(thisImage,0,0);
+                    ctx.restore();
+                    var dataURL = can.toDataURL();
+                    var blob=dataURLToBlob(dataURL);
+                    blob.name = flowObject.files[fileIndex].uniqueIdentifier;
+                    blob.lastModifiedDate = new Date();
+                    var f = new Flow.FlowFile(flowObject, blob);
+                    flowObject.files.splice(fileIndex,1);
+                    flowObject.files.push(f);
+                    $scope.$apply();
                 }
-                return callback(-1);
-            };
-            reader.readAsArrayBuffer(file.slice(0, 64 * 1024));
+                thisImage.src = URL.createObjectURL(flowObject.files[fileIndex].file);
+            });
         }
 
-        $scope.changeViewLocation = function () {
-            $location.path('/location');
+        function dataURLToBlob(dataURL) {
+            var BASE64_MARKER = ';base64,';
+            if (dataURL.indexOf(BASE64_MARKER) == -1) {
+                var parts = dataURL.split(',');
+                var contentType = parts[0].split(':')[1];
+                var raw = decodeURIComponent(parts[1]);
+
+                return new Blob([raw], {type: contentType});
+            }
+
+            var parts = dataURL.split(BASE64_MARKER);
+            var contentType = parts[0].split(':')[1];
+            var raw = window.atob(parts[1]);
+            var rawLength = raw.length;
+
+            var uInt8Array = new Uint8Array(rawLength);
+
+            for (var i = 0; i < rawLength; ++i) {
+                uInt8Array[i] = raw.charCodeAt(i);
+            }
+
+            return new Blob([uInt8Array], {type: contentType});
         }
 
-    }).directive('sbLoad', ['$parse', function ($parse) {
+    }).directive('imageOnload', function() {
     return {
         restrict: 'A',
-        link: function (scope, elem, attrs) {
-            var fn = $parse(attrs.sbLoad);
-            elem.on('load', function (event) {
-                scope.$apply(function () {
-                    fn(scope, {
-                        $event: event,
-                    });
-                });
+        link: function(scope, element, attrs) {
+            element.bind('load', function() {
+                scope.$apply(attrs.imageOnload);
             });
         }
     };
-}]);
+});;
 ;
