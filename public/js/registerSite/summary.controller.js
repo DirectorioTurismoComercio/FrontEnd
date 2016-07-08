@@ -122,21 +122,6 @@ angular.module('registerSite')
             });
         }
 
-        function saveSiteInformation() {
-            siteInformationService.sitePhoneNumber = $scope.sitePhoneNumber;
-            siteInformationService.whatsapp = $scope.whatsapp;
-            siteInformationService.web = $scope.web;
-            siteInformationService.openingHours = $scope.openingHours;
-            siteInformationService.businessName = $scope.businessName;
-            siteInformationService.businessLocation = $scope.businessLocation;
-            siteInformationService.businessDescription = $scope.businessDescription;
-            siteInformationService.tags = $scope.tags;
-            siteInformationService.businessEmail = $scope.businessEmail;
-            siteInformationService.businessAddress = $scope.businessAddress;
-            siteInformationService.businessCategories = $scope.businessCategories;
-            siteInformationService.businessMunicipality = $scope.businessMunicipality;
-        }
-
         function clearData() {
             siteInformationService.sitePhoneNumber = undefined;
             siteInformationService.whatsapp = undefined;
