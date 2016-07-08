@@ -23,4 +23,10 @@ angular.module('accountInfo')
             navigationService.cameToBusinessInformationThrough='accountinfo';
             $location.path('businessinformation');
         }
+
+        $scope.$on('$routeChangeStart', function (scope, next, current) {
+            if(next.$$route.controller=='summaryController') {
+                $location.path('/accountinfo');
+            }
+        });
     });
