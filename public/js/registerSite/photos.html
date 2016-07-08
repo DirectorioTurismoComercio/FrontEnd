@@ -60,7 +60,7 @@
 
                 <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
                     <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
-                        <img image-onload="imgLoadedCallback('facadePhotos',$index)" class="selectedMainPhoto" id="body"  class="selectedRowPhotos" flow-img="file"/>
+                        <img image-onload="imgLoadedCallback('facadePhotos',$index)" class="selectedRowPhotos" id="body"  class="selectedRowPhotos" flow-img="file"/>
                         <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
                              src="./images/registerIcons/foto-borrar.png">
                     </div>

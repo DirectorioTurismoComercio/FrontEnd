@@ -76,32 +76,31 @@ angular.module('registerSite')
                    break;
 
                case 'facadePhotos':
-                   if(fileIndex!=lastFacadeFileIndex){
-                       lastFacadeFileIndex=fileIndex;
-                       processImage($scope.flowFacadePhotos.flow,fileIndex);
-                   }
+                   previewPhoto($scope.flowFacadePhotos.flow,fileIndex,lastFacadeFileIndex);
                break;
 
                case 'flowInsidePhotos':
-                   if(fileIndex!=lastInsideFileIndex){
-                       lastInsideFileIndex=fileIndex;
-                       processImage($scope.flowInsidePhotos.flow,fileIndex);
-                   }
+                   previewPhoto($scope.flowInsidePhotos.flow,fileIndex,lastInsideFileIndex);
                    break;
 
                case 'flowProductsPhotos':
-                   if(fileIndex!=lastProductsFileIndex){
-                       lastProductsFileIndex=fileIndex;
-                       processImage($scope.flowProductsPhotos.flow,fileIndex);
-                   }
+                   previewPhoto($scope.flowProductsPhotos.flow,fileIndex,lastProductsFileIndex);
                    break;
            }
 
         }
 
+        function previewPhoto(flowObject,fileIndex,lastPhotoFileIndex){
+            if(fileIndex!=lastPhotoFileIndex){
+                lastPhotoFileIndex=fileIndex;
+                processImage(flowObject,fileIndex);
+            }
+        }
+
         function processImage(flowObject,fileIndex){
             EXIF.getData(flowObject.files[fileIndex].file,function() {
                 var orientation = EXIF.getTag(this,"Orientation");
+                if (orientation) {
                 var can = document.createElement("canvas");
                 var ctx = can.getContext('2d');
                 var thisImage = new Image;
@@ -111,7 +110,7 @@ angular.module('registerSite')
                     ctx.save();
                     var width  = can.width;  var styleWidth  = can.style.width;
                     var height = can.height; var styleHeight = can.style.height;
-                    if (orientation) {
+
                         if (orientation > 4) {
                             can.width  = height; can.style.width  = styleHeight;
                             can.height = width;  can.style.height = styleWidth;
@@ -125,7 +124,7 @@ angular.module('registerSite')
                             case 7: ctx.rotate(0.5 * Math.PI);   ctx.translate(width,-height); ctx.scale(-1,1); break;
                             case 8: ctx.rotate(-0.5 * Math.PI);  ctx.translate(-width,0); break;
                         }
-                    }
+
 
                     ctx.drawImage(thisImage,0,0);
                     ctx.restore();
@@ -139,6 +138,7 @@ angular.module('registerSite')
                     $scope.$apply();
                 }
                 thisImage.src = URL.createObjectURL(flowObject.files[fileIndex].file);
+                }
             });
         }
 
