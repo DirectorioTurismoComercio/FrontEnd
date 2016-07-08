@@ -1,7 +1,7 @@
 'use strict';
 angular.module('accountInfo')
     .controller('AccountInfoController', function ($scope, $location,
-                                                   authenticationService) {
+                                                   authenticationService, navigationService) {
 
         $scope.showRequiredFieldMessage = false;
         $scope.usuario = authenticationService.getUser();
@@ -20,6 +20,7 @@ angular.module('accountInfo')
         }
 
         $scope.addBusiness = function () {
+            navigationService.cameToBusinessInformationThrough='accountinfo';
             $location.path('businessinformation');
         }
     });

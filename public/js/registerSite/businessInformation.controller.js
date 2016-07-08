@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('registerSite')
-    .controller('businessInformationController', function ($scope, $auth, $http,   messageService,
-                                                    API_CONFIG, categories,
-                                                    $location, MunicipiosFactory, authenticationService, siteAndTownSaverService,
-                                                     siteInformationService, $translate) {
+    .controller('businessInformationController', function ($scope, $auth, $http, messageService,
+                                                           API_CONFIG, categories,
+                                                           $location, MunicipiosFactory, authenticationService, siteAndTownSaverService,
+                                                           siteInformationService, $translate, navigationService) {
 
 
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
@@ -23,8 +23,6 @@ angular.module('registerSite')
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
 
-        console.log("municipio", $scope.businessMunicipality);
-
         categories.getCategories().then(function (response) {
             $scope.categories = response;
         }).catch(function (error) {
@@ -38,35 +36,27 @@ angular.module('registerSite')
             console.log("Ocurrio un error", error);
         });
 
-
-
-        $scope.register = function () {
+        $scope.changeViewLocation = function () {
             if ($scope.registerSiteForm.$valid) {
-                $scope.waitingRegister = true;
-                buildSiteFormData();
-                sendSiteDataToServer();
+                saveDataAndChangeView('/location');
             } else {
                 $scope.showRequiredFieldMessage = true;
             }
-        };
-        $scope.changeViewLocation = function () {
-        	 if ($scope.registerSiteForm.$valid) {
-                        saveDataAndChangeView('/location');
-                    } else {
-                        $scope.showRequiredFieldMessage = true;
-                    }
 
 
         };
         $scope.changeViewHome = function () {
-             $location.path('/home')
+            navigationService.cameToBusinessInformationThrough == 'registertrader' ? $location.path('/home') : $location.path('/accountinfo');
         };
 
-        function saveDataAndChangeView(view){
+        $scope.$on('$routeChangeStart', function (scope, next, current) {
+            next.$$route.controller=='registerTradeController' ? $location.path('/home') : $location.path('/accountinfo');
+        });
+
+        function saveDataAndChangeView(view) {
             saveSiteInformation();
             $location.path(view);
         }
-
 
 
         function saveSiteInformation() {
@@ -82,21 +72,6 @@ angular.module('registerSite')
             siteInformationService.businessAddress = $scope.businessAddress;
             siteInformationService.businessCategories = $scope.businessCategories;
             siteInformationService.businessMunicipality = $scope.businessMunicipality;
-        }
-
-        function clearData() {
-            siteInformationService.sitePhoneNumber = undefined;
-            siteInformationService.whatsapp = undefined;
-            siteInformationService.web = undefined;
-            siteInformationService.openingHours = undefined;
-            siteInformationService.businessName = undefined;
-            siteInformationService.businessLocation = undefined;
-            siteInformationService.businessDescription = undefined;
-            siteInformationService.tags = undefined;
-            siteInformationService.businessEmail = undefined;
-            siteInformationService.businessAddress = undefined;
-            siteInformationService.businessCategories = undefined;
-            siteInformationService.businessMunicipality = undefined;
         }
 
     });

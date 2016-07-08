@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('registerTrader')
-    .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, UserFactory,$location, $mdDialog) {
+    .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, UserFactory,$location, $mdDialog, navigationService) {
         $scope.submitted=false;
         $scope.usuario = new UserFactory();
         $scope.traderName=undefined;
@@ -103,6 +103,7 @@ angular.module('registerTrader')
         
         function redirectToRegisterSite(){
              $scope.load = false;
+             navigationService.cameToBusinessInformationThrough='registertrader';
              $location.path('/businessinformation');
         }
         function redirectToProfile(){
