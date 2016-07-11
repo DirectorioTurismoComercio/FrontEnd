@@ -3,6 +3,7 @@ angular.module('accountInfo')
     .controller('AccountInfoController', function ($scope, $location,
                                                    authenticationService, siteInformationService) {
 
+
         $scope.showRequiredFieldMessage = false;
         $scope.usuario = authenticationService.getUser();
 
@@ -20,8 +21,10 @@ angular.module('accountInfo')
         }
 
         $scope.addBusiness = function () {
+            navigationService.cameToBusinessInformationThrough='accountinfo';
             $location.path('businessinformation');
         }
+
         $scope.editSite = function (sitio)  {
             console.log("sitio",sitio);
 
@@ -42,4 +45,11 @@ angular.module('accountInfo')
             siteInformationService.businessMunicipality = sitio.municipio_id;
             $location.path('businessinformation');
         }
-    });
+
+
+        $scope.$on('$routeChangeStart', function (scope, next, current) {
+            if(next.$$route.controller=='summaryController') {
+                $location.path('/accountinfo');
+            }
+        });
+

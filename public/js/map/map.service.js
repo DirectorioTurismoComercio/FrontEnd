@@ -105,22 +105,14 @@ angular.module('map')
 
         function getCategoryNormalIcon(categoryId) {
             var iconFolder = 'images/icons/categories/';
-            if ($window.innerWidth < 992) {
-                return getCategoryIcon(iconFolder, categoryId, 40);
-            } else {
-                return getCategoryIcon(iconFolder, categoryId, 60);
-            }
+            return getCategoryIcon(iconFolder, categoryId, 60);
         }
 
         function getCategoryLightedIcon(categoryId) {
             var iconFolder = 'images/icons/categories/lighted/';
-            if ($window.innerWidth < 992) {
-                return getCategoryIcon(iconFolder, categoryId, 60);
-            } else {
-                return getCategoryIcon(iconFolder, categoryId, 80);
-            }
+            return getCategoryIcon(iconFolder, categoryId, 80);
         }
-        
+
         function getCategoryIcon(iconFolder, categoryId, iconSize) {
             var url = iconFolder;
 

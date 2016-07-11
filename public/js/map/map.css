@@ -252,6 +252,15 @@
     color: #32A2D4;
 }
 
+.ngdialog.ngdialog-theme-default {
+    padding-bottom: 0px !important;
+    padding-top: 160px;
+}
+
+.connected-carousels .stage {
+    width: 255px !important;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {

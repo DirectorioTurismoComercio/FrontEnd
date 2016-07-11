@@ -1,5 +1,5 @@
 angular.module('gemStore')
-    .run(function ($rootScope, $location, isUserLoggedIn, $http, $cookies) {
+    .run(function ($rootScope, $location, isUserLoggedIn) {
         var forbiddenURLsToForce=[
             'templates/signin/signin.html',
             'templates/signup/personal-data.html',

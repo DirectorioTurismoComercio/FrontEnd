@@ -6,6 +6,7 @@ angular.module('map')
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS) {
         var userPosition = {};
         var hasMadeRoute = false;
+        var photosPopUp=undefined;
         $scope.routeMapZoom = undefined;
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
@@ -94,7 +95,7 @@ angular.module('map')
             $scope.selectedSite = site;
             checkSelectedSiteWebPage();
             reloadMap();
-            $timeout(function() {
+            $timeout(function () {
                 centerMap(site, 15);
             }, 100);
             //$scope.$apply();
@@ -136,6 +137,14 @@ angular.module('map')
         }
         ;
 
+        $scope.$on("$locationChangeStart", function(event, next, current) {
+            if (photosPopUp!=undefined) {
+                event.preventDefault();
+                ngDialog.close();
+                photosPopUp=undefined;
+            }
+        });
+
         function setCundinamarcaPolygon() {
             new google.maps.Polygon({
                 strokeColor: '#FF0000',
@@ -157,7 +166,7 @@ angular.module('map')
 
             var selectedTown = siteAndTownSaverService.getCurrentSearchedTown();
 
-            if(selectedTown==undefined || (selectedTown.nombre).indexOf('Cundinamarca') > -1){
+            if (selectedTown == undefined || (selectedTown.nombre).indexOf('Cundinamarca') > -1) {
                 selectedTown = cundinamarca;
                 zoom = 9;
             }
@@ -223,15 +232,16 @@ angular.module('map')
             messageService.showErrorMessage("No es posible obtener la ubicación");
         }
 
-        function checkSelectedSiteWebPage(){
-            if(($scope.selectedSite.web).indexOf('http://')>-1 ){
-                $scope.selectedSite.web=($scope.selectedSite.web).substring(7,($scope.selectedSite.web).length);
+        function checkSelectedSiteWebPage() {
+            if (($scope.selectedSite.web).indexOf('http://') > -1) {
+                $scope.selectedSite.web = ($scope.selectedSite.web).substring(7, ($scope.selectedSite.web).length);
             }
-            if(($scope.selectedSite.web).indexOf('https://')>-1){
-                $scope.selectedSite.web=($scope.selectedSite.web).substring(8,($scope.selectedSite.web).length);
-            };
-            if(($scope.selectedSite.web).indexOf('www.')==-1){
-                $scope.selectedSite.web='www.'+$scope.selectedSite.web;
+            if (($scope.selectedSite.web).indexOf('https://') > -1) {
+                $scope.selectedSite.web = ($scope.selectedSite.web).substring(8, ($scope.selectedSite.web).length);
+            }
+            ;
+            if (($scope.selectedSite.web).indexOf('www.') == -1) {
+                $scope.selectedSite.web = 'www.' + $scope.selectedSite.web;
             }
         }
 
@@ -244,17 +254,19 @@ angular.module('map')
         };
         $scope.openDialogWindowPhotos = function () {
 
-            ngDialog.open({
+            photosPopUp=ngDialog.open({
                 template: 'js/map/dialogWindowPhotos.html',
                 width: 'auto',
                 showClose: false,
                 scope: $scope,
                 closeByEscape: false,
-                closeByDocument: false
+                closeByDocument: false,
+                closeByNavigation: true,
             });
         }
         $scope.closeDialogWindowPhotos = function () {
             ngDialog.close();
+            photosPopUp=undefined;
         }
 
         $scope.isEmpty = function (field) {

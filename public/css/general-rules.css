@@ -51,6 +51,15 @@ input {
     display: flex;
 }
 
+.rotateImage{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+/*display: none !important;*/
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
 }

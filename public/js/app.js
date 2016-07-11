@@ -4,8 +4,8 @@
             'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
             'businessBrowser', 'dropDownTowns', 'searchTabs', 'siteAndTownSaver', 'howItWorks',
             'message', 'appHeader', 'pascalprecht.translate', 'appFooter', 'registerSite',
-            'businessCategory', 'mgo-angular-wizard', 'registerTrader', 'login', 'accountInfo','ngCookies'])
-        .config(function ($interpolateProvider, API_CONFIG, $authProvider, $translateProvider) {
+            'businessCategory', 'mgo-angular-wizard', 'registerTrader', 'login', 'accountInfo','ngCookies', 'navigation'])
+        .config(function ($interpolateProvider, API_CONFIG, $authProvider, $translateProvider, $httpProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');
 
@@ -36,5 +36,9 @@
 
             $translateProvider.useSanitizeValueStrategy('escape');
             $translateProvider.preferredLanguage('es');
+
+            $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+            $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+
         })
 })();

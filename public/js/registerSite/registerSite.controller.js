@@ -75,41 +75,29 @@ angular.module('registerSite')
         }
 
         $scope.changeView = function (view, logic) {
-
-            switch (logic) {
-                case 'form':
-                    if ($scope.registerSiteForm.$valid) {
-                        saveDataAndChangeView(view);
-                    } else {
-                        $scope.showRequiredFieldMessage = true;
-                    }
-                    break;
-
-                case 'photos':
-                    if ($scope.flowMainPhoto.flow.files.length != 0) {
-                        buildSitePhotosFormData();
-                        $location.path(view);
-                    } else {
-                        $scope.showMainPhotoRequired = true;
-                    }
-                    break;
-
-                case 'location':
-                    if ($scope.businessLocation != undefined) {
-                        saveDataAndChangeView(view);
-                    } else {
-                        $scope.showRequiredFieldMessage = true;
-                    }
-                    break;
-
-                case true:
-                    if(view=='location'){
-                        $scope.businessLocation=undefined;
-                    }
-                    saveDataAndChangeView(view);
-                    break;
+            if (logic == 'form') {
+                if ($scope.registerSiteForm.$valid) {
+                    saveSiteInformation();
+                    $location.path(view);
+                } else {
+                    $scope.showRequiredFieldMessage = true;
+                }
             }
 
+            if (logic == 'photos') {
+                if ($scope.flowMainPhoto.flow.files.length != 0) {
+                    buildSitePhotosFormData();
+                    $location.path(view);
+                } else {
+                    $scope.showMainPhotoRequired = true;
+                }
+
+            }
+
+            if (logic == true) {
+                saveSiteInformation();
+                $location.path(view);
+            }
         };
 
         $scope.doneRegistration = function () {
@@ -117,11 +105,6 @@ angular.module('registerSite')
             $location.path('accountinfo');
         }
 
-
-        function saveDataAndChangeView(view){
-            saveSiteInformation();
-            $location.path(view);
-        }
 
         function centerMapOnSelectedTown() {
             try {
@@ -183,6 +166,7 @@ angular.module('registerSite')
         }
 
         function sendSiteDataToServer() {
+
             $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
             
             if(siteInformationService.siteId)
@@ -207,6 +191,7 @@ angular.module('registerSite')
                 }).error(function (error) {
                 console.log("hubo un error", error);
             });
+
 
             }
             else
@@ -258,7 +243,7 @@ angular.module('registerSite')
         function getClickedPositionTown() {
             $http({
                 method: 'GET',
-                url: API_CONFIG.getTownOnMapClickURL + $scope.businessLocation.lat + ',' + $scope.businessLocation.lng + '&sensor=true',
+                url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + $scope.businessLocation.lat + ',' + $scope.businessLocation.lng + '&sensor=true',
                 skipAuthorization: true  // `Authorization: Bearer <token>` will not be sent on this request.
             })
                 .success(function (response) {
