@@ -1,0 +1,114 @@
+<div class="hidden-xs hidden-sm">
+    <app-header></app-header>
+</div>
+<form name="registerSiteForm">
+    <div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortSummary">
+        <div class="col-md-4  col-md-offset-4 centerColumnNoPadding PhotosFormPadding registerSiteFormBackgroundColor">
+            <div class="header container-fluid">
+                <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeViewHome()">
+                    <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+                </div>
+                <p class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_INFORMATION"></p>
+            </div>
+            <ul class="progress-bar1 progressBarPadding topMarginElements">
+                <li class="done-step"></li>
+                <li class="done-step"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+
+
+            <div class="row businessAddressText topMarginElements">
+                <div class="col-xs-2">
+                    <img class="confirmRegisterIcons" src="./images/registerIcons/nombre-negocio.png">
+                </div>
+                <div class="col-xs-10">
+                    <input type="text" placeholder="Regular Placeholder" translate
+                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_NAME"
+                           class="form-control businessAddressInput" name="businessName" type="text"
+                           ng-model="$parent.businessName" required/>
+                    <i ng-show="businessName==undefined"
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessStar"></i>
+                        <span ng-show="showRequiredFieldMessage && registerSiteForm.businessName.$error.required"
+                              class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+                </div>
+
+            </div>
+
+            <div class="row businessAddressText topMarginElements">
+                <div class="col-xs-2">
+                    <img class="confirmRegisterIcons" src="./images/registerIcons/telefono.png">
+                </div>
+                <div class="col-xs-10">
+                    <input type="tel" ng-pattern="/^\d+$/" ng-minlength="7" ng-maxlength="10"
+                           class="form-control businessAddressInput" name="businessPhone" type="text" translate
+                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_PHONE"
+                           ng-model="$parent.sitePhoneNumber" name="sitePhoneNumber2" required/>
+
+                    <i ng-show="sitePhoneNumber==undefined"
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessStar"></i>
+                    <span ng-show="showRequiredFieldMessage && registerSiteForm.businessPhone.$error.required"
+                          class="errorField" translate="REGISTER_SITE_CONSTANTS.PHONE_VALIDATION"></span>
+                </div>
+            </div>
+            <div class="row businessAddressText topMarginElements">
+                <div class="col-xs-2">
+                    <img class="confirmRegisterIcons" src="./images/registerIcons/whatsapp.png">
+                </div>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control businessAddressInput" name="businessWhatsapp" type="text"
+                           ng-model="$parent.whatsapp" translate
+                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WHATS_APP"/>
+
+
+                </div>
+            </div>
+            <div class="row businessAddressText topMarginElements">
+                <div class="col-xs-2">
+                    <img class="confirmRegisterIcons" src="./images/registerIcons/web.png">
+                </div>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control businessAddressInput" name="businessWeb" type="text"
+                           ng-model="$parent.web" translate
+                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WEB"/>
+                </div>
+            </div>
+            <div class="topMarginElements col-xs-12">
+                <select ng-model="businessMunicipality"
+                        ng-options="obj.nombre for obj in municipalities track by obj.id"
+                        name="municipality"
+                        class="form-control businessAddressInput businessAddressText"
+                        ng-change="deleteBusinessLocation()"
+                        required>
+                    <option value="" translate="REGISTER_SITE_CONSTANTS.SELECT_TOWN"></option>
+                </select>
+                <i ng-show="businessMunicipality==undefined"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
+                        <span ng-show="showRequiredFieldMessage && registerSiteForm.municipality.$error.required"
+                              class="errorField businessAddressText"
+                              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            </div>
+
+            <div class="input topMarginElements col-xs-12">
+                        <textarea placeholder="Regular Placeholder" translate
+                                  translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION"
+                                  class="form-control businessAddressInput businessAddressText"
+                                  name="businessDescription" ng-model="$parent.businessDescription" required></textarea>
+                <i ng-show="businessDescription==undefined"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessDescriptionStar"></i>
+                        <span ng-show="showRequiredFieldMessage && registerSiteForm.businessDescription.$error.required"
+                              class="errorField businessAddressText"
+                              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            </div>
+
+            <div class=" next-button NextButtonRegister topMarginElements col-xs-12">
+                <button class="button"
+                        ng-click="changeViewLocation()" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
