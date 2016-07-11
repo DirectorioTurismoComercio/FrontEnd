@@ -17,7 +17,11 @@ angular.module('registerSite')
         $scope.showRequiredFieldMessage = false;
         $scope.showMainPhotoRequired = false;
 
-        $scope.isrotated = false;
+        $scope.loadingMainPhoto=false;
+        $scope.loadingFacadePhoto=false;
+        $scope.loadingInsidePhoto=false;
+        $scope.loadingProductsPhoto=false;
+
 
         var lastFacadeFileIndex;
         var lastInsideFileIndex;
@@ -69,39 +73,45 @@ angular.module('registerSite')
         }
 
 
-        $scope.imgLoadedCallback=function(flowObject,fileIndex){
-           switch (flowObject) {
+        $scope.imgLoadedCallback=function(flowObjectName,fileIndex){
+            console.log("se llama el onload");
+           switch (flowObjectName) {
                case 'mainPhoto':
-                   processImage($scope.flowMainPhoto.flow,0);
+                   processImage($scope.flowMainPhoto.flow,0, flowObjectName);
+                   $scope.loadingMainPhoto=false;
                    break;
 
                case 'facadePhotos':
-                   previewPhoto($scope.flowFacadePhotos.flow,fileIndex,lastFacadeFileIndex);
+                   previewPhoto($scope.flowFacadePhotos.flow,fileIndex,lastFacadeFileIndex, flowObjectName);
+                   $scope.loadingFacadePhoto=false;
                break;
 
-               case 'flowInsidePhotos':
-                   previewPhoto($scope.flowInsidePhotos.flow,fileIndex,lastInsideFileIndex);
+               case 'insidePhotos':
+                   previewPhoto($scope.flowInsidePhotos.flow,fileIndex,lastInsideFileIndex, flowObjectName);
+                   $scope.loadingInsidePhoto=false;
                    break;
 
-               case 'flowProductsPhotos':
-                   previewPhoto($scope.flowProductsPhotos.flow,fileIndex,lastProductsFileIndex);
+               case 'productsPhotos':
+                   previewPhoto($scope.flowProductsPhotos.flow,fileIndex,lastProductsFileIndex, flowObjectName);
+                   $scope.loadingProductsPhoto=false;
                    break;
            }
 
         }
 
-        function previewPhoto(flowObject,fileIndex,lastPhotoFileIndex){
+        function previewPhoto(flowObject,fileIndex,lastPhotoFileIndex,flowObjectName){
             if(fileIndex!=lastPhotoFileIndex){
                 lastPhotoFileIndex=fileIndex;
-                processImage(flowObject,fileIndex);
+                processImage(flowObject,fileIndex,flowObjectName);
             }
         }
 
-        function processImage(flowObject,fileIndex){
+        function processImage(flowObject,fileIndex, photoLoading){
             try{
                 EXIF.getData(flowObject.files[fileIndex].file,function() {
                     var orientation = EXIF.getTag(this,"Orientation");
                     if (orientation) {
+                        changeLoadingState(photoLoading, true);
                         var can = document.createElement("canvas");
                         var ctx = can.getContext('2d');
                         var thisImage = new Image;
@@ -126,7 +136,6 @@ angular.module('registerSite')
                                 case 8: ctx.rotate(-0.5 * Math.PI);  ctx.translate(-width,0); break;
                             }
 
-
                             ctx.drawImage(thisImage,0,0);
                             ctx.restore();
                             var dataURL = can.toDataURL();
@@ -139,12 +148,33 @@ angular.module('registerSite')
                             $scope.$apply();
                         }
                         thisImage.src = URL.createObjectURL(flowObject.files[fileIndex].file);
+                    }else{
+                        changeLoadingState(photoLoading, false);
                     }
                 });
             }catch (error){}
 
         }
 
+        function changeLoadingState(photoLoading, state){
+            switch (photoLoading){
+                case 'mainPhoto':
+                    $scope.loadingMainPhoto=state;
+                    break;
+                case 'facadePhotos':
+                    $scope.loadingFacadePhoto=state;
+                    break;
+
+                case 'insidePhotos':
+                    $scope.loadingInsidePhoto=state;
+                    break;
+
+                case 'productsPhotos':
+                    $scope.loadingProductsPhoto=state;
+                    break;
+            }
+        }
+        
         function dataURLToBlob(dataURL) {
             var BASE64_MARKER = ';base64,';
             if (dataURL.indexOf(BASE64_MARKER) == -1) {
