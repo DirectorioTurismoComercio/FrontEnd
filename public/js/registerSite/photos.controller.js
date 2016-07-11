@@ -74,7 +74,6 @@ angular.module('registerSite')
 
 
         $scope.imgLoadedCallback=function(flowObjectName,fileIndex){
-            console.log("se llama el onload");
            switch (flowObjectName) {
                case 'mainPhoto':
                    processImage($scope.flowMainPhoto.flow,0, flowObjectName);
@@ -174,7 +173,7 @@ angular.module('registerSite')
                     break;
             }
         }
-        
+
         function dataURLToBlob(dataURL) {
             var BASE64_MARKER = ';base64,';
             if (dataURL.indexOf(BASE64_MARKER) == -1) {
