@@ -6,7 +6,7 @@ angular.module('registerSite')
                                                            $location, MunicipiosFactory, authenticationService, siteAndTownSaverService,
                                                            siteInformationService, $translate, navigationService) {
 
-
+        
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
         $scope.whatsapp = siteInformationService.whatsapp;
         $scope.web = siteInformationService.web;

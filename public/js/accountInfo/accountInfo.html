@@ -129,8 +129,11 @@
                 <button class="button" ng-click="save()"
                         translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
             </div>
+       </form>     
 
             <div class="registerTraderLineSeparator row col-xs-12"></div>
+
+        <form name="sites" class="form-group form">
             <div class="row">
                 <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_BUSINESS"></p>
             </div>
@@ -144,6 +147,8 @@
                         <h3>%%sitio.nombre%%</h3>
                         <p>%%sitio.ubicacionlocal%%</p>
                         <p>%%sitio.telefono%%</p>
+                        <p><button class="button" ng-click="editSite(sitio)"
+                        translate="ACCOUNT_INFO.EDIT_SITE"></button></p>
                     </div>
                 </div>
             </div>

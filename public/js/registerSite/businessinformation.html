@@ -117,14 +117,14 @@
             </div>
 
             <div class="topMarginElements col-xs-12">
-                <select ng-model="businessCategories.category"
-                        ng-options="obj.id as obj.nombre for obj in categories"
+                <select ng-model="businessCategories"
+                        ng-options="obj.nombre for obj in categories track by obj.id"
                         name="catefory"
                         class="form-control businessAddressInput businessAddressText"
                         required>
                     <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
                 </select>
-                <i ng-show="businessCategories.category==''"
+                <i ng-show="businessCategories==undefined"
                    class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.catefory.$error.required"
                               class="errorField businessAddressText"

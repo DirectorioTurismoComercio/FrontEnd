@@ -2,6 +2,7 @@
 
 angular.module('registerSite')
     .service('siteInformationService', function () {
+        var siteId = undefined;
         var sitePhoneNumber = undefined;
         var whatsapp = undefined;
         var web = undefined;
@@ -12,16 +13,17 @@ angular.module('registerSite')
         var tags = undefined;
         var businessEmail = undefined;
         var businessAddress = undefined;
-        var businessCategories = {
-            category: ''
-        };
+        var businessCategories = undefined;
         var businessMunicipality = undefined;
         var mainPhoto = [];
         var facadePhotos = [];
         var insidePhotos = [];
         var productsPhotos = [];
+        var URLphotos = undefined;
 
         return {
+
+            siteId: siteId,
             sitePhoneNumber: sitePhoneNumber,
             whatsapp: whatsapp,
             web: web,
@@ -38,6 +40,7 @@ angular.module('registerSite')
             facadePhotos: facadePhotos,
             insidePhotos: insidePhotos,
             productsPhotos: productsPhotos,
+            URLphotos: URLphotos
         };
 
 

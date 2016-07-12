@@ -125,23 +125,23 @@
             </div>
             <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
                    translate="REGISTER_SITE_CONSTANTS.BUSINESS_CATEGORY"></label>
+
             <div class="topMarginElements col-xs-12">
 
-                <select ng-model="businessCategories.category"
-                        ng-options="obj.id as obj.nombre for obj in categories"
+                <select ng-model="businessCategories"
+                        ng-options="obj.nombre for obj in categories track by obj.id"
                         name="catefory"
                         class="form-control businessAddressInput businessAddressText"
                         required>
-                    <option selected="businessCategories" value=""
-                            translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
+                    <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
                 </select>
-                <i ng-show="businessCategories.category==''"
+                <i ng-show="businessCategories==undefined"
                    class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.catefory.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-
             </div>
+
             <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
                    translate="REGISTER_SITE_CONSTANTS.BUSINESS_TAGS_CONFIRMATION_PAGE"></label>
             <div class="topMarginElements col-xs-12">

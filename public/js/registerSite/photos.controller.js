@@ -51,6 +51,7 @@ angular.module('registerSite')
         }
 
         function checkSelectedPhotos() {
+
             if (siteInformationService.mainPhoto.length != 0) {
                 $scope.flowMainPhoto.flow.files = siteInformationService.mainPhoto;
             }
@@ -66,7 +67,23 @@ angular.module('registerSite')
             if (siteInformationService.productsPhotos.length != 0) {
                 $scope.flowProductsPhotos.flow.files = siteInformationService.productsPhotos;
             }
+             
+            
+            if(siteInformationService.URLphotos){
+             loadPhotosFromServer();
+             siteInformationService.URLphotos = undefined;
+            }
+
+
         }
+        function loadPhotosFromServer(){
+                var i;
+                for(i=0;i<siteInformationService.URLphotos.length;i++){
+                    loadPhotoFromURL(siteInformationService.URLphotos[i].URLfoto,siteInformationService.URLphotos[i].tipo);
+                }
+                  
+        }
+
 
 
         $scope.imgLoadedCallback=function(flowObject,fileIndex){
@@ -143,6 +160,35 @@ angular.module('registerSite')
                 });
             }catch (error){}
 
+        }
+        function loadPhotoFromURL(urlPhoto, tipo)
+        {
+         
+            $http({
+                method: 'GET',
+                url: urlPhoto,
+                responseType:"arraybuffer"
+            }).success(function (data) {
+                    var arrayBufferView = new Uint8Array( data );
+                    var blob = new Blob( [ arrayBufferView ], { type: "image/jpeg" } );
+                    blob.name = 'RegistroIconMenu.jpg';
+                    blob.lastModifiedDate = new Date();
+                    var file;
+                    var flowPhotos = getFlow(tipo);
+                    file  = new Flow.FlowFile(flowPhotos.flow, blob);
+                    flowPhotos.flow.files.push(file);
+                }).error(function (error) {
+                console.log("hubo un error al cargar la foto", error);
+            });
+        }
+        function getFlow(photoType){
+
+             if  (photoType == 'P') return $scope.flowMainPhoto;
+             if  (photoType == 'F') return $scope.flowFacadePhotos;
+             if  (photoType == 'P') return $scope.flowInsidePhotos;
+             if  (photoType == 'PR') return $scope.flowProductsPhotos;
+
+             return $scope.flowMainPhoto;
         }
 
         function dataURLToBlob(dataURL) {

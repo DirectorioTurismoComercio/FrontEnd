@@ -67,7 +67,7 @@ angular.module('registerSite')
             if ($scope.openingHours) fd.append('horariolocal', $scope.openingHours);
             if ($scope.businessEmail)  fd.append('correolocal', $scope.businessEmail);
             fd.append('ubicacionlocal', $scope.businessAddress);
-            fd.append('categorias', $scope.businessCategories.category);
+            fd.append('categorias', $scope.businessCategories.id);
             fd.append('usuario', authenticationService.getUser().id);
             if ($scope.web) fd.append('web', $scope.web);
             if ($scope.whatsapp) fd.append('whatsapp', $scope.whatsapp);
@@ -98,13 +98,22 @@ angular.module('registerSite')
 
         function sendSiteDataToServer() {
             $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
-
-            $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
+            var promise;
+            if(siteInformationService.siteId){
+                promise = $http.put(API_CONFIG.url + API_CONFIG.sitio+"/detail/"+siteInformationService.siteId, fd,
                 {
                     transformRequest: angular.identity,
                     headers: {'Content-Type': undefined}
-                })
-                .success(function (d) {
+                });
+            }else{
+                promise = $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
+                {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                });
+
+            }
+            promise.success(function (d) {
                     siteAndTownSaverService.setCurrentSearchedTown(undefined);
                     $scope.waitingRegister = false;
                     clearData();
@@ -120,6 +129,9 @@ angular.module('registerSite')
                 }).error(function (error) {
                 console.log("hubo un error", error);
             });
+            
+            
+           
         }
 
         function clearData() {
