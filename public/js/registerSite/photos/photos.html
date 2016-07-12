@@ -37,7 +37,8 @@
                          src="./images/registerIcons/foto-subir.png"/>
                 </div>
                 <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
-                    <img  image-onload="imgLoadedCallback('mainPhoto',0)" class="selectedMainPhoto" id="body" ng-class="isrotated ? 'rotateImage':''"  flow-img="$flow.files[0]"/>
+                    <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate" ng-show="loadingMainPhoto"></md-progress-circular>
+                    <img  image-onload="imgLoadedCallback('mainPhoto',0)" class="selectedMainPhoto" flow-img="$flow.files[0]"/>
                     <img class="deletePhoto deletePhotoSize" ng-click="$flow.cancel()"
                          src="./images/registerIcons/foto-borrar.png">
                 </div>
@@ -60,7 +61,8 @@
 
                 <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
                     <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
-                        <img image-onload="imgLoadedCallback('facadePhotos',$index)" class="selectedRowPhotos" id="body"  class="selectedRowPhotos" flow-img="file"/>
+                        <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate" ng-show="loadingFacadePhoto"></md-progress-circular>
+                        <img image-onload="imgLoadedCallback('facadePhotos',$index)" class="selectedRowPhotos" class="selectedRowPhotos" flow-img="file"/>
                         <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
                              src="./images/registerIcons/foto-borrar.png">
                     </div>
@@ -80,7 +82,8 @@
 
                 <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
                     <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
-                        <img image-onload="imgLoadedCallback('flowInsidePhotos',$index)" class="selectedRowPhotos" flow-img="file"/>
+                        <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate" ng-show="loadingInsidePhoto"></md-progress-circular>
+                        <img image-onload="imgLoadedCallback('insidePhotos',$index)" class="selectedRowPhotos" flow-img="file"/>
                         <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
                              src="./images/registerIcons/foto-borrar.png">
                     </div>
@@ -100,7 +103,8 @@
 
                 <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
                     <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
-                        <img image-onload="imgLoadedCallback('flowProductsPhotos',$index)" class="selectedRowPhotos" flow-img="file"/>
+                        <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate" ng-show="loadingProductsPhoto"></md-progress-circular>
+                        <img image-onload="imgLoadedCallback('productsPhotos',$index)" class="selectedRowPhotos" flow-img="file"/>
                         <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
                              src="./images/registerIcons/foto-borrar.png">
                     </div>

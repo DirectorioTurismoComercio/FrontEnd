@@ -55,6 +55,10 @@
     max-width: 180% !important;
 }
 
+.loadingPhoto{
+    position: absolute !important;
+}
+
 /* xs devices */
 @media (max-width: 767px) {
     .deletePhotoSize{
@@ -75,3 +79,5 @@
         height: 2vmin !important;
     }
 }
+
+

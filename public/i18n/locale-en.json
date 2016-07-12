@@ -76,6 +76,7 @@
     "BUSINESS_TAGS_CONFIRMATION_PAGE": "Tags",
     "BUSINESS_NAME": "Business name",
     "SELECT_TOWN": "Choose the municipality",
+    "BUSINESS_CATEGORY_TITLE": "Business category",
     "BUSINESS_LOCATION": "Location of your business",
     "BUSINESS_GET_USER_LOCATION_TIP": "Use your current location to indicate on the map that here is your business",
     "BUSINESS_LOCATION_TIP": "You can set a pin on the accurate location of your business on the map",
