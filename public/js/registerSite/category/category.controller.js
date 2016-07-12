@@ -7,7 +7,11 @@ angular.module('registerSite')
                                                 siteInformationService, $translate, navigationService) {
 
         $scope.businessCategories = siteInformationService.businessCategories;
+
+
         $scope.showRequiredFieldMessage = false;
+
+
 
 
         categories.getCategories().then(function (response) {
@@ -15,6 +19,27 @@ angular.module('registerSite')
         }).catch(function (error) {
             console.log("Hubo un error", error);
         });
+
+        $scope.getControllerSubcategories = function () {
+            if ($scope.businessCategories.category == undefined) {
+                resetCategoriesModel();
+            } else {
+                getSubcategories();
+            }
+        }
+
+        function resetCategoriesModel(){
+            $scope.subcategories = undefined;
+            $scope.businessCategories.subcategory = undefined;
+        }
+
+        function getSubcategories(){
+            categories.getSubcategories($scope.businessCategories.category).then(function (response) {
+                $scope.subcategories = response;
+            }).catch(function (error) {
+                console.log("hubo un error", error);
+            });
+        }
 
         $scope.changeViewLocation = function () {
             if ($scope.registerSiteForm.$valid) {

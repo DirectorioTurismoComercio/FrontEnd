@@ -1,0 +1,23 @@
+.subcategory::-webkit-input-placeholder {
+    color: #32A2D4 !important;
+}
+
+.subcategory:-moz-placeholder { /* Firefox 18- */
+    color: #32A2D4 !important;
+}
+
+.subcategory::-moz-placeholder {  /* Firefox 19+ */
+    color: #32A2D4 !important;
+}
+
+.subcategory:-ms-input-placeholder {
+    color: #32A2D4 !important;
+}
+
+.subcategory-container{
+    background-color: #E6E6E6;
+}
+
+.subcategory-label{
+    color: #2D3C4D;
+}
