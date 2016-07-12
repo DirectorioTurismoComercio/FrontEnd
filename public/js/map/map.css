@@ -185,7 +185,7 @@
     height: 100px;
     padding: 50px 50px 50px 50px;
     z-index: 10;
-    margin-left: 96%;
+    margin-left: 65%;
     margin-top: -2%;
 }
 
@@ -257,9 +257,6 @@
     padding-top: 160px;
 }
 
-.connected-carousels .stage {
-    width: 255px !important;
-}
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
@@ -325,6 +322,10 @@
         height: 8vmin;
         width: 8vmin;
     }
+
+    .dialog-window-photos .close-button {
+    margin-left: 83%;
+}
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -337,6 +338,9 @@
         height: 5%;
         width: 5%;
     }
+        .dialog-window-photos .close-button {
+    margin-left: 87%;
+}
 }
 
 /* Large devices (large desktops, 1200px and up) */

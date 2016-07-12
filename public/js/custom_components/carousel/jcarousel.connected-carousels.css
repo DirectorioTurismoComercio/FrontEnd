@@ -2,7 +2,7 @@
 
 
 .connected-carousels .stage {
-    width: 375px;
+    width: 300px;
     margin: 20px auto;
 }
 
@@ -193,6 +193,7 @@
    .arrow-icon{
         height: 12vmin;
     }
+
 
 /* sm devices */
 @media (min-width: 600px) {
