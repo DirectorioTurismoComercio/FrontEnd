@@ -20,6 +20,9 @@ angular.module('registerSite')
         var insidePhotos = [];
         var productsPhotos = [];
         var URLphotos = undefined;
+        var businessFirstCategories=undefined;
+        var businessSecondCategories=undefined;
+        var businessThirdCategories=undefined;
 
         return {
 
@@ -40,7 +43,10 @@ angular.module('registerSite')
             facadePhotos: facadePhotos,
             insidePhotos: insidePhotos,
             productsPhotos: productsPhotos,
-            URLphotos: URLphotos
+            URLphotos: URLphotos,
+            businessFirstCategories:businessFirstCategories,
+            businessSecondCategories:businessSecondCategories,
+            businessThirdCategories:businessThirdCategories
         };
 
 

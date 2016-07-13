@@ -88,6 +88,7 @@
     "CHOOSE_CATEGORY": "-- Elije categoria --",
     "CHOOSE_CATEGORY_TEXT": "Selecciona la categoría que corresponda a la actividad principal de tu negocio",
     "CHOOSE_OTHER_CATEGORY_TEXT": "Si tu negocio tiene otras actividades comerciales puedes añadir 2 categorias adicionales",
+    "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "Si tu negocio tiene otras actividades comerciales puedes añadir 1 categoria adicional",
     "ADD_CATEGORY_BUTTON": "Añadir categoria",
     "EDIT_CATEGORY_BUTTON": "Editar",
     "BUSINESS_SUBCATEGORY": "Subcategoria",

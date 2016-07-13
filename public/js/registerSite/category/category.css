@@ -34,3 +34,9 @@
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
+
+.subcategory-tip{
+    margin-top: 30% !important;
+    padding: 0 10% 0 10% !important;
+    margin-bottom: 30% !important;
+}
