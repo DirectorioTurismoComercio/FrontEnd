@@ -139,25 +139,29 @@
             </div>
 
             <div ng-repeat="sitio in usuario.sitios">
-                <div class="row registered-business">
-                    <div class="col-xs-4 image">
-                        <img class="img-responsive" ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
-                    </div>
-                    <div>
-                        <h3>%%sitio.nombre%%</h3>
-                        <p>%%sitio.ubicacionlocal%%</p>
-                        <p>%%sitio.telefono%%</p>
-                        <p><button class="button" ng-click="editSite(sitio)"
-                        translate="ACCOUNT_INFO.EDIT_SITE"></button></p>
-                    </div>
-                </div>
-            </div>
+                <div class="registered-business">
 
-            <div class="registerTrader-button NextButtonRegister topMarginElements">
+                <div class="flex-container">
+                <div class="flex-item-button"><img ng-click="editSite(sitio)" class="remove-icon" src="./images/accountInfoIcons/borrar.png"/></div>
+                <div class="flex-item"><img  class="business-image" ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                    <div class="info-container">
+                    <p class="business-name">%%sitio.nombre%%</p>
+                    <p>%%sitio.ubicacionlocal%%</p>
+                    <p>%%sitio.telefono%%</p>
+                </div>
+              
+
+                </div>
+                </div> 
+                   <div class="flex-item-button"><button class="button edit-button" ng-click="editSite(sitio)"
+                    translate="ACCOUNT_INFO.EDIT_SITE"></button></div>
+              </div>
+         
+        </div>   
+           <div class="registerTrader-button NextButtonRegister topMarginElements">
                 <button class="button" ng-click="addBusiness()"
                         translate="ACCOUNT_INFO.ADD_BUSINESS"></button>
-            </div>
-
+            </div> 
         </form>
 
 
