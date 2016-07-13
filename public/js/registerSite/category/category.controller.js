@@ -98,6 +98,9 @@ angular.module('registerSite')
         $scope.editFirstCategory=function(){
             $scope.compressedFirstCategoryIsVisible=false;
             $scope.listFirstCategoryIsVisible=true;
+
+            $scope.listSecondCategoryIsVisible=false;
+            $scope.compressedSecondCategoryIsVisible=true;
         }
 
         $scope.changeViewLocation = function () {
