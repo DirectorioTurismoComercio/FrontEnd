@@ -49,6 +49,10 @@ angular.module('registerSite')
             }
         };
 
+        $scope.changeViewBusinessInformation=function(){
+            $location.path("/businessinformation");
+        }
+
         function saveDataAndChangeView(view) {
             saveSiteInformation();
             $location.path(view);
