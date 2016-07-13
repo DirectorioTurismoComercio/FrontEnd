@@ -34,9 +34,6 @@
 
             <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
 
-
-
-
             <div class="topMarginElements col-xs-12">
                 <select ng-model="businessCategories.category"
                         ng-options="obj.id as obj.nombre for obj in categories"
@@ -68,7 +65,7 @@
             <div class="row col-xs-offset-1 col-xs-10 businessAddressText">
                 <div class="row  subcategory-container" ng-repeat="subcategory in subcategories">
                     <label class="col-xs-11 subcategory-label">%%subcategory.nombre%%</label>
-                    <input type="checkbox">
+                    <input type="checkbox" checklist-model="user.categorias" checklist-value="subcategory">
                 </div>
             </div>
 

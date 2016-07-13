@@ -4,7 +4,7 @@
             'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
             'businessBrowser', 'dropDownTowns', 'searchTabs', 'siteAndTownSaver', 'howItWorks',
             'message', 'appHeader', 'pascalprecht.translate', 'appFooter', 'registerSite',
-            'businessCategory', 'mgo-angular-wizard', 'registerTrader', 'login', 'accountInfo','ngCookies', 'navigation'])
+            'businessCategory', 'mgo-angular-wizard', 'registerTrader', 'login', 'accountInfo','ngCookies', 'navigation', 'checklist-model'])
         .config(function ($interpolateProvider, API_CONFIG, $authProvider, $translateProvider, $httpProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');

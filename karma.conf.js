@@ -48,6 +48,7 @@ module.exports = function (config) {
             'public/components/angular-touch/angular-touch.js',
             'public/components/angular-carousel/dist/angular-carousel.js',
             'public/components/ng-clamp/ng-clamp.js',
+            'public/components/checklist-model/checklist-model.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
