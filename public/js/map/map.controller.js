@@ -6,7 +6,7 @@ angular.module('map')
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS) {
         var userPosition = {};
         var hasMadeRoute = false;
-        var photosPopUp=undefined;
+        var photosPopUp = undefined;
         $scope.routeMapZoom = undefined;
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
@@ -14,6 +14,7 @@ angular.module('map')
         $scope.loading = false;
         $scope.foundSites = [];
         $scope.noResults = false;
+        $scope.photoIndex = 3;
         $scope.map = {
             center: {
                 latitude: siteAndTownSaverService.getCurrentSearchedTown() == undefined ? 4.6363623 : parseFloat(siteAndTownSaverService.getCurrentSearchedTown().latitud),
@@ -137,11 +138,11 @@ angular.module('map')
         }
         ;
 
-        $scope.$on("$locationChangeStart", function(event, next, current) {
-            if (photosPopUp!=undefined) {
+        $scope.$on("$locationChangeStart", function (event, next, current) {
+            if (photosPopUp != undefined) {
                 event.preventDefault();
                 ngDialog.close();
-                photosPopUp=undefined;
+                photosPopUp = undefined;
             }
         });
 
@@ -254,7 +255,7 @@ angular.module('map')
         };
         $scope.openDialogWindowPhotos = function () {
 
-            photosPopUp=ngDialog.open({
+            photosPopUp = ngDialog.open({
                 template: 'js/map/dialogWindowPhotos.html',
                 width: 'auto',
                 showClose: false,
@@ -266,7 +267,7 @@ angular.module('map')
         }
         $scope.closeDialogWindowPhotos = function () {
             ngDialog.close();
-            photosPopUp=undefined;
+            photosPopUp = undefined;
         }
 
         $scope.isEmpty = function (field) {
@@ -278,5 +279,10 @@ angular.module('map')
 
             return isEmpty;
         };
+
+        $scope.nextPhoto = function () {
+            $scope.photoIndex++;
+            console.log($scope.photoIndex);
+        }
     })
 ;
