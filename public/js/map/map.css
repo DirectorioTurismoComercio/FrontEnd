@@ -265,8 +265,7 @@
 }
 
 .ngdialog.ngdialog-theme-default {
-    padding-bottom: 0 !important;
-    padding-top: 160px;
+    padding: 0px !important;
 }
 
 .site-detail-carousel .rn-carousel-control {
@@ -305,6 +304,45 @@
 .site-detail-carousel .carousel {
     height: 200px;
     margin: 0 10px;
+}
+
+.ngdialog-content {
+    height: 100%;
+}
+
+.popup-carousel {
+    height: 100%;
+}
+
+.popup-carousel .carousel {
+    height: 80%;
+    margin: 2px 5px;
+}
+
+.popup-carousel .image {
+    width: 100%;
+    padding: 0 1px;
+}
+
+.popup-carousel .close-button {
+    border-radius: 100%;
+    background: black;
+    width: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.popup-carousel .rn-carousel-control {
+    top: 50% !important;
+    bottom: auto !important;
+}
+
+.popup-carousel .rn-carousel-control-next:before {
+    background-image: url("../../images/icons/site-detail/flecha-adelante.png") !important;
+}
+
+.popup-carousel .rn-carousel-control-prev:before {
+    background-image: url("../../images/icons/site-detail/flecha-atras.png") !important;
 }
 
 /* Extra small devices (phones, less than 768px) */
