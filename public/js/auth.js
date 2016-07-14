@@ -10,22 +10,22 @@
 
 		function clearUserData() {
 			user = null;
-			$window.sessionStorage["user"] = null;
+			$window.localStorage["user"] = null;
 		}
 
 		function init() {
-	        if ($window.sessionStorage["user"]) {
-	            user = JSON.parse($window.sessionStorage["user"]);
+	        if ($window.localStorage["user"]) {
+	            user = JSON.parse($window.localStorage["user"]);
 	        }
 	    }
-
+		
 		function userDataRequest(credentials, token, deferred){
 			$http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + token} })
 				.success(function(response){
 					user = response;
 					user.token = token;
 					user.name = credentials.username;
-					$window.sessionStorage["user"] = JSON.stringify(user);
+					$window.localStorage["user"] = JSON.stringify(user);
 					deferred.resolve();
 				});
 		}
