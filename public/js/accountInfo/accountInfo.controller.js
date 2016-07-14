@@ -1,7 +1,7 @@
 'use strict';
 angular.module('accountInfo')
-    .controller('AccountInfoController', function ($scope, $location,
-                                                   authenticationService, navigationService, siteInformationService) {
+    .controller('AccountInfoController', function ($scope, $location,$http,
+                                                   authenticationService, navigationService, siteInformationService, messageService,API_CONFIG) {
 
         $scope.showRequiredFieldMessage = false;
         $scope.usuario = authenticationService.getUser();
@@ -41,6 +41,24 @@ angular.module('accountInfo')
             siteInformationService.businessMunicipality = sitio.municipio;
 
             $location.path('businessinformation');
+        }
+        $scope.deleteSite = function (sitio){
+            messageService.confirmMessage("¿Está seguro que desea borrar este sitio?","Borrar sitio", removeSiteFromServer,sitio);
+
+        }
+        function removeSiteFromServer(sitio){
+                $http.delete(API_CONFIG.url + "/sitio/detail/"+sitio.id, siteInformationService.formData,                
+                {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                }).success(function (d) {
+                         $scope.usuario.sitios.splice($scope.usuario.sitios.indexOf(sitio), 1);
+                }).error(function (error) {
+                console.log("hubo un error al borrar", error);
+
+            });
+
+
         }
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
