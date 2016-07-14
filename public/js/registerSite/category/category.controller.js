@@ -16,10 +16,12 @@ angular.module('registerSite')
         $scope.compressedFirstCategoryIsVisible=false;
         $scope.firstAddCategoryButtonIsVisible=true;
 
+        $scope.secondcategoryExists=false;
         $scope.listSecondCategoryIsVisible=false;
         $scope.compressedSecondCategoryIsVisible=false;
         $scope.secondAddCategoryButtonIsVisible=true;
 
+        $scope.thirdcategoryExists=false;
         $scope.listThirdCategoryIsVisible=false;
         $scope.compressedThirdCategoryIsVisible=false;
 
@@ -132,6 +134,8 @@ angular.module('registerSite')
             $scope.listSecondCategoryIsVisible=true;
             $scope.compressedSecondCategoryIsVisible=false;
 
+            $scope.secondcategoryExists=true;
+
 
         }
 
@@ -147,6 +151,21 @@ angular.module('registerSite')
             $scope.listThirdCategoryIsVisible=true;
             $scope.compressedThirdCategoryIsVisible=false;
 
+            $scope.thirdcategoryExists=true;
+
+        }
+
+
+        $scope.deleteSecondCategory=function(){
+            $scope.compressedSecondCategoryIsVisible=false;
+            $scope.listSecondCategoryIsVisible=false;
+            $scope.secondcategoryExists=false;
+        }
+
+        $scope.deleteThirdCategory=function(){
+            $scope.compressedThirdCategoryIsVisible=false;
+            $scope.listThirdCategoryIsVisible=false;
+            $scope.thirdcategoryExists=false;
         }
         
         $scope.changeViewLocation = function () {

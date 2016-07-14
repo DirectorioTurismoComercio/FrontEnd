@@ -20,6 +20,7 @@
 
 
             <div ng-show="compressedFirstCategoryIsVisible">
+                <p>categoria principal</p>
                 <div class="input topMarginElements col-xs-12">
                     <input placeholder="Regular Placeholder" translate
                            translate-attr-placeholder=%%firstCategories[businessFirstCategories.category-1].nombre%%
@@ -34,6 +35,7 @@
             </div>
 
             <div ng-show="listFirstCategoryIsVisible">
+                <p>categoria principal</p>
                 <div class="topMarginElements col-xs-12">
                     <select ng-model="businessFirstCategories.category"
                             ng-options="obj.id as obj.nombre for obj in firstCategories"
@@ -76,8 +78,9 @@
 
 
 
-            <div ng-show="compressedSecondCategoryIsVisible && businessSecondCategories.category!=undefined">
+            <div ng-show="compressedSecondCategoryIsVisible && businessSecondCategories.category!=undefined && secondcategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
+                <p>categoria 2</p>
                 <div class="input topMarginElements col-xs-12">
                     <input placeholder="Regular Placeholder" translate
                            translate-attr-placeholder=%%secondCategories[businessSecondCategories.category-1].nombre%%
@@ -94,8 +97,9 @@
             </div>
 
 
-            <div ng-show="listSecondCategoryIsVisible">
+            <div ng-show="listSecondCategoryIsVisible && secondcategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
+                <p>categoria 2</p>
                 <div class="topMarginElements col-xs-12">
                     <select ng-model="businessSecondCategories.category"
                             ng-options="obj.id as obj.nombre for obj in secondCategories"
@@ -139,8 +143,9 @@
             </div>
 
 
-            <div ng-show="compressedThirdCategoryIsVisible && businessThirdCategories.category!=undefined">
+            <div ng-show="compressedThirdCategoryIsVisible && businessThirdCategories.category!=undefined && thirdcategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
+                <p>categoria 3</p>
                 <div class="input topMarginElements col-xs-12">
                     <input placeholder="Regular Placeholder" translate
                            translate-attr-placeholder=%%thirdCategories[businessThirdCategories.category-1].nombre%%
@@ -156,8 +161,9 @@
                 </div>
             </div>
 
-            <div ng-show="listThirdCategoryIsVisible">
+            <div ng-show="listThirdCategoryIsVisible && thirdcategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
+                <p>categoria 3</p>
                 <div class="topMarginElements col-xs-12">
                     <select ng-model="businessThirdCategories.category"
                             ng-options="obj.id as obj.nombre for obj in thirdCategories"
