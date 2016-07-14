@@ -5,7 +5,8 @@ angular.module('message', [])
 
         return {
             showErrorMessage: showErrorMessage,
-            showSuccessMessage: showSuccessMessage
+            showSuccessMessage: showSuccessMessage,
+            confirmMessage: confirmMessage
         }
 
         function showErrorMessage(messageId) {
@@ -30,5 +31,28 @@ angular.module('message', [])
                     .ok('Aceptar')
                     .targetEvent('$event')
             );
+        }
+        function confirmMessage(message,title, okFunction,okArg, cancelFunction, cancelArg){
+            $mdDialog.show(
+                $mdDialog.confirm()
+                    .parent(angular.element(document.querySelector('#alertPop')))
+                    .clickOutsideToClose(true)
+                    .title(title)
+                    .content(message)
+                    .ariaLabel('Alert Dialog Demo')
+                    .ok('Aceptar')
+                    .cancel('cancelar')
+                    .targetEvent('$event')
+            ).then(
+            function (){
+                try{
+                     okFunction(okArg);
+                }catch(err){}
+            }
+            ,function(){
+                try{
+                cancelFunction(cancelArg);
+                }catch(err){}
+            });
         }
     });

@@ -14,12 +14,10 @@ angular.module('registerSite')
 
         $scope.listFirstCategoryIsVisible=true;
         $scope.compressedFirstCategoryIsVisible=false;
-        $scope.firstAddCategoryButtonIsVisible=true;
 
         $scope.secondcategoryExists=false;
         $scope.listSecondCategoryIsVisible=false;
         $scope.compressedSecondCategoryIsVisible=false;
-        $scope.secondAddCategoryButtonIsVisible=true;
 
         $scope.thirdcategoryExists=false;
         $scope.listThirdCategoryIsVisible=false;
@@ -129,7 +127,6 @@ angular.module('registerSite')
         $scope.addFirstCategory=function(){
             $scope.compressedFirstCategoryIsVisible=true;
             $scope.listFirstCategoryIsVisible=false;
-            $scope.firstAddCategoryButtonIsVisible=false;
 
             $scope.listSecondCategoryIsVisible=true;
             $scope.compressedSecondCategoryIsVisible=false;
@@ -140,19 +137,33 @@ angular.module('registerSite')
         }
 
         $scope.addSecondCategory=function(){
-            $scope.compressedFirstCategoryIsVisible=true;
-            $scope.listFirstCategoryIsVisible=false;
+            if(!$scope.thirdcategoryExists){
+                $scope.compressedFirstCategoryIsVisible=true;
+                $scope.listFirstCategoryIsVisible=false;
 
-            $scope.compressedSecondCategoryIsVisible=true;
-            $scope.listSecondCategoryIsVisible=false;
+                $scope.compressedSecondCategoryIsVisible=true;
+                $scope.listSecondCategoryIsVisible=false;
 
-            $scope.secondAddCategoryButtonIsVisible=false;
 
-            $scope.listThirdCategoryIsVisible=true;
-            $scope.compressedThirdCategoryIsVisible=false;
+                $scope.listThirdCategoryIsVisible=true;
+                $scope.compressedThirdCategoryIsVisible=false;
 
-            $scope.thirdcategoryExists=true;
+                $scope.thirdcategoryExists=true;
+            }
 
+            if($scope.thirdcategoryExists && !$scope.secondcategoryExists){
+                $scope.compressedFirstCategoryIsVisible=true;
+                $scope.listFirstCategoryIsVisible=false;
+
+                $scope.compressedSecondCategoryIsVisible=false;
+                $scope.listSecondCategoryIsVisible=true;
+
+
+                $scope.listThirdCategoryIsVisible=false;
+                $scope.compressedThirdCategoryIsVisible=true;
+
+                $scope.secondcategoryExists=true;
+            }
         }
 
 

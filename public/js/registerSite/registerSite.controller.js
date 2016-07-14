@@ -127,8 +127,7 @@ angular.module('registerSite')
         function buildSiteFormData() {
             var fd = siteInformationService.formData;
 
-            // fd.append('latitud', $scope.businessLocation.lat);
-            // fd.append('longitud', $scope.businessLocation.lng);
+
 
             fd.append('latitud', 7.88);
             fd.append('longitud', 3.14);
