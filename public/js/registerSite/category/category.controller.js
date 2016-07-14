@@ -16,13 +16,15 @@ angular.module('registerSite')
         $scope.compressedFirstCategoryIsVisible=false;
         $scope.firstAddCategoryButtonIsVisible=true;
 
+        $scope.secondcategoryExists=false;
         $scope.listSecondCategoryIsVisible=false;
         $scope.compressedSecondCategoryIsVisible=false;
         $scope.secondAddCategoryButtonIsVisible=true;
 
+        $scope.thirdcategoryExists=false;
         $scope.listThirdCategoryIsVisible=false;
-        $scope.compressedSecondCategoryIsVisible=false;
-        $scope.secondAddCategoryButtonIsVisible=true;
+        $scope.compressedThirdCategoryIsVisible=false;
+
 
         $scope.user={
             categorias:''
@@ -46,6 +48,22 @@ angular.module('registerSite')
             }
         }
 
+        $scope.collapseFirstListCategory=function(){
+            $scope.listFirstCategoryIsVisible=false;
+            $scope.compressedFirstCategoryIsVisible=true;
+        }
+
+        $scope.editFirstCategory=function(){
+            $scope.compressedFirstCategoryIsVisible=false;
+            $scope.listFirstCategoryIsVisible=true;
+
+            $scope.listSecondCategoryIsVisible=false;
+            $scope.compressedSecondCategoryIsVisible=true;
+
+            $scope.listThirdCategoryIsVisible=false;
+            $scope.compressedThirdCategoryIsVisible=true;
+        }
+
 
         $scope.getSecondSubCategories=function(){
             if ($scope.businessSecondCategories.category == undefined) {
@@ -60,6 +78,23 @@ angular.module('registerSite')
             }
         }
 
+        $scope.collapseSecondListCategory=function(){
+            $scope.listSecondCategoryIsVisible=false;
+            $scope.compressedSecondCategoryIsVisible=true;
+        }
+
+        $scope.editSecondCategory=function(){
+            $scope.compressedFirstCategoryIsVisible=true;
+            $scope.listFirstCategoryIsVisible=false;
+
+            $scope.listSecondCategoryIsVisible=true;
+            $scope.compressedSecondCategoryIsVisible=false;
+
+            $scope.listThirdCategoryIsVisible=false;
+            $scope.compressedThirdCategoryIsVisible=true;
+        }
+
+
         $scope.getThirdSubCategories=function(){
             if ($scope.businessThirdCategories.category == undefined) {
                 $scope.thirdSubcategories = undefined;
@@ -73,6 +108,22 @@ angular.module('registerSite')
             }
         }
 
+        $scope.collapseThirdListCategory=function(){
+            $scope.listThirdCategoryIsVisible=false;
+            $scope.compressedThirdCategoryIsVisible=true;
+        }
+
+        $scope.editThirdCategory=function(){
+            $scope.compressedFirstCategoryIsVisible=true;
+            $scope.listFirstCategoryIsVisible=false;
+
+            $scope.listSecondCategoryIsVisible=false;
+            $scope.compressedSecondCategoryIsVisible=true;
+
+            $scope.listThirdCategoryIsVisible=true;
+            $scope.compressedThirdCategoryIsVisible=false;
+        }
+
 
 
         $scope.addFirstCategory=function(){
@@ -81,28 +132,42 @@ angular.module('registerSite')
             $scope.firstAddCategoryButtonIsVisible=false;
 
             $scope.listSecondCategoryIsVisible=true;
+            $scope.compressedSecondCategoryIsVisible=false;
+
+            $scope.secondcategoryExists=true;
 
 
         }
 
         $scope.addSecondCategory=function(){
+            $scope.compressedFirstCategoryIsVisible=true;
+            $scope.listFirstCategoryIsVisible=false;
+
             $scope.compressedSecondCategoryIsVisible=true;
             $scope.listSecondCategoryIsVisible=false;
+
             $scope.secondAddCategoryButtonIsVisible=false;
 
             $scope.listThirdCategoryIsVisible=true;
+            $scope.compressedThirdCategoryIsVisible=false;
 
+            $scope.thirdcategoryExists=true;
 
         }
 
-        $scope.editFirstCategory=function(){
-            $scope.compressedFirstCategoryIsVisible=false;
-            $scope.listFirstCategoryIsVisible=true;
 
+        $scope.deleteSecondCategory=function(){
+            $scope.compressedSecondCategoryIsVisible=false;
             $scope.listSecondCategoryIsVisible=false;
-            $scope.compressedSecondCategoryIsVisible=true;
+            $scope.secondcategoryExists=false;
         }
 
+        $scope.deleteThirdCategory=function(){
+            $scope.compressedThirdCategoryIsVisible=false;
+            $scope.listThirdCategoryIsVisible=false;
+            $scope.thirdcategoryExists=false;
+        }
+        
         $scope.changeViewLocation = function () {
 
             console.log("lo que eligio", $scope.user);

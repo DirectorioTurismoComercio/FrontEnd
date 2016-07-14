@@ -90,6 +90,8 @@
     "CHOOSE_OTHER_CATEGORY_TEXT": "Si tu negocio tiene otras actividades comerciales puedes añadir 2 categorias adicionales",
     "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "Si tu negocio tiene otras actividades comerciales puedes añadir 1 categoria adicional",
     "ADD_CATEGORY_BUTTON": "Añadir categoria",
+    "COLLAPSE_CATEGORY_BUTTON": "colapsar",
+    "DELETE_CATEGORY_BUTTON": "Borrar",
     "EDIT_CATEGORY_BUTTON": "Editar",
     "BUSINESS_SUBCATEGORY": "Subcategoria",
     "CHOOSE_SUBCATEGORY": "-- Elije subcategoria --",
