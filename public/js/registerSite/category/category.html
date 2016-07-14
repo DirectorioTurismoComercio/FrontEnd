@@ -208,7 +208,7 @@
 
 
 
-            <div ng-show="businessFirstCategories.category!=undefined && firstAddCategoryButtonIsVisible">
+            <div ng-show="(businessFirstCategories.category!=undefined && !secondcategoryExists && !thirdcategoryExists)">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
 
                 <div class="row businessAddressText topMarginElements col-xs-12">
@@ -223,7 +223,7 @@
 
 
 
-            <div ng-show="businessSecondCategories.category!=undefined && secondAddCategoryButtonIsVisible">
+            <div ng-show="(businessSecondCategories.category!=undefined && secondcategoryExists && !thirdcategoryExists) || (businessSecondCategories.category!=undefined && !secondcategoryExists && thirdcategoryExists)">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
 
                 <div class="row businessAddressText topMarginElements col-xs-12">
