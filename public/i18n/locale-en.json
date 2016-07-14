@@ -92,6 +92,7 @@
     "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "If your business has other activities you can add another category",
     "ADD_CATEGORY_BUTTON": "Add category",
     "COLLAPSE_CATEGORY_BUTTON": "collapse",
+    "DELETE_CATEGORY_BUTTON": "Delete",
     "EDIT_CATEGORY_BUTTON": "Edit",
     "BUSINESS_SUBCATEGORY": "Subcategory",
     "CHOOSE_SUBCATEGORY": "-- Elija subcategoria --",
