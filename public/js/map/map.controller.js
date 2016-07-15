@@ -238,15 +238,12 @@ angular.module('map')
         }
 
         function checkSelectedSiteWebPage() {
-            if (($scope.selectedSite.web).indexOf('http://') > -1) {
-                $scope.selectedSite.web = ($scope.selectedSite.web).substring(7, ($scope.selectedSite.web).length);
-            }
-            if (($scope.selectedSite.web).indexOf('https://') > -1) {
-                $scope.selectedSite.web = ($scope.selectedSite.web).substring(8, ($scope.selectedSite.web).length);
-            }
-            ;
-            if (($scope.selectedSite.web).indexOf('www.') == -1) {
-                $scope.selectedSite.web = 'www.' + $scope.selectedSite.web;
+            const httpProtocol = 'http://';
+            const httpsProtocol = 'https://';
+            var url = $scope.selectedSite.web;
+
+            if (!url.startsWith(httpProtocol) && !url.startsWith(httpsProtocol) && url) {
+                $scope.selectedSite.web = httpProtocol + url;
             }
         }
 
