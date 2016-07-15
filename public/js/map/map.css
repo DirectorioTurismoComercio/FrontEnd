@@ -234,6 +234,10 @@
     bottom: 60px !important;
 }
 
+.rn-carousel-controls {
+
+}
+
 .rn-carousel-control.rn-carousel-control-next {
     width: 20px;
     height: 30px;
@@ -244,6 +248,8 @@
     width: 20px;
     height: 30px;
     left: 3px !important;
+    position: absolute !important;
+    bottom: 20px;
 }
 
 .rn-carousel-control.rn-carousel-control-next:before {
@@ -269,29 +275,31 @@
 }
 
 .site-detail-carousel .rn-carousel-control {
-    top: 400px !important;
-    bottom: auto !important;
+    position: relative !important;
+    bottom: 100px !important;
+    margin: 0 -20px;
 }
 
-.site-detail-carousel .rn-carousel-control.rn-carousel-control-next {
+.site-detail-carousel .rn-carousel-control-next {
     width: 30px;
     height: 30px;
     right: 3px !important;
+    float: right;
 }
 
-.site-detail-carousel .rn-carousel-control.rn-carousel-control-prev {
+.site-detail-carousel .rn-carousel-control-prev {
     width: 30px;
     height: 30px;
     left: 3px !important;
 }
 
-.site-detail-carousel .rn-carousel-control.rn-carousel-control-next:before {
+.site-detail-carousel .rn-carousel-control-next:before {
     background-size: 30px 30px;
     width: 30px;
     height: 30px;
 }
 
-.site-detail-carousel .rn-carousel-control.rn-carousel-control-prev:before {
+.site-detail-carousel .rn-carousel-control-prev:before {
     background-size: 30px 30px;
     width: 30px;
     height: 30px;
