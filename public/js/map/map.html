@@ -83,7 +83,7 @@
 
             <div ng-show="isShowingSiteDetail">
                 <div class="row site-detail-carousel" ng-if="selectedSite.fotos">
-                    <ul rn-carousel rn-carousel-controls rn-carousel-index="photoIndex" class="carousel"
+                    <ul rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex" class="carousel"
                         ng-click="openDialogWindowPhotos()">
                         <li ng-repeat="photo in selectedSite.fotos" class="text-center">
                             <img class="image" ng-src="%%photo.URLfoto%%"/>
