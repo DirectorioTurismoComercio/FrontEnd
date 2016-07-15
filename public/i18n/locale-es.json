@@ -11,7 +11,7 @@
   },
   "TABS_CONSTANTS": {
     "SEARCH_TAB": "¿Qué buscas?",
-    "SEARCH_BY_KEY_WORD": "Busca por palabra clave o selecciona una categoría",
+    "SEARCH_BY_KEY_WORD": "Busca por palabra clave o selecciona una categoría. Ejemplo: Restaurantes, música, museums",
     "SELECT_TOWN": "Selecciona el municipio para tu búsqueda",
     "DO_SEARCH": "Realizar búsqueda",
     "PLAN_YOUR_TRIP": "Arma tu ruta",
@@ -89,6 +89,7 @@
     "CHOOSE_CATEGORY_TEXT": "Selecciona la categoría que corresponda a la actividad principal de tu negocio",
     "CHOOSE_OTHER_CATEGORY_TEXT": "Si tu negocio tiene otras actividades comerciales puedes añadir 2 categorias adicionales",
     "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "Si tu negocio tiene otras actividades comerciales puedes añadir 1 categoria adicional",
+    "MAIN_CATEGORY": "Categoría principal",
     "ADD_CATEGORY_BUTTON": "Añadir categoria",
     "COLLAPSE_CATEGORY_BUTTON": "colapsar",
     "DELETE_CATEGORY_BUTTON": "Borrar",

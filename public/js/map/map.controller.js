@@ -135,15 +135,20 @@ angular.module('map')
                     MapRouteService.calculateRoute(routeRequest, $scope);
                 }, handleLocationError
             );
-        }
-        ;
+        };
 
-        $scope.$on("$locationChangeStart", function (event, next, current) {
+        $scope.$on("$routeChangeStart", function (event, next, current) {
             if (photosPopUp != undefined) {
                 event.preventDefault();
                 ngDialog.close();
                 photosPopUp = undefined;
             }
+
+            else if (next.$$route.controller == 'HomeController' && $scope.isShowingSiteDetail) {
+                event.preventDefault();
+                $scope.hideSiteDetail();
+            }
+
         });
 
         function setCundinamarcaPolygon() {
