@@ -1,3 +1,4 @@
+/*
 angular.module('gemStore')
     .run(function ($rootScope, $location, isUserLoggedIn) {
         var forbiddenURLsToForce=[
@@ -29,3 +30,4 @@ angular.module('gemStore')
             }
         }
     });
+    */
