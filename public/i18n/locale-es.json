@@ -11,7 +11,7 @@
   },
   "TABS_CONSTANTS": {
     "SEARCH_TAB": "¿Qué buscas?",
-    "SEARCH_BY_KEY_WORD": "Busca por palabra clave o selecciona una categoría",
+    "SEARCH_BY_KEY_WORD": "Busca por palabra clave o selecciona una categoría. Ejemplo: Restaurantes, música, museums",
     "SELECT_TOWN": "Selecciona el municipio para tu búsqueda",
     "DO_SEARCH": "Realizar búsqueda",
     "PLAN_YOUR_TRIP": "Arma tu ruta",
