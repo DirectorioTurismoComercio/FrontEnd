@@ -6,7 +6,7 @@ angular.module('map')
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS) {
         var userPosition = {};
         var hasMadeRoute = false;
-        var photosPopUp=undefined;
+        var photosPopUp = undefined;
         $scope.routeMapZoom = undefined;
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
@@ -134,17 +134,16 @@ angular.module('map')
                     MapRouteService.calculateRoute(routeRequest, $scope);
                 }, handleLocationError
             );
-        }
-        ;
+        };
 
-        $scope.$on("$routeChangeStart", function(event, next, current) {
-            if (photosPopUp!=undefined) {
+        $scope.$on("$routeChangeStart", function (event, next, current) {
+            if (photosPopUp != undefined) {
                 event.preventDefault();
                 ngDialog.close();
-                photosPopUp=undefined;
+                photosPopUp = undefined;
             }
-            
-            else if(next.$$route.controller=='HomeController' && $scope.isShowingSiteDetail){
+
+            else if (next.$$route.controller == 'HomeController' && $scope.isShowingSiteDetail) {
                 event.preventDefault();
                 $scope.hideSiteDetail();
             }
@@ -228,6 +227,7 @@ angular.module('map')
                     var site = sites[i];
                     var position = MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud));
                     var marker = MapService.addMarkerWithCategoryIcon(position, site.nombre, site.categorias[0]);
+                    site.categoryicon=marker.normalIcon.url;
 
                     SiteMarkerService.addSiteMarker(site, marker, $scope.showSiteDetail);
                 }
@@ -239,15 +239,12 @@ angular.module('map')
         }
 
         function checkSelectedSiteWebPage() {
-            if (($scope.selectedSite.web).indexOf('http://') > -1) {
-                $scope.selectedSite.web = ($scope.selectedSite.web).substring(7, ($scope.selectedSite.web).length);
-            }
-            if (($scope.selectedSite.web).indexOf('https://') > -1) {
-                $scope.selectedSite.web = ($scope.selectedSite.web).substring(8, ($scope.selectedSite.web).length);
-            }
-            ;
-            if (($scope.selectedSite.web).indexOf('www.') == -1) {
-                $scope.selectedSite.web = 'www.' + $scope.selectedSite.web;
+            var httpProtocol = 'http://';
+            var httpsProtocol = 'https://';
+            var url = $scope.selectedSite.web;
+
+            if (!url.startsWith(httpProtocol) && !url.startsWith(httpsProtocol) && url) {
+                $scope.selectedSite.web = httpProtocol + url;
             }
         }
 
@@ -260,19 +257,19 @@ angular.module('map')
         };
         $scope.openDialogWindowPhotos = function () {
 
-            photosPopUp=ngDialog.open({
+            photosPopUp = ngDialog.open({
                 template: 'js/map/dialogWindowPhotos.html',
                 width: 'auto',
                 showClose: false,
                 scope: $scope,
-                closeByEscape: false,
-                closeByDocument: false,
+                closeByEscape: true,
+                closeByDocument: true,
                 closeByNavigation: true,
             });
         }
         $scope.closeDialogWindowPhotos = function () {
             ngDialog.close();
-            photosPopUp=undefined;
+            photosPopUp = undefined;
         }
 
         $scope.isEmpty = function (field) {

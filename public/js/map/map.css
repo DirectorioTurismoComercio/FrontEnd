@@ -84,6 +84,12 @@
 
 }
 
+.category-container{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center
+}
+
 #get-there {
     padding: 0;
     cursor: pointer;
@@ -231,32 +237,127 @@
 
 .rn-carousel-control {
     top: auto !important;
-    bottom: 66px !important;
+    bottom: 60px !important;
+}
+
+.rn-carousel-controls {
+
 }
 
 .rn-carousel-control.rn-carousel-control-next {
+    width: 20px;
+    height: 30px;
     right: 3px !important;
 }
 
 .rn-carousel-control.rn-carousel-control-prev {
+    width: 20px;
+    height: 30px;
     left: 3px !important;
+    position: absolute !important;
+    bottom: 20px;
 }
 
 .rn-carousel-control.rn-carousel-control-next:before {
-    content: url('/images/icons/site-detail/flecha-adelante-azul.png');
-    color: #32A2D4;
+    background: url("../../images/icons/site-detail/flecha-adelante-azul.png") no-repeat;
+    background-size: 20px 30px;
+    display: inline-block;
+    width: 20px;
+    height: 30px;
+    content: "" !important;
 }
 
 .rn-carousel-control.rn-carousel-control-prev:before {
-    content: url('/images/icons/site-detail/flecha-atras-azul.png');
-    color: #32A2D4;
+    background: url("../../images/icons/site-detail/flecha-atras-azul.png") no-repeat;
+    background-size: 20px 30px;
+    display: inline-block;
+    width: 20px;
+    height: 30px;
+    content: "" !important;
 }
 
 .ngdialog.ngdialog-theme-default {
-    padding-bottom: 0px !important;
-    padding-top: 160px;
+    padding: 0px !important;
 }
 
+.site-detail-carousel .rn-carousel-control {
+    position: relative !important;
+    bottom: 100px !important;
+    margin: 0 -20px;
+}
+
+.site-detail-carousel .rn-carousel-control-next {
+    width: 30px;
+    height: 30px;
+    right: 3px !important;
+    float: right;
+}
+
+.site-detail-carousel .rn-carousel-control-prev {
+    width: 30px;
+    height: 30px;
+    left: 3px !important;
+}
+
+.site-detail-carousel .rn-carousel-control-next:before {
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+}
+
+.site-detail-carousel .rn-carousel-control-prev:before {
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+}
+
+.site-detail-carousel .image {
+    height: 200px;
+}
+
+.site-detail-carousel .carousel {
+    height: 200px;
+    margin: 0 10px;
+}
+
+.ngdialog-content {
+    height: 100%;
+}
+
+.popup-carousel {
+    height: 100%;
+}
+
+.popup-carousel .carousel {
+    height: 80%;
+    margin: 2px 5px;
+}
+
+.popup-carousel .image {
+    width: 100%;
+    padding: 0 1px;
+}
+
+.popup-carousel .close-button {
+    border-radius: 100%;
+    background: black;
+    width: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.popup-carousel .rn-carousel-control {
+    top: 50% !important;
+    bottom: auto !important;
+}
+
+.popup-carousel .rn-carousel-control-next:before {
+    background-image: url("../../images/icons/site-detail/flecha-adelante.png") !important;
+}
+
+.popup-carousel .rn-carousel-control-prev:before {
+    background-image: url("../../images/icons/site-detail/flecha-atras.png") !important;
+}
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
@@ -324,8 +425,8 @@
     }
 
     .dialog-window-photos .close-button {
-    margin-left: 83%;
-}
+        margin-left: 83%;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -338,9 +439,10 @@
         height: 5%;
         width: 5%;
     }
-        .dialog-window-photos .close-button {
-    margin-left: 87%;
-}
+
+    .dialog-window-photos .close-button {
+        margin-left: 87%;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */

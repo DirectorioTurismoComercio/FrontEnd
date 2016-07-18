@@ -142,13 +142,13 @@
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN": "You must choose your starting point",
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "You must choose your destination",
   "MY_POSITION": "My position",
-  "SUCCESS_TITLE_MESSAGE": "Success",
+  "SUCCESS_TITLE_MESSAGE": "Welcome",
   "REGISTER_COMPLETE": "your site registration is done",
   "HOW_TO_GET_THERE": "¿How to get there?",
   "GET_SITES_ERROR": "The search option is unavailable in this moment. Please reload the page",
   "GET_TOWNS_ERROR": "The towns list is unavailable in this moment. Please reload the page",
   "NO_RESULTS": "Sorry, there are no results for this search. Please try with different words.",
   "BAD_LOGIN":"Incorrect user or password",
-  "REGISTER_SUCCESS":"You registered successfully in cundinamarcapp, now you can register your business"
+  "REGISTER_SUCCESS":"Now you can register your business"
 
 }

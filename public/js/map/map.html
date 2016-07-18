@@ -34,7 +34,10 @@
                     <div class="list-item">
                         <div class="row" ng-click="showSiteDetail(site, $index)">
                             <div class="col-xs-8 info">
-                                <h3 class="">%%site.nombre%%</h3>
+                                <div class="row category-container">
+                                    <img class="icon" ng-src="%%site.categoryicon%%">
+                                    <h3 class="">%%site.nombre%%</h3>
+                                </div>
                                 <h4 class="">%%site.municipio.nombre%%</h4>
                                 <p clamp="3" class="description">%%site.descripcion%%</p>
                             </div>
@@ -53,14 +56,18 @@
                     <div class="item-separator"></div>
                 </div>
 
-                <ul rn-carousel rn-carousel-controls ng-if="showResultListHorizontally()" class="image" style="height: 110px;">
+                <ul rn-carousel rn-carousel-controls ng-if="showResultListHorizontally()" class="image"
+                    style="height: 110px;">
                     <li ng-repeat="site in foundSites"
                         ng-mouseover="highLightMarker($index)"
                         ng-mouseleave="clearHighLightedMarker($index)">
                         <div class="list-item list-item-background">
                             <div class="row vertical-align-arrow" ng-click="showSiteDetail(site, $index)">
                                 <div class="col-xs-7 info">
-                                    <h3 class="">%%site.nombre%%</h3>
+                                    <div class="row category-container">
+                                        <img class="icon" ng-src="%%site.categoryicon%%">
+                                        <h3 class="">%%site.nombre%%</h3>
+                                    </div>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
                                     <p clamp="3" class="description">%%site.descripcion%%</p>
                                 </div>
@@ -81,12 +88,13 @@
             </div>
 
             <div ng-show="isShowingSiteDetail">
-                <div class="row">
-                    <carousel images="selectedSite.fotos" image-click-event="openDialogWindowPhotos()">
-
-
-                    </carousel>
-
+                <div class="row site-detail-carousel" ng-if="selectedSite.fotos">
+                    <ul rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex" class="carousel"
+                        ng-click="openDialogWindowPhotos()">
+                        <li ng-repeat="photo in selectedSite.fotos" class="text-center">
+                            <img class="image" ng-src="%%photo.URLfoto%%"/>
+                        </li>
+                    </ul>
                 </div>
 
                 <div class="row">
@@ -109,15 +117,18 @@
                         </div>
                         <div class="item">
                             <img src="./images/icons/site-detail/telefono.png">
-                            <span class="dark-text"><a ng-href="tel:%%selectedSite.telefono%%">%%selectedSite.telefono%%</a></span>
+                            <span class="dark-text"><a
+                                    ng-href="tel:%%selectedSite.telefono%%">%%selectedSite.telefono%%</a></span>
                         </div>
                         <div ng-show="!isEmpty(selectedSite.whatsapp)" class="item">
                             <img src="./images/icons/site-detail/whatsapp.png">
-                            <span class="dark-text"><a ng-href="tel:%%selectedSite.whatsapp%%">%%selectedSite.whatsapp%%</a></span>
+                            <span class="dark-text"><a
+                                    ng-href="tel:%%selectedSite.whatsapp%%">%%selectedSite.whatsapp%%</a></span>
                         </div>
                         <div ng-show="!isEmpty(selectedSite.web)" class="item">
                             <img src="./images/icons/site-detail/web.png">
-                            <span class="light-text"><a ng-href="http://%%selectedSite.web%%">%%selectedSite.web%%</a></span>
+                            <span class="light-text"><a
+                                    ng-href="%%selectedSite.web%%" target="_blank">%%selectedSite.web%%</a></span>
                         </div>
                     </div>
                 </div>

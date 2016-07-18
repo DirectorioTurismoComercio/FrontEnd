@@ -9,7 +9,7 @@ angular.module('registerTrader')
         $scope.traderEmail=undefined;
         $scope.traderPassword;
         $scope.usuario.nombres=undefined;
-
+        $scope.registerLoading=false;
         $scope.userData={
             nombres:undefined,
             apellidos:undefined,
@@ -24,7 +24,6 @@ angular.module('registerTrader')
 
         $scope.authenticate = function (provider) {
                         $auth.authenticate(provider).then(function (response) {
-                        $scope.load = true;
                         $auth.setToken(response.data.token);
                         var credentials = {
                             username: response.data.username
@@ -47,6 +46,7 @@ angular.module('registerTrader')
                 };
 
         $scope.save =function () {
+                    $scope.registerLoading=true;
                     var promesa;
                     $scope.submitted=true;
                     var deferred;
@@ -75,6 +75,7 @@ angular.module('registerTrader')
                     
                                  
                     }).catch(function (errors) {
+                        $scope.registerLoading=false;
                         console.log("Errores retornado por el POST de agregar usuario", errors);
                         if (errors.status === 400) {
                             $mdDialog.show(
@@ -102,13 +103,13 @@ angular.module('registerTrader')
         }
         
         function redirectToRegisterSite(){
-             $scope.load = false;
+            $scope.registerLoading=false;
              navigationService.cameToBusinessInformationThrough='registertrader';
              messageService.showSuccessMessage("REGISTER_SUCCESS","SUCCESS_TITLE_MESSAGE");
              $location.path('/businessinformation');
         }
         function redirectToProfile(){
-             $scope.load = false;
+             $scope.registerLoading=false;
              $location.path('/accountinfo');
         }
 
