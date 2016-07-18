@@ -238,8 +238,8 @@ angular.module('map')
         }
 
         function checkSelectedSiteWebPage() {
-            const httpProtocol = 'http://';
-            const httpsProtocol = 'https://';
+            var httpProtocol = 'http://';
+            var httpsProtocol = 'https://';
             var url = $scope.selectedSite.web;
 
             if (!url.startsWith(httpProtocol) && !url.startsWith(httpsProtocol) && url) {
