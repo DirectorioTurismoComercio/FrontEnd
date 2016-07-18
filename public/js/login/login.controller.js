@@ -1,18 +1,19 @@
 'use strict';
 
 angular.module('login')
-    .controller('loginController', function ($scope, Constantes, $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, messageService,$cookies) {
+    .controller('loginController', function ($scope, Constantes, $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, $translate,$cookies) {
         $scope.loginLoading = false;
-
+        $scope.submitted=false;
 
         $scope.login = function () {
+            $scope.submitted=true;
             if ($scope.login.email != undefined && $scope.login.contrasena != undefined) {
                 $scope.loginLoading = true;
                 authenticationService.login({email: $scope.login.email, password: $scope.login.contrasena})
                     .then(function () {
                         redirectToProfileMain();
                     }).catch(function (error) {
-                    messageService.showErrorMessage("BAD_LOGIN");
+                    showErrorDialog($translate.instant("BAD_LOGIN"));
                     $scope.loginLoading = false;
                 });
             } else {
@@ -46,7 +47,7 @@ angular.module('login')
         function showErrorDialog(message) {
             $mdDialog.show(
                 $mdDialog.alert()
-                    .parent(angular.element(document.querySelector('#alertPop')))
+                    .parent(angular.element(document.body))
                     .clickOutsideToClose(true)
                     .title('Error')
                     .content(message)
