@@ -141,13 +141,13 @@
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN": "Debes elegir tu punto de partida",
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "Debes elegir tu destino",
   "MY_POSITION": "Mi posición actual",
-  "SUCCESS_TITLE_MESSAGE": "Completado",
+  "SUCCESS_TITLE_MESSAGE": "Bienvenido",
   "REGISTER_COMPLETE": "El registro fue exitoso",
   "HOW_TO_GET_THERE": "¿Cómo llegar?",
   "GET_SITES_ERROR": "No es posible usar el buscador en este momento intentalo más tarde o vuelve a cargar la página",
   "GET_TOWNS_ERROR": "No es posible cargar el listado de municipios, por favor intentalo más tarde o vuelve a cargar la página",
   "NO_RESULTS": "Lo sentimos, no hay resultados para esta búsqueda. Por favor intente con otras palabras",
   "BAD_LOGIN":"El usuario o contraseña son incorrectos",
-  "REGISTER_SUCCESS":"Te has registrado exitosamente en cundinamarcapp, ahora puedes registrar tu comercio"
+  "REGISTER_SUCCESS":"Ahora puedes registrar tu comercio"
 
 }
