@@ -227,6 +227,7 @@ angular.module('map')
                     var site = sites[i];
                     var position = MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud));
                     var marker = MapService.addMarkerWithCategoryIcon(position, site.nombre, site.categorias[0]);
+                    site.categoryicon=marker.normalIcon.url;
 
                     SiteMarkerService.addSiteMarker(site, marker, $scope.showSiteDetail);
                 }

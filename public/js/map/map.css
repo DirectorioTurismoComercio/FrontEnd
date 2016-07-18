@@ -84,6 +84,12 @@
 
 }
 
+.category-container{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center
+}
+
 #get-there {
     padding: 0;
     cursor: pointer;

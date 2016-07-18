@@ -50,6 +50,7 @@ angular.module('map')
                 for (var i = 0; i < sites.length; i++) {
                     var position = MapService.coordsToLatLngLiteral(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
                     var marker = MapService.addMarkerWithCategoryIcon(position, sites[i].nombre, sites[i].categorias[0]);
+                    sites[i].categoryicon=marker.normalIcon.url;
                     SiteMarkerService.addSiteMarker(sites[i], marker, $scope.showSiteDetail);
                 }
 
