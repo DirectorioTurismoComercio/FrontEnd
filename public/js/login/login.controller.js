@@ -2,18 +2,18 @@
 
 angular.module('login')
     .controller('loginController', function ($scope, Constantes, $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, messageService,$cookies) {
-        $scope.load = false;
+        $scope.loginLoading = false;
 
 
         $scope.login = function () {
             if ($scope.login.email != undefined && $scope.login.contrasena != undefined) {
-                $scope.load = true;
+                $scope.loginLoading = true;
                 authenticationService.login({email: $scope.login.email, password: $scope.login.contrasena})
                     .then(function () {
                         redirectToProfileMain();
                     }).catch(function (error) {
                     messageService.showErrorMessage("BAD_LOGIN");
-                    $scope.load = false;
+                    $scope.loginLoading = false;
                 });
             } else {
                 showErrorDialog('Por favor ingrese usuario y contraseña');
@@ -26,7 +26,7 @@ angular.module('login')
 
         $scope.authenticate = function (provider) {
             $auth.authenticate(provider).then(function (response) {
-                $scope.load = true;
+                $scope.loginLoading = true;
                 $auth.setToken(response.data.token);
                 var credentials = {
                     username: response.data.username
@@ -38,6 +38,7 @@ angular.module('login')
                     }
                 );
             }).catch(function (error) {
+                $scope.loginLoading = false;
                 console.log('hubo un error', error);
             });
         };
@@ -56,7 +57,7 @@ angular.module('login')
         }
 
         function redirectToProfileMain() {
-            $scope.load = false;
+            $scope.loginLoading = false;
             $location.path('/accountinfo');
         }
     })
