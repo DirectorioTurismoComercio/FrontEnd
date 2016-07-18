@@ -13,12 +13,7 @@
 			$window.localStorage["user"] = null;
 		}
 
-		function init() {
-	        if ($window.localStorage["user"]) {
-	            user = JSON.parse($window.localStorage["user"]);
-	        }
-	    }
-		
+	
 		function userDataRequest(credentials, token, deferred){
 			$http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + token} })
 				.success(function(response){
@@ -30,7 +25,7 @@
 				});
 		}
 
-	    init();
+
 			
 		return {
 			login: function(credentials){
@@ -71,6 +66,9 @@
 				return deferred.promise;
 			},
 			getUser: function(){
+				if ($window.localStorage["user"]) {
+	            user = JSON.parse($window.localStorage["user"]);
+	        	}
 				return user;
 			},
 			reset: function() {
