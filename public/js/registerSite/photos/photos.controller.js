@@ -144,7 +144,6 @@ angular.module('registerSite')
 
             if (!file.processed) {
                 reduceImageWeigth(flowObject, fileIndex).then(function () {
-                    console.log("tre");
                     rotateImage(flowObject, fileIndex, photoLoading);
                 }).catch(function (err) {
                     console.error(err);
