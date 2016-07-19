@@ -126,21 +126,33 @@ angular.module('registerSite')
             var flowObjectFile = flowObject.files[fileIndex];
             var file = flowObjectFile.file;
             var blob;
-            ImageService.reduceImageSize(file).then(function (image) {
+
+            return ImageService.reduceImageSize(file).then(function (image) {
                 blob = dataURLToBlob(image, flowObjectFile.uniqueIdentifier);
                 blob.exifdata = file.exifdata;
                 blob.iptcdata = file.iptcdata;
+                blob.processed = true;
 
-                var f2 = new Flow.FlowFile(flowObject, blob);
+                var flowFile = new Flow.FlowFile(flowObject, blob);
                 flowObject.files.splice(fileIndex, 1);
-                flowObject.files.push(f2);
+                flowObject.files.push(flowFile);
             });
-
         }
 
         function processImage(flowObject, fileIndex, photoLoading) {
-            reduceImageWeigth(flowObject, fileIndex);
+            var file = flowObject.files[fileIndex].file;
 
+            if (!file.processed) {
+                reduceImageWeigth(flowObject, fileIndex).then(function () {
+                    console.log("tre");
+                    rotateImage(flowObject, fileIndex, photoLoading);
+                }).catch(function (err) {
+                    console.error(err);
+                });
+            }
+        }
+
+        function rotateImage() {
             try {
                 EXIF.getData(flowObject.files[fileIndex].file, function () {
                     var orientation = EXIF.getTag(this, "Orientation");
