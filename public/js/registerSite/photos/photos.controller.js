@@ -4,7 +4,7 @@ angular.module('registerSite')
     .controller('registerPhotosController', function ($scope, $auth, $http, MapService, uiGmapIsReady, messageService,
                                                       API_CONFIG, categories,
                                                       $location, MunicipiosFactory, authenticationService, siteAndTownSaverService,
-                                                      siteInformationService, $translate, geolocation, ngDialog) {
+                                                      siteInformationService, ImageService) {
 
 
         $scope.$on('$viewContentLoaded', function () {
@@ -17,10 +17,10 @@ angular.module('registerSite')
         $scope.showRequiredFieldMessage = false;
         $scope.showMainPhotoRequired = false;
 
-        $scope.loadingMainPhoto=false;
-        $scope.loadingFacadePhoto=false;
-        $scope.loadingInsidePhoto=false;
-        $scope.loadingProductsPhoto=false;
+        $scope.loadingMainPhoto = false;
+        $scope.loadingFacadePhoto = false;
+        $scope.loadingInsidePhoto = false;
+        $scope.loadingProductsPhoto = false;
 
 
         var lastFacadeFileIndex;
@@ -71,155 +71,153 @@ angular.module('registerSite')
             if (siteInformationService.productsPhotos.length != 0) {
                 $scope.flowProductsPhotos.flow.files = siteInformationService.productsPhotos;
             }
-             
-            
-            if(siteInformationService.URLphotos){
-             loadPhotosFromServer();
-             siteInformationService.URLphotos = undefined;
+
+
+            if (siteInformationService.URLphotos) {
+                loadPhotosFromServer();
+                siteInformationService.URLphotos = undefined;
             }
 
 
         }
-        function loadPhotosFromServer(){
-                var i;
-                for(i=0;i<siteInformationService.URLphotos.length;i++){
-                    loadPhotoFromURL(siteInformationService.URLphotos[i].URLfoto,siteInformationService.URLphotos[i].tipo);
-                }
-                  
-        }
 
-
-        $scope.imgLoadedCallback=function(flowObjectName,fileIndex){
-           switch (flowObjectName) {
-               case 'mainPhoto':
-                   processImage($scope.flowMainPhoto.flow,0, flowObjectName);
-                   $scope.loadingMainPhoto=false;
-                   break;
-
-               case 'facadePhotos':
-                   previewPhoto($scope.flowFacadePhotos.flow,fileIndex,lastFacadeFileIndex, flowObjectName);
-                   $scope.loadingFacadePhoto=false;
-               break;
-
-               case 'insidePhotos':
-                   previewPhoto($scope.flowInsidePhotos.flow,fileIndex,lastInsideFileIndex, flowObjectName);
-                   $scope.loadingInsidePhoto=false;
-                   break;
-
-               case 'productsPhotos':
-                   previewPhoto($scope.flowProductsPhotos.flow,fileIndex,lastProductsFileIndex, flowObjectName);
-                   $scope.loadingProductsPhoto=false;
-                   break;
-           }
+        function loadPhotosFromServer() {
+            var i;
+            for (i = 0; i < siteInformationService.URLphotos.length; i++) {
+                loadPhotoFromURL(siteInformationService.URLphotos[i].URLfoto, siteInformationService.URLphotos[i].tipo);
+            }
 
         }
 
-        function previewPhoto(flowObject,fileIndex,lastPhotoFileIndex,flowObjectName){
-            if(fileIndex!=lastPhotoFileIndex){
-                lastPhotoFileIndex=fileIndex;
-                processImage(flowObject,fileIndex,flowObjectName);
+
+        $scope.imgLoadedCallback = function (flowObjectName, fileIndex) {
+            switch (flowObjectName) {
+                case 'mainPhoto':
+                    processImage($scope.flowMainPhoto.flow, 0, flowObjectName);
+                    $scope.loadingMainPhoto = false;
+                    break;
+
+                case 'facadePhotos':
+                    previewPhoto($scope.flowFacadePhotos.flow, fileIndex, lastFacadeFileIndex, flowObjectName);
+                    $scope.loadingFacadePhoto = false;
+                    break;
+
+                case 'insidePhotos':
+                    previewPhoto($scope.flowInsidePhotos.flow, fileIndex, lastInsideFileIndex, flowObjectName);
+                    $scope.loadingInsidePhoto = false;
+                    break;
+
+                case 'productsPhotos':
+                    previewPhoto($scope.flowProductsPhotos.flow, fileIndex, lastProductsFileIndex, flowObjectName);
+                    $scope.loadingProductsPhoto = false;
+                    break;
+            }
+
+        }
+
+        function previewPhoto(flowObject, fileIndex, lastPhotoFileIndex, flowObjectName) {
+            if (fileIndex != lastPhotoFileIndex) {
+                lastPhotoFileIndex = fileIndex;
+                processImage(flowObject, fileIndex, flowObjectName);
             }
         }
 
-        function processImage(flowObject,fileIndex, photoLoading){
-            try{
-                EXIF.getData(flowObject.files[fileIndex].file,function() {
-                    var orientation = EXIF.getTag(this,"Orientation");
+        function reduceImageWeigth(flowObject, fileIndex) {
+            var flowObjectFile = flowObject.files[fileIndex];
+            var file = flowObjectFile.file;
+            var blob;
+            ImageService.reduceImageSize(file).then(function (image) {
+                blob = dataURLToBlob(image, flowObjectFile.uniqueIdentifier);
+                blob.exifdata = file.exifdata;
+                blob.iptcdata = file.iptcdata;
+
+                var f2 = new Flow.FlowFile(flowObject, blob);
+                flowObject.files.splice(fileIndex, 1);
+                flowObject.files.push(f2);
+            });
+
+        }
+
+        function processImage(flowObject, fileIndex, photoLoading) {
+            reduceImageWeigth(flowObject, fileIndex);
+
+            try {
+                EXIF.getData(flowObject.files[fileIndex].file, function () {
+                    var orientation = EXIF.getTag(this, "Orientation");
                     if (orientation) {
+                        console.log("Changin orientation");
                         changeLoadingState(photoLoading, true);
                         var can = document.createElement("canvas");
                         var ctx = can.getContext('2d');
                         var thisImage = new Image;
-                        thisImage.onload = function() {
-                            can.width  = thisImage.width;
+                        thisImage.onload = function () {
+                            can.width = thisImage.width;
                             can.height = thisImage.height;
                             ctx.save();
-                            var width  = can.width;  var styleWidth  = can.style.width;
-                            var height = can.height; var styleHeight = can.style.height;
+                            var width = can.width;
+                            var styleWidth = can.style.width;
+                            var height = can.height;
+                            var styleHeight = can.style.height;
 
                             if (orientation > 4) {
-                                can.width  = height; can.style.width  = styleHeight;
-                                can.height = width;  can.style.height = styleWidth;
+                                can.width = height;
+                                can.style.width = styleHeight;
+                                can.height = width;
+                                can.style.height = styleWidth;
                             }
                             switch (orientation) {
-                                case 2: ctx.translate(width, 0);     ctx.scale(-1,1); break;
-                                case 3: ctx.translate(width,height); ctx.rotate(Math.PI); break;
-                                case 4: ctx.translate(0,height);     ctx.scale(1,-1); break;
-                                case 5: ctx.rotate(0.5 * Math.PI);   ctx.scale(1,-1); break;
-                                case 6: ctx.rotate(0.5 * Math.PI);   ctx.translate(0,-height); break;
-                                case 7: ctx.rotate(0.5 * Math.PI);   ctx.translate(width,-height); ctx.scale(-1,1); break;
-                                case 8: ctx.rotate(-0.5 * Math.PI);  ctx.translate(-width,0); break;
+                                case 2:
+                                    ctx.translate(width, 0);
+                                    ctx.scale(-1, 1);
+                                    break;
+                                case 3:
+                                    ctx.translate(width, height);
+                                    ctx.rotate(Math.PI);
+                                    break;
+                                case 4:
+                                    ctx.translate(0, height);
+                                    ctx.scale(1, -1);
+                                    break;
+                                case 5:
+                                    ctx.rotate(0.5 * Math.PI);
+                                    ctx.scale(1, -1);
+                                    break;
+                                case 6:
+                                    ctx.rotate(0.5 * Math.PI);
+                                    ctx.translate(0, -height);
+                                    break;
+                                case 7:
+                                    ctx.rotate(0.5 * Math.PI);
+                                    ctx.translate(width, -height);
+                                    ctx.scale(-1, 1);
+                                    break;
+                                case 8:
+                                    ctx.rotate(-0.5 * Math.PI);
+                                    ctx.translate(-width, 0);
+                                    break;
                             }
 
-                            ctx.drawImage(thisImage,0,0);
+                            ctx.drawImage(thisImage, 0, 0);
                             ctx.restore();
                             var dataURL = can.toDataURL();
-                            var blob=dataURLToBlob(dataURL);
-                            blob.name = flowObject.files[fileIndex].uniqueIdentifier;
-                            blob.lastModifiedDate = new Date();
+                            var blob = dataURLToBlob(dataURL, flowObject.files[fileIndex].uniqueIdentifier);
                             var f = new Flow.FlowFile(flowObject, blob);
-                            flowObject.files.splice(fileIndex,1);
+                            flowObject.files.splice(fileIndex, 1);
                             flowObject.files.push(f);
                             $scope.$apply();
                         }
                         thisImage.src = URL.createObjectURL(flowObject.files[fileIndex].file);
-                    }else{
+                    } else {
                         changeLoadingState(photoLoading, false);
                     }
                 });
-            }catch (error){}
-
-        }
-        function loadPhotoFromURL(urlPhoto, tipo)
-        {
-         
-            $http({
-                method: 'GET',
-                url: urlPhoto,
-                responseType:"arraybuffer"
-            }).success(function (data) {
-                    var arrayBufferView = new Uint8Array( data );
-                    var blob = new Blob( [ arrayBufferView ], { type: "image/jpeg" } );
-                    blob.name = 'RegistroIconMenu.jpg';
-                    blob.lastModifiedDate = new Date();
-                    var file;
-                    var flowPhotos = getFlow(tipo);
-                    file  = new Flow.FlowFile(flowPhotos.flow, blob);
-                    flowPhotos.flow.files.push(file);
-                }).error(function (error) {
-                console.log("hubo un error al cargar la foto", error);
-            });
-        }
-        function getFlow(photoType){
-
-             if  (photoType == 'P') return $scope.flowMainPhoto;
-             if  (photoType == 'F') return $scope.flowFacadePhotos;
-             if  (photoType == 'P') return $scope.flowInsidePhotos;
-             if  (photoType == 'PR') return $scope.flowProductsPhotos;
-
-             return $scope.flowMainPhoto;
-        }
-
-        function changeLoadingState(photoLoading, state){
-            switch (photoLoading){
-                case 'mainPhoto':
-                    $scope.loadingMainPhoto=state;
-                    break;
-                case 'facadePhotos':
-                    $scope.loadingFacadePhoto=state;
-                    break;
-
-                case 'insidePhotos':
-                    $scope.loadingInsidePhoto=state;
-                    break;
-
-                case 'productsPhotos':
-                    $scope.loadingProductsPhoto=state;
-                    break;
+            } catch (error) {
             }
         }
 
-        function dataURLToBlob(dataURL) {
+
+        function dataURLToBlob(dataURL, name) {
+            var blob;
             var BASE64_MARKER = ';base64,';
             if (dataURL.indexOf(BASE64_MARKER) == -1) {
                 var parts = dataURL.split(',');
@@ -240,17 +238,72 @@ angular.module('registerSite')
                 uInt8Array[i] = raw.charCodeAt(i);
             }
 
-            return new Blob([uInt8Array], {type: contentType});
+            blob = new Blob([uInt8Array], {type: contentType});
+            blob.name = name;
+            blob.lastModifiedDate = new Date();
+
+            return blob;
         }
 
-    }).directive('imageOnload', function() {
+        function loadPhotoFromURL(urlPhoto, tipo) {
+
+            $http({
+                method: 'GET',
+                url: urlPhoto,
+                responseType: "arraybuffer"
+            }).success(function (data) {
+                var arrayBufferView = new Uint8Array(data);
+                var blob = new Blob([arrayBufferView], {type: "image/jpeg"});
+                blob.name = 'RegistroIconMenu.jpg';
+                blob.lastModifiedDate = new Date();
+                var file;
+                var flowPhotos = getFlow(tipo);
+                file = new Flow.FlowFile(flowPhotos.flow, blob);
+                flowPhotos.flow.files.push(file);
+            }).error(function (error) {
+                console.log("hubo un error al cargar la foto", error);
+            });
+        }
+
+        function getFlow(photoType) {
+
+            if (photoType == 'P') return $scope.flowMainPhoto;
+            if (photoType == 'F') return $scope.flowFacadePhotos;
+            if (photoType == 'P') return $scope.flowInsidePhotos;
+            if (photoType == 'PR') return $scope.flowProductsPhotos;
+
+            return $scope.flowMainPhoto;
+        }
+
+        function changeLoadingState(photoLoading, state) {
+            switch (photoLoading) {
+                case 'mainPhoto':
+                    $scope.loadingMainPhoto = state;
+                    break;
+                case 'facadePhotos':
+                    $scope.loadingFacadePhoto = state;
+                    break;
+
+                case 'insidePhotos':
+                    $scope.loadingInsidePhoto = state;
+                    break;
+
+                case 'productsPhotos':
+                    $scope.loadingProductsPhoto = state;
+                    break;
+            }
+        }
+
+
+    }).directive('imageOnload', function () {
     return {
         restrict: 'A',
-        link: function(scope, element, attrs) {
-            element.bind('load', function() {
+        link: function (scope, element, attrs) {
+            element.bind('load', function () {
                 scope.$apply(attrs.imageOnload);
             });
         }
     };
-});;
+});
+;
 ;

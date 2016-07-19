@@ -3,7 +3,7 @@
             'ngAria', 'angularUtils.directives.dirPagination', 'ngMessages', 'ngCookies', 'directives.clamp',
             'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
             'businessBrowser', 'dropDownTowns', 'searchTabs', 'siteAndTownSaver', 'howItWorks',
-            'message', 'appHeader', 'pascalprecht.translate', 'appFooter', 'registerSite',
+            'message', 'appHeader', 'pascalprecht.translate', 'appFooter', 'registerSite', 'utils',
             'businessCategory', 'mgo-angular-wizard', 'registerTrader', 'login', 'accountInfo','ngCookies', 'navigation', 'checklist-model','interceptor'])
         .config(function ($interpolateProvider, API_CONFIG, $authProvider, $translateProvider, $httpProvider) {
             $interpolateProvider.startSymbol('%%');
