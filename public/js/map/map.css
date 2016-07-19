@@ -431,6 +431,11 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    .popup-carousel .image {
+    width: auto;    
+    height: 100%;
+    padding: 0 1px;
+}
     .detail-icon {
         height: 2.5vmin;
     }
