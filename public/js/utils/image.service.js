@@ -136,9 +136,39 @@ angular.module('utils')
             return defer.promise;
         }
 
+        function dataURIToBlob(dataURL, name) {
+            var blob;
+            var BASE64_MARKER = ';base64,';
+            if (dataURL.indexOf(BASE64_MARKER) == -1) {
+                var parts = dataURL.split(',');
+                var contentType = parts[0].split(':')[1];
+                var raw = decodeURIComponent(parts[1]);
+
+                return new Blob([raw], {type: contentType});
+            }
+
+            var parts = dataURL.split(BASE64_MARKER);
+            var contentType = parts[0].split(':')[1];
+            var raw = window.atob(parts[1]);
+            var rawLength = raw.length;
+
+            var uInt8Array = new Uint8Array(rawLength);
+
+            for (var i = 0; i < rawLength; ++i) {
+                uInt8Array[i] = raw.charCodeAt(i);
+            }
+
+            blob = new Blob([uInt8Array], {type: contentType});
+            blob.name = name;
+            blob.lastModifiedDate = new Date();
+
+            return blob;
+        }
+
 
         return {
             reduceImageSize: reduceImageSize,
-            rotateImage: rotateImage
+            rotateImage: rotateImage,
+            dataURIToBlob: dataURIToBlob
         }
     });
