@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('registerSite')
-    .controller('registerPhotosController', function ($scope, $auth, $http, MapService, uiGmapIsReady, messageService,
-                                                      API_CONFIG, categories,
-                                                      $location, MunicipiosFactory, authenticationService, siteAndTownSaverService,
+    .controller('registerPhotosController', function ($scope, $auth, $http, MapService, uiGmapIsReady,
+                                                      messageService, API_CONFIG, categories, $location,
+                                                      MunicipiosFactory, authenticationService, siteAndTownSaverService,
                                                       siteInformationService, ImageService) {
 
 
@@ -119,7 +119,7 @@ angular.module('registerSite')
                 lastPhotoFileIndex = fileIndex;
                 processImage(flowObject, fileIndex, flowObjectName);
             }
-        }
+        };
 
         function updateFlowObject(flowObject, fileIndex, flowFile) {
             flowObject.files.splice(fileIndex, 1);
