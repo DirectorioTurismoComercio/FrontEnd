@@ -71,6 +71,7 @@ angular.module('utils')
         }
 
         function rotateImage(photoLoading, orientation, base64Image) {
+            var defer = $q.defer();
             var base64RotatedImage = base64Image;
 
             if (orientation) {
@@ -128,11 +129,12 @@ angular.module('utils')
                     ctx.drawImage(thisImage, 0, 0);
                     ctx.restore();
                     base64RotatedImage = canvas.toDataURL();
+                    defer.resolve(base64RotatedImage);
                 }
                 thisImage.src = base64Image;
             }
 
-            return base64RotatedImage;
+            return defer.promise;
         }
 
 
