@@ -113,6 +113,9 @@
     "COMPLETE_REGISTRATION_HEADER": "Your Registration is now completed",
     "COMPLETE_REGISTRATION_TITLE": "Thanks for creating an account",
     "COMPLETE_REGISTRATION_TEXT": "You are the newest member of Marca_app. To edit the profile settings in your account,update your info or register other business or branch offices, please log in",
+    "COMPLETE_UPDATE_TITLE": "Site Update",
+    "COMPLETE_UPDATE_TEXT": "Site Successfully updated",
+    "COMPLETE_UPDATE_BUTTON": "Save",
     "COMPLETE_REGISTRATION_POPUP_BUTTON": "Continue"
   },
   "LOGIN": {

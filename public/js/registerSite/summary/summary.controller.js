@@ -18,6 +18,7 @@ angular.module('registerSite')
         $scope.businessAddress = siteInformationService.businessAddress;
         $scope.businessCategories = siteInformationService.businessCategories;
         $scope.businessMunicipality = siteInformationService.businessMunicipality;
+        $scope.siteId = siteInformationService.siteId;
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
         var fd = new FormData();
@@ -135,22 +136,7 @@ angular.module('registerSite')
         }
 
         function clearData() {
-            siteInformationService.sitePhoneNumber = undefined;
-            siteInformationService.whatsapp = undefined;
-            siteInformationService.web = undefined;
-            siteInformationService.openingHours = undefined;
-            siteInformationService.businessName = undefined;
-            siteInformationService.businessLocation = undefined;
-            siteInformationService.businessDescription = undefined;
-            siteInformationService.tags = undefined;
-            siteInformationService.businessEmail = undefined;
-            siteInformationService.businessAddress = undefined;
-            siteInformationService.businessCategories = undefined;
-            siteInformationService.businessMunicipality = undefined;
-            siteInformationService.mainPhoto=[];
-            siteInformationService.facadePhotos=[];
-            siteInformationService.insidePhotos=[];
-            siteInformationService.productsPhotos=[];
+            siteInformationService.clearData(siteInformationService);
         }
 
     });

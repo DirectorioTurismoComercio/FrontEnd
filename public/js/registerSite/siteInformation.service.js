@@ -46,7 +46,18 @@ angular.module('registerSite')
             URLphotos: URLphotos,
             businessFirstCategories:businessFirstCategories,
             businessSecondCategories:businessSecondCategories,
-            businessThirdCategories:businessThirdCategories
+            businessThirdCategories:businessThirdCategories, 
+            clearData: function(siteInformationService){
+                for(var property in siteInformationService) { 
+                    if(siteInformationService.hasOwnProperty(property) && property!="clearData") {
+                        siteInformationService[property]=undefined ; 
+                        }
+                }
+            siteInformationService.mainPhoto=[];
+            siteInformationService.facadePhotos=[];
+            siteInformationService.insidePhotos=[];
+            siteInformationService.productsPhotos=[];
+            } 
         };
 
 

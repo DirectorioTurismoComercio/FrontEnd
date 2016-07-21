@@ -21,6 +21,7 @@ angular.module('accountInfo')
 
         $scope.addBusiness = function () {
             navigationService.cameToBusinessInformationThrough = 'accountinfo';
+            siteInformationService.clearData(siteInformationService);
             $location.path('businessinformation');
         }
         $scope.editSite = function (sitio) {
