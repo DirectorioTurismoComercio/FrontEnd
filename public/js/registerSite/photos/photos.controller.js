@@ -112,8 +112,7 @@ angular.module('registerSite')
                     $scope.loadingProductsPhoto = false;
                     break;
             }
-
-        }
+        };
 
         function previewPhoto(flowObject, fileIndex, lastPhotoFileIndex, flowObjectName) {
             if (fileIndex != lastPhotoFileIndex) {
@@ -122,99 +121,39 @@ angular.module('registerSite')
             }
         }
 
-        function reduceImageWeigth(flowObject, fileIndex) {
-            var flowObjectFile = flowObject.files[fileIndex];
-            var file = flowObjectFile.file;
-            var blob;
-            ImageService.reduceImageSize(file).then(function (image) {
-                blob = dataURLToBlob(image, flowObjectFile.uniqueIdentifier);
-                blob.exifdata = file.exifdata;
-                blob.iptcdata = file.iptcdata;
-
-                var f2 = new Flow.FlowFile(flowObject, blob);
-                flowObject.files.splice(fileIndex, 1);
-                flowObject.files.push(f2);
-            });
-
+        function updateFlowObject(flowObject, fileIndex, flowFile) {
+            flowObject.files.splice(fileIndex, 1);
+            flowObject.files.push(flowFile);
         }
 
         function processImage(flowObject, fileIndex, photoLoading) {
-            reduceImageWeigth(flowObject, fileIndex);
+            var orientation;
+            var flowFile = flowObject.files[fileIndex];
 
-            try {
-                EXIF.getData(flowObject.files[fileIndex].file, function () {
-                    var orientation = EXIF.getTag(this, "Orientation");
-                    if (orientation) {
-                        console.log("Changin orientation");
-                        changeLoadingState(photoLoading, true);
-                        var can = document.createElement("canvas");
-                        var ctx = can.getContext('2d');
-                        var thisImage = new Image;
-                        thisImage.onload = function () {
-                            can.width = thisImage.width;
-                            can.height = thisImage.height;
-                            ctx.save();
-                            var width = can.width;
-                            var styleWidth = can.style.width;
-                            var height = can.height;
-                            var styleHeight = can.style.height;
-
-                            if (orientation > 4) {
-                                can.width = height;
-                                can.style.width = styleHeight;
-                                can.height = width;
-                                can.style.height = styleWidth;
-                            }
-                            switch (orientation) {
-                                case 2:
-                                    ctx.translate(width, 0);
-                                    ctx.scale(-1, 1);
-                                    break;
-                                case 3:
-                                    ctx.translate(width, height);
-                                    ctx.rotate(Math.PI);
-                                    break;
-                                case 4:
-                                    ctx.translate(0, height);
-                                    ctx.scale(1, -1);
-                                    break;
-                                case 5:
-                                    ctx.rotate(0.5 * Math.PI);
-                                    ctx.scale(1, -1);
-                                    break;
-                                case 6:
-                                    ctx.rotate(0.5 * Math.PI);
-                                    ctx.translate(0, -height);
-                                    break;
-                                case 7:
-                                    ctx.rotate(0.5 * Math.PI);
-                                    ctx.translate(width, -height);
-                                    ctx.scale(-1, 1);
-                                    break;
-                                case 8:
-                                    ctx.rotate(-0.5 * Math.PI);
-                                    ctx.translate(-width, 0);
-                                    break;
-                            }
-
-                            ctx.drawImage(thisImage, 0, 0);
-                            ctx.restore();
-                            var dataURL = can.toDataURL();
-                            var blob = dataURLToBlob(dataURL, flowObject.files[fileIndex].uniqueIdentifier);
-                            var f = new Flow.FlowFile(flowObject, blob);
-                            flowObject.files.splice(fileIndex, 1);
-                            flowObject.files.push(f);
-                            $scope.$apply();
-                        }
-                        thisImage.src = URL.createObjectURL(flowObject.files[fileIndex].file);
-                    } else {
-                        changeLoadingState(photoLoading, false);
-                    }
-                });
-            } catch (error) {
-            }
+            EXIF.getData(flowFile.file, function () {
+                if (flowFile.processing == undefined) {
+                    flowFile.processing = true;
+                    updateFlowObject(flowObject, fileIndex, flowFile);
+                    orientation = this.exifdata.Orientation;
+                    reduceImageWeigth(flowObject.files[fileIndex]).then(function (base64Image) {
+                        var base64RotatedImage = ImageService.rotateImage(photoLoading, orientation, base64Image);
+                        var blob = dataURLToBlob(base64RotatedImage, flowObject.files[fileIndex].uniqueIdentifier);
+                        flowFile = new Flow.FlowFile(flowObject, blob);
+                        flowFile.processing = true;
+                        updateFlowObject(flowObject, fileIndex, flowFile);
+                    });
+                }
+            });
         }
 
+
+        function reduceImageWeigth(flowObjectFile) {
+            console.log("reducing file");
+            return ImageService.reduceImageSize(flowObjectFile.file).then(function (base64Image) {
+                return base64Image;
+                //return dataURLToBlob(image, flowObjectFile.uniqueIdentifier);
+            });
+        }
 
         function dataURLToBlob(dataURL, name) {
             var blob;

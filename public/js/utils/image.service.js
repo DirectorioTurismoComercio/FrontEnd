@@ -70,6 +70,74 @@ angular.module('utils')
             }
         }
 
+        function rotateImage(photoLoading, orientation, base64Image) {
+            var base64RotatedImage = base64Image;
 
-        return {reduceImageSize: reduceImageSize}
+            if (orientation) {
+                console.log("changin orientation");
+                var canvas = document.createElement("canvas");
+                var ctx = canvas.getContext('2d');
+                var thisImage = new Image();
+                thisImage.onload = function () {
+                    canvas.width = thisImage.width;
+                    canvas.height = thisImage.height;
+                    ctx.save();
+                    var width = canvas.width;
+                    var styleWidth = canvas.style.width;
+                    var height = canvas.height;
+                    var styleHeight = canvas.style.height;
+
+                    if (orientation > 4) {
+                        canvas.width = height;
+                        canvas.style.width = styleHeight;
+                        canvas.height = width;
+                        canvas.style.height = styleWidth;
+                    }
+                    switch (orientation) {
+                        case 2:
+                            ctx.translate(width, 0);
+                            ctx.scale(-1, 1);
+                            break;
+                        case 3:
+                            ctx.translate(width, height);
+                            ctx.rotate(Math.PI);
+                            break;
+                        case 4:
+                            ctx.translate(0, height);
+                            ctx.scale(1, -1);
+                            break;
+                        case 5:
+                            ctx.rotate(0.5 * Math.PI);
+                            ctx.scale(1, -1);
+                            break;
+                        case 6:
+                            ctx.rotate(0.5 * Math.PI);
+                            ctx.translate(0, -height);
+                            break;
+                        case 7:
+                            ctx.rotate(0.5 * Math.PI);
+                            ctx.translate(width, -height);
+                            ctx.scale(-1, 1);
+                            break;
+                        case 8:
+                            ctx.rotate(-0.5 * Math.PI);
+                            ctx.translate(-width, 0);
+                            break;
+                    }
+
+                    ctx.drawImage(thisImage, 0, 0);
+                    ctx.restore();
+                    base64RotatedImage = canvas.toDataURL();
+                }
+                thisImage.src = base64Image;
+            }
+
+            return base64RotatedImage;
+        }
+
+
+        return {
+            reduceImageSize: reduceImageSize,
+            rotateImage: rotateImage
+        }
     });
