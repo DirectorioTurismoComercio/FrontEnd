@@ -70,12 +70,11 @@ angular.module('utils')
             }
         }
 
-        function rotateImage(photoLoading, orientation, base64Image) {
+        function rotateImage(orientation, base64Image) {
             var defer = $q.defer();
             var base64RotatedImage = base64Image;
 
             if (orientation) {
-                console.log("changin orientation");
                 var canvas = document.createElement("canvas");
                 var ctx = canvas.getContext('2d');
                 var thisImage = new Image();

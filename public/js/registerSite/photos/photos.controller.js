@@ -136,7 +136,8 @@ angular.module('registerSite')
                     updateFlowObject(flowObject, fileIndex, flowFile);
                     orientation = this.exifdata.Orientation;
                     reduceImageWeigth(flowObject.files[fileIndex]).then(function (base64Image) {
-                        ImageService.rotateImage(photoLoading, orientation, base64Image).then(function (base64RotatedImage) {
+                        ImageService.rotateImage(orientation, base64Image).then(function (base64RotatedImage) {
+                            changeLoadingState(photoLoading,true);
                             var blob = dataURLToBlob(base64RotatedImage, flowObject.files[fileIndex].uniqueIdentifier);
                             flowFile = new Flow.FlowFile(flowObject, blob);
                             flowFile.processing = true;
@@ -149,10 +150,8 @@ angular.module('registerSite')
 
 
         function reduceImageWeigth(flowObjectFile) {
-            console.log("reducing file");
             return ImageService.reduceImageSize(flowObjectFile.file).then(function (base64Image) {
                 return base64Image;
-                //return dataURLToBlob(image, flowObjectFile.uniqueIdentifier);
             });
         }
 

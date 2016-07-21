@@ -141,20 +141,20 @@
             <div ng-repeat="sitio in usuario.sitios">
                 <div class="registered-business">
 
-                <div class="flex-container">
-                <div class="flex-item-button"><img ng-click="deleteSite(sitio)" class="remove-icon" src="./images/accountInfoIcons/borrar.png"/></div>
-                <div class="flex-item"><img  class="business-image" ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
-                    <div class="info-container">
+              <div class="row row-reverse">
+                <img ng-click="deleteSite(sitio)" class="remove-icon" src="./images/accountInfoIcons/borrar.png"/>
+              </div>
+              <div class="row">
+              <div class="col-xs-4"><img  class="business-image" ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/></div>
+              <div class="col-xs-8">
                     <p class="business-name">%%sitio.nombre%%</p>
-                    <p>%%sitio.ubicacionlocal%%</p>
-                    <p>%%sitio.telefono%%</p>
+                    <p class="business-info">%%sitio.ubicacionlocal%%</p>
+                    <p class="business-info">%%sitio.telefono%%</p>
                 </div>
-              
-
-                </div>
-                </div> 
-                   <div class="flex-item-button"><button class="button edit-button" ng-click="editSite(sitio)"
-                    translate="ACCOUNT_INFO.EDIT_SITE"></button></div>
+              </div>
+              <div class="row row-reverse">
+              <button class="button edit-button" ng-click="editSite(sitio)"
+                    translate="ACCOUNT_INFO.EDIT_SITE">
               </div>
          
         </div>   
