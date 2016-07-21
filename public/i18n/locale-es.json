@@ -148,6 +148,7 @@
   "GET_TOWNS_ERROR": "No es posible cargar el listado de municipios, por favor intentalo más tarde o vuelve a cargar la página",
   "NO_RESULTS": "Lo sentimos, no hay resultados para esta búsqueda. Por favor intente con otras palabras",
   "BAD_LOGIN":"El usuario o contraseña son incorrectos",
-  "REGISTER_SUCCESS":"Ahora puedes registrar tu comercio"
+  "REGISTER_SUCCESS":"Ahora puedes registrar tu comercio",
+  "CONTACT_INFO":"Si tiene algun problema, duda o sugerencia puede escribirnos a"
 
 }

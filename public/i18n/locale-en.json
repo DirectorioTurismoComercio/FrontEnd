@@ -149,6 +149,7 @@
   "GET_TOWNS_ERROR": "The towns list is unavailable in this moment. Please reload the page",
   "NO_RESULTS": "Sorry, there are no results for this search. Please try with different words.",
   "BAD_LOGIN":"Incorrect user or password",
-  "REGISTER_SUCCESS":"Now you can register your business"
+  "REGISTER_SUCCESS":"Now you can register your business",
+  "CONTACT_INFO":"If you have a problem, question or a suggestion, you can write to"
 
 }

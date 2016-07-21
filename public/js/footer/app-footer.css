@@ -4,6 +4,19 @@
     height: 247px;
 }
 
+.contact-info {
+    background-color: #fff;
+    color: #2D3C4D;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.contact-info p {
+    margin: 0;
+    padding: 0 0 0 2px;
+    display: inline-block;
+}
+
 @media (max-width: 767px) {
 }
 
@@ -12,6 +25,10 @@
         background-image: url("../../images/icons/footer/b.Small-devices.png");
         background-size: auto 121px;
         height: 151px;
+    }
+
+    .contact-info {
+        font-size: 16px;
     }
 }
 
