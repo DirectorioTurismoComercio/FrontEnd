@@ -131,6 +131,8 @@ angular.module('utils')
                     defer.resolve(base64RotatedImage);
                 }
                 thisImage.src = base64Image;
+            } else {
+                defer.resolve(base64RotatedImage);
             }
 
             return defer.promise;
