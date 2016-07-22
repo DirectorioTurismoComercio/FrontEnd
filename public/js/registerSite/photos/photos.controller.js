@@ -209,7 +209,7 @@ angular.module('registerSite')
 
             if (photoType == 'P') return $scope.flowMainPhoto;
             if (photoType == 'F') return $scope.flowFacadePhotos;
-            if (photoType == 'P') return $scope.flowInsidePhotos;
+            if (photoType == 'I') return $scope.flowInsidePhotos;
             if (photoType == 'PR') return $scope.flowProductsPhotos;
 
             return $scope.flowMainPhoto;

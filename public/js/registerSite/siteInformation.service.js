@@ -1,62 +1,138 @@
 'use strict';
 
 angular.module('registerSite')
-    .service('siteInformationService', function () {
-        var siteId = undefined;
-        var sitePhoneNumber = undefined;
-        var whatsapp = undefined;
-        var web = undefined;
-        var openingHours = undefined;
-        var businessName = undefined;
-        var businessLocation = undefined;
-        var businessDescription = undefined;
-        var tags = undefined;
-        var businessEmail = undefined;
-        var businessAddress = undefined;
-        var businessCategories = undefined;
-        var businessMunicipality = undefined;
-        var mainPhoto = [];
-        var facadePhotos = [];
-        var insidePhotos = [];
-        var productsPhotos = [];
-        var URLphotos = undefined;
-        var businessFirstCategories=undefined;
-        var businessSecondCategories=undefined;
-        var businessThirdCategories=undefined;
+    .factory('siteInformationService', function (authenticationService,$http,$cookies,API_CONFIG) {
+        this.siteId = undefined;
+        this.sitePhoneNumber = undefined;
+        this.whatsapp = undefined;
+        this.web = undefined;
+        this.openingHours = undefined;
+        this.businessName = undefined;
+        this.businessLocation = undefined;
+        this.businessDescription = undefined;
+        this.tags = undefined;
+        this.businessEmail = undefined;
+        this.businessAddress = undefined;
+        this.businessCategories = undefined;
+        this.businessMunicipality = undefined;
+        this.mainPhoto = [];
+        this.facadePhotos = [];
+        this.insidePhotos = [];
+        this.productsPhotos = [];
+        this.URLphotos = undefined;
+        this.businessFirstCategories=undefined;
+        this.businessSecondCategories=undefined;
+        this.businessThirdCategories=undefined;
+
+
+        this.buildSiteFormData = function () {
+            var fd = new FormData();
+     
+            fd.append('latitud', this.businessLocation.lat);
+            fd.append('longitud', this.businessLocation.lng);
+            fd.append('nombre', this.businessName);
+            fd.append('descripcion', this.businessDescription);
+            fd.append('municipio_id', this.businessMunicipality.id);
+            if (this.sitePhoneNumber) fd.append('telefono', this.sitePhoneNumber);
+            if (this.openingHours) fd.append('horariolocal', this.openingHours);
+            if (this.businessEmail)  fd.append('correolocal', this.businessEmail);
+            fd.append('ubicacionlocal', this.businessAddress);
+            fd.append('categorias', this.businessCategories.id);
+            fd.append('usuario', authenticationService.getUser().id);
+            if (this.web) fd.append('web', this.web);
+            if (this.whatsapp) fd.append('whatsapp', this.whatsapp);
+
+
+            try {
+                for (var i = 0; i <= this.tags.length - 1; i++) {
+                    fd.append('tags', this.tags[i].text);
+                }
+            } catch (error) {
+            }
+
+            appendPhotos(this.mainPhoto, 'fotos_PRINCIPAL', fd);
+            appendPhotos(this.facadePhotos, 'fotos_FACHADA', fd);
+            appendPhotos(this.insidePhotos, 'fotos_INTERIOR', fd);
+            appendPhotos(this.productsPhotos, 'fotos_PRODUCTOS', fd);
+            return fd;
+
+        }
+
+        var appendPhotos= function(arrayPhotos, model, fd) {
+            var photosCounter = 0;
+            angular.forEach(arrayPhotos, function (file) {
+                fd.append(model + photosCounter, file.file);
+                photosCounter++;
+            });
+        }
+
+
+        this.sendSiteDataToServer = function(successFunction, errorFunction) {
+            var promise;
+
+            var fd = this.buildSiteFormData();
+            $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
+            
+            if(this.siteId){
+                promise = $http.put(API_CONFIG.url + API_CONFIG.sitio+"/detail/"+this.siteId, fd,
+                {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                });
+            }else{
+                promise = $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
+                {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                });
+
+            }
+            promise.success(successFunction).error(errorFunction);
+                
+            
+            
+            
+           
+        }
+
 
         return {
 
-            siteId: siteId,
-            sitePhoneNumber: sitePhoneNumber,
-            whatsapp: whatsapp,
-            web: web,
-            openingHours: openingHours,
-            businessName: businessName,
-            businessLocation: businessLocation,
-            businessDescription: businessDescription,
-            tags: tags,
-            businessEmail: businessEmail,
-            businessAddress: businessAddress,
-            businessCategories: businessCategories,
-            businessMunicipality: businessMunicipality,
-            mainPhoto: mainPhoto,
-            facadePhotos: facadePhotos,
-            insidePhotos: insidePhotos,
-            productsPhotos: productsPhotos,
-            URLphotos: URLphotos,
-            businessFirstCategories:businessFirstCategories,
-            businessSecondCategories:businessSecondCategories,
-            businessThirdCategories:businessThirdCategories, 
+            siteId: this.siteId,
+            sitePhoneNumber: this.sitePhoneNumber,
+            whatsapp: this.whatsapp,
+            web: this.web,
+            openingHours: this.openingHours,
+            businessName: this.businessName,
+            businessLocation: this.businessLocation,
+            businessDescription: this.businessDescription,
+            tags: this.tags,
+            businessEmail: this.businessEmail,
+            businessAddress: this.businessAddress,
+            businessCategories: this.businessCategories,
+            businessMunicipality: this.businessMunicipality,
+            mainPhoto: this.mainPhoto,
+            facadePhotos: this.facadePhotos,
+            insidePhotos: this.insidePhotos,
+            productsPhotos: this.productsPhotos,
+            URLphotos: this.URLphotos,
+            businessFirstCategories:this.businessFirstCategories,
+            businessSecondCategories:this.businessSecondCategories,
+            businessThirdCategories:this.businessThirdCategories, 
+            sendSiteDataToServer: this.sendSiteDataToServer,
+            buildSiteFormData: this.buildSiteFormData,
             clearData: function(siteInformationService){
-                for(var property in siteInformationService) { 
-                    if(siteInformationService.hasOwnProperty(property) && property!="clearData") {
-                        siteInformationService[property]=undefined ; 
+                
+                for(var property in this) { 
+                    if(this.hasOwnProperty(property) && typeof this[property] != 'function') {
+                        this[property]=undefined ; 
                         }
                 }
-            siteInformationService.mainPhoto=[];
-            siteInformationService.facadePhotos=[];
-            siteInformationService.insidePhotos=[];
-            siteInformationService.productsPhotos=[];
+                this.mainPhoto=[];
+                this.facadePhotos=[];
+                this.insidePhotos=[];
+                this.productsPhotos=[];
+                
             } 
         };
 

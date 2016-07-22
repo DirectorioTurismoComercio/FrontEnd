@@ -63,6 +63,10 @@ angular.module('registerSite')
             saveSiteInformation();
             $location.path(view);
         }
+        $scope.updateSite = function() {
+            console.log("emiting...");
+            $scope.$emit('saveSite');
+        }
 
 
         function saveSiteInformation() {
