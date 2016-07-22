@@ -5,6 +5,7 @@ angular.module('accountInfo', [])
         $routeProvider
             .when('/accountinfo', {
                 templateUrl: 'js/accountInfo/accountInfo.html',
-                controller: 'AccountInfoController'
+                controller: 'AccountInfoController',
+                required_roles: 'authenticatedUser'
             });
     });
