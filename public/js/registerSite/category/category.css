@@ -14,6 +14,16 @@
     color: #32A2D4 !important;
 }
 
+.main-category-label{
+    color: #32A2D4;
+    font-weight: bold;
+}
+
+.additional-category-label{
+    color: #32A2D4;
+    font-weight: normal;
+}
+
 .subcategory-container{
     background-color: #E6E6E6;
 }
@@ -39,4 +49,8 @@
     margin-top: 30% !important;
     padding: 0 10% 0 10% !important;
     margin-bottom: 30% !important;
+}
+
+.category-arrow{
+    width: 6vmin !important;
 }

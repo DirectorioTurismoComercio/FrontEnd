@@ -91,6 +91,8 @@
     "CHOOSE_OTHER_CATEGORY_TEXT": "If your business has other activities you can add another 2 categories",
     "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "If your business has other activities you can add another category",
     "MAIN_CATEGORY": "Main category",
+    "ADDITIONAL_CATEGORY_1":"Additional category 1",
+    "ADDITIONAL_CATEGORY_2":"Additional category 2",
     "ADD_CATEGORY_BUTTON": "Add category",
     "COLLAPSE_CATEGORY_BUTTON": "collapse",
     "DELETE_CATEGORY_BUTTON": "Delete",
