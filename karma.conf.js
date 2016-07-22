@@ -66,6 +66,9 @@ module.exports = function (config) {
             'public/js/howItWorks/howItWorks.js',
             'public/js/howItWorks/howItWorks.controller.js',
             'public/js/popErrorAlert/popErrorAlert.service.js',
+            'public/js/utils/utils.module.js',
+            'public/js/utils/image.service.js',
+            'public/js/interceptor.js',
             'public/js/**/*.js',
             'test/**/*Spec.js',
             'public/templates/directives/side-bar.html'

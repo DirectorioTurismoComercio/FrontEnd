@@ -2,9 +2,9 @@
 
 angular.module('utils')
     .service('ImageService', function ($q, $window) {
-        const MAX_IMAGE_WIDTH = 800;
-        const MAX_IMAGE_HEIGHT = 800;
-        const IMAGE_QUALITY = 0.3;
+        var MAX_IMAGE_WIDTH = 800;
+        var MAX_IMAGE_HEIGHT = 800;
+        var IMAGE_QUALITY = 0.3;
 
         function reduceImageSize(file) {
             if (!(file instanceof File)) {
