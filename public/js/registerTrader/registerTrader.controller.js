@@ -46,44 +46,37 @@ angular.module('registerTrader')
                 };
 
         $scope.save =function () {
+            $scope.submitted=true;
+            if ($scope.userData.correo != undefined && $scope.userData.password != undefined && $scope.userData.nombres != undefined
+            && $scope.userData.apellidos != undefined) {
                     $scope.registerLoading=true;
                     var promesa;
-                    $scope.submitted=true;
                     var deferred;
-                    var credentials;
-                    if($scope.traderInfoForm.$valid){
-                        setUserInfo();
-                        deferred = $q.defer();
-                        promesa = $scope.usuario.$save();
+                                
+                    setUserInfo();
+                    deferred = $q.defer();
+                    promesa = $scope.usuario.$save();
                     
-                 
-                    credentials = {
-                            email: $scope.usuario.correo,
-                            password: $scope.usuario.password
-                        };   
-                    }                   
-                    
-                    
-                     
+                                      
                     promesa.then(function (data) {
+                        
                                   authenticationService.setUserByToken(data.key,deferred).finally(
                                     function(){
                                     redirectToRegisterSite()
                                     }
                                   );
                             
-                    
                                  
                     }).catch(function (errors) {
                         $scope.registerLoading=false;
                         console.log("Errores retornado por el POST de agregar usuario", errors);
-                        if (errors.status === 400) {
+                        if (errors.data.error === 'E101') {
                             $mdDialog.show(
                                 $mdDialog.alert()
                                     .parent(angular.element(document.querySelector('#alertPop')))
                                     .clickOutsideToClose(true)
                                     .title('Error')
-                                    .content('El correo indicado ya existe, por favor cambielo e intentelo nuevamente.')
+                                    .content($translate.instant('E101'))
                                     .ariaLabel('Alert Dialog Demo')
                                     .ok('Aceptar')
                                     .targetEvent('$event')
@@ -94,7 +87,7 @@ angular.module('registerTrader')
                     }).finally(function () {
                     });
                 };
-
+        }
         function setUserInfo(){
             $scope.usuario.nombres=$scope.userData.nombres;
             $scope.usuario.apellidos=$scope.userData.apellidos;

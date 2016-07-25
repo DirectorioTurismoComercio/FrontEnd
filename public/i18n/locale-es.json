@@ -116,7 +116,6 @@
     "COMPLETE_REGISTRATION_TEXT": "Ya formas parte de la comunidad Marca_app. Entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
     "COMPLETE_UPDATE_TITLE": "Actualización de Sitio",
     "COMPLETE_UPDATE_TEXT": "Tu sitio se ha actualizado con éxito",
-    "COMPLETE_UPDATE_BUTTON": "Guardar y volver",
     "COMPLETE_REGISTRATION_POPUP_BUTTON": "Continuar"
   },
   "LOGIN": {
@@ -154,6 +153,7 @@
   "NO_RESULTS": "Lo sentimos, no hay resultados para esta búsqueda. Por favor intente con otras palabras",
   "BAD_LOGIN":"El usuario o contraseña son incorrectos",
   "REGISTER_SUCCESS":"Ahora puedes registrar tu comercio",
-  "CONTACT_INFO":"Si tiene algun problema, duda o sugerencia puede escribirnos a"
+  "CONTACT_INFO":"Si tiene algun problema, duda o sugerencia puede escribirnos a",
+  "E101":"El correo ya existe"
 
 }

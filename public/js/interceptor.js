@@ -1,5 +1,5 @@
 angular.module('interceptor', [])
-.factory('interceptorFactory', function($location,$injector) {  
+.factory('interceptorFactory', function($location,$injector,$q) {  
     var responseInterceptor = {
         responseError: function(response) {
    			if(response.status==403){
@@ -7,7 +7,7 @@ angular.module('interceptor', [])
    			auth.removeToken();   
          	$location.path("/");
    			}
-   			return response;
+   			return $q.reject(response);
         }
     };
 

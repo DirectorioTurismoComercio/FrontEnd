@@ -117,7 +117,6 @@
     "COMPLETE_REGISTRATION_TEXT": "You are the newest member of Marca_app. To edit the profile settings in your account,update your info or register other business or branch offices, please log in",
     "COMPLETE_UPDATE_TITLE": "Site Update",
     "COMPLETE_UPDATE_TEXT": "Site Successfully updated",
-    "COMPLETE_UPDATE_BUTTON": "Save",
     "COMPLETE_REGISTRATION_POPUP_BUTTON": "Continue"
   },
   "LOGIN": {
@@ -155,6 +154,8 @@
   "NO_RESULTS": "Sorry, there are no results for this search. Please try with different words.",
   "BAD_LOGIN":"Incorrect user or password",
   "REGISTER_SUCCESS":"Now you can register your business",
-  "CONTACT_INFO":"If you have a problem, question or a suggestion, you can write to"
+  "CONTACT_INFO":"If you have a problem, question or a suggestion, you can write to",
+  "E101":"email already exists"
+  
 
 }
