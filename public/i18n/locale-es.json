@@ -114,9 +114,11 @@
     "COMPLETE_REGISTRATION_HEADER": "Registro completo",
     "COMPLETE_REGISTRATION_TITLE": "Gracias por inscribirte",
     "COMPLETE_REGISTRATION_TEXT": "Ya formas parte de la comunidad Marca_app. Entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
-    "COMPLETE_UPDATE_TITLE": "Actualización de Sitio",
+    "COMPLETE_REGISTRATION_POPUP_BUTTON": "Continuar",  
     "COMPLETE_UPDATE_TEXT": "Tu sitio se ha actualizado con éxito",
-    "COMPLETE_REGISTRATION_POPUP_BUTTON": "Continuar"
+    "COMPLETE_UPDATE_BUTTON": "Actualizar",
+    "COMPLETE_UPDATE_HEADER": "Actualización de sitio",
+    "COMPLETE_UPDATE_POPUP_BUTTON": "Continuar"
   },
   "LOGIN": {
     "TRADER_LOGIN": "Ingreso de comerciantes",
