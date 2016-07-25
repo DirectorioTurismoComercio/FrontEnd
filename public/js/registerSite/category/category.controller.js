@@ -32,7 +32,7 @@ angular.module('registerSite')
 
         categories.getCategories().then(function (response) {
             $scope.firstCategories = response;
-            $scope.secondCategories = response;
+            //$scope.secondCategories = response;
             $scope.thirdCategories = response;
         }).catch(function (error) {
             console.log("Hubo un error", error);
@@ -60,6 +60,10 @@ angular.module('registerSite')
 
             $scope.listThirdCategoryIsVisible=false;
             $scope.compressedThirdCategoryIsVisible=true;
+
+            verifyAddSecondCategoryButtonVisibility();
+            verifyAddThirdCategoryButtonVisibility();
+
         }
 
 
@@ -90,6 +94,8 @@ angular.module('registerSite')
 
             $scope.listThirdCategoryIsVisible=false;
             $scope.compressedThirdCategoryIsVisible=true;
+
+            verifyAddThirdCategoryButtonVisibility();
         }
 
 
@@ -132,6 +138,26 @@ angular.module('registerSite')
             $scope.compressedSecondCategoryIsVisible=false;
 
             $scope.secondcategoryExists=true;
+
+
+            var secondCategories=[];
+            var i=0;
+
+            for(i; i<$scope.firstCategories.length;i++){
+                /*if(i!=$scope.businessFirstCategories.category-1){
+
+                 }*/
+
+                secondCategories[i]=$scope.firstCategories[i];
+            }
+
+
+
+            $scope.secondCategories=secondCategories;
+
+            $scope.secondCategories.splice(($scope.businessFirstCategories.category-1),1)
+
+            //console.log($scope.secondCategories);
 
 
         }
@@ -192,6 +218,18 @@ angular.module('registerSite')
 
         $scope.changeViewBusinessInformation=function(){
             $location.path("/businessinformation");
+        }
+
+        function verifyAddSecondCategoryButtonVisibility(){
+            if($scope.secondcategoryExists && $scope.businessSecondCategories==undefined ){
+                $scope.secondcategoryExists=false;
+            }
+        }
+
+        function verifyAddThirdCategoryButtonVisibility(){
+            if($scope.thirdcategoryExists && $scope.businessThirdCategories==undefined ){
+                $scope.thirdcategoryExists=false;
+            }
         }
 
         function resetCategoriesModel(){
