@@ -44,7 +44,7 @@ angular.module('registerSite')
             console.log("Hubo un error", error);
         });
 
-        $scope.getSubcategoriesOnChange = function (newValue, oldValue) {
+        $scope.getSubcategoriesOnChange = function (newValue, oldValue, category) {
             if ($scope.firstCategory == undefined) {
                 resetCategoriesModel();
             } else {
@@ -52,8 +52,7 @@ angular.module('registerSite')
                 getSubcategories($scope.firstCategory.id);
             }
 
-            console.log("nuevo valor", newValue, "viejo valor", (oldValue));
-            newValue.isSelected=true;
+            newValue.isSelected=category;
 
             for(var i=0; i<$scope.arrayCategories.length; i++){
                 if(oldValue==$scope.arrayCategories[i].id){
@@ -61,12 +60,13 @@ angular.module('registerSite')
                 }
             }
 
-            console.log($scope.arrayCategories);
-           // oldValue=JSON.parse(oldValue);
-            //oldValue.isSelected=false;
+        }
 
-            //$scope.arrayCategories[$scope.businessFirstCategories.category-1].isSelected=true;
 
+        $scope.categoryOptionFilter = function(categoryOption) {
+            return function(categoryObject) {
+                return categoryObject.isSelected == false || categoryObject.isSelected==categoryOption;
+            }
         }
 
         $scope.collapseFirstListCategory=function(){

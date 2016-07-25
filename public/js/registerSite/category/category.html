@@ -41,12 +41,12 @@
                 <label class="main-category-label col-xs-12" translate="REGISTER_SITE_CONSTANTS.MAIN_CATEGORY"></label>
                 <div class="topMarginElements col-xs-12">
                     <select ng-model="firstCategory"
-                            ng-options="obj.nombre for obj in arrayCategories track by obj.id | filter:obj.isSelected=='false'"
+                            ng-options="obj.nombre for obj in ((arrayCategories | filter:categoryOptionFilter(1)))  track by obj.id "
                             name="catefory"
                             class="form-control businessAddressInput businessAddressText"
-                            ng-change="getSubcategoriesOnChange(firstCategory,'%%firstCategory.id%%')"
+                            ng-change="getSubcategoriesOnChange(firstCategory,'%%firstCategory.id%%', 1)"
                             required>
-                        <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
+                        <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY">%%firstCategory.nombre%%</option>
                     </select>
                     <i ng-show="firstCategory==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
@@ -90,7 +90,7 @@
                            translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_1"></label>
                     <div class="input topMarginElements col-xs-12 compressed-category-container">
                         <input placeholder="Regular Placeholder" translate
-                               translate-attr-placeholder=%%secondCategories[secondCategory-1].nombre%%
+                               translate-attr-placeholder=%%secondCategory.nombre%%
                                class="form-control subcategory"
                                name="businessDescription" ng-model="$parent.businessDescription" readonly>
                         </input>
@@ -114,10 +114,10 @@
                 <div class="topMarginElements col-xs-12">
                     <select id="secondCategories"
                             ng-model="secondCategory"
-                            ng-options="obj.nombre for obj in arrayCategories track by obj.id | filter:obj.isSelected=='false'"
+                            ng-options="obj.nombre for obj in ((arrayCategories | filter:categoryOptionFilter(2)))  track by obj.id "
                             name="catefory"
                             class="form-control businessAddressInput businessAddressText"
-                            ng-change="getSubcategoriesOnChange(secondCategory,'%%secondCategory.id%%')">
+                            ng-change="getSubcategoriesOnChange(secondCategory,'%%secondCategory.id%%',2)">
                         <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
                     </select>
                 </div>
@@ -164,7 +164,7 @@
                            translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_2"></label>
                     <div class="input topMarginElements col-xs-12 compressed-category-container">
                         <input placeholder="Regular Placeholder" translate
-                               translate-attr-placeholder=%%thirdCategories[businessThirdCategories.category-1].nombre%%
+                               translate-attr-placeholder=%%businessThirdCategories.category.nombre%%
                                class="form-control subcategory"
                                name="businessDescription" ng-model="$parent.businessDescription" readonly>
                         </input>
@@ -187,10 +187,10 @@
                 <label class="additional-category-label topMarginElements col-xs-12" translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_2"></label>
                 <div class="topMarginElements col-xs-12">
                     <select ng-model="businessThirdCategories.category"
-                            ng-options="obj.id as obj.nombre for obj in arrayCategories track by obj.id | filter:obj.isSelected=='false'"
+                            ng-options="obj.nombre for obj in ((arrayCategories | filter:categoryOptionFilter(3)))  track by obj.id "
                             name="catefory"
                             class="form-control businessAddressInput businessAddressText"
-                            ng-change="getSubcategoriesOnChange()">
+                            ng-change="getSubcategoriesOnChange(businessThirdCategories.category,'%%businessThirdCategories.category%%',3)">
                         <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
                     </select>
                 </div>
