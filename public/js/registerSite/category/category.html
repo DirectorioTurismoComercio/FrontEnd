@@ -20,22 +20,25 @@
 
 
             <div ng-show="compressedFirstCategoryIsVisible">
-                <p>categoria principal</p>
                 <div class="input topMarginElements col-xs-12">
-                    <input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder=%%firstCategories[businessFirstCategories.category-1].nombre%%
-                           class="form-control businessAddressInput businessAddressText subcategory"
-                           name="businessDescription" ng-model="$parent.businessDescription" readonly>
-                    </input>
-                </div>
-                <div class="row businessAddressText topMarginElements">
-                    <button class="button-add-category col-xs-3 col-xs-offset-8 topMarginElements"
-                            ng-click="editFirstCategory()" translate="REGISTER_SITE_CONSTANTS.EDIT_CATEGORY_BUTTON"></button>
+                    <label class="main-category-label topMarginElements col-xs-12"
+                           translate="REGISTER_SITE_CONSTANTS.MAIN_CATEGORY"></label>
+                    <div class="input topMarginElements col-xs-12 compressed-category-container">
+                        <input placeholder="Regular Placeholder" translate
+                               translate-attr-placeholder=%%firstCategories[businessFirstCategories.category-1].nombre%%
+                               class="form-control subcategory"
+                               name="businessDescription" ng-model="$parent.businessDescription" readonly>
+                        </input>
+                        <div class="arrow-container">
+                            <img ng-click="editFirstCategory()" class="topMarginElements category-arrow"
+                                 src="./images/registerIcons/categoria-expandir.png">
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div ng-show="listFirstCategoryIsVisible">
-                <p>categoria principal</p>
+                <label class="main-category-label col-xs-12" translate="REGISTER_SITE_CONSTANTS.MAIN_CATEGORY"></label>
                 <div class="topMarginElements col-xs-12">
                     <select ng-model="businessFirstCategories.category"
                             ng-options="obj.id as obj.nombre for obj in firstCategories"
@@ -61,45 +64,53 @@
                         <input type="checkbox" checklist-model="user.categorias" checklist-value="subcategory">
                     </div>
                     <div class="row  subcategory-container" ng-show="businessFirstCategories.category==undefined">
-                        <label class="subcategory-tip texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></label>
+                        <label class="subcategory-tip texto-oscuro-business"
+                               translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></label>
                     </div>
                 </div>
 
                 <div class="row businessAddressText col-xs-12" ng-show="businessFirstCategories.category!=undefined">
-                    <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></span>
+                    <span class="texto-oscuro-business"
+                          translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></span>
                 </div>
 
-                <div class="row businessAddressText topMarginElements" ng-show="businessFirstCategories.category!=undefined">
-                    <button class="topMarginElements button-add-category col-xs-3 col-xs-offset-8"
-                            ng-click="collapseFirstListCategory()" translate="REGISTER_SITE_CONSTANTS.COLLAPSE_CATEGORY_BUTTON"></button>
+                <div class="arrow-container collapse-arrow businessAddressText topMarginElements"
+                     ng-show="businessFirstCategories.category!=undefined">
+                    <img ng-click="collapseFirstListCategory()" class="topMarginElements category-arrow "
+                         src="./images/registerIcons/categoria-colapsar.png">
                 </div>
 
             </div>
-
 
 
             <div ng-show="compressedSecondCategoryIsVisible && businessSecondCategories.category!=undefined && secondcategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
-                <p>categoria 2</p>
                 <div class="input topMarginElements col-xs-12">
-                    <input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder=%%secondCategories[businessSecondCategories.category-1].nombre%%
-                           class="form-control businessAddressInput businessAddressText subcategory"
-                           name="businessDescription" ng-model="$parent.businessDescription" readonly>
-                    </input>
-                </div>
-                <div class="row businessAddressText topMarginElements">
-                    <button class="button-add-category col-xs-3 col-xs-offset-4  topMarginElements"
-                            ng-click="deleteSecondCategory()" translate="REGISTER_SITE_CONSTANTS.DELETE_CATEGORY_BUTTON"></button>
-                    <button class="button-add-category col-xs-3 col-xs-offset-1 topMarginElements"
-                            ng-click="editSecondCategory()" translate="REGISTER_SITE_CONSTANTS.EDIT_CATEGORY_BUTTON"></button>
+                    <label class="additional-category-label topMarginElements col-xs-12"
+                           translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_1"></label>
+                    <div class="input topMarginElements col-xs-12 compressed-category-container">
+                        <input placeholder="Regular Placeholder" translate
+                               translate-attr-placeholder=%%secondCategories[businessSecondCategories.category-1].nombre%%
+                               class="form-control subcategory"
+                               name="businessDescription" ng-model="$parent.businessDescription" readonly>
+                        </input>
+                        <div class="arrow-container">
+                            <button class="button-add-category col-xs-3 delete-button topMarginElements"
+                                    ng-click="deleteSecondCategory()"
+                                    translate="REGISTER_SITE_CONSTANTS.DELETE_CATEGORY_BUTTON"></button>
+                            <img ng-click="editSecondCategory()" class="topMarginElements category-arrow"
+                                 src="./images/registerIcons/categoria-expandir.png">
+                        </div>
+                    </div>
                 </div>
             </div>
 
 
+
+
             <div ng-show="listSecondCategoryIsVisible && secondcategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
-                <p>categoria 2</p>
+                <label class="additional-category-label topMarginElements col-xs-12" translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_1"></label>
                 <div class="topMarginElements col-xs-12">
                     <select ng-model="businessSecondCategories.category"
                             ng-options="obj.id as obj.nombre for obj in secondCategories"
@@ -109,61 +120,70 @@
                         <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
                     </select>
                 </div>
-
-                <div class="input topMarginElements col-xs-12">
-                    <input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_SUBCATEGORY"
-                           class="form-control businessAddressInput businessAddressText subcategory"
-                           name="businessDescription" ng-model="$parent.businessDescription" readonly>
-                    </input>
+                <div class="row businessAddressText col-xs-12">
+                    <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY_TEXT"></span>
                 </div>
 
-                <div class="row col-xs-offset-1 col-xs-10 businessAddressText">
+                <div class="row topMarginElements col-xs-offset-1 col-xs-10 businessAddressText">
                     <div class="row  subcategory-container" ng-repeat="subcategory in secondSubcategories">
                         <label class="col-xs-11 subcategory-label">%%subcategory.nombre%%</label>
                         <input type="checkbox" checklist-model="user.categorias" checklist-value="subcategory">
                     </div>
                     <div class="row  subcategory-container" ng-show="businessSecondCategories.category==undefined">
-                        <label class="subcategory-tip texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></label>
+                        <label class="subcategory-tip texto-oscuro-business"
+                               translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></label>
                     </div>
                 </div>
 
                 <div class="row businessAddressText col-xs-12" ng-show="businessSecondCategories.category!=undefined">
-                    <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></span>
+                    <span class="texto-oscuro-business"
+                          translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></span>
                 </div>
 
-                <div class="row businessAddressText topMarginElements" ng-show="businessSecondCategories.category!=undefined">
-                    <button class="button-add-category col-xs-3 col-xs-offset-4  topMarginElements"
-                            ng-click="deleteSecondCategory()" translate="REGISTER_SITE_CONSTANTS.DELETE_CATEGORY_BUTTON"></button>
-                    <button class="topMarginElements button-add-category col-xs-3 col-xs-offset-1"
-                            ng-click="collapseSecondListCategory()" translate="REGISTER_SITE_CONSTANTS.COLLAPSE_CATEGORY_BUTTON"></button>
-
+                <div class="arrow-container collapse-arrow businessAddressText topMarginElements"
+                     ng-show="businessSecondCategories.category!=undefined">
+                    <button class="button-add-category col-xs-3 delete-button  topMarginElements"
+                            ng-click="deleteSecondCategory()"
+                            translate="REGISTER_SITE_CONSTANTS.DELETE_CATEGORY_BUTTON"></button>
+                    <img ng-click="collapseSecondListCategory()" class="topMarginElements category-arrow "
+                         src="./images/registerIcons/categoria-colapsar.png">
                 </div>
 
             </div>
+
+
+
+
 
 
             <div ng-show="compressedThirdCategoryIsVisible && businessThirdCategories.category!=undefined && thirdcategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
-                <p>categoria 3</p>
                 <div class="input topMarginElements col-xs-12">
-                    <input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder=%%thirdCategories[businessThirdCategories.category-1].nombre%%
-                           class="form-control businessAddressInput businessAddressText subcategory"
-                           name="businessDescription" ng-model="$parent.businessDescription" readonly>
-                    </input>
-                </div>
-                <div class="row businessAddressText topMarginElements">
-                    <button class="button-add-category col-xs-3 col-xs-offset-4  topMarginElements"
-                            ng-click="deleteThirdCategory()" translate="REGISTER_SITE_CONSTANTS.DELETE_CATEGORY_BUTTON"></button>
-                    <button class="button-add-category col-xs-3 col-xs-offset-1 topMarginElements"
-                            ng-click="editThirdCategory()" translate="REGISTER_SITE_CONSTANTS.EDIT_CATEGORY_BUTTON"></button>
+                    <label class="additional-category-label topMarginElements col-xs-12"
+                           translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_2"></label>
+                    <div class="input topMarginElements col-xs-12 compressed-category-container">
+                        <input placeholder="Regular Placeholder" translate
+                               translate-attr-placeholder=%%thirdCategories[businessThirdCategories.category-1].nombre%%
+                               class="form-control subcategory"
+                               name="businessDescription" ng-model="$parent.businessDescription" readonly>
+                        </input>
+                        <div class="arrow-container">
+                            <button class="button-add-category col-xs-3 delete-button topMarginElements"
+                                    ng-click="deleteThirdCategory()"
+                                    translate="REGISTER_SITE_CONSTANTS.DELETE_CATEGORY_BUTTON"></button>
+                            <img ng-click="editThirdCategory()" class="topMarginElements category-arrow"
+                                 src="./images/registerIcons/categoria-expandir.png">
+                        </div>
+                    </div>
                 </div>
             </div>
 
+
+
+
             <div ng-show="listThirdCategoryIsVisible && thirdcategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
-                <p>categoria 3</p>
+                <label class="additional-category-label topMarginElements col-xs-12" translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_2"></label>
                 <div class="topMarginElements col-xs-12">
                     <select ng-model="businessThirdCategories.category"
                             ng-options="obj.id as obj.nombre for obj in thirdCategories"
@@ -173,38 +193,36 @@
                         <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
                     </select>
                 </div>
-
-                <div class="input topMarginElements col-xs-12">
-                    <input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_SUBCATEGORY"
-                           class="form-control businessAddressInput businessAddressText subcategory"
-                           name="businessDescription" ng-model="$parent.businessDescription" readonly>
-                    </input>
+                <div class="row businessAddressText col-xs-12">
+                    <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY_TEXT"></span>
                 </div>
 
-                <div class="row col-xs-offset-1 col-xs-10 businessAddressText">
+                <div class="row topMarginElements col-xs-offset-1 col-xs-10 businessAddressText">
                     <div class="row  subcategory-container" ng-repeat="subcategory in thirdSubcategories">
                         <label class="col-xs-11 subcategory-label">%%subcategory.nombre%%</label>
                         <input type="checkbox" checklist-model="user.categorias" checklist-value="subcategory">
                     </div>
                     <div class="row  subcategory-container" ng-show="businessThirdCategories.category==undefined">
-                        <label class="subcategory-tip texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></label>
+                        <label class="subcategory-tip texto-oscuro-business"
+                               translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></label>
                     </div>
                 </div>
 
                 <div class="row businessAddressText col-xs-12" ng-show="businessThirdCategories.category!=undefined">
-                    <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></span>
+                    <span class="texto-oscuro-business"
+                          translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></span>
                 </div>
 
-                <div class="row businessAddressText topMarginElements" ng-show="businessThirdCategories.category!=undefined">
-                    <button class="button-add-category col-xs-3 col-xs-offset-4  topMarginElements"
-                            ng-click="deleteThirdCategory()" translate="REGISTER_SITE_CONSTANTS.DELETE_CATEGORY_BUTTON"></button>
-                    <button class="topMarginElements button-add-category col-xs-3 col-xs-offset-1"
-                            ng-click="collapseThirdListCategory()" translate="REGISTER_SITE_CONSTANTS.COLLAPSE_CATEGORY_BUTTON"></button>
+                <div class="arrow-container collapse-arrow businessAddressText topMarginElements"
+                     ng-show="businessThirdCategories.category!=undefined">
+                    <button class="button-add-category col-xs-3 delete-button  topMarginElements"
+                            ng-click="deleteThirdCategory()"
+                            translate="REGISTER_SITE_CONSTANTS.DELETE_CATEGORY_BUTTON"></button>
+                    <img ng-click="collapseThirdListCategory()" class="topMarginElements category-arrow "
+                         src="./images/registerIcons/categoria-colapsar.png">
                 </div>
 
             </div>
-
 
 
 
@@ -212,33 +230,32 @@
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
 
                 <div class="row businessAddressText topMarginElements col-xs-12">
-                    <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_OTHER_CATEGORY_TEXT"></span>
+                    <span class="texto-oscuro-business"
+                          translate="REGISTER_SITE_CONSTANTS.CHOOSE_OTHER_CATEGORY_TEXT"></span>
                 </div>
 
                 <div class="row businessAddressText topMarginElements">
                     <button class="button-add-category col-xs-3 col-xs-offset-8"
-                            ng-click="addFirstCategory()" translate="REGISTER_SITE_CONSTANTS.ADD_CATEGORY_BUTTON"></button>
+                            ng-click="addFirstCategory()"
+                            translate="REGISTER_SITE_CONSTANTS.ADD_CATEGORY_BUTTON"></button>
                 </div>
             </div>
-
 
 
             <div ng-show="(businessSecondCategories.category!=undefined && secondcategoryExists && !thirdcategoryExists) || (businessSecondCategories.category!=undefined && !secondcategoryExists && thirdcategoryExists)">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
 
                 <div class="row businessAddressText topMarginElements col-xs-12">
-                    <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_OTHER_CATEGORY_TEXT_SECOND"></span>
+                    <span class="texto-oscuro-business"
+                          translate="REGISTER_SITE_CONSTANTS.CHOOSE_OTHER_CATEGORY_TEXT_SECOND"></span>
                 </div>
 
                 <div class="row businessAddressText topMarginElements">
                     <button class="button-add-category col-xs-3 col-xs-offset-8"
-                            ng-click="addSecondCategory()" translate="REGISTER_SITE_CONSTANTS.ADD_CATEGORY_BUTTON"></button>
+                            ng-click="addSecondCategory()"
+                            translate="REGISTER_SITE_CONSTANTS.ADD_CATEGORY_BUTTON"></button>
                 </div>
             </div>
-
-
-
-
 
 
             <div class=" next-button NextButtonRegister topMarginElements col-xs-12">

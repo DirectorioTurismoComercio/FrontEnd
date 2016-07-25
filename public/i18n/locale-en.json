@@ -12,7 +12,7 @@
   },
   "TABS_CONSTANTS": {
     "SEARCH_TAB": "Search",
-    "SEARCH_BY_KEY_WORD": "Search using key words or a category. Example: Restaurants, music, museos",
+    "SEARCH_BY_KEY_WORD": "Search using key words or a category. Example: Restaurants, music, museums",
     "SELECT_TOWN": "Choose a municipality for your search",
     "DO_SEARCH": "Search",
     "PLAN_YOUR_TRIP": "Plan your route",
@@ -91,6 +91,8 @@
     "CHOOSE_OTHER_CATEGORY_TEXT": "If your business has other activities you can add another 2 categories",
     "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "If your business has other activities you can add another category",
     "MAIN_CATEGORY": "Main category",
+    "ADDITIONAL_CATEGORY_1":"Additional category 1",
+    "ADDITIONAL_CATEGORY_2":"Additional category 2",
     "ADD_CATEGORY_BUTTON": "Add category",
     "COLLAPSE_CATEGORY_BUTTON": "collapse",
     "DELETE_CATEGORY_BUTTON": "Delete",
@@ -152,6 +154,7 @@
   "GET_TOWNS_ERROR": "The towns list is unavailable in this moment. Please reload the page",
   "NO_RESULTS": "Sorry, there are no results for this search. Please try with different words.",
   "BAD_LOGIN":"Incorrect user or password",
-  "REGISTER_SUCCESS":"Now you can register your business"
+  "REGISTER_SUCCESS":"Now you can register your business",
+  "CONTACT_INFO":"If you have a problem, question or a suggestion, you can write to"
 
 }

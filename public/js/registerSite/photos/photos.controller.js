@@ -93,7 +93,7 @@ angular.module('registerSite')
         $scope.imgLoadedCallback = function (flowObjectName, fileIndex) {
             switch (flowObjectName) {
                 case 'mainPhoto':
-                    processImage($scope.flowMainPhoto.flow, 0, flowObjectName);
+                    processUploadedImage($scope.flowMainPhoto.flow, 0, flowObjectName);
                     $scope.loadingMainPhoto = false;
                     break;
 
@@ -117,27 +117,28 @@ angular.module('registerSite')
         function previewPhoto(flowObject, fileIndex, lastPhotoFileIndex, flowObjectName) {
             if (fileIndex != lastPhotoFileIndex) {
                 lastPhotoFileIndex = fileIndex;
-                processImage(flowObject, fileIndex, flowObjectName);
+                processUploadedImage(flowObject, fileIndex, flowObjectName);
             }
-        };
+        }
 
         function updateFlowObject(flowObject, fileIndex, flowFile) {
             flowObject.files.splice(fileIndex, 1);
             flowObject.files.push(flowFile);
         }
 
-        function processImage(flowObject, fileIndex, photoLoading) {
-            var orientation;
+        function processUploadedImage(flowObject, fileIndex, photoLoading) {
             var flowFile = flowObject.files[fileIndex];
 
             EXIF.getData(flowFile.file, function () {
                 if (flowFile.processing == undefined) {
+                    var orientation = this.exifdata.Orientation;
                     flowFile.processing = true;
                     updateFlowObject(flowObject, fileIndex, flowFile);
-                    orientation = this.exifdata.Orientation;
-                    reduceImageWeigth(flowObject.files[fileIndex]).then(function (base64Image) {
-                        ImageService.rotateImage(photoLoading, orientation, base64Image).then(function (base64RotatedImage) {
-                            var blob = dataURLToBlob(base64RotatedImage, flowObject.files[fileIndex].uniqueIdentifier);
+
+                    changeLoadingState(photoLoading, true);
+                    ImageService.reduceImageSize(flowFile.file).then(function (reducedImage) {
+                        ImageService.rotateImage(orientation, reducedImage).then(function (rotatedImage) {
+                            var blob = ImageService.dataURIToBlob(rotatedImage, flowFile.uniqueIdentifier);
                             flowFile = new Flow.FlowFile(flowObject, blob);
                             flowFile.processing = true;
                             updateFlowObject(flowObject, fileIndex, flowFile);
@@ -147,43 +148,6 @@ angular.module('registerSite')
             });
         }
 
-
-        function reduceImageWeigth(flowObjectFile) {
-            console.log("reducing file");
-            return ImageService.reduceImageSize(flowObjectFile.file).then(function (base64Image) {
-                return base64Image;
-                //return dataURLToBlob(image, flowObjectFile.uniqueIdentifier);
-            });
-        }
-
-        function dataURLToBlob(dataURL, name) {
-            var blob;
-            var BASE64_MARKER = ';base64,';
-            if (dataURL.indexOf(BASE64_MARKER) == -1) {
-                var parts = dataURL.split(',');
-                var contentType = parts[0].split(':')[1];
-                var raw = decodeURIComponent(parts[1]);
-
-                return new Blob([raw], {type: contentType});
-            }
-
-            var parts = dataURL.split(BASE64_MARKER);
-            var contentType = parts[0].split(':')[1];
-            var raw = window.atob(parts[1]);
-            var rawLength = raw.length;
-
-            var uInt8Array = new Uint8Array(rawLength);
-
-            for (var i = 0; i < rawLength; ++i) {
-                uInt8Array[i] = raw.charCodeAt(i);
-            }
-
-            blob = new Blob([uInt8Array], {type: contentType});
-            blob.name = name;
-            blob.lastModifiedDate = new Date();
-
-            return blob;
-        }
 
         function loadPhotoFromURL(urlPhoto, tipo) {
 

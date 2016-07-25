@@ -2,9 +2,9 @@
 
 angular.module('utils')
     .service('ImageService', function ($q, $window) {
-        const MAX_IMAGE_WIDTH = 800;
-        const MAX_IMAGE_HEIGHT = 800;
-        const IMAGE_QUALITY = 0.3;
+        var MAX_IMAGE_WIDTH = 800;
+        var MAX_IMAGE_HEIGHT = 800;
+        var IMAGE_QUALITY = 0.3;
 
         function reduceImageSize(file) {
             if (!(file instanceof File)) {
@@ -70,12 +70,11 @@ angular.module('utils')
             }
         }
 
-        function rotateImage(photoLoading, orientation, base64Image) {
+        function rotateImage(orientation, base64Image) {
             var defer = $q.defer();
             var base64RotatedImage = base64Image;
 
             if (orientation) {
-                console.log("changin orientation");
                 var canvas = document.createElement("canvas");
                 var ctx = canvas.getContext('2d');
                 var thisImage = new Image();
@@ -132,14 +131,46 @@ angular.module('utils')
                     defer.resolve(base64RotatedImage);
                 }
                 thisImage.src = base64Image;
+            } else {
+                defer.resolve(base64RotatedImage);
             }
 
             return defer.promise;
         }
 
+        function dataURIToBlob(dataURL, name) {
+            var blob;
+            var BASE64_MARKER = ';base64,';
+            if (dataURL.indexOf(BASE64_MARKER) == -1) {
+                var parts = dataURL.split(',');
+                var contentType = parts[0].split(':')[1];
+                var raw = decodeURIComponent(parts[1]);
+
+                return new Blob([raw], {type: contentType});
+            }
+
+            var parts = dataURL.split(BASE64_MARKER);
+            var contentType = parts[0].split(':')[1];
+            var raw = window.atob(parts[1]);
+            var rawLength = raw.length;
+
+            var uInt8Array = new Uint8Array(rawLength);
+
+            for (var i = 0; i < rawLength; ++i) {
+                uInt8Array[i] = raw.charCodeAt(i);
+            }
+
+            blob = new Blob([uInt8Array], {type: contentType});
+            blob.name = name;
+            blob.lastModifiedDate = new Date();
+
+            return blob;
+        }
+
 
         return {
             reduceImageSize: reduceImageSize,
-            rotateImage: rotateImage
+            rotateImage: rotateImage,
+            dataURIToBlob: dataURIToBlob
         }
     });

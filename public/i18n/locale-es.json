@@ -11,7 +11,7 @@
   },
   "TABS_CONSTANTS": {
     "SEARCH_TAB": "¿Qué buscas?",
-    "SEARCH_BY_KEY_WORD": "Busca por palabra clave o selecciona una categoría. Ejemplo: Restaurantes, música, museums",
+    "SEARCH_BY_KEY_WORD": "Busca por palabra clave o selecciona una categoría. Ejemplo: Restaurantes, música, museos",
     "SELECT_TOWN": "Selecciona el municipio para tu búsqueda",
     "DO_SEARCH": "Realizar búsqueda",
     "PLAN_YOUR_TRIP": "Arma tu ruta",
@@ -90,6 +90,8 @@
     "CHOOSE_OTHER_CATEGORY_TEXT": "Si tu negocio tiene otras actividades comerciales puedes añadir 2 categorias adicionales",
     "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "Si tu negocio tiene otras actividades comerciales puedes añadir 1 categoria adicional",
     "MAIN_CATEGORY": "Categoría principal",
+    "ADDITIONAL_CATEGORY_1":"Categoría adicional 1",
+    "ADDITIONAL_CATEGORY_2":"Categoría adicional 2",
     "ADD_CATEGORY_BUTTON": "Añadir categoria",
     "COLLAPSE_CATEGORY_BUTTON": "colapsar",
     "DELETE_CATEGORY_BUTTON": "Borrar",
@@ -151,6 +153,7 @@
   "GET_TOWNS_ERROR": "No es posible cargar el listado de municipios, por favor intentalo más tarde o vuelve a cargar la página",
   "NO_RESULTS": "Lo sentimos, no hay resultados para esta búsqueda. Por favor intente con otras palabras",
   "BAD_LOGIN":"El usuario o contraseña son incorrectos",
-  "REGISTER_SUCCESS":"Ahora puedes registrar tu comercio"
+  "REGISTER_SUCCESS":"Ahora puedes registrar tu comercio",
+  "CONTACT_INFO":"Si tiene algun problema, duda o sugerencia puede escribirnos a"
 
 }
