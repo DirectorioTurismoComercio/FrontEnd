@@ -25,7 +25,7 @@
                            translate="REGISTER_SITE_CONSTANTS.MAIN_CATEGORY"></label>
                     <div class="input topMarginElements col-xs-12 compressed-category-container">
                         <input placeholder="Regular Placeholder" translate
-                               translate-attr-placeholder=%%firstCategories[businessFirstCategories.category-1].nombre%%
+                               translate-attr-placeholder=%%firstCategory.nombre%%
                                class="form-control subcategory"
                                name="businessDescription" ng-model="$parent.businessDescription" readonly>
                         </input>
@@ -40,15 +40,15 @@
             <div ng-show="listFirstCategoryIsVisible">
                 <label class="main-category-label col-xs-12" translate="REGISTER_SITE_CONSTANTS.MAIN_CATEGORY"></label>
                 <div class="topMarginElements col-xs-12">
-                    <select ng-model="businessFirstCategories.category"
-                            ng-options="obj.id as obj.nombre for obj in firstCategories"
+                    <select ng-model="firstCategory"
+                            ng-options="obj.nombre for obj in arrayCategories track by obj.id | filter:obj.isSelected=='false'"
                             name="catefory"
                             class="form-control businessAddressInput businessAddressText"
-                            ng-change="getFirstSubcategories()"
+                            ng-change="getSubcategoriesOnChange(firstCategory,'%%firstCategory.id%%')"
                             required>
                         <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
                     </select>
-                    <i ng-show="businessFirstCategories==undefined"
+                    <i ng-show="firstCategory==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.catefory.$error.required"
                               class="errorField businessAddressText"
@@ -63,19 +63,19 @@
                         <label class="col-xs-11 subcategory-label">%%subcategory.nombre%%</label>
                         <input type="checkbox" checklist-model="user.categorias" checklist-value="subcategory">
                     </div>
-                    <div class="row  subcategory-container" ng-show="businessFirstCategories.category==undefined">
+                    <div class="row  subcategory-container" ng-show="firstCategory==undefined">
                         <label class="subcategory-tip texto-oscuro-business"
                                translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></label>
                     </div>
                 </div>
 
-                <div class="row businessAddressText col-xs-12" ng-show="businessFirstCategories.category!=undefined">
+                <div class="row businessAddressText col-xs-12" ng-show="firstCategory!=undefined">
                     <span class="texto-oscuro-business"
                           translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></span>
                 </div>
 
                 <div class="arrow-container collapse-arrow businessAddressText topMarginElements"
-                     ng-show="businessFirstCategories.category!=undefined">
+                     ng-show="firstCategory!=undefined">
                     <img ng-click="collapseFirstListCategory()" class="topMarginElements category-arrow "
                          src="./images/registerIcons/categoria-colapsar.png">
                 </div>
@@ -83,14 +83,14 @@
             </div>
 
 
-            <div ng-show="compressedSecondCategoryIsVisible && businessSecondCategories.category!=undefined && secondcategoryExists">
+            <div ng-show="compressedSecondCategoryIsVisible && secondCategory!=undefined && secondcategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
                 <div class="input topMarginElements col-xs-12">
                     <label class="additional-category-label topMarginElements col-xs-12"
                            translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_1"></label>
                     <div class="input topMarginElements col-xs-12 compressed-category-container">
                         <input placeholder="Regular Placeholder" translate
-                               translate-attr-placeholder=%%secondCategories[businessSecondCategories.category-1].nombre%%
+                               translate-attr-placeholder=%%secondCategories[secondCategory-1].nombre%%
                                class="form-control subcategory"
                                name="businessDescription" ng-model="$parent.businessDescription" readonly>
                         </input>
@@ -112,11 +112,12 @@
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
                 <label class="additional-category-label topMarginElements col-xs-12" translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_1"></label>
                 <div class="topMarginElements col-xs-12">
-                    <select ng-model="businessSecondCategories.category"
-                            ng-options="obj.id as obj.nombre for obj in secondCategories"
+                    <select id="secondCategories"
+                            ng-model="secondCategory"
+                            ng-options="obj.nombre for obj in arrayCategories track by obj.id | filter:obj.isSelected=='false'"
                             name="catefory"
                             class="form-control businessAddressInput businessAddressText"
-                            ng-change="getSecondSubCategories()">
+                            ng-change="getSubcategoriesOnChange(secondCategory,'%%secondCategory.id%%')">
                         <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
                     </select>
                 </div>
@@ -129,19 +130,19 @@
                         <label class="col-xs-11 subcategory-label">%%subcategory.nombre%%</label>
                         <input type="checkbox" checklist-model="user.categorias" checklist-value="subcategory">
                     </div>
-                    <div class="row  subcategory-container" ng-show="businessSecondCategories.category==undefined">
+                    <div class="row  subcategory-container" ng-show="secondCategory==undefined">
                         <label class="subcategory-tip texto-oscuro-business"
                                translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></label>
                     </div>
                 </div>
 
-                <div class="row businessAddressText col-xs-12" ng-show="businessSecondCategories.category!=undefined">
+                <div class="row businessAddressText col-xs-12" ng-show="secondCategory!=undefined">
                     <span class="texto-oscuro-business"
                           translate="REGISTER_SITE_CONSTANTS.CHOOSE_SUBCATEGORY_TEXT"></span>
                 </div>
 
                 <div class="arrow-container collapse-arrow businessAddressText topMarginElements"
-                     ng-show="businessSecondCategories.category!=undefined">
+                     ng-show="secondCategory!=undefined">
                     <button class="button-add-category col-xs-3 delete-button  topMarginElements"
                             ng-click="deleteSecondCategory()"
                             translate="REGISTER_SITE_CONSTANTS.DELETE_CATEGORY_BUTTON"></button>
@@ -186,10 +187,10 @@
                 <label class="additional-category-label topMarginElements col-xs-12" translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_2"></label>
                 <div class="topMarginElements col-xs-12">
                     <select ng-model="businessThirdCategories.category"
-                            ng-options="obj.id as obj.nombre for obj in thirdCategories"
+                            ng-options="obj.id as obj.nombre for obj in arrayCategories track by obj.id | filter:obj.isSelected=='false'"
                             name="catefory"
                             class="form-control businessAddressInput businessAddressText"
-                            ng-change="getThirdSubCategories()">
+                            ng-change="getSubcategoriesOnChange()">
                         <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
                     </select>
                 </div>
@@ -226,7 +227,7 @@
 
 
 
-            <div ng-show="(businessFirstCategories.category!=undefined && !secondcategoryExists && !thirdcategoryExists)">
+            <div ng-show="(firstCategory!=undefined && !secondcategoryExists && !thirdcategoryExists)">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
 
                 <div class="row businessAddressText topMarginElements col-xs-12">
@@ -242,7 +243,7 @@
             </div>
 
 
-            <div ng-show="(businessSecondCategories.category!=undefined && secondcategoryExists && !thirdcategoryExists) || (businessSecondCategories.category!=undefined && !secondcategoryExists && thirdcategoryExists)">
+            <div ng-show="(secondCategory!=undefined && secondcategoryExists && !thirdcategoryExists) || (secondCategory!=undefined && !secondcategoryExists && thirdcategoryExists)">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
 
                 <div class="row businessAddressText topMarginElements col-xs-12">
