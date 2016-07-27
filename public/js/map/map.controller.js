@@ -3,7 +3,7 @@
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory,
                                            MapService, ngDialog, SiteMarkerService, $location, messageService, $timeout,
-                                           siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS) {
+                                           siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS, filterFilter) {
         var userPosition = {};
         var hasMadeRoute = false;
         var photosPopUp = undefined;
@@ -226,7 +226,9 @@ angular.module('map')
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
                     var position = MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud));
-                    var marker = MapService.addMarkerWithCategoryIcon(position, site.nombre, site.categorias[0]);
+                    console.log("el sitio", site);
+                    console.log("el filtro", filterFilter(site.categorias,{tipo:1})[0]);
+                    var marker = MapService.addMarkerWithCategoryIcon(position, site.nombre, filterFilter(site.categorias,{tipo:1})[0]);
                     site.categoryicon=marker.normalIcon.url;
 
                     SiteMarkerService.addSiteMarker(site, marker, $scope.showSiteDetail);

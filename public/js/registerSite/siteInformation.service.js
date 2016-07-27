@@ -64,27 +64,27 @@ angular.module('registerSite')
             var categoriesArray = [];
 
             categoriesArray.push({
-                categoria: firstCategory.id,
+                categoria_id: firstCategory.id,
                 tipo: 1
             });
 
             if (secondCategory != undefined) {
                 categoriesArray.push({
-                    categoria: secondCategory.id,
+                    categoria_id: secondCategory.id,
                     tipo: 2
                 });
             }
 
             if (thirdCategory != undefined) {
                 categoriesArray.push({
-                    categoria: thirdCategory.id,
+                    categoria_id: thirdCategory.id,
                     tipo: 3
                 });
             }
 
             for (var i = 0; i < businessSubcategories.subcategories.length; i++) {
                 categoriesArray.push({
-                    categoria: businessSubcategories.subcategories[i].id,
+                    categoria_id: businessSubcategories.subcategories[i].id,
                     tipo: 0
                 });
             }
