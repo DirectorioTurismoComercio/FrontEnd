@@ -13,28 +13,6 @@ angular.module('registerSite')
         $scope.showRequiredFieldMessage = false;
 
 
-        $scope.listFirstCategoryIsVisible = true;
-
-
-        if($scope.secondCategory==undefined || $scope.secondCategory==null){
-            $scope.listSecondCategoryExists = false;
-            $scope.listSecondCategoryIsVisible = false;
-        }else{
-            $scope.listSecondCategoryExists = true;
-            $scope.listSecondCategoryIsVisible = true;
-        }
-
-        if($scope.thirdCategory==undefined || $scope.thirdCategory==null){
-            $scope.listThirdCategoryExists = false;
-            $scope.listThirdCategoryIsVisible = false;
-        }else{
-            $scope.listThirdCategoryExists = true;
-            $scope.listThirdCategoryIsVisible = true;
-        }
-
-
-
-
         $scope.hadTwoCategoriesLeft = false;
         $scope.hadOneCategoriesLeft = false;
 
@@ -46,6 +24,11 @@ angular.module('registerSite')
 
         $scope.arrayCategories = [];
 
+
+        collapseFirstCategoryIfExists();
+        collapseSecondCategoryIfExists();
+        collapseThirdCategoryIfExists();
+
         categories.getCategories().then(function (response) {
             $scope.firstCategories = response;
             for (var i = 0; i < $scope.firstCategories.length; i++) {
@@ -56,6 +39,9 @@ angular.module('registerSite')
         }).catch(function (error) {
             console.log("Hubo un error", error);
         });
+
+
+
 
         $scope.getSubcategoriesOnChange = function (newValue, oldValue, category) {
             if (newValue == undefined) {
@@ -181,6 +167,36 @@ angular.module('registerSite')
 
         $scope.changeViewBusinessInformation = function () {
             $location.path("/businessinformation");
+        }
+
+        function collapseFirstCategoryIfExists(){
+            if($scope.firstCategory==undefined || $scope.firstCategory==null){
+                $scope.listFirstCategoryIsVisible = true;
+            }else{
+                $scope.listFirstCategoryIsVisible = false;
+            }
+        }
+
+
+        function collapseSecondCategoryIfExists(){
+            if($scope.secondCategory==undefined || $scope.secondCategory==null){
+                $scope.listSecondCategoryExists = false;
+                $scope.listSecondCategoryIsVisible = false;
+            }else{
+                $scope.listSecondCategoryExists = true;
+                $scope.listSecondCategoryIsVisible = false;
+            }
+        }
+
+
+        function collapseThirdCategoryIfExists(){
+            if($scope.thirdCategory==undefined || $scope.thirdCategory==null){
+                $scope.listThirdCategoryExists = false;
+                $scope.listThirdCategoryIsVisible = false;
+            }else{
+                $scope.listThirdCategoryExists = true;
+                $scope.listThirdCategoryIsVisible = false;
+            }
         }
 
 
