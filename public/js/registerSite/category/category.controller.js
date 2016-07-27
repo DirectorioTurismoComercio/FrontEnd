@@ -17,10 +17,9 @@ angular.module('registerSite')
         $scope.hadOneCategoriesLeft = false;
 
 
-        $scope.user = {
-            categorias: ''
-        }
+        $scope.businessSubcategories =siteInformationService.businessSubcategories;
 
+        console.log("desde el servicio", $scope.businessSubcategories );
 
         $scope.arrayCategories = [];
 
@@ -151,13 +150,6 @@ angular.module('registerSite')
         }
 
         $scope.changeViewLocation = function () {
-
-            console.log("lo que va a guardar en la primera categoria", $scope.firstCategory);
-            console.log("lo que va a guardar en la segunda categoria", $scope.secondCategory);
-            console.log("lo que va a guardar en la tercera categoria", $scope.thirdCategory);
-
-            console.log("las subcategorias que eligio", $scope.user);
-
             if ($scope.registerSiteForm.$valid) {
                 saveDataAndChangeView('/location');
             } else {
@@ -297,6 +289,7 @@ angular.module('registerSite')
             siteInformationService.firstCategory = $scope.firstCategory;
             siteInformationService.secondCategory = $scope.secondCategory;
             siteInformationService.thirdCategory = $scope.thirdCategory;
+            siteInformationService.businessSubcategories = $scope.businessSubcategories;
         }
 
     });
