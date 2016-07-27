@@ -55,6 +55,7 @@ angular.module('registerSite')
                 siteInformationService.businessMunicipality = $scope.businessMunicipality;
                 siteInformationService.siteId = $scope.siteId;
 
+                $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
                 siteInformationService.sendSiteDataToServer(succesfullySaved,saveFailed);
             } else {
                 $scope.showRequiredFieldMessage = true;

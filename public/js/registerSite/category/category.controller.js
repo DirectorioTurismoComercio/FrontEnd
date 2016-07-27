@@ -4,7 +4,7 @@ angular.module('registerSite')
     .controller('categoryController', function ($scope, $auth, $http, messageService,
                                                 API_CONFIG, categories,
                                                 $location, MunicipiosFactory, authenticationService, siteAndTownSaverService,
-                                                siteInformationService, $translate, navigationService) {
+                                                siteInformationService) {
 
         $scope.businessFirstCategories = siteInformationService.businessFirstCategories;
         $scope.businessSecondCategories = siteInformationService.businessSecondCategories;
@@ -12,16 +12,21 @@ angular.module('registerSite')
 
         $scope.showRequiredFieldMessage = false;
 
+
+
         $scope.listFirstCategoryIsVisible=true;
-        $scope.compressedFirstCategoryIsVisible=false;
 
-        $scope.secondcategoryExists=false;
+        $scope.listSecondCategoryExists=false;
         $scope.listSecondCategoryIsVisible=false;
-        $scope.compressedSecondCategoryIsVisible=false;
 
-        $scope.thirdcategoryExists=false;
+        $scope.listThirdCategoryExists=false;
         $scope.listThirdCategoryIsVisible=false;
-        $scope.compressedThirdCategoryIsVisible=false;
+
+        $scope.hadTwoCategoriesLeft=false;
+        $scope.hadOneCategoriesLeft=false;
+
+
+
 
         $scope.user={
             categorias:''
@@ -61,109 +66,65 @@ angular.module('registerSite')
         $scope.collapseCategory=function(category){
             switch (category){
                 case 1:
-                    $scope.listFirstCategoryIsVisible=false; $scope.compressedFirstCategoryIsVisible=true;
+                    $scope.listFirstCategoryIsVisible=false;
                     break;
                 case 2:
-                    $scope.listSecondCategoryIsVisible=false; $scope.compressedSecondCategoryIsVisible=true;
+                    $scope.listSecondCategoryIsVisible=false;
                     break;
                 case 3:
-                    $scope.listThirdCategoryIsVisible=false; $scope.compressedThirdCategoryIsVisible=true;
+                    $scope.listThirdCategoryIsVisible=false;
                     break;
             }
         }
 
-        $scope.editFirstCategory=function(){
-            $scope.compressedFirstCategoryIsVisible=false;
-            $scope.listFirstCategoryIsVisible=true;
 
-            $scope.listSecondCategoryIsVisible=false;
-            $scope.compressedSecondCategoryIsVisible=true;
-
-            $scope.listThirdCategoryIsVisible=false;
-            $scope.compressedThirdCategoryIsVisible=true;
-
+        $scope.editcategory=function(category){
+            switch (category){
+                case 1:
+                    $scope.listFirstCategoryIsVisible=true;
+                    $scope.listSecondCategoryIsVisible=false;
+                    $scope.listThirdCategoryIsVisible=false;
+                    break;
+                case 2:
+                    $scope.listFirstCategoryIsVisible=false;
+                    $scope.listSecondCategoryIsVisible=true;
+                    $scope.listThirdCategoryIsVisible=false;
+                    break;
+                case 3:
+                    $scope.listFirstCategoryIsVisible=false;
+                    $scope.listSecondCategoryIsVisible=false;
+                    $scope.listThirdCategoryIsVisible=true;
+                    break;
+            }
         }
 
 
-        $scope.editSecondCategory=function(){
-            $scope.compressedFirstCategoryIsVisible=true;
+        $scope.addFirstAditionalCategory=function(){
             $scope.listFirstCategoryIsVisible=false;
 
+            $scope.listSecondCategoryExists=true;
             $scope.listSecondCategoryIsVisible=true;
-            $scope.compressedSecondCategoryIsVisible=false;
 
-            $scope.listThirdCategoryIsVisible=false;
-            $scope.compressedThirdCategoryIsVisible=true;
+            $scope.hadTwoCategoriesLeft=false
 
         }
 
-        $scope.editThirdCategory=function(){
-            $scope.compressedFirstCategoryIsVisible=true;
-            $scope.listFirstCategoryIsVisible=false;
-
+        $scope.addSecondAditionalCategory=function(){
             $scope.listSecondCategoryIsVisible=false;
-            $scope.compressedSecondCategoryIsVisible=true;
 
+            $scope.listThirdCategoryExists=true;
             $scope.listThirdCategoryIsVisible=true;
-            $scope.compressedThirdCategoryIsVisible=false;
-        }
 
-
-
-        $scope.addFirstCategory=function(){
-            $scope.compressedFirstCategoryIsVisible=true;
-            $scope.listFirstCategoryIsVisible=false;
-
-            $scope.listSecondCategoryIsVisible=true;
-            $scope.compressedSecondCategoryIsVisible=false;
-
-            $scope.secondcategoryExists=true;
-
-
-        }
-
-        $scope.addSecondCategory=function(){
-            if(!$scope.thirdcategoryExists){
-                $scope.compressedFirstCategoryIsVisible=true;
-                $scope.listFirstCategoryIsVisible=false;
-
-                $scope.compressedSecondCategoryIsVisible=true;
-                $scope.listSecondCategoryIsVisible=false;
-
-
-                $scope.listThirdCategoryIsVisible=true;
-                $scope.compressedThirdCategoryIsVisible=false;
-
-                $scope.thirdcategoryExists=true;
-            }
-
-            if($scope.thirdcategoryExists && !$scope.secondcategoryExists){
-                $scope.compressedFirstCategoryIsVisible=true;
-                $scope.listFirstCategoryIsVisible=false;
-
-                $scope.compressedSecondCategoryIsVisible=false;
-                $scope.listSecondCategoryIsVisible=true;
-
-
-                $scope.listThirdCategoryIsVisible=false;
-                $scope.compressedThirdCategoryIsVisible=true;
-
-                $scope.secondcategoryExists=true;
-            }
-
+            $scope.hadOneCategoriesLeft=false;
         }
 
 
         $scope.deleteSecondCategory=function(){
-            $scope.compressedSecondCategoryIsVisible=false;
-            $scope.listSecondCategoryIsVisible=false;
-            $scope.secondcategoryExists=false;
+
         }
 
         $scope.deleteThirdCategory=function(){
-            $scope.compressedThirdCategoryIsVisible=false;
-            $scope.listThirdCategoryIsVisible=false;
-            $scope.thirdcategoryExists=false;
+
         }
         
         $scope.changeViewLocation = function () {
@@ -182,6 +143,16 @@ angular.module('registerSite')
         }
 
         function toggleSelectedCategories(newValue, oldValue, category){
+
+            if(category==1){
+                $scope.hadTwoCategoriesLeft=true;
+            }
+
+            if(category==2){
+                $scope.hadOneCategoriesLeft=true;
+            }
+
+
             try{
                 newValue.isSelected=category;
             }catch(error){}

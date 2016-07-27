@@ -11,7 +11,7 @@ angular.module('registerSite', ['ngTagsInput', 'uiGmapgoogle-maps', 'flow', 'ngD
             .when('/category', {
                 templateUrl: 'js/registerSite/category/category.html',
                 controller: 'categoryController',
-                required_roles: 'authenticatedUser'
+                //required_roles: 'authenticatedUser'
 
             })
             .when('/location', {

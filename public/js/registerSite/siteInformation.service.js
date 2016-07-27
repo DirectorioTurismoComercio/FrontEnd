@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('registerSite')
-    .factory('siteInformationService', function (authenticationService,$http,$cookies,API_CONFIG) {
+    .factory('siteInformationService', function (authenticationService,$http,API_CONFIG) {
         this.siteId = undefined;
         this.sitePhoneNumber = undefined;
         this.whatsapp = undefined;
@@ -71,7 +71,7 @@ angular.module('registerSite')
             var promise;
 
             var fd = this.buildSiteFormData();
-            $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
+
             
             if(this.siteId){
                 promise = $http.put(API_CONFIG.url + API_CONFIG.sitio+"/detail/"+this.siteId, fd,

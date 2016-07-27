@@ -19,7 +19,7 @@
             </ul>
 
 
-            <div ng-show="compressedFirstCategoryIsVisible">
+            <div ng-show="!listFirstCategoryIsVisible">
                 <div class="input topMarginElements col-xs-12">
                     <label class="main-category-label topMarginElements col-xs-12"
                            translate="REGISTER_SITE_CONSTANTS.MAIN_CATEGORY"></label>
@@ -30,7 +30,7 @@
                                name="businessDescription" ng-model="$parent.businessDescription" readonly>
                         </input>
                         <div class="arrow-container">
-                            <img ng-click="editFirstCategory()" class="topMarginElements category-arrow"
+                            <img ng-click="editcategory(1)" class="topMarginElements category-arrow"
                                  src="./images/registerIcons/categoria-expandir.png">
                         </div>
                     </div>
@@ -83,7 +83,7 @@
             </div>
 
 
-            <div ng-show="compressedSecondCategoryIsVisible && secondCategory!=undefined && secondcategoryExists">
+            <div ng-show="!listSecondCategoryIsVisible && listSecondCategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
                 <div class="input topMarginElements col-xs-12">
                     <label class="additional-category-label topMarginElements col-xs-12"
@@ -98,7 +98,7 @@
                             <button class="button-add-category col-xs-3 delete-button topMarginElements"
                                     ng-click="deleteSecondCategory()"
                                     translate="REGISTER_SITE_CONSTANTS.DELETE_CATEGORY_BUTTON"></button>
-                            <img ng-click="editSecondCategory()" class="topMarginElements category-arrow"
+                            <img ng-click="editcategory(2)" class="topMarginElements category-arrow"
                                  src="./images/registerIcons/categoria-expandir.png">
                         </div>
                     </div>
@@ -108,7 +108,7 @@
 
 
 
-            <div ng-show="listSecondCategoryIsVisible && secondcategoryExists">
+            <div ng-show="listSecondCategoryIsVisible && listSecondCategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
                 <label class="additional-category-label topMarginElements col-xs-12" translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_1"></label>
                 <div class="topMarginElements col-xs-12">
@@ -157,7 +157,7 @@
 
 
 
-            <div ng-show="compressedThirdCategoryIsVisible && thirdCategories!=undefined && thirdcategoryExists">
+            <div ng-show="!listThirdCategoryIsVisible && listThirdCategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
                 <div class="input topMarginElements col-xs-12">
                     <label class="additional-category-label topMarginElements col-xs-12"
@@ -172,7 +172,7 @@
                             <button class="button-add-category col-xs-3 delete-button topMarginElements"
                                     ng-click="deleteThirdCategory()"
                                     translate="REGISTER_SITE_CONSTANTS.DELETE_CATEGORY_BUTTON"></button>
-                            <img ng-click="editThirdCategory()" class="topMarginElements category-arrow"
+                            <img ng-click="editcategory(3)" class="topMarginElements category-arrow"
                                  src="./images/registerIcons/categoria-expandir.png">
                         </div>
                     </div>
@@ -182,7 +182,7 @@
 
 
 
-            <div ng-show="listThirdCategoryIsVisible && thirdcategoryExists">
+            <div ng-show="listThirdCategoryIsVisible && listThirdCategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
                 <label class="additional-category-label topMarginElements col-xs-12" translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_2"></label>
                 <div class="topMarginElements col-xs-12">
@@ -227,7 +227,7 @@
 
 
 
-            <div ng-show="(firstCategory!=undefined && !secondcategoryExists && !thirdcategoryExists)">
+            <div ng-show="hadTwoCategoriesLeft">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
 
                 <div class="row businessAddressText topMarginElements col-xs-12">
@@ -237,13 +237,13 @@
 
                 <div class="row businessAddressText topMarginElements">
                     <button class="button-add-category col-xs-3 col-xs-offset-8"
-                            ng-click="addFirstCategory()"
+                            ng-click="addFirstAditionalCategory()"
                             translate="REGISTER_SITE_CONSTANTS.ADD_CATEGORY_BUTTON"></button>
                 </div>
             </div>
 
 
-            <div ng-show="(secondCategory!=undefined && secondcategoryExists && !thirdcategoryExists) || (secondCategory!=undefined && !secondcategoryExists && thirdcategoryExists)">
+            <div ng-show="hadOneCategoriesLeft">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
 
                 <div class="row businessAddressText topMarginElements col-xs-12">
@@ -253,7 +253,7 @@
 
                 <div class="row businessAddressText topMarginElements">
                     <button class="button-add-category col-xs-3 col-xs-offset-8"
-                            ng-click="addSecondCategory()"
+                            ng-click="addSecondAditionalCategory()"
                             translate="REGISTER_SITE_CONSTANTS.ADD_CATEGORY_BUTTON"></button>
                 </div>
             </div>
