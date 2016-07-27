@@ -146,6 +146,63 @@ describe('Controller: categoryController', function () {
         expect($scope.listSecondCategoryIsVisible).toBe(false);
     });
 
+    it('Should does not exists third category, set to null the selected category and subcategories and does not be visible if user clicks delete button', function () {
+        addUntilThirdCategory();
+        $scope.deleteCategory(3);
+        expect($scope.listThirdCategoryIsVisible).toBe(false);
+        expect($scope.listThirdCategoryExists).toBe(false);
+        expect($scope.thirdCategories).toBe(null);
+        expect($scope.thirdSubcategories).toBe(null);
+    });
+
+    it('Should does not exists second category, set to null the selected category and subcategories  and does not be visible if user clicks delete button', function () {
+        addUntilThirdCategory();
+        $scope.deleteCategory(2);
+        expect($scope.listSecondCategoryIsVisible).toBe(false);
+        expect($scope.listSecondCategoryExists).toBe(false);
+        expect($scope.secondCategory).toBe(null);
+        expect($scope.secondSubcategories).toBe(null);
+    });
+
+    it('Should show add one more category left button if user has added three categories and deletes second category', function () {
+        addUntilThirdCategory();
+        $scope.deleteCategory(2);
+        expect($scope.hadOneCategoriesLeft).toBe(true);
+    });
+
+
+    it('Should show add one more category left button if user has added three categories and deletes third category', function () {
+        addUntilThirdCategory();
+        $scope.deleteCategory(3);
+        expect($scope.hadOneCategoriesLeft).toBe(true);
+    });
+
+    it('Should add first additional category when user deletes category 2 and clicks on one category left button and collapse main category and second aditional category', function () {
+        addUntilThirdCategory();
+        $scope.deleteCategory(2);
+        $scope.addSecondAditionalCategory();
+        expect($scope.listSecondCategoryIsVisible).toBe(true);
+        expect($scope.listSecondCategoryExists).toBe(true);
+        expect($scope.listFirstCategoryIsVisible).toBe(false);
+        expect($scope.listThirdCategoryIsVisible).toBe(false);
+    });
+
+    it('Should show two more categories left when user adds three categories and delete two of them; and hide one left category button', function () {
+        addUntilThirdCategory();
+        $scope.deleteCategory(3);
+        $scope.deleteCategory(2);
+        expect($scope.hadOneCategoriesLeft).toBe(false);
+        expect($scope.hadTwoCategoriesLeft).toBe(true);
+    });
+
+    it('Should hide one more category left button if user adds three categories, deletes the second and add the second again', function () {
+        addUntilThirdCategory();
+        $scope.deleteCategory(2);
+        $scope.addFirstAditionalCategory();
+        $scope.getSubcategoriesOnChange(1,1,2);
+        expect($scope.hadOneCategoriesLeft).toBe(false);
+    });
+
 
     function addUntilThirdCategory() {
         $scope.getSubcategoriesOnChange(1, 1, 1);
