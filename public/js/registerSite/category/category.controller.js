@@ -81,11 +81,15 @@ angular.module('registerSite')
                     $scope.listFirstCategoryIsVisible = true;
                     $scope.listSecondCategoryIsVisible = false;
                     $scope.listThirdCategoryIsVisible = false;
+                    deleteSecondCategoryIfIsNull();
+                    deleteThirdCategoryIfIsNull();
+
                     break;
                 case 2:
                     $scope.listFirstCategoryIsVisible = false;
                     $scope.listSecondCategoryIsVisible = true;
                     $scope.listThirdCategoryIsVisible = false;
+                    deleteThirdCategoryIfIsNull();
                     break;
                 case 3:
                     $scope.listFirstCategoryIsVisible = false;
@@ -94,7 +98,6 @@ angular.module('registerSite')
                     break;
             }
         }
-
 
         $scope.addFirstAditionalCategory = function () {
             $scope.listFirstCategoryIsVisible = false;
@@ -111,6 +114,7 @@ angular.module('registerSite')
 
             $scope.listThirdCategoryExists = true;
             $scope.listThirdCategoryIsVisible = true;
+            $scope.listFirstCategoryIsVisible=false;
 
 
             if(!$scope.listSecondCategoryExists){
@@ -129,7 +133,7 @@ angular.module('registerSite')
             switch (category) {
                 case 2:
                     $scope.listSecondCategoryIsVisible = false;
-                    $scope.listSecondCategoryExists = false
+                    $scope.listSecondCategoryExists = false;
                     $scope.secondCategory=null;
                     $scope.secondSubcategories=null;
                     break;
@@ -141,17 +145,10 @@ angular.module('registerSite')
                     break;
             }
 
-            if(($scope.listSecondCategoryExists && !$scope.listThirdCategoryExists) || (!$scope.listSecondCategoryExists && $scope.listThirdCategoryExists)){
-                $scope.hadOneCategoriesLeft=true;
-            }
-
-            if(!$scope.listSecondCategoryExists && !$scope.listThirdCategoryExists){
-                $scope.hadOneCategoriesLeft=false;
-                $scope.hadTwoCategoriesLeft=true;
-            }
+            checkOneCategoryLeftButtonVisible();
+            checkTwoCategoriesLeftButtonVisible()
 
         }
-
 
         $scope.changeViewLocation = function () {
 
@@ -168,6 +165,42 @@ angular.module('registerSite')
             $location.path("/businessinformation");
         }
 
+
+        function checkOneCategoryLeftButtonVisible(){
+            if(($scope.listSecondCategoryExists && !$scope.listThirdCategoryExists) || (!$scope.listSecondCategoryExists && $scope.listThirdCategoryExists)){
+                $scope.hadOneCategoriesLeft=true;
+                $scope.hadTwoCategoriesLeft = false;
+            }
+        }
+
+        function checkTwoCategoriesLeftButtonVisible(){
+            if(!$scope.listSecondCategoryExists && !$scope.listThirdCategoryExists){
+                $scope.hadOneCategoriesLeft=false;
+                $scope.hadTwoCategoriesLeft=true;
+            }
+        }
+
+        function checkNoneCategoriesLeftButtonsVisible(){
+            if($scope.listThirdCategoryExists && $scope.listSecondCategoryExists){
+                $scope.hadTwoCategoriesLeft = false;
+                $scope.hadOneCategoriesLeft = false;
+            }
+        }
+
+
+        function deleteSecondCategoryIfIsNull(){
+            if($scope.listSecondCategoryExists && $scope.secondCategory==null){
+                $scope.deleteCategory(2);
+            }
+        }
+
+        function deleteThirdCategoryIfIsNull(){
+            if($scope.listThirdCategoryExists && $scope.thirdCategories==null){
+                $scope.deleteCategory(3);
+            }
+        }
+
+
         function toggleSelectedCategories(newValue, oldValue, category) {
 
             if (category == 1) {
@@ -178,16 +211,8 @@ angular.module('registerSite')
                 $scope.hadOneCategoriesLeft = true;
             }
 
-            if($scope.listThirdCategoryExists && $scope.listSecondCategoryExists){
-                $scope.hadTwoCategoriesLeft = false;
-                $scope.hadOneCategoriesLeft = false;
-            }
-
-            if(($scope.listSecondCategoryExists && !$scope.listThirdCategoryExists) || (!$scope.listSecondCategoryExists && $scope.listThirdCategoryExists)){
-                $scope.hadOneCategoriesLeft=true;
-                $scope.hadTwoCategoriesLeft = false;
-            }
-
+            checkOneCategoryLeftButtonVisible();
+            checkNoneCategoriesLeftButtonsVisible();
 
 
             try {
@@ -202,7 +227,6 @@ angular.module('registerSite')
                 }
             }
         }
-
 
         function resetCategoriesModel(category) {
             setSubcategories(category, undefined);

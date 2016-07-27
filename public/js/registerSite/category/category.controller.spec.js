@@ -203,6 +203,34 @@ describe('Controller: categoryController', function () {
         expect($scope.hadOneCategoriesLeft).toBe(false);
     });
 
+    it('Should delete second category if user has selected main category add second category, and clicks edit main category without selected second category', function () {
+        $scope.getSubcategoriesOnChange(1,1,1);
+        $scope.addFirstAditionalCategory();
+        $scope.editcategory(1);
+        expect($scope.listSecondCategoryIsVisible).toBe(false);
+        expect($scope.listSecondCategoryExists).toBe(false);
+    });
+
+    it('Should delete third category if user has selected main category and second category, and clicks edit main category without selected third category', function () {
+        $scope.getSubcategoriesOnChange(1,1,1);
+        $scope.addFirstAditionalCategory();
+        $scope.getSubcategoriesOnChange(1,1,2);
+        $scope.addSecondAditionalCategory();
+        $scope.editcategory(1);
+        expect($scope.listThirdCategoryIsVisible).toBe(false);
+        expect($scope.listThirdCategoryExists).toBe(false);
+    });
+
+    it('Should delete third category if user has selected main category and second category, and clicks edit second category without selected third category', function () {
+        $scope.getSubcategoriesOnChange(1,1,1);
+        $scope.addFirstAditionalCategory();
+        $scope.getSubcategoriesOnChange(1,1,2);
+        $scope.addSecondAditionalCategory();
+        $scope.editcategory(2);
+        expect($scope.listThirdCategoryIsVisible).toBe(false);
+        expect($scope.listThirdCategoryExists).toBe(false);
+    });
+
 
     function addUntilThirdCategory() {
         $scope.getSubcategoriesOnChange(1, 1, 1);
