@@ -159,7 +159,7 @@ angular.module('registerSite')
             console.log("las subcategorias que eligio", $scope.user);
 
             if ($scope.registerSiteForm.$valid) {
-                saveDataAndChangeView('/home');
+                saveDataAndChangeView('/location');
             } else {
                 $scope.showRequiredFieldMessage = true;
             }

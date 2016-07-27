@@ -13,7 +13,6 @@ angular.module('registerSite')
         this.tags = undefined;
         this.businessEmail = undefined;
         this.businessAddress = undefined;
-        this.businessCategories = undefined;
         this.businessMunicipality = undefined;
         this.mainPhoto = [];
         this.facadePhotos = [];
@@ -37,7 +36,7 @@ angular.module('registerSite')
             if (this.openingHours) fd.append('horariolocal', this.openingHours);
             if (this.businessEmail)  fd.append('correolocal', this.businessEmail);
             fd.append('ubicacionlocal', this.businessAddress);
-            fd.append('categorias', this.businessCategories.id);
+            //fd.append('categorias', this.businessCategories.id);
             fd.append('usuario', authenticationService.getUser().id);
             if (this.web) fd.append('web', this.web);
             if (this.whatsapp) fd.append('whatsapp', this.whatsapp);
@@ -109,7 +108,6 @@ angular.module('registerSite')
             tags: this.tags,
             businessEmail: this.businessEmail,
             businessAddress: this.businessAddress,
-            businessCategories: this.businessCategories,
             businessMunicipality: this.businessMunicipality,
             mainPhoto: this.mainPhoto,
             facadePhotos: this.facadePhotos,

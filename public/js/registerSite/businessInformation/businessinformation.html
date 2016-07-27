@@ -16,6 +16,7 @@
                 <li></li>
                 <li></li>
                 <li></li>
+                <li></li>
             </ul>
 
 
@@ -114,25 +115,6 @@
                 <span
                     class="texto-claro-business"
                     translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT_EXAMPLE"></span>
-            </div>
-
-            <div class="topMarginElements col-xs-12">
-                <select ng-model="businessCategories"
-                        ng-options="obj.nombre for obj in categories track by obj.id"
-                        name="catefory"
-                        class="form-control businessAddressInput businessAddressText"
-                        required>
-                    <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
-                </select>
-                <i ng-show="businessCategories==undefined"
-                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
-                        <span ng-show="showRequiredFieldMessage && registerSiteForm.catefory.$error.required"
-                              class="errorField businessAddressText"
-                              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-            </div>
-
-            <div class="row businessAddressText col-xs-12">
-                <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY_TEXT"></span>
             </div>
 
             <div class="topMarginElements col-xs-12">
