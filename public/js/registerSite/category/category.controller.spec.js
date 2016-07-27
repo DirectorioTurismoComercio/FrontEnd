@@ -151,7 +151,7 @@ describe('Controller: categoryController', function () {
         $scope.deleteCategory(3);
         expect($scope.listThirdCategoryIsVisible).toBe(false);
         expect($scope.listThirdCategoryExists).toBe(false);
-        expect($scope.thirdCategories).toBe(null);
+        expect($scope.thirdCategory).toBe(null);
         expect($scope.thirdSubcategories).toBe(null);
     });
 

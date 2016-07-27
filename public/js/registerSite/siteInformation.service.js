@@ -20,9 +20,9 @@ angular.module('registerSite')
         this.insidePhotos = [];
         this.productsPhotos = [];
         this.URLphotos = undefined;
-        this.businessFirstCategories=undefined;
-        this.businessSecondCategories=undefined;
-        this.businessThirdCategories=undefined;
+        this.firstCategory=undefined;
+        this.secondCategory=undefined;
+        this.thirdCategory=undefined;
 
 
         this.buildSiteFormData = function () {
@@ -116,9 +116,9 @@ angular.module('registerSite')
             insidePhotos: this.insidePhotos,
             productsPhotos: this.productsPhotos,
             URLphotos: this.URLphotos,
-            businessFirstCategories:this.businessFirstCategories,
-            businessSecondCategories:this.businessSecondCategories,
-            businessThirdCategories:this.businessThirdCategories, 
+            firstCategory:this.firstCategory,
+            secondCategory:this.secondCategory,
+            thirdCategory:this.thirdCategory,
             sendSiteDataToServer: this.sendSiteDataToServer,
             buildSiteFormData: this.buildSiteFormData,
             clearData: function(siteInformationService){
