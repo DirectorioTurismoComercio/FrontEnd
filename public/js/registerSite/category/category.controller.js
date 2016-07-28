@@ -19,7 +19,6 @@ angular.module('registerSite')
 
         $scope.businessSubcategories =siteInformationService.businessSubcategories;
 
-        console.log("desde el servicio", $scope.businessSubcategories );
 
         $scope.arrayCategories = [];
 
