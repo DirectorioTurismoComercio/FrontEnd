@@ -48,7 +48,7 @@ describe('Controller: categoryController', function () {
     });
 
     it('Should show add two more categories when user picks a main category and hide add one more category', function () {
-        $scope.getSubcategoriesOnChange(1,1,1);
+        $scope.getSubcategoriesOnChange(1,undefined,1);
         expect($scope.hadTwoCategoriesLeft).toBe(true);
         expect($scope.hadOneCategoriesLeft).toBe(false);
     });
@@ -75,13 +75,13 @@ describe('Controller: categoryController', function () {
     });
 
     it('Should hide add two more categories when clicks in add aditional category 1', function () {
-        $scope.getSubcategoriesOnChange(1,1,1);
+        $scope.getSubcategoriesOnChange(1,undefined,1);
         $scope.addFirstAditionalCategory();
         expect($scope.hadTwoCategoriesLeft).toBe(false);
     });
 
     it('Should show add one more category and hide add two more categories when user picks a second category', function () {
-        $scope.getSubcategoriesOnChange(1,1,2);
+        $scope.getSubcategoriesOnChange(1,undefined,2);
         expect($scope.hadTwoCategoriesLeft).toBe(false);
         expect($scope.hadOneCategoriesLeft).toBe(true);
     });
@@ -199,12 +199,12 @@ describe('Controller: categoryController', function () {
         addUntilThirdCategory();
         $scope.deleteCategory(2);
         $scope.addFirstAditionalCategory();
-        $scope.getSubcategoriesOnChange(1,1,2);
+        $scope.getSubcategoriesOnChange(1,undefined,2);
         expect($scope.hadOneCategoriesLeft).toBe(false);
     });
 
     it('Should delete second category if user has selected main category add second category, and clicks edit main category without selected second category', function () {
-        $scope.getSubcategoriesOnChange(1,1,1);
+        $scope.getSubcategoriesOnChange(1,undefined,1);
         $scope.addFirstAditionalCategory();
         $scope.editcategory(1);
         expect($scope.listSecondCategoryIsVisible).toBe(false);
@@ -212,9 +212,9 @@ describe('Controller: categoryController', function () {
     });
 
     it('Should delete third category if user has selected main category and second category, and clicks edit main category without selected third category', function () {
-        $scope.getSubcategoriesOnChange(1,1,1);
+        $scope.getSubcategoriesOnChange(1,undefined,1);
         $scope.addFirstAditionalCategory();
-        $scope.getSubcategoriesOnChange(1,1,2);
+        $scope.getSubcategoriesOnChange(1,undefined,2);
         $scope.addSecondAditionalCategory();
         $scope.editcategory(1);
         expect($scope.listThirdCategoryIsVisible).toBe(false);
@@ -222,9 +222,9 @@ describe('Controller: categoryController', function () {
     });
 
     it('Should delete third category if user has selected main category and second category, and clicks edit second category without selected third category', function () {
-        $scope.getSubcategoriesOnChange(1,1,1);
+        $scope.getSubcategoriesOnChange(1,undefined,1);
         $scope.addFirstAditionalCategory();
-        $scope.getSubcategoriesOnChange(1,1,2);
+        $scope.getSubcategoriesOnChange(1,undefined,2);
         $scope.addSecondAditionalCategory();
         $scope.editcategory(2);
         expect($scope.listThirdCategoryIsVisible).toBe(false);
@@ -233,9 +233,9 @@ describe('Controller: categoryController', function () {
 
 
     function addUntilThirdCategory() {
-        $scope.getSubcategoriesOnChange(1, 1, 1);
+        $scope.getSubcategoriesOnChange(1, undefined, 1);
         $scope.addFirstAditionalCategory();
-        $scope.getSubcategoriesOnChange(1, 1, 2);
+        $scope.getSubcategoriesOnChange(1, undefined, 2);
         $scope.addSecondAditionalCategory();
     }
 

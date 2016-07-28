@@ -23,6 +23,7 @@ angular.module('registerSite')
         $scope.arrayCategories = [];
 
 
+
         collapseFirstCategoryIfExists();
         collapseSecondCategoryIfExists();
         collapseThirdCategoryIfExists();
@@ -47,6 +48,8 @@ angular.module('registerSite')
             } else {
                 getSubcategories(newValue.id, category);
             }
+
+            deleteOldSelectedSubcategories(oldValue);
 
             toggleSelectedCategories(newValue, oldValue, category);
         }
@@ -266,6 +269,21 @@ angular.module('registerSite')
             }).catch(function (error) {
                 console.log("hubo un error", error);
             });
+        }
+
+        function deleteOldSelectedSubcategories(categoryId){
+            var indexArray=[];
+                if(eval(categoryId)!=undefined){
+                    for(var i=0; i<$scope.businessSubcategories.subcategories.length; i++){
+                        if($scope.businessSubcategories.subcategories[i].categoria_padre==categoryId){
+                            indexArray.push(i);
+                        }
+                    }
+                    console.log("index array",indexArray)
+                    for(var j=0; j<indexArray.length;j++){
+                        $scope.businessSubcategories.subcategories.splice(indexArray[j]-j,1);
+                    }
+                }
         }
 
         function setSubcategories(category, subcategories) {
