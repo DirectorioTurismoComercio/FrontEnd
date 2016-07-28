@@ -81,7 +81,6 @@ angular.module('registerSite')
                     $scope.listThirdCategoryIsVisible = false;
                     deleteSecondCategoryIfIsNull();
                     deleteThirdCategoryIfIsNull();
-
                     break;
                 case 2:
                     $scope.listFirstCategoryIsVisible = false;
@@ -165,6 +164,7 @@ angular.module('registerSite')
                 $scope.listFirstCategoryIsVisible = true;
             }else{
                 $scope.listFirstCategoryIsVisible = false;
+                getSubcategories($scope.firstCategory.id,1);
             }
         }
 
@@ -176,6 +176,7 @@ angular.module('registerSite')
             }else{
                 $scope.listSecondCategoryExists = true;
                 $scope.listSecondCategoryIsVisible = false;
+                getSubcategories($scope.secondCategory.id,2);
             }
         }
 
@@ -187,6 +188,8 @@ angular.module('registerSite')
             }else{
                 $scope.listThirdCategoryExists = true;
                 $scope.listThirdCategoryIsVisible = false;
+                getSubcategories($scope.thirdCategory.id,3);
+
             }
         }
 
