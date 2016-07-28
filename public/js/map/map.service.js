@@ -92,9 +92,9 @@ angular.module('map')
             return marker;
         }
 
-        function addMarkerWithCategoryIcon(position, label, categoryId) {
-            var normalIcon = getCategoryNormalIcon(categoryId);
-            var lightedIcon = getCategoryLightedIcon(categoryId);
+        function addMarkerWithCategoryIcon(position, label, categorySite) {
+            var normalIcon = getCategoryNormalIcon(categorySite);
+            var lightedIcon = getCategoryLightedIcon(categorySite);
             var marker = addMarker(position, label, normalIcon);
 
             marker.normalIcon = normalIcon;
@@ -103,50 +103,15 @@ angular.module('map')
             return marker;
         }
 
-        function getCategoryNormalIcon(categoryId) {
-            var iconFolder = 'images/icons/categories/';
-            return getCategoryIcon(iconFolder, categoryId, 60);
+        function getCategoryNormalIcon(categorySite) {
+            var iconSize=60;
+            var url = categorySite.categoria.URL_icono_normal;
+            return createIcon(url, iconSize);
         }
 
-        function getCategoryLightedIcon(categoryId) {
-            var iconFolder = 'images/icons/categories/lighted/';
-            return getCategoryIcon(iconFolder, categoryId, 80);
-        }
-
-        function getCategoryIcon(iconFolder, categoryId, iconSize) {
-            var url = iconFolder;
-
-            switch (categoryId) {
-                case 1:
-                    url += 'naturaleza-agroturismo.png';
-                    break;
-                case 2:
-                    url += 'deporte.png';
-                    break;
-                case 3:
-                    url += 'costumbres-creencias.png';
-                    break;
-                case 4:
-                    url += 'arte-cultura.png';
-                    break;
-                case 5:
-                    url += 'comida-bebida.png';
-                    break;
-                case 6:
-                    url += 'entretenimiento.png';
-                    break;
-                case 7:
-                    url += 'comercio.png';
-                    break;
-                case 8:
-                    url += 'transporte.png';
-                    break;
-                case 9:
-                    url += 'hospedaje-salud.png';
-                    break;
-                default:
-                    url = "images/icons/pin-ubicacion-local.png";
-            }
+        function getCategoryLightedIcon(categorySite) {
+            var iconSize=80;
+            var url = categorySite.categoria.URL_icono_seleccionado;
             return createIcon(url, iconSize);
         }
 

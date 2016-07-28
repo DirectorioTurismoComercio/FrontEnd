@@ -17,7 +17,6 @@ angular.module('registerSite')
         $scope.tags = siteInformationService.tags;
         $scope.businessEmail = siteInformationService.businessEmail;
         $scope.businessAddress = siteInformationService.businessAddress;
-        $scope.businessCategories = siteInformationService.businessCategories;
         $scope.businessMunicipality = siteInformationService.businessMunicipality;
 
         $scope.showRequiredFieldMessage = false;
@@ -38,7 +37,7 @@ angular.module('registerSite')
 
         $scope.changeViewLocation = function () {
             if ($scope.registerSiteForm.$valid) {
-                saveDataAndChangeView('/location');
+                saveDataAndChangeView('/category');
             } else {
                 $scope.showRequiredFieldMessage = true;
             }
@@ -80,7 +79,6 @@ angular.module('registerSite')
             siteInformationService.tags = $scope.tags;
             siteInformationService.businessEmail = $scope.businessEmail;
             siteInformationService.businessAddress = $scope.businessAddress;
-            siteInformationService.businessCategories = $scope.businessCategories;
             siteInformationService.businessMunicipality = $scope.businessMunicipality;
         }
 

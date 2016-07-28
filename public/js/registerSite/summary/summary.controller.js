@@ -19,6 +19,9 @@ angular.module('registerSite')
         $scope.businessCategories = siteInformationService.businessCategories;
         $scope.businessMunicipality = siteInformationService.businessMunicipality;
         $scope.siteId = siteInformationService.siteId;
+        $scope.firstCategory = siteInformationService.firstCategory;
+        $scope.secondCategory = siteInformationService.secondCategory;
+        $scope.thirdCategory = siteInformationService.thirdCategory;
 
 
         $scope.showRequiredFieldMessage = false;

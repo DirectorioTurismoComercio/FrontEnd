@@ -49,8 +49,8 @@ angular.module('registerSite')
 
 
         };
-        $scope.changeViewBusinessInformation = function () {
-            $location.path('/businessinformation')
+        $scope.changeViewCategory = function () {
+            $location.path('/category')
         };
 
 

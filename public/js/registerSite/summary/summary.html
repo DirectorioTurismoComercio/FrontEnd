@@ -15,6 +15,7 @@
                 <li class="done-step"></li>
                 <li class="done-step"></li>
                 <li class="done-step"></li>
+                <li class="done-step"></li>
                 <li></li>
             </ul>
             <label class="businessAddressText texto-claroBusinessLocation topMarginElements"
@@ -124,23 +125,37 @@
                                   name="businessOpeningHours" ng-model="$parent.openingHours"></textarea>
             </div>
             <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
-                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_CATEGORY"></label>
+                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_MAIN_CATEGORY"></label>
 
-            <div class="topMarginElements col-xs-12">
-
-                <select ng-model="businessCategories"
-                        ng-options="obj.nombre for obj in categories track by obj.id"
-                        name="catefory"
-                        class="form-control businessAddressInput businessAddressText"
-                        required>
-                    <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
-                </select>
-                <i ng-show="businessCategories==undefined"
-                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
-                        <span ng-show="showRequiredFieldMessage && registerSiteForm.catefory.$error.required"
-                              class="errorField businessAddressText"
-                              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+           <div class="input businessAddressText topMarginElements col-xs-12">
+               <div class="form-group has-feedback ">
+                   <input type="text" class="form-control businessAddressInput" translate
+                          placeholder="%%firstCategory.nombre%%"
+                            readonly required/>
+               </div>
             </div>
+
+            <div ng-show="secondCategory!= undefined || thirdCategory!=undefined">
+                <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
+                       translate="REGISTER_SITE_CONSTANTS.BUSINNES_ADITIONAL_CATEGORIES"></label>
+
+                <div ng-show="secondCategory!= undefined" class="input businessAddressText topMarginElements col-xs-12">
+                    <div class="form-group has-feedback ">
+                        <input type="text" class="form-control businessAddressInput" translate
+                               placeholder="%%secondCategory.nombre%%"
+                               readonly required/>
+                    </div>
+                </div>
+
+                <div ng-show="thirdCategory!=undefined" class="input businessAddressText topMarginElements col-xs-12">
+                    <div class="form-group has-feedback ">
+                        <input type="text" class="form-control businessAddressInput" translate
+                               placeholder="%%thirdCategory.nombre%%"
+                               readonly required/>
+                    </div>
+                </div>
+            </div>
+
 
             <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
                    translate="REGISTER_SITE_CONSTANTS.BUSINESS_TAGS_CONFIRMATION_PAGE"></label>
