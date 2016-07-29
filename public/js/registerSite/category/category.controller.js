@@ -132,12 +132,14 @@ angular.module('registerSite')
         $scope.deleteCategory = function (category) {
             switch (category) {
                 case 2:
+                    deleteOldSelectedSubcategories($scope.secondCategory.id);
                     $scope.listSecondCategoryIsVisible = false;
                     $scope.listSecondCategoryExists = false;
                     $scope.secondCategory = null;
                     $scope.secondSubcategories = null;
                     break;
                 case 3:
+                    deleteOldSelectedSubcategories($scope.thirdCategory.id);
                     $scope.listThirdCategoryIsVisible = false;
                     $scope.listThirdCategoryExists = false;
                     $scope.thirdCategory = null;
@@ -279,7 +281,6 @@ angular.module('registerSite')
                             indexArray.push(i);
                         }
                     }
-                    console.log("index array",indexArray)
                     for(var j=0; j<indexArray.length;j++){
                         $scope.businessSubcategories.subcategories.splice(indexArray[j]-j,1);
                     }
