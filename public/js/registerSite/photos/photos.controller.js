@@ -58,6 +58,7 @@ angular.module('registerSite')
 
             if (siteInformationService.mainPhoto.length != 0) {
                 $scope.flowMainPhoto.flow.files = siteInformationService.mainPhoto;
+
             }
 
             if (siteInformationService.facadePhotos.length != 0) {
@@ -128,21 +129,21 @@ angular.module('registerSite')
 
         function processUploadedImage(flowObject, fileIndex, photoLoading) {
             var flowFile = flowObject.files[fileIndex];
-
             EXIF.getData(flowFile.file, function () {
                 if (flowFile.processing == undefined) {
                     var orientation = this.exifdata.Orientation;
                     flowFile.processing = true;
                     updateFlowObject(flowObject, fileIndex, flowFile);
-
-                    changeLoadingState(photoLoading, true);
-                    ImageService.reduceImageSize(flowFile.file).then(function (reducedImage) {
+                    ImageService.changeLoadingState(photoLoading, true, $scope);
+                    ImageService.reduceImageSize(flowFile.file, photoLoading, $scope).then(function (reducedImage) {
                         ImageService.rotateImage(orientation, reducedImage).then(function (rotatedImage) {
                             var blob = ImageService.dataURIToBlob(rotatedImage, flowFile.uniqueIdentifier);
                             flowFile = new Flow.FlowFile(flowObject, blob);
                             flowFile.processing = true;
                             updateFlowObject(flowObject, fileIndex, flowFile);
                         });
+                    }).catch(function(error){
+                        ImageService.changeLoadingState(photoLoading, false, $scope);
                     });
                 }
             });
@@ -177,25 +178,6 @@ angular.module('registerSite')
             if (photoType == 'PR') return $scope.flowProductsPhotos;
 
             return $scope.flowMainPhoto;
-        }
-
-        function changeLoadingState(photoLoading, state) {
-            switch (photoLoading) {
-                case 'mainPhoto':
-                    $scope.loadingMainPhoto = state;
-                    break;
-                case 'facadePhotos':
-                    $scope.loadingFacadePhoto = state;
-                    break;
-
-                case 'insidePhotos':
-                    $scope.loadingInsidePhoto = state;
-                    break;
-
-                case 'productsPhotos':
-                    $scope.loadingProductsPhoto = state;
-                    break;
-            }
         }
 
 
