@@ -62,21 +62,21 @@
 /* xs devices */
 @media (max-width: 767px) {
     .deletePhotoSize{
-        height: 6vmin !important;
+        height: 30px !important;
     }
 }
 
 /* sm devices */
 @media (min-width:768px) {
     .deletePhotoSize{
-        height: 6vmin !important;
+        height: 37px !important;
     }
 }
 
 /* md devices */
 @media(min-width:992px){
     .deletePhotoSize{
-        height: 2vmin !important;
+        height: 37px !important;
     }
 }
 
