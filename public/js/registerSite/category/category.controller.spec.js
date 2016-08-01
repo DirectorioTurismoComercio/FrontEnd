@@ -37,18 +37,6 @@ describe('Controller: categoryController', function () {
         });
     }));
 
-    it('Should first category be displayed On load for first time category page', function () {
-        expect($scope.listFirstCategoryIsVisible).toBe(true);
-    });
-
-    it('Should second category does not exists On load for first time category page', function () {
-        expect($scope.listSecondCategoryExists).toBe(false);
-    });
-
-    it('Should third category does not exists On load for first time category page', function () {
-        expect($scope.listThirdCategoryExists).toBe(false);
-    });
-
     it('Should show add two more categories when user picks a main category and hide add one more category', function () {
         $scope.getSubcategoriesOnChange(1,undefined,1);
         expect($scope.hadTwoCategoriesLeft).toBe(true);
