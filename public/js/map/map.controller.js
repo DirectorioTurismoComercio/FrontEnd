@@ -226,8 +226,6 @@ angular.module('map')
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
                     var position = MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud));
-                    console.log("el sitio", site);
-                    console.log("el filtro", filterFilter(site.categorias,{tipo:1})[0]);
                     var marker = MapService.addMarkerWithCategoryIcon(position, site.nombre, filterFilter(site.categorias,{tipo:1})[0]);
                     site.categoryicon=marker.normalIcon.url;
 
