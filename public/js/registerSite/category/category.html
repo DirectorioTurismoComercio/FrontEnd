@@ -191,7 +191,7 @@
                             ng-options="obj.nombre for obj in ((arrayCategories | filter:categoryOptionFilter(3)))  track by obj.id "
                             name="catefory"
                             class="form-control businessAddressInput businessAddressText"
-                            ng-change="getSubcategoriesOnChange(thirdCategory,'%%thirdCategory%%',3)">
+                            ng-change="getSubcategoriesOnChange(thirdCategory,'%%thirdCategory.id%%',3)">
                         <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY"></option>
                     </select>
                 </div>

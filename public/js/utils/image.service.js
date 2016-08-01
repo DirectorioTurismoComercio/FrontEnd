@@ -6,8 +6,9 @@ angular.module('utils')
         var MAX_IMAGE_HEIGHT = 800;
         var IMAGE_QUALITY = 0.3;
 
-        function reduceImageSize(file) {
+        function reduceImageSize(file, photoLoading, $scope) {
             if (!(file instanceof File)) {
+                changeLoadingState(photoLoading, false, $scope);
                 throw "file param must be of File type";
             }
 
@@ -167,10 +168,31 @@ angular.module('utils')
             return blob;
         }
 
+        function changeLoadingState(photoLoading, state,$scope) {
+            switch (photoLoading) {
+                case 'mainPhoto':
+                    $scope.loadingMainPhoto = state;
+                    break;
+                case 'facadePhotos':
+                    $scope.loadingFacadePhoto = state;
+                    break;
+
+                case 'insidePhotos':
+                    $scope.loadingInsidePhoto = state;
+                    break;
+
+                case 'productsPhotos':
+                    $scope.loadingProductsPhoto = state;
+                    break;
+            }
+        }
+
+
 
         return {
             reduceImageSize: reduceImageSize,
             rotateImage: rotateImage,
-            dataURIToBlob: dataURIToBlob
+            dataURIToBlob: dataURIToBlob,
+            changeLoadingState:changeLoadingState
         }
     });

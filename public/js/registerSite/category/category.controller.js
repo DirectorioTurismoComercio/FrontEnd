@@ -23,6 +23,7 @@ angular.module('registerSite')
         $scope.arrayCategories = [];
 
 
+
         collapseFirstCategoryIfExists();
         collapseSecondCategoryIfExists();
         collapseThirdCategoryIfExists();
@@ -47,6 +48,8 @@ angular.module('registerSite')
             } else {
                 getSubcategories(newValue.id, category);
             }
+
+            deleteOldSelectedSubcategories(oldValue);
 
             toggleSelectedCategories(newValue, oldValue, category);
         }
@@ -129,12 +132,14 @@ angular.module('registerSite')
         $scope.deleteCategory = function (category) {
             switch (category) {
                 case 2:
+                    deleteOldSelectedSubcategories($scope.secondCategory.id);
                     $scope.listSecondCategoryIsVisible = false;
                     $scope.listSecondCategoryExists = false;
                     $scope.secondCategory = null;
                     $scope.secondSubcategories = null;
                     break;
                 case 3:
+                    deleteOldSelectedSubcategories($scope.thirdCategory.id);
                     $scope.listThirdCategoryIsVisible = false;
                     $scope.listThirdCategoryExists = false;
                     $scope.thirdCategory = null;
@@ -266,6 +271,20 @@ angular.module('registerSite')
             }).catch(function (error) {
                 console.log("hubo un error", error);
             });
+        }
+
+        function deleteOldSelectedSubcategories(categoryId){
+            var indexArray=[];
+                if(eval(categoryId)!=undefined){
+                    for(var i=0; i<$scope.businessSubcategories.subcategories.length; i++){
+                        if($scope.businessSubcategories.subcategories[i].categoria_padre==categoryId){
+                            indexArray.push(i);
+                        }
+                    }
+                    for(var j=0; j<indexArray.length;j++){
+                        $scope.businessSubcategories.subcategories.splice(indexArray[j]-j,1);
+                    }
+                }
         }
 
         function setSubcategories(category, subcategories) {
