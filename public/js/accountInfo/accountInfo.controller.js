@@ -1,7 +1,7 @@
 'use strict';
 angular.module('accountInfo')
     .controller('AccountInfoController', function ($scope, $location, $http,
-                                                   authenticationService, navigationService, siteInformationService, messageService, API_CONFIG) {
+                                                   authenticationService, navigationService, siteInformationService, messageService, filterFilter, API_CONFIG) {
 
         $scope.showRequiredFieldMessage = false;
         $scope.usuario = authenticationService.getUser();
@@ -25,7 +25,8 @@ angular.module('accountInfo')
             $location.path('businessinformation');
         }
         $scope.editSite = function (sitio) {
-
+            var siteCategories=[];
+            var firstCategory,secondCategory,thirdCategory;
             siteInformationService.siteId = sitio.id;
             siteInformationService.sitePhoneNumber = sitio.telefono;
             siteInformationService.whatsapp = sitio.whatsapp;
@@ -40,7 +41,19 @@ angular.module('accountInfo')
             siteInformationService.businessCategories = {id: sitio.categorias[0]};
             siteInformationService.URLphotos = sitio.fotos;
             siteInformationService.businessMunicipality = sitio.municipio;
-
+            
+            firstCategory=filterFilter(sitio.categorias,{tipo:1})[0]
+            secondCategory=filterFilter(sitio.categorias,{tipo:2})[0]
+            thirdCategory=filterFilter(sitio.categorias,{tipo:3})[0]
+            if(firstCategory) siteInformationService.firstCategory = firstCategory.categoria;
+            if(secondCategory) siteInformationService.secondCategory = secondCategory.categoria;
+            if(thirdCategory) siteInformationService.thirdCategory = thirdCategory.categoria;
+            
+            for(var i=0;i<sitio.categorias.length;i++){
+                siteCategories.push(sitio.categorias[i].categoria);
+            }
+            
+            siteInformationService.businessSubcategories  = {subcategories: siteCategories};
             $location.path('businessinformation');
         }
         $scope.deleteSite = function (sitio) {

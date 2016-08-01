@@ -132,14 +132,18 @@ angular.module('registerSite')
         $scope.deleteCategory = function (category) {
             switch (category) {
                 case 2:
-                    deleteOldSelectedSubcategories($scope.secondCategory.id);
+                    if($scope.secondCategory!=undefined || $scope.secondCategory!=null){
+                        deleteOldSelectedSubcategories($scope.secondCategory.id);
+                    }
                     $scope.listSecondCategoryIsVisible = false;
                     $scope.listSecondCategoryExists = false;
                     $scope.secondCategory = null;
                     $scope.secondSubcategories = null;
                     break;
                 case 3:
-                    deleteOldSelectedSubcategories($scope.thirdCategory.id);
+                    if($scope.thirdCategory!=undefined || $scope.thirdCategory!=null){
+                        deleteOldSelectedSubcategories($scope.thirdCategory.id);
+                    }
                     $scope.listThirdCategoryIsVisible = false;
                     $scope.listThirdCategoryExists = false;
                     $scope.thirdCategory = null;
@@ -170,6 +174,10 @@ angular.module('registerSite')
             }else{
                 $scope.listFirstCategoryIsVisible = false;
                 getSubcategories($scope.firstCategory.id,1);
+                $scope.hadTwoCategoriesLeft = true;
+                checkTwoCategoriesLeftButtonVisible();
+                checkOneCategoryLeftButtonVisible();
+                checkNoneCategoriesLeftButtonsVisible();
             }
         }
 
@@ -178,10 +186,16 @@ angular.module('registerSite')
             if($scope.secondCategory==undefined || $scope.secondCategory==null){
                 $scope.listSecondCategoryExists = false;
                 $scope.listSecondCategoryIsVisible = false;
+                checkTwoCategoriesLeftButtonVisible();
+                checkOneCategoryLeftButtonVisible();
             }else{
                 $scope.listSecondCategoryExists = true;
                 $scope.listSecondCategoryIsVisible = false;
                 getSubcategories($scope.secondCategory.id,2);
+                $scope.hadOneCategoriesLeft = true;
+                checkTwoCategoriesLeftButtonVisible();
+                checkOneCategoryLeftButtonVisible();
+                checkNoneCategoriesLeftButtonsVisible();
             }
         }
 
@@ -194,6 +208,9 @@ angular.module('registerSite')
                 $scope.listThirdCategoryExists = true;
                 $scope.listThirdCategoryIsVisible = false;
                 getSubcategories($scope.thirdCategory.id,3);
+                checkTwoCategoriesLeftButtonVisible();
+                checkOneCategoryLeftButtonVisible();
+                checkNoneCategoriesLeftButtonsVisible();
 
             }
         }

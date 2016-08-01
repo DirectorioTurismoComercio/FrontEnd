@@ -83,6 +83,8 @@ describe('Controller: categoryController', function () {
     });
 
     it('Should show add one more category and hide add two more categories when user picks a second category', function () {
+        $scope.getSubcategoriesOnChange(1,undefined,1);
+        $scope.addFirstAditionalCategory();
         $scope.getSubcategoriesOnChange(1,undefined,2);
         expect($scope.hadTwoCategoriesLeft).toBe(false);
         expect($scope.hadOneCategoriesLeft).toBe(true);

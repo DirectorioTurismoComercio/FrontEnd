@@ -1,4 +1,4 @@
-.search-results .map {
+prev.search-results .map {
     padding: 0;
 }
 
@@ -448,6 +448,14 @@
     .dialog-window-photos .close-button {
         margin-left: 87%;
     }
+    .rn-carousel-control.rn-carousel-control-next:before {
+        margin-left: -40px;
+    }
+    .rn-carousel-control.rn-carousel-control-prev:before {
+        margin-left: 40px;
+    }
+
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
