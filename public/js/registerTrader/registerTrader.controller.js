@@ -1,14 +1,13 @@
 'use strict';
 
 angular.module('registerTrader')
-    .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, messageService, UserFactory,$location, $mdDialog, navigationService, $translate) {
+    .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, messageService, $http, 
+        $location, $mdDialog, navigationService, $translate, API_CONFIG) {
         $scope.submitted=false;
-        $scope.usuario = new UserFactory();
         $scope.traderName=undefined;
         $scope.traderLastName=undefined;
         $scope.traderEmail=undefined;
         $scope.traderPassword;
-        $scope.usuario.nombres=undefined;
         $scope.registerLoading=false;
         $scope.userData={
             nombres:undefined,
@@ -53,14 +52,14 @@ angular.module('registerTrader')
                     var promesa;
                     var deferred;
                                 
-                    setUserInfo();
                     deferred = $q.defer();
-                    promesa = $scope.usuario.$save();
+                    console.log($scope.userData)
+                    promesa = $http.post(API_CONFIG.url + API_CONFIG.user, {email:$scope.userData.correo, last_name: $scope.userData.apellidos, first_name: $scope.userData.nombres, password1: $scope.userData.password, password2: $scope.userData.password} );//$scope.usuario.$save();
                     
                                       
-                    promesa.then(function (data) {
-                        
-                                  authenticationService.setUserByToken(data.key,deferred).finally(
+                    promesa.then(function (reponse) {
+                        console.log(reponse)
+                                  authenticationService.setUserByToken(reponse.data.key,deferred).finally(
                                     function(){
                                     redirectToRegisterSite()
                                     }
@@ -84,17 +83,10 @@ angular.module('registerTrader')
                         } else {
                         }
                         ;
-                    }).finally(function () {
                     });
                 };
         }
-        function setUserInfo(){
-            $scope.usuario.nombres=$scope.userData.nombres;
-            $scope.usuario.apellidos=$scope.userData.apellidos;
-            $scope.usuario.correo=$scope.userData.correo;
-            $scope.usuario.password=$scope.userData.password;
-        }
-        
+
         function redirectToRegisterSite(){
             $scope.registerLoading=false;
              navigationService.cameToBusinessInformationThrough='registertrader';

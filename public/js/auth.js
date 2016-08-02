@@ -15,7 +15,7 @@
 
 	
 		function userDataRequest(credentials, token, deferred){
-			$http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + token} })
+			$http.get(API_CONFIG.url + '/rest-auth/user/', { headers: {'Authorization': 'Token ' + token} })
 				.success(function(response){
 					user = response;
 					user.token = token;
@@ -75,7 +75,7 @@
 				clearUserData();
 			},
 			getUserData: function(token){
-				return  $http.get(API_CONFIG.url + API_CONFIG.user, { headers: {'Authorization': 'Token ' + token} });
+				return  $http.get(API_CONFIG.url + '/rest-auth/user/', { headers: {'Authorization': 'Token ' + token} });
 			}
 		}
 	}]);

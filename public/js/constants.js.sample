@@ -10,7 +10,7 @@ angular.module('constants', [])
     	"url": "http://127.0.0.1:8000",
     	"login": "/rest-auth/login",
         "logout": "/rest-auth/logout",
-    	"user": "/usuario",
+    	"user": "/rest-auth/registration/",
         "authBaseURL": 'http://ecosistema.desarrollo.com/backend',
         "sitios":"/ruta/sitios",
         "sitio":"/sitio",

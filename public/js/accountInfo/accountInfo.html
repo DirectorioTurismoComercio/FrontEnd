@@ -22,9 +22,9 @@
                     <input name="firstname" placeholder="Regular Placeholder" translate
                            translate-attr-placeholder="REGISTER_USER_CONSTANTS.FIRST_NAME"
                            class="form-control col-xs-10 businessAddressInput"
-                           name="firstname" type="text" ng-model="usuario.nombres" required>
+                           name="firstname" type="text" ng-model="usuario.first_name" required>
 
-                    <i ng-show="usuario.nombres==undefined"
+                    <i ng-show="usuario.first_name==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
 
@@ -36,9 +36,9 @@
                     <input placeholder="Regular Placeholder" translate
                            translate-attr-placeholder="REGISTER_USER_CONSTANTS.LAST_NAME" type="text"
                            class="form-control col-xs-10 businessAddressInput"
-                           name="lastname" ng-model="usuario.apellidos" required>
+                           name="lastname" ng-model="usuario.last_name" required>
 
-                    <i ng-show="usuario.apellidos==undefined"
+                    <i ng-show="usuario.last_name==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
             </div>
@@ -54,9 +54,9 @@
                            translate-attr-placeholder="REGISTER_USER_CONSTANTS.EMAIL"
                            class="form-control col-xs-10 businessAddressInput"
                            name="email"
-                           type="email" ng-model="usuario.correo" required>
+                           type="email" ng-model="usuario.email" required>
 
-                    <i ng-show="usuario.correo==undefined"
+                    <i ng-show="usuario.email==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
             </div>
