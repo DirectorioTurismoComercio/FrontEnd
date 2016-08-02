@@ -84,10 +84,13 @@
                     <input input placeholder="Regular Placeholder" translate
                            translate-attr-placeholder="REGISTER_USER_CONSTANTS.OLD_PASSWORD"
                            class="form-control col-xs-10 businessAddressInput"
-                           name="oldpassword" type="password" ng-model="usuario.oldpassword" required>
+                           name="oldpassword" type="password" ng-model="usuario.oldpassword"
+                           ng-minlength=6 required>
 
                     <i ng-show="usuario.oldpassword==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                    <span ng-show="traderInfoForm.oldpassword.$error.minlength" class="error" translate="LOGIN.PASSWORD_LENGTH"></span>
+
                 </div>
             </div>
    <span class="error" ng-show="showRequiredFieldMessage && traderInfoForm.oldpassword.$error.required"
@@ -98,10 +101,12 @@
                     <input input placeholder="Regular Placeholder" translate
                            translate-attr-placeholder="REGISTER_USER_CONSTANTS.NEW_PASSWORD"
                            class="form-control col-xs-10 businessAddressInput"
-                           name="newpassword" type="password" ng-model="usuario.newpassword" required>
+                           name="newpassword" type="password" ng-model="usuario.newpassword"
+                           ng-minlength=6   required>
 
                     <i ng-show="usuario.newpassword==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                    <span ng-show="traderInfoForm.newpassword.$error.minlength<6" class="error" translate="LOGIN.PASSWORD_LENGTH"></span>
                 </div>
             </div>
    <span class="error" ng-show="showRequiredFieldMessage && traderInfoForm.newpassword.$error.required"
@@ -116,12 +121,14 @@
 
                     <i ng-show="usuario.confirmnewpassword==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+
+
                 </div>
             </div>
    <span class="error" ng-show="showRequiredFieldMessage && traderInfoForm.confirmnewpassword.$error.required"
          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
-      <span class="error" ng-show="usuario.newpassword!=usuario.confirmnewpassword"
+      <span class="error" ng-show="traderInfoForm.confirmnewpassword.$dirty && usuario.newpassword!=usuario.confirmnewpassword"
             translate="ACCOUNT_INFO.PASSWORDS_MUST_BE_EQUAL"></span>
 
 

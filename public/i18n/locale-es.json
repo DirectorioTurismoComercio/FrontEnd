@@ -141,7 +141,7 @@
     "ACCOUNT_INFO_SUBTITLE":"Información de cuenta",
     "REGISTERED_BUSINESS":"Negocios registrados",
     "ADD_BUSINESS":"Añadir un negocio",
-    "PASSWORDS_MUST_BE_EQUAL":"La contraseña nueva y la de confirmación deben ser las mismas",
+    "PASSWORDS_MUST_BE_EQUAL":"La contraseña de confirmación debe coincidir con la nueva contraseña*",
     "EDIT_SITE": "Editar"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
