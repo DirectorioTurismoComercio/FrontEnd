@@ -69,19 +69,23 @@ angular.module('registerTrader')
                     }).catch(function (errors) {
                         $scope.registerLoading=false;
                         console.log("Errores retornado por el POST de agregar usuario", errors);
-                        if (errors.data.error === 'E101') {
-                            $mdDialog.show(
+                        var error_message='E100';
+                        if (errors.data.email) {
+                           if(errors.data.email[0]==='E101'){
+                                error_message='E101';
+                           }
+                        } 
+           
+                         $mdDialog.show(
                                 $mdDialog.alert()
                                     .parent(angular.element(document.querySelector('#alertPop')))
                                     .clickOutsideToClose(true)
                                     .title('Error')
-                                    .content($translate.instant('E101'))
+                                    .content($translate.instant(error_message))
                                     .ariaLabel('Alert Dialog Demo')
                                     .ok('Aceptar')
                                     .targetEvent('$event')
                             );
-                        } else {
-                        }
                         ;
                     });
                 };

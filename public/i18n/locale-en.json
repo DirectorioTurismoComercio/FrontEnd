@@ -158,7 +158,9 @@
   "BAD_LOGIN":"Incorrect user or password",
   "REGISTER_SUCCESS":"You are the newest member of Marca_app. Now you can register your business, to edit the profile settings in your account,update your info or register other business or branch offices, please log in",
   "CONTACT_INFO":"If you have a problem, question or a suggestion, you can write to",
-  "E101":"email already exists"
+  "E100":"Error server, try again",
+  "E101":"email already exists",
+  "E102":"password must be at least 6 characters"
   
 
 }

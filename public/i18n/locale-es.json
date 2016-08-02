@@ -157,6 +157,8 @@
   "BAD_LOGIN":"El usuario o contraseña son incorrectos",
   "REGISTER_SUCCESS":"Ya formas parte de la comunidad Marca_app. Ahora puedes registrar tu comercio, entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
   "CONTACT_INFO":"Si tiene algun problema, duda o sugerencia puede escribirnos a",
-  "E101":"El correo ya existe"
+  "E100":"Error de comunicación con el servidor, intente nuevamente.",
+  "E101":"El correo ya existe",
+  "E102":"El password debe ser de al menos 6 caracteres"
 
 }
