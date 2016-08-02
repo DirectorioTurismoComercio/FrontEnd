@@ -132,7 +132,8 @@
     "FORGOTTEN_PASSWORD": "¿Has olvidado tu contraseña?",
     "LOGIN_BUTTON": "Iniciar sesión",
     "STILL_NO_USER": "¿Aún no eres usuario?",
-    "REGISTER": "Regístrate"
+    "REGISTER": "Regístrate",
+    "PASSWORD_LENGTH":"La contraseña debe tener mínimo 6 caracteres*"
   },
   "ACCOUNT_INFO":{
     "ACCOUNT_INFO_TITLE":"Mi cuenta",

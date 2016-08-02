@@ -133,7 +133,8 @@
     "FORGOTTEN_PASSWORD": "Forgot your password?",
     "LOGIN_BUTTON": "Login",
     "STILL_NO_USER": "Not a user yet?",
-    "REGISTER": "Sign in"
+    "REGISTER": "Sign in",
+    "PASSWORD_LENGTH":"Passweord must have minimum 6 characters*"
   },
   "ACCOUNT_INFO":{
     "ACCOUNT_INFO_TITLE":"My account",

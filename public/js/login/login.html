@@ -64,11 +64,12 @@
                 <div class="container-fluid col-xs-12">
                     <input input placeholder="Regular Placeholder" translate
                            translate-attr-placeholder="LOGIN.PASSWORD_INPUT"
-                           class="form-control col-xs-10 businessAddressInput"
+                           class="form-control col-x    s-10 businessAddressInput"
                            name="password" type="password" ng-model="login.contrasena" required>
 
                     <i ng-show="login.contrasena==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                    <span ng-show="login.contrasena.length<6" class="error" translate="LOGIN.PASSWORD_LENGTH"></span>
                 </div>
             </div>
    <span class="error" ng-show="submitted && traderInfoForm.password.$error.required"

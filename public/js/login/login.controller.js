@@ -7,7 +7,7 @@ angular.module('login')
 
         $scope.login = function () {
             $scope.submitted=true;
-            if ($scope.login.email != undefined && $scope.login.contrasena != undefined) {
+            if ($scope.login.email != undefined && $scope.login.contrasena != undefined && $scope.login.contrasena.length >= 6) {
                 $scope.loginLoading = true;
                 authenticationService.login({email: $scope.login.email, password: $scope.login.contrasena})
                     .then(function () {
