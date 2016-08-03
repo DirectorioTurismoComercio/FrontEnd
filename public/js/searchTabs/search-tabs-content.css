@@ -34,7 +34,7 @@
     padding: 0;
     vertical-align: middle;
     display: inline-block;
-    width: 230px;
+    width: 240px;
     text-align: justify;
     vertical-align: middle;
     margin: 0;
@@ -42,7 +42,7 @@
 
 .tab-content .icon {
     height: 30px;
-    margin: 0 1%;
+    margin: 0;
 }
 
 .tab-content .input {
@@ -309,7 +309,7 @@ md-tabs-canvas {
 
     .tab-content .input {
         display: inline-block;
-
+        vertical-align: top;
     }
 
     .tab-content .input-route {
@@ -319,7 +319,6 @@ md-tabs-canvas {
 
     .tab-content .separator {
         display: none;
-
     }
 
     .tab-content .data-description {
