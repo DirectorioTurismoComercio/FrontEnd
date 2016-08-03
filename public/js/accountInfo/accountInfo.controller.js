@@ -5,8 +5,8 @@ angular.module('accountInfo')
 
         $scope.showRequiredFieldMessage = false;
         $scope.usuario = authenticationService.getUser();
-        console.log($scope.usuario);
-
+        $scope.isEditingPersonalInfo = false;
+        $scope.isChangingPassword = false;
 
         $scope.save = function () {
             if ($scope.traderInfoForm.$valid) {
@@ -15,7 +15,20 @@ angular.module('accountInfo')
                 $scope.showRequiredFieldMessage = true;
             }
         }
+        $scope.editPersonalInfo = function(){
+            $scope.isEditingPersonalInfo=true;
 
+        }
+        $scope.savePersonalInfo = function(){
+            $scope.isEditingPersonalInfo=false;
+
+        }
+        $scope.changePassword = function(){
+            $scope.isChangingPassword=true;
+        }
+        $scope.saveNewPassword = function(){
+            $scope.isChangingPassword=false;
+        }
         $scope.addBusiness = function () {
             navigationService.cameToBusinessInformationThrough = 'accountinfo';
             siteInformationService.clearData(siteInformationService);
