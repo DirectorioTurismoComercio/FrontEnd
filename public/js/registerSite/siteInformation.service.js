@@ -43,7 +43,7 @@ angular.module('registerSite')
             fd.append('usuario', authenticationService.getUser().id);
             if (this.web) fd.append('web', this.web);
             if (this.whatsapp) fd.append('whatsapp', this.whatsapp);
-            console.log('user id',authenticationService.getUser());
+            
 
             try {
                 for (var i = 0; i <= this.tags.length - 1; i++) {

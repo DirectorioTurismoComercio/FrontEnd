@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('login')
-    .controller('loginController', function ($scope, Constantes, $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, $translate,$cookies) {
+    .controller('loginController', function ($scope,  $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, $translate,$cookies) {
         $scope.loginLoading = false;
         $scope.submitted=false;
 

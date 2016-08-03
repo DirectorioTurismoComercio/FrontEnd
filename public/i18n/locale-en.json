@@ -139,10 +139,11 @@
     "ACCOUNT_INFO_TITLE":"My account",
     "SAVE_BUTTON":"Save",
     "ACCOUNT_INFO_SUBTITLE":"Account info",
+    "ACCOUNT_PASSWORD_SUBTITLE":"Password",
     "REGISTERED_BUSINESS":"Registered business",
     "ADD_BUSINESS":"Add business",
     "PASSWORDS_MUST_BE_EQUAL":"New and confirm password must be the same",
-    "EDIT_SITE": "Edit"
+    "EDIT_BUTTON": "Edit"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",

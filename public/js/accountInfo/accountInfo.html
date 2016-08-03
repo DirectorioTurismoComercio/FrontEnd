@@ -22,8 +22,13 @@
                     <input name="firstname" placeholder="Regular Placeholder" translate
                            translate-attr-placeholder="REGISTER_USER_CONSTANTS.FIRST_NAME"
                            class="form-control col-xs-10 businessAddressInput"
-                           name="firstname" type="text" ng-model="usuario.first_name" required>
+                           name="firstname" type="text" ng-model="usuario.first_name" required ng-show="true">
 
+                    <div ng-show="false">
+                    <h3 class="personal-info text-center">%%usuario.first_name%%</h3>
+                    <h3 class="personal-info text-center" style="margin-top:-3px">%%usuario.last_name%%</h3>
+                    <h4 class="personal-info text-center">%%usuario.email%%</h4>
+                    </div>
                     <i ng-show="usuario.first_name==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
@@ -36,8 +41,8 @@
                     <input placeholder="Regular Placeholder" translate
                            translate-attr-placeholder="REGISTER_USER_CONSTANTS.LAST_NAME" type="text"
                            class="form-control col-xs-10 businessAddressInput"
-                           name="lastname" ng-model="usuario.last_name" required>
-
+                           name="lastname" ng-model="usuario.last_name" required required ng-show="true">
+                    
                     <i ng-show="usuario.last_name==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
@@ -45,7 +50,7 @@
     <span class="error" ng-show="showRequiredFieldMessage && traderInfoForm.lastname.$error.required"
           translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
-            <div class="row control">
+            <div class="row control" ng-show="true">
                 <div class="col-xs-2 container-fluid">
                     <img class="confirmRegisterIcons" src="./images/registerIcons/mail.png">
                 </div>
@@ -62,9 +67,22 @@
             </div>
      <span class="error" ng-show="showRequiredFieldMessage && traderInfoForm.email.$error.required"
            translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+
+
      <span class="error" ng-show="showRequiredFieldMessage && traderInfoForm.email.$error.email"
            translate="REGISTER_USER_CONSTANTS.EMAIL_VALIDATION"></span>
+          <div class="registerTrader-button NextButtonRegister topMarginElements">
+              <button class="button" ng-click="save()"
+                     translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
+          </div>
+     </form>  
 
+     <div class="registerTraderLineSeparator row col-xs-12"></div>
+     
+     <form class="form-group form">      
+      <div class="row">
+                <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.ACCOUNT_PASSWORD_SUBTITLE"></p>
+      </div>
             <div class="row control topMarginHeader">
                 <div class="container-fluid col-xs-12">
                     <input input placeholder="Regular Placeholder" translate
@@ -76,20 +94,8 @@
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
             </div>
-   <span class="error" ng-show="showRequiredFieldMessage && traderInfoForm.password.$error.required"
-         translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
-
-            <div class="row control topMarginHeader">
-                <div class="container-fluid col-xs-12">
-                    <input input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder="REGISTER_USER_CONSTANTS.OLD_PASSWORD"
-                           class="form-control col-xs-10 businessAddressInput"
-                           name="oldpassword" type="password" ng-model="usuario.oldpassword" required>
-
-                    <i ng-show="usuario.oldpassword==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
-                </div>
-            </div>
+          
+  
    <span class="error" ng-show="showRequiredFieldMessage && traderInfoForm.oldpassword.$error.required"
          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
@@ -104,6 +110,8 @@
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
             </div>
+
+  
    <span class="error" ng-show="showRequiredFieldMessage && traderInfoForm.newpassword.$error.required"
          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
@@ -127,9 +135,9 @@
 
             <div class="registerTrader-button NextButtonRegister topMarginElements">
                 <button class="button" ng-click="save()"
-                        translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
+                        translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
             </div>
-       </form>     
+    </form>     
 
             <div class="registerTraderLineSeparator row col-xs-12"></div>
 
@@ -154,7 +162,7 @@
               </div>
               <div class="row row-reverse">
               <button class="button edit-button" ng-click="editSite(sitio)"
-                    translate="ACCOUNT_INFO.EDIT_SITE">
+                    translate="ACCOUNT_INFO.EDIT_BUTTON">
               </div>
             </div>
          

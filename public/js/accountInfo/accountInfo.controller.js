@@ -5,14 +5,8 @@ angular.module('accountInfo')
 
         $scope.showRequiredFieldMessage = false;
         $scope.usuario = authenticationService.getUser();
-        console.log('$scope.usuario',$scope.usuario);
+        console.log($scope.usuario);
 
-        authenticationService.getUserData($scope.usuario.token)
-            .success(function (response) {
-                console.log(response)
-                $scope.usuario = response;
-                console.log('success',$scope.usuario);
-            });
 
         $scope.save = function () {
             if ($scope.traderInfoForm.$valid) {

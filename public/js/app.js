@@ -9,7 +9,7 @@
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');
 
-            $authProvider.baseUrl = API_CONFIG.authBaseURL;
+            $authProvider.baseUrl = API_CONFIG.url;
             $authProvider.authToken = 'Token';
 
             $authProvider.facebook({

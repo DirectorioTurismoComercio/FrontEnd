@@ -53,12 +53,10 @@ angular.module('registerTrader')
                     var deferred;
                                 
                     deferred = $q.defer();
-                    console.log($scope.userData)
                     promesa = $http.post(API_CONFIG.url + API_CONFIG.user, {email:$scope.userData.correo, last_name: $scope.userData.apellidos, first_name: $scope.userData.nombres, password1: $scope.userData.password, password2: $scope.userData.password} );//$scope.usuario.$save();
                     
                                       
                     promesa.then(function (reponse) {
-                        console.log(reponse)
                                   authenticationService.setUserByToken(reponse.data.key,deferred).finally(
                                     function(){
                                     redirectToRegisterSite()

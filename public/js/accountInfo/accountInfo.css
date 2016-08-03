@@ -6,7 +6,9 @@
 .register{
 	background-color: #F2F2F2;
 }
-
+.personal-info{
+  color: #B3B3B3;
+}
 .registered-business{ 
 	margin-top: 2%;
 	background-color: #F2F2F2;
