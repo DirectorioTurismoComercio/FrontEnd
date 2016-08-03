@@ -91,9 +91,10 @@
           </div>
      </form>  
 
-     <div class="registerTraderLineSeparator row col-xs-12"></div>
+     <div class="registerTraderLineSeparator row col-xs-12" ng-show="!isResgisteredWithSocialNetwork()"></div> 
      
-     <form class="form-group form" name="passwordForm">      
+     <form class="form-group form" name="passwordForm" ng-show="!isResgisteredWithSocialNetwork()">     
+          
       
             <div class="row">
                       <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.ACCOUNT_PASSWORD_SUBTITLE"></p>

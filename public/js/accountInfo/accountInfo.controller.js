@@ -9,7 +9,7 @@ angular.module('accountInfo')
         $scope.isChangingPassword = false;
         $scope.changePasswordSubmitted=false;
         $scope.personalInfoSubmitted=false;
-
+        console.log($scope.usuario);
         $scope.save = function () {
             if ($scope.traderInfoForm.$valid) {
 
@@ -22,8 +22,12 @@ angular.module('accountInfo')
 
         }
         $scope.savePersonalInfo = function(){
-            // $scope.isEditingPersonalInfo=false;
+            
             $scope.personalInfoSubmitted=true;
+            if($scope.personalInfoForm.$valid){
+             $scope.isEditingPersonalInfo=false;
+             $scope.personalInfoSubmitted=false;
+            }
 
         }
         $scope.changePassword = function(){
@@ -86,6 +90,12 @@ angular.module('accountInfo')
 
             });
 
+
+        }
+
+        $scope.isResgisteredWithSocialNetwork = function(){
+            
+            return $scope.usuario.social_auth.length>0;
 
         }
 
