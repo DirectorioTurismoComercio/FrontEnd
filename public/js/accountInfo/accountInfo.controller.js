@@ -7,6 +7,8 @@ angular.module('accountInfo')
         $scope.usuario = authenticationService.getUser();
         $scope.isEditingPersonalInfo = false;
         $scope.isChangingPassword = false;
+        $scope.changePasswordSubmitted=false;
+        $scope.personalInfoSubmitted=false;
 
         $scope.save = function () {
             if ($scope.traderInfoForm.$valid) {
@@ -20,14 +22,16 @@ angular.module('accountInfo')
 
         }
         $scope.savePersonalInfo = function(){
-            $scope.isEditingPersonalInfo=false;
+            // $scope.isEditingPersonalInfo=false;
+            $scope.personalInfoSubmitted=true;
 
         }
         $scope.changePassword = function(){
             $scope.isChangingPassword=true;
         }
         $scope.saveNewPassword = function(){
-            $scope.isChangingPassword=false;
+           // $scope.isChangingPassword=false;
+            $scope.changePasswordSubmitted=true;
         }
         $scope.addBusiness = function () {
             navigationService.cameToBusinessInformationThrough = 'accountinfo';
