@@ -1,7 +1,7 @@
 'use strict';
 angular.module('accountInfo')
     .controller('AccountInfoController', function ($scope, $location, $http,
-                                                   authenticationService, navigationService, siteInformationService, messageService, filterFilter, API_CONFIG) {
+                                                   authenticationService, navigationService, siteInformationService, messageService, filterFilter, API_CONFIG, $mdDialog, $translate) {
 
         $scope.showRequiredFieldMessage = false;
         $scope.usuario = authenticationService.getUser();
@@ -32,14 +32,11 @@ angular.module('accountInfo')
             if($scope.personalInfoForm.$valid){
              $http.put(API_CONFIG.url + API_CONFIG.user_detail,
               {email:$scope.usuario.email, last_name: $scope.usuario.last_name, first_name: $scope.usuario.first_name},
-              {
-                        
+              {        
                         headers: {
                             'Authorization': 'Token ' + authenticationService.getUser().token
                         }
                }
-
-
                )
               .then(function(response){
                     $scope.isEditingPersonalInfo=false;
@@ -51,17 +48,54 @@ angular.module('accountInfo')
                     function(errors){
                         console.log("Errores retornado por el servidor", errors);
                     }
-
-
                 );
             }
 
         }
         $scope.changePassword = function(){
-            $scope.isChangingPassword=true;
+            $scope.isChangingPassword = true;
         }
         $scope.saveNewPassword = function(){
             $scope.changePasswordSubmitted=true;
+            console.log($scope.passwordForm.$valid);
+            if($scope.passwordForm.$valid && $scope.usuario.newpassword==$scope.usuario.confirmnewpassword && $scope.usuario.newpassword.length>=6){
+             $http.post(API_CONFIG.url + API_CONFIG.new_password,
+              {old_password: $scope.usuario.password, new_password1: $scope.usuario.newpassword, new_password2: $scope.usuario.newpassword},
+              {        
+                        headers: {
+                            'Authorization': 'Token ' + authenticationService.getUser().token
+                        }
+               }
+               )
+              .then(function(response){
+                    $scope.changePasswordSubmitted=false;
+                    $scope.isChangingPassword=false;
+                    }
+                )
+              .catch(
+                    function(errors){
+                        
+                        console.log("Errores retornado por el POST al cambiar contraseña", errors);
+                        var error_message='E103';
+                        if (errors.data.email) {
+                           if(errors.data.old_passwordl[0]==='E103'){
+                                error_message='E103';
+                           }
+                        } 
+           
+                         $mdDialog.show(
+                                $mdDialog.alert()
+                                    .parent(angular.element(document.querySelector('#alertPop')))
+                                    .clickOutsideToClose(true)
+                                    .title('Error')
+                                    .content($translate.instant(error_message))
+                                    .ariaLabel('Alert Dialog Demo')
+                                    .ok('Aceptar')
+                                    .targetEvent('$event')
+                            );
+                    }
+                );
+            }
         }
         $scope.addBusiness = function () {
             navigationService.cameToBusinessInformationThrough = 'accountinfo';
@@ -84,8 +118,7 @@ angular.module('accountInfo')
             siteInformationService.businessAddress = sitio.ubicacionlocal;
             siteInformationService.businessCategories = {id: sitio.categorias[0]};
             siteInformationService.URLphotos = sitio.fotos;
-            siteInformationService.businessMunicipality = sitio.municipio;
-            
+            siteInformationService.businessMunicipality = sitio.municipio;           
             firstCategory=filterFilter(sitio.categorias,{tipo:1})[0]
             secondCategory=filterFilter(sitio.categorias,{tipo:2})[0]
             thirdCategory=filterFilter(sitio.categorias,{tipo:3})[0]

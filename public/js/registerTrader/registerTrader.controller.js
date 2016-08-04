@@ -84,7 +84,6 @@ angular.module('registerTrader')
                                     .ok('Aceptar')
                                     .targetEvent('$event')
                             );
-                        ;
                     });
                 };
         }

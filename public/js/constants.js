@@ -6,6 +6,7 @@ var objeto = {
         "user_detail": "/rest-auth/user/",
         "sitios":"/ruta/sitios",
         "sitio":"/sitio",
+        "new_password":"/rest-auth/password/change/",
         "categorias":"/categorias",
         "getTownOnMapClickURL":'http://maps.googleapis.com/maps/api/geocode/json?latlng='
     }

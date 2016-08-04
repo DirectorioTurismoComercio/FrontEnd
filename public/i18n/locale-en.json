@@ -162,7 +162,8 @@
   "CONTACT_INFO":"If you have a problem, question or a suggestion, you can write to",
   "E100":"Error server, try again",
   "E101":"email already exists",
-  "E102":"password must be at least 6 characters"
+  "E102":"password must be at least 6 characters",
+  "E103":"Invalid password."
   
 
 }

@@ -162,6 +162,7 @@
   "CONTACT_INFO":"Si tiene algun problema, duda o sugerencia puede escribirnos a",
   "E100":"Error de comunicación con el servidor, intente nuevamente.",
   "E101":"El correo ya existe",
-  "E102":"El password debe ser de al menos 6 caracteres"
+  "E102":"El password debe ser de al menos 6 caracteres",
+  "E103":"Contraseña incorrecta."
 
 }
