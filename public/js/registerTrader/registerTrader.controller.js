@@ -53,7 +53,7 @@ angular.module('registerTrader')
                     var deferred;
                                 
                     deferred = $q.defer();
-                    promesa = $http.post(API_CONFIG.url + API_CONFIG.user, {email:$scope.userData.correo, last_name: $scope.userData.apellidos, first_name: $scope.userData.nombres, password1: $scope.userData.password, password2: $scope.userData.password} );//$scope.usuario.$save();
+                    promesa = $http.post(API_CONFIG.url + API_CONFIG.user, {email:$scope.userData.correo, last_name: $scope.userData.apellidos, first_name: $scope.userData.nombres, password1: $scope.userData.password, password2: $scope.userData.password} );
                     
                                       
                     promesa.then(function (reponse) {

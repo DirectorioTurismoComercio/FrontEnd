@@ -25,8 +25,30 @@ angular.module('accountInfo')
             
             $scope.personalInfoSubmitted=true;
             if($scope.personalInfoForm.$valid){
-             $scope.isEditingPersonalInfo=false;
-             $scope.personalInfoSubmitted=false;
+             $http.put(API_CONFIG.url + API_CONFIG.user_update,
+              {email:$scope.usuario.email, last_name: $scope.usuario.last_name, first_name: $scope.usuario.first_name},
+              {
+                        
+                        headers: {
+                            'Authorization': 'Token ' + authenticationService.getUser().token
+                        }
+               }
+
+
+               )
+              .then(function(response){
+                    console.log(response);
+                    $scope.isEditingPersonalInfo=false;
+                    $scope.personalInfoSubmitted=false;
+                    }
+                )
+              .catch(
+                    function(errors){
+                        console.log("Errores retornado por el servidor", errors);
+                    }
+
+
+                );
             }
 
         }
