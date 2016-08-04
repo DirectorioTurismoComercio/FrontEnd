@@ -72,7 +72,6 @@ npm-debug.log
 rest_api.md
 server.js
 test/pruebas_aceptacion/codecept.phar.v2.0.11
-public/js/constants.js
 public/js/local_constants.js
 
 .idea/
