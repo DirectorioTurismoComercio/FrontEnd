@@ -11,8 +11,8 @@ angular.module('accountInfo')
         $scope.personalInfoSubmitted=false;
         console.log($scope.usuario);
         $scope.save = function () {
-            if ($scope.traderInfoForm.$valid) {
-
+            if ($scope.traderInfoForm.$valid && $scope.usuario.newpassword==$scope.usuario.confirmnewpassword) {
+                console.log("actualizo con exito");
             } else {
                 $scope.showRequiredFieldMessage = true;
             }

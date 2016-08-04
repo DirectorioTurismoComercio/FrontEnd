@@ -132,7 +132,8 @@
     "FORGOTTEN_PASSWORD": "¿Has olvidado tu contraseña?",
     "LOGIN_BUTTON": "Iniciar sesión",
     "STILL_NO_USER": "¿Aún no eres usuario?",
-    "REGISTER": "Regístrate"
+    "REGISTER": "Regístrate",
+    "PASSWORD_LENGTH":"La contraseña debe tener mínimo 6 caracteres*"
   },
   "ACCOUNT_INFO":{
     "ACCOUNT_INFO_TITLE":"Mi cuenta",
@@ -141,8 +142,9 @@
     "ACCOUNT_PASSWORD_SUBTITLE":"Contraseña",
     "REGISTERED_BUSINESS":"Negocios registrados",
     "ADD_BUSINESS":"Añadir un negocio",
-    "PASSWORDS_MUST_BE_EQUAL":"La contraseña nueva y la de confirmación deben ser las mismas",
-    "EDIT_BUTTON": "Editar"
+    "EDIT_BUTTON": "Editar",
+    "PASSWORDS_MUST_BE_EQUAL":"La contraseña de confirmación debe coincidir con la nueva contraseña*"
+
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",

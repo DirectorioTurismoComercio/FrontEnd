@@ -46,7 +46,7 @@ angular.module('registerTrader')
 
         $scope.save =function () {
             $scope.submitted=true;
-            if ($scope.userData.correo != undefined && $scope.userData.password != undefined && $scope.userData.nombres != undefined
+            if ($scope.userData.correo != undefined && $scope.userData.password != undefined && $scope.userData.password.length >= 6  && $scope.userData.nombres != undefined
             && $scope.userData.apellidos != undefined) {
                     $scope.registerLoading=true;
                     var promesa;

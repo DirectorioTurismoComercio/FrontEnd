@@ -133,7 +133,8 @@
     "FORGOTTEN_PASSWORD": "Forgot your password?",
     "LOGIN_BUTTON": "Login",
     "STILL_NO_USER": "Not a user yet?",
-    "REGISTER": "Sign in"
+    "REGISTER": "Sign in",
+    "PASSWORD_LENGTH":"Passweord must have minimum 6 characters*"
   },
   "ACCOUNT_INFO":{
     "ACCOUNT_INFO_TITLE":"My account",
@@ -142,8 +143,8 @@
     "ACCOUNT_PASSWORD_SUBTITLE":"Password",
     "REGISTERED_BUSINESS":"Registered business",
     "ADD_BUSINESS":"Add business",
-    "PASSWORDS_MUST_BE_EQUAL":"New and confirm password must be the same",
-    "EDIT_BUTTON": "Edit"
+    "EDIT_BUTTON": "Edit",
+    "PASSWORDS_MUST_BE_EQUAL":"New and confirm password must be the same*"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",

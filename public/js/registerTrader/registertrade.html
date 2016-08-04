@@ -96,6 +96,10 @@
 
                     <i ng-show="userData.password==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+
+                    <span ng-show="userData.password.length<6" class="error" translate="LOGIN.PASSWORD_LENGTH"></span>
+
+
                 </div>
             </div>
    <span class="error" ng-show="submitted && traderInfoForm.password.$error.required"
