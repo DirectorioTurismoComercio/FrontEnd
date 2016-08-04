@@ -168,7 +168,7 @@
                 <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_BUSINESS"></p>
             </div>
 
-            <div >
+            <div ng-class="usuario.sitios.length>2 ? 'scrollable-site-list':''" >
                 <div class="row"  ng-repeat="sitio in usuario.sitios">
                     <div class="registered-business">
 
