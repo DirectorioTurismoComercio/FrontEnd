@@ -9,7 +9,12 @@ angular.module('accountInfo')
         $scope.isChangingPassword = false;
         $scope.changePasswordSubmitted=false;
         $scope.personalInfoSubmitted=false;
-        console.log($scope.usuario);
+
+        authenticationService.getUserData($scope.usuario.token)
+            .success(function (response) {
+                $scope.usuario = response;
+            });
+
         $scope.save = function () {
             if ($scope.traderInfoForm.$valid && $scope.usuario.newpassword==$scope.usuario.confirmnewpassword) {
                 console.log("actualizo con exito");
