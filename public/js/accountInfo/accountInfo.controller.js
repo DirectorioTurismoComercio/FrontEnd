@@ -30,7 +30,7 @@ angular.module('accountInfo')
             
             $scope.personalInfoSubmitted=true;
             if($scope.personalInfoForm.$valid){
-             $http.put(API_CONFIG.url + API_CONFIG.user_update,
+             $http.put(API_CONFIG.url + API_CONFIG.user_detail,
               {email:$scope.usuario.email, last_name: $scope.usuario.last_name, first_name: $scope.usuario.first_name},
               {
                         
@@ -61,7 +61,6 @@ angular.module('accountInfo')
             $scope.isChangingPassword=true;
         }
         $scope.saveNewPassword = function(){
-           // $scope.isChangingPassword=false;
             $scope.changePasswordSubmitted=true;
         }
         $scope.addBusiness = function () {
