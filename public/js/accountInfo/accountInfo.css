@@ -55,6 +55,22 @@
 .edit-button{
 	width: 30%;
 }
+
+.edit-local-button-container{
+    margin-top: 3%;
+}
+
+.edit-local-button{
+    margin-bottom: 20px;
+    border: none;
+    font-weight: bold;
+    font-size: 100%;
+    background-color: #FFC501;
+    color: #2D3C4D;
+    border-radius: 5px;
+    height: 40px;
+}
+
 @media (min-width: 768px) {
   .registered-business .business-name{
   
