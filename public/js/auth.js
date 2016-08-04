@@ -71,6 +71,11 @@
 	        	}
 				return user;
 			},
+			setUser: function(_user,token){
+					user = _user;
+					user.token = token;
+					$window.localStorage["user"] = JSON.stringify(user);
+			},
 			reset: function() {
 				clearUserData();
 			},

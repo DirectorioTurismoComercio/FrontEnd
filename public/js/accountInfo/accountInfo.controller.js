@@ -42,9 +42,9 @@ angular.module('accountInfo')
 
                )
               .then(function(response){
-                    console.log(response);
                     $scope.isEditingPersonalInfo=false;
                     $scope.personalInfoSubmitted=false;
+                    authenticationService.setUser(response.data, authenticationService.getUser().token)
                     }
                 )
               .catch(
