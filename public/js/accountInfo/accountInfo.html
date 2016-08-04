@@ -168,29 +168,32 @@
                 <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_BUSINESS"></p>
             </div>
 
-            <div class="row" ng-repeat="sitio in usuario.sitios">
-                <div class="registered-business">
+            <div ng-class="usuario.sitios.length>2 ? 'scrollable-site-list':''" >
+                <div class="row"  ng-repeat="sitio in usuario.sitios">
+                    <div class="registered-business">
 
-                    <div class="row row-reverse">
-                        <img ng-click="deleteSite(sitio)" class="remove-icon"
-                             src="./images/accountInfoIcons/borrar.png"/>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4"><img class="business-image"
-                                                   ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                        <div class="row row-reverse">
+                            <img ng-click="deleteSite(sitio)" class="remove-icon"
+                                 src="./images/accountInfoIcons/borrar.png"/>
                         </div>
-                        <div class="col-xs-8">
-                            <p class="business-name">%%sitio.nombre%%</p>
-                            <p class="business-info">%%sitio.ubicacionlocal%%</p>
-                            <p class="business-info">%%sitio.telefono%%</p>
+                        <div class="row">
+                            <div class="col-xs-4"><img class="business-image"
+                                                       ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                            </div>
+                            <div class="col-xs-8">
+                                <p class="business-name">%%sitio.nombre%%</p>
+                                <p class="business-info">%%sitio.ubicacionlocal%%</p>
+                                <p class="business-info">%%sitio.telefono%%</p>
+                            </div>
+                        </div>
+                        <div class="row row-reverse">
+                            <button class="edit-local-button col-xs-3"  ng-click="editSite(sitio)" translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
                         </div>
                     </div>
-                    <div class="row row-reverse">
-                        <button class="edit-local-button col-xs-3"  ng-click="editSite(sitio)" translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
-                    </div>
+
                 </div>
-
             </div>
+
 
             <div class="row registerTrader-button NextButtonRegister topMarginElements">
                 <button class="button" ng-click="addBusiness()"

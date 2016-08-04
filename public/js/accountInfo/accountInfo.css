@@ -71,6 +71,11 @@
     height: 40px;
 }
 
+.scrollable-site-list{
+    overflow-y: scroll;
+    height: 400px;
+}
+
 @media (min-width: 768px) {
   .registered-business .business-name{
   
