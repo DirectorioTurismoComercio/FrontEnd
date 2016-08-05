@@ -15,13 +15,7 @@ angular.module('accountInfo')
                 $scope.usuario = response;
             });
 
-        $scope.save = function () {
-            if ($scope.traderInfoForm.$valid && $scope.usuario.newpassword==$scope.usuario.confirmnewpassword) {
-                console.log("actualizo con exito");
-            } else {
-                $scope.showRequiredFieldMessage = true;
-            }
-        }
+
         $scope.editPersonalInfo = function(){
             $scope.isEditingPersonalInfo=true;
 
@@ -41,7 +35,8 @@ angular.module('accountInfo')
               .then(function(response){
                     $scope.isEditingPersonalInfo=false;
                     $scope.personalInfoSubmitted=false;
-                    authenticationService.setUser(response.data, authenticationService.getUser().token)
+                    authenticationService.setUser(response.data, authenticationService.getUser().token);
+                    showMessageDialog('',$translate.instant('ACCOUNT_INFO.ACCOUNT_INFORMATION_SUCCESSFULLY_UPDATED'));
                     }
                 )
               .catch(
@@ -74,6 +69,7 @@ angular.module('accountInfo')
                     $scope.usuario.confirmnewpassword="";
                     $scope.usuario.password="";
                     $scope.passwordForm.$setPristine();
+                    showMessageDialog('',$translate.instant('ACCOUNT_INFO.ACCOUNT_PASSWORD_SUCCESSFULLY_UPDATED'));
                     }
                 )
               .catch(
@@ -86,21 +82,25 @@ angular.module('accountInfo')
                                 error_message='E103';
                            }
                         } 
-           
-                         $mdDialog.show(
-                                $mdDialog.alert()
-                                    .parent(angular.element(document.querySelector('#alertPop')))
-                                    .clickOutsideToClose(true)
-                                    .title('Error')
-                                    .content($translate.instant(error_message))
-                                    .ariaLabel('Alert Dialog Demo')
-                                    .ok('Aceptar')
-                                    .targetEvent('$event')
-                            );
+                        showMessageDialog('Error', $translate.instant(error_message));
+                        
                     }
                 );
             }
         }
+        function showMessageDialog(title, message){
+            $mdDialog.show(
+                    $mdDialog.alert()
+                        .parent(angular.element(document.querySelector('#alertPop')))
+                        .clickOutsideToClose(true)
+                        .title(title)
+                        .content(message)
+                        .ariaLabel('Alert Dialog Demo')
+                        .ok('Aceptar')
+                        .targetEvent('$event')
+                );
+        }
+
         $scope.addBusiness = function () {
             navigationService.cameToBusinessInformationThrough = 'accountinfo';
             siteInformationService.clearData(siteInformationService);

@@ -141,6 +141,8 @@
     "SAVE_BUTTON":"Save",
     "ACCOUNT_INFO_SUBTITLE":"Account info",
     "ACCOUNT_PASSWORD_SUBTITLE":"Password",
+    "ACCOUNT_INFORMATION_SUCCESSFULLY_UPDATED":"Account information successfully updated.",
+    "ACCOUNT_PASSWORD_SUCCESSFULLY_UPDATED":"Password successfully updated.",
     "REGISTERED_BUSINESS":"Registered business",
     "ADD_BUSINESS":"Add business",
     "EDIT_BUTTON": "Edit",

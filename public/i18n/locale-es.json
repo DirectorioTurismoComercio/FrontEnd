@@ -140,6 +140,8 @@
     "SAVE_BUTTON":"Guardar",
     "ACCOUNT_INFO_SUBTITLE":"Información de cuenta",
     "ACCOUNT_PASSWORD_SUBTITLE":"Contraseña",
+    "ACCOUNT_INFORMATION_SUCCESSFULLY_UPDATED":"Información de la cuenta actualizada con éxito.",
+    "ACCOUNT_PASSWORD_SUCCESSFULLY_UPDATED":"Contraseña actualizada con éxito.",
     "REGISTERED_BUSINESS":"Negocios registrados",
     "ADD_BUSINESS":"Añadir un negocio",
     "EDIT_BUTTON": "Editar",
