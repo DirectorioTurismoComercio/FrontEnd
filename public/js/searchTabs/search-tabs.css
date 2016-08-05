@@ -33,6 +33,40 @@
     border-bottom: none;
 }
 
+.search-tab-categories-list{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.search-tab-categories{
+    display: inline-block;
+}
+
+.search-tab-category-container{
+    display: flex;
+    flex-flow: column wrap;
+    background-color: #A9EDFF;
+    margin: 3px;
+    height: 100px;
+    width: 100px;
+    padding: 5px 1px 0px 1px;
+}
+
+.search-tab-category-inside-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.search-tab-category-label{
+    font-family: 'PT Sans', sans-serif;
+    color: #0071BC;
+    font-weight: bold;
+    text-align: center;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
 }

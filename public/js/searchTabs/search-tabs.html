@@ -36,6 +36,21 @@
                     </div>
                 </div>
             </div>
+
+            <!--Categories List-->
+            <div class="row search-tab-categories-list">
+                <div class="search-tab-categories" ng-repeat="category in categories">
+                    <div class="search-tab-category-container">
+                        <div class="search-tab-category-inside-container">
+                            <img class="icon" ng-src="%%category.URL_icono_normal%%">
+                        </div>
+                        <div class="search-tab-category-inside-container">
+                            <label class="search-tab-category-label">%%category.nombre%%</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-xs-12 text-center">
                     <button class="button" aria-label="Buscar" translate="TABS_CONSTANTS.DO_SEARCH"

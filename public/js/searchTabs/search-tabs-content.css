@@ -54,7 +54,7 @@
 }
 
 .tab-content .input-section {
-    padding: 3% 2%;
+    padding: 3% 2% 1% 2%;
 }
 
 .route-search .data-label {
@@ -300,11 +300,11 @@ md-tabs-canvas {
 
     .keyword-search .align-first {
         text-align: right;
+        border-right: 2px solid #32A2D4;
     }
 
     .keyword-search .align-second {
         text-align: left;
-        border-left: 2px solid #32A2D4;
     }
 
     .tab-content .input {

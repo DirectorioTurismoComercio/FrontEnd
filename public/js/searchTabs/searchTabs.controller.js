@@ -2,7 +2,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
     .controller('searchTabsController', function ($scope, geolocation, messageService, $timeout,
                                                   siteAndTownSaverService, CUNDINAMARCA_COORDS,
                                                   MapService, $translate, KEYWORD_SEARCH_SECTION,
-                                                  ROUTE_SEARCH_SECTION, $window, $route) {
+                                                  ROUTE_SEARCH_SECTION, $window, categories) {
         $scope.KEYWORD_SEARCH_SECTION = KEYWORD_SEARCH_SECTION;
         $scope.ROUTE_SEARCH_SECTION = ROUTE_SEARCH_SECTION;
         $scope.isSearchFormVisible = false;
@@ -24,6 +24,14 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $timeout(function () {
             $scope.showSelectedSection(siteAndTownSaverService.openSection);
         }, 0);
+
+        categories.getCategories().then(function (response) {
+            $scope.categories = response;
+            console.log($scope.categories);
+
+        }).catch(function (error) {
+            console.log("Hubo un error", error);
+        });
 
         $scope.showSelectedSection = function (section) {
             switch (section) {
