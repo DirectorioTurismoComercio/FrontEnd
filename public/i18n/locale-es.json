@@ -143,7 +143,8 @@
     "REGISTERED_BUSINESS":"Negocios registrados",
     "ADD_BUSINESS":"Añadir un negocio",
     "EDIT_BUTTON": "Editar",
-    "PASSWORDS_MUST_BE_EQUAL":"La contraseña de confirmación debe coincidir con la nueva contraseña*"
+    "PASSWORDS_MUST_BE_EQUAL":"La contraseña de confirmación debe coincidir con la nueva contraseña*",
+    "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT":"La contraseña nueva debe ser diferente a la antigua*."
 
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",

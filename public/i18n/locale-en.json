@@ -144,7 +144,8 @@
     "REGISTERED_BUSINESS":"Registered business",
     "ADD_BUSINESS":"Add business",
     "EDIT_BUTTON": "Edit",
-    "PASSWORDS_MUST_BE_EQUAL":"New and confirm password must be the same*"
+    "PASSWORDS_MUST_BE_EQUAL":"New and confirm password must be the same*",
+    "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT":"New and confirm password must be the same*"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",

@@ -150,6 +150,8 @@
              translate="ACCOUNT_INFO.PASSWORDS_MUST_BE_EQUAL"></span>
         <span class="error" ng-show="changePasswordSubmitted && usuario.newpassword.length<6"
               translate="LOGIN.PASSWORD_LENGTH"></span>
+        <span class="error" ng-show="changePasswordSubmitted && usuario.password==usuario.newpassword"
+              translate="ACCOUNT_INFO.OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT"></span>
             </div>
 
             <div class="registerTrader-button NextButtonRegister topMarginElements">

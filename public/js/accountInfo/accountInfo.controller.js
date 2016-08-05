@@ -57,8 +57,8 @@ angular.module('accountInfo')
         }
         $scope.saveNewPassword = function(){
             $scope.changePasswordSubmitted=true;
-            console.log($scope.passwordForm.$valid);
-            if($scope.passwordForm.$valid && $scope.usuario.newpassword==$scope.usuario.confirmnewpassword && $scope.usuario.newpassword.length>=6){
+            if($scope.passwordForm.$valid && $scope.usuario.newpassword==$scope.usuario.confirmnewpassword 
+                && $scope.usuario.newpassword.length>=6  && $scope.usuario.newpassword!=$scope.usuario.password ){
              $http.post(API_CONFIG.url + API_CONFIG.new_password,
               {old_password: $scope.usuario.password, new_password1: $scope.usuario.newpassword, new_password2: $scope.usuario.newpassword},
               {        
@@ -70,6 +70,10 @@ angular.module('accountInfo')
               .then(function(response){
                     $scope.changePasswordSubmitted=false;
                     $scope.isChangingPassword=false;
+                    $scope.usuario.newpassword="";
+                    $scope.usuario.confirmnewpassword="";
+                    $scope.usuario.password="";
+
                     }
                 )
               .catch(
