@@ -58,10 +58,8 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         });
 
         $scope.setCategoryNameAsInputText=function(category){
-            $scope.result=category.nombre;
-            setAllCategoriesAsUnselected();
-            setSelectedCategory(category);
-
+            toggleCategoryIsSelected(category);
+            category.isSelected ? $scope.result=category.nombre : $scope.result='';
         }
 
         $scope.doSearchByKeyWord = function (result) {
@@ -88,10 +86,11 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             }
         }
 
-        function setSelectedCategory(category){
+        function toggleCategoryIsSelected(category){
+            category.isSelected=!category.isSelected;
             for (var i = 0; i < $scope.categories.length; i++) {
-                if($scope.categories[i].nombre==category.nombre){
-                    $scope.categories[i].isSelected = true;
+                if($scope.categories[i].nombre!=category.nombre){
+                    $scope.categories[i].isSelected = false;
                 }
             }
         }
