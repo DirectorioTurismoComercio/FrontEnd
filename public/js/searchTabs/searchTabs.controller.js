@@ -57,15 +57,19 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             calldoSearch(args.keyword);
         });
 
+        $scope.$watch('result', function() {
+            try{
+                setIsSelectedCategory();
+            }catch(e){}
+        });
+
         $scope.setCategoryNameAsInputText=function(category){
-            toggleCategoryIsSelected(category);
-            category.isSelected ? $scope.result=category.nombre : $scope.result='';
+               $scope.result=category.nombre ;
         }
 
         $scope.doSearchByKeyWord = function (result) {
             calldoSearch(result);
         };
-
 
         $scope.calculateRoute = function () {
             if ($scope.searchedRoute.origin == undefined) {
@@ -86,10 +90,11 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             }
         }
 
-        function toggleCategoryIsSelected(category){
-            category.isSelected=!category.isSelected;
-            for (var i = 0; i < $scope.categories.length; i++) {
-                if($scope.categories[i].nombre!=category.nombre){
+        function setIsSelectedCategory(){
+            for(var i = 0; i < $scope.categories.length; i++){
+                if($scope.result==$scope.categories[i].nombre){
+                    $scope.categories[i].isSelected = true;
+                }else{
                     $scope.categories[i].isSelected = false;
                 }
             }
