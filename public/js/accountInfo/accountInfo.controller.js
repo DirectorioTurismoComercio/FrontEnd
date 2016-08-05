@@ -73,7 +73,7 @@ angular.module('accountInfo')
                     $scope.usuario.newpassword="";
                     $scope.usuario.confirmnewpassword="";
                     $scope.usuario.password="";
-
+                    $scope.passwordForm.$setPristine();
                     }
                 )
               .catch(
