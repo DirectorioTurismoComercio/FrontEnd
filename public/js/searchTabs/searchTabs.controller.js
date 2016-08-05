@@ -27,7 +27,6 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         categories.getCategories().then(function (response) {
             $scope.categories = response;
-            console.log($scope.categories);
 
         }).catch(function (error) {
             console.log("Hubo un error", error);
@@ -56,6 +55,10 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.$on('businessbrowser::keypressed', function (event, args) {
             calldoSearch(args.keyword);
         });
+
+        $scope.setCategoryNameAsInputText=function(category){
+            $scope.result=category.nombre;
+        }
 
         $scope.doSearchByKeyWord = function (result) {
             calldoSearch(result);

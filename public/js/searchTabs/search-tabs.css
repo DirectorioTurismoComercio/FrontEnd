@@ -35,9 +35,10 @@
 
 .search-tab-categories-list{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
     justify-content: center;
     margin-top: 1%;
+    overflow-x: auto;
 }
 
 .search-tab-categories{
