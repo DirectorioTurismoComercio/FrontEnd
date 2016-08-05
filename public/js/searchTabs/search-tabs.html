@@ -40,12 +40,12 @@
             <!--Categories List-->
             <div class="row search-tab-categories-list">
                 <div class="search-tab-categories" ng-repeat="category in categories">
-                    <div class="search-tab-category-container" ng-click="setCategoryNameAsInputText(category)">
+                    <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-unselected-container'" ng-click="setCategoryNameAsInputText(category)">
                         <div class="search-tab-category-inside-container">
                             <img class="icon" ng-src="%%category.URL_icono_normal%%">
                         </div>
                         <div class="search-tab-category-inside-container">
-                            <label class="search-tab-category-label">%%category.nombre%%</label>
+                            <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
                         </div>
                     </div>
                 </div>

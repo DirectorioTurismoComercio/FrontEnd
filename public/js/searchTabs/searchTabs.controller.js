@@ -27,6 +27,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         categories.getCategories().then(function (response) {
             $scope.categories = response;
+            setAllCategoriesAsUnselected();
 
         }).catch(function (error) {
             console.log("Hubo un error", error);
@@ -58,6 +59,9 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         $scope.setCategoryNameAsInputText=function(category){
             $scope.result=category.nombre;
+            setAllCategoriesAsUnselected();
+            setSelectedCategory(category);
+
         }
 
         $scope.doSearchByKeyWord = function (result) {
@@ -77,6 +81,20 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 $scope.showRoute();
             }
         };
+
+        function setAllCategoriesAsUnselected(){
+            for (var i = 0; i < $scope.categories.length; i++) {
+                $scope.categories[i].isSelected = false;
+            }
+        }
+
+        function setSelectedCategory(category){
+            for (var i = 0; i < $scope.categories.length; i++) {
+                if($scope.categories[i].nombre==category.nombre){
+                    $scope.categories[i].isSelected = true;
+                }
+            }
+        }
 
         function getViewPortSize() {
             $scope.isMobile = $window.innerWidth < 992;
