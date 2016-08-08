@@ -67,8 +67,10 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 if(category.isSelected){
                     category.isSelected=false;
                     $scope.result='';
+                    $scope.isSubcategoriesVisible=false;
                 }else{
                     $scope.result=category.nombre;
+                    setSubcategories(category.id);
                 }
 
         }
@@ -90,6 +92,22 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             }
         };
 
+        function setSubcategories(categoryId){
+            if($scope.isonmap){
+                getSubcategories(categoryId);
+            }
+        }
+
+        function getSubcategories(categoryId) {
+            categories.getSubcategories(categoryId).then(function (response) {
+                $scope.subcategories=response;
+                $scope.isSubcategoriesVisible=true;
+            }).catch(function (error) {
+                console.log("hubo un error", error);
+            });
+        }
+
+
         function setAllCategoriesAsUnselected(){
             for (var i = 0; i < $scope.categories.length; i++) {
                 $scope.categories[i].isSelected = false;
@@ -100,8 +118,10 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             for(var i = 0; i < $scope.categories.length; i++){
                 if($scope.result==$scope.categories[i].nombre){
                     $scope.categories[i].isSelected = true;
+                    setSubcategories($scope.categories[i].id);
                 }else{
                     $scope.categories[i].isSelected = false;
+                    $scope.isSubcategoriesVisible=false;
                 }
             }
         }
