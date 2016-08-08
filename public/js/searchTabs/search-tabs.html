@@ -80,8 +80,8 @@
             </div>
             <!--Categories List-->
             <div class="row categories-map-container" >
-                <div id="viewport" class="row search-tab-categories-list map-search-tab-categories-list map-scroll-categories">
-                    <div class="search-tab-categories" ng-repeat="category in categories">
+                <!--<div class="row search-tab-categories-list map-search-tab-categories-list map-scroll-categories">
+                    <div class="search-tab-categories" ng-repeat="category in categories | limitTo:display_limit">
                         <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-unselected-container'" ng-click="setCategoryNameAsInputText(category)">
                             <div class="search-tab-category-inside-container">
                                 <img class="icon" ng-src="%%category.URL_icono_normal%%">
@@ -91,7 +91,20 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
+
+                <md-virtual-repeat-container id="horizontal-container" md-orient-horizontal="">
+                    <div md-virtual-repeat="category in categories">
+                        <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-unselected-container'" ng-click="setCategoryNameAsInputText(category)">
+                            <div class="search-tab-category-inside-container">
+                                <img class="icon" ng-src="%%category.URL_icono_normal%%">
+                            </div>
+                            <div class="search-tab-category-inside-container">
+                                <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                            </div>
+                        </div>
+                    </div>
+                </md-virtual-repeat-container>
             </div>
         </div>
 

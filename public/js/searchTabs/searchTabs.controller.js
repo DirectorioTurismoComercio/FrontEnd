@@ -205,7 +205,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             });
         };
 
-
+        $scope.display_limit = 5;
         $scope.clear = function () {
             event.target.value = '';
             switch (event.target.id) {
