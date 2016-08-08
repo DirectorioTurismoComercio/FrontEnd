@@ -1,6 +1,6 @@
 'use strict';
 angular.module('accountInfo')
-    .controller('AccountInfoController', function ($scope, $location, $http,
+    .controller('AccountInfoController', function ($scope, $location, $http, 
                                                    authenticationService, navigationService, siteInformationService, messageService, filterFilter, API_CONFIG, $mdDialog, $translate) {
 
         $scope.showRequiredFieldMessage = false;
@@ -9,6 +9,7 @@ angular.module('accountInfo')
         $scope.isChangingPassword = false;
         $scope.changePasswordSubmitted=false;
         $scope.personalInfoSubmitted=false;
+        
 
         authenticationService.getUserData($scope.usuario.token)
             .success(function (response) {
