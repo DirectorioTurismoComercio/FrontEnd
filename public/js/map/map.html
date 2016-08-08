@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="col-xs-3 image">
                                     <img class="img-responsive"
-                                         ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                         ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto?nocache=1%%"/>
                                 </div>
                             </div>
                             <div class="row">
@@ -92,7 +92,7 @@
                     <ul ng-if="isMobileDevice()" rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex" class="carousel"
                         ng-click="openDialogWindowPhotos()">
                         <li ng-repeat="photo in selectedSite.fotos" class="text-center">
-                            <img class="image" ng-src="%%photo.URLfoto%%"/>
+                            <img class="image" ng-src="%%photo.URLfoto?nocache=1%%"/>
                         </li>
                     </ul>
                     <carousel ng-if="!isMobileDevice()" images="selectedSite.fotos" image-click-event="openDialogWindowPhotos()">

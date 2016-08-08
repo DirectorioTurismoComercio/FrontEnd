@@ -151,7 +151,7 @@ angular.module('registerSite')
 
 
         function loadPhotoFromURL(urlPhoto, tipo) {
-
+            console.log(urlPhoto);
             $http({
                 method: 'GET',
                 url: urlPhoto,

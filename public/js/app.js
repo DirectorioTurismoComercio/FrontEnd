@@ -40,6 +40,14 @@
 
             $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
             $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+            
+            //$httpProvider.defaults.headers.common['Cache-Control'] = 'no-cache';
+            $httpProvider.defaults.cache = false;
+
+            if (!$httpProvider.defaults.headers.get) {
+            $httpProvider.defaults.headers.get = {};
+             }
+           // $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
 
         })
 })();
