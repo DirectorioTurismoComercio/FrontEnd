@@ -103,7 +103,6 @@
 }
 
 
-
 .category-scroll-container{
     width: 100%;
     background-color: #97D3E8;
@@ -113,8 +112,6 @@
 }
 
 .page-wrap {
-    -ms-touch-action: pan-y;
-    -ms-overflow-style: none !important;
     width: 80%;
 
 }
@@ -136,7 +133,17 @@
     align-items: center;
 }
 
+.search-tab-category-inside-container-scroll2{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
 
+.subcategory-container-map{
+    background-color: #0A3C5A;
+    width: 100%;
+    height: 100px;
+}
 
 
 
