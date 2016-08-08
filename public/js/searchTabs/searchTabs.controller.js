@@ -64,7 +64,13 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         });
 
         $scope.setCategoryNameAsInputText=function(category){
-               $scope.result=category.nombre ;
+                if(category.isSelected){
+                    category.isSelected=false;
+                    $scope.result='';
+                }else{
+                    $scope.result=category.nombre;
+                }
+
         }
 
         $scope.doSearchByKeyWord = function (result) {
