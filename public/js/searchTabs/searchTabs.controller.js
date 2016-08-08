@@ -2,7 +2,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
     .controller('searchTabsController', function ($scope, geolocation, messageService, $timeout,
                                                   siteAndTownSaverService, CUNDINAMARCA_COORDS,
                                                   MapService, $translate, KEYWORD_SEARCH_SECTION,
-                                                  ROUTE_SEARCH_SECTION, $window, $route) {
+                                                  ROUTE_SEARCH_SECTION, $window, categories) {
         $scope.KEYWORD_SEARCH_SECTION = KEYWORD_SEARCH_SECTION;
         $scope.ROUTE_SEARCH_SECTION = ROUTE_SEARCH_SECTION;
         $scope.isSearchFormVisible = false;
@@ -24,6 +24,14 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $timeout(function () {
             $scope.showSelectedSection(siteAndTownSaverService.openSection);
         }, 0);
+
+        categories.getCategories().then(function (response) {
+            $scope.categories = response;
+            setAllCategoriesAsUnselected();
+
+        }).catch(function (error) {
+            console.log("Hubo un error", error);
+        });
 
         $scope.showSelectedSection = function (section) {
             switch (section) {
@@ -49,10 +57,19 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             calldoSearch(args.keyword);
         });
 
+        $scope.$watch('result', function() {
+            try{
+                setIsSelectedCategory();
+            }catch(e){}
+        });
+
+        $scope.setCategoryNameAsInputText=function(category){
+               $scope.result=category.nombre ;
+        }
+
         $scope.doSearchByKeyWord = function (result) {
             calldoSearch(result);
         };
-
 
         $scope.calculateRoute = function () {
             if ($scope.searchedRoute.origin == undefined) {
@@ -66,6 +83,22 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 $scope.showRoute();
             }
         };
+
+        function setAllCategoriesAsUnselected(){
+            for (var i = 0; i < $scope.categories.length; i++) {
+                $scope.categories[i].isSelected = false;
+            }
+        }
+
+        function setIsSelectedCategory(){
+            for(var i = 0; i < $scope.categories.length; i++){
+                if($scope.result==$scope.categories[i].nombre){
+                    $scope.categories[i].isSelected = true;
+                }else{
+                    $scope.categories[i].isSelected = false;
+                }
+            }
+        }
 
         function getViewPortSize() {
             $scope.isMobile = $window.innerWidth < 992;
