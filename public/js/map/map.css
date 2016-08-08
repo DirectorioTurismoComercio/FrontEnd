@@ -4,6 +4,7 @@ prev.search-results .map {
 
 .search-results .icon {
     width: 40px;
+    margin-right: 10px;
 }
 
 .search-results .angular-google-map-container {

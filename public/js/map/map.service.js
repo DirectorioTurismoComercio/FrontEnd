@@ -93,11 +93,13 @@ angular.module('map')
         }
 
         function addMarkerWithCategoryIcon(position, label, categorySite) {
+            var generalIcon = getCategoryGeneralIcon(categorySite);
             var normalIcon = getCategoryNormalIcon(categorySite);
             var lightedIcon = getCategoryLightedIcon(categorySite);
             var marker = addMarker(position, label, normalIcon);
 
             marker.normalIcon = normalIcon;
+            marker.generalIcon = generalIcon;
             marker.lightedIcon = lightedIcon;
 
             return marker;
@@ -106,6 +108,12 @@ angular.module('map')
         function getCategoryNormalIcon(categorySite) {
             var iconSize=60;
             var url = categorySite.categoria.URL_icono_normal;
+            return createIcon(url, iconSize);
+        }
+
+         function getCategoryGeneralIcon(categorySite) {
+            var iconSize=60;
+            var url = categorySite.categoria.URL_icono_general;
             return createIcon(url, iconSize);
         }
 

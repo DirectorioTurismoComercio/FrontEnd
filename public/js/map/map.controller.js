@@ -227,8 +227,8 @@ angular.module('map')
                     var site = sites[i];
                     var position = MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud));
                     var marker = MapService.addMarkerWithCategoryIcon(position, site.nombre, filterFilter(site.categorias,{tipo:1})[0]);
-                    site.categoryicon=marker.normalIcon.url;
-
+                    site.categoryicon=marker.generalIcon.url;
+                    
                     SiteMarkerService.addSiteMarker(site, marker, $scope.showSiteDetail);
                 }
             }
