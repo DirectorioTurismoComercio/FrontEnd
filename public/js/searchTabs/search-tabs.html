@@ -80,39 +80,23 @@
                 </div>
             </div>
 
-            <!--Categories List-->
-            <!--<div class="row categories-map-container" >
-                <div class="row search-tab-categories-list map-search-tab-categories-list map-scroll-categories">
-                    <div class="search-tab-categories" ng-repeat="category in categories | limitTo:display_limit">
-                        <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-unselected-container'" ng-click="setCategoryNameAsInputText(category)">
-                            <div class="search-tab-category-inside-container">
-                                <img class="icon" ng-src="%%category.URL_icono_normal%%">
-                            </div>
-                            <div class="search-tab-category-inside-container">
-                                <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-
-            <div class="page-wrap">
-                <div class="horizontal-slide">
-                    <div ng-repeat="category in categories" class="item">
-                        <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-unselected-container'"
-                             ng-click="setCategoryNameAsInputText(category)">
-                            <div class="search-tab-category-inside-container">
-                                <img class="icon" ng-src="%%category.URL_icono_normal%%">
-                            </div>
-                            <div class="search-tab-category-inside-container">
-                                <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+            <div class="category-scroll-container">
+                <div class="page-wrap">
+                    <div class="horizontal-slide">
+                        <div ng-repeat="category in categories" class="item">
+                            <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-unselected-container'"
+                                 ng-click="setCategoryNameAsInputText(category)">
+                                <div class="search-tab-category-inside-container-scroll">
+                                    <img class="icon" ng-src="%%category.URL_icono_normal%%">
+                                </div>
+                                <div class="search-tab-category-inside-container-scroll">
+                                    <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
 
         </div>
 

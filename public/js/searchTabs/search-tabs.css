@@ -104,12 +104,19 @@
 
 
 
-
+.category-scroll-container{
+    width: 100%;
+    background-color: #97D3E8;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
 
 .page-wrap {
     -ms-touch-action: pan-y;
     -ms-overflow-style: none !important;
-    width: 80%; // required for H scrolling
+    width: 80%;
+
 }
 
 .horizontal-slide {
@@ -123,18 +130,11 @@
     float: none;
 }
 
-.item {
-    width: 100px;
-    height: 50px;
-    margin: 2px;
-    background-color: blue;
-    display: inline-block;
+.search-tab-category-inside-container-scroll{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
 }
-
-.item.selected {
-    background-color: red !important;
-}
-
 
 
 
