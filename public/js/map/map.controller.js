@@ -106,7 +106,7 @@ angular.module('map')
         };
         
         $scope.subcategorySearch=function(subcategoryName){
-            console.log("lo que esta llegando a la funcion subcategory search", subcategoryName);
+            searchingByKeyword(subcategoryName);
         }
 
         $scope.showRouteToSite = function (site) {
@@ -142,6 +142,21 @@ angular.module('map')
             }
 
         });
+
+        function searchingByKeyword(keyWord){
+            $scope.resulListInCompactMode = false;
+            MapService.clearRoute();
+            if (keyWord != undefined) {
+                $scope.hideSiteDetail();
+                $scope.loading = true;
+                centerMapOnSearchedTown();
+                MapService.clearMarkers();
+                drawSitesByKeyWord(keyWord);
+            }
+            else {
+                messageService.showErrorMessage("Por favor ingrese un criterio de busqueda");
+            }
+        }
 
         function setCundinamarcaPolygon() {
             new google.maps.Polygon({
