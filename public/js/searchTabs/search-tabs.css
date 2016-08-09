@@ -33,16 +33,22 @@
     border-bottom: none;
 }
 
+.map-search-tab-categories-list{
+    background-color: #97D3E8;
+    margin-top: 0% !important;
+}
+
 .search-tab-categories-list{
     display: flex;
     flex-flow: row;
     justify-content: center;
     margin-top: 1%;
-    overflow-x: auto;
+    /*overflow-x: auto;*/
 }
 
 .search-tab-categories{
     display: inline-block;
+    float: none;
 }
 
 .search-tab-category-container{
@@ -52,6 +58,13 @@
     height: 100px;
     width: 100px;
     padding: 5px 1px 0px 1px;
+}
+
+.categories-map-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background-color: #97D3E8;
 }
 
 .search-tab-category-selected-container{
@@ -81,6 +94,80 @@
 .search-tab-category-unselected-label{
     color: #0071BC;
 }
+
+.map-scroll-categories{
+    display: flex;
+    flex-flow: row;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+
+.category-scroll-container{
+    width: 100%;
+    background-color: #97D3E8;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.page-wrap {
+    width: 80%;
+
+}
+
+.horizontal-slide {
+    white-space: nowrap;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-slide .item {
+    display: inline-block;
+    float: none;
+}
+
+.search-tab-category-inside-container-scroll{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.search-tab-category-inside-container-scroll2{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.subcategory-container-map{
+    background-color: #0E5072;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.subcategory-label-border{
+    border-right: solid 2px #f2f2f2;
+}
+
+.subcategory-label-container-map{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.subcategory-map-label{
+     color: #A9EDFF;
+}
+
+.subcategory-map-selected-label{
+    color: #f2f2f2;
+    border-bottom: 2px solid #FDE64E;
+}
+
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {

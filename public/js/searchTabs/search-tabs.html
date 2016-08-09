@@ -40,7 +40,8 @@
             <!--Categories List-->
             <div class="row search-tab-categories-list">
                 <div class="search-tab-categories" ng-repeat="category in categories">
-                    <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-unselected-container'" ng-click="setCategoryNameAsInputText(category)">
+                    <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-unselected-container'"
+                         ng-click="setCategoryNameAsInputText(category)">
                         <div class="search-tab-category-inside-container">
                             <img class="icon" ng-src="%%category.URL_icono_normal%%">
                         </div>
@@ -60,21 +61,63 @@
         </div>
 
         <!--SearchTab Map Desktop-->
-        <div ng-show="isonmap" class="row tab-content keyword-search is-desktop">
-            <div class="col-xs-4 col-xs-offset-1 input">
-                <browser-input-field isonmapview="true" result="result" do-search="doSearch(result)"
-                                     show-route="showRoute()"></browser-input-field>
+        <div ng-show="isonmap">
+            <div class="row">
+                <div class="row tab-content keyword-search is-desktop">
+                    <div class="col-xs-4 col-xs-offset-1 input">
+                        <browser-input-field isonmapview="true" result="result" do-search="doSearch(result)"
+                                             show-route="showRoute()"></browser-input-field>
+                    </div>
+                    <div class="col-xs-1 input">
+                        <p class="searchMapTip" translate="TABS_CONSTANTS.IN_TIP"></p>
+                    </div>
+                    <div class="col-xs-4 input">
+                        <drop-down-town-directive></drop-down-town-directive>
+                    </div>
+                    <div class="col-xs-1 col-xs-offset-1 route-map-no-left-padding  input" ng-click="doSearch(result)">
+                        <img class="iconDoSearchMap" src="./images/armar-ruta.png">
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-1 input">
-                <p class="searchMapTip" translate="TABS_CONSTANTS.IN_TIP"></p>
-            </div>
-            <div class="col-xs-4 input">
-                <drop-down-town-directive></drop-down-town-directive>
-            </div>
-            <div class="col-xs-1 col-xs-offset-1 route-map-no-left-padding  input" ng-click="doSearch(result)">
-                <img class="iconDoSearchMap" src="./images/armar-ruta.png">
+
+            <!--Categories List-->
+            <div class="category-scroll-container">
+                <div class="page-wrap">
+                    <div class="horizontal-slide">
+                        <div ng-repeat="category in categories" class="item">
+                            <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-unselected-container'"
+                                 ng-click="setCategoryNameAsInputText(category)">
+                                <div class="search-tab-category-inside-container-scroll">
+                                    <img class="icon" ng-src="%%category.URL_icono_normal%%">
+                                </div>
+                                <div class="search-tab-category-inside-container-scroll2">
+                                    <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!--Subcategories List-->
+        <div ng-show="isSubcategoriesVisible" class="subcategory-container-map">
+            <div class="page-wrap">
+                <div class="horizontal-slide">
+                    <div ng-repeat="subcategory in subcategories" class="item">
+                        <div ng-click="selectSubcategory(subcategory)">
+                            <div class="subcategory-label-container-map">
+                                <div class="subcategory-label-border">
+                                    <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%subcategory.nombre%%</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <!--SearchTab Map mobile-->
         <div ng-show="isonmap" class="col-xs-12 tab-content keyword-search is-mobile">

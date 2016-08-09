@@ -360,6 +360,10 @@ prev.search-results .map {
     background-image: url("../../images/icons/site-detail/flecha-atras.png") !important;
 }
 
+.map-container-no-padding{
+    padding: 0px !important;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
