@@ -105,26 +105,8 @@
 
 .category-scroll-container{
     width: 100%;
+    height: auto;
     background-color: #97D3E8;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-}
-
-.page-wrap {
-    width: 80%;
-
-}
-
-.horizontal-slide {
-    white-space: nowrap;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-}
-
-.horizontal-slide .item {
-    display: inline-block;
-    float: none;
 }
 
 .search-tab-category-inside-container-scroll{
@@ -142,9 +124,7 @@
 .subcategory-container-map{
     background-color: #0E5072;
     width: 100%;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
+    height: auto;
 }
 
 .subcategory-label-border{
@@ -168,6 +148,13 @@
     border-bottom: 2px solid #FDE64E;
 }
 
+.carrusel-categorias{
+    width: 100px !important;
+}
+
+.categories-scroll-no-margin-bottom{
+    margin-bottom: 0px !important;
+}
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
