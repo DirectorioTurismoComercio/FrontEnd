@@ -24,6 +24,8 @@ angular.module('siteAndTownSaver', [])
             route: {},
             keyword: undefined
         };
+        
+        var selectedCategory=undefined;
 
         return {
             setCurrentSearchedSite: setCurrentSearchedSite,
@@ -47,7 +49,9 @@ angular.module('siteAndTownSaver', [])
             openSection: openSection,
             searchedRoute: searchedRoute,
             searchedKeyword: searchedKeyword,
-            sectionData: sectionData
+            sectionData: sectionData,
+            setSelectedCategory:setSelectedCategory,
+            getSelectedCategory:getSelectedCategory
         };
 
         function setCurrentSearchedSite(site) {
@@ -131,4 +135,13 @@ angular.module('siteAndTownSaver', [])
             searchedQuery = undefined;
             searchedRoute = undefined;
         }
+        
+        function setSelectedCategory(category){
+            selectedCategory=category;
+        }
+
+        function getSelectedCategory(){
+            return selectedCategory;
+        }
+        
     });

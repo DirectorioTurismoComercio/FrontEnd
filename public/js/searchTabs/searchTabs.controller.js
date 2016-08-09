@@ -24,10 +24,14 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $timeout(function () {
             $scope.showSelectedSection(siteAndTownSaverService.openSection);
         }, 0);
-
         categories.getCategories().then(function (response) {
             $scope.categories = response;
             setAllAsUnselected($scope.categories);
+            if($scope.isonmap){
+                try {
+                    setHomeCategorySelected();
+                }catch(e){}
+            }
 
         }).catch(function (error) {
             console.log("Hubo un error", error);
@@ -105,6 +109,15 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             setAllAsUnselected($scope.subcategories);
         }
 
+        function setHomeCategorySelected(){
+            for(var i=0; i<$scope.categories.length;i++){
+                if($scope.categories[i].id==siteAndTownSaverService.getSelectedCategory().id){
+                    $scope.categories[i].isSelected=true;
+                    getSubcategories( $scope.categories[i].id);
+                }
+            }
+        }
+
         function setSubcategories(categoryId){
             if($scope.isonmap){
                 getSubcategories(categoryId);
@@ -133,6 +146,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             for(var i = 0; i < $scope.categories.length; i++){
                 if($scope.result==$scope.categories[i].nombre){
                     $scope.categories[i].isSelected = true;
+                    siteAndTownSaverService.setSelectedCategory($scope.categories[i]);
                     setSubcategories($scope.categories[i].id);
                 }else{
                     $scope.categories[i].isSelected = false;
