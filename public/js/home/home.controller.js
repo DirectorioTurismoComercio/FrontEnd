@@ -6,6 +6,7 @@ angular.module('home')
                                             messageService, MapService) {
 
         siteAndTownSaverService.resetSearchAndRoute();
+        siteAndTownSaverService.setSelectedCategory(undefined);
 
         $scope.doSearch = function (result) {
             if (result != undefined) {
