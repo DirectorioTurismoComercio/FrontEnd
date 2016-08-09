@@ -100,8 +100,21 @@
             </div>
         </div>
 
+        <!--Subcategories List-->
         <div ng-show="isSubcategoriesVisible" class="subcategory-container-map">
-
+            <div class="page-wrap">
+                <div class="horizontal-slide">
+                    <div ng-repeat="subcategory in subcategories" class="item">
+                        <div>
+                            <div class="subcategory-label-container-map">
+                                <div class="subcategory-label-border">
+                                    <label class="search-tab-category-label subcategory-map-label">%%subcategory.nombre%%</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 

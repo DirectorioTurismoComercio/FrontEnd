@@ -140,11 +140,28 @@
 }
 
 .subcategory-container-map{
-    background-color: #0A3C5A;
+    background-color: #0E5072;
     width: 100%;
-    height: 100px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
 }
 
+.subcategory-label-border{
+    border-right: solid 2px #f2f2f2;
+}
+
+.subcategory-label-container-map{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.subcategory-map-label{
+    color: #A9EDFF;
+}
 
 
 /* Extra small devices (phones, less than 768px) */
