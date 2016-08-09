@@ -27,7 +27,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         categories.getCategories().then(function (response) {
             $scope.categories = response;
-            setAllCategoriesAsUnselected();
+            setAllAsUnselected($scope.categories);
 
         }).catch(function (error) {
             console.log("Hubo un error", error);
@@ -73,7 +73,14 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                     setSubcategories(category.id);
                 }
 
-        }
+        };
+        
+        $scope.selectSubcategory=function(subcategory){
+            if(!subcategory.isSelected){
+                setAllAsUnselected($scope.subcategories);
+                subcategory.isSelected=true;
+            }
+        };
 
         $scope.doSearchByKeyWord = function (result) {
             calldoSearch(result);
@@ -101,6 +108,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         function getSubcategories(categoryId) {
             categories.getSubcategories(categoryId).then(function (response) {
                 $scope.subcategories=response;
+                setAllAsUnselected($scope.subcategories);
                 $scope.isSubcategoriesVisible=true;
             }).catch(function (error) {
                 console.log("hubo un error", error);
@@ -108,11 +116,12 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         }
 
 
-        function setAllCategoriesAsUnselected(){
-            for (var i = 0; i < $scope.categories.length; i++) {
-                $scope.categories[i].isSelected = false;
+        function setAllAsUnselected(object){
+            for (var i = 0; i < object.length; i++) {
+                object[i].isSelected = false;
             }
         }
+
 
         function setIsSelectedCategory(){
             for(var i = 0; i < $scope.categories.length; i++){

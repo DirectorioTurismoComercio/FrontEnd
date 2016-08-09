@@ -160,7 +160,12 @@
 }
 
 .subcategory-map-label{
-    color: #A9EDFF;
+     color: #A9EDFF;
+}
+
+.subcategory-map-selected-label{
+    color: #f2f2f2;
+    border-bottom: 2px solid #FDE64E;
 }
 
 

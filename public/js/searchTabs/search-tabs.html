@@ -105,10 +105,10 @@
             <div class="page-wrap">
                 <div class="horizontal-slide">
                     <div ng-repeat="subcategory in subcategories" class="item">
-                        <div>
+                        <div ng-click="selectSubcategory(subcategory)">
                             <div class="subcategory-label-container-map">
                                 <div class="subcategory-label-border">
-                                    <label class="search-tab-category-label subcategory-map-label">%%subcategory.nombre%%</label>
+                                    <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%subcategory.nombre%%</label>
                                 </div>
                             </div>
                         </div>
