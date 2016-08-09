@@ -84,11 +84,11 @@
 
             <!--Categories List-->
             <div class="row category-scroll-container">
-                <div class="col-xs-1 arrow-category-map-container">
+                <div class="col-xs-1 arrow-category-map-container" ng-click="previousSlide('category')">
                     <img class="icon" src=./images/icons/site-detail/flecha-atras-azul.png>
                 </div>
                 <div class="col-xs-10">
-                    <ul rn-carousel class="image"
+                    <ul rn-carousel  rn-carousel-index="carouselIndexCategory" class="image"
                         ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''"
                         style="height: 100px">
                         <li ng-repeat="category in categories" class="carrusel-categorias">
@@ -104,7 +104,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-xs-1 arrow-category-map-container">
+                <div class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('category')">
                     <img class="icon" src=./images/icons/site-detail/flecha-adelante-azul.png>
                 </div>
             </div>
@@ -112,11 +112,11 @@
 
         <!--Subcategories List-->
         <div ng-show="isSubcategoriesVisible" class=" row subcategory-container-map">
-            <div class="col-xs-1 arrow-category-map-container">
+            <div class="col-xs-1 arrow-category-map-container" ng-click="previousSlide('subCategory')">
                 <img class="icon" src=./images/icons/site-detail/flecha-atras.png>
             </div>
             <div class="col-xs-10">
-                <ul rn-carousel class="image" style="height: 60px">
+                <ul rn-carousel rn-carousel-index="carouselIndexSubcategory" class="image" style="height: 60px">
                     <li ng-repeat="subcategory in subcategories" class="carrusel-categorias">
                         <div ng-click="selectSubcategory(subcategory)">
                             <div class="subcategory-label-container-map subcategory-label-border">
@@ -128,7 +128,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-xs-1 arrow-category-map-container">
+            <div class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('subCategory')">
                 <img class="icon" src=./images/icons/site-detail/flecha-adelante.png>
             </div>
         </div>

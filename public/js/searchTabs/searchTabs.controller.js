@@ -9,6 +9,9 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.isRouteFormVisible = false;
         $scope.loadingCurrentPosition = false;
         $scope.searchedRoute = siteAndTownSaverService.searchedRoute;
+        $scope.carouselIndexCategory=0;
+        $scope.carouselIndexSubcategory=0;
+
         var initializedFields = false;
         var originRouteInput;
         var destinationRouteInput;
@@ -72,6 +75,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                     category.isSelected=false;
                     $scope.result='';
                     $scope.isSubcategoriesVisible=false;
+                    $scope.carouselIndexSubcategory=0;
                 }else{
                     $scope.result=category.nombre;
                     setSubcategories(category.id);
@@ -107,7 +111,27 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         
         $scope.clearSubcategories=function(){
             setAllAsUnselected($scope.subcategories);
-        }
+        };
+
+        $scope.nextSlide=function(object){
+            if(object=="category"){
+                $scope.carouselIndexCategory=$scope.carouselIndexCategory+1;
+            }
+
+            if(object=="subCategory"){
+                $scope.carouselIndexSubcategory=$scope.carouselIndexSubcategory+1;
+            }
+        };
+
+        $scope.previousSlide=function(object){
+            if(object=="category"){
+                $scope.carouselIndexCategory=$scope.carouselIndexCategory-1;
+            }
+            if(object=="subCategory"){
+                $scope.carouselIndexSubcategory=$scope.carouselIndexSubcategory-1;
+
+            }
+        };
 
         function setHomeCategorySelected(){
             for(var i=0; i<$scope.categories.length;i++){
@@ -151,6 +175,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 }else{
                     $scope.categories[i].isSelected = false;
                     $scope.isSubcategoriesVisible=false;
+                    $scope.carouselIndexSubcategory=0;
                 }
             }
         }
