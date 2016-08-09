@@ -110,8 +110,8 @@
                 <ul rn-carousel class="image" style="height: 60px">
                     <li ng-repeat="subcategory in subcategories" class="carrusel-categorias">
                         <div ng-click="selectSubcategory(subcategory)">
-                            <div class="subcategory-label-container-map">
-                                <div class="subcategory-label-border">
+                            <div class="subcategory-label-container-map subcategory-label-border">
+                                <div>
                                     <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%subcategory.nombre%%</label>
                                 </div>
                             </div>
