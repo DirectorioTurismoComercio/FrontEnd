@@ -16,8 +16,8 @@
 
         </div>
         <div ng-show="!isShowingSiteDetail || isOnSitedetails">
-            <search-tabs ng-show="!isOnSitedetails" isonmap="true" result="result" do-search="doSearch(result)"
-                         show-route="showRoute()"></search-tabs>
+            <search-tabs ng-show="!isOnSitedetails" isonmap="true" result="result" subcategoryname="subcategoryname" do-search="doSearch(result)"
+                         show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
             <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode || isOnSitedetails">
                 <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
             </div>

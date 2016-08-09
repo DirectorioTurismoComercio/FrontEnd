@@ -79,6 +79,8 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             if(!subcategory.isSelected){
                 setAllAsUnselected($scope.subcategories);
                 subcategory.isSelected=true;
+                $scope.subcategoryname=subcategory.nombre;
+                $scope.subcategorySearch($scope.subcategoryname);
             }
         };
 

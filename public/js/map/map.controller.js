@@ -102,6 +102,7 @@ angular.module('map')
         };
 
         $scope.doSearch = function (result) {
+            console.log("la palabra que esta buscando", result);
             $scope.resulListInCompactMode = false;
             MapService.clearRoute();
             if (result != undefined) {
@@ -115,6 +116,10 @@ angular.module('map')
                 messageService.showErrorMessage("Por favor ingrese un criterio de busqueda");
             }
         };
+        
+        $scope.subcategorySearch=function(subcategoryName){
+            console.log("lo que esta llegando a la funcion subcategory search", subcategoryName);
+        }
 
         $scope.showRouteToSite = function (site) {
             $scope.loading = true;

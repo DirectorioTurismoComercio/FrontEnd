@@ -7,8 +7,10 @@ angular.module('searchTabs')
             scope:{
                 isonmap:'=',
                 result:'=',
+                subcategoryname:'=',
                 doSearch:'&',
-                showRoute:'&'
+                showRoute:'&',
+                subcategorySearch:'='
             }
         }
     }]);
