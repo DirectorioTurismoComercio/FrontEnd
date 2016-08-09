@@ -96,18 +96,18 @@
     color: #0071BC;
 }
 
-.map-scroll-categories{
-    display: flex;
-    flex-flow: row;
-    overflow-x: scroll;
-    white-space: nowrap;
-}
-
-
 .category-scroll-container{
+    display: flex;
+    flex-flow: row wrap;
     width: 100%;
     height: auto;
     background-color: #97D3E8;
+}
+
+.arrow-category-map-container{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
 }
 
 .search-tab-category-map-container{
@@ -116,6 +116,8 @@
 }
 
 .subcategory-container-map{
+    display: flex;
+    flex-flow: row wrap;
     background-color: #0E5072;
     width: 100%;
     height: auto;

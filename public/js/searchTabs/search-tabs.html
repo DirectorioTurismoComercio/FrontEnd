@@ -84,7 +84,10 @@
 
             <!--Categories List-->
             <div class="row category-scroll-container">
-                <div class="col-xs-10 col-xs-offset-1">
+                <div class="col-xs-1 arrow-category-map-container">
+                    <img class="icon" src=./images/icons/site-detail/flecha-atras-azul.png>
+                </div>
+                <div class="col-xs-10">
                     <ul rn-carousel class="image"
                         ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''"
                         style="height: 100px">
@@ -101,12 +104,18 @@
                         </li>
                     </ul>
                 </div>
+                <div class="col-xs-1 arrow-category-map-container">
+                    <img class="icon" src=./images/icons/site-detail/flecha-adelante-azul.png>
+                </div>
             </div>
         </div>
 
         <!--Subcategories List-->
         <div ng-show="isSubcategoriesVisible" class=" row subcategory-container-map">
-            <div class="col-xs-10 col-xs-offset-1">
+            <div class="col-xs-1 arrow-category-map-container">
+                <img class="icon" src=./images/icons/site-detail/flecha-atras.png>
+            </div>
+            <div class="col-xs-10">
                 <ul rn-carousel class="image" style="height: 60px">
                     <li ng-repeat="subcategory in subcategories" class="carrusel-categorias">
                         <div ng-click="selectSubcategory(subcategory)">
@@ -118,6 +127,9 @@
                         </div>
                     </li>
                 </ul>
+            </div>
+            <div class="col-xs-1 arrow-category-map-container">
+                <img class="icon" src=./images/icons/site-detail/flecha-adelante.png>
             </div>
         </div>
 
