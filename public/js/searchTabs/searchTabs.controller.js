@@ -100,6 +100,10 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 $scope.showRoute();
             }
         };
+        
+        $scope.clearSubcategories=function(){
+            setAllAsUnselected($scope.subcategories);
+        }
 
         function setSubcategories(categoryId){
             if($scope.isonmap){
