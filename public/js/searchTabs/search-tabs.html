@@ -83,19 +83,18 @@
             </div>
 
             <!--Categories List-->
-
             <div class="row category-scroll-container">
                 <div class="col-xs-10 col-xs-offset-1">
                     <ul rn-carousel class="image"
                         ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''"
                         style="height: 100px">
                         <li ng-repeat="category in categories" class="carrusel-categorias">
-                            <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-unselected-container'"
+                            <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-map-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-map-container search-tab-category-unselected-container'"
                                  ng-click="setCategoryNameAsInputText(category)">
-                                <div class="search-tab-category-inside-container-scroll">
+                                <div>
                                     <img class="icon" ng-src="%%category.URL_icono_general%%">
                                 </div>
-                                <div class="search-tab-category-inside-container-scroll2">
+                                <div class="search-tab-category-inside-container">
                                     <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
                                 </div>
                             </div>

@@ -58,6 +58,7 @@
     height: 100px;
     width: 100px;
     padding: 5px 1px 0px 1px;
+    align-items: center;
 }
 
 .categories-map-container{
@@ -109,16 +110,9 @@
     background-color: #97D3E8;
 }
 
-.search-tab-category-inside-container-scroll{
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-}
-
-.search-tab-category-inside-container-scroll2{
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
+.search-tab-category-map-container{
+    width: 95px !important;
+    padding: 5px 3px 0px 1px !important;
 }
 
 .subcategory-container-map{
