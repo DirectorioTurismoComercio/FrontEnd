@@ -102,19 +102,7 @@ angular.module('map')
         };
 
         $scope.doSearch = function (result) {
-            console.log("la palabra que esta buscando", result);
-            $scope.resulListInCompactMode = false;
-            MapService.clearRoute();
-            if (result != undefined) {
-                $scope.hideSiteDetail();
-                $scope.loading = true;
-                centerMapOnSearchedTown();
-                MapService.clearMarkers();
-                drawSitesByKeyWord(result);
-            }
-            else {
-                messageService.showErrorMessage("Por favor ingrese un criterio de busqueda");
-            }
+           searchingByKeyword(result);
         };
         
         $scope.subcategorySearch=function(subcategoryName){
