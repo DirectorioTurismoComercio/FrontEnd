@@ -85,7 +85,7 @@
             <!--Categories List-->
             <div class="row category-scroll-container">
                 <div class="col-xs-1 arrow-category-map-container" ng-click="previousSlide('category')">
-                    <img class="icon" src=./images/icons/site-detail/flecha-atras-azul.png>
+                    <img ng-show="carouselIndexCategory>0" class="icon" src=./images/icons/site-detail/flecha-atras-azul.png>
                 </div>
                 <div class="col-xs-10">
                     <ul rn-carousel  rn-carousel-index="carouselIndexCategory" class="image"
@@ -104,8 +104,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('category')">
-                    <img class="icon" src=./images/icons/site-detail/flecha-adelante-azul.png>
+                <div  class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('category')">
+                    <img ng-show="carouselIndexCategory<categories.length-1" class="icon" src=./images/icons/site-detail/flecha-adelante-azul.png>
                 </div>
             </div>
         </div>
@@ -113,7 +113,7 @@
         <!--Subcategories List-->
         <div ng-show="isSubcategoriesVisible" class=" row subcategory-container-map">
             <div class="col-xs-1 arrow-category-map-container" ng-click="previousSlide('subCategory')">
-                <img class="icon" src=./images/icons/site-detail/flecha-atras.png>
+                <img ng-show="carouselIndexSubcategory>0" class="icon" src=./images/icons/site-detail/flecha-atras.png>
             </div>
             <div class="col-xs-10">
                 <ul rn-carousel rn-carousel-index="carouselIndexSubcategory" class="image" style="height: 60px">
@@ -129,7 +129,7 @@
                 </ul>
             </div>
             <div class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('subCategory')">
-                <img class="icon" src=./images/icons/site-detail/flecha-adelante.png>
+                <img ng-show="carouselIndexSubcategory<subcategories.length-1" class="icon" src=./images/icons/site-detail/flecha-adelante.png>
             </div>
         </div>
 
