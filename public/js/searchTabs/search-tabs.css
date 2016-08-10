@@ -152,6 +152,19 @@
     margin-bottom: 0px !important;
 }
 
+.mobile-category-top-margin-container{
+    margin-top: 1%
+}
+
+.category-container-mobile-padding{
+    padding: 0px !important;
+}
+
+.mobile-category-icon{
+    height: 50px !important;
+    width: auto !important;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
 }

@@ -29,17 +29,18 @@
                     </div>
                 </div>
 
-                <!--Categories List Mobile Desktop-->
-                <div ng-if="isMobile" class="row category-scroll-container" style="margin-top: 1%">
-                    <div class="col-xs-12" style="padding: 0px !important;">
-                        <ul rn-carousel  rn-carousel-index="carouselIndexCategory" class="image"
+                <!--Categories List Mobile-->
+                <div ng-if="isMobile" class="row category-scroll-container mobile-category-top-margin-container">
+                    <div class="col-xs-12 category-container-mobile-padding">
+                        <ul rn-carousel rn-carousel-index="carouselIndexCategory" class="image"
                             ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''"
                             style="height: 100px">
                             <li ng-repeat="category in categories" class="carrusel-categorias">
                                 <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-map-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-map-container search-tab-category-unselected-container'"
                                      ng-click="setCategoryNameAsInputText(category)">
                                     <div>
-                                        <img class="icon" style="height: 50px !important;" ng-src="%%category.URL_icono_general%%">
+                                        <img class="icon mobile-category-icon"
+                                             ng-src="%%category.URL_icono_general%%">
                                     </div>
                                     <div class="search-tab-category-inside-container">
                                         <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
@@ -105,13 +106,14 @@
                 </div>
             </div>
 
-            <!--Categories List-->
-            <div class="row category-scroll-container">
+            <!--Categories List Desktop-->
+            <div ng-show="!isMobile" class="row category-scroll-container">
                 <div class="col-xs-1 arrow-category-map-container" ng-click="previousSlide('category')">
-                    <img ng-show="carouselIndexCategory>0" class="icon" src=./images/icons/site-detail/flecha-atras-azul.png>
+                    <img ng-show="carouselIndexCategory>0" class="icon"
+                         src=./images/icons/site-detail/flecha-atras-azul.png>
                 </div>
                 <div class="col-xs-10">
-                    <ul rn-carousel  rn-carousel-index="carouselIndexCategory" class="image"
+                    <ul rn-carousel rn-carousel-index="carouselIndexCategory" class="image"
                         ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''"
                         style="height: 100px">
                         <li ng-repeat="category in categories" class="carrusel-categorias">
@@ -127,14 +129,15 @@
                         </li>
                     </ul>
                 </div>
-                <div  class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('category')">
-                    <img ng-show="carouselIndexCategory<categories.length-1" class="icon" src=./images/icons/site-detail/flecha-adelante-azul.png>
+                <div class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('category')">
+                    <img ng-show="carouselIndexCategory<categories.length-1" class="icon"
+                         src=./images/icons/site-detail/flecha-adelante-azul.png>
                 </div>
             </div>
         </div>
 
-        <!--Subcategories List-->
-        <div ng-show="isSubcategoriesVisible" class=" row subcategory-container-map">
+        <!--Subcategories List Desktop-->
+        <div ng-show="isSubcategoriesVisible && !isMobile" class=" row subcategory-container-map">
             <div class="col-xs-1 arrow-category-map-container" ng-click="previousSlide('subCategory')">
                 <img ng-show="carouselIndexSubcategory>0" class="icon" src=./images/icons/site-detail/flecha-atras.png>
             </div>
@@ -152,7 +155,8 @@
                 </ul>
             </div>
             <div class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('subCategory')">
-                <img ng-show="carouselIndexSubcategory<subcategories.length-1" class="icon" src=./images/icons/site-detail/flecha-adelante.png>
+                <img ng-show="carouselIndexSubcategory<subcategories.length-1" class="icon"
+                     src=./images/icons/site-detail/flecha-adelante.png>
             </div>
         </div>
 
@@ -166,6 +170,48 @@
                                              show-route="showRoute()"></browser-input-field>
                     </div>
                 </div>
+
+                <!--Categories List mobile-->
+                <div ng-if="isMobile" class="row category-scroll-container mobile-category-top-margin-container">
+                    <div class="col-xs-12 category-container-mobile-padding">
+                        <ul rn-carousel rn-carousel-index="carouselIndexCategory" class="image"
+                            ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''"
+                            style="height: 100px">
+                            <li ng-repeat="category in categories" class="carrusel-categorias">
+                                <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-map-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-map-container search-tab-category-unselected-container'"
+                                     ng-click="setCategoryNameAsInputText(category)">
+                                    <div>
+                                        <img class="icon mobile-category-icon"
+                                             ng-src="%%category.URL_icono_general%%">
+                                    </div>
+                                    <div class="search-tab-category-inside-container">
+                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!--Subcategories List Mobile-->
+                <div ng-show="isSubcategoriesVisible && isMobile" class=" row subcategory-container-map">
+                    <div class="col-xs-12 category-container-mobile-padding">
+                        <ul rn-carousel rn-carousel-index="carouselIndexSubcategory" class="image" style="height: 60px">
+                            <li ng-repeat="subcategory in subcategories" class="carrusel-categorias">
+                                <div ng-click="selectSubcategory(subcategory)">
+                                    <div class="subcategory-label-container-map subcategory-label-border">
+                                        <div>
+                                            <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%subcategory.nombre%%</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
                 <div class="row separatorMarginRowMap">
                     <div class="col-xs-5 separatorMobileMap"></div>
                     <p class="col-xs-2 searchMapTip" translate="TABS_CONSTANTS.IN_TIP"></p>
