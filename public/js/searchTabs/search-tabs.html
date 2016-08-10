@@ -28,6 +28,29 @@
                                              subcategory-search="doSearch(subcategoryname)"></browser-input-field>
                     </div>
                 </div>
+
+                <!--Categories List Mobile Desktop-->
+                <div ng-if="isMobile" class="row category-scroll-container" style="margin-top: 1%">
+                    <div class="col-xs-12" style="padding: 0px !important;">
+                        <ul rn-carousel  rn-carousel-index="carouselIndexCategory" class="image"
+                            ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''"
+                            style="height: 100px">
+                            <li ng-repeat="category in categories" class="carrusel-categorias">
+                                <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-map-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-map-container search-tab-category-unselected-container'"
+                                     ng-click="setCategoryNameAsInputText(category)">
+                                    <div>
+                                        <img class="icon" style="height: 50px !important;" ng-src="%%category.URL_icono_general%%">
+                                    </div>
+                                    <div class="search-tab-category-inside-container">
+                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
                 <div class="separator"></div>
                 <div class="col-md-6 input-section align-second">
                     <img class="icon" src="./images/icons/paso2.png">
@@ -38,8 +61,8 @@
                 </div>
             </div>
 
-            <!--Categories List-->
-            <div class="row search-tab-categories-list">
+            <!--Categories List Desktop-->
+            <div ng-if="!isMobile" class="row search-tab-categories-list">
                 <div class="search-tab-categories" ng-repeat="category in categories">
                     <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-unselected-container'"
                          ng-click="setCategoryNameAsInputText(category)">
