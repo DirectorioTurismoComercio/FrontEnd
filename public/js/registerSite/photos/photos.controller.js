@@ -151,10 +151,12 @@ angular.module('registerSite')
 
 
         function loadPhotoFromURL(urlPhoto, tipo) {
-            console.log(urlPhoto);
+        
+            var arg = "?randnum=1"
+            
             $http({
                 method: 'GET',
-                url: urlPhoto,
+                url: urlPhoto+arg,
                 responseType: "arraybuffer"
             }).success(function (data) {
                 var arrayBufferView = new Uint8Array(data);
