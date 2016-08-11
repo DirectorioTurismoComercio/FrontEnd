@@ -140,6 +140,7 @@
 
 .separatorMarginRowMap {
     margin: auto 10px !important;
+    margin-top: 1% !important;
 }
 
 .route-map-no-up-padding {
