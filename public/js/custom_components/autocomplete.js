@@ -46,6 +46,7 @@
       // starts autocompleting on typing in something
       $scope.$watch('searchParam', function(newValue, oldValue){
 
+
         if (oldValue === newValue || (!oldValue && $scope.initLock)) {
           return;
         }
@@ -59,6 +60,11 @@
         // function thats passed to on-type attribute gets executed
         if($scope.onType)
           $scope.onType($scope.searchParam);
+
+        if(newValue==null || newValue==''){
+          $scope.completing = false;
+        }
+
       });
 
       // for hovering over suggestions
