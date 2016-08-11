@@ -2,7 +2,7 @@
 
 angular.module('registerTrader')
     .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, messageService, $http, 
-        $location, $mdDialog, navigationService, $translate, API_CONFIG) {
+        $location, $mdDialog, navigationService, $translate, API_CONFIG, ngDialog) {
         $scope.submitted=false;
         $scope.traderName=undefined;
         $scope.traderLastName=undefined;
@@ -88,11 +88,22 @@ angular.module('registerTrader')
                 };
         }
 
+        $scope.doneRegistration = function () {
+            ngDialog.close();
+            $location.path('/businessinformation');
+        }
+
         function redirectToRegisterSite(){
             $scope.registerLoading=false;
-             navigationService.cameToBusinessInformationThrough='registertrader';
-             messageService.showSuccessMessage("REGISTER_SUCCESS","SUCCESS_TITLE_MESSAGE");
-             $location.path('/businessinformation');
+            navigationService.cameToBusinessInformationThrough='registertrader';
+            ngDialog.open({
+                template: 'js/registerTrader/completeTraderRegistration.html',
+                width: 'auto',
+                showClose: false,
+                scope: $scope,
+                closeByEscape: false,
+                closeByDocument: false
+            });
         }
         function redirectToProfile(){
              $scope.registerLoading=false;

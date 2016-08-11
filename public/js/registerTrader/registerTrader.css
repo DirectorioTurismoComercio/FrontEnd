@@ -104,3 +104,9 @@ input[type="password"]
 .middleLineSeparator{
 	margin-top: 30px;
 }
+
+.register-trader-title{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content:center;
+}
