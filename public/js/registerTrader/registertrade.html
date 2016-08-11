@@ -84,7 +84,7 @@
             </div>
      <span class="error" ng-show="submitted && traderInfoForm.email.$error.required"
            translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
-     <span class="error" ng-show="submitted && traderInfoForm.email.$error.email"
+     <span class="error" ng-show="(submitted && traderInfoForm.email.$error.email) || (submitted && !isValidEmail)"
            translate="REGISTER_USER_CONSTANTS.EMAIL_VALIDATION"></span>
 
             <div class="row control topMarginHeader">
@@ -106,9 +106,10 @@
          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
 
-            <div ng-show="registerLoading && submitted  && !traderInfoForm.email.$error.required && !traderInfoForm.lastname.$error.required && !traderInfoForm.firstname.$error.required && !traderInfoForm.password.$error.required" class="next-button col-xs-12 NextButtonRegister">
+            <div ng-show="registerLoading && submitted  && !traderInfoForm.email.$error.required && !traderInfoForm.lastname.$error.required && !traderInfoForm.firstname.$error.required && !traderInfoForm.password.$error.required"
+                 class="next-button col-xs-12 NextButtonRegister">
                 <md-progress-circular class="loading" md-mode="indeterminate"
-                                      ></md-progress-circular>
+                ></md-progress-circular>
             </div>
 
             <div class="registerTrader-button NextButtonRegister topMarginElements col-xs-12">

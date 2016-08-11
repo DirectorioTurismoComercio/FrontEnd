@@ -16,6 +16,9 @@ angular.module('registerTrader')
             password:undefined
         }
 
+        $scope.$watch('userData.correo', function() {
+            $scope.isValidEmail=validateEmail();
+        });
 
         $scope.changeView = function (view) {
             $location.path(view);
@@ -46,7 +49,7 @@ angular.module('registerTrader')
 
         $scope.save =function () {
             $scope.submitted=true;
-            if ($scope.userData.correo != undefined && $scope.userData.password != undefined && $scope.userData.password.length >= 6  && $scope.userData.nombres != undefined
+            if ($scope.userData.correo != undefined && $scope.isValidEmail && $scope.userData.password != undefined && $scope.userData.password.length >= 6  && $scope.userData.nombres != undefined
             && $scope.userData.apellidos != undefined) {
                     $scope.registerLoading=true;
                     var promesa;
@@ -91,6 +94,13 @@ angular.module('registerTrader')
         $scope.doneRegistration = function () {
             ngDialog.close();
             $location.path('/businessinformation');
+        }
+
+        function validateEmail(){
+            var emailDomain=$scope.userData.correo.split('@')[1];
+
+            return emailDomain.indexOf('.')>-1
+
         }
 
         function redirectToRegisterSite(){
