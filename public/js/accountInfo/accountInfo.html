@@ -79,7 +79,7 @@
                    translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
 
-             <span class="error" ng-show="personalInfoSubmitted && personalInfoForm.email.$error.email"
+             <span class="error" ng-show="(personalInfoSubmitted && personalInfoForm.email.$error.email) || (personalInfoSubmitted && !isValidEmail)"
                    translate="REGISTER_USER_CONSTANTS.EMAIL_VALIDATION"></span>
 
 

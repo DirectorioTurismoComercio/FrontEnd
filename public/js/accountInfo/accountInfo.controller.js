@@ -1,7 +1,7 @@
 'use strict';
 angular.module('accountInfo')
-    .controller('AccountInfoController', function ($scope, $location, $http, 
-                                                   authenticationService, navigationService, siteInformationService, messageService, filterFilter, API_CONFIG, $mdDialog, $translate) {
+    .controller('AccountInfoController', function ($scope, $location, $http,
+                                                   authenticationService, navigationService, siteInformationService, messageService, filterFilter, API_CONFIG, $mdDialog, $translate, formValidator) {
 
         $scope.showRequiredFieldMessage = false;
         $scope.usuario = authenticationService.getUser();
@@ -16,15 +16,19 @@ angular.module('accountInfo')
                 $scope.usuario = response;
             });
 
+        $scope.$watch('usuario.email', function() {
+            $scope.isValidEmail=formValidator.isValidEmail($scope.usuario.email);
+        });
+
 
         $scope.editPersonalInfo = function(){
             $scope.isEditingPersonalInfo=true;
 
         }
         $scope.savePersonalInfo = function(){
-            
+            $scope.isValidEmail=formValidator.isValidEmail($scope.usuario.email);
             $scope.personalInfoSubmitted=true;
-            if($scope.personalInfoForm.$valid){
+            if($scope.personalInfoForm.$valid && $scope.isValidEmail){
              $http.put(API_CONFIG.url + API_CONFIG.user_detail,
               {email:$scope.usuario.email, last_name: $scope.usuario.last_name, first_name: $scope.usuario.first_name},
               {        

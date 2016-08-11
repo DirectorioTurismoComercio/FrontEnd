@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('registerTrader')
-    .controller('registerTradeController', function ($scope, $auth,$q,authenticationService, messageService, $http, 
-        $location, $mdDialog, navigationService, $translate, API_CONFIG, ngDialog) {
+    .controller('registerTradeController', function ($scope, $auth, $q, authenticationService, messageService, $http,
+                                                     $location, $mdDialog, navigationService, $translate, API_CONFIG, ngDialog, formValidator) {
         $scope.submitted=false;
         $scope.traderName=undefined;
         $scope.traderLastName=undefined;
@@ -17,7 +17,9 @@ angular.module('registerTrader')
         }
 
         $scope.$watch('userData.correo', function() {
-            $scope.isValidEmail=validateEmail();
+            try{
+                $scope.isValidEmail=formValidator.isValidEmail($scope.userData.correo);
+            }catch (e){}
         });
 
         $scope.changeView = function (view) {
@@ -94,13 +96,6 @@ angular.module('registerTrader')
         $scope.doneRegistration = function () {
             ngDialog.close();
             $location.path('/businessinformation');
-        }
-
-        function validateEmail(){
-            var emailDomain=$scope.userData.correo.split('@')[1];
-
-            return emailDomain.indexOf('.')>-1
-
         }
 
         function redirectToRegisterSite(){
