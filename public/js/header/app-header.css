@@ -78,10 +78,19 @@
         font-size: 1.3em;
         padding: 7px 5px;
     }
+
+    .navbar-nav > li > a {
+        font-size: 0.9em;
+        padding-left: 7px !important;
+        padding-right: 7px !important;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    .navbar-nav > li > a {
+        font-size: 1.1em;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
