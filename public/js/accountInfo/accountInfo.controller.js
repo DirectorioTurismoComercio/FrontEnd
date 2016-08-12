@@ -147,7 +147,7 @@ angular.module('accountInfo')
 
         }
         function removeSiteFromServer(sitio) {
-            $http.delete(API_CONFIG.url + "/sitio/detail/" + sitio.id, siteInformationService.formData,
+            $http.delete(API_CONFIG.url + "/sitio/detail/" + sitio.id, 
                 {
                     headers: {'Authorization': 'Token ' + authenticationService.getUser().token}
                 }).success(function (d) {
