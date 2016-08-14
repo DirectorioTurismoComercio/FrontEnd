@@ -28,6 +28,7 @@ angular.module('registerTrader')
 
         $scope.authenticate = function (provider) {
                         $auth.authenticate(provider).then(function (response) {
+                        console.log(response);
                         $auth.setToken(response.data.token);
                         var credentials = {
                             username: response.data.username
