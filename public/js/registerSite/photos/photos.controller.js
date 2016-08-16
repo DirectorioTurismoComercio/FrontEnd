@@ -21,11 +21,14 @@ angular.module('registerSite')
         $scope.loadingFacadePhoto = false;
         $scope.loadingInsidePhoto = false;
         $scope.loadingProductsPhoto = false;
+        $scope.loadingPhotos=false;
 
 
         var lastFacadeFileIndex;
         var lastInsideFileIndex;
         var lastProductsFileIndex;
+        var numPhotos;
+        var loadedPhotos=0;
 
 
         $scope.mainPhotoOnClick = function () {
@@ -84,8 +87,10 @@ angular.module('registerSite')
 
         function loadPhotosFromServer() {
             var i;
-            for (i = 0; i < siteInformationService.URLphotos.length; i++) {
-                loadPhotoFromURL(siteInformationService.URLphotos[i].URLfoto, siteInformationService.URLphotos[i].tipo);
+            $scope.loadingPhotos=true;
+            numPhotos = siteInformationService.URLphotos.length;
+            for (i = 0; i < numPhotos; i++) {       
+            loadPhotoFromURL(siteInformationService.URLphotos[i].URLfoto, siteInformationService.URLphotos[i].tipo);
             }
 
         }
@@ -153,7 +158,7 @@ angular.module('registerSite')
         function loadPhotoFromURL(urlPhoto, tipo) {
         
             var arg = "?randnum=1"
-            
+                 
             $http({
                 method: 'GET',
                 url: urlPhoto+arg,
@@ -167,6 +172,10 @@ angular.module('registerSite')
                 var flowPhotos = getFlow(tipo);
                 file = new Flow.FlowFile(flowPhotos.flow, blob);
                 flowPhotos.flow.files.push(file);
+                loadedPhotos++;
+                if(loadedPhotos==numPhotos){
+                $scope.loadingPhotos=false;
+                }
             }).error(function (error) {
                 console.log("hubo un error al cargar la foto", error);
             });

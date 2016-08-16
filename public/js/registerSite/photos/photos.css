@@ -58,6 +58,11 @@
 .loadingPhoto{
     position: absolute !important;
 }
+.loadingGlobalPhoto{
+    position: absolute !important;
+    z-index: 0;
+    margin-top: 140px;
+}
 
 /* xs devices */
 @media (max-width: 767px) {

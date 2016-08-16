@@ -5,9 +5,11 @@
 <div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortPhotos">
     <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor PhotosFormPadding">
         <div class="header container-fluid">
+
             <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeViewLocation()">
                 <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
             </div>
+
             <p class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_PHOTOS_PAGE"></p></div>
         <ul class="progress-bar1 progressBarPadding topMarginElements">
             <li class="done-step"></li>
@@ -17,13 +19,16 @@
             <li></li>
             <li></li>
         </ul>
-
+        
 
         <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
                translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO_TIP"></label>
-
         <div class="mainPhotoContainer">
             <div class="title-main-photo-container">
+
+<md-progress-circular class="loading loadingGlobalPhoto" md-mode="indeterminate"
+                                          ng-show="loadingPhotos"></md-progress-circular>
+
                 <i ng-show="flowMainPhoto.flow.files.length==0"
                    class="form-control-feedback photo-asterisk  glyphicon glyphicon-asterisk glyphiconStarColor"></i>
                 <label class="topMarginmainPhotolabel texto-claroBusinessLocation"
@@ -39,6 +44,8 @@
                              src="./images/registerIcons/foto-subir.png"/>
                     </flow-btn>
                 </div>
+                
+           
                 <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
                     <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
                                           ng-show="loadingMainPhoto"></md-progress-circular>

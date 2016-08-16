@@ -48,7 +48,6 @@ angular.module('accountInfo')
                     function(errors){
                         console.log("Errores retornado por el servidor", errors);
                         formValidator.emailAlreadyExistsShowError(errors);
-
                     }
                 );
             }
