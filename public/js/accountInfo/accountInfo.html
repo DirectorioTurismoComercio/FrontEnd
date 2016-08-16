@@ -19,8 +19,6 @@
             </div>
             <div class="row control topMarginHeader" ng-show="!isEditingPersonalInfo">
                 <div class="container-fluid col-xs-12">
-
-
                     <h3 class="personal-info text-center">%%usuario.first_name%%</h3>
                     <h3 class="personal-info text-center" style="margin-top:-3px">%%usuario.last_name%%</h3>
                     <h4 class="personal-info text-center">%%usuario.email%%</h4>
@@ -40,7 +38,6 @@
                         <i ng-show="usuario.first_name==undefined"
                            class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                     </div>
-
                 </div>
            <span class="error" ng-show="personalInfoSubmitted && personalInfoForm.firstname.$error.required"
                  translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
@@ -79,15 +76,18 @@
                    translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
 
-             <span class="error" ng-show="(personalInfoSubmitted && personalInfoForm.email.$error.email) || (personalInfoSubmitted && !isValidEmail)"
+             <span class="error"
+                   ng-show="(personalInfoSubmitted && personalInfoForm.email.$error.email) || (personalInfoSubmitted && !isValidEmail)"
                    translate="REGISTER_USER_CONSTANTS.EMAIL_VALIDATION"></span>
 
 
             </div>
             <div class="registerTrader-button NextButtonRegister topMarginElements">
-                <button ng-show="!isEditingPersonalInfo" class="button edit-info-button" ng-click="editPersonalInfo()"
+                <button ng-show="!isEditingPersonalInfo" class="button" ng-click="editPersonalInfo()"
                         translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
-                <button ng-show="isEditingPersonalInfo" class="button" ng-click="savePersonalInfo()"
+                <button ng-show="isEditingPersonalInfo" class="button edit-button" ng-click="cancelEditing()"
+                        translate="CANCEL_BUTTON"></button>
+                <button ng-show="isEditingPersonalInfo" class="button edit-button" ng-click="savePersonalInfo()"
                         translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
             </div>
         </form>
@@ -155,9 +155,11 @@
             </div>
 
             <div class="registerTrader-button NextButtonRegister topMarginElements">
-                <button ng-show="!isChangingPassword" class="button edit-info-button" ng-click="changePassword()"
+                <button ng-show="!isChangingPassword" class="button" ng-click="changePassword()"
                         translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
-                <button ng-show="isChangingPassword" class="button edit-info-button" ng-click="saveNewPassword()"
+                <button ng-show="isChangingPassword" class="button edit-button" ng-click="cancelEditing()"
+                        translate="CANCEL_BUTTON"></button>
+                <button ng-show="isChangingPassword" class="button edit-button" ng-click="saveNewPassword()"
                         translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
             </div>
 
@@ -170,8 +172,8 @@
                 <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_BUSINESS"></p>
             </div>
 
-            <div ng-class="usuario.sitios.length>2 ? 'scrollable-site-list':''" >
-                <div class="row"  ng-repeat="sitio in usuario.sitios">
+            <div ng-class="usuario.sitios.length>2 ? 'scrollable-site-list':''">
+                <div class="row" ng-repeat="sitio in usuario.sitios">
                     <div class="registered-business">
 
                         <div class="row row-reverse">
@@ -189,7 +191,8 @@
                             </div>
                         </div>
                         <div class="row row-reverse">
-                            <button class="edit-local-button col-xs-3"  ng-click="editSite(sitio)" translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
+                            <button class="edit-local-button col-xs-3" ng-click="editSite(sitio)"
+                                    translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
                         </div>
                     </div>
 

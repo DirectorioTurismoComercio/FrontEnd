@@ -1,66 +1,70 @@
-.account-info-subtitle{
+.account-info-subtitle {
     text-align: center;
     font-size: 2em;
     color: #2D3C4D;
 }
-.register{
-	background-color: #F2F2F2;
+
+.register {
+    background-color: #F2F2F2;
 }
-.personal-info{
-  color: #999999;
+
+.personal-info {
+    color: #999999;
 }
-.edit-info-button{
-  margin-top: -30px;
+
+.registered-business {
+    margin-top: 2%;
+    background-color: #F2F2F2;
+    height: 180px;
+    padding: 2% 2% 2% 2%;
+    display: flex;
+    flex-direction: column;
 }
-.registered-business{ 
-	margin-top: 2%;
-	background-color: #F2F2F2;
-	height: 180px;
-	padding: 2% 2% 2% 2%;
-	display: flex;
-  flex-direction: column;
+
+.registered-business .business-image {
+    width: 100%;
+    max-height: 100px;
 }
-.registered-business .business-image{
-	width: 100%;
-  max-height: 100px;
-}
+
 .row-reverse {
-           display: -webkit-flex;
-           display: flex;
-           -webkit-flex-direction: row-reverse;
-           flex-direction: row-reverse;
-           -webkit-align-items: center;
-           align-items: center;
-           flex-wrap: wrap;
-           min-width: 170px;
-                       
-           
-        }
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-width: 170px;
 
+}
 
-.registered-business .business-name{
+.registered-business .business-name {
     font-weight: bold;
     font-size: 0.9em;
     color: #32A2D4;
 }
-.registered-business .business-info{
-      color: #2D3C4D;
-       font-size: 0.8em;
+
+.registered-business .business-info {
+    color: #2D3C4D;
+    font-size: 0.8em;
 
 }
-.registered-business .remove-icon{
+
+.registered-business .remove-icon {
     width: 8%;
     height: 8%;
 }
-.edit-button{
-	width: 30%;
+
+.edit-button {
+    width: 110px;
+    margin: 0 5px;
 }
 
-.edit-local-button-container{
+.edit-local-button-container {
     margin-top: 3%;
 }
 
-.edit-local-button{
+.edit-local-button {
     margin-bottom: 20px;
     border: none;
     font-weight: bold;
@@ -71,24 +75,45 @@
     height: 40px;
 }
 
-.scrollable-site-list{
+.scrollable-site-list {
     overflow-y: scroll;
     height: 400px;
 }
 
 @media (min-width: 768px) {
-  .registered-business .business-name{
-  
-    font-size: 1.3em;
-  
-  }
-  .registered-business .business-info{
-      
-       font-size: 1.1em;
+    .registered-business .business-name {
 
+        font-size: 1.3em;
+
+    }
+
+    .registered-business .business-info {
+
+        font-size: 1.1em;
+
+    }
+
+    .registered-business .remove-icon {
+        width: 5%;
+        height: 5%;
+    }
+
+    .edit-button {
+        width: 220px;
+        margin: 0 5px;
+    }
 }
-.registered-business .remove-icon{
-    width: 5%;
-    height: 5%;
+
+@media (min-width: 992px) {
+    .edit-button {
+        width: 110px;
+        margin: 0 5px;
+    }
 }
+
+@media (min-width: 1200px) {
+    .edit-button {
+        width: 140px;
+        margin: 0 5px;
+    }
 }

@@ -2,9 +2,8 @@
   "HEADER_CONSTANTS": {
     "LOGIN_TRADER": "Login trader",
     "REGISTER_BUSINESS": "Register your business",
-    "LOG_OUT":"Log out",
-    "MY_ACCOUNT":"My account"
-
+    "LOG_OUT": "Log out",
+    "MY_ACCOUNT": "My account"
   },
   "HOME_CONSTANTS": {
     "CAROUSEL_TEXT": "Discover the secrets Cundinamarca has for you",
@@ -46,9 +45,9 @@
     "LAST_NAME": "Last Name",
     "EMAIL": "Email",
     "PASSWORD": "Password",
-    "OLD_PASSWORD":"Previous password",
-    "NEW_PASSWORD":"New password",
-    "CONFIRM_NEW_PASSWORD":"Confirm new password",
+    "OLD_PASSWORD": "Previous password",
+    "NEW_PASSWORD": "New password",
+    "CONFIRM_NEW_PASSWORD": "Confirm new password",
     "EMAIL_VALIDATION": "Check email",
     "REQUIRED_FIELD": "Required field*"
   },
@@ -86,14 +85,14 @@
     "BUSINESS_WEB": "Web site",
     "BUSINESS_ADDRESS": "Business address",
     "BUSINESS_MAIN_CATEGORY": "Mian category",
-    "BUSINNES_ADITIONAL_CATEGORIES":"Additional categories",
+    "BUSINNES_ADITIONAL_CATEGORIES": "Additional categories",
     "CHOOSE_CATEGORY": "-- Pick category --",
     "CHOOSE_CATEGORY_TEXT": "Choose categories for your business",
     "CHOOSE_OTHER_CATEGORY_TEXT": "If your business has other activities you can add another 2 categories",
     "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "If your business has other activities you can add another category",
     "MAIN_CATEGORY": "Main category",
-    "ADDITIONAL_CATEGORY_1":"Additional category 1",
-    "ADDITIONAL_CATEGORY_2":"Additional category 2",
+    "ADDITIONAL_CATEGORY_1": "Additional category 1",
+    "ADDITIONAL_CATEGORY_2": "Additional category 2",
     "ADD_CATEGORY_BUTTON": "Add category",
     "COLLAPSE_CATEGORY_BUTTON": "collapse",
     "DELETE_CATEGORY_BUTTON": "Delete",
@@ -134,20 +133,20 @@
     "LOGIN_BUTTON": "Login",
     "STILL_NO_USER": "Not a user yet?",
     "REGISTER": "Sign in",
-    "PASSWORD_LENGTH":"The password must be at least 6 characters long*"
+    "PASSWORD_LENGTH": "The password must be at least 6 characters long*"
   },
-  "ACCOUNT_INFO":{
-    "ACCOUNT_INFO_TITLE":"My account",
-    "SAVE_BUTTON":"Save",
-    "ACCOUNT_INFO_SUBTITLE":"Account info",
-    "ACCOUNT_PASSWORD_SUBTITLE":"Password",
-    "ACCOUNT_INFORMATION_SUCCESSFULLY_UPDATED":"Account information successfully updated.",
-    "ACCOUNT_PASSWORD_SUCCESSFULLY_UPDATED":"Password successfully updated.",
-    "REGISTERED_BUSINESS":"Registered business",
-    "ADD_BUSINESS":"Add business",
+  "ACCOUNT_INFO": {
+    "ACCOUNT_INFO_TITLE": "My account",
+    "SAVE_BUTTON": "Save",
+    "ACCOUNT_INFO_SUBTITLE": "Account info",
+    "ACCOUNT_PASSWORD_SUBTITLE": "Password",
+    "ACCOUNT_INFORMATION_SUCCESSFULLY_UPDATED": "Account information successfully updated.",
+    "ACCOUNT_PASSWORD_SUCCESSFULLY_UPDATED": "Password successfully updated.",
+    "REGISTERED_BUSINESS": "Registered business",
+    "ADD_BUSINESS": "Add business",
     "EDIT_BUTTON": "Edit",
-    "PASSWORDS_MUST_BE_EQUAL":"The confirmation password must be the same as the password.*",
-    "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT":"New and confirm password must be the same*"
+    "PASSWORDS_MUST_BE_EQUAL": "The confirmation password must be the same as the password.*",
+    "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "New and confirm password must be the same*"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
@@ -160,13 +159,12 @@
   "GET_SITES_ERROR": "The search option is unavailable in this moment. Please reload the page",
   "GET_TOWNS_ERROR": "The towns list is unavailable in this moment. Please reload the page",
   "NO_RESULTS": "Sorry, there are no results for this search. Please try with different words.",
-  "BAD_LOGIN":"Incorrect user or password",
-  "REGISTER_SUCCESS":"You are the newest member of Marca_app. To edit the profile settings in your account, update your info or register other business or branch offices, please log in",
-  "CONTACT_INFO":"If you have a problem, question or a suggestion, you can write to",
-  "E100":"Error server, try again",
-  "E101":"email already exists",
-  "E102":"password must be at least 6 characters",
-  "E103":"Invalid password."
-  
-
+  "BAD_LOGIN": "Incorrect user or password",
+  "REGISTER_SUCCESS": "You are the newest member of Marca_app. To edit the profile settings in your account, update your info or register other business or branch offices, please log in",
+  "CONTACT_INFO": "If you have a problem, question or a suggestion, you can write to",
+  "E100": "Error server, try again",
+  "E101": "email already exists",
+  "E102": "password must be at least 6 characters",
+  "E103": "Invalid password.",
+  "CANCEL_BUTTON": "Cancel"
 }
