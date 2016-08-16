@@ -1,6 +1,6 @@
 describe('Form Validator Service', function () {
 
-    var formValidatorService;
+    var formValidatorService, mdDialog;
 
     beforeEach(module('gemStore'));
     beforeEach(module('message'));
@@ -24,6 +24,9 @@ describe('Form Validator Service', function () {
     beforeEach(inject(function ($injector) {
 
         formValidatorService = $injector.get('formValidator');
+        mdDialog = $injector.get('$mdDialog');
+
+        spyOn(mdDialog, 'show');
 
     }));
 
@@ -33,6 +36,16 @@ describe('Form Validator Service', function () {
 
     it('Should return true if email  contains ".something"', function () {
         expect(formValidatorService.isValidEmail('email@with.domain')).toBe(true);
+    });
+
+    it('Should show an error when email already exists', function () {
+        var error={
+            data:{
+                email:["E101"]
+            }
+        };
+        formValidatorService.emailAlreadyExistsShowError(error);
+        expect(mdDialog.show).toHaveBeenCalled();
     });
 
 });
