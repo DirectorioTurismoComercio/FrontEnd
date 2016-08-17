@@ -79,6 +79,7 @@ angular.module('registerSite')
 
             if (siteInformationService.URLphotos) {
                 loadPhotosFromServer();
+                savePhotosTemporally();
                 siteInformationService.URLphotos = undefined;
             }
 
