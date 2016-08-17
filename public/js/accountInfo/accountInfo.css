@@ -55,7 +55,11 @@
     height: 8%;
 }
 
-.edit-button {
+.cancel-button {
+    background-color: #ccc
+}
+
+.edit-section-button {
     width: 110px;
     margin: 0 5px;
 }
@@ -98,21 +102,21 @@
         height: 5%;
     }
 
-    .edit-button {
+    .edit-section-button {
         width: 220px;
         margin: 0 5px;
     }
 }
 
 @media (min-width: 992px) {
-    .edit-button {
+    .edit-section-button {
         width: 110px;
         margin: 0 5px;
     }
 }
 
 @media (min-width: 1200px) {
-    .edit-button {
+    .edit-section-button {
         width: 140px;
         margin: 0 5px;
     }

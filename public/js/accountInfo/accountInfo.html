@@ -85,9 +85,10 @@
             <div class="registerTrader-button NextButtonRegister topMarginElements">
                 <button ng-show="!isEditingPersonalInfo" class="button" ng-click="editPersonalInfo()"
                         translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
-                <button ng-show="isEditingPersonalInfo" class="button edit-button" ng-click="cancelEditing()"
+                <button ng-show="isEditingPersonalInfo" class="button edit-section-button cancel-button"
+                        ng-click="cancelEditing()"
                         translate="CANCEL_BUTTON"></button>
-                <button ng-show="isEditingPersonalInfo" class="button edit-button" ng-click="savePersonalInfo()"
+                <button ng-show="isEditingPersonalInfo" class="button edit-section-button" ng-click="savePersonalInfo()"
                         translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
             </div>
         </form>
@@ -157,9 +158,10 @@
             <div class="registerTrader-button NextButtonRegister topMarginElements">
                 <button ng-show="!isChangingPassword" class="button" ng-click="changePassword()"
                         translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
-                <button ng-show="isChangingPassword" class="button edit-button" ng-click="cancelEditing()"
+                <button ng-show="isChangingPassword" class="button edit-section-button cancel-button"
+                        ng-click="cancelEditing()"
                         translate="CANCEL_BUTTON"></button>
-                <button ng-show="isChangingPassword" class="button edit-button" ng-click="saveNewPassword()"
+                <button ng-show="isChangingPassword" class="button edit-section-button" ng-click="saveNewPassword()"
                         translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
             </div>
 
