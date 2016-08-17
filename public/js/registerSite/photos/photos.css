@@ -60,7 +60,7 @@
 }
 .loadingGlobalPhoto{
     position: absolute !important;
-    z-index: 0;
+    z-index: 1;
     margin-top: 140px;
 }
 
