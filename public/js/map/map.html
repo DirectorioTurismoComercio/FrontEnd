@@ -31,7 +31,7 @@
                      ng-repeat="site in foundSites"
                      ng-mouseover="highLightMarker($index)"
                      ng-mouseleave="clearHighLightedMarker($index)">
-                    <div class="list-item">
+                    <div class="list-item ">
                         <div class="row" ng-click="showSiteDetail(site, $index)">
                             <div class="col-xs-8 info">
                                 <div class="row category-container-map-list-result">
@@ -42,7 +42,7 @@
                                 <p clamp="3" class="description">%%site.descripcion%%</p>
                             </div>
                             <div class="col-xs-4 image">
-                                <img class="img-responsive"
+                                <img class="img-responsive  site-photo-height"
                                      ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
                             </div>
                         </div>

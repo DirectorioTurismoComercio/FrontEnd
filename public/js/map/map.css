@@ -364,6 +364,7 @@ prev.search-results .map {
     padding: 0px !important;
 }
 
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
@@ -468,10 +469,20 @@ prev.search-results .map {
     .detail-icon {
         height: 2.5vmin;
     }
+
+    .site-photo-height{
+        height: 300px;
+        width: 300px !important;
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1200px) and (min-height: 800px) and (max-height: 800px) {
     .detail-icon {
         height: 3.5vmin;
+    }
+
+    .site-photo-height{
+        height: 300px;
+        width: 300px !important;
     }
 }
