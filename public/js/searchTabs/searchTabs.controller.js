@@ -160,9 +160,12 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
 
         function setAllAsUnselected(object){
-            for (var i = 0; i < object.length; i++) {
-                object[i].isSelected = false;
-            }
+            try {
+                for (var i = 0; i < object.length; i++) {
+                    object[i].isSelected = false;
+                }
+            }catch(e){}
+
         }
 
 
