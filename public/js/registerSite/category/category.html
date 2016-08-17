@@ -47,7 +47,8 @@
                             class="form-control businessAddressInput businessAddressText"
                             ng-change="getSubcategoriesOnChange(firstCategory,'%%firstCategory.id%%', 1)"
                             required>
-                        <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY">%%firstCategory.nombre%%</option>
+                        <option value="" translate="REGISTER_SITE_CONSTANTS.CHOOSE_CATEGORY">%%firstCategory.nombre%%
+                        </option>
                     </select>
                     <i ng-show="firstCategory==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
@@ -61,8 +62,12 @@
 
                 <div class="row topMarginElements col-xs-offset-1 col-xs-10 businessAddressText">
                     <div class="row  subcategory-container" ng-repeat="subcategory in firstSubcategories">
-                        <label class="col-xs-11 subcategory-label" for="%%subcategory.nombre%%">%%subcategory.nombre%%</label>
-                        <input id="%%subcategory.nombre%%" type="checkbox" checklist-model="businessSubcategories.subcategories" checklist-value="subcategory">
+                        <div>
+                            <label class="col-xs-11" for="%%subcategory.nombre%%"
+                                   ng-class="isCategorySelected(subcategory.id) ? 'selected-subcategory':'subcategory-label'">%%subcategory.nombre%%</label>
+                            <input id="%%subcategory.nombre%%" type="checkbox"
+                                   checklist-model="businessSubcategories.subcategories" checklist-value="subcategory">
+                        </div>
                     </div>
                     <div class="row  subcategory-container" ng-show="firstCategory==undefined">
                         <label class="subcategory-tip texto-oscuro-business"
@@ -107,11 +112,10 @@
             </div>
 
 
-
-
             <div ng-show="listSecondCategoryIsVisible && listSecondCategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
-                <label class="additional-category-label topMarginElements col-xs-12" translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_1"></label>
+                <label class="additional-category-label topMarginElements col-xs-12"
+                       translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_1"></label>
                 <div class="topMarginElements col-xs-12">
                     <select id="secondCategory"
                             ng-model="secondCategory"
@@ -128,8 +132,11 @@
 
                 <div class="row topMarginElements col-xs-offset-1 col-xs-10 businessAddressText">
                     <div class="row  subcategory-container" ng-repeat="subcategory in secondSubcategories">
-                        <label class="col-xs-11 subcategory-label" for="%%subcategory.nombre%%">%%subcategory.nombre%%</label>
-                        <input id="%%subcategory.nombre%%" type="checkbox" checklist-model="businessSubcategories.subcategories" checklist-value="subcategory">
+                        <label class="col-xs-11"
+                               for="%%subcategory.nombre%%"
+                               ng-class="isCategorySelected(subcategory.id) ? 'selected-subcategory':'subcategory-label'">%%subcategory.nombre%%</label>
+                        <input id="%%subcategory.nombre%%" type="checkbox"
+                               checklist-model="businessSubcategories.subcategories" checklist-value="subcategory">
                     </div>
                     <div class="row  subcategory-container" ng-show="secondCategory==undefined">
                         <label class="subcategory-tip texto-oscuro-business"
@@ -152,10 +159,6 @@
                 </div>
 
             </div>
-
-
-
-
 
 
             <div ng-show="!listThirdCategoryIsVisible && listThirdCategoryExists">
@@ -181,11 +184,10 @@
             </div>
 
 
-
-
             <div ng-show="listThirdCategoryIsVisible && listThirdCategoryExists">
                 <div class="registerTraderLineSeparator topMarginElements col-xs-10  col-xs-offset-1"></div>
-                <label class="additional-category-label topMarginElements col-xs-12" translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_2"></label>
+                <label class="additional-category-label topMarginElements col-xs-12"
+                       translate="REGISTER_SITE_CONSTANTS.ADDITIONAL_CATEGORY_2"></label>
                 <div class="topMarginElements col-xs-12">
                     <select ng-model="thirdCategory"
                             ng-options="obj.nombre for obj in ((arrayCategories | filter:categoryOptionFilter(3)))  track by obj.id "
@@ -201,8 +203,11 @@
 
                 <div class="row topMarginElements col-xs-offset-1 col-xs-10 businessAddressText">
                     <div class="row  subcategory-container" ng-repeat="subcategory in thirdSubcategories">
-                        <label class="col-xs-11 subcategory-label" for="%%subcategory.nombre%%">%%subcategory.nombre%%</label>
-                        <input id="%%subcategory.nombre%%" type="checkbox" checklist-model="businessSubcategories.subcategories" checklist-value="subcategory">
+                        <label class="col-xs-11"
+                               for="%%subcategory.nombre%%"
+                               ng-class="isCategorySelected(subcategory.id) ? 'selected-subcategory':'subcategory-label'">%%subcategory.nombre%%</label>
+                        <input id="%%subcategory.nombre%%" type="checkbox"
+                               checklist-model="businessSubcategories.subcategories" checklist-value="subcategory">
                     </div>
                     <div class="row  subcategory-container" ng-show="thirdCategory==undefined">
                         <label class="subcategory-tip texto-oscuro-business"
@@ -225,7 +230,6 @@
                 </div>
 
             </div>
-
 
 
             <div ng-show="hadTwoCategoriesLeft">

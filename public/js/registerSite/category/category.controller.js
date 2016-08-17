@@ -17,7 +17,7 @@ angular.module('registerSite')
         $scope.hadOneCategoriesLeft = false;
 
 
-        $scope.businessSubcategories =siteInformationService.businessSubcategories;
+        $scope.businessSubcategories = siteInformationService.businessSubcategories;
 
 
         $scope.arrayCategories = [];
@@ -129,7 +129,7 @@ angular.module('registerSite')
         $scope.deleteCategory = function (category) {
             switch (category) {
                 case 2:
-                    if($scope.secondCategory!=undefined || $scope.secondCategory!=null){
+                    if ($scope.secondCategory != undefined || $scope.secondCategory != null) {
                         deleteOldSelectedSubcategories($scope.secondCategory.id);
                     }
                     $scope.listSecondCategoryIsVisible = false;
@@ -138,7 +138,7 @@ angular.module('registerSite')
                     $scope.secondSubcategories = null;
                     break;
                 case 3:
-                    if($scope.thirdCategory!=undefined || $scope.thirdCategory!=null){
+                    if ($scope.thirdCategory != undefined || $scope.thirdCategory != null) {
                         deleteOldSelectedSubcategories($scope.thirdCategory.id);
                     }
                     $scope.listThirdCategoryIsVisible = false;
@@ -163,15 +163,30 @@ angular.module('registerSite')
 
         $scope.changeViewBusinessInformation = function () {
             $location.path("/businessinformation");
-        }
+        };
 
-        function collapseFirstCategoryIfExists(){
-            if($scope.firstCategory==undefined || $scope.firstCategory==null){
+        $scope.isCategorySelected = function (id) {
+            var isSelected = false;
+
+            for (var i = 0; i < $scope.businessSubcategories.subcategories.length; i++) {
+                var sub = $scope.businessSubcategories.subcategories[i];
+
+                if (sub.id == id) {
+                    isSelected = true;
+                    break;
+                }
+            }
+
+            return isSelected;
+        };
+
+        function collapseFirstCategoryIfExists() {
+            if ($scope.firstCategory == undefined || $scope.firstCategory == null) {
                 $scope.listFirstCategoryIsVisible = true;
-            }else{
-                setSelectedCategoriesArray($scope.firstCategory,1);
+            } else {
+                setSelectedCategoriesArray($scope.firstCategory, 1);
                 $scope.listFirstCategoryIsVisible = false;
-                getSubcategories($scope.firstCategory.id,1);
+                getSubcategories($scope.firstCategory.id, 1);
                 $scope.hadTwoCategoriesLeft = true;
                 checkTwoCategoriesLeftButtonVisible();
                 checkOneCategoryLeftButtonVisible();
@@ -179,17 +194,17 @@ angular.module('registerSite')
             }
         }
 
-        function collapseSecondCategoryIfExists(){
-            if($scope.secondCategory==undefined || $scope.secondCategory==null){
+        function collapseSecondCategoryIfExists() {
+            if ($scope.secondCategory == undefined || $scope.secondCategory == null) {
                 $scope.listSecondCategoryExists = false;
                 $scope.listSecondCategoryIsVisible = false;
                 checkTwoCategoriesLeftButtonVisible();
                 checkOneCategoryLeftButtonVisible();
-            }else{
-                setSelectedCategoriesArray($scope.secondCategory,2);
+            } else {
+                setSelectedCategoriesArray($scope.secondCategory, 2);
                 $scope.listSecondCategoryExists = true;
                 $scope.listSecondCategoryIsVisible = false;
-                getSubcategories($scope.secondCategory.id,2);
+                getSubcategories($scope.secondCategory.id, 2);
                 $scope.hadOneCategoriesLeft = true;
                 checkTwoCategoriesLeftButtonVisible();
                 checkOneCategoryLeftButtonVisible();
@@ -198,15 +213,15 @@ angular.module('registerSite')
         }
 
 
-        function collapseThirdCategoryIfExists(){
-            if($scope.thirdCategory==undefined || $scope.thirdCategory==null){
+        function collapseThirdCategoryIfExists() {
+            if ($scope.thirdCategory == undefined || $scope.thirdCategory == null) {
                 $scope.listThirdCategoryExists = false;
                 $scope.listThirdCategoryIsVisible = false;
-            }else{
-                setSelectedCategoriesArray($scope.thirdCategory,3);
+            } else {
+                setSelectedCategoriesArray($scope.thirdCategory, 3);
                 $scope.listThirdCategoryExists = true;
                 $scope.listThirdCategoryIsVisible = false;
-                getSubcategories($scope.thirdCategory.id,3);
+                getSubcategories($scope.thirdCategory.id, 3);
                 checkTwoCategoriesLeftButtonVisible();
                 checkOneCategoryLeftButtonVisible();
                 checkNoneCategoriesLeftButtonsVisible();
@@ -214,10 +229,10 @@ angular.module('registerSite')
             }
         }
 
-        function setSelectedCategoriesArray(categoryObject,categoryNumber){
-            for(var i=0; i<$scope.arrayCategories.length; i++){
-                if($scope.arrayCategories[i].id==categoryObject.id){
-                    $scope.arrayCategories[i].isSelected=categoryNumber;
+        function setSelectedCategoriesArray(categoryObject, categoryNumber) {
+            for (var i = 0; i < $scope.arrayCategories.length; i++) {
+                if ($scope.arrayCategories[i].id == categoryObject.id) {
+                    $scope.arrayCategories[i].isSelected = categoryNumber;
                 }
             }
         }
@@ -297,18 +312,18 @@ angular.module('registerSite')
             });
         }
 
-        function deleteOldSelectedSubcategories(categoryId){
-            var indexArray=[];
-                if(eval(categoryId)!=undefined){
-                    for(var i=0; i<$scope.businessSubcategories.subcategories.length; i++){
-                        if($scope.businessSubcategories.subcategories[i].categoria_padre==categoryId){
-                            indexArray.push(i);
-                        }
-                    }
-                    for(var j=0; j<indexArray.length;j++){
-                        $scope.businessSubcategories.subcategories.splice(indexArray[j]-j,1);
+        function deleteOldSelectedSubcategories(categoryId) {
+            var indexArray = [];
+            if (eval(categoryId) != undefined) {
+                for (var i = 0; i < $scope.businessSubcategories.subcategories.length; i++) {
+                    if ($scope.businessSubcategories.subcategories[i].categoria_padre == categoryId) {
+                        indexArray.push(i);
                     }
                 }
+                for (var j = 0; j < indexArray.length; j++) {
+                    $scope.businessSubcategories.subcategories.splice(indexArray[j] - j, 1);
+                }
+            }
         }
 
         function setSubcategories(category, subcategories) {

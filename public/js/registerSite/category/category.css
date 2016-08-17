@@ -1,3 +1,7 @@
+.selected-subcategory {
+    color: #32A2D4;
+}
+
 .subcategory::-webkit-input-placeholder {
     color: #32A2D4 !important;
 }
@@ -6,7 +10,7 @@
     color: #32A2D4 !important;
 }
 
-.subcategory::-moz-placeholder {  /* Firefox 19+ */
+.subcategory::-moz-placeholder { /* Firefox 19+ */
     color: #32A2D4 !important;
 }
 
@@ -14,49 +18,49 @@
     color: #32A2D4 !important;
 }
 
-.main-category-label{
-    padding-left:7%;
+.main-category-label {
+    padding-left: 7%;
     color: #32A2D4;
     font-weight: bold;
 }
 
-.additional-category-label{
+.additional-category-label {
     color: #32A2D4;
-    padding-left:7%;
+    padding-left: 7%;
     font-weight: normal;
 }
 
-.compressed-category-container{
+.compressed-category-container {
     display: flex;
     flex-flow: column wrap;
     padding-left: 10%;
     padding-right: 10%;
 }
 
-.category-container{
+.category-container {
     display: flex;
     flex-flow: column wrap;
 }
 
-.arrow-container{
+.arrow-container {
     display: flex;
     flex-flow: row wrap;
-    justify-content:flex-end;
+    justify-content: flex-end;
 }
 
-.collapse-arrow{
+.collapse-arrow {
     padding-right: 15px;
 }
 
-.subcategory-container{
+.subcategory-container {
     background-color: #E6E6E6;
 }
 
-.subcategory-label{
+.subcategory-label {
     color: #2D3C4D;
 }
 
-.delete-button{
+.delete-button {
     margin-right: 10%;
 }
 
@@ -73,7 +77,7 @@
     -webkit-border-radius: 5px;
 }
 
-.subcategory-tip{
+.subcategory-tip {
     margin-top: 30% !important;
     padding: 0 10% 0 10% !important;
     margin-bottom: 30% !important;
@@ -81,7 +85,7 @@
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
-    .category-arrow{
+    .category-arrow {
         height: 10vmin !important;
         width: 10vmin !important;
     }
@@ -89,7 +93,7 @@
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    .category-arrow{
+    .category-arrow {
         height: 5vmin !important;
         width: 5vmin !important;
     }
@@ -97,7 +101,7 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .category-arrow{
+    .category-arrow {
         height: 3vmin !important;
         width: 3vmin !important;
     }
@@ -105,7 +109,7 @@
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .category-arrow{
+    .category-arrow {
         height: 3vmin !important;
         width: 3vmin !important;
     }
