@@ -4,9 +4,8 @@ angular.module('utils')
     .service('ImageService', function ($q, $window) {
         var MAX_IMAGE_WIDTH = 800;
         var MAX_IMAGE_HEIGHT = 800;
-        var IMAGE_QUALITY = 0.3;
 
-        function reduceImageSize(file, photoLoading, $scope) {
+        function reduceImageSize(file, imageQuality, photoLoading, $scope) {
             if (!(file instanceof File)) {
                 changeLoadingState(photoLoading, false, $scope);
                 throw "file param must be of File type";
@@ -18,7 +17,7 @@ angular.module('utils')
 
             image.onload = function () {
                 var newSize = scaleImageSize(image, MAX_IMAGE_WIDTH, MAX_IMAGE_HEIGHT);
-                var base64ReducedImage = reduceQuality(image, file.type, IMAGE_QUALITY, newSize);
+                var base64ReducedImage = reduceQuality(image, file.type, imageQuality, newSize);
                 defer.resolve(base64ReducedImage);
             };
 

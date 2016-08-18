@@ -21,14 +21,14 @@ angular.module('registerSite')
         $scope.loadingFacadePhoto = false;
         $scope.loadingInsidePhoto = false;
         $scope.loadingProductsPhoto = false;
-        $scope.loadingPhotos=false;
+        $scope.loadingPhotos = false;
 
 
         var lastFacadeFileIndex;
         var lastInsideFileIndex;
         var lastProductsFileIndex;
         var numPhotos;
-        var loadedPhotos=0;
+        var loadedPhotos = 0;
 
 
         $scope.mainPhotoOnClick = function () {
@@ -88,10 +88,10 @@ angular.module('registerSite')
 
         function loadPhotosFromServer() {
             var i;
-            $scope.loadingPhotos=true;
+            $scope.loadingPhotos = true;
             numPhotos = siteInformationService.URLphotos.length;
-            for (i = 0; i < numPhotos; i++) {       
-            loadPhotoFromURL(siteInformationService.URLphotos[i].URLfoto, siteInformationService.URLphotos[i].tipo);
+            for (i = 0; i < numPhotos; i++) {
+                loadPhotoFromURL(siteInformationService.URLphotos[i].URLfoto, siteInformationService.URLphotos[i].tipo);
             }
 
         }
@@ -134,21 +134,27 @@ angular.module('registerSite')
         }
 
         function processUploadedImage(flowObject, fileIndex, photoLoading) {
+            const MIN_QUALITY = 0.3;
+            const NO_REDUCE_QUALITY = 1;
             var flowFile = flowObject.files[fileIndex];
+            var imageQuality = flowFile.file.size / 1024 > 300 ? MIN_QUALITY : NO_REDUCE_QUALITY;
+            console.log(imageQuality, flowFile.file.size / 1024);
+
             EXIF.getData(flowFile.file, function () {
                 if (flowFile.processing == undefined) {
                     var orientation = this.exifdata.Orientation;
                     flowFile.processing = true;
                     updateFlowObject(flowObject, fileIndex, flowFile);
                     ImageService.changeLoadingState(photoLoading, true, $scope);
-                    ImageService.reduceImageSize(flowFile.file, photoLoading, $scope).then(function (reducedImage) {
+
+                    ImageService.reduceImageSize(flowFile.file, imageQuality, photoLoading, $scope).then(function (reducedImage) {
                         ImageService.rotateImage(orientation, reducedImage).then(function (rotatedImage) {
                             var blob = ImageService.dataURIToBlob(rotatedImage, flowFile.uniqueIdentifier);
                             flowFile = new Flow.FlowFile(flowObject, blob);
                             flowFile.processing = true;
                             updateFlowObject(flowObject, fileIndex, flowFile);
                         });
-                    }).catch(function(error){
+                    }).catch(function (error) {
                         ImageService.changeLoadingState(photoLoading, false, $scope);
                     });
                 }
@@ -157,12 +163,12 @@ angular.module('registerSite')
 
 
         function loadPhotoFromURL(urlPhoto, tipo) {
-        
+
             var arg = "?randnum=1"
-                 
+
             $http({
                 method: 'GET',
-                url: urlPhoto+arg,
+                url: urlPhoto + arg,
                 responseType: "arraybuffer"
             }).success(function (data) {
                 var arrayBufferView = new Uint8Array(data);
@@ -174,8 +180,8 @@ angular.module('registerSite')
                 file = new Flow.FlowFile(flowPhotos.flow, blob);
                 flowPhotos.flow.files.push(file);
                 loadedPhotos++;
-                if(loadedPhotos==numPhotos){
-                $scope.loadingPhotos=false;
+                if (loadedPhotos == numPhotos) {
+                    $scope.loadingPhotos = false;
                 }
             }).error(function (error) {
                 console.log("hubo un error al cargar la foto", error);
