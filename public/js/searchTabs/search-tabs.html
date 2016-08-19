@@ -109,7 +109,7 @@
             <!--Categories List Desktop-->
             <div ng-show="!isMobile" class="row category-scroll-container">
                 <div class="col-xs-1 arrow-category-map-container" ng-click="previousSlide('category')">
-                    <img ng-show="carouselIndexCategory>0" class="icon"
+                    <img ng-hide="categoryScrollPorcentaje>=0 && categoryScrollPorcentaje<=10" class="icon"
                          src=./images/icons/site-detail/flecha-atras-azul.png>
                 </div>
                 <div class="col-xs-10" ng-scrollbars ng-scrollbars-config="config" ng-scrollbars-update=updateScrollbar>
@@ -129,7 +129,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('category')">
-                    <img ng-show="carouselIndexCategory<categories.length-1" class="icon"
+                    <img ng-hide="categoryScrollPorcentaje>=90 && categoryScrollPorcentaje<=100" class="icon"
                          src=./images/icons/site-detail/flecha-adelante-azul.png>
                 </div>
             </div>

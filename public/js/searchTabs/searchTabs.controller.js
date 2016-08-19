@@ -11,6 +11,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.searchedRoute = siteAndTownSaverService.searchedRoute;
         $scope.carouselIndexCategory=0;
         $scope.carouselIndexSubcategory=0;
+        $scope.categoryScrollPorcentaje=0;
 
         var initializedFields = false;
         var originRouteInput;
@@ -36,11 +37,18 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             axis: 'x',
             setHeight: 110,
             callbacks:{
-                onScroll: function(){
-                    console.log("llego al final");
+                onTotalScroll: function(){
+                    $scope.categoryScrollPorcentagePosition=100;
+                },
+                onTotalScrollBack: function(){
+                    $scope.categoryScrollPorcentagePosition=0;
+                },
+                onScroll: function() {
+                    $scope.categoryScrollPorcentaje=this.mcs.leftPct;
+                    $scope.$apply();
                 }
             }
-        }
+        };
 
        
         $timeout(function () {
