@@ -23,6 +23,20 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         getViewPortSize();
 
 
+        $scope.config={
+            autoHideScrollbar: false,
+            theme: 'dark-thick',
+            advanced:{
+                updateOnContentResize: true
+            },
+            scrollButtons: {
+                scrollAmount: 'auto', // scroll amount when button pressed
+                enable: true // enable scrolling buttons by default
+            },
+            axis: 'x', // enable 2 axis scrollbars by default
+            setHeight: 110,
+        }
+
        
         $timeout(function () {
             $scope.showSelectedSection(siteAndTownSaverService.openSection);

@@ -112,7 +112,7 @@
                     <img ng-show="carouselIndexCategory>0" class="icon"
                          src=./images/icons/site-detail/flecha-atras-azul.png>
                 </div>
-                <div class="col-xs-10" style="overflow-x: scroll">
+                <div class="col-xs-10" ng-scrollbars ng-scrollbars-config="config" >
                     <ul class="image carousel-category-list"
                         ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''">
                         <li ng-repeat="category in categories" class="carrusel-categorias">
