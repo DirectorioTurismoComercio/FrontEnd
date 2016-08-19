@@ -112,7 +112,7 @@
                     <img ng-hide="categoryScrollPorcentaje>=0 && categoryScrollPorcentaje<=10" class="icon"
                          src=./images/icons/site-detail/flecha-atras-azul.png>
                 </div>
-                <div class="col-xs-10" ng-scrollbars ng-scrollbars-config="config" ng-scrollbars-update=updateScrollbar>
+                <div class="col-xs-10" ng-scrollbars ng-scrollbars-config="configCategoriesDesktop" ng-scrollbars-update=updateScrollbar>
                     <ul class="image carousel-category-list"
                         ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''">
                         <li ng-repeat="category in categories" class="carrusel-categorias">

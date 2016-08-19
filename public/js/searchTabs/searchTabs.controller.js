@@ -24,7 +24,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         getViewPortSize();
 
 
-        $scope.config={
+        $scope.configCategoriesDesktop={
             autoHideScrollbar: false,
             theme: 'dark-thick',
             advanced:{
@@ -43,7 +43,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 onTotalScrollBack: function(){
                     $scope.categoryScrollPorcentagePosition=0;
                 },
-                onScroll: function() {
+                whileScrolling: function() {
                     $scope.categoryScrollPorcentaje=this.mcs.leftPct;
                     $scope.$apply();
                 }
