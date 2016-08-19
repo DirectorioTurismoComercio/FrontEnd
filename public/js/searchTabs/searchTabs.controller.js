@@ -19,6 +19,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         var destinationRouteInputMap;
         var originRouteInputMapMobile;
         var destinationRouteInputMapMobile;
+        var categoryCounter=0;
 
         getViewPortSize();
 
@@ -30,11 +31,16 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 updateOnContentResize: true
             },
             scrollButtons: {
-                scrollAmount: 'auto', // scroll amount when button pressed
-                enable: true // enable scrolling buttons by default
+                scrollAmount: 'auto',
+                enable: false
             },
-            axis: 'x', // enable 2 axis scrollbars by default
+            axis: 'x',
             setHeight: 110,
+            callbacks:{
+                onScroll: function(){
+                    console.log("llego al final");
+                }
+            }
         }
 
        
@@ -129,6 +135,8 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         $scope.nextSlide=function(object){
             if(object=="category"){
+                categoryCounter=categoryCounter+50;
+                $scope.updateScrollbar('scrollTo', categoryCounter);
                 $scope.carouselIndexCategory=$scope.carouselIndexCategory+1;
             }
 
@@ -139,6 +147,8 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         $scope.previousSlide=function(object){
             if(object=="category"){
+                categoryCounter=categoryCounter-50;
+                $scope.updateScrollbar('scrollTo', categoryCounter);
                 $scope.carouselIndexCategory=$scope.carouselIndexCategory-1;
             }
             if(object=="subCategory"){
