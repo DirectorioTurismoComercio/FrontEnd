@@ -19,7 +19,6 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         var destinationRouteInputMap;
         var originRouteInputMapMobile;
         var destinationRouteInputMapMobile;
-        var categoryCounter=0;
 
         getViewPortSize();
 
@@ -135,8 +134,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         $scope.nextSlide=function(object){
             if(object=="category"){
-                categoryCounter=categoryCounter+50;
-                $scope.updateScrollbar('scrollTo', categoryCounter);
+                $scope.updateScrollbar('scrollTo', "last");
                 $scope.carouselIndexCategory=$scope.carouselIndexCategory+1;
             }
 
@@ -147,8 +145,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         $scope.previousSlide=function(object){
             if(object=="category"){
-                categoryCounter=categoryCounter-50;
-                $scope.updateScrollbar('scrollTo', categoryCounter);
+                $scope.updateScrollbar('scrollTo', "first");
                 $scope.carouselIndexCategory=$scope.carouselIndexCategory-1;
             }
             if(object=="subCategory"){
