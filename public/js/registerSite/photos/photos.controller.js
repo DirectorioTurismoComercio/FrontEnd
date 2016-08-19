@@ -134,8 +134,8 @@ angular.module('registerSite')
         }
 
         function processUploadedImage(flowObject, fileIndex, photoLoading) {
-            const MIN_QUALITY = 0.3;
-            const NO_REDUCE_QUALITY = 1;
+            var MIN_QUALITY = 0.3;
+            var NO_REDUCE_QUALITY = 1;
             var flowFile = flowObject.files[fileIndex];
             var imageQuality = flowFile.file.size / 1024 > 300 ? MIN_QUALITY : NO_REDUCE_QUALITY;
             console.log(imageQuality, flowFile.file.size / 1024);
