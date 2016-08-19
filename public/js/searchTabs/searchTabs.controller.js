@@ -46,6 +46,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         $scope.configSubategoriesDesktop={
             autoHideScrollbar: false,
+            scrollbarPosition:"inside",
             theme: 'dark-thick',
             advanced:{
                 updateOnContentResize: true
@@ -55,7 +56,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 enable: false
             },
             axis: 'x',
-            setHeight: 70,
+            setHeight: 85,
             callbacks:{
                 whileScrolling: function() {
                     $scope.subcategoryScrollPorcentaje=this.mcs.leftPct;
