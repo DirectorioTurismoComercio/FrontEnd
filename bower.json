@@ -25,7 +25,8 @@
     "jquery": "~1.11.2",
     "normalize.css": "~3.0.2",
     "ng-tags-input": "^3.0.0",
-    "angular-click-outside": "^2.7.1"
+    "angular-click-outside": "^2.7.1",
+    "angular-slick": "^0.2.1"
   },
   "devDependencies": {
     "angular-translate": "^2.11.0",
