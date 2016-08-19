@@ -9,7 +9,6 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.isRouteFormVisible = false;
         $scope.loadingCurrentPosition = false;
         $scope.searchedRoute = siteAndTownSaverService.searchedRoute;
-        $scope.carouselIndexSubcategory=0;
         $scope.categoryScrollPorcentaje=0;
         $scope.subcategoryScrollPorcentaje=0;
 
@@ -117,7 +116,6 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                     category.isSelected=false;
                     $scope.result='';
                     $scope.isSubcategoriesVisible=false;
-                    $scope.carouselIndexSubcategory=0;
                 }else{
                     $scope.result=category.nombre;
                     setSubcategories(category.id);
@@ -220,7 +218,6 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 }else{
                     $scope.categories[i].isSelected = false;
                     $scope.isSubcategoriesVisible=false;
-                    $scope.carouselIndexSubcategory=0;
                 }
             }
         }
