@@ -165,6 +165,12 @@
     width: auto !important;
 }
 
+.carousel-category-list{
+   height: 100px;
+    display: inline-flex;
+    list-style-type: none;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
 }

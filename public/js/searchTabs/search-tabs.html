@@ -112,10 +112,9 @@
                     <img ng-show="carouselIndexCategory>0" class="icon"
                          src=./images/icons/site-detail/flecha-atras-azul.png>
                 </div>
-                <div class="col-xs-10">
-                    <ul rn-carousel rn-carousel-index="carouselIndexCategory" class="image"
-                        ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''"
-                        style="height: 100px">
+                <div class="col-xs-10" style="overflow-x: scroll">
+                    <ul class="image carousel-category-list"
+                        ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''">
                         <li ng-repeat="category in categories" class="carrusel-categorias">
                             <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-map-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-map-container search-tab-category-unselected-container'"
                                  ng-click="setCategoryNameAsInputText(category)">
