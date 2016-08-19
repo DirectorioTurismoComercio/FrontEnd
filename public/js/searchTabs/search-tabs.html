@@ -31,8 +31,8 @@
 
                 <!--Categories List Mobile-->
                 <div ng-if="isMobile" class="row category-scroll-container mobile-category-top-margin-container">
-                    <div class="col-xs-12 category-container-mobile-padding">
-                        <ul rn-carousel rn-carousel-index="carouselIndexCategory" class="image"
+                    <div ng-scrollbars ng-scrollbars-config="configCategoriesDesktop" ng-scrollbars-update=updateCategoryScrollbar class="col-xs-12 category-container-mobile-padding">
+                        <ul class="image carousel-category-list no-padding-left"
                             ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''"
                             style="height: 100px">
                             <li ng-repeat="category in categories" class="carrusel-categorias">
@@ -172,8 +172,8 @@
 
                 <!--Categories List mobile-->
                 <div ng-if="isMobile" class="row category-scroll-container mobile-category-top-margin-container">
-                    <div class="col-xs-12 category-container-mobile-padding">
-                        <ul rn-carousel rn-carousel-index="carouselIndexCategory" class="image"
+                    <div ng-scrollbars ng-scrollbars-config="configCategoriesDesktop" ng-scrollbars-update=updateCategoryScrollbar class="col-xs-12 category-container-mobile-padding">
+                        <ul class="image carousel-category-list no-padding-left"
                             ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''"
                             style="height: 100px">
                             <li ng-repeat="category in categories" class="carrusel-categorias">
@@ -195,8 +195,8 @@
 
                 <!--Subcategories List Mobile-->
                 <div ng-show="isSubcategoriesVisible && isMobile" class=" row subcategory-container-map">
-                    <div class="col-xs-12 category-container-mobile-padding">
-                        <ul rn-carousel rn-carousel-index="carouselIndexSubcategory" class="image" style="height: 60px">
+                    <div ng-scrollbars ng-scrollbars-config="configSubategoriesDesktop" ng-scrollbars-update=updateSubcategoryScrollbar class="col-xs-12 category-container-mobile-padding">
+                        <ul class="image carousel-category-list no-padding-left" style="height: 60px">
                             <li ng-repeat="subcategory in subcategories" class="carrusel-categorias">
                                 <div ng-click="selectSubcategory(subcategory)">
                                     <div class="subcategory-label-container-map subcategory-label-border">

@@ -171,6 +171,10 @@
     list-style-type: none;
 }
 
+.no-padding-left{
+    padding-left: 0px !important;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
 }
