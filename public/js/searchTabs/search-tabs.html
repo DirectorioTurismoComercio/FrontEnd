@@ -112,7 +112,7 @@
                     <img ng-hide="categoryScrollPorcentaje>=0 && categoryScrollPorcentaje<=10" class="icon"
                          src=./images/icons/site-detail/flecha-atras-azul.png>
                 </div>
-                <div class="col-xs-10" ng-scrollbars ng-scrollbars-config="configCategoriesDesktop" ng-scrollbars-update=updateScrollbar>
+                <div class="col-xs-10" ng-scrollbars ng-scrollbars-config="configCategoriesDesktop" ng-scrollbars-update=updateCategoryScrollbar>
                     <ul class="image carousel-category-list"
                         ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''">
                         <li ng-repeat="category in categories" class="carrusel-categorias">
@@ -138,10 +138,10 @@
         <!--Subcategories List Desktop-->
         <div ng-show="isSubcategoriesVisible && !isMobile" class=" row subcategory-container-map">
             <div class="col-xs-1 arrow-category-map-container" ng-click="previousSlide('subCategory')">
-                <img ng-show="carouselIndexSubcategory>0" class="icon" src=./images/icons/site-detail/flecha-atras.png>
+                <img ng-hide="subcategoryScrollPorcentaje>=0 && subcategoryScrollPorcentaje<=10" class="icon" src=./images/icons/site-detail/flecha-atras.png>
             </div>
-            <div class="col-xs-10">
-                <ul rn-carousel rn-carousel-index="carouselIndexSubcategory" class="image" style="height: 60px">
+            <div class="col-xs-10" ng-scrollbars ng-scrollbars-config="configSubategoriesDesktop" ng-scrollbars-update=updateSubcategoryScrollbar>
+                <ul class="image carousel-category-list" style="height: 60px">
                     <li ng-repeat="subcategory in subcategories" class="carrusel-categorias">
                         <div ng-click="selectSubcategory(subcategory)">
                             <div class="subcategory-label-container-map subcategory-label-border">
@@ -154,7 +154,7 @@
                 </ul>
             </div>
             <div class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('subCategory')">
-                <img ng-show="carouselIndexSubcategory<subcategories.length-1" class="icon"
+                <img ng-hide="subcategoryScrollPorcentaje>=90 && subcategoryScrollPorcentaje<=100" class="icon"
                      src=./images/icons/site-detail/flecha-adelante.png>
             </div>
         </div>

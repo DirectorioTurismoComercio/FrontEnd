@@ -9,9 +9,10 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.isRouteFormVisible = false;
         $scope.loadingCurrentPosition = false;
         $scope.searchedRoute = siteAndTownSaverService.searchedRoute;
-        $scope.carouselIndexCategory=0;
         $scope.carouselIndexSubcategory=0;
         $scope.categoryScrollPorcentaje=0;
+        $scope.subcategoryScrollPorcentaje=0;
+
 
         var initializedFields = false;
         var originRouteInput;
@@ -37,14 +38,28 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
             axis: 'x',
             setHeight: 110,
             callbacks:{
-                onTotalScroll: function(){
-                    $scope.categoryScrollPorcentagePosition=100;
-                },
-                onTotalScrollBack: function(){
-                    $scope.categoryScrollPorcentagePosition=0;
-                },
                 whileScrolling: function() {
                     $scope.categoryScrollPorcentaje=this.mcs.leftPct;
+                    $scope.$apply();
+                }
+            }
+        };
+
+        $scope.configSubategoriesDesktop={
+            autoHideScrollbar: false,
+            theme: 'dark-thick',
+            advanced:{
+                updateOnContentResize: true
+            },
+            scrollButtons: {
+                scrollAmount: 'auto',
+                enable: false
+            },
+            axis: 'x',
+            setHeight: 70,
+            callbacks:{
+                whileScrolling: function() {
+                    $scope.subcategoryScrollPorcentaje=this.mcs.leftPct;
                     $scope.$apply();
                 }
             }
@@ -142,22 +157,20 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         $scope.nextSlide=function(object){
             if(object=="category"){
-                $scope.updateScrollbar('scrollTo', "last");
-                $scope.carouselIndexCategory=$scope.carouselIndexCategory+1;
+                $scope.updateCategoryScrollbar('scrollTo', "last");
             }
 
             if(object=="subCategory"){
-                $scope.carouselIndexSubcategory=$scope.carouselIndexSubcategory+1;
+                $scope.updateSubcategoryScrollbar('scrollTo', "last");
             }
         };
 
         $scope.previousSlide=function(object){
             if(object=="category"){
-                $scope.updateScrollbar('scrollTo', "first");
-                $scope.carouselIndexCategory=$scope.carouselIndexCategory-1;
+                $scope.updateCategoryScrollbar('scrollTo', "first");
             }
             if(object=="subCategory"){
-                $scope.carouselIndexSubcategory=$scope.carouselIndexSubcategory-1;
+                $scope.updateSubcategoryScrollbar('scrollTo', "first");
 
             }
         };
