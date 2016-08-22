@@ -1,9 +1,42 @@
 .how-works-trader-register-button-container{
-    margin-top: 3%;
+    margin-top: 10px;
 }
 
 .how-works-trader-register-button{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+}
+
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) {
+    .how-works-trader-register-image{
+        width: 90%;
+        height: 90%;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .how-works-trader-register-image{
+        width: 90%;
+        height: 90%;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .how-works-trader-register-image{
+        width: auto;
+        height: auto;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .how-works-trader-register-image{
+        width: auto;
+        height: auto;
+    }
 }
