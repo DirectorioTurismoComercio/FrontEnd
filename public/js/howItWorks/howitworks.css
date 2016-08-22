@@ -1,5 +1,6 @@
-.how-it-works-container {
-
+.how-it-works-container .images-section {
+    max-width: 1200px;
+    margin: 0;
 }
 
 .how-it-works-container .title {
@@ -11,19 +12,27 @@
 
 .how-it-works-container img {
     width: 100%;
-    padding: 5px 0px;
+    padding: 5px 0;
 }
 
 @media (min-width: 768px) {
     .how-it-works-container .title {
-        font-weight: bold;
         font-size: 30px;
+    }
+
+    .how-it-works-container .images-section {
+        margin: 15px auto;
     }
 }
 
 @media (min-width: 992px) {
     .how-it-works-container .title {
-        font-weight: bold;
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .how-it-works-container .title {
         font-size: 30px;
     }
 }
