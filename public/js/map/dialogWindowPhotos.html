@@ -1,4 +1,4 @@
-<div style="display: flex; flex-flow: column wrap;" class="row popup-carousel" ng-if="selectedSite.fotos">
+<div style="flex-flow: column wrap;" class="row popup-carousel carousel-photos-display-desktop" ng-if="selectedSite.fotos">
 
     <div class="text-center" ng-click="closeDialogWindowPhotos()">
         <img class="close-button" src="./images/icons/site-detail/cerrar.png">
@@ -13,4 +13,15 @@
         </div>
     </slick>
 
+</div>
+
+<div class="row popup-carousel carousel-photos-display-mobile" ng-if="selectedSite.fotos">
+    <div class="text-center" ng-click="closeDialogWindowPhotos()">
+        <img class="close-button" src="./images/icons/site-detail/cerrar.png">
+    </div>
+    <ul rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex" class="carousel">
+        <li ng-repeat="photo in selectedSite.fotos" class="text-center">
+            <img class="image" ng-src="%%photo.URLfoto%%"/>
+        </li>
+    </ul>
 </div>
