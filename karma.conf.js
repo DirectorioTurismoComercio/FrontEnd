@@ -52,6 +52,8 @@ module.exports = function (config) {
             'public/components/jquery/dist/jquery.min.js',
             'public/components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
             'public/components/ng-scrollbars/dist/scrollbars.min.js',
+            'public/components/slick-carousel/slick/slick.js',
+            'public/components/angular-slick/dist/slick.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/map/map.js',
