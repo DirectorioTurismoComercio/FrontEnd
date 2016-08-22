@@ -83,12 +83,13 @@ angular.module('registerSite')
             }
 
             for (var i = 0; i < businessSubcategories.subcategories.length; i++) {
-                categoriesArray.push({
+                if(businessSubcategories.subcategories[i].nivel!=1){
+                    categoriesArray.push({
                     categoria_id: businessSubcategories.subcategories[i].id,
                     tipo: 0
                 });
+                }
             }
-
 
             angular.forEach(categoriesArray,function(category){
                fd.append("categorias",JSON.stringify(category))
