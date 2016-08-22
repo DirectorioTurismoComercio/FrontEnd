@@ -27,11 +27,8 @@
     "IN_TIP": "en",
     "TO_TIP": "hasta"
   },
-  "HOW_IT_WORKS_CONSTANTS": {
-    "HOW_IT_WORKS_SEARCH_STEP": "1 Encuentra lo que te gusta",
-    "HOW_IT_WORKS_SEARCH_STEP_DESCRIPTION": "Puedes buscar lo que más te interesa a través de palabras clave o usando categorías",
-    "HOW_IT_WORKS_ROUTE_STEP": "2 Arma tu ruta",
-    "HOW_IT_WORKS_ROUTE_STEP_DESCRIPTION": "Personaliza tu ruta para viajar por Cundinamarca y explora las opciones que el camino tiene para ti"
+  "HOW_IT_WORKS": {
+    "TITLE":"Es muy fácil! Así es como funciona:"
   },
   "REGISTER_USER_CONSTANTS": {
     "CREATE_ACCOUNT": "Crea tu cuenta",

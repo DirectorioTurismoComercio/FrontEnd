@@ -27,11 +27,8 @@
     "IN_TIP": "in",
     "TO_TIP": "to"
   },
-  "HOW_IT_WORKS_CONSTANTS": {
-    "HOW_IT_WORKS_SEARCH_STEP": "1 Find here what interests you the most",
-    "HOW_IT_WORKS_SEARCH_STEP_DESCRIPTION": "You can search what interest you the most, using key words or by category",
-    "HOW_IT_WORKS_ROUTE_STEP": "2 Plan your route",
-    "HOW_IT_WORKS_ROUTE_STEP_DESCRIPTION": "Customize your route to travel through Cundinamarca and explore the options the way has for you"
+  "HOW_IT_WORKS": {
+    "TITLE": "It's so easy! This is how it works:"
   },
   "REGISTER_USER_CONSTANTS": {
     "CREATE_ACCOUNT": "Create your account",

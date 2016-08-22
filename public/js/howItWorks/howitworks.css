@@ -1,156 +1,29 @@
-.desktopLayout{
-    display: flex;
-}
-
-.mobileLayout{
-    display: none;
-}
-
-.videoContainer{
-    width: 100%;
-    height: 68vmin;
-    background-color: grey;
-  
-    display: flex;
-    flex: 1 1 68%;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
-.videoHowItWorks{
-    height: 100%;
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-}
-
-.linksContainer{
-    width: 60%;
-    height: 18%;
-    margin-left: 20%;
-    margin-right: 20%;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content:space-between;
-}
-
-.linkSection{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-flow: column wrap;
-    cursor: pointer;
+.how-it-works-container {
 
 }
 
-.sectionTitle{
-    width: 95%;
-    height: auto;
-    display: flex;
-    flex-flow: row wrap;
-    margin-left: 5%;
-    padding-top: 3%;
-    padding-bottom: 3%;
-}
-
-
-.nummeral{
-    margin-right: 10%;
-}
-
-.title{
-    text-decoration: none;
-    font-family: 'PT Sans', sans-serif;
+.how-it-works-container .title {
+    color: #097da6;
     font-weight: bold;
-    font-size: 2.5vmin;
+    font-size: 24px;
+    padding: 30px 5px;
 }
 
-.sectionText{
-    width: 90%;
-    height: auto;
-    margin-left: 10%;
-    display: flex;
-    flex-flow: row wrap;
-
+.how-it-works-container img {
+    width: 100%;
+    padding: 5px 0px;
 }
 
-.description{
-    text-decoration: none;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: normal;
-    font-size: 1.8vmin;
+@media (min-width: 768px) {
+    .how-it-works-container .title {
+        font-weight: bold;
+        font-size: 30px;
+    }
 }
 
-@media screen and (max-width: 1000px) {
-    .desktopLayout{
-        display: none;
-    }
-
-    .mobileLayout{
-        display: flex;
-    }
-
-    .videoContainer{
-        height: 45vmin;
-    }
-
-    .videoHowItWorks{
-        height: 100%;
-        width: 100%;
-        margin-left: 0%;
-        margin-right: 0%;
-    }
-
-    .linksContainerMobile{
-        width: 100%;
-        height: auto;
-        margin-top: 5%;
-
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: space-around;
-    }
-
-    .sectionMobile{
-        width:100%;
-        height: auto;
-        display: flex;
-        flex-flow: column wrap;
-    }
-
-    .titleMobile{
-        width: 75%;
-        height: auto;
-        margin-left: 10%;
-        margin-right: 15%;
-
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    .descriptionMobile{
-        width:70%;
-        height: auto;
-        margin: 2% 15% 2% 15%;
-
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    .stepsDividerHowitWorks {
-        width: 90%;
-        margin-left: 5%;
-        height: 2px;
-        margin-bottom: 2%;
-        background-color: #32A2D4 ;
-    }
-
-    .title{
-        font-size: 5.5vmin;
-    }
-
-    .description{
-        font-size: 4.8vmin;
+@media (min-width: 992px) {
+    .how-it-works-container .title {
+        font-weight: bold;
+        font-size: 30px;
     }
 }
