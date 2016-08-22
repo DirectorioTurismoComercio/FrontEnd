@@ -364,6 +364,12 @@ prev.search-results .map {
     padding: 0px !important;
 }
 
+.photos-carousel-arrow{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 3em;
+}
+
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
