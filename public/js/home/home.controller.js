@@ -3,10 +3,13 @@
 angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory,
                                             $location, $mdDialog, siteAndTownSaverService,
-                                            messageService, MapService) {
+                                            messageService, MapService, $window) {
 
         siteAndTownSaverService.resetSearchAndRoute();
         siteAndTownSaverService.setSelectedCategory(undefined);
+
+        $scope.howItWorksImage = $window.innerWidth < 992 ? 'movil-como-funciona-comerciante.png' : 'desktop-como-funciona-comerciante.png';
+
 
         $scope.doSearch = function (result) {
             if (result != undefined) {
@@ -25,6 +28,10 @@ angular.module('home')
 
         $scope.goToHowItWorks = function () {
             $location.path('/howitworks');
+        }
+
+        $scope.goToHowItWorksTrader = function () {
+            $location.path('/howitworksTrader');
         }
 
         function getSites(result) {

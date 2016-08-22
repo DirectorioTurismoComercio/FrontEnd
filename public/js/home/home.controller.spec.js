@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: HomeController', function () {
-    var homeController, $scope, deferred, location, testsiteAndTownSaverService, testmessageService, MapServiceTest;
+    var homeController, $scope, deferred, location, testsiteAndTownSaverService, testmessageService, MapServiceTest, testWindow;
 
     beforeEach(module('gemStore'));
     beforeEach(module('home'));
@@ -22,13 +22,14 @@ describe('Controller: HomeController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $location, siteAndTownSaverService, messageService, MapService) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $location, siteAndTownSaverService, messageService, MapService, $window) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         location = $location;
         testsiteAndTownSaverService=siteAndTownSaverService;
         testmessageService=messageService;
         MapServiceTest=MapService;
+        testWindow=$window;
 
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
@@ -37,6 +38,7 @@ describe('Controller: HomeController', function () {
         spyOn(testsiteAndTownSaverService, 'setCurrentSearchedSite');
         spyOn(testsiteAndTownSaverService, 'resetSearchAndRoute');
         spyOn(MapServiceTest,'clearRoute');
+        spyOn(testWindow,'innerWidth').and.returnValue(1000);
 
 
         homeController = $controller('HomeController', {
@@ -108,6 +110,15 @@ describe('Controller: HomeController', function () {
 
     it('Should go to map to show the route', function () {
         $scope.showRoute();
+        expect(location.path).toHaveBeenCalled();
+    });
+
+    it('Should set desktop image of how it works if is in desktop', function () {
+        expect($scope.howItWorksImage).toBe('desktop-como-funciona-comerciante.png');
+    });
+
+    it('Should redirect to register trader on click button register', function () {
+        $scope.goToHowItWorksTrader();
         expect(location.path).toHaveBeenCalled();
     });
 
