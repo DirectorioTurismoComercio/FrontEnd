@@ -1,0 +1,9 @@
+.how-works-trader-register-button-container{
+    margin-top: 3%;
+}
+
+.how-works-trader-register-button{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}

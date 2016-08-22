@@ -30,6 +30,9 @@
   "HOW_IT_WORKS": {
     "TITLE":"Es muy fácil! Así es como funciona:"
   },
+  "HOW_IT_WORKS_TRADER_CONSTANTS":{
+    "PAGE_TITLE":"De Tour por Cundinamarca funciona así:"
+  },
   "REGISTER_USER_CONSTANTS": {
     "CREATE_ACCOUNT": "Crea tu cuenta",
     "SIGNUP_WITH_FACEBOOK": "Regístrate con Facebook",
