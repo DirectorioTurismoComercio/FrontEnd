@@ -144,6 +144,7 @@ angular.module('map')
 
         $scope.backToInitialPlace= function(initialSelectedSite){
             $scope.showSiteDetail(initialSelectedSite);
+            $scope.showRouteToSite(initialSelectedSite);
         }
 
         $scope.$on("$routeChangeStart", function (event, next, current) {
