@@ -3,7 +3,7 @@
 angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory,
                                             $location, $mdDialog, siteAndTownSaverService,
-                                            messageService, MapService, $window) {
+                                            messageService, MapService, $window, $rootScope, $translate) {
 
         siteAndTownSaverService.resetSearchAndRoute();
         siteAndTownSaverService.setSelectedCategory(undefined);
@@ -21,18 +21,30 @@ angular.module('home')
             }
         };
 
-
         $scope.showRoute = function () {
             $location.path('/map');
         };
 
         $scope.goToHowItWorks = function () {
             $location.path('/howitworks');
-        }
+        };
 
         $scope.goToHowItWorksTrader = function () {
             $location.path('/howitworksTrader');
-        }
+        };
+
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            if ($translate.use() == 'es') {
+               console.log("esta en español");
+            }
+
+            if ($translate.use() == 'en') {
+                console.log("esta en español");
+            }
+
+        });
+
 
         function getSites(result) {
             SearchForResultsFactory.doSearch(result).then(function (response) {
