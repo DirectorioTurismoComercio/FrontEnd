@@ -131,6 +131,7 @@
 
 
                     <div ng-show="foundSites.length > 0 && routeToSiteIsVisible">
+                        <div class="item-separator"></div>
                         <div ng-repeat="site in foundSites"
                              ng-mouseover="highLightMarker($index)"
                              ng-mouseleave="clearHighLightedMarker($index)">
