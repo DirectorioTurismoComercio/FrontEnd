@@ -131,8 +131,7 @@
 
 
                     <div ng-show="foundSites.length > 0 && routeToSiteIsVisible">
-                        <div ng-if="!showResultListHorizontally()"
-                             ng-repeat="site in foundSites"
+                        <div ng-repeat="site in foundSites"
                              ng-mouseover="highLightMarker($index)"
                              ng-mouseleave="clearHighLightedMarker($index)">
                             <div class="list-item ">
