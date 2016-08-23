@@ -7,6 +7,7 @@ angular.module('map')
         var userPosition = {};
         var hasMadeRoute = false;
         var photosPopUp = undefined;
+        var hasMadeFirstRouteToSite=false;
         $scope.routeMapZoom = undefined;
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
@@ -28,6 +29,7 @@ angular.module('map')
         };
         $scope.resulListInCompactMode = false;
         $scope.routeToSiteIsVisible=false;
+        $scope.initialSelectedSite=undefined;
 
 
         uiGmapIsReady.promise().then(initMap);
@@ -69,6 +71,7 @@ angular.module('map')
         }
 
         $scope.goBackToSiteList=function(){
+            resetFirstSiteSearchedRoute();
             $scope.hideSiteDetail();
             searchingByKeyword($scope.result);
         }
@@ -99,6 +102,7 @@ angular.module('map')
             $scope.isShowingSiteDetail = true;
             $scope.isOnSitedetails = true;
             $scope.selectedSite = site;
+            console.log($scope.selectedSite )
             checkSelectedSiteWebPage();
             reloadMap();
             $timeout(function () {
@@ -116,6 +120,8 @@ angular.module('map')
         }
 
         $scope.showRouteToSite = function (site) {
+            saveFirstSiteSearchedRoute(site);
+            hasMadeFirstRouteToSite=true;
             $scope.loading = true;
             $scope.resulListInCompactMode = true;
             reloadMap();
@@ -148,6 +154,17 @@ angular.module('map')
             }
 
         });
+
+        function saveFirstSiteSearchedRoute(site) {
+            if (!hasMadeFirstRouteToSite) {
+                $scope.initialSelectedSite = site;
+            }
+        }
+
+        function resetFirstSiteSearchedRoute() {
+            hasMadeFirstRouteToSite = false;
+            $scope.initialSelectedSite = undefined;
+        }
 
         function searchingByKeyword(keyWord){
             $scope.resulListInCompactMode = false;
@@ -249,6 +266,7 @@ angular.module('map')
         }
 
         function handleLocationError() {
+            resetFirstSiteSearchedRoute();
             messageService.showErrorMessage("No es posible obtener la ubicación");
         }
 

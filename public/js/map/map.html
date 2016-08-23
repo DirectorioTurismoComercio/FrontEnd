@@ -9,9 +9,14 @@
             <div ng-click="goBackToSiteList()" class="back-button">
                 <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
             </div>
-            <div class="get-there get-there-mobile" ng-click="showRouteToSite(selectedSite)" class="search-button">
+            <div ng-show="initialSelectedSite.id!=selectedSite.id" class="get-there get-there-mobile" ng-click="showRouteToSite(selectedSite)" class="search-button">
                 <p translate="HOW_TO_GET_THERE"></p>
                 <img class="detail-icon" src="./images/icons/arma-tu-ruta.png">
+            </div>
+
+            <div ng-show="initialSelectedSite.id==selectedSite.id" class="get-there get-there-mobile" class="search-button">
+                <p translate="DESTINY"></p>
+                <img class="detail-icon" src="./images/icons/llegada-mapa.png">
             </div>
 
         </div>
