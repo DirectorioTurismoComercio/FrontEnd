@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: MapController', function () {
-    var MapController, $scope, testpopErrorAlertService, deferred, MapServiceTest, testSearchForResultsFactory;
+    var MapController, $scope, testpopErrorAlertService, deferred, MapServiceTest, testSearchForResultsFactory, testMapRouteService;
     var sitesResponse={
         nombre:'site',
         categorias:[{
@@ -24,24 +24,28 @@ describe('Controller: MapController', function () {
 
     }));
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, messageService) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, messageService, MapRouteService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         testpopErrorAlertService = messageService;
         MapServiceTest=MapService;
         testSearchForResultsFactory=SearchForResultsFactory;
+        testMapRouteService=MapRouteService;
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
         spyOn(testpopErrorAlertService, 'showErrorMessage');
         spyOn(MapServiceTest, 'clearRoute');
+        spyOn(MapServiceTest, 'getUserPosition');
         spyOn(MapServiceTest, 'moveMapToPosition');
         spyOn(SearchForResultsFactory,'getResults').and.returnValue(sitesResponse);
+        spyOn(testMapRouteService, 'calculateRoute');
 
         MapController = $controller('MapController', {
             $scope: $scope,
             messageService: testpopErrorAlertService,
             MapService: MapServiceTest,
-            SearchForResultsFactory:testSearchForResultsFactory
+            SearchForResultsFactory:testSearchForResultsFactory,
+            MapRouteService:testMapRouteService
         });
     }));
 
@@ -70,6 +74,12 @@ describe('Controller: MapController', function () {
         deferred.resolve([]);
         $scope.$apply();
         expect($scope.foundSites).not.toBe([]);
+    });
+
+    it('Should hide sites on the route in site detail if user clicks hideSiteDetail', function () {
+        $scope.showRouteToSite('place');
+        $scope.hideSiteDetail();
+        expect($scope.routeToSiteIsVisible).toBe(false);
     });
 
 });

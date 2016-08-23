@@ -6,7 +6,7 @@
 
     <div class="col-md-6 no-padding">
         <div ng-show="isShowingSiteDetail" class="site-detail-search-route">
-            <div ng-click="hideSiteDetail()" class="back-button">
+            <div ng-click="goBackToSiteList()" class="back-button">
                 <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
             </div>
             <div class="get-there get-there-mobile" ng-click="showRouteToSite(selectedSite)" class="search-button">
@@ -128,6 +128,36 @@
                         </div>
                     </div>
                 </div>
+
+
+                    <div ng-show="foundSites.length > 0 && routeToSiteIsVisible">
+                        <div ng-if="!showResultListHorizontally()"
+                             ng-repeat="site in foundSites"
+                             ng-mouseover="highLightMarker($index)"
+                             ng-mouseleave="clearHighLightedMarker($index)">
+                            <div class="list-item ">
+                                <div class="row" ng-click="showSiteDetail(site, $index)">
+                                    <div class="col-xs-8 info">
+                                        <div class="row category-container-map-list-result">
+                                            <img class="icon" ng-src="%%site.categoryicon%%">
+                                            <h3 class="">%%site.nombre%%</h3>
+                                        </div>
+                                        <h4 class="">%%site.municipio.nombre%%</h4>
+                                        <p clamp="3" class="description">%%site.descripcion%%</p>
+                                    </div>
+                                    <div class="col-xs-4 image">
+                                        <img class="img-responsive  site-photo-height"
+                                             ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-separator"></div>
+                        </div>
+                    </div>
+
+
+
+
             </div>
         </div>
     </div>

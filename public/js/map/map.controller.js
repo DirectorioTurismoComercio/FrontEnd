@@ -27,6 +27,7 @@ angular.module('map')
             routeTo: ''
         };
         $scope.resulListInCompactMode = false;
+        $scope.routeToSiteIsVisible=false;
 
 
         uiGmapIsReady.promise().then(initMap);
@@ -67,13 +68,18 @@ angular.module('map')
             showSearchedRoute();
         }
 
+        $scope.goBackToSiteList=function(){
+            $scope.hideSiteDetail();
+            searchingByKeyword($scope.result);
+        }
+
 
         $scope.hideSiteDetail = function () {
+            $scope.routeToSiteIsVisible=false;
             SiteMarkerService.clearSelectedMarker();
             $scope.isShowingSiteDetail = false;
             $scope.isOnSitedetails = false;
             goBackToCenterMap();
-
         };
 
         $scope.clearHighLightedMarker = function (index) {
