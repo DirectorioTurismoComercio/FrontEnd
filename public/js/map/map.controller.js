@@ -73,7 +73,9 @@ angular.module('map')
         $scope.goBackToSiteList=function(){
             resetFirstSiteSearchedRoute();
             $scope.hideSiteDetail();
-            searchingByKeyword($scope.result);
+            if($scope.result!=undefined){
+               searchingByKeyword($scope.result);
+           }
         }
 
 

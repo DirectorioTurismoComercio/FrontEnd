@@ -136,11 +136,11 @@
 
 
                     <div ng-show="foundSites.length > 0 && routeToSiteIsVisible">
-                        <div class="item-separator"></div>
+                        <div ng-show="selectedSite.id!=site.id" class="item-separator"></div>
                         <div ng-repeat="site in foundSites"
                              ng-mouseover="highLightMarker($index)"
                              ng-mouseleave="clearHighLightedMarker($index)">
-                            <div class="list-item ">
+                            <div ng-show="selectedSite.id!=site.id" class="list-item ">
                                 <div class="row" ng-click="showSiteDetail(site, $index)">
                                     <div class="col-xs-8 info">
                                         <div class="row category-container-map-list-result">
@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="item-separator"></div>
+                            <div ng-show="selectedSite.id!=site.id" class="item-separator"></div>
                         </div>
                     </div>
 

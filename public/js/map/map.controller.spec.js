@@ -35,6 +35,7 @@ describe('Controller: MapController', function () {
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
         spyOn(testpopErrorAlertService, 'showErrorMessage');
         spyOn(MapServiceTest, 'clearRoute');
+        spyOn(MapServiceTest, 'clearMarkers');
         spyOn(MapServiceTest, 'getUserPosition');
         spyOn(MapServiceTest, 'moveMapToPosition');
         spyOn(SearchForResultsFactory,'getResults').and.returnValue(sitesResponse);
@@ -92,6 +93,18 @@ describe('Controller: MapController', function () {
         $scope.showRouteToSite('place');
         $scope.goBackToSiteList();
         expect($scope.initialSelectedSite).toBe(undefined);
+    });
+
+    it('Should re make search by keyword after user clicks on goBackToSiteList', function () {
+        $scope.doSearch('place');
+        $scope.goBackToSiteList();
+        expect(MapServiceTest.clearMarkers).toHaveBeenCalled();;
+    });
+
+    it('Should not re make search by keyword after user clicks on goBackToSiteList if user plan a route', function () {
+        $scope.result=undefined;
+        $scope.goBackToSiteList();
+        expect(MapServiceTest.clearMarkers).not.toHaveBeenCalled();;
     });
 
 });
