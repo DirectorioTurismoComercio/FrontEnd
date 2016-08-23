@@ -240,4 +240,9 @@ describe('Controller: MapController', function () {
         expect($scope.showSiteDetail($scope.initialSelectedSite)).toHaveBeenCalled();;
     });
 
+    it('Should show showRouteToSite button when user sees site detail for first time', function () {
+        $scope.doSearch('place');
+        expect($scope.hasMadeCurrentSiteRoute).toBe(false);
+    });
+
 });

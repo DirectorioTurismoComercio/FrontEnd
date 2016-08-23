@@ -30,6 +30,7 @@ angular.module('map')
         $scope.resulListInCompactMode = false;
         $scope.routeToSiteIsVisible=false;
         $scope.initialSelectedSite=undefined;
+        $scope.hasMadeCurrentSiteRoute=false;
 
 
         uiGmapIsReady.promise().then(initMap);
@@ -109,6 +110,7 @@ angular.module('map')
             $timeout(function () {
                 centerMap(site, 15);
             }, 100);
+            $scope.hasMadeCurrentSiteRoute=false;
             //$scope.$apply();
         };
 

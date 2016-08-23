@@ -58,6 +58,7 @@ angular.module('map')
                 $scope.foundSites = sites;
                 $scope.routeMapZoom = $scope.map.zoom;
                 $scope.routeToSiteIsVisible=true;
+                $scope.hasMadeCurrentSiteRoute=true;
             }).error(function (error) {
                 console.log("Hubo un error", error);
             })

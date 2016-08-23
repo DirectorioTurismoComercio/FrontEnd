@@ -15,12 +15,12 @@
                 <img class="detail-icon" src="./images/icons/paso1.png">
             </div>
 
-            <div ng-show="initialSelectedSite.id!=selectedSite.id" class="get-there get-there-mobile" ng-click="showRouteToSite(selectedSite)" class="search-button">
+            <div ng-show="!hasMadeCurrentSiteRoute" class="get-there get-there-mobile" ng-click="showRouteToSite(selectedSite)" class="search-button">
                 <p translate="HOW_TO_GET_THERE"></p>
                 <img class="detail-icon" src="./images/icons/arma-tu-ruta.png">
             </div>
 
-            <div ng-show="initialSelectedSite.id==selectedSite.id" class="get-there get-there-mobile" class="search-button">
+            <div ng-show="hasMadeCurrentSiteRoute" class="get-there get-there-mobile" class="search-button">
                 <p translate="DESTINY"></p>
                 <img class="detail-icon" src="./images/icons/llegada-mapa.png">
             </div>
