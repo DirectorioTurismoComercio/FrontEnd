@@ -134,10 +134,8 @@ angular.module('registerSite')
         }
 
         function processUploadedImage(flowObject, fileIndex, photoLoading) {
-            var MIN_QUALITY = 0.3;
-            var NO_REDUCE_QUALITY = 1;
             var flowFile = flowObject.files[fileIndex];
-            var imageQuality = flowFile.file.size / 1024 > 300 ? MIN_QUALITY : NO_REDUCE_QUALITY;
+            var imageQuality = 1;
             console.log(imageQuality, flowFile.file.size / 1024);
 
             EXIF.getData(flowFile.file, function () {
