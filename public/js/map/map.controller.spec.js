@@ -104,7 +104,140 @@ describe('Controller: MapController', function () {
     it('Should not re make search by keyword after user clicks on goBackToSiteList if user plan a route', function () {
         $scope.result=undefined;
         $scope.goBackToSiteList();
-        expect(MapServiceTest.clearMarkers).not.toHaveBeenCalled();;
+        expect(MapServiceTest.clearMarkers).not.toHaveBeenCalled();
+    });
+
+    /* Jasmine can't search for function startsWith because it's from ECMAScript 6 too new */
+    xit('Should show initial place detail if user clicks on backToInitialPlace button', function () {
+        $scope.doSearch('place');
+        $scope.initialSelectedSite={
+            "id": 1921,
+            "categorias": [
+                {
+                    "id": 103,
+                    "categoria": {
+                        "id": 2,
+                        "nombre": "Deportes",
+                        "nivel": 1,
+                        "URL_icono_general": "http://ecosistema.desarrollo.com:8000/Fotos/general_icons/deportes.png",
+                        "URL_icono_normal": "http://ecosistema.desarrollo.com:8000/Fotos/normal_icons/deporte.png",
+                        "URL_icono_seleccionado": "http://ecosistema.desarrollo.com:8000/Fotos/selected_icons/deporte.png",
+                        "categoria_padre": null
+                    },
+                    "categoria_id": 2,
+                    "tipo": 0,
+                    "sitio": 1921
+                },
+                {
+                    "id": 102,
+                    "categoria": {
+                        "id": 2,
+                        "nombre": "Deportes",
+                        "nivel": 1,
+                        "URL_icono_general": "http://ecosistema.desarrollo.com:8000/Fotos/general_icons/deportes.png",
+                        "URL_icono_normal": "http://ecosistema.desarrollo.com:8000/Fotos/normal_icons/deporte.png",
+                        "URL_icono_seleccionado": "http://ecosistema.desarrollo.com:8000/Fotos/selected_icons/deporte.png",
+                        "categoria_padre": null
+                    },
+                    "categoria_id": 2,
+                    "tipo": 0,
+                    "sitio": 1921
+                },
+                {
+                    "id": 101,
+                    "categoria": {
+                        "id": 2,
+                        "nombre": "Deportes",
+                        "nivel": 1,
+                        "URL_icono_general": "http://ecosistema.desarrollo.com:8000/Fotos/general_icons/deportes.png",
+                        "URL_icono_normal": "http://ecosistema.desarrollo.com:8000/Fotos/normal_icons/deporte.png",
+                        "URL_icono_seleccionado": "http://ecosistema.desarrollo.com:8000/Fotos/selected_icons/deporte.png",
+                        "categoria_padre": null
+                    },
+                    "categoria_id": 2,
+                    "tipo": 0,
+                    "sitio": 1921
+                },
+                {
+                    "id": 100,
+                    "categoria": {
+                        "id": 2,
+                        "nombre": "Deportes",
+                        "nivel": 1,
+                        "URL_icono_general": "http://ecosistema.desarrollo.com:8000/Fotos/general_icons/deportes.png",
+                        "URL_icono_normal": "http://ecosistema.desarrollo.com:8000/Fotos/normal_icons/deporte.png",
+                        "URL_icono_seleccionado": "http://ecosistema.desarrollo.com:8000/Fotos/selected_icons/deporte.png",
+                        "categoria_padre": null
+                    },
+                    "categoria_id": 2,
+                    "tipo": 0,
+                    "sitio": 1921
+                },
+                {
+                    "id": 99,
+                    "categoria": {
+                        "id": 2,
+                        "nombre": "Deportes",
+                        "nivel": 1,
+                        "URL_icono_general": "http://ecosistema.desarrollo.com:8000/Fotos/general_icons/deportes.png",
+                        "URL_icono_normal": "http://ecosistema.desarrollo.com:8000/Fotos/normal_icons/deporte.png",
+                        "URL_icono_seleccionado": "http://ecosistema.desarrollo.com:8000/Fotos/selected_icons/deporte.png",
+                        "categoria_padre": null
+                    },
+                    "categoria_id": 2,
+                    "tipo": 1,
+                    "sitio": 1921
+                },
+                {
+                    "id": 104,
+                    "categoria": {
+                        "id": 25,
+                        "nombre": "Rapel",
+                        "nivel": 2,
+                        "URL_icono_general": null,
+                        "URL_icono_normal": null,
+                        "URL_icono_seleccionado": null,
+                        "categoria_padre": 2
+                    },
+                    "categoria_id": 25,
+                    "tipo": 0,
+                    "sitio": 1921
+                }
+            ],
+            "fotos": [
+                {
+                    "id": 2173,
+                    "URLfoto": "http://ecosistema.desarrollo.com:8000/Fotos/Fotos/blob_kw5sznr",
+                    "tipo": "P",
+                    "sitio": 1921,
+                    "$$hashKey": "object:1530"
+                }
+            ],
+            "municipio": {
+                "id": 3,
+                "nombre": "Anapoima",
+                "latitud": "4.565941800000000000",
+                "longitud": "-74.564331300000000000"
+            },
+            "tags": [
+
+            ],
+            "municipio_id": 3,
+            "nombre": "pepe 2",
+            "telefono": "423432233",
+            "whatsapp": "",
+            "horariolocal": "",
+            "web": "www.place.com",
+            "latitud": "4.545901811635493000",
+            "longitud": "-74.535482525825500000",
+            "descripcion": "423423",
+            "correolocal": "",
+            "ubicacionlocal": "423432",
+            "usuario": 40,
+            "categoryicon": "http://ecosistema.desarrollo.com:8000/Fotos/general_icons/deportes.png"
+        }
+        $scope.backToInitialPlace($scope.initialSelectedSite);
+        expect($scope.showSiteDetail($scope.initialSelectedSite)).toHaveBeenCalled();;
     });
 
 });

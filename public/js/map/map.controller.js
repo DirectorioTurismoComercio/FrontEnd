@@ -7,7 +7,7 @@ angular.module('map')
         var userPosition = {};
         var hasMadeRoute = false;
         var photosPopUp = undefined;
-        var hasMadeFirstRouteToSite=false;
+        $scope.hasMadeFirstRouteToSite=false;
         $scope.routeMapZoom = undefined;
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
@@ -104,7 +104,6 @@ angular.module('map')
             $scope.isShowingSiteDetail = true;
             $scope.isOnSitedetails = true;
             $scope.selectedSite = site;
-            console.log($scope.selectedSite )
             checkSelectedSiteWebPage();
             reloadMap();
             $timeout(function () {
@@ -123,7 +122,7 @@ angular.module('map')
 
         $scope.showRouteToSite = function (site) {
             saveFirstSiteSearchedRoute(site);
-            hasMadeFirstRouteToSite=true;
+            $scope.hasMadeFirstRouteToSite=true;
             $scope.loading = true;
             $scope.resulListInCompactMode = true;
             reloadMap();
@@ -143,6 +142,10 @@ angular.module('map')
             );
         };
 
+        $scope.backToInitialPlace= function(initialSelectedSite){
+            $scope.showSiteDetail(initialSelectedSite);
+        }
+
         $scope.$on("$routeChangeStart", function (event, next, current) {
             if (photosPopUp != undefined) {
                 event.preventDefault();
@@ -158,13 +161,13 @@ angular.module('map')
         });
 
         function saveFirstSiteSearchedRoute(site) {
-            if (!hasMadeFirstRouteToSite) {
+            if (!$scope.hasMadeFirstRouteToSite) {
                 $scope.initialSelectedSite = site;
             }
         }
 
         function resetFirstSiteSearchedRoute() {
-            hasMadeFirstRouteToSite = false;
+            $scope.hasMadeFirstRouteToSite = false;
             $scope.initialSelectedSite = undefined;
         }
 
@@ -277,7 +280,7 @@ angular.module('map')
             var httpsProtocol = 'https://';
             var url = $scope.selectedSite.web;
 
-            if (!url.startsWith(httpProtocol) && !url.startsWith(httpsProtocol) && url) {
+                if (!url.startsWith(httpProtocol) && !url.startsWith(httpsProtocol) && url) {
                 $scope.selectedSite.web = httpProtocol + url;
             }
         }

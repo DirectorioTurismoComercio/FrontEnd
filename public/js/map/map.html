@@ -9,6 +9,12 @@
             <div ng-click="goBackToSiteList()" class="back-button">
                 <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
             </div>
+
+            <div ng-show="initialSelectedSite.id!=selectedSite.id && hasMadeFirstRouteToSite" ng-click="backToInitialPlace(initialSelectedSite)" class="get-there get-there-mobile" class="search-button">
+                <p translate="INITIAL_PLACE"></p>
+                <img class="detail-icon" src="./images/icons/paso1.png">
+            </div>
+
             <div ng-show="initialSelectedSite.id!=selectedSite.id" class="get-there get-there-mobile" ng-click="showRouteToSite(selectedSite)" class="search-button">
                 <p translate="HOW_TO_GET_THERE"></p>
                 <img class="detail-icon" src="./images/icons/arma-tu-ruta.png">
