@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('map')
-    .service('SiteMarkerService', function () {
+    .service('SiteMarkerService', function (MapService) {
         var markers = [];
         var selectedMarker = null;
 
@@ -42,6 +42,7 @@ angular.module('map')
 
         function clearHighLightedMarker(marker) {
             if (marker) {
+                marker = addDestinationIconMarker(marker, "normal");
                 setMarkerIcon(marker, marker.normalIcon);
             }
         }
@@ -51,6 +52,7 @@ angular.module('map')
 
             if (marker) {
                 selectedMarker = marker;
+                marker = addDestinationIconMarker(marker, "lighted");
                 setMarkerIcon(marker, marker.lightedIcon);
             }
         }
@@ -59,6 +61,16 @@ angular.module('map')
             if (marker) {
                 marker.setIcon(iconUrl);
             }
+        }
+
+        function addDestinationIconMarker(marker, status) {
+            if (status == "normal" && marker.normalIcon == undefined) {
+                marker.normalIcon = MapService.createIcon('images/icons/llegada-mapa.png', 50);
+            }
+            if (status == "lighted" && marker.lightedIcon == undefined) {
+                marker.lightedIcon = MapService.createIcon('images/icons/llegada-mapa.png', 50);
+            }
+            return marker;
         }
 
         return {

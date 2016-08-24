@@ -62,7 +62,7 @@ angular.module('map')
             $scope.resulListInCompactMode = true;
             reloadMap();
             SiteMarkerService.deleteMarkers();
-            MapRouteService.calculateRoute(siteAndTownSaverService.searchedRoute, $scope);
+            MapRouteService.calculateRoute(siteAndTownSaverService.searchedRoute, $scope, undefined);
             MapService.clearMarkers();
         }
 
@@ -147,7 +147,7 @@ angular.module('map')
                         }
                     };
 
-                    MapRouteService.calculateRoute(routeRequest, $scope);
+                    MapRouteService.calculateRoute(routeRequest, $scope, site);
                 }, handleLocationError
             );
         };
