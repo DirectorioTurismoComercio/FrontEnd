@@ -7,7 +7,7 @@ angular.module('map')
         var userPosition = {};
         var hasMadeRoute = false;
         var photosPopUp = undefined;
-        $scope.hasMadeFirstRouteToSite=false;
+        $scope.hasMadeFirstRouteToSite = false;
         $scope.routeMapZoom = undefined;
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
@@ -28,10 +28,10 @@ angular.module('map')
             routeTo: ''
         };
         $scope.resulListInCompactMode = false;
-        $scope.routeToSiteIsVisible=false;
-        $scope.initialSelectedSite=undefined;
-        $scope.hasMadeCurrentSiteRoute=false;
-        $scope.isMakingASearchByKeyword=siteAndTownSaverService.getQueryMadeByUser();
+        $scope.routeToSiteIsVisible = false;
+        $scope.initialSelectedSite = undefined;
+        $scope.hasMadeCurrentSiteRoute = false;
+        $scope.isMakingASearchByKeyword = siteAndTownSaverService.getQueryMadeByUser();
 
 
         uiGmapIsReady.promise().then(initMap);
@@ -73,22 +73,22 @@ angular.module('map')
             showSearchedRoute();
         }
 
-        $scope.goBackToSiteList=function(){
+        $scope.goBackToSiteList = function () {
             resetFirstSiteSearchedRoute();
             $scope.hideSiteDetail();
 
-            if(siteAndTownSaverService.getQueryMadeByUser()=="SEARCH_BY_KEY_WORD"){
+            if (siteAndTownSaverService.getQueryMadeByUser() == "SEARCH_BY_KEY_WORD") {
                 searchingByKeyword($scope.result);
             }
 
-            if(siteAndTownSaverService.getQueryMadeByUser()=="PLAN_A_ROUTE"){
+            if (siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE") {
                 $scope.showRoute();
             }
         }
 
 
         $scope.hideSiteDetail = function () {
-            $scope.routeToSiteIsVisible=false;
+            $scope.routeToSiteIsVisible = false;
             SiteMarkerService.clearSelectedMarker();
             $scope.isShowingSiteDetail = false;
             $scope.isOnSitedetails = false;
@@ -117,7 +117,17 @@ angular.module('map')
             $timeout(function () {
                 centerMap(site, 15);
             }, 100);
-            $scope.hasMadeCurrentSiteRoute=false;
+
+            try {
+                if (site.id != $scope.initialSelectedSite.id) {
+                    $scope.hasMadeCurrentSiteRoute = false;
+                } else {
+                    $scope.hasMadeCurrentSiteRoute = true;
+                }
+            } catch (e) {
+            }
+
+
             //$scope.$apply();
         };
 
@@ -125,14 +135,14 @@ angular.module('map')
             siteAndTownSaverService.setQueryMadeByUser("SEARCH_BY_KEY_WORD");
             searchingByKeyword(result);
         };
-        
-        $scope.subcategorySearch=function(subcategoryName){
+
+        $scope.subcategorySearch = function (subcategoryName) {
             searchingByKeyword(subcategoryName);
         }
 
         $scope.showRouteToSite = function (site) {
             saveFirstSiteSearchedRoute(site);
-            $scope.hasMadeFirstRouteToSite=true;
+            $scope.hasMadeFirstRouteToSite = true;
             $scope.loading = true;
             $scope.resulListInCompactMode = true;
             reloadMap();
@@ -152,7 +162,7 @@ angular.module('map')
             );
         };
 
-        $scope.backToInitialPlace= function(initialSelectedSite){
+        $scope.backToInitialPlace = function (initialSelectedSite) {
             $scope.showSiteDetail(initialSelectedSite);
             $scope.showRouteToSite(initialSelectedSite);
         }
@@ -182,7 +192,7 @@ angular.module('map')
             $scope.initialSelectedSite = undefined;
         }
 
-        function searchingByKeyword(keyWord){
+        function searchingByKeyword(keyWord) {
             $scope.resulListInCompactMode = false;
             MapService.clearRoute();
             if (keyWord != undefined) {
@@ -273,9 +283,9 @@ angular.module('map')
                 for (var i = 0; i < sites.length; i++) {
                     var site = sites[i];
                     var position = MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud));
-                    var marker = MapService.addMarkerWithCategoryIcon(position, site.nombre, filterFilter(site.categorias,{tipo:1})[0]);
-                    site.categoryicon=marker.generalIcon.url;
-                    
+                    var marker = MapService.addMarkerWithCategoryIcon(position, site.nombre, filterFilter(site.categorias, {tipo: 1})[0]);
+                    site.categoryicon = marker.generalIcon.url;
+
                     SiteMarkerService.addSiteMarker(site, marker, $scope.showSiteDetail);
                 }
             }
@@ -291,7 +301,7 @@ angular.module('map')
             var httpsProtocol = 'https://';
             var url = $scope.selectedSite.web;
 
-                if (!url.startsWith(httpProtocol) && !url.startsWith(httpsProtocol) && url) {
+            if (!url.startsWith(httpProtocol) && !url.startsWith(httpsProtocol) && url) {
                 $scope.selectedSite.web = httpProtocol + url;
             }
         }
