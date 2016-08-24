@@ -31,6 +31,7 @@ angular.module('map')
         $scope.routeToSiteIsVisible=false;
         $scope.initialSelectedSite=undefined;
         $scope.hasMadeCurrentSiteRoute=false;
+        $scope.isMakingASearchByKeyword=false;
 
 
         uiGmapIsReady.promise().then(initMap);
@@ -66,6 +67,7 @@ angular.module('map')
         }
 
         $scope.showRoute = function () {
+            $scope.isMakingASearchByKeyword=false;
             hasMadeRoute = true;
             siteAndTownSaverService.setCurrentSearchedTown(undefined);
             showSearchedRoute();
@@ -74,9 +76,12 @@ angular.module('map')
         $scope.goBackToSiteList=function(){
             resetFirstSiteSearchedRoute();
             $scope.hideSiteDetail();
-            if($scope.result!=undefined){
-               searchingByKeyword($scope.result);
-           }
+
+            if($scope.isMakingASearchByKeyword){
+                searchingByKeyword($scope.result);
+            }else{
+                $scope.showRoute();
+            }
         }
 
 
@@ -115,6 +120,7 @@ angular.module('map')
         };
 
         $scope.doSearch = function (result) {
+            $scope.isMakingASearchByKeyword=true;
            searchingByKeyword(result);
         };
         

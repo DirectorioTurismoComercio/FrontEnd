@@ -101,10 +101,28 @@ describe('Controller: MapController', function () {
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();;
     });
 
-    it('Should not re make search by keyword after user clicks on goBackToSiteList if user plan a route', function () {
-        $scope.result=undefined;
+    it('Should recognizes when user search by keyword', function () {
+        $scope.doSearch('place');
+        expect( $scope.isMakingASearchByKeyword).toBe(true);
+    });
+
+    it('Should recognizes when user plan a route', function () {
+        $scope.showRoute();
+        expect( $scope.isMakingASearchByKeyword).toBe(false);
+    });
+
+    it('Should re make search by keyword when user makes a search by keyword and then clicks goBackToSiteList', function () {
+        $scope.doSearch('place');
         $scope.goBackToSiteList();
-        expect(MapServiceTest.clearMarkers).not.toHaveBeenCalled();
+        expect( $scope.isMakingASearchByKeyword).toBe(true);
+        expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
+    });
+
+    it('Should re make plan routw when user plan a route and then clicks goBackToSiteList', function () {
+        $scope.showRoute();
+        $scope.goBackToSiteList();
+        expect( $scope.isMakingASearchByKeyword).toBe(false);
+        expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
     });
 
     /* Jasmine can't search for function startsWith because it's from ECMAScript 6 too new */
