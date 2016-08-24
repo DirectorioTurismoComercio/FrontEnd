@@ -135,6 +135,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
         $scope.doSearchByKeyWord = function (result) {
             calldoSearch(result);
+            siteAndTownSaverService.setQueryMadeByUser("SEARCH_BY_KEY_WORD");
         };
 
         $scope.calculateRoute = function () {
@@ -147,6 +148,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                     $scope.isRouteFormVisible = !$scope.isRouteFormVisible;
                 }
                 $scope.showRoute();
+                siteAndTownSaverService.setQueryMadeByUser("PLAN_A_ROUTE");
             }
         };
         

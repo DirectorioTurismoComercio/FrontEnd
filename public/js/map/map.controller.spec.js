@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: MapController', function () {
-    var MapController, $scope, testpopErrorAlertService, deferred, MapServiceTest, testSearchForResultsFactory, testMapRouteService;
+    var MapController, $scope, testpopErrorAlertService, deferred, MapServiceTest, testSearchForResultsFactory, testMapRouteService, testsiteAndTownSaverService;
     var sitesResponse={
         nombre:'site',
         categorias:[{
@@ -24,13 +24,14 @@ describe('Controller: MapController', function () {
 
     }));
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, messageService, MapRouteService) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, messageService, MapRouteService, siteAndTownSaverService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         testpopErrorAlertService = messageService;
         MapServiceTest=MapService;
         testSearchForResultsFactory=SearchForResultsFactory;
         testMapRouteService=MapRouteService;
+        testsiteAndTownSaverService=siteAndTownSaverService;
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
         spyOn(testpopErrorAlertService, 'showErrorMessage');
@@ -46,7 +47,8 @@ describe('Controller: MapController', function () {
             messageService: testpopErrorAlertService,
             MapService: MapServiceTest,
             SearchForResultsFactory:testSearchForResultsFactory,
-            MapRouteService:testMapRouteService
+            MapRouteService:testMapRouteService,
+            siteAndTownSaverService:testsiteAndTownSaverService
         });
     }));
 
@@ -103,25 +105,25 @@ describe('Controller: MapController', function () {
 
     it('Should recognizes when user search by keyword', function () {
         $scope.doSearch('place');
-        expect( $scope.isMakingASearchByKeyword).toBe(true);
+        expect(testsiteAndTownSaverService.getQueryMadeByUser()).toBe("SEARCH_BY_KEY_WORD");
     });
 
     it('Should recognizes when user plan a route', function () {
         $scope.showRoute();
-        expect( $scope.isMakingASearchByKeyword).toBe(false);
+        expect(testsiteAndTownSaverService.getQueryMadeByUser()).toBe("PLAN_A_ROUTE");
     });
 
     it('Should re make search by keyword when user makes a search by keyword and then clicks goBackToSiteList', function () {
         $scope.doSearch('place');
         $scope.goBackToSiteList();
-        expect( $scope.isMakingASearchByKeyword).toBe(true);
+        expect(testsiteAndTownSaverService.getQueryMadeByUser()).toBe("SEARCH_BY_KEY_WORD");
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
     });
 
     it('Should re make plan routw when user plan a route and then clicks goBackToSiteList', function () {
         $scope.showRoute();
         $scope.goBackToSiteList();
-        expect( $scope.isMakingASearchByKeyword).toBe(false);
+        expect(testsiteAndTownSaverService.getQueryMadeByUser()).toBe("PLAN_A_ROUTE");
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
     });
 

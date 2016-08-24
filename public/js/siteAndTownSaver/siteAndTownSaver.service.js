@@ -26,6 +26,7 @@ angular.module('siteAndTownSaver', [])
         };
         
         var selectedCategory=undefined;
+        var queryMadeByUser=undefined;
 
         return {
             setCurrentSearchedSite: setCurrentSearchedSite,
@@ -51,7 +52,10 @@ angular.module('siteAndTownSaver', [])
             searchedKeyword: searchedKeyword,
             sectionData: sectionData,
             setSelectedCategory:setSelectedCategory,
-            getSelectedCategory:getSelectedCategory
+            getSelectedCategory:getSelectedCategory,
+            setQueryMadeByUser:setQueryMadeByUser,
+            getQueryMadeByUser:getQueryMadeByUser
+
         };
 
         function setCurrentSearchedSite(site) {
@@ -142,6 +146,14 @@ angular.module('siteAndTownSaver', [])
 
         function getSelectedCategory(){
             return selectedCategory;
+        }
+
+        function getQueryMadeByUser(){
+            return queryMadeByUser;
+        }
+
+        function setQueryMadeByUser(queryType){
+            queryMadeByUser=queryType;
         }
         
     });

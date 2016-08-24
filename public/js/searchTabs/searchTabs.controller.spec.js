@@ -50,5 +50,14 @@ describe('Controller: searchAndRouteTabs', function () {
         scope.showSelectedSection(scope.ROUTE_SEARCH_SECTION);
         expect(scope.isRouteFormVisible).toBe(false);
     });
+
+    it('should set query made by user', function () {
+        scope.searchedRoute.origin=1.92;
+        scope.searchedRoute.destination=1.92;
+        scope.calculateRoute();
+        expect(testsiteAndTownSaverService.getQueryMadeByUser()).toBe("PLAN_A_ROUTE");
+    });
+
+
 });
 
