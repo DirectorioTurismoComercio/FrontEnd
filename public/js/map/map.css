@@ -370,6 +370,10 @@ prev.search-results .map {
     height: 3em;
 }
 
+.slick-height{
+    height: auto !important;
+}
+
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
