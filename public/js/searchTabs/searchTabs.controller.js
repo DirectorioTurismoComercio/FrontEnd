@@ -103,6 +103,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         };
 
         $scope.$on('businessbrowser::keypressed', function (event, args) {
+            siteAndTownSaverService.setQueryMadeByUser("SEARCH_BY_KEY_WORD");
             calldoSearch(args.keyword);
         });
 
