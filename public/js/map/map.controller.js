@@ -119,12 +119,14 @@ angular.module('map')
             }, 100);
 
             try {
-                if (site.id != $scope.initialSelectedSite.id) {
+                if (site.id != $scope.initialSelectedSite.id ) {
                     $scope.hasMadeCurrentSiteRoute = false;
                 } else {
                     $scope.hasMadeCurrentSiteRoute = true;
                 }
+
             } catch (e) {
+                $scope.hasMadeCurrentSiteRoute = false;
             }
 
 
