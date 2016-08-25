@@ -28,10 +28,13 @@
     "TO_TIP": "to"
   },
   "HOW_IT_WORKS": {
-    "TITLE": "It's so easy! This is how it works:"
+    "TITLE": "It's so easy! This is how it works:",
+    "DESCRIPTION_1": "Cundinamarca tiene para ti muchas experiencias y destinos maravillosos",
+    "DESCRIPTION_2": "De Tour por Cundinamarca te ayuda a buscar según tus intereses y a descubrir el departamento",
+    "DESCRIPTION_3": "Disfruta de nuevas aventuras que te esperan"
   },
-  "HOW_IT_WORKS_TRADER_CONSTANTS":{
-    "PAGE_TITLE":"Tour by Cundinamarca works this way :"
+  "HOW_IT_WORKS_TRADER_CONSTANTS": {
+    "PAGE_TITLE": "Tour by Cundinamarca works this way :"
   },
   "REGISTER_USER_CONSTANTS": {
     "CREATE_ACCOUNT": "Create your account",
