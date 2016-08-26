@@ -164,6 +164,8 @@
   "SUCCESS_TITLE_MESSAGE": "Bienvenido",
   "REGISTER_COMPLETE": "El registro fue exitoso",
   "HOW_TO_GET_THERE": "¿Cómo llegar?",
+  "DESTINY": "Destino",
+  "INITIAL_PLACE":"Lugar inicial",
   "GET_SITES_ERROR": "No es posible usar el buscador en este momento intentalo más tarde o vuelve a cargar la página",
   "GET_TOWNS_ERROR": "No es posible cargar el listado de municipios, por favor intentalo más tarde o vuelve a cargar la página",
   "NO_RESULTS": "Lo sentimos, no hay resultados para esta búsqueda. Por favor intente con otras palabras",

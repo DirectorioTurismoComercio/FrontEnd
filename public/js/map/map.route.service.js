@@ -4,7 +4,7 @@ angular.module('map')
     .service('MapRouteService', function ($window, CUNDINAMARCA_COORDS, $http, MapService, sitesNearRoute,
                                           SiteMarkerService, messageService, siteAndTownSaverService) {
 
-        function calculateRoute(routeRequest, $scope) {
+        function calculateRoute(routeRequest, $scope, destinationSite) {
             var route = {
                 travelMode: google.maps.TravelMode.DRIVING,
                 origin: routeRequest.origin.location,
@@ -19,8 +19,11 @@ angular.module('map')
                     var leg = result.routes[0].legs[0];
                     var originIcon = MapService.createIcon('images/icons/salida-mapa.png', 50);
                     var destinationIcon = MapService.createIcon('images/icons/llegada-mapa.png', 50);
+
                     MapService.addMarker(leg.start_location, 'origin', originIcon);
-                    MapService.addMarker(leg.end_location, 'destination', destinationIcon);
+                    var destinationMarker= MapService.addMarker(leg.end_location, 'destination', destinationIcon);
+                    
+                    addDestinationSiteMarker(destinationSite, destinationMarker, $scope);
 
                     for (var i = 0; i < result.routes[0].overview_path.length; i++) {
                         points.push([result.routes[0].overview_path[i].lat(), result.routes[0].overview_path[i].lng()]);
@@ -30,6 +33,13 @@ angular.module('map')
                 }
             });
         }
+
+        function addDestinationSiteMarker(destinationSite, destinationMarker, $scope) {
+            if (destinationSite != undefined) {
+                SiteMarkerService.addSiteMarker(destinationSite, destinationMarker, $scope.showSiteDetail);
+            }
+        }
+
 
         function setOriginAndDestinationdata(originData, destinationData) {
             if (originData == '' || destinationData == '') {
@@ -57,6 +67,8 @@ angular.module('map')
                 $scope.loading = false;
                 $scope.foundSites = sites;
                 $scope.routeMapZoom = $scope.map.zoom;
+                $scope.routeToSiteIsVisible=true;
+                $scope.hasMadeCurrentSiteRoute=true;
             }).error(function (error) {
                 console.log("Hubo un error", error);
             })
