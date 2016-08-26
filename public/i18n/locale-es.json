@@ -1,7 +1,7 @@
 {
   "HEADER_CONSTANTS": {
     "LOGIN_TRADER": "Ingreso comerciante",
-    "REGISTER_BUSINESS": "Registra tu comercio",
+    "REGISTER_BUSINESS": "Registra tu negocio",
     "LOG_OUT": "Cerrar sesión",
     "MY_ACCOUNT": "Mi cuenta"
   },
@@ -81,7 +81,7 @@
     "BUSINESS_DESCRIPTION_CONFIRMATION_PAGE": "Descripción",
     "BUSINESS_TAGS_CONFIRMATION_PAGE": "Etiquetas",
     "BUSINESS_NAME": "Nombre del negocio",
-    "SELECT_TOWN": "Selecciona el municpio",
+    "SELECT_TOWN": "Selecciona el municipio",
     "BUSINESS_CATEGORY_TITLE": "Categoría de tu negocio",
     "BUSINESS_LOCATION": "Ubicación de tu negocio",
     "BUSINESS_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa dónde se encuentra tu negocio",
