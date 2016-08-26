@@ -1,42 +1,96 @@
-.how-works-trader-register-button-container{
-    margin-top: 10px;
+.how-it-works-trader .images-section {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.how-works-trader-register-button{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+.how-it-works-trader .title {
+    color: #097da6;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 20px 5px;
 }
 
-
-/* Extra small devices (phones, less than 768px) */
-@media (max-width: 767px) {
-    .how-works-trader-register-image{
-        width: 90%;
-        height: 90%;
-    }
+.how-it-works-trader img {
+    width: 100%;
+    padding: 20px 0;
 }
 
-/* Small devices (tablets, 768px and up) */
+.how-it-works-trader .description {
+    font-size: 6vw;
+    font-weight: bolder;
+    color: #097da6;
+    /*line-height: 20px;*/
+    position: absolute;
+    right: 25px;
+    left: 25px;
+}
+
+.how-it-works-trader .register-section {
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.description1 {
+    bottom: 12vw;
+}
+
+.description2 {
+    bottom: 12vw;
+}
+
+.description3 {
+    bottom: 12vw;
+}
+
+.how-it-works-trader .reg-button h1 {
+    font-size: 6vw;
+    font-weight: bolder;
+    color: #fff;
+    position: absolute;
+    right: 25px;
+    left: 25px;
+    bottom: 6vw;
+}
+
 @media (min-width: 768px) {
-    .how-works-trader-register-image{
-        width: 90%;
-        height: 90%;
+    .how-it-works-trader .title {
+        font-size: 40px;
+    }
+
+    .how-it-works-trader .description {
+        font-size: 35px;
+    }
+
+    .how-it-works-trader .reg-button h1 {
+        font-size: 40px;
+        bottom: 38px;
     }
 }
 
-/* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .how-works-trader-register-image{
-        width: auto;
-        height: auto;
+    .how-it-works-trader .title {
+        font-size: 30px;
+    }
+
+    .how-it-works-trader .description {
+        font-size: 22px;
+    }
+
+    .description1 {
+        bottom: 40px;
+    }
+
+    .description2 {
+        bottom: 40px;
+    }
+
+    .description3 {
+        bottom: 40px;
     }
 }
 
-/* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .how-works-trader-register-image{
-        width: auto;
-        height: auto;
+    .how-it-works-trader .title {
+        font-size: 35px;
     }
 }

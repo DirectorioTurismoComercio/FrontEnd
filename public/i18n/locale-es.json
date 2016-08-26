@@ -33,8 +33,12 @@
     "DESCRIPTION_2": "De Tour por Cundinamarca te ayuda a buscar según tus intereses y a descubrir el departamento",
     "DESCRIPTION_3": "Disfruta de nuevas aventuras que te esperan"
   },
-  "HOW_IT_WORKS_TRADER_CONSTANTS": {
-    "PAGE_TITLE": "De Tour por Cundinamarca funciona así:"
+  "HOW_IT_WORKS_TRADER": {
+    "PAGE_TITLE": "De Tour por Cundinamarca funciona así:",
+    "DESCRIPTION_1": "Crea el perfil para tu negocio; es gratis",
+    "DESCRIPTION_2": "Muestra tus productos y servicios en internet",
+    "DESCRIPTION_3": "Haz visible tu negocio para el 50% del turismo nacional",
+    "REGISTER_BUTTON": "Inscribe tu comercio ahora"
   },
   "REGISTER_USER_CONSTANTS": {
     "CREATE_ACCOUNT": "Crea tu cuenta",
