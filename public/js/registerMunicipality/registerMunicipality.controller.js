@@ -2,5 +2,5 @@
 
 angular.module('registerMunicipality')
     .controller('registerMunicipalityController', function ($scope) {
-
+        
     });

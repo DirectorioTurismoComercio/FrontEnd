@@ -58,6 +58,11 @@
     "EMAIL_VALIDATION": "Check email",
     "REQUIRED_FIELD": "Required field*"
   },
+  "REGISTER_MUNICIPALITY_CONSTANTS": {
+    "CREATE_ACCOUNT": "Create your town account",
+    "NAME": "Town's name",
+    "MUNICIPALITY_ALREADY_REGISTER":"already register?"
+  },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Description",
     "OPENINGHOURS": "Opening hours"

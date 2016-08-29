@@ -58,6 +58,11 @@
     "EMAIL_VALIDATION": "Verifique el correo",
     "REQUIRED_FIELD": "campo obligatorio*"
   },
+  "REGISTER_MUNICIPALITY_CONSTANTS": {
+    "CREATE_ACCOUNT": "Crea tu cuenta de municipio",
+    "NAME": "Nombre del municipio",
+    "MUNICIPALITY_ALREADY_REGISTER":"¿Ya tienes cuenta de municipio?"
+  },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Descripción",
     "OPENINGHOURS": "Horario de Atención"
