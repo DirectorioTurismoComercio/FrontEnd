@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('registerMunicipality')
-    .controller('registerMunicipalityController', function ($scope, formValidator, $location, ngDialog, authenticationService, $q, $http, API_CONFIG) {
+angular.module('Municipality')
+    .controller('registerMunicipalityAccountController', function ($scope, formValidator, $location, ngDialog, authenticationService, $q, $http, API_CONFIG) {
         $scope.municipalityData = {
             name: undefined,
             email: undefined,

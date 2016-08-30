@@ -1,10 +1,10 @@
 'use strict';
 
-describe('Controller: registerMunicipalityController', function () {
-    var registerMunicipalityController, $scope, deferred, testformValidator, testLocation, $httpBackendTest, testngDialog, testauthenticationService, testAPI_CONFIG;
+describe('Controller: registerMunicipalityAccountController', function () {
+    var registerMunicipalityAccountController, $scope, deferred, testformValidator, testLocation, $httpBackendTest, testngDialog, testauthenticationService, testAPI_CONFIG;
 
     beforeEach(module('gemStore'));
-    beforeEach(module('registerMunicipality'));
+    beforeEach(module('Municipality'));
 
 
     beforeEach(module('gemStore', function ($provide, $translateProvider) {
@@ -36,7 +36,7 @@ describe('Controller: registerMunicipalityController', function () {
         spyOn(formValidator,'emailAlreadyExistsShowError');
         spyOn(ngDialog,'open');
 
-        registerMunicipalityController = $controller('registerMunicipalityController', {
+        registerMunicipalityAccountController = $controller('registerMunicipalityAccountController', {
             $scope: $scope,
             formValidator:testformValidator,
             ngDialog:testngDialog,
