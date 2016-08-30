@@ -65,6 +65,7 @@ module.exports = function (config) {
             'public/js/registerTrader/registerTrader.controller.js',
             'public/js/municipality/municipality.js',
             'public/js/municipality/registerMunicipalityAccount/registerMunicipality.controller.js',
+            'public/js/municipality/loginMunicipality/loginMunicipality.controller.js',
             'public/js/businessBrowser/businessBrowser.controller.js',
             'public/js/siteAndTownSaver/siteAndTownService.service.js',
             'public/js/accountInfo/accountInfo.js',
