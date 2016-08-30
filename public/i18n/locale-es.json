@@ -61,7 +61,8 @@
   "REGISTER_MUNICIPALITY_CONSTANTS": {
     "CREATE_ACCOUNT": "Crea tu cuenta de municipio",
     "NAME": "Nombre del municipio",
-    "MUNICIPALITY_ALREADY_REGISTER":"¿Ya tienes cuenta de municipio?"
+    "MUNICIPALITY_ALREADY_REGISTER":"¿Ya tienes cuenta de municipio?",
+    "REGISTER_MUNICIPALITY":"Registro municipio"
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Descripción",
@@ -187,5 +188,10 @@
   "E102": "El password debe ser de al menos 6 caracteres",
   "E103": "Contraseña incorrecta.",
   "CANCEL_BUTTON": "Cancelar",
-  "LOGIN_FIELDS_INCOMPLETE":"Por favor ingrese correo y contraseña"
+  "LOGIN_FIELDS_INCOMPLETE":"Por favor ingrese correo y contraseña",
+  "TOURISTS":"Turistas",
+  "TRADERS":"Comerciantes",
+  "MUNICIPALITIES":"Municipios",
+  "LABORATORIOS_VIRTUALES":"© Laboratorios virtuales"
+
 }

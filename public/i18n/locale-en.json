@@ -61,7 +61,9 @@
   "REGISTER_MUNICIPALITY_CONSTANTS": {
     "CREATE_ACCOUNT": "Create your town account",
     "NAME": "Town's name",
-    "MUNICIPALITY_ALREADY_REGISTER":"already register?"
+    "MUNICIPALITY_ALREADY_REGISTER":"already register?",
+    "REGISTER_MUNICIPALITY":"Register Town"
+
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Description",
@@ -188,6 +190,10 @@
   "E102": "password must be at least 6 characters",
   "E103": "Invalid password.",
   "CANCEL_BUTTON": "Cancel",
-  "LOGIN_FIELDS_INCOMPLETE":"Please enter email and password"
+  "LOGIN_FIELDS_INCOMPLETE":"Please enter email and password",
+  "TOURISTS":"Tourists",
+  "TRADERS":"Traders",
+  "MUNICIPALITIES":"Municipalities",
+  "LABORATORIOS_VIRTUALES":"© Laboratorios virtuales"
 
 }

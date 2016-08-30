@@ -5,7 +5,6 @@
 }
 
 .contact-info {
-    background-color: #fff;
     color: #2D3C4D;
     font-size: 14px;
     padding: 10px 0;
@@ -16,6 +15,29 @@
     padding: 0 0 0 2px;
     display: inline-block;
 }
+
+.contact-info a{
+    text-decoration: none;
+}
+
+.contact-info ul{
+    list-style-type: none;
+}
+
+.footer-text{
+    color: #0a3c5a;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+}
+
+.footer-title{
+    font-weight: bold;
+}
+
+.footer-background-color{
+    background-color: #97d3e8;
+}
+
 
 @media (max-width: 767px) {
 }
