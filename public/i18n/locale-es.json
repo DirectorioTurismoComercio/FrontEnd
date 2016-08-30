@@ -186,5 +186,6 @@
   "E101": "El correo ya existe",
   "E102": "El password debe ser de al menos 6 caracteres",
   "E103": "Contraseña incorrecta.",
-  "CANCEL_BUTTON": "Cancelar"
+  "CANCEL_BUTTON": "Cancelar",
+  "LOGIN_FIELDS_INCOMPLETE":"Por favor ingrese correo y contraseña"
 }

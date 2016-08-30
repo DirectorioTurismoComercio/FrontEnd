@@ -9,9 +9,13 @@ angular.module('message', [])
             confirmMessage: confirmMessage
         }
 
-        function showErrorMessage(messageId) {
+        function showErrorMessage(messageId,parent) {
             var message = $translate.instant(messageId);
-            messageWindow(message,'Error');
+            if(parent!==true ){
+                messageWindow(message,'Error', document.querySelector('#alertPop'));
+            }else{
+                messageWindow(message,'Error',document.body);
+            }
         }
 
         function showSuccessMessage(messageId,messageTitleId) {
@@ -20,10 +24,10 @@ angular.module('message', [])
             messageWindow(message,messageTitle);
         }
 
-        function messageWindow(message,title){
+        function messageWindow(message,title, parentElement){
             $mdDialog.show(
                 $mdDialog.alert()
-                    .parent(angular.element(document.querySelector('#alertPop')))
+                    .parent(angular.element(parentElement))
                     .clickOutsideToClose(true)
                     .title(title)
                     .content(message)

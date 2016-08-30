@@ -187,5 +187,7 @@
   "E101": "email already exists",
   "E102": "password must be at least 6 characters",
   "E103": "Invalid password.",
-  "CANCEL_BUTTON": "Cancel"
+  "CANCEL_BUTTON": "Cancel",
+  "LOGIN_FIELDS_INCOMPLETE":"Please enter email and password"
+
 }
