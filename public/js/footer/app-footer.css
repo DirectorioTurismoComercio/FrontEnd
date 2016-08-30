@@ -38,6 +38,26 @@
     background-color: #97d3e8;
 }
 
+.footer-separator{
+    height: 2px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.separator-blue{
+    background-color: #32a2d4
+}
+
+.separator-gray{
+    background-color: #cccccc
+}
+
+.contact-text{
+    color: #FFF;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+}
+
 
 @media (max-width: 767px) {
 }
