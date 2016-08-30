@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('registerMunicipality')
-    .controller('registerMunicipalityController', function ($scope, formValidator, $location, ngDialog) {
+    .controller('registerMunicipalityController', function ($scope, formValidator, $location, ngDialog, authenticationService, $q, $http, API_CONFIG) {
         $scope.municipalityData = {
             name: undefined,
             email: undefined,
@@ -28,9 +28,8 @@ angular.module('registerMunicipality')
 
             if ($scope.municipalityData.email != undefined && $scope.isValidEmail && $scope.municipalityData.password != undefined && $scope.municipalityData.password.length >= 6 && $scope.municipalityData.name != undefined) {
                 $scope.registerLoading = true;
-                //redirectToRegisterMunicipality();
 
-                /*var registerPromise;
+                var registerPromise;
                 var deferred = $q.defer();
 
                 registerPromise = $http.post(API_CONFIG.url + API_CONFIG.user, {
@@ -38,7 +37,8 @@ angular.module('registerMunicipality')
                     first_name: $scope.municipalityData.name,
                     password1: $scope.municipalityData.password,
                     password2: $scope.municipalityData.password,
-                    last_name: $scope.municipalityData.name
+                    last_name: $scope.municipalityData.name,
+                    tipo_cuenta:'M'
                 });
 
                 registerPromise.then(function (response) {
@@ -52,7 +52,7 @@ angular.module('registerMunicipality')
                 registerPromise.catch(function(e){
                     $scope.registerLoading = false;
                     formValidator.emailAlreadyExistsShowError(e);
-                });*/
+                });
             };
         }
 

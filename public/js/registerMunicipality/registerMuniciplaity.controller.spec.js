@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: registerMunicipalityController', function () {
-    var registerMunicipalityController, $scope, deferred, testformValidator, testLocation, testngDialog;
+    var registerMunicipalityController, $scope, deferred, testformValidator, testLocation, $httpBackendTest, testngDialog, testauthenticationService, testAPI_CONFIG;
 
     beforeEach(module('gemStore'));
     beforeEach(module('registerMunicipality'));
@@ -22,12 +22,15 @@ describe('Controller: registerMunicipalityController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller,$q,$rootScope, formValidator, $location, ngDialog) {
+    beforeEach(inject(function ($controller,$q,$rootScope, formValidator, $location, ngDialog, $httpBackend, authenticationService, API_CONFIG) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         testformValidator=formValidator;
         testLocation=$location;
         testngDialog=ngDialog;
+        testauthenticationService=authenticationService;
+        testAPI_CONFIG=API_CONFIG;
+        $httpBackendTest=$httpBackend;
 
         spyOn($location,'path');
         spyOn(formValidator,'emailAlreadyExistsShowError');
@@ -36,7 +39,9 @@ describe('Controller: registerMunicipalityController', function () {
         registerMunicipalityController = $controller('registerMunicipalityController', {
             $scope: $scope,
             formValidator:testformValidator,
-            ngDialog:testngDialog
+            ngDialog:testngDialog,
+            authenticationService:testauthenticationService,
+            API_CONFIG:testAPI_CONFIG
 
         });
     }));
@@ -84,6 +89,22 @@ describe('Controller: registerMunicipalityController', function () {
         setValidFormFields($scope);
         $scope.save();
         expect($scope.registerLoading).toBe(true);
+    });
+
+    xit('Should set Token when user register', function () {
+        setValidFormFields($scope);
+        $scope.save();
+        $httpBackendTest.when('POST',testAPI_CONFIG.url+testAPI_CONFIG.user).respond(200,{data:{key:'1232'}});
+        $httpBackendTest.flush();
+        expect(testngDialog.open).toHaveBeenCalled();
+    });
+
+    it('Should hide loading and show Error Message when register fails', function () {
+        setValidFormFields($scope);
+        $scope.save();
+        $httpBackendTest.when('POST',testAPI_CONFIG.url+testAPI_CONFIG.user).respond(404);
+        $httpBackendTest.flush();
+        expect($scope.registerLoading).toBe(false);
     });
 
     function setValidFormFields($scope) {
