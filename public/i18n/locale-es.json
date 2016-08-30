@@ -136,17 +136,21 @@
   },
   "LOGIN": {
     "TRADER_LOGIN": "Ingreso de comerciantes",
+    "MUNICIPALITY_LOGIN":"Ingreso Municipio",
     "LOGIN_WITH_SOCIAL_NETWORKS": "Ingresa con tus redes",
     "LOGIN_WITH_FACEBOOK": "Ingresa con Facebook",
     "LOGIN_WITH_GOOGLE": "Ingresa con Google",
     "LOGIN_WITH_ACCOUNT": "O ingresa con tu cuenta",
     "EMAIL_INPUT": "e-mail",
+    "EMAIL_MUNICIPAPLITY_INPUT": "correo municipio",
     "PASSWORD_INPUT": "Contraseña",
     "FORGOTTEN_PASSWORD": "¿Has olvidado tu contraseña?",
     "LOGIN_BUTTON": "Iniciar sesión",
     "STILL_NO_USER": "¿Aún no eres usuario?",
+    "FORGOT_MUNICIPALITY_PASWORD":"¿Olvidaste la contraseña?",
     "REGISTER": "Regístrate",
-    "PASSWORD_LENGTH": "La contraseña debe tener mínimo 6 caracteres*"
+    "PASSWORD_LENGTH": "La contraseña debe tener mínimo 6 caracteres*",
+    "ADMINISTRATOR_ACCESS_REQUEST":"Solicita acceso al administardor"
   },
   "ACCOUNT_INFO": {
     "ACCOUNT_INFO_TITLE": "Mi cuenta",

@@ -136,17 +136,22 @@
   },
   "LOGIN": {
     "TRADER_LOGIN": "Login",
+    "MUNICIPALITY_LOGIN":"Town login",
     "LOGIN_WITH_SOCIAL_NETWORKS": "Login with your social networks",
     "LOGIN_WITH_FACEBOOK": "Login with Facebook",
     "LOGIN_WITH_GOOGLE": "Login with Google",
     "LOGIN_WITH_ACCOUNT": "Or enter your account",
     "EMAIL_INPUT": "e-mail",
+    "EMAIL_MUNICIPAPLITY_INPUT": "town e-mail",
     "PASSWORD_INPUT": "Password",
     "FORGOTTEN_PASSWORD": "Forgot your password?",
     "LOGIN_BUTTON": "Login",
     "STILL_NO_USER": "Not a user yet?",
+    "FORGOT_MUNICIPALITY_PASWORD":"Forgot password?",
     "REGISTER": "Sign in",
-    "PASSWORD_LENGTH": "The password must be at least 6 characters long*"
+    "PASSWORD_LENGTH": "The password must be at least 6 characters long*",
+    "ADMINISTRATOR_ACCESS_REQUEST":"Ask for administrator access"
+
   },
   "ACCOUNT_INFO": {
     "ACCOUNT_INFO_TITLE": "My account",
