@@ -35,6 +35,7 @@ describe('Controller: registerMunicipalityAccountController', function () {
         spyOn($location,'path');
         spyOn(formValidator,'emailAlreadyExistsShowError');
         spyOn(ngDialog,'open');
+        spyOn(ngDialog,'close');
 
         registerMunicipalityAccountController = $controller('registerMunicipalityAccountController', {
             $scope: $scope,
@@ -105,6 +106,13 @@ describe('Controller: registerMunicipalityAccountController', function () {
         $httpBackendTest.when('POST',testAPI_CONFIG.url+testAPI_CONFIG.user).respond(404);
         $httpBackendTest.flush();
         expect($scope.registerLoading).toBe(false);
+    });
+
+    it('Should close pop up window and redirect to municipality info when registration is done', function () {
+        $scope.doneRegistration();
+        expect(testngDialog.close).toHaveBeenCalled();
+        expect(testLocation.path).toHaveBeenCalled();
+
     });
 
     function setValidFormFields($scope) {

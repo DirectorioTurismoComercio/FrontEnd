@@ -58,7 +58,7 @@ angular.module('Municipality')
 
         $scope.doneRegistration = function () {
             ngDialog.close();
-            //$location.path('/businessinformation');
+            $location.path('/municipalityinfo');
         }
 
         function redirectToRegisterMunicipality(){
