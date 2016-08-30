@@ -64,7 +64,7 @@ angular.module('Municipality')
         function redirectToRegisterMunicipality(){
             $scope.registerLoading=false;
             ngDialog.open({
-                template: 'js/municipality/completeMunicipalityRegistration.html',
+                template: 'js/municipality/registerMunicipalityAccount/completeMunicipalityRegistration.html',
                 width: 'auto',
                 showClose: false,
                 scope: $scope,
