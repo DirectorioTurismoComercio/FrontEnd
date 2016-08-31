@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .factory('municipalityInformationService', function () {
+    .factory('municipalityInformationService', function (authenticationService, $http, API_CONFIG) {
         var municipalitySelected = undefined;
         var municipalityPhoneNumber = undefined;
         var municipalityWhatsapp = undefined;
@@ -14,6 +14,7 @@ angular.module('Municipality')
         var municipalityCoatArmsPhoto=[];
         var municipalityFacadePhotos=[];
         var municiplaityURLPhotos=undefined;
+        var municipalityId= undefined;
 
 
         return {
@@ -51,7 +52,12 @@ angular.module('Municipality')
             getMunicipalityFacadePhotos:getMunicipalityFacadePhotos,
 
             setMunicipalityURLPhotos:setMunicipalityURLPhotos,
-            getMunicipalityURLPhotos:getMunicipalityURLPhotos
+            getMunicipalityURLPhotos:getMunicipalityURLPhotos,
+
+            setMunicipalityId:setMunicipalityId,
+            getMunicipalityId:getMunicipalityId,
+
+            sendMunicipalityDataToServer:sendMunicipalityDataToServer
         }
 
         function setMunicipalitySelected(municipality){
@@ -148,6 +154,73 @@ angular.module('Municipality')
 
         function getMunicipalityURLPhotos(){
             return municiplaityURLPhotos;
+        }
+
+        function setMunicipalityId(id){
+            municipalityId=id;
+        }
+
+        function getMunicipalityId(){
+            return municipalityId;
+        }
+
+        function sendMunicipalityDataToServer(successFunction, errorFunction){
+            var promise;
+
+            var fd=buildMunicipalityFormData();
+
+            if (municipalityId) {
+                promise = $http.put(API_CONFIG.url + API_CONFIG.sitio + "/detail/" + municipalityId, fd,
+                    {
+                        transformRequest: angular.identity,
+                        headers: {
+                            'Content-Type': undefined,
+                            'Authorization': 'Token ' + authenticationService.getUser().token
+                        }
+                    });
+            } else {
+                promise = $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
+                    {
+                        transformRequest: angular.identity,
+                        headers: {
+                            'Content-Type': undefined,
+                            'Authorization': 'Token ' + authenticationService.getUser().token
+                        }
+                    });
+
+            }
+            promise.success(successFunction).error(errorFunction);
+        }
+
+        function buildMunicipalityFormData(){
+            var fd = new FormData();
+
+            fd.append('latitud', municipalityLocation.lat);
+            fd.append('longitud', municipalityLocation.lng);
+            fd.append('nombre', municipalitySelected.nombre);
+            fd.append('descripcion', municipalityDescription);
+            fd.append('municipio_id', municipalitySelected.id);
+            if (municipalityPhoneNumber) fd.append('telefono', municipalityPhoneNumber);
+            if (municipalityOpeningHours) fd.append('horariolocal', municipalityOpeningHours);
+            fd.append('ubicacionlocal', municipalityAddress);
+            fd.append("categorias",JSON.stringify([]));
+            fd.append('usuario', authenticationService.getUser().id);
+            if (municipalityWeb) fd.append('web', municipalityWeb);
+            if (municipalityWhatsapp) fd.append('whatsapp', municipalityWhatsapp);
+            fd.append('tipo_sitio','M');
+
+            appendPhotos(municipalityMainPhoto, 'fotos_PRINCIPAL', fd);
+            appendPhotos(municipalityFacadePhotos, 'fotos_FACHADA', fd);
+            appendPhotos(municipalityCoatArmsPhoto, 'fotos_INTERIOR', fd);
+            return fd;
+        }
+
+        function appendPhotos(arrayPhotos, model, fd) {
+            var photosCounter = 0;
+            angular.forEach(arrayPhotos, function (file) {
+                fd.append(model + photosCounter, file.file);
+                photosCounter++;
+            });
         }
 
     });

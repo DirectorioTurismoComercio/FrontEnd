@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityPhotosController', function ($scope, $location, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog) {
+    .controller('municipalityPhotosController', function ($scope, $location, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog, $cookies) {
 
         $scope.$on('$viewContentLoaded', function () {
             checkSelectedPhotos();
@@ -32,7 +32,8 @@ angular.module('Municipality')
 
         $scope.doneMunicipalityRegistration = function () {
             if ($scope.flowMunicipalityMainPhoto.flow.files.length != 0) {
-                openConfirmationmessage();
+                $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
+                municipalityInformationService.sendMunicipalityDataToServer(openConfirmationmessage, errorSaving);
             } else {
                 $scope.showMunicipalityMainPhotoRequired = true;
             }
@@ -164,6 +165,10 @@ angular.module('Municipality')
                 closeByEscape: false,
                 closeByDocument: false
             });
+        }
+
+        function errorSaving(e){
+            console.log("hubo un error", error);
         }
 
     }).directive('imageOnload', function () {

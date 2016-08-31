@@ -82,4 +82,10 @@ describe('municipalityInformationService', function () {
         expect(municipalityInformationService.getMunicipalityURLPhotos()).toBe(URLphotos);
     });
 
+    it('should set and get municipality id', function () {
+        var id=1;
+        municipalityInformationService.setMunicipalityId(id);
+        expect(municipalityInformationService.getMunicipalityId()).toBe(1);
+    });
+
 });

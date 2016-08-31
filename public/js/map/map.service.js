@@ -105,6 +105,35 @@ angular.module('map')
             return marker;
         }
 
+        function addMarkerMunicipalityWithIcon(position){
+            var generalIcon = getMunicipalityGeneralIcon();
+            var normalIcon=getMunicipalityNormalIcon();
+            var lightedIcon = getMunicipalityLightedIcon();
+            var marker = addMarker(position, '', normalIcon);
+            marker.normalIcon = normalIcon;
+            marker.generalIcon = generalIcon;
+            marker.lightedIcon = lightedIcon;
+            return marker;
+        }
+
+        function getMunicipalityGeneralIcon(){
+            var iconSize=60;
+            var url = './images/icons/categories/pin-municipio.png';
+            return createIcon(url, iconSize);
+        }
+
+        function getMunicipalityNormalIcon(){
+            var iconSize=60;
+            var url = './images/icons/categories/pin-municipio.png';
+            return createIcon(url, iconSize);
+        }
+
+        function getMunicipalityLightedIcon(){
+            var iconSize=80;
+            var url = './images/icons/categories/lighted/pin-municipio-activo.png';
+            return createIcon(url, iconSize);
+        }
+
         function getCategoryNormalIcon(categorySite) {
             var iconSize=60;
             var url = categorySite.categoria.URL_icono_normal;
@@ -213,6 +242,7 @@ angular.module('map')
             clearRoute: clearRoute,
             setPinOnUserPosition: setPinOnUserPosition,
             addMarkerWithCategoryIcon: addMarkerWithCategoryIcon,
-            createIcon: createIcon
+            createIcon: createIcon,
+            addMarkerMunicipalityWithIcon:addMarkerMunicipalityWithIcon
         }
     });
