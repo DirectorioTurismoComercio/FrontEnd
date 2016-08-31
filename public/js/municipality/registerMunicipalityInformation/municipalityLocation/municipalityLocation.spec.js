@@ -31,6 +31,8 @@ describe('Controller: municipalityLocationController', function () {
 
         spyOn($location,'path');
 
+        initializeMunicipalityValues(testmunicipalityInformationService);
+
         municipalityLocationController = $controller('municipalityLocationController', {
             $scope: $scope,
             $location:testLocation,
@@ -43,5 +45,16 @@ describe('Controller: municipalityLocationController', function () {
         expect(testLocation.path).toHaveBeenCalled();
     });
 
+    it('Should get municipalityInformationService information', function () {
+        expect($scope.municipalitySelected).toBe('cota');
+        expect($scope.municipalityAddress).toBe('calle 1234');
+        expect($scope.municipalityLocation).toBe('4.123');
+    });
+
+    function initializeMunicipalityValues(testmunicipalityInformationService) {
+        testmunicipalityInformationService.setMunicipalitySelected('cota');
+        testmunicipalityInformationService.setMunicipalityAddress('calle 1234');
+        testmunicipalityInformationService.setMunicipalityLocation('4.123');
+    }
 
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Municipality', [])
+angular.module('Municipality', ['uiGmapgoogle-maps'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/registermunicipality', {

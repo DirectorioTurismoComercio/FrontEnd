@@ -15,8 +15,8 @@
             <li></li>
         </ul>
         <form name="registerMunicipalityInfoForm" class="topMarginElements" role="municipalityAddressForm">
-            <div class="form-group has-feedback municipalityAddressText">
-                <input type="text" class="form-control municipalityAddressInput" translate
+            <div class="form-group has-feedback businessAddressText">
+                <input type="text" class="form-control businessAddressInput" translate
                        translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS" name="municipalityAddress2"
                        type="text" ng-model="$parent.municipalityAddress" required/>
                 <i ng-show="municipalityAddress==undefined"
@@ -26,7 +26,7 @@
             </div>
         </form>
 
-        <div class="row municipalityAddressText topMarginElements">
+        <div class="row businessAddressText topMarginElements">
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-9 centerColumnNoPadding">
                 <label class="texto-claroBusinessLocation"
                        translate="REGISTER_SITE_CONSTANTS.BUSINESS_GET_USER_LOCATION_TIP"></label>
@@ -36,7 +36,7 @@
                      ng-click="getUserPosition()">
             </div>
         </div>
-        <label class="municipalityAddressText texto-oscuroBusinessLocation topMarginElements"
+        <label class="businessAddressText texto-oscuroBusinessLocation topMarginElements"
                translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION_TIP"></label>
         <div class="progressBarPadding topMarginElements">
             <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events"></ui-gmap-google-map>
