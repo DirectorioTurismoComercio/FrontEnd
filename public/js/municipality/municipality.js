@@ -18,5 +18,9 @@ angular.module('Municipality', ['uiGmapgoogle-maps'])
             .when('/municipalitylocation', {
                 templateUrl: 'js/municipality/registerMunicipalityInformation/municipalityLocation/municipalityLocation.html',
                 controller: 'municipalityLocationController'
+            })
+            .when('/municiplaityphotos', {
+                templateUrl: 'js/municipality/registerMunicipalityInformation/municipalityPhotos/municipalityPhotos.html',
+                controller: 'municipalityPhotosController'
             });
     });
