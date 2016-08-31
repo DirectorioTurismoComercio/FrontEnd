@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityPhotosController', function ($scope, $location, municipalityInformationService, messageService, API_CONFIG, $http) {
+    .controller('municipalityPhotosController', function ($scope, $location, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog) {
 
         $scope.$on('$viewContentLoaded', function () {
             checkSelectedPhotos();
@@ -30,9 +30,9 @@ angular.module('Municipality')
             $location.path('municipalitylocation');
         }
 
-        $scope.changeViewSummary = function () {
+        $scope.doneMunicipalityRegistration = function () {
             if ($scope.flowMunicipalityMainPhoto.flow.files.length != 0) {
-                //Mensaje de confirmacion
+                openConfirmationmessage();
             } else {
                 $scope.showMunicipalityMainPhotoRequired = true;
             }
@@ -148,6 +148,22 @@ angular.module('Municipality')
             municipalityInformationService.setMunicipalityMainPhoto($scope.flowMunicipalityMainPhoto.flow.files);
             municipalityInformationService.setMunicipalityCoatArmsPhoto($scope.flowCoatArmsPhoto.flow.files);
             municipalityInformationService.setMunicipalityFacadePhotos($scope.flowMunicipalityFacedePhotos.flow.files);
+        }
+
+        $scope.doneRegistration = function () {
+            ngDialog.close();
+            $location.path('accountMunicipalityinfo');
+        }
+
+        function openConfirmationmessage(){
+            ngDialog.open({
+                template: 'js/municipality/registerMunicipalityInformation/completeMunicipalityRegistration.html',
+                width: 'auto',
+                showClose: false,
+                scope: $scope,
+                closeByEscape: false,
+                closeByDocument: false
+            });
         }
 
     }).directive('imageOnload', function () {

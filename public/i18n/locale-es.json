@@ -75,7 +75,9 @@
     "UPLOAD_MAIN_PHOTO_TIP": "Sube una fotografía para identificar el municipio dentro de la plataforma",
     "UPLOAD_SECONDARY_PHOTOS_TIP": "Sube una o varias fotografías del municipio para que los usuarios lo conozcan",
     "MUNICIPALITY_GENERAL_PHOTOS": "Fotos del municipio",
-    "MUNICIPALITY_ANTHEM_PHOTOS": "Foto del escudo del municipio"
+    "MUNICIPALITY_ANTHEM_PHOTOS": "Foto del escudo del municipio",
+    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio, para poder ver tu municipio en la plataforma debes esperar la autorización del administrador"
+
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Descripción",

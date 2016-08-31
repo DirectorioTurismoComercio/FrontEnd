@@ -75,7 +75,9 @@
     "UPLOAD_MAIN_PHOTO_TIP": "Upload a town's profile picture",
     "UPLOAD_SECONDARY_PHOTOS_TIP": "Upload photos of your town to help people get to know it",
     "MUNICIPALITY_GENERAL_PHOTOS": "Town photos",
-    "MUNICIPALITY_ANTHEM_PHOTOS": "Coat of arms photo"
+    "MUNICIPALITY_ANTHEM_PHOTOS": "Coat of arms photo",
+    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Thanks for register your town, to be able to see it in the platform you must wait for administrator confirmation"
+
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Description",

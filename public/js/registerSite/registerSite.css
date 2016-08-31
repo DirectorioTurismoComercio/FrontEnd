@@ -255,3 +255,8 @@ tags-input input {
 .progress-bar2 .current-step {
     background: #DE6525;
 }
+
+.padding-municipality-done-registration{
+    padding-left: 10px;
+    padding-right: 10px;
+}
