@@ -1,7 +1,7 @@
 <div class="hidden-xs hidden-sm">
     <app-header></app-header>
 </div>
-<form name="registerSiteForm">
+<form name="registerMunicipalityInfoForm">
     <div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortSummary">
         <div class="col-md-4  col-md-offset-4 centerColumnNoPadding PhotosFormPadding registerSiteFormBackgroundColor">
             <div class="header container-fluid">
@@ -18,23 +18,27 @@
             </ul>
 
 
-            <div class="topMarginElements col-xs-12">
-                <select ng-model="businessMunicipality"
-                        ng-options="obj.nombre for obj in municipalities track by obj.id"
-                        name="municipality"
-                        class="form-control businessAddressInput businessAddressText"
-                        ng-change="deleteBusinessLocation()"
-                        required>
-                    <option value="" translate="REGISTER_SITE_CONSTANTS.SELECT_TOWN"></option>
-                </select>
-                <i ng-show="businessMunicipality==undefined"
-                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
-                        <span ng-show="showRequiredFieldMessage && registerSiteForm.municipality.$error.required"
+            <div class="row businessAddressText topMarginElements">
+                <div class="col-xs-2">
+                    <img class="confirmRegisterIcons" src="./images/registerIcons/Nombre_municipio.png">
+                </div>
+                <div class="col-xs-10">
+                    <select ng-model="municipalitySelected"
+                            ng-options="obj.nombre for obj in municipalities track by obj.id"
+                            name="municipality"
+                            class="form-control businessAddressInput businessAddressText"
+                            ng-change="deleteBusinessLocation()"
+                            required>
+                        <option value="" translate="REGISTER_SITE_CONSTANTS.SELECT_TOWN"></option>
+                    </select>
+                    <i ng-show="municipalitySelected==undefined"
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
+                        <span ng-show="showRequiredFieldMessage && registerMunicipalityInfoForm.municipality.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+                </div>
+
             </div>
-
-
 
             <div class="row businessAddressText topMarginElements">
                 <div class="col-xs-2">
@@ -44,11 +48,11 @@
                     <input type="tel" ng-pattern="/^\d+$/" ng-minlength="7" ng-maxlength="10"
                            class="form-control businessAddressInput" name="businessPhone" type="text" translate
                            translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_PHONE"
-                           ng-model="$parent.sitePhoneNumber" name="sitePhoneNumber2" required/>
+                           ng-model="$parent.municipalityPhoneNumber" name="municipalityPhoneNumber2" required/>
 
-                    <i ng-show="sitePhoneNumber==undefined"
+                    <i ng-show="municipalityPhoneNumber==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessStar"></i>
-                    <span ng-show="showRequiredFieldMessage && registerSiteForm.businessPhone.$error.required"
+                    <span ng-show="showRequiredFieldMessage && registerMunicipalityInfoForm.businessPhone.$error.required"
                           class="errorField" translate="REGISTER_SITE_CONSTANTS.PHONE_VALIDATION"></span>
                 </div>
             </div>
@@ -57,8 +61,8 @@
                     <img class="confirmRegisterIcons" src="./images/registerIcons/whatsapp.png">
                 </div>
                 <div class="col-xs-10">
-                    <input type="text" class="form-control businessAddressInput" name="businessWhatsapp" type="text"
-                           ng-model="$parent.whatsapp" translate
+                    <input type="text" class="form-control businessAddressInput" name="municipalityWhatsapp" type="text"
+                           ng-model="$parent.municipalityWhatsapp" translate
                            translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WHATS_APP"/>
 
 
@@ -69,8 +73,8 @@
                     <img class="confirmRegisterIcons" src="./images/registerIcons/web.png">
                 </div>
                 <div class="col-xs-10">
-                    <input type="text" class="form-control businessAddressInput" name="businessWeb" type="text"
-                           ng-model="$parent.web" translate
+                    <input type="text" class="form-control businessAddressInput" name="municipalityWeb" type="text"
+                           ng-model="$parent.municipalityWeb" translate
                            translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WEB"/>
                 </div>
             </div>
@@ -79,10 +83,10 @@
                         <textarea placeholder="Regular Placeholder" translate
                                   translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION"
                                   class="form-control businessAddressInput businessAddressText"
-                                  name="businessDescription" ng-model="$parent.businessDescription" required></textarea>
-                <i ng-show="businessDescription==undefined"
+                                  name="municipalityDescription" ng-model="$parent.municipalityDescription" required></textarea>
+                <i ng-show="municipalityDescription==undefined"
                    class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessDescriptionStar"></i>
-                        <span ng-show="showRequiredFieldMessage && registerSiteForm.businessDescription.$error.required"
+                        <span ng-show="showRequiredFieldMessage && registerMunicipalityInfoForm.municipalityDescription.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
@@ -91,7 +95,7 @@
                         <textarea placeholder="Regular Placeholder" translate
                                   translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"
                                   class="form-control businessAddressInput businessAddressText"
-                                  name="businessOpeningHours" ng-model="$parent.openingHours"></textarea>
+                                  name="municipalityOpeningHours" ng-model="$parent.municipalityOpeningHours"></textarea>
             </div>
             <div class="row businessAddressText  col-xs-12">
                     <span class="texto-oscuro-business"
@@ -99,18 +103,6 @@
                 <span
                         class="texto-claro-business"
                         translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT_EXAMPLE"></span>
-            </div>
-
-            <div class="topMarginElements col-xs-12">
-                <tags-input class="businessAddressText businessAddressInput" name="tags" ng-model="tags"
-                            placeholder="Tags" add-on-comma=true replace-spaces-with-dashes=false>
-                </tags-input>
-
-            </div>
-
-            <div class="row businessAddressText col-xs-12">
-                <span class="texto-oscuro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT"></span> <span
-                    class="texto-claro-business" translate="REGISTER_SITE_CONSTANTS.TAGS_TEXT_EXAMPLE"></span>
             </div>
 
             <div class=" next-button NextButtonRegister topMarginElements col-xs-12">
