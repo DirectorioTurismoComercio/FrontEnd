@@ -32,6 +32,7 @@ angular.module('Municipality')
 
         $scope.doneMunicipalityRegistration = function () {
             if ($scope.flowMunicipalityMainPhoto.flow.files.length != 0) {
+                savePhotosTemporally();
                 $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
                 municipalityInformationService.sendMunicipalityDataToServer(openConfirmationmessage, errorSaving);
             } else {
