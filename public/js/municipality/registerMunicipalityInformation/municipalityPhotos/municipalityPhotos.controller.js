@@ -38,6 +38,43 @@ angular.module('Municipality')
             }
         };
 
+        $scope.correctOrientation = function (orientation) {
+            var style = '';
+
+            switch (orientation) {
+                case 3:
+                    style = 'rotate180';
+                    break;
+                case 4:
+                    style = 'rotate180';
+                    break;
+                case 5:
+                    style = 'rotate90';
+                    break;
+                case 6:
+                    style = 'rotate90';
+                    break;
+                case 7:
+                    style = 'rotate270';
+                    break;
+                case 8:
+                    style = 'rotate270';
+                    break;
+            }
+
+            return style;
+        };
+
+        $scope.imgLoadedCallback = function (flowFile) {
+            var orientation = 0;
+
+            EXIF.getData(flowFile.file, function () {
+                orientation = this.exifdata.Orientation;
+                flowFile.orientation = orientation;
+                console.log("Image Orientation: ", orientation);
+                $scope.$apply();
+            });
+        };
 
 
         function checkSelectedPhotos() {
@@ -104,7 +141,7 @@ angular.module('Municipality')
             if (photoType == 'F') return $scope.flowMunicipalityFacedePhotos;
             if (photoType == 'I') return $scope.flowCoatArmsPhoto;
 
-            return $scope.flowMainPhoto;
+            return $scope.flowMunicipalityMainPhoto;
         }
 
         function savePhotosTemporally() {
@@ -113,32 +150,13 @@ angular.module('Municipality')
             municipalityInformationService.setMunicipalityFacadePhotos($scope.flowMunicipalityFacedePhotos.flow.files);
         }
 
-        $scope.correctOrientation = function (orientation) {
-            var style = '';
-
-            switch (orientation) {
-                case 3:
-                    style = 'rotate180';
-                    break;
-                case 4:
-                    style = 'rotate180';
-                    break;
-                case 5:
-                    style = 'rotate90';
-                    break;
-                case 6:
-                    style = 'rotate90';
-                    break;
-                case 7:
-                    style = 'rotate270';
-                    break;
-                case 8:
-                    style = 'rotate270';
-                    break;
-            }
-
-            return style;
-        };
-
-
-    });
+    }).directive('imageOnload', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.bind('load', function () {
+                scope.$apply(attrs.imageOnload);
+            });
+        }
+    };
+});
