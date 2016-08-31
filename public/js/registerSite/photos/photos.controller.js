@@ -4,7 +4,7 @@ angular.module('registerSite')
     .controller('registerPhotosController', function ($scope, $auth, $http, MapService, uiGmapIsReady,
                                                       messageService, API_CONFIG, categories, $location,
                                                       MunicipiosFactory, authenticationService, siteAndTownSaverService,
-                                                      siteInformationService, ImageService) {
+                                                      siteInformationService) {
 
 
         $scope.$on('$viewContentLoaded', function () {
