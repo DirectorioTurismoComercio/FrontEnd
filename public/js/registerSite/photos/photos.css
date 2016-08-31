@@ -109,6 +109,10 @@ img {
     .deletePhotoSize {
         height: 37px !important;
     }
+
+    .municipality-photos-hight-body{
+        height: 84em !important;
+    }
 }
 
 

@@ -67,7 +67,15 @@
     "MUNICIPALITY_DESCRIPTION":"Town's description",
     "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Town hall info",
     "MUNICIPALITY_OPENINGHOURS_TEXT":"Write Town hall opening hours. For example: ",
-    "MUNICIPALITY_LOCATION": "City hall location"
+    "MUNICIPALITY_LOCATION": "City hall location",
+    "MUNICIPALITY_ADDRESS": "City hall address",
+    "MUNICIPALITY_GET_USER_LOCATION_TIP": "Use your current location to indicate on the map that here is the city hall",
+    "MUNICIPALITY_LOCATION_TIP": "You can set a pin on the accurate city hall's location on the map",
+    "MUNICIPALITY_PHOTOS_PAGE": "Town photos",
+    "UPLOAD_MAIN_PHOTO_TIP": "Upload a town's profile picture",
+    "UPLOAD_SECONDARY_PHOTOS_TIP": "Upload photos of your town to help people get to know it",
+    "MUNICIPALITY_GENERAL_PHOTOS": "Town photos",
+    "MUNICIPALITY_ANTHEM_PHOTOS": "Coat of arms photo"
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Description",
