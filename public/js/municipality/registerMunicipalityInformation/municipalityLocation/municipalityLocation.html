@@ -17,7 +17,7 @@
         <form name="registerMunicipalityInfoForm" class="topMarginElements" role="municipalityAddressForm">
             <div class="form-group has-feedback businessAddressText">
                 <input type="text" class="form-control businessAddressInput" translate
-                       translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS" name="municipalityAddress2"
+                       translate-attr-placeholder="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_ADDRESS" name="municipalityAddress2"
                        type="text" ng-model="$parent.municipalityAddress" required/>
                 <i ng-show="municipalityAddress==undefined"
                    class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessAddress"></i>
@@ -29,7 +29,7 @@
         <div class="row businessAddressText topMarginElements">
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-9 centerColumnNoPadding">
                 <label class="texto-claroBusinessLocation"
-                       translate="REGISTER_SITE_CONSTANTS.BUSINESS_GET_USER_LOCATION_TIP"></label>
+                       translate="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_GET_USER_LOCATION_TIP"></label>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <img class="getUserPositionBusinessAddressButton" src="./images/icons/mi-ubicacion.png"
@@ -37,7 +37,7 @@
             </div>
         </div>
         <label class="businessAddressText texto-oscuroBusinessLocation topMarginElements"
-               translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION_TIP"></label>
+               translate="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_LOCATION_TIP"></label>
         <div class="progressBarPadding topMarginElements">
             <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events"></ui-gmap-google-map>
             <span ng-show="showRequiredFieldMessage && businessLocation.lat==undefined" class="errorField"

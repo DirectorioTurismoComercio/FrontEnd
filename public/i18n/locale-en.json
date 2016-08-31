@@ -67,7 +67,12 @@
     "MUNICIPALITY_DESCRIPTION":"Town's description",
     "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Town hall info",
     "MUNICIPALITY_OPENINGHOURS_TEXT":"Write Town hall opening hours. For example: ",
-    "MUNICIPALITY_LOCATION": "City hall location"
+    "MUNICIPALITY_LOCATION": "City hall location",
+    "MUNICIPALITY_ADDRESS": "City hall address",
+    "MUNICIPALITY_GET_USER_LOCATION_TIP": "Use your current location to indicate on the map that here is the city hall",
+    "MUNICIPALITY_LOCATION_TIP": "You can set a pin on the accurate city hall's location on the map"
+
+
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Description",
