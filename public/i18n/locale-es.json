@@ -62,7 +62,11 @@
     "CREATE_ACCOUNT": "Crea tu cuenta de municipio",
     "NAME": "Nombre del municipio",
     "MUNICIPALITY_ALREADY_REGISTER":"¿Ya tienes cuenta de municipio?",
-    "REGISTER_MUNICIPALITY":"Registro municipio"
+    "REGISTER_MUNICIPALITY":"Registro municipio",
+    "MUNICIPALITY_INFORMATION": "Información del municipio",
+    "MUNICIPALITY_DESCRIPTION":"Describe el municipio",
+    "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Información de punto de atención al ciudadano",
+    "MUNICIPALITY_OPENINGHOURS_TEXT":"Escribe los dias y horarios de atención del sitio de atención al ciudadano. Ejemplo: "
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Descripción",

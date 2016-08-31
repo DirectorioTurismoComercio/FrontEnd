@@ -62,8 +62,11 @@
     "CREATE_ACCOUNT": "Create your town account",
     "NAME": "Town's name",
     "MUNICIPALITY_ALREADY_REGISTER":"already register?",
-    "REGISTER_MUNICIPALITY":"Register Town"
-
+    "REGISTER_MUNICIPALITY":"Register Town",
+    "MUNICIPALITY_INFORMATION": "Town Information",
+    "MUNICIPALITY_DESCRIPTION":"Town's description",
+    "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Town hall info",
+    "MUNICIPALITY_OPENINGHOURS_TEXT":"Write Town hall opening hours. For example: "
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Description",

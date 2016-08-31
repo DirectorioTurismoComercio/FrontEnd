@@ -8,7 +8,7 @@
                 <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeViewHome()">
                     <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
                 </div>
-                <p class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_INFORMATION"></p>
+                <p class="text" translate="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_INFORMATION"></p>
             </div>
             <ul class="progress-bar1 progressBarPadding topMarginElements">
                 <li class="done-step"></li>
@@ -26,19 +26,40 @@
                     <select ng-model="municipalitySelected"
                             ng-options="obj.nombre for obj in municipalities track by obj.id"
                             name="municipality"
-                            class="form-control businessAddressInput businessAddressText"
+                            class="top-margin-municipality-combo-box combo-box-municipality-register-info form-control businessAddressInput businessAddressText"
                             ng-change="deleteBusinessLocation()"
                             required>
                         <option value="" translate="REGISTER_SITE_CONSTANTS.SELECT_TOWN"></option>
                     </select>
                     <i ng-show="municipalitySelected==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
+                       class="form-control-feedback top-margin-municipality-combo-box glyphicon glyphicon-asterisk glyphiconStarColor glyphiconTownMunicipalityStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerMunicipalityInfoForm.municipality.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
                 </div>
 
             </div>
+
+
+
+            <div class="input topMarginElements col-xs-12 municipality-description-bottom-margin">
+                        <textarea placeholder="Regular Placeholder" translate
+                                  translate-attr-placeholder="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_DESCRIPTION"
+                                  class="municipality-description-height form-control businessAddressInput businessAddressText"
+                                  name="municipalityDescription" ng-model="$parent.municipalityDescription" required></textarea>
+                <i ng-show="municipalityDescription==undefined"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessDescriptionStar"></i>
+                        <span ng-show="showRequiredFieldMessage && registerMunicipalityInfoForm.municipalityDescription.$error.required"
+                              class="errorField businessAddressText"
+                              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+            </div>
+
+
+            <div class="row businessAddressText municipality-description-bottom-margin citizen-hall-title col-xs-12">
+                <span class="texto-claro-business"
+                        translate="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_CITIZEN_HALL_INFO_TITLE"></span>
+            </div>
+
 
             <div class="row businessAddressText topMarginElements">
                 <div class="col-xs-2">
@@ -81,25 +102,13 @@
 
             <div class="input topMarginElements col-xs-12">
                         <textarea placeholder="Regular Placeholder" translate
-                                  translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION"
-                                  class="form-control businessAddressInput businessAddressText"
-                                  name="municipalityDescription" ng-model="$parent.municipalityDescription" required></textarea>
-                <i ng-show="municipalityDescription==undefined"
-                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessDescriptionStar"></i>
-                        <span ng-show="showRequiredFieldMessage && registerMunicipalityInfoForm.municipalityDescription.$error.required"
-                              class="errorField businessAddressText"
-                              translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-            </div>
-
-            <div class="input topMarginElements col-xs-12">
-                        <textarea placeholder="Regular Placeholder" translate
                                   translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"
                                   class="form-control businessAddressInput businessAddressText"
                                   name="municipalityOpeningHours" ng-model="$parent.municipalityOpeningHours"></textarea>
             </div>
             <div class="row businessAddressText  col-xs-12">
                     <span class="texto-oscuro-business"
-                          translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT"> </span>
+                          translate="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_OPENINGHOURS_TEXT"> </span>
                 <span
                         class="texto-claro-business"
                         translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT_EXAMPLE"></span>

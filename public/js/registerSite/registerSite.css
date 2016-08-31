@@ -175,6 +175,10 @@ textarea.description {
     margin-right: 9%;
 }
 
+.glyphiconTownMunicipalityStar{
+    margin-right: 8%;
+}
+
 tags-input input {
     width: 100%;
     min-width: 100%;
@@ -196,4 +200,25 @@ tags-input input {
     margin-top: 5px;
 }
 
+.combo-box-municipality-register-info{
+    margin-left: 0% !important;
+    width: 100% !important;
+}
+
+.municipality-description-bottom-margin{
+    margin-bottom: 5% !important;
+}
+
+
+.top-margin-municipality-combo-box{
+    margin-top: 10px !important;
+}
+
+.municipality-description-height{
+    height: 80px !important;
+}
+
+.citizen-hall-title{
+    text-align: center;
+}
 

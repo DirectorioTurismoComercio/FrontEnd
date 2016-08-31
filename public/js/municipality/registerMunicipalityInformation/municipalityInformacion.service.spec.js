@@ -1,4 +1,4 @@
-describe('siteAndTownSaver Service', function () {
+describe('municipalityInformationService', function () {
 
     var municipalityInformationService;
 
@@ -13,7 +13,7 @@ describe('siteAndTownSaver Service', function () {
     it('should set and get selected municipality', function () {
         var selectedMunicipality='chia';
         municipalityInformationService.setMunicipalitySelected(selectedMunicipality);
-        expect(siteAndTownSaverService.getMunicipalitySelected()).toBe('chia');
+        expect(municipalityInformationService.getMunicipalitySelected()).toBe('chia');
     });
 
     it('should set and get municipality phone number', function () {
