@@ -57,6 +57,45 @@
                           class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
         </div>
 
+
+
+        <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
+               translate="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_ANTHEM_PHOTOS"></label>
+
+
+        <div class="coat-arms-photos-container">
+            <div class="title-main-photo-container">
+
+                <md-progress-circular class="loading loadingGlobalPhoto" md-mode="indeterminate"
+                                      ng-show="loadingPhotos"></md-progress-circular>
+            </div>
+
+            <div flow-init
+                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
+                 flow-name="flowCoatArmsPhoto.flow">
+                <div ng-show="!$flow.files.length">
+                    <flow-btn flow-single-file="false">
+                        <img class="btn" ng-show="!$flow.files.length" ng-click="mainPhotoOnClick()"
+                             src="./images/registerIcons/foto-subir.png"/>
+                    </flow-btn>
+                </div>
+
+
+                <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
+                    <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
+                                          ng-show="loadingMainPhoto"></md-progress-circular>
+                    <img image-onload="imgLoadedCallback('mainPhoto',0)" class="selectedMainPhoto"
+                         flow-img="$flow.files[0]"/>
+                    <img class="deletePhoto deletePhotoSize" ng-click="$flow.cancel()"
+                         src="./images/registerIcons/foto-borrar.png">
+                </div>
+            </div>
+                    <span ng-show="showMainPhotoRequired"
+                          class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+        </div>
+
+
+
         <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
                translate="REGISTER_MUNICIPALITY_CONSTANTS.UPLOAD_SECONDARY_PHOTOS_TIP"></label>
 
@@ -75,31 +114,6 @@
                                               ng-show="loadingFacadePhoto"></md-progress-circular>
                         <img image-onload="imgLoadedCallback('facadePhotos',$index)" class="selectedRowPhotos"
                              class="selectedRowPhotos" flow-img="file"/>
-                        <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
-                             src="./images/registerIcons/foto-borrar.png">
-                    </div>
-                </div>
-                <flow-btn flow-single-file="false">
-                    <img class="rowPhotosButton" src="./images/registerIcons/foto-subir.png"/>
-                </flow-btn>
-            </div>
-        </div>
-
-        <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
-               translate="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_ANTHEM_PHOTOS"></label>
-
-        <div class="topMarginElements businessAddressText">
-            <div flow-init
-                 flow-name="flowInsidePhotos.flow"
-                 flow-files-submitted="$flow.upload()"
-                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
-
-                <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
-                    <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
-                        <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
-                                              ng-show="loadingInsidePhoto"></md-progress-circular>
-                        <img image-onload="imgLoadedCallback('insidePhotos',$index)" class="selectedRowPhotos"
-                             flow-img="file"/>
                         <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
                              src="./images/registerIcons/foto-borrar.png">
                     </div>

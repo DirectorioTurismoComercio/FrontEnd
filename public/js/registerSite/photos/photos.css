@@ -90,6 +90,16 @@ img {
     margin-top: 140px;
 }
 
+
+.coat-arms-photos-container{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+
+    width: 83% !important;
+    margin-left: 8.5% !important;
+}
+
 /* xs devices */
 @media (max-width: 767px) {
     .deletePhotoSize {
