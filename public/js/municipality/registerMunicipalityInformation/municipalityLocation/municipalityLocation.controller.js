@@ -40,6 +40,15 @@ angular.module('Municipality')
         }
 
 
+        $scope.changeViewPhotos = function () {
+            if ($scope.municipalityLocation != undefined && $scope.municipalityAddress != undefined) {
+                saveDataAndChangeView('/municiplaityphotos');
+            } else {
+                $scope.showRequiredFieldMessage = true;
+            }
+        };
+
+
         function setSearchedPinOnMap(){
             if ($scope.municipalityLocation != undefined) {
                 MapService.addMarker($scope.municipalityLocation, municipalityInformationService.getMunicipalitySelected().nombre);
@@ -100,6 +109,16 @@ angular.module('Municipality')
         function displayOutsideBoundaryErrorMessage(message) {
             messageService.showErrorMessage(message);
             $scope.municipalityLocation = undefined;
+        }
+
+        function saveDataAndChangeView(view) {
+            saveSiteInformation();
+            $location.path(view);
+        }
+
+        function saveSiteInformation() {
+            municipalityInformationService.setMunicipalityAddress($scope.municipalityAddress);
+            municipalityInformationService.setMunicipalityLocation($scope.municipalityLocation);
         }
 
 
