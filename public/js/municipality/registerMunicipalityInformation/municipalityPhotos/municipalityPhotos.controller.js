@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityPhotosController', function ($scope, $location, municipalityInformationService, $timeout, MapService, uiGmapIsReady, messageService, API_CONFIG, $http) {
+    .controller('municipalityPhotosController', function ($scope, $location, municipalityInformationService, messageService, API_CONFIG, $http) {
 
     });

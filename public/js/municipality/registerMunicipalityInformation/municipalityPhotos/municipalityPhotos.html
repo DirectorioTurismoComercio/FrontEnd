@@ -2,7 +2,7 @@
     <app-header></app-header>
 </div>
 
-<div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortPhotos">
+<div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortPhotos municipality-photos-hight-body">
     <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor PhotosFormPadding">
         <div class="header container-fluid">
 
@@ -10,7 +10,7 @@
                 <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
             </div>
 
-            <p class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_PHOTOS_PAGE"></p></div>
+            <p class="text" translate="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_PHOTOS_PAGE"></p></div>
         <ul class="progress-bar2 progressBarPadding topMarginElements">
             <li class="done-step"></li>
             <li class="done-step"></li>
@@ -20,7 +20,7 @@
 
 
         <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO_TIP"></label>
+               translate="REGISTER_MUNICIPALITY_CONSTANTS.UPLOAD_MAIN_PHOTO_TIP"></label>
         <div class="mainPhotoContainer">
             <div class="title-main-photo-container">
 
@@ -58,10 +58,10 @@
         </div>
 
         <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.UPLOAD_SECONDARY_PHOTOS_TIP"></label>
+               translate="REGISTER_MUNICIPALITY_CONSTANTS.UPLOAD_SECONDARY_PHOTOS_TIP"></label>
 
         <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.BUSINESS_FACADE_PHOTOS"></label>
+               translate="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_GENERAL_PHOTOS"></label>
 
         <div class="topMarginElements businessAddressText">
             <div flow-init
@@ -86,7 +86,7 @@
         </div>
 
         <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.BUSINESS_INSIDE_PHOTOS"></label>
+               translate="REGISTER_MUNICIPALITY_CONSTANTS.MUNICIPALITY_ANTHEM_PHOTOS"></label>
 
         <div class="topMarginElements businessAddressText">
             <div flow-init
@@ -99,31 +99,6 @@
                         <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
                                               ng-show="loadingInsidePhoto"></md-progress-circular>
                         <img image-onload="imgLoadedCallback('insidePhotos',$index)" class="selectedRowPhotos"
-                             flow-img="file"/>
-                        <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
-                             src="./images/registerIcons/foto-borrar.png">
-                    </div>
-                </div>
-                <flow-btn flow-single-file="false">
-                    <img class="rowPhotosButton" src="./images/registerIcons/foto-subir.png"/>
-                </flow-btn>
-            </div>
-        </div>
-
-        <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.BUSINESS_PRODUCTS_PHOTOS"></label>
-
-        <div class="topMarginElements businessAddressText">
-            <div flow-init
-                 flow-name="flowProductsPhotos.flow"
-                 flow-files-submitted="$flow.upload()"
-                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
-
-                <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
-                    <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
-                        <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
-                                              ng-show="loadingProductsPhoto"></md-progress-circular>
-                        <img image-onload="imgLoadedCallback('productsPhotos',$index)" class="selectedRowPhotos"
                              flow-img="file"/>
                         <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
                              src="./images/registerIcons/foto-borrar.png">
