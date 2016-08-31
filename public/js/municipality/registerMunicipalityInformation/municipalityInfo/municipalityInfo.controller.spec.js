@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: registerMunicipalityAccountController', function () {
-    var municipalityInfoController, $scope, deferred, testLocation, $httpBackendTest, testmunicipalityInformationService, testAPI_CONFIG;
+    var municipalityInfoController, $scope, deferred, testLocation, $httpBackendTest, testmunicipalityInformationService, testAPI_CONFIG, testMunicipiosFactory;
 
     beforeEach(module('gemStore'));
     beforeEach(module('Municipality'));
@@ -22,13 +22,14 @@ describe('Controller: registerMunicipalityAccountController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller,$q,$rootScope, $location, $httpBackend, API_CONFIG, municipalityInformationService) {
+    beforeEach(inject(function ($controller,$q,$rootScope, $location, $httpBackend, API_CONFIG, municipalityInformationService, MunicipiosFactory) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         testLocation=$location;
         testAPI_CONFIG=API_CONFIG;
         $httpBackendTest=$httpBackend;
         testmunicipalityInformationService=municipalityInformationService;
+        testMunicipiosFactory=MunicipiosFactory;
 
         spyOn($location,'path');
 
@@ -36,7 +37,8 @@ describe('Controller: registerMunicipalityAccountController', function () {
             $scope: $scope,
             $location:testLocation,
             API_CONFIG:testAPI_CONFIG,
-            municipalityInformationService:testmunicipalityInformationService
+            municipalityInformationService:testmunicipalityInformationService,
+            MunicipiosFactory:testMunicipiosFactory
 
         });
     }));

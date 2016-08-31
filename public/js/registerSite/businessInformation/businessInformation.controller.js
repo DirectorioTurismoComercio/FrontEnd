@@ -6,7 +6,7 @@ angular.module('registerSite')
                                                            $location, MunicipiosFactory, authenticationService, siteAndTownSaverService,
                                                            siteInformationService, $translate, navigationService) {
 
-        
+
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
         $scope.whatsapp = siteInformationService.whatsapp;
         $scope.web = siteInformationService.web;
@@ -49,20 +49,21 @@ angular.module('registerSite')
         };
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
-            if(next.$$route.controller=='registerTradeController') {
+            if (next.$$route.controller == 'registerTradeController') {
                 $location.path('/home');
             }
         });
 
-         $scope.deleteBusinessLocation=function(){
-             $scope.businessLocation=undefined;
+        $scope.deleteBusinessLocation = function () {
+            $scope.businessLocation = undefined;
         }
 
         function saveDataAndChangeView(view) {
             saveSiteInformation();
             $location.path(view);
         }
-        $scope.updateSite = function() {
+
+        $scope.updateSite = function () {
             console.log("emiting...");
             $scope.$emit('saveSite');
         }
