@@ -19,7 +19,7 @@ describe('municipalityInformationService', function () {
     it('should set and get municipality phone number', function () {
         var phoneNumber='1234';
         municipalityInformationService.setMunicipalityPhoneNumber(phoneNumber);
-        expect(municipalityInformationService.getsetMunicipalityPhoneNumber()).toBe('1234');
+        expect(municipalityInformationService.getMunicipalityPhoneNumber()).toBe('1234');
     });
 
     it('should set and get municipality whatsup', function () {
@@ -56,6 +56,30 @@ describe('municipalityInformationService', function () {
         var location='4.345';
         municipalityInformationService.setMunicipalityLocation(location);
         expect(municipalityInformationService.getMunicipalityLocation()).toBe('4.345');
+    });
+
+    it('should set and get municipality main photo', function () {
+        var mainPhoto=['1','2'];
+        municipalityInformationService.setMunicipalityMainPhoto(mainPhoto);
+        expect(municipalityInformationService.getMunicipalityMainPhoto()).toBe(mainPhoto);
+    });
+
+    it('should set and get municipality coat arm photo', function () {
+        var coatArmPhotos=['1','2'];
+        municipalityInformationService.setMunicipalityCoatArmsPhoto(coatArmPhotos);
+        expect(municipalityInformationService.getMunicipalityCoatArmsPhoto()).toBe(coatArmPhotos);
+    });
+
+    it('should set and get municipality facade photo', function () {
+        var facadePhotos=['1','2'];
+        municipalityInformationService.setMunicipalityFacadePhotos(facadePhotos);
+        expect(municipalityInformationService.getMunicipalityFacadePhotos()).toBe(facadePhotos);
+    });
+
+    it('should set and get municipality facade photo', function () {
+        var URLphotos=['1','2'];
+        municipalityInformationService.setMunicipalityURLPhotos(URLphotos);
+        expect(municipalityInformationService.getMunicipalityURLPhotos()).toBe(URLphotos);
     });
 
 });

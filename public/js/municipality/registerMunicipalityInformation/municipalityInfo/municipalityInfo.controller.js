@@ -4,7 +4,7 @@ angular.module('Municipality')
     .controller('municipalityInfoController', function ($scope, $location, municipalityInformationService, MunicipiosFactory) {
 
         $scope.municipalitySelected=municipalityInformationService.getMunicipalitySelected();
-        $scope.municipalityPhoneNumber=municipalityInformationService.getsetMunicipalityPhoneNumber();
+        $scope.municipalityPhoneNumber=municipalityInformationService.getMunicipalityPhoneNumber();
         $scope.municipalityWhatsapp=municipalityInformationService.getMunicipalityWhatsapp();
         $scope.municipalityWeb=municipalityInformationService.getMunicipalityWeb();
         $scope.municipalityDescription=municipalityInformationService.getMunicipalityDescription();

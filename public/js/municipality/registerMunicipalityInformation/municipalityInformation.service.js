@@ -10,13 +10,18 @@ angular.module('Municipality')
         var municipalityOpeningHours = undefined;
         var municipalityAddress = undefined;
         var municipalityLocation=undefined;
+        var municipalityMainPhoto=[];
+        var municipalityCoatArmsPhoto=[];
+        var municipalityFacadePhotos=[];
+        var municiplaityURLPhotos=undefined;
+
 
         return {
             setMunicipalitySelected: setMunicipalitySelected,
             getMunicipalitySelected: getMunicipalitySelected,
 
             setMunicipalityPhoneNumber:setMunicipalityPhoneNumber,
-            getsetMunicipalityPhoneNumber:getsetMunicipalityPhoneNumber,
+            getMunicipalityPhoneNumber:getMunicipalityPhoneNumber,
 
             setMunicipalityWhatsapp:setMunicipalityWhatsapp,
             getMunicipalityWhatsapp:getMunicipalityWhatsapp,
@@ -34,7 +39,19 @@ angular.module('Municipality')
             getMunicipalityAddress:getMunicipalityAddress,
 
             setMunicipalityLocation:setMunicipalityLocation,
-            getMunicipalityLocation:getMunicipalityLocation
+            getMunicipalityLocation:getMunicipalityLocation,
+
+            setMunicipalityMainPhoto:setMunicipalityMainPhoto,
+            getMunicipalityMainPhoto:getMunicipalityMainPhoto,
+
+            setMunicipalityCoatArmsPhoto:setMunicipalityCoatArmsPhoto,
+            getMunicipalityCoatArmsPhoto:getMunicipalityCoatArmsPhoto,
+
+            setMunicipalityFacadePhotos:setMunicipalityFacadePhotos,
+            getMunicipalityFacadePhotos:getMunicipalityFacadePhotos,
+
+            setMunicipalityURLPhotos:setMunicipalityURLPhotos,
+            getMunicipalityURLPhotos:getMunicipalityURLPhotos
         }
 
         function setMunicipalitySelected(municipality){
@@ -49,7 +66,7 @@ angular.module('Municipality')
             municipalityPhoneNumber=phoneNumber;
         }
 
-        function getsetMunicipalityPhoneNumber(){
+        function getMunicipalityPhoneNumber(){
             return municipalityPhoneNumber;
         }
 
@@ -99,6 +116,38 @@ angular.module('Municipality')
 
         function getMunicipalityLocation(){
             return municipalityLocation;
+        }
+
+        function setMunicipalityMainPhoto(mainPhoto){
+            municipalityMainPhoto=mainPhoto;
+        }
+
+        function getMunicipalityMainPhoto(){
+            return municipalityMainPhoto;
+        }
+
+        function setMunicipalityCoatArmsPhoto(coatArmsPhoto){
+            municipalityCoatArmsPhoto=coatArmsPhoto;
+        }
+
+        function getMunicipalityCoatArmsPhoto(){
+            return municipalityCoatArmsPhoto;
+        }
+
+        function setMunicipalityFacadePhotos(facadePhotos){
+            municipalityFacadePhotos=facadePhotos;
+        }
+
+        function getMunicipalityFacadePhotos(){
+            return municipalityFacadePhotos;
+        }
+
+        function setMunicipalityURLPhotos(URLPhotos){
+            municiplaityURLPhotos=URLPhotos;
+        }
+
+        function getMunicipalityURLPhotos(){
+            return municiplaityURLPhotos;
         }
 
     });
