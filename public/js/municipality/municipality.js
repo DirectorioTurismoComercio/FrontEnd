@@ -14,5 +14,9 @@ angular.module('Municipality', [])
             .when('/municipalityinfo', {
                 templateUrl: 'js/municipality/registerMunicipalityInformation/municipalityInfo/municipalityinfo.html',
                 controller: 'municipalityInfoController'
+            })
+            .when('/municipalitylocation', {
+                templateUrl: 'js/municipality/registerMunicipalityInformation/municipalityLocation/municipalityLocation.html',
+                controller: 'municipalityLocationController'
             });
     });

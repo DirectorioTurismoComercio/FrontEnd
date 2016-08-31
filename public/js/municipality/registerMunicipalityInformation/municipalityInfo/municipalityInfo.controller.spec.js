@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: registerMunicipalityAccountController', function () {
+describe('Controller: municipalityInfoController', function () {
     var municipalityInfoController, $scope, deferred, testLocation, $httpBackendTest, testmunicipalityInformationService, testAPI_CONFIG, testMunicipiosFactory;
 
     beforeEach(module('gemStore'));
