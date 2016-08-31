@@ -222,3 +222,36 @@ tags-input input {
     text-align: center;
 }
 
+.progress-bar2 {
+    padding: 10px 0 0;
+    list-style: none;
+    height: 30px;
+    width: 100%;
+    font-size: 0;
+}
+
+.progress-bar2 li:first-child {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.progress-bar2 li:last-child {
+    border-radius: 0px 5px 5px 0px;
+}
+
+.progress-bar2 > li {
+    display: inline-block;
+    width: calc(100% / 4);
+    height: 15px;
+    background: #b6b6b6;
+    box-sizing: border-box;
+    border: 1px solid #FFF;
+    border-left: 0px;
+}
+
+.progress-bar2 .done-step {
+    background: #26d23a;
+}
+
+.progress-bar2 .current-step {
+    background: #DE6525;
+}
