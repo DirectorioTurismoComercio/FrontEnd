@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: municipalityLocationController', function () {
-    var municipalityLocationController, $scope, deferred, testLocation;
+    var municipalityLocationController, $scope, deferred, testLocation, testmunicipalityInformationService;
 
     beforeEach(module('gemStore'));
     beforeEach(module('Municipality'));
@@ -22,20 +22,26 @@ describe('Controller: municipalityLocationController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller,$q,$rootScope, $location) {
+    beforeEach(inject(function ($controller,$q,$rootScope, $location, municipalityInformationService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         testLocation=$location;
+        testmunicipalityInformationService=municipalityInformationService;
 
 
         spyOn($location,'path');
 
         municipalityLocationController = $controller('municipalityLocationController', {
             $scope: $scope,
-            $location:testLocation
+            $location:testLocation,
+            municipalityInformationService:testmunicipalityInformationService
         });
     }));
 
+    it('Should redirect to municipality information form when user clicks goMunicipalityInfo button', function () {
+        $scope.goMunicipalityInfo();
+        expect(testLocation.path).toHaveBeenCalled();
+    });
 
 
 });

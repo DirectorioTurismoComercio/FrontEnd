@@ -8,6 +8,8 @@ angular.module('Municipality')
         var municipalityWeb = undefined;
         var municipalityDescription = undefined;
         var municipalityOpeningHours = undefined;
+        var municipalityAddress = undefined;
+        var municipalityLocation=undefined;
 
         return {
             setMunicipalitySelected: setMunicipalitySelected,
@@ -26,7 +28,13 @@ angular.module('Municipality')
             getMunicipalityDescription:getMunicipalityDescription,
 
             setMunicipalityOpeningHours:setMunicipalityOpeningHours,
-            getMunicipalityOpeningHours:getMunicipalityOpeningHours
+            getMunicipalityOpeningHours:getMunicipalityOpeningHours,
+
+            setMunicipalityAddress:setMunicipalityAddress,
+            getMunicipalityAddress:getMunicipalityAddress,
+
+            setMunicipalityLocation:setMunicipalityLocation,
+            getMunicipalityLocation:getMunicipalityLocation
         }
 
         function setMunicipalitySelected(municipality){
@@ -75,6 +83,22 @@ angular.module('Municipality')
 
         function getMunicipalityOpeningHours(){
             return municipalityOpeningHours;
+        }
+
+        function setMunicipalityAddress(address){
+            municipalityAddress=address;
+        }
+
+        function getMunicipalityAddress(){
+            return municipalityAddress;
+        }
+
+        function setMunicipalityLocation(location){
+            municipalityLocation=location;
+        }
+
+        function getMunicipalityLocation(){
+            return municipalityLocation;
         }
 
     });

@@ -46,4 +46,16 @@ describe('municipalityInformationService', function () {
         expect(municipalityInformationService.getMunicipalityOpeningHours()).toBe('10am - 10pm');
     });
 
+    it('should set and get municipality address', function () {
+        var address='st. 123';
+        municipalityInformationService.setMunicipalityAddress(address);
+        expect(municipalityInformationService.getMunicipalityAddress()).toBe('st. 123');
+    });
+
+    it('should set and get municipality location', function () {
+        var location='4.345';
+        municipalityInformationService.setMunicipalityLocation(location);
+        expect(municipalityInformationService.getMunicipalityLocation()).toBe('4.345');
+    });
+
 });

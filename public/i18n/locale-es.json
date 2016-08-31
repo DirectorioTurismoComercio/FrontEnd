@@ -66,7 +66,8 @@
     "MUNICIPALITY_INFORMATION": "Información del municipio",
     "MUNICIPALITY_DESCRIPTION":"Describe el municipio",
     "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Información de punto de atención al ciudadano",
-    "MUNICIPALITY_OPENINGHOURS_TEXT":"Escribe los dias y horarios de atención del sitio de atención al ciudadano. Ejemplo: "
+    "MUNICIPALITY_OPENINGHOURS_TEXT":"Escribe los dias y horarios de atención del sitio de atención al ciudadano. Ejemplo: ",
+    "MUNICIPALITY_LOCATION": "Ubicación de punto de atención"
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Descripción",

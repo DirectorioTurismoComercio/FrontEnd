@@ -66,7 +66,8 @@
     "MUNICIPALITY_INFORMATION": "Town Information",
     "MUNICIPALITY_DESCRIPTION":"Town's description",
     "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Town hall info",
-    "MUNICIPALITY_OPENINGHOURS_TEXT":"Write Town hall opening hours. For example: "
+    "MUNICIPALITY_OPENINGHOURS_TEXT":"Write Town hall opening hours. For example: ",
+    "MUNICIPALITY_LOCATION": "City hall location"
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Description",
