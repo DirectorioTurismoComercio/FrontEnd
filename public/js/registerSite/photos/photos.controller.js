@@ -24,9 +24,6 @@ angular.module('registerSite')
         $scope.loadingPhotos = false;
 
 
-        var lastFacadeFileIndex;
-        var lastInsideFileIndex;
-        var lastProductsFileIndex;
         var numPhotos;
         var loadedPhotos = 0;
 
@@ -96,68 +93,43 @@ angular.module('registerSite')
 
         }
 
+        $scope.correctOrientation = function (orientation) {
+            var style = '';
 
-        $scope.imgLoadedCallback = function (flowObjectName, fileIndex) {
-            switch (flowObjectName) {
-                case 'mainPhoto':
-                    processUploadedImage($scope.flowMainPhoto.flow, 0, flowObjectName);
-                    $scope.loadingMainPhoto = false;
+            switch (orientation) {
+                case 3:
+                    style = 'rotate180';
                     break;
-
-                case 'facadePhotos':
-                    previewPhoto($scope.flowFacadePhotos.flow, fileIndex, lastFacadeFileIndex, flowObjectName);
-                    $scope.loadingFacadePhoto = false;
+                case 4:
+                    style = 'rotate180';
                     break;
-
-                case 'insidePhotos':
-                    previewPhoto($scope.flowInsidePhotos.flow, fileIndex, lastInsideFileIndex, flowObjectName);
-                    $scope.loadingInsidePhoto = false;
+                case 5:
+                    style = 'rotate90';
                     break;
-
-                case 'productsPhotos':
-                    previewPhoto($scope.flowProductsPhotos.flow, fileIndex, lastProductsFileIndex, flowObjectName);
-                    $scope.loadingProductsPhoto = false;
+                case 6:
+                    style = 'rotate90';
+                    break;
+                case 7:
+                    style = 'rotate270';
+                    break;
+                case 8:
+                    style = 'rotate270';
                     break;
             }
+
+            return style;
         };
 
-        function previewPhoto(flowObject, fileIndex, lastPhotoFileIndex, flowObjectName) {
-            if (fileIndex != lastPhotoFileIndex) {
-                lastPhotoFileIndex = fileIndex;
-                processUploadedImage(flowObject, fileIndex, flowObjectName);
-            }
-        }
-
-        function updateFlowObject(flowObject, fileIndex, flowFile) {
-            flowObject.files.splice(fileIndex, 1);
-            flowObject.files.push(flowFile);
-        }
-
-        function processUploadedImage(flowObject, fileIndex, photoLoading) {
-            var flowFile = flowObject.files[fileIndex];
-            var imageQuality = 1;
-            console.log(imageQuality, flowFile.file.size / 1024);
+        $scope.imgLoadedCallback = function (flowFile) {
+            var orientation = 0;
 
             EXIF.getData(flowFile.file, function () {
-                if (flowFile.processing == undefined) {
-                    var orientation = this.exifdata.Orientation;
-                    flowFile.processing = true;
-                    updateFlowObject(flowObject, fileIndex, flowFile);
-                    ImageService.changeLoadingState(photoLoading, true, $scope);
-
-                    ImageService.reduceImageSize(flowFile.file, imageQuality, photoLoading, $scope).then(function (reducedImage) {
-                        ImageService.rotateImage(orientation, reducedImage).then(function (rotatedImage) {
-                            var blob = ImageService.dataURIToBlob(rotatedImage, flowFile.uniqueIdentifier);
-                            flowFile = new Flow.FlowFile(flowObject, blob);
-                            flowFile.processing = true;
-                            updateFlowObject(flowObject, fileIndex, flowFile);
-                        });
-                    }).catch(function (error) {
-                        ImageService.changeLoadingState(photoLoading, false, $scope);
-                    });
-                }
+                orientation = this.exifdata.Orientation;
+                flowFile.orientation = orientation;
+                console.log("Image Orientation: ", orientation);
+                $scope.$apply();
             });
-        }
+        };
 
 
         function loadPhotoFromURL(urlPhoto, tipo) {

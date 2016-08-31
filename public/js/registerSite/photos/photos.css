@@ -1,64 +1,90 @@
-.backgroundFillViewPortPhotos{
+img {
+    transform-origin: top left;
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+}
+
+.rotate90 {
+    transform: rotate(90deg) translateY(-100%);
+    -webkit-transform: rotate(90deg) translateY(-100%);
+    -ms-transform: rotate(90deg) translateY(-100%);
+}
+
+.rotate180 {
+    transform: rotate(180deg) translate(-100%, -100%);
+    -webkit-transform: rotate(180deg) translate(-100%, -100%);
+    -ms-transform: rotate(180deg) translateX(-100%, -100%);
+}
+
+.rotate270 {
+    transform: rotate(270deg) translateX(-100%);
+    -webkit-transform: rotate(270deg) translateX(-100%);
+    -ms-transform: rotate(270deg) translateX(-100%);
+}
+
+.backgroundFillViewPortPhotos {
     height: 100%;
 }
 
-.photo-asterisk{
+.photo-asterisk {
     position: inherit;
 }
 
-.topMarginmainPhotolabel{
+.topMarginmainPhotolabel {
     margin-top: 6% !important;
 }
 
-.title-main-photo-container{
+.title-main-photo-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 
-.PhotosFormPadding{
+.PhotosFormPadding {
     margin-bottom: 2%;
 }
 
-.mainPhotoContainer{
+.mainPhotoContainer {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
 }
 
-.mainPhotoImagesContainer{
+.mainPhotoImagesContainer {
     position: relative;
 }
 
-.selectedMainPhoto{
+.selectedMainPhoto {
     z-index: -1;
 }
-.rowPhotos{
+
+.rowPhotos {
     border: none !important;
     margin: 0% !important;
 }
 
-.rowPhotosButton{
+.rowPhotosButton {
     height: 134px;
     width: 146px;
     padding: 6px 12px 6px 12px;
 }
 
-.deletePhoto{
+.deletePhoto {
     position: absolute;
     right: 10px;
     bottom: 5px;
 }
 
-.selectedRowPhotos{
+.selectedRowPhotos {
     max-height: 300px !important;
     max-width: 180% !important;
 }
 
-.loadingPhoto{
+.loadingPhoto {
     position: absolute !important;
 }
-.loadingGlobalPhoto{
+
+.loadingGlobalPhoto {
     position: absolute !important;
     z-index: 1;
     margin-top: 140px;
@@ -66,21 +92,21 @@
 
 /* xs devices */
 @media (max-width: 767px) {
-    .deletePhotoSize{
+    .deletePhotoSize {
         height: 30px !important;
     }
 }
 
 /* sm devices */
-@media (min-width:768px) {
-    .deletePhotoSize{
+@media (min-width: 768px) {
+    .deletePhotoSize {
         height: 37px !important;
     }
 }
 
 /* md devices */
-@media(min-width:992px){
-    .deletePhotoSize{
+@media (min-width: 992px) {
+    .deletePhotoSize {
         height: 37px !important;
     }
 }

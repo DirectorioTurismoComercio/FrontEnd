@@ -19,15 +19,15 @@
             <li></li>
             <li></li>
         </ul>
-        
+
 
         <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
                translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO_TIP"></label>
         <div class="mainPhotoContainer">
             <div class="title-main-photo-container">
 
-<md-progress-circular class="loading loadingGlobalPhoto" md-mode="indeterminate"
-                                          ng-show="loadingPhotos"></md-progress-circular>
+                <md-progress-circular class="loading loadingGlobalPhoto" md-mode="indeterminate"
+                                      ng-show="loadingPhotos"></md-progress-circular>
 
                 <i ng-show="flowMainPhoto.flow.files.length==0"
                    class="form-control-feedback photo-asterisk  glyphicon glyphicon-asterisk glyphiconStarColor"></i>
@@ -44,13 +44,13 @@
                              src="./images/registerIcons/foto-subir.png"/>
                     </flow-btn>
                 </div>
-                
-           
+
+
                 <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
                     <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
                                           ng-show="loadingMainPhoto"></md-progress-circular>
-                    <img image-onload="imgLoadedCallback('mainPhoto',0)" class="selectedMainPhoto"
-                         flow-img="$flow.files[0]"/>
+                    <img image-onload="imgLoadedCallback($flow.files[0])" class="selectedMainPhoto"
+                         flow-img="$flow.files[0]" ng-class="correctOrientation($flow.files[0].orientation)"/>
                     <img class="deletePhoto deletePhotoSize" ng-click="$flow.cancel()"
                          src="./images/registerIcons/foto-borrar.png">
                 </div>
@@ -71,13 +71,15 @@
                  flow-files-submitted="$flow.upload()"
                  flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
 
-                <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
+                <div ng-repeat="flowFile in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
                     <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
                         <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
                                               ng-show="loadingFacadePhoto"></md-progress-circular>
-                        <img image-onload="imgLoadedCallback('facadePhotos',$index)" class="selectedRowPhotos"
-                             class="selectedRowPhotos" flow-img="file"/>
-                        <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
+                        <img image-onload="imgLoadedCallback(flowFile)" class="selectedRowPhotos"
+                             class="selectedRowPhotos" flow-img="flowFile"
+                             ng-class="correctOrientation(flowFile.orientation)"/>
+
+                        <img class="deletePhoto deletePhotoSize" ng-click="flowFile.cancel()"
                              src="./images/registerIcons/foto-borrar.png">
                     </div>
                 </div>
@@ -96,13 +98,13 @@
                  flow-files-submitted="$flow.upload()"
                  flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
 
-                <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
+                <div ng-repeat="flowFile in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
                     <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
                         <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
                                               ng-show="loadingInsidePhoto"></md-progress-circular>
-                        <img image-onload="imgLoadedCallback('insidePhotos',$index)" class="selectedRowPhotos"
-                             flow-img="file"/>
-                        <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
+                        <img image-onload="imgLoadedCallback(flowFile)" class="selectedRowPhotos"
+                             flow-img="flowFile" ng-class="correctOrientation(flowFile.orientation)"/>
+                        <img class="deletePhoto deletePhotoSize" ng-click="flowFile.cancel()"
                              src="./images/registerIcons/foto-borrar.png">
                     </div>
                 </div>
@@ -121,13 +123,13 @@
                  flow-files-submitted="$flow.upload()"
                  flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
 
-                <div ng-repeat="file in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
+                <div ng-repeat="flowFile in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
                     <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
                         <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
                                               ng-show="loadingProductsPhoto"></md-progress-circular>
-                        <img image-onload="imgLoadedCallback('productsPhotos',$index)" class="selectedRowPhotos"
-                             flow-img="file"/>
-                        <img class="deletePhoto deletePhotoSize" ng-click="file.cancel()"
+                        <img image-onload="imgLoadedCallback(flowFile)" class="selectedRowPhotos"
+                             flow-img="flowFile" ng-class="correctOrientation(flowFile.orientation)"/>
+                        <img class="deletePhoto deletePhotoSize" ng-click="flowFile.cancel()"
                              src="./images/registerIcons/foto-borrar.png">
                     </div>
                 </div>
