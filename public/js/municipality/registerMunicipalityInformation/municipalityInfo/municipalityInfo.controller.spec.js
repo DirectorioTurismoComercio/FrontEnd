@@ -33,6 +33,8 @@ describe('Controller: registerMunicipalityAccountController', function () {
 
         spyOn($location,'path');
 
+        initializeMunicipalityValues(testmunicipalityInformationService);
+
         municipalityInfoController = $controller('municipalityInfoController', {
             $scope: $scope,
             $location:testLocation,
@@ -47,5 +49,23 @@ describe('Controller: registerMunicipalityAccountController', function () {
         $scope.changeViewHome();
         expect(testLocation.path).toHaveBeenCalled();
     });
+
+    it('Should get municipalityInformationService information', function () {
+        expect($scope.municipalitySelected).toBe('cota');
+        expect($scope.municipalityPhoneNumber).toBe('1234');
+        expect($scope.municipalityWhatsapp).toBe('4321');
+        expect($scope.municipalityDescription).toBe('está en cota');
+        expect($scope.municipalityOpeningHours).toBe('10am-10pm');
+    });
+
+
+    function initializeMunicipalityValues(testmunicipalityInformationService) {
+        testmunicipalityInformationService.setMunicipalitySelected('cota');
+        testmunicipalityInformationService.setMunicipalityPhoneNumber('1234');
+        testmunicipalityInformationService.setMunicipalityWhatsapp('4321');
+        testmunicipalityInformationService.setMunicipalityWeb('4321.com');
+        testmunicipalityInformationService.setMunicipalityDescription('está en cota');
+        testmunicipalityInformationService.setMunicipalityOpeningHours('10am-10pm');
+    }
 
 });

@@ -37,13 +37,22 @@ angular.module('Municipality')
             }
         });
 
+
         function goHome(){
             $location.path('/home');
         }
 
         function saveDataAndChangeView(view) {
             saveMunicipalityInformation();
-            $location.path(view);
+            //$location.path(view);
+            console.log($scope.municipalitySelected);
+            console.log($scope.municipalityPhoneNumber);
+            console.log($scope.municipalityWhatsapp);
+            console.log($scope.municipalityWeb);
+            console.log($scope.municipalityDescription);
+            console.log($scope.municipalityOpeningHours);
+
+
         }
 
 
