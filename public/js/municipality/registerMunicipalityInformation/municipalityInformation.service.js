@@ -57,7 +57,8 @@ angular.module('Municipality')
             setMunicipalityId:setMunicipalityId,
             getMunicipalityId:getMunicipalityId,
 
-            sendMunicipalityDataToServer:sendMunicipalityDataToServer
+            sendMunicipalityDataToServer:sendMunicipalityDataToServer,
+            resetData:resetData
         }
 
         function setMunicipalitySelected(municipality){
@@ -162,6 +163,22 @@ angular.module('Municipality')
 
         function getMunicipalityId(){
             return municipalityId;
+        }
+
+        function resetData(){
+             municipalitySelected = undefined;
+             municipalityPhoneNumber = undefined;
+             municipalityWhatsapp = undefined;
+             municipalityWeb = undefined;
+             municipalityDescription = undefined;
+             municipalityOpeningHours = undefined;
+             municipalityAddress = undefined;
+             municipalityLocation=undefined;
+             municipalityMainPhoto=[];
+             municipalityCoatArmsPhoto=[];
+             municipalityFacadePhotos=[];
+             municiplaityURLPhotos=undefined;
+             municipalityId= undefined;
         }
 
         function sendMunicipalityDataToServer(successFunction, errorFunction){

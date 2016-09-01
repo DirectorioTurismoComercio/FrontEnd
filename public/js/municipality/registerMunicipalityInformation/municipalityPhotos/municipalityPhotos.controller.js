@@ -154,6 +154,7 @@ angular.module('Municipality')
 
         $scope.doneRegistration = function () {
             ngDialog.close();
+            municipalityInformationService.resetData();
             $location.path('accountMunicipalityinfo');
         }
 

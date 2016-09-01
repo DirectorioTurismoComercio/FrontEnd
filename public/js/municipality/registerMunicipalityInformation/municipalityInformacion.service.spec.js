@@ -88,4 +88,49 @@ describe('municipalityInformationService', function () {
         expect(municipalityInformationService.getMunicipalityId()).toBe(1);
     });
 
+    it('should set every field to original status when reset data', function () {
+        var selectedMunicipality='chia';
+        var phoneNumber='1234';
+        var whatsapp='1234';
+        var web='1234.com';
+        var description='bla bla';
+        var hours='10am - 10pm';
+        var address='st. 123';
+        var location='4.345';
+        var mainPhoto=['1','2'];
+        var coatArmPhotos=['1','2'];
+        var facadePhotos=['1','2'];
+        var URLphotos=['1','2'];
+        var id=1;
+
+
+        municipalityInformationService.setMunicipalitySelected(selectedMunicipality);
+        municipalityInformationService.setMunicipalityPhoneNumber(phoneNumber);
+        municipalityInformationService.setMunicipalityWhatsapp(whatsapp);
+        municipalityInformationService.setMunicipalityWeb(web);
+        municipalityInformationService.setMunicipalityDescription(description);
+        municipalityInformationService.setMunicipalityOpeningHours(hours);
+        municipalityInformationService.setMunicipalityAddress(address);
+        municipalityInformationService.setMunicipalityLocation(location);
+        municipalityInformationService.setMunicipalityMainPhoto(mainPhoto);
+        municipalityInformationService.setMunicipalityCoatArmsPhoto(coatArmPhotos);
+        municipalityInformationService.setMunicipalityFacadePhotos(facadePhotos);
+        municipalityInformationService.setMunicipalityURLPhotos(URLphotos);
+        municipalityInformationService.setMunicipalityId(id);
+
+        municipalityInformationService.resetData();
+        expect(municipalityInformationService.getMunicipalitySelected()).toBe(undefined);
+        expect(municipalityInformationService.getMunicipalityPhoneNumber()).toBe(undefined);
+        expect(municipalityInformationService.getMunicipalityWhatsapp()).toBe(undefined);
+        expect(municipalityInformationService.getMunicipalityWeb()).toBe(undefined);
+        expect(municipalityInformationService.getMunicipalityDescription()).toBe(undefined);
+        expect(municipalityInformationService.getMunicipalityAddress()).toBe(undefined);
+        //expect(municipalityInformationService.getMunicipalityMainPhoto()).toBe([]);
+        //expect(municipalityInformationService.getMunicipalityCoatArmsPhoto()).toBe([]);
+        //expect(municipalityInformationService.getMunicipalityFacadePhotos()).toBe([]);
+        expect(municipalityInformationService.getMunicipalityURLPhotos()).toBe(undefined);
+        expect(municipalityInformationService.getMunicipalityId()).toBe(undefined);
+
+    });
+
 });
