@@ -102,7 +102,7 @@ angular.module('Municipality')
             if (!joinOfFormatted_address.includes(selectedMunicipalityName)) {
                 displayOutsideBoundaryErrorMessage("Verifique que la ubicación se encuentre en el municipio seleccionado");
             } else {
-                MapService.addMarker($scope.municipalityLocation, municipalityInformationService.getMunicipalitySelected().nombre);
+                MapService.addMarkerMunicipalityWithIcon($scope.municipalityLocation);
             }
         }
 
