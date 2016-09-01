@@ -19,7 +19,7 @@ angular.module('Municipality')
                         password: $scope.loginMunicipalityFields.password
                     })
                     .then(function () {
-                        //redirectToProfileMain();
+                        redirectToProfileMain();
                         console.log("se ha logueado correctamente");
                     }).catch(function (error) {
                     messageService.showErrorMessage("BAD_LOGIN",true);
