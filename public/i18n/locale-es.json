@@ -67,8 +67,8 @@
     "MUNICIPALITY_DESCRIPTION":"Describe el municipio",
     "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Información de punto de atención al ciudadano",
     "MUNICIPALITY_OPENINGHOURS_TEXT":"Escribe los dias y horarios de atención del sitio de atención al ciudadano. Ejemplo: ",
-    "MUNICIPALITY_LOCATION": "Ubicación de punto de atención",
-    "MUNICIPALITY_ADDRESS": "Dirección punto de turismo",
+    "MUNICIPALITY_LOCATION": "Ubicación del punto de atención",
+    "MUNICIPALITY_ADDRESS": "Dirección del punto de turismo",
     "MUNICIPALITY_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa dónde se encuentra el punto de atención al ciudadano",
     "MUNICIPALITY_LOCATION_TIP": "Puedes colocar un marcador en el mapa sobre la ubicación exacta del punto de atención al ciudadano",
     "MUNICIPALITY_PHOTOS_PAGE": "Fotografías del municipio",
@@ -76,7 +76,7 @@
     "UPLOAD_SECONDARY_PHOTOS_TIP": "Sube una o varias fotografías del municipio para que los usuarios lo conozcan",
     "MUNICIPALITY_GENERAL_PHOTOS": "Fotos del municipio",
     "MUNICIPALITY_ANTHEM_PHOTOS": "Foto del escudo del municipio",
-    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio, para poder ver tu municipio en la plataforma debes esperar la autorización del administrador"
+    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio, para poder ver tu municipio en la plataformadebes esperar la autorización del administrador"
 
   },
   "SITE_DETAIL_CONSTANTS": {
@@ -152,13 +152,13 @@
   },
   "LOGIN": {
     "TRADER_LOGIN": "Ingreso de comerciantes",
-    "MUNICIPALITY_LOGIN":"Ingreso Municipio",
+    "MUNICIPALITY_LOGIN":"Ingreso municipio",
     "LOGIN_WITH_SOCIAL_NETWORKS": "Ingresa con tus redes",
     "LOGIN_WITH_FACEBOOK": "Ingresa con Facebook",
     "LOGIN_WITH_GOOGLE": "Ingresa con Google",
     "LOGIN_WITH_ACCOUNT": "O ingresa con tu cuenta",
     "EMAIL_INPUT": "e-mail",
-    "EMAIL_MUNICIPAPLITY_INPUT": "correo municipio",
+    "EMAIL_MUNICIPAPLITY_INPUT": "Correo municipio",
     "PASSWORD_INPUT": "Contraseña",
     "FORGOTTEN_PASSWORD": "¿Has olvidado tu contraseña?",
     "LOGIN_BUTTON": "Iniciar sesión",
@@ -166,7 +166,7 @@
     "FORGOT_MUNICIPALITY_PASWORD":"¿Olvidaste la contraseña?",
     "REGISTER": "Regístrate",
     "PASSWORD_LENGTH": "La contraseña debe tener mínimo 6 caracteres*",
-    "ADMINISTRATOR_ACCESS_REQUEST":"Solicita acceso al administardor"
+    "ADMINISTRATOR_ACCESS_REQUEST":"Solicita acceso al administrador"
   },
   "ACCOUNT_INFO": {
     "ACCOUNT_INFO_TITLE": "Mi cuenta",
