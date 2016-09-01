@@ -60,7 +60,7 @@
   },
   "REGISTER_MUNICIPALITY_CONSTANTS": {
     "CREATE_ACCOUNT": "Crea tu cuenta de municipio",
-    "NAME": "Nombre del municipio",
+    "NAME": "Nombre de tu municipio",
     "MUNICIPALITY_ALREADY_REGISTER":"¿Ya tienes cuenta de municipio?",
     "REGISTER_MUNICIPALITY":"Registro municipio",
     "MUNICIPALITY_INFORMATION": "Información del municipio",

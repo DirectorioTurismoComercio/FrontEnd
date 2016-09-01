@@ -59,9 +59,9 @@
     "REQUIRED_FIELD": "Required field*"
   },
   "REGISTER_MUNICIPALITY_CONSTANTS": {
-    "CREATE_ACCOUNT": "Create your town account",
-    "NAME": "Town's name",
-    "MUNICIPALITY_ALREADY_REGISTER":"already register?",
+    "CREATE_ACCOUNT": "Create an account for your town",
+    "NAME": "Name of  your town",
+    "MUNICIPALITY_ALREADY_REGISTER":"Have a town account?",
     "REGISTER_MUNICIPALITY":"Register Town",
     "MUNICIPALITY_INFORMATION": "Town Information",
     "MUNICIPALITY_DESCRIPTION":"Town's description",
@@ -197,7 +197,7 @@
   "NO_RESULTS": "Sorry, there are no results for this search. Please try with different words.",
   "BAD_LOGIN": "Incorrect user or password",
   "REGISTER_SUCCESS": "You are the newest member of Marca_app. To edit the profile settings in your account, update your info or register other business or branch offices, please log in",
-  "REGISTER_MUNICIPALITY_SUCCESS":"You are the newest member of Marca_app. Now yoy can register your municiplaity",
+  "REGISTER_MUNICIPALITY_SUCCESS":"You are the newest member of Marca_app. Now you can register your town",
   "CONTACT_INFO": "If you have a problem, question or a suggestion, you can write to",
   "E100": "Error server, try again",
   "E101": "email already exists",
