@@ -260,3 +260,10 @@ tags-input input {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.municipality-info-buttons-conatiner{
+    justify-content: space-around !important;
+}
+.municipality-info-buttons{
+    width: 40% !important;
+}

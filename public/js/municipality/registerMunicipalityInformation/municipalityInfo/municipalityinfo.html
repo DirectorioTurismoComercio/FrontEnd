@@ -113,8 +113,11 @@
                         translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS_TEXT_EXAMPLE"></span>
             </div>
 
-            <div class=" next-button NextButtonRegister topMarginElements col-xs-12">
-                <button class="button"
+            <div class=" municipality-info-buttons-conatiner next-button NextButtonRegister topMarginElements col-xs-12">
+                <button class="button edit-section-button cancel-button municipality-info-buttons"
+                        ng-click="cancelRegister()"
+                        translate="CANCEL_BUTTON"></button>
+                <button class="button municipality-info-buttons"
                         ng-click="changeViewLocation()" translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
             </div>
 

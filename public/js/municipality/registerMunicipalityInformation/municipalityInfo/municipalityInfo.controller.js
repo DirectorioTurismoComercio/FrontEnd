@@ -37,6 +37,10 @@ angular.module('Municipality')
             }
         });
 
+        $scope.cancelRegister=function(){
+            goHome();
+        }
+
 
         function goHome(){
             $location.path('/home');

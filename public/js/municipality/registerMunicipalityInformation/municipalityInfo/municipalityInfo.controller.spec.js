@@ -58,6 +58,11 @@ describe('Controller: municipalityInfoController', function () {
         expect($scope.municipalityOpeningHours).toBe('10am-10pm');
     });
 
+    it('Should redirect to home when user clicks cancelRegister button', function () {
+        $scope.cancelRegister();
+        expect(testLocation.path).toHaveBeenCalled();
+    });
+
 
     function initializeMunicipalityValues(testmunicipalityInformationService) {
         testmunicipalityInformationService.setMunicipalitySelected('cota');
