@@ -72,7 +72,7 @@ angular.module('map')
             return isPlaceInsideRegion(latLngLiteralPlaceLocation, CUNDINAMARCA_COORDS);
         }
 
-        function addMarker(position, label, icon) {
+        function addMarker(position, label, icon,customZIndex) {
             var marker = new MarkerWithLabel({
                 position: position,
                 map: gMap,
@@ -86,6 +86,10 @@ angular.module('map')
                     opacity: 1
                 }
             });
+
+            if(customZIndex){
+                marker.options.zIndex=50000;
+            }
 
             markers.push(marker);
 

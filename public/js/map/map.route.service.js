@@ -21,7 +21,7 @@ angular.module('map')
                     var destinationIcon = MapService.createIcon('images/icons/llegada-mapa.png', 50);
 
                     MapService.addMarker(leg.start_location, 'origin', originIcon);
-                    var destinationMarker= MapService.addMarker(leg.end_location, 'destination', destinationIcon);
+                    var destinationMarker= MapService.addMarker(leg.end_location, 'destination', destinationIcon, true);
                     
                     addDestinationSiteMarker(destinationSite, destinationMarker, $scope);
 
