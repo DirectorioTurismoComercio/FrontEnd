@@ -85,7 +85,7 @@ prev.search-results .map {
 
 }
 
-.category-container-map-list-result{
+.category-container-map-list-result {
     display: flex;
     flex-flow: row wrap;
     align-items: center
@@ -157,7 +157,6 @@ prev.search-results .map {
     color: #32A2D4;
     font-weight: bold;
     font-size: 1.6em;
-
 }
 
 .site-detail .location {
@@ -165,6 +164,23 @@ prev.search-results .map {
     font-size: 1.1em;
     font-weight: bold;
 
+}
+
+.site-title {
+    margin-bottom: 20px;
+}
+
+.site-title .name {
+    color: #32A2D4;
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
+.site-title .location {
+    color: #2D3C4D;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0;
 }
 
 .site-detail .dark-text {
@@ -360,20 +376,19 @@ prev.search-results .map {
     background-image: url("../../images/icons/site-detail/flecha-atras.png") !important;
 }
 
-.map-container-no-padding{
+.map-container-no-padding {
     padding: 0px !important;
 }
 
-.photos-carousel-arrow{
+.photos-carousel-arrow {
     margin-top: auto;
     margin-bottom: auto;
     height: 3em;
 }
 
-.slick-height{
+.slick-height {
     height: auto !important;
 }
-
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
@@ -402,7 +417,7 @@ prev.search-results .map {
         width: 8vmin;
     }
 
-    .carousel-photos-display-desktop{
+    .carousel-photos-display-desktop {
         display: none;
     }
 }
@@ -448,7 +463,7 @@ prev.search-results .map {
         margin-left: 83%;
     }
 
-    .carousel-photos-display-desktop{
+    .carousel-photos-display-desktop {
         display: none;
     }
 }
@@ -456,10 +471,11 @@ prev.search-results .map {
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .popup-carousel .image {
-    width: auto;    
-    height: 100%;
-    padding: 0 1px;
-}
+        width: auto;
+        height: 100%;
+        padding: 0 1px;
+    }
+
     .detail-icon {
         height: 2.5vmin;
     }
@@ -472,18 +488,20 @@ prev.search-results .map {
     .dialog-window-photos .close-button {
         margin-left: 87%;
     }
+
     .rn-carousel-control.rn-carousel-control-next:before {
         margin-left: -40px;
     }
+
     .rn-carousel-control.rn-carousel-control-prev:before {
         margin-left: 40px;
     }
 
-    .carousel-photos-display-mobile{
+    .carousel-photos-display-mobile {
         display: none;
     }
 
-    .carousel-photos-display-desktop{
+    .carousel-photos-display-desktop {
         display: flex;
     }
 
@@ -495,17 +513,17 @@ prev.search-results .map {
         height: 2.5vmin;
     }
 
-    .site-photo-height{
+    .site-photo-height {
         height: 250px;
         min-width: 250px !important;
         max-width: 250px !important;
     }
 
-    .carousel-photos-display-mobile{
+    .carousel-photos-display-mobile {
         display: none;
     }
 
-    .carousel-photos-display-desktop{
+    .carousel-photos-display-desktop {
         display: flex;
     }
 }
@@ -515,16 +533,16 @@ prev.search-results .map {
         height: 3.5vmin;
     }
 
-    .site-photo-height{
+    .site-photo-height {
         height: 300px;
         width: 300px !important;
     }
 
-    .carousel-photos-display-mobile{
+    .carousel-photos-display-mobile {
         display: none;
     }
 
-    .carousel-photos-display-desktop{
+    .carousel-photos-display-desktop {
         display: flex;
     }
 }
