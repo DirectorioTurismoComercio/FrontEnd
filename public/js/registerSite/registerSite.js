@@ -31,7 +31,5 @@ angular.module('registerSite', ['ngTagsInput', 'uiGmapgoogle-maps', 'flow', 'ngD
                 controller: 'summaryController',
                 required_roles: 'authenticatedUser'
 
-            })
-            ;
-
+            });
     });

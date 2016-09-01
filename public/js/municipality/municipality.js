@@ -25,5 +25,10 @@ angular.module('Municipality', ['uiGmapgoogle-maps'])
                 templateUrl: 'js/municipality/registerMunicipalityInformation/municipalityPhotos/municipalityPhotos.html',
                 controller: 'municipalityPhotosController',
                 required_roles: 'authenticatedUser'
+            })
+            .when('/municipalityaccountinfo', {
+                templateUrl: 'js/municipality/municipalityAccountInfo/municipalityAccountInfo.html',
+                controller: 'municipalityAccountInfoController',
+                required_roles: 'authenticatedUser'
             });
     });
