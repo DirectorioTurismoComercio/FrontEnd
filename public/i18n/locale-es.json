@@ -31,14 +31,14 @@
     "TITLE": "Es muy fácil! Así es como funciona:",
     "DESCRIPTION_1": "Cundinamarca tiene para ti muchas experiencias y destinos maravillosos",
     "DESCRIPTION_2": "De Tour por Cundinamarca te ayuda a buscar según tus intereses y a descubrir el departamento",
-    "DESCRIPTION_3": "Disfruta de nuevas aventuras que te esperan"
+    "DESCRIPTION_3": "¡Disfruta de todas las aventuras que esperan por ti!"
   },
   "HOW_IT_WORKS_TRADER": {
     "PAGE_TITLE": "De Tour por Cundinamarca funciona así:",
     "DESCRIPTION_1": "Crea el perfil para tu negocio; es gratis",
     "DESCRIPTION_2": "Muestra tus productos y servicios en internet",
     "DESCRIPTION_3": "Haz visible tu negocio para el 50% del turismo nacional",
-    "REGISTER_BUTTON": "Inscribe tu comercio ahora"
+    "REGISTER_BUTTON": "¡Inscribe tu comercio ahora!"
   },
   "REGISTER_USER_CONSTANTS": {
     "CREATE_ACCOUNT": "Crea tu cuenta",
@@ -117,8 +117,8 @@
     "CHOOSE_CATEGORY": "-- Elige categoria --",
     "CHOOSE_CATEGORY_TEXT": "Selecciona la categoría que corresponda a la actividad principal de tu negocio",
     "CHOOSE_AUXILIAR_CATEGORY_TEXT": "Selecciona la categoria que corresponda a la actividad adicional de tu negocio",
-    "CHOOSE_OTHER_CATEGORY_TEXT": "Si tu negocio tiene otras actividades comerciales puedes añadir 2 categorias adicionales",
-    "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "Si tu negocio tiene otras actividades comerciales puedes añadir 1 categoria adicional",
+    "CHOOSE_OTHER_CATEGORY_TEXT": "Si tu negocio tiene otras actividades comerciales, puedes añadir dos categorias adicionales",
+    "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "Si tu negocio tiene otras actividades comerciales, puedes añadir una categoria adicional",
     "MAIN_CATEGORY": "Categoría principal",
     "ADDITIONAL_CATEGORY_1": "Categoría adicional 1",
     "ADDITIONAL_CATEGORY_2": "Categoría adicional 2",
@@ -197,7 +197,7 @@
   "BAD_LOGIN": "El usuario o contraseña son incorrectos",
   "REGISTER_SUCCESS": "Ya formas parte de la comunidad Marca_app. Ahora puedes registrar tu comercio, entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
   "REGISTER_MUNICIPALITY_SUCCESS":"Ya formas parte de la comunidad Marca_app, Ahora puedes registrar tu municipio",
-  "CONTACT_INFO": "Si tiene algun problema, duda o sugerencia puede escribirnos a",
+  "CONTACT_INFO": "Si tienes problemas al utilizar la app, alguna duda o sugerencia, puedes escribirnos a",
   "E100": "Error de comunicación con el servidor, intente nuevamente.",
   "E101": "El correo ya existe",
   "E102": "El password debe ser de al menos 6 caracteres",
