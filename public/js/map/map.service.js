@@ -87,9 +87,12 @@ angular.module('map')
                 }
             });
 
-            if(customZIndex){
-                marker.options.zIndex=50000;
-            }
+            try{
+                if(customZIndex){
+                    marker.options.zIndex=50000;
+                }
+            }catch(e){};
+
 
             markers.push(marker);
 
