@@ -73,7 +73,7 @@ angular.module('map')
         }
 
         function addMarker(position, label, icon,customZIndex) {
-            var marker = new MarkerWithLabel({
+           var marker = new MarkerWithLabel({
                 position: position,
                 map: gMap,
                 labelContent: label,
@@ -84,15 +84,12 @@ angular.module('map')
                 labelStyle: {
                     "font-weight": "bold",
                     opacity: 1
+                },
+                options:{
+                    zIndex:customZIndex||1,
+                    optimized: false
                 }
             });
-
-            try{
-                if(customZIndex){
-                    marker.options.zIndex=50000;
-                }
-            }catch(e){};
-
 
             markers.push(marker);
 
