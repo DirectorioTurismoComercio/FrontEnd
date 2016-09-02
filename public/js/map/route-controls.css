@@ -30,6 +30,16 @@
     margin: 5px 7px;
 }
 
+.route-controls .destination {
+    cursor: auto;
+    background-color: #2F6586;
+}
+
+.route-controls .destination p {
+    color: #fff;
+    padding-left: 40px !important;
+}
+
 .route-controls .control p {
     display: inline-block;
     padding: 10px 7px 10px 50px;
