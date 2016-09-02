@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('loginMunicipalityController', function ($scope, authenticationService, messageService, $translate) {
+    .controller('loginMunicipalityController', function ($scope, authenticationService, messageService, $translate, $location) {
         $scope.loginLoading = false;
         $scope.submitted = false;
 
