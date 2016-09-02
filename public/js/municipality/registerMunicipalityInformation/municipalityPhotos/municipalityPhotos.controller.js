@@ -172,7 +172,7 @@ angular.module('Municipality')
         }
 
         function errorSaving(e){
-            console.log("hubo un error", error);
+            console.log("hubo un error", e);
         }
 
     }).directive('imageOnload', function () {

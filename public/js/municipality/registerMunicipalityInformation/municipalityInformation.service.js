@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .factory('municipalityInformationService', function (authenticationService, $http, API_CONFIG) {
+    .factory('municipalityInformationService', function (authenticationService, $http, API_CONFIG, $q, $timeout) {
         var municipalitySelected = undefined;
         var municipalityPhoneNumber = undefined;
         var municipalityWhatsapp = undefined;
@@ -196,14 +196,16 @@ angular.module('Municipality')
                         }
                     });
             } else {
+                var timeout = $timeout(angular.noop, API_CONFIG.timeout);
                 promise = $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
                     {
                         transformRequest: angular.identity,
                         headers: {
                             'Content-Type': undefined,
                             'Authorization': 'Token ' + authenticationService.getUser().token
-                        }
-                    });
+                        },
+                        timeout:timeout
+                    })
 
             }
             promise.success(successFunction).error(errorFunction);
