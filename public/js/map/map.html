@@ -5,27 +5,26 @@
                           ng-show="loading"></md-progress-circular>
 
     <div class="col-md-6 no-padding">
-        <div ng-show="isShowingSiteDetail" class="site-detail-search-route">
-            <div ng-click="goBackToSiteList()" class="back-button">
-                <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+        <div ng-show="true||isShowingSiteDetail" class="route-controls">
+            <div ng-click="goBackToSiteList()" class="list-button">
+                <img src="./images/icons/lista_resultados.png">
             </div>
 
-            <div ng-show="initialSelectedSite.id!=selectedSite.id && hasMadeFirstRouteToSite"
-                 ng-click="backToInitialPlace(initialSelectedSite)" class="get-there get-there-mobile"
-                 class="search-button">
+            <div ng-show="true || (initialSelectedSite.id!=selectedSite.id && hasMadeFirstRouteToSite)"
+                 ng-click="backToInitialPlace(initialSelectedSite)" class="control">
                 <p translate="INITIAL_PLACE"></p>
-                <img class="detail-icon" src="./images/icons/paso1.png">
+                <img src="./images/icons/paso1.png">
             </div>
 
-            <div ng-show="!hasMadeCurrentSiteRoute" class="get-there get-there-mobile"
-                 ng-click="showRouteToSite(selectedSite)" class="search-button">
+
+            <div ng-show="true||!hasMadeCurrentSiteRoute" class="control" ng-click="showRouteToSite(selectedSite)">
                 <p translate="HOW_TO_GET_THERE"></p>
-                <img class="detail-icon" src="./images/icons/arma-tu-ruta.png">
+                <img src="./images/icons/arma-tu-ruta.png">
             </div>
 
-            <div ng-show="hasMadeCurrentSiteRoute" class="get-there get-there-mobile" class="search-button">
+            <div ng-show="true||hasMadeCurrentSiteRoute" class="control">
                 <p translate="DESTINY"></p>
-                <img class="detail-icon" src="./images/icons/llegada-mapa.png">
+                <img src="./images/icons/llegada-mapa.png">
             </div>
 
         </div>

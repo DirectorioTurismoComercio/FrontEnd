@@ -106,48 +106,6 @@ prev.search-results .map {
     outline: none;
 }
 
-.site-detail-search-route {
-    background-color: #2F6586;
-    height: 60px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-right: 1%;
-
-}
-
-.site-detail-search-route .back-button {
-    padding: 0;
-    cursor: pointer;
-    padding-left: 4%;
-    align-self: center;
-
-}
-
-.site-detail-search-route .get-there {
-    padding: 0% 2% 0% 2%;
-    cursor: pointer;
-    background-color: #32A2D4;
-    border-radius: 5px;
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.site-detail-search-route .get-there p {
-
-    font-weight: bold;
-    font-size: 1.3em;
-    align-self: flex-end;
-}
-
-.site-detail-search-route .get-there img {
-    align-self: center;
-}
-
 .site-detail {
     padding: 2% 2% 2% 2%;
 
