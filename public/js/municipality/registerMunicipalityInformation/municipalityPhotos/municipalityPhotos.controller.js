@@ -153,12 +153,14 @@ angular.module('Municipality')
         }
 
         $scope.doneRegistration = function () {
+            $scope.loadingPhotos=false;
             ngDialog.close();
             municipalityInformationService.resetData();
             $location.path('accountMunicipalityinfo');
         }
 
         function openConfirmationmessage(){
+            $scope.loadingPhotos=true;
             ngDialog.open({
                 template: 'js/municipality/registerMunicipalityInformation/completeMunicipalityRegistration.html',
                 width: 'auto',
