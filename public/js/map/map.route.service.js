@@ -56,7 +56,6 @@ angular.module('map')
 
         function drawRouteSites(points, $scope) {
             sitesNearRoute.getSitesNearRoute(points).success(function (sites) {
-
                 for (var i = 0; i < sites.length; i++) {
                     var position = MapService.coordsToLatLngLiteral(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
 
@@ -69,7 +68,7 @@ angular.module('map')
                     }
 
 
-                    sites[i].categoryicon = marker.normalIcon.url;
+                    sites[i].categoryicon = marker.generalIcon.url;
                     SiteMarkerService.addSiteMarker(sites[i], marker, $scope.showSiteDetail);
                 }
 

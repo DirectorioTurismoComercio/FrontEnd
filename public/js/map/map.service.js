@@ -125,7 +125,7 @@ angular.module('map')
 
         function getMunicipalityGeneralIcon(){
             var iconSize=60;
-            var url = './images/icons/categories/pin-municipio.png';
+            var url = './images/icons/categories/Municipio.png';
             return createIcon(url, iconSize);
         }
 
