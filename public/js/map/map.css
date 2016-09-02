@@ -87,7 +87,7 @@ prev.search-results .map {
 
 .category-container-map-list-result {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
     align-items: center
 }
 
