@@ -282,19 +282,7 @@ angular.module('map')
             $scope.foundSites = sites;
             centerMapOnSearchedTown();
             if (sites != undefined) {
-                for (var i = 0; i < sites.length; i++) {
-                    var site = sites[i];
-                    var position = MapService.coordsToLatLngLiteral(parseFloat(site.latitud), parseFloat(site.longitud));
-                    var marker;
-                    if (site.tipo_sitio!='M'){
-                         marker = MapService.addMarkerWithCategoryIcon(position, site.nombre, filterFilter(site.categorias, {tipo: 1})[0]);
-                    }else{
-                         marker = MapService.addMarkerMunicipalityWithIcon(position);
-                    }
-                    site.categoryicon = marker.generalIcon.url;
-
-                    SiteMarkerService.addSiteMarker(site, marker, $scope.showSiteDetail);
-                }
+                MapRouteService.setSiteMarker(sites,$scope);
             }
         }
 

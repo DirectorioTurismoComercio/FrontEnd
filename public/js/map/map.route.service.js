@@ -56,21 +56,8 @@ angular.module('map')
 
         function drawRouteSites(points, $scope) {
             sitesNearRoute.getSitesNearRoute(points).success(function (sites) {
-                for (var i = 0; i < sites.length; i++) {
-                    var position = MapService.coordsToLatLngLiteral(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
 
-                    var marker;
-
-                    if (sites[i].tipo_sitio != 'M') {
-                        marker = MapService.addMarkerWithCategoryIcon(position, sites[i].nombre, sites[i].categorias[0]);
-                    } else {
-                        marker = MapService.addMarkerMunicipalityWithIcon(position);
-                    }
-
-
-                    sites[i].categoryicon = marker.generalIcon.url;
-                    SiteMarkerService.addSiteMarker(sites[i], marker, $scope.showSiteDetail);
-                }
+                setSiteMarker(sites, $scope);
 
                 $scope.loading = false;
                 $scope.foundSites = sites;
@@ -80,6 +67,26 @@ angular.module('map')
             }).error(function (error) {
                 console.log("Hubo un error", error);
             })
+        }
+
+
+        function setSiteMarker(sites,$scope){
+            for (var i = 0; i < sites.length; i++) {
+                var position = MapService.coordsToLatLngLiteral(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
+
+
+                var marker;
+
+                if (sites[i].tipo_sitio != 'M') {
+                    marker = MapService.addMarkerWithCategoryIcon(position, sites[i].nombre, sites[i].categorias[0]);
+                } else {
+                    marker = MapService.addMarkerMunicipalityWithIcon(position);
+                }
+
+
+                sites[i].categoryicon = marker.generalIcon.url;
+                SiteMarkerService.addSiteMarker(sites[i], marker, $scope.showSiteDetail);
+            }
         }
 
         function transformPointName(point) {
@@ -102,6 +109,7 @@ angular.module('map')
 
         return {
             calculateRoute: calculateRoute,
-            setOriginAndDestinationdata: setOriginAndDestinationdata
+            setOriginAndDestinationdata: setOriginAndDestinationdata,
+            setSiteMarker:setSiteMarker
         }
     });
