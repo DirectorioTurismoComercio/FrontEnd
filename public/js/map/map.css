@@ -390,6 +390,11 @@ prev.search-results .map {
     height: auto !important;
 }
 
+.mobile-image-preview{
+    height: 6em;
+    width: 6em;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {

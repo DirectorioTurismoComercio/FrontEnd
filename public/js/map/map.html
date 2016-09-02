@@ -78,17 +78,11 @@
                                         <h3 class="">%%site.nombre%%</h3>
                                     </div>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
-                                    <p clamp="3" class="description">%%site.descripcion%%</p>
+                                    <p clamp="2" class="description">%%site.descripcion%%</p>
                                 </div>
-                                <div class="col-xs-3 image">
-                                    <img class="img-responsive"
+                                <div class="col-xs-5 image">
+                                    <img class="img-responsive mobile-image-preview"
                                          ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="centerColumnNoPadding col-xs-6" ng-click="showRouteToSite(site)">
-                                    <img class="icon" src="./images/icons/arma-tu-ruta.png">
-                                    <h3 class="display-h-inline" translate="HOW_TO_GET_THERE"></h3>
                                 </div>
                             </div>
                         </div>
