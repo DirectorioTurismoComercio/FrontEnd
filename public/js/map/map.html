@@ -5,24 +5,24 @@
                           ng-show="loading"></md-progress-circular>
 
     <div class="col-md-6 no-padding">
-        <div ng-show="true||isShowingSiteDetail" class="route-controls">
+        <div ng-show="isShowingSiteDetail" class="route-controls">
             <div ng-click="goBackToSiteList()" class="list-button">
                 <img src="./images/icons/lista_resultados.png">
             </div>
 
-            <div ng-show="true || (initialSelectedSite.id!=selectedSite.id && hasMadeFirstRouteToSite)"
+            <div ng-show="(initialSelectedSite.id!=selectedSite.id && hasMadeFirstRouteToSite)"
                  ng-click="backToInitialPlace(initialSelectedSite)" class="control">
                 <p translate="INITIAL_PLACE"></p>
                 <img src="./images/icons/llegada-mapa.png">
             </div>
 
 
-            <div ng-show="true||!hasMadeCurrentSiteRoute" class="control" ng-click="showRouteToSite(selectedSite)">
+            <div ng-show="!hasMadeCurrentSiteRoute" class="control" ng-click="showRouteToSite(selectedSite)">
                 <p translate="HOW_TO_GET_THERE"></p>
                 <img src="./images/icons/arma-tu-ruta.png">
             </div>
 
-            <div ng-show="true||hasMadeCurrentSiteRoute" class="control destination">
+            <div ng-show="hasMadeCurrentSiteRoute" class="control destination">
                 <p translate="DESTINY"></p>
                 <img src="./images/icons/llegada-mapa.png">
             </div>

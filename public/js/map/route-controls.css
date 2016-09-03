@@ -12,7 +12,7 @@
 }
 
 .route-controls .list-button img {
-    width: 30px;
+    width: 25px;
     position: absolute;
     top: 50%;
     left: 7px;
@@ -27,7 +27,7 @@
     cursor: pointer;
     background-color: #32A2D4;
     border-radius: 5px;
-    margin: 5px 7px;
+    margin: 5px 3px;
 }
 
 .route-controls .destination {
@@ -42,14 +42,14 @@
 
 .route-controls .control p {
     display: inline-block;
-    padding: 10px 7px 10px 50px;
+    padding: 10px 7px 10px 35px;
     margin: 0;
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 0.9em;
 }
 
 .route-controls .control img {
-    width: 30px;
+    width: 25px;
     position: absolute;
     top: 50%;
     left: 7px;
@@ -58,3 +58,21 @@
     transform: translateY(-50%);
 }
 
+@media(min-width: 768px){
+    .route-controls .control {
+        margin: 5px 7px;
+    }
+
+    .route-controls .control p {
+        padding: 10px 7px 10px 50px;
+        font-size: 1.3em;
+    }
+
+    .route-controls .control img {
+        width: 30px;
+    }
+
+    .route-controls .list-button img {
+        width: 30px;
+    }
+}
