@@ -317,7 +317,7 @@ angular.module('map')
                 scope: $scope,
                 closeByEscape: true,
                 closeByDocument: true,
-                closeByNavigation: true,
+                closeByNavigation: true
             });
         }
         $scope.closeDialogWindowPhotos = function () {
