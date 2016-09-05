@@ -133,35 +133,19 @@ angular.module('Municipality')
             $location.path('businessinformation');
         }
         $scope.editSite = function (sitio) {
-            var siteCategories = [];
-            var firstCategory, secondCategory, thirdCategory;
-            siteInformationService.siteId = sitio.id;
-            siteInformationService.sitePhoneNumber = sitio.telefono;
-            siteInformationService.whatsapp = sitio.whatsapp;
-            siteInformationService.web = sitio.web;
-            siteInformationService.openingHours = sitio.horariolocal;
-            siteInformationService.businessName = sitio.nombre;
-            siteInformationService.businessLocation = {lat: parseFloat(sitio.latitud), lng: parseFloat(sitio.longitud)};
-            siteInformationService.businessDescription = sitio.descripcion;
-            siteInformationService.tags = sitio.tags;
-            siteInformationService.businessEmail = sitio.correolocal;
-            siteInformationService.businessAddress = sitio.ubicacionlocal;
-            siteInformationService.businessCategories = {id: sitio.categorias[0]};
-            siteInformationService.URLphotos = sitio.fotos;
-            siteInformationService.businessMunicipality = sitio.municipio;
-            firstCategory = filterFilter(sitio.categorias, {tipo: 1})[0]
-            secondCategory = filterFilter(sitio.categorias, {tipo: 2})[0]
-            thirdCategory = filterFilter(sitio.categorias, {tipo: 3})[0]
-            if (firstCategory) siteInformationService.firstCategory = firstCategory.categoria;
-            if (secondCategory) siteInformationService.secondCategory = secondCategory.categoria;
-            if (thirdCategory) siteInformationService.thirdCategory = thirdCategory.categoria;
 
-            for (var i = 0; i < sitio.categorias.length; i++) {
-                siteCategories.push(sitio.categorias[i].categoria);
-            }
+            municipalityInformationService.setMunicipalityId(sitio.id);
+            municipalityInformationService.setMunicipalityPhoneNumber(sitio.telefono);
+            municipalityInformationService.setMunicipalityWhatsapp(sitio.whatsapp);
+            municipalityInformationService.setMunicipalityWeb(sitio.web);
+            municipalityInformationService.setMunicipalityOpeningHours(sitio.horariolocal);
+            municipalityInformationService.setMunicipalitySelected(sitio.municipio);
+            municipalityInformationService.setMunicipalityDescription(sitio.descripcion);
+            municipalityInformationService.setMunicipalityAddress(sitio.ubicacionlocal);
+            municipalityInformationService.setMunicipalityLocation({lat: parseFloat(sitio.latitud), lng: parseFloat(sitio.longitud)});
+            municipalityInformationService.setMunicipalityURLPhotos(sitio.fotos);
 
-            siteInformationService.businessSubcategories = {subcategories: siteCategories};
-            $location.path('businessinformation');
+            $location.path('/municipalityinfo');
         }
 
 
