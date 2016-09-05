@@ -76,7 +76,9 @@
     "UPLOAD_SECONDARY_PHOTOS_TIP": "Upload photos of your town to help tourists get to know it",
     "MUNICIPALITY_GENERAL_PHOTOS": "Town photos",
     "MUNICIPALITY_ANTHEM_PHOTOS": "Picture of town's shield",
-    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Thanks for registering your town.You can see what others will see when the admin gives you access to your account"
+    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Thanks for registering your town.You can see what others will see when the admin gives you access to your account",
+    "COMPLETE_MUNICIPALITY_UPLOAD_TEXT": "Your town information has been updated"
+
 
   },
   "SITE_DETAIL_CONSTANTS": {
