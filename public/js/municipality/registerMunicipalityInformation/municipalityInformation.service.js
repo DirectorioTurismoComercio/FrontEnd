@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .factory('municipalityInformationService', function (authenticationService, $http, API_CONFIG, $q, $timeout) {
+    .factory('municipalityInformationService', function (authenticationService, $http, API_CONFIG, $q, $timeout, serverConnectionService) {
         var municipalitySelected = undefined;
         var municipalityPhoneNumber = undefined;
         var municipalityWhatsapp = undefined;
@@ -9,194 +9,198 @@ angular.module('Municipality')
         var municipalityDescription = undefined;
         var municipalityOpeningHours = undefined;
         var municipalityAddress = undefined;
-        var municipalityLocation=undefined;
-        var municipalityMainPhoto=[];
-        var municipalityCoatArmsPhoto=[];
-        var municipalityFacadePhotos=[];
-        var municiplaityURLPhotos=undefined;
-        var municipalityId= undefined;
+        var municipalityLocation = undefined;
+        var municipalityMainPhoto = [];
+        var municipalityCoatArmsPhoto = [];
+        var municipalityFacadePhotos = [];
+        var municiplaityURLPhotos = undefined;
+        var municipalityId = undefined;
 
 
         return {
             setMunicipalitySelected: setMunicipalitySelected,
             getMunicipalitySelected: getMunicipalitySelected,
 
-            setMunicipalityPhoneNumber:setMunicipalityPhoneNumber,
-            getMunicipalityPhoneNumber:getMunicipalityPhoneNumber,
+            setMunicipalityPhoneNumber: setMunicipalityPhoneNumber,
+            getMunicipalityPhoneNumber: getMunicipalityPhoneNumber,
 
-            setMunicipalityWhatsapp:setMunicipalityWhatsapp,
-            getMunicipalityWhatsapp:getMunicipalityWhatsapp,
+            setMunicipalityWhatsapp: setMunicipalityWhatsapp,
+            getMunicipalityWhatsapp: getMunicipalityWhatsapp,
 
-            setMunicipalityWeb:setMunicipalityWeb,
-            getMunicipalityWeb:getMunicipalityWeb,
+            setMunicipalityWeb: setMunicipalityWeb,
+            getMunicipalityWeb: getMunicipalityWeb,
 
-            setMunicipalityDescription:setMunicipalityDescription,
-            getMunicipalityDescription:getMunicipalityDescription,
+            setMunicipalityDescription: setMunicipalityDescription,
+            getMunicipalityDescription: getMunicipalityDescription,
 
-            setMunicipalityOpeningHours:setMunicipalityOpeningHours,
-            getMunicipalityOpeningHours:getMunicipalityOpeningHours,
+            setMunicipalityOpeningHours: setMunicipalityOpeningHours,
+            getMunicipalityOpeningHours: getMunicipalityOpeningHours,
 
-            setMunicipalityAddress:setMunicipalityAddress,
-            getMunicipalityAddress:getMunicipalityAddress,
+            setMunicipalityAddress: setMunicipalityAddress,
+            getMunicipalityAddress: getMunicipalityAddress,
 
-            setMunicipalityLocation:setMunicipalityLocation,
-            getMunicipalityLocation:getMunicipalityLocation,
+            setMunicipalityLocation: setMunicipalityLocation,
+            getMunicipalityLocation: getMunicipalityLocation,
 
-            setMunicipalityMainPhoto:setMunicipalityMainPhoto,
-            getMunicipalityMainPhoto:getMunicipalityMainPhoto,
+            setMunicipalityMainPhoto: setMunicipalityMainPhoto,
+            getMunicipalityMainPhoto: getMunicipalityMainPhoto,
 
-            setMunicipalityCoatArmsPhoto:setMunicipalityCoatArmsPhoto,
-            getMunicipalityCoatArmsPhoto:getMunicipalityCoatArmsPhoto,
+            setMunicipalityCoatArmsPhoto: setMunicipalityCoatArmsPhoto,
+            getMunicipalityCoatArmsPhoto: getMunicipalityCoatArmsPhoto,
 
-            setMunicipalityFacadePhotos:setMunicipalityFacadePhotos,
-            getMunicipalityFacadePhotos:getMunicipalityFacadePhotos,
+            setMunicipalityFacadePhotos: setMunicipalityFacadePhotos,
+            getMunicipalityFacadePhotos: getMunicipalityFacadePhotos,
 
-            setMunicipalityURLPhotos:setMunicipalityURLPhotos,
-            getMunicipalityURLPhotos:getMunicipalityURLPhotos,
+            setMunicipalityURLPhotos: setMunicipalityURLPhotos,
+            getMunicipalityURLPhotos: getMunicipalityURLPhotos,
 
-            setMunicipalityId:setMunicipalityId,
-            getMunicipalityId:getMunicipalityId,
+            setMunicipalityId: setMunicipalityId,
+            getMunicipalityId: getMunicipalityId,
 
-            sendMunicipalityDataToServer:sendMunicipalityDataToServer,
-            resetData:resetData
+            sendMunicipalityDataToServer: sendMunicipalityDataToServer,
+            resetData: resetData
         }
 
-        function setMunicipalitySelected(municipality){
-            municipalitySelected=municipality;
+        function setMunicipalitySelected(municipality) {
+            municipalitySelected = municipality;
         }
 
-        function getMunicipalitySelected(){
+        function getMunicipalitySelected() {
             return municipalitySelected;
         }
 
-        function setMunicipalityPhoneNumber(phoneNumber){
-            municipalityPhoneNumber=phoneNumber;
+        function setMunicipalityPhoneNumber(phoneNumber) {
+            municipalityPhoneNumber = phoneNumber;
         }
 
-        function getMunicipalityPhoneNumber(){
+        function getMunicipalityPhoneNumber() {
             return municipalityPhoneNumber;
         }
 
-        function setMunicipalityWhatsapp(whatsapp){
-            municipalityWhatsapp=whatsapp;
+        function setMunicipalityWhatsapp(whatsapp) {
+            municipalityWhatsapp = whatsapp;
         }
 
-        function getMunicipalityWhatsapp(){
+        function getMunicipalityWhatsapp() {
             return municipalityWhatsapp;
         }
 
-        function setMunicipalityWeb(web){
-            municipalityWeb=web;
+        function setMunicipalityWeb(web) {
+            municipalityWeb = web;
         }
 
-        function getMunicipalityWeb(){
+        function getMunicipalityWeb() {
             return municipalityWeb;
         }
 
-        function setMunicipalityDescription(description){
-            municipalityDescription=description;
+        function setMunicipalityDescription(description) {
+            municipalityDescription = description;
         }
 
-        function getMunicipalityDescription(){
+        function getMunicipalityDescription() {
             return municipalityDescription;
         }
 
-        function setMunicipalityOpeningHours(hours){
-            municipalityOpeningHours=hours;
+        function setMunicipalityOpeningHours(hours) {
+            municipalityOpeningHours = hours;
         }
 
-        function getMunicipalityOpeningHours(){
+        function getMunicipalityOpeningHours() {
             return municipalityOpeningHours;
         }
 
-        function setMunicipalityAddress(address){
-            municipalityAddress=address;
+        function setMunicipalityAddress(address) {
+            municipalityAddress = address;
         }
 
-        function getMunicipalityAddress(){
+        function getMunicipalityAddress() {
             return municipalityAddress;
         }
 
-        function setMunicipalityLocation(location){
-            municipalityLocation=location;
+        function setMunicipalityLocation(location) {
+            municipalityLocation = location;
         }
 
-        function getMunicipalityLocation(){
+        function getMunicipalityLocation() {
             return municipalityLocation;
         }
 
-        function setMunicipalityMainPhoto(mainPhoto){
-            municipalityMainPhoto=mainPhoto;
+        function setMunicipalityMainPhoto(mainPhoto) {
+            municipalityMainPhoto = mainPhoto;
         }
 
-        function getMunicipalityMainPhoto(){
+        function getMunicipalityMainPhoto() {
             return municipalityMainPhoto;
         }
 
-        function setMunicipalityCoatArmsPhoto(coatArmsPhoto){
-            municipalityCoatArmsPhoto=coatArmsPhoto;
+        function setMunicipalityCoatArmsPhoto(coatArmsPhoto) {
+            municipalityCoatArmsPhoto = coatArmsPhoto;
         }
 
-        function getMunicipalityCoatArmsPhoto(){
+        function getMunicipalityCoatArmsPhoto() {
             return municipalityCoatArmsPhoto;
         }
 
-        function setMunicipalityFacadePhotos(facadePhotos){
-            municipalityFacadePhotos=facadePhotos;
+        function setMunicipalityFacadePhotos(facadePhotos) {
+            municipalityFacadePhotos = facadePhotos;
         }
 
-        function getMunicipalityFacadePhotos(){
+        function getMunicipalityFacadePhotos() {
             return municipalityFacadePhotos;
         }
 
-        function setMunicipalityURLPhotos(URLPhotos){
-            municiplaityURLPhotos=URLPhotos;
+        function setMunicipalityURLPhotos(URLPhotos) {
+            municiplaityURLPhotos = URLPhotos;
         }
 
-        function getMunicipalityURLPhotos(){
+        function getMunicipalityURLPhotos() {
             return municiplaityURLPhotos;
         }
 
-        function setMunicipalityId(id){
-            municipalityId=id;
+        function setMunicipalityId(id) {
+            municipalityId = id;
         }
 
-        function getMunicipalityId(){
+        function getMunicipalityId() {
             return municipalityId;
         }
 
-        function resetData(){
-             municipalitySelected = undefined;
-             municipalityPhoneNumber = undefined;
-             municipalityWhatsapp = undefined;
-             municipalityWeb = undefined;
-             municipalityDescription = undefined;
-             municipalityOpeningHours = undefined;
-             municipalityAddress = undefined;
-             municipalityLocation=undefined;
-             municipalityMainPhoto=[];
-             municipalityCoatArmsPhoto=[];
-             municipalityFacadePhotos=[];
-             municiplaityURLPhotos=undefined;
-             municipalityId= undefined;
+        function resetData() {
+            municipalitySelected = undefined;
+            municipalityPhoneNumber = undefined;
+            municipalityWhatsapp = undefined;
+            municipalityWeb = undefined;
+            municipalityDescription = undefined;
+            municipalityOpeningHours = undefined;
+            municipalityAddress = undefined;
+            municipalityLocation = undefined;
+            municipalityMainPhoto = [];
+            municipalityCoatArmsPhoto = [];
+            municipalityFacadePhotos = [];
+            municiplaityURLPhotos = undefined;
+            municipalityId = undefined;
         }
 
-        function sendMunicipalityDataToServer(successFunction, errorFunction){
+        function sendMunicipalityDataToServer(successFunction, errorFunction) {
             var promise;
+            var timeout;
 
-            var fd=buildMunicipalityFormData();
+
+            var fd = buildMunicipalityFormData();
 
             if (municipalityId) {
+                timeout = $timeout(angular.noop, API_CONFIG.timeout);
                 promise = $http.put(API_CONFIG.url + API_CONFIG.sitio + "/detail/" + municipalityId, fd,
                     {
                         transformRequest: angular.identity,
                         headers: {
                             'Content-Type': undefined,
                             'Authorization': 'Token ' + authenticationService.getUser().token
-                        }
+                        },
+                        timeout: timeout
                     });
             } else {
-                var timeout = $timeout(angular.noop, API_CONFIG.timeout);
+                timeout = $timeout(angular.noop, API_CONFIG.timeout);
                 promise = $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
                     {
                         transformRequest: angular.identity,
@@ -204,14 +208,19 @@ angular.module('Municipality')
                             'Content-Type': undefined,
                             'Authorization': 'Token ' + authenticationService.getUser().token
                         },
-                        timeout:timeout
+                        timeout: timeout
                     })
 
             }
+
+            promise.catch(function (e) {
+                serverConnectionService.checkTimeOutError(e);
+            });
+
             promise.success(successFunction).error(errorFunction);
         }
 
-        function buildMunicipalityFormData(){
+        function buildMunicipalityFormData() {
             var fd = new FormData();
 
             fd.append('latitud', municipalityLocation.lat);
@@ -222,11 +231,11 @@ angular.module('Municipality')
             if (municipalityPhoneNumber) fd.append('telefono', municipalityPhoneNumber);
             if (municipalityOpeningHours) fd.append('horariolocal', municipalityOpeningHours);
             fd.append('ubicacionlocal', municipalityAddress);
-            fd.append("categorias",JSON.stringify([]));
+            fd.append("categorias", JSON.stringify([]));
             fd.append('usuario', authenticationService.getUser().id);
             if (municipalityWeb) fd.append('web', municipalityWeb);
             if (municipalityWhatsapp) fd.append('whatsapp', municipalityWhatsapp);
-            fd.append('tipo_sitio','M');
+            fd.append('tipo_sitio', 'M');
 
             appendPhotos(municipalityMainPhoto, 'fotos_PRINCIPAL', fd);
             appendPhotos(municipalityFacadePhotos, 'fotos_FACHADA', fd);
