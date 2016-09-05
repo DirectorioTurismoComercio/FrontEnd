@@ -163,32 +163,10 @@ angular.module('Municipality')
             siteInformationService.businessSubcategories = {subcategories: siteCategories};
             $location.path('businessinformation');
         }
-        $scope.deleteSite = function (sitio) {
-            messageService.confirmMessage("¿Está seguro que desea borrar este sitio?", "Borrar sitio", removeSiteFromServer, sitio);
 
-        }
-        function removeSiteFromServer(sitio) {
-
-            $http.delete(API_CONFIG.url + "/sitio/detail/" + sitio.id,
-                {
-                    headers: {'Authorization': 'Token ' + authenticationService.getUser().token}
-                }).success(function (d) {
-                $scope.user.sitios.splice($scope.user.sitios.indexOf(sitio), 1);
-            }).error(function (error) {
-                console.log("hubo un error al borrar", error);
-            });
-
-
-        }
-
-        $scope.isResgisteredWithSocialNetwork = function () {
-
-            return $scope.user.social_auth.length > 0;
-
-        }
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
-            if (next.$$route.controller == 'summaryController' || next.$$route.controller == 'loginController') {
+            if (next.$$route.controller == 'municipalityphotos' || next.$$route.controller == 'loginmunicipality') {
                 $location.path('/home');
             }
         });

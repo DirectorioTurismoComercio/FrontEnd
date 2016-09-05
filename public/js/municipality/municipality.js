@@ -21,7 +21,7 @@ angular.module('Municipality', ['uiGmapgoogle-maps'])
                 controller: 'municipalityLocationController',
                 required_roles: 'authenticatedUser'
             })
-            .when('/municiplaityphotos', {
+            .when('/municipalityphotos', {
                 templateUrl: 'js/municipality/registerMunicipalityInformation/municipalityPhotos/municipalityPhotos.html',
                 controller: 'municipalityPhotosController',
                 required_roles: 'authenticatedUser'
