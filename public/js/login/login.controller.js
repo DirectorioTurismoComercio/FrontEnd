@@ -15,7 +15,9 @@ angular.module('login')
                         if($scope.user.tipo_cuenta=="M"){
                             showErrorDialog($translate.instant("INCORRECT_ACCOUNT_TYPE_MUNICIPALITY"));
                             $scope.loginLoading = false;
-
+                            $auth.logout();
+                            $auth.removeToken();
+                            authenticationService.logout();
                         }else{
                             redirectToProfileMain();
                         }

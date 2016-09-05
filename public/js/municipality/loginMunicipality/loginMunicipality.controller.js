@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('loginMunicipalityController', function ($scope, authenticationService, $mdDialog,messageService, $translate, $location) {
+    .controller('loginMunicipalityController', function ($scope, $auth,authenticationService, $mdDialog,messageService, $translate, $location) {
         $scope.loginLoading = false;
         $scope.submitted = false;
 
@@ -22,6 +22,10 @@ angular.module('Municipality')
                         $scope.user = authenticationService.getUser();
                         if($scope.user.tipo_cuenta!="M"){
                             showErrorDialog($translate.instant("INCORRECT_ACCOUNT_TYPE_TRADER"));
+                            $scope.loginLoading = false;
+                            $auth.logout();
+                            $auth.removeToken();
+                            authenticationService.logout();
                         }else{
                             redirectToProfileMain();
                         }
