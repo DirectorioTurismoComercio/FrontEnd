@@ -1,6 +1,6 @@
 {
   "HEADER_CONSTANTS": {
-    "LOGIN_TRADER": "Login trader",
+    "LOGIN_TRADER": "Login for business",
     "REGISTER_BUSINESS": "Register your business",
     "LOG_OUT": "Log out",
     "MY_ACCOUNT": "My account"
@@ -194,7 +194,7 @@
   "MY_POSITION": "My position",
   "SUCCESS_TITLE_MESSAGE": "Welcome",
   "REGISTER_COMPLETE": "your site registration is done",
-  "HOW_TO_GET_THERE": "¿How to get there?",
+  "HOW_TO_GET_THERE": "How to get there?",
   "DESTINY": "My destination",
   "INITIAL_PLACE":"My destination",
   "GET_SITES_ERROR": "The search option is unavailable in this moment. Please reload the page",

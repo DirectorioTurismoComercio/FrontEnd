@@ -1,6 +1,6 @@
 {
   "HEADER_CONSTANTS": {
-    "LOGIN_TRADER": "Ingreso comerciante",
+    "LOGIN_TRADER": "Ingreso para comerciantes",
     "REGISTER_BUSINESS": "Registra tu negocio",
     "LOG_OUT": "Cerrar sesión",
     "MY_ACCOUNT": "Mi cuenta"
