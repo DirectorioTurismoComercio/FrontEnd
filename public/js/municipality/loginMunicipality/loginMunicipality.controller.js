@@ -33,7 +33,7 @@ angular.module('Municipality')
 
         function redirectToProfileMain() {
             $scope.loginLoading = false;
-            $location.path('/accountinfo');
+            $location.path('/municipalityaccountinfo');
         }
 
     });
