@@ -27,8 +27,8 @@ angular.module('Municipality')
             }
         };
 
-        $scope.changeViewHome = function () {
-            goHome();
+        $scope.changeViewMunicipalityAccount = function () {
+            goMunicipalityAccount();
         };
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
@@ -38,12 +38,12 @@ angular.module('Municipality')
         });
 
         $scope.cancelRegister=function(){
-            goHome();
+            goMunicipalityAccount();
         }
 
 
-        function goHome(){
-            $location.path('/home');
+        function goMunicipalityAccount(){
+            $location.path('/municipalityaccountinfo');
         }
 
         function saveDataAndChangeView(view) {

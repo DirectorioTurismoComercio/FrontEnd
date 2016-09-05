@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityAccountInfoController', function ($scope, $location, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog, authenticationService, formValidator) {
+    .controller('municipalityAccountInfoController', function ($scope, $location,$mdDialog, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog, authenticationService, formValidator, $translate) {
 
         $scope.showRequiredFieldMessage = false;
         $scope.user = authenticationService.getUser();
