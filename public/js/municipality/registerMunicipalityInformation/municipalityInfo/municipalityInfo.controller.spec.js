@@ -46,7 +46,7 @@ describe('Controller: municipalityInfoController', function () {
     }));
 
     it('Should redirect to home when user clicks changeViewHome button', function () {
-        $scope.changeViewHome();
+        $scope.changeViewMunicipalityAccount();
         expect(testLocation.path).toHaveBeenCalled();
     });
 
