@@ -128,9 +128,8 @@ angular.module('Municipality')
         }
 
         $scope.addBusiness = function () {
-            navigationService.cameToBusinessInformationThrough = 'accountinfo';
-            siteInformationService.clearData(siteInformationService);
-            $location.path('businessinformation');
+            municipalityInformationService.resetData();
+            $location.path('municipalityinfo');
         }
         $scope.editSite = function (sitio) {
 

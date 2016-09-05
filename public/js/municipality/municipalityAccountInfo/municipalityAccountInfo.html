@@ -182,8 +182,8 @@
 
 
             <div class="row registerTrader-button NextButtonRegister topMarginElements">
-                <button class="button" ng-click="addBusiness()"
-                        translate="ACCOUNT_INFO.ADD_BUSINESS"></button>
+                <button ng-show="!user.sitios.length>0" class="button" ng-click="addBusiness()"
+                        translate="ACCOUNT_INFO.ADD_MUNICIPALITY"></button>
             </div>
         </form>
 

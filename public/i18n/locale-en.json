@@ -183,7 +183,9 @@
     "EDIT_BUTTON": "Edit",
     "PASSWORDS_MUST_BE_EQUAL": "The confirmation password must be the same as the password.*",
     "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "New and confirm password must be the same*",
-    "REGISTERED_MUNICIPALITY":"Registered town"
+    "REGISTERED_MUNICIPALITY":"Registered town",
+    "ADD_MUNICIPALITY":"Add town"
+
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",

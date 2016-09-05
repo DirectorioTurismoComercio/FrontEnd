@@ -76,7 +76,7 @@
     "UPLOAD_SECONDARY_PHOTOS_TIP": "Sube una o varias fotografías del municipio para que los usuarios lo conozcan",
     "MUNICIPALITY_GENERAL_PHOTOS": "Fotos del municipio",
     "MUNICIPALITY_ANTHEM_PHOTOS": "Foto del escudo del municipio",
-    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio, para poder ver tu municipio en la plataformadebes esperar la autorización del administrador",
+    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio, para poder ver tu municipio en la plataforma debes esperar la autorización del administrador",
     "COMPLETE_MUNICIPALITY_UPLOAD_TEXT": "La información de tu municipio ha sido actualizada"
 
 
@@ -182,7 +182,8 @@
     "EDIT_BUTTON": "Editar",
     "PASSWORDS_MUST_BE_EQUAL": "La contraseña de confirmación debe coincidir con la nueva contraseña*",
     "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "La contraseña nueva debe ser diferente a la antigua*.",
-    "REGISTERED_MUNICIPALITY":"Municipio registrado"
+    "REGISTERED_MUNICIPALITY":"Municipio registrado",
+    "ADD_MUNICIPALITY":"Añadir un municipio"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
