@@ -10,8 +10,17 @@ angular.module('login')
             if ($scope.login.email != undefined && $scope.login.contrasena != undefined && $scope.login.contrasena.length >= 6) {
                 $scope.loginLoading = true;
                 authenticationService.login({email: $scope.login.email, password: $scope.login.contrasena})
-                    .then(function () {
-                        redirectToProfileMain();
+                    .then(function (response) {
+                        $scope.user = authenticationService.getUser();
+                        if($scope.user.tipo_cuenta=="M"){
+                            showErrorDialog($translate.instant("INCORRECT_ACCOUNT_TYPE_MUNICIPALITY"));
+                            $scope.loginLoading = false;
+                            $auth.logout();
+                            $auth.removeToken();
+                            authenticationService.logout();
+                        }else{
+                            redirectToProfileMain();
+                        }
                     }).catch(function (error) {
                     showErrorDialog($translate.instant("BAD_LOGIN"));
                     $scope.loginLoading = false;

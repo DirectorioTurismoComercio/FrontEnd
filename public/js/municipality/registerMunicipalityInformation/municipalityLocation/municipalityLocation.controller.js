@@ -42,7 +42,7 @@ angular.module('Municipality')
 
         $scope.changeViewPhotos = function () {
             if ($scope.municipalityLocation != undefined && $scope.municipalityAddress != undefined) {
-                saveDataAndChangeView('/municiplaityphotos');
+                saveDataAndChangeView('/municipalityphotos');
             } else {
                 $scope.showRequiredFieldMessage = true;
             }
@@ -51,7 +51,7 @@ angular.module('Municipality')
 
         function setSearchedPinOnMap(){
             if ($scope.municipalityLocation != undefined) {
-                MapService.addMarker($scope.municipalityLocation, municipalityInformationService.getMunicipalitySelected().nombre);
+                MapService.addMarkerMunicipalityWithIcon($scope.municipalityLocation);
             }
         }
 

@@ -76,7 +76,9 @@
     "UPLOAD_SECONDARY_PHOTOS_TIP": "Sube una o varias fotografías del municipio para que los usuarios lo conozcan",
     "MUNICIPALITY_GENERAL_PHOTOS": "Fotos del municipio",
     "MUNICIPALITY_ANTHEM_PHOTOS": "Foto del escudo del municipio",
-    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio, para poder ver tu municipio en la plataformadebes esperar la autorización del administrador"
+    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio, para poder ver tu municipio en la plataforma debes esperar la autorización del administrador",
+    "COMPLETE_MUNICIPALITY_UPLOAD_TEXT": "La información de tu municipio ha sido actualizada"
+
 
   },
   "SITE_DETAIL_CONSTANTS": {
@@ -179,7 +181,9 @@
     "ADD_BUSINESS": "Añadir un negocio",
     "EDIT_BUTTON": "Editar",
     "PASSWORDS_MUST_BE_EQUAL": "La contraseña de confirmación debe coincidir con la nueva contraseña*",
-    "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "La contraseña nueva debe ser diferente a la antigua*."
+    "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "La contraseña nueva debe ser diferente a la antigua*.",
+    "REGISTERED_MUNICIPALITY":"Municipio registrado",
+    "ADD_MUNICIPALITY":"Añadir un municipio"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
@@ -207,6 +211,9 @@
   "TOURISTS":"Turistas",
   "TRADERS":"Comerciantes",
   "MUNICIPALITIES":"Municipios",
-  "LABORATORIOS_VIRTUALES":"© Laboratorios virtuales"
+  "LABORATORIOS_VIRTUALES":"© Laboratorios virtuales",
+  "INCORRECT_ACCOUNT_TYPE_MUNICIPALITY":"Parece que tu cuenta es de municipio, por favor inicia sesión como municipio",
+  "INCORRECT_ACCOUNT_TYPE_TRADER":"Parece que tu cuenta es de comerciante, por favor inicia sesión como comerciante",
+  "TIMEOUT_CONNECTION_ERROR":"Está tardando demasiado la respuesta del servidor, por favor revisa tu conexión a internet o vuelve a intentarlo más tarde"
 
 }

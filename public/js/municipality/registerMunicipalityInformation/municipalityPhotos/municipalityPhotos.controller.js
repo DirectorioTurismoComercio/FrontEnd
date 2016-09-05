@@ -7,6 +7,8 @@ angular.module('Municipality')
             checkSelectedPhotos();
         });
 
+        $scope.municipalityId = municipalityInformationService.getMunicipalityId();
+
         $scope.flowMunicipalityMainPhoto = {};
         $scope.flowCoatArmsPhoto = {};
         $scope.flowMunicipalityFacedePhotos = {};
@@ -156,7 +158,7 @@ angular.module('Municipality')
             $scope.loadingPhotos=false;
             ngDialog.close();
             municipalityInformationService.resetData();
-            $location.path('accountMunicipalityinfo');
+            $location.path('municipalityaccountinfo');
         }
 
         function openConfirmationmessage(){
