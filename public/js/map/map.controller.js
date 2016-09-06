@@ -119,7 +119,7 @@ angular.module('map')
             }, 100);
 
             try {
-                if (site.id != $scope.initialSelectedSite.id ) {
+                if (site.id != $scope.initialSelectedSite.id) {
                     $scope.hasMadeCurrentSiteRoute = false;
                 } else {
                     $scope.hasMadeCurrentSiteRoute = true;
@@ -282,7 +282,7 @@ angular.module('map')
             $scope.foundSites = sites;
             centerMapOnSearchedTown();
             if (sites != undefined) {
-                MapRouteService.setSiteMarker(sites,$scope);
+                MapRouteService.setSiteMarker(sites, $scope);
             }
         }
 
@@ -324,6 +324,10 @@ angular.module('map')
             ngDialog.close();
             photosPopUp = undefined;
         }
+
+        $scope.imageClicked = function () {
+            event.stopPropagation();
+        };
 
         $scope.isEmpty = function (field) {
             var isEmpty = true;
