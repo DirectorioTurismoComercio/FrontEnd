@@ -114,7 +114,7 @@ describe('Controller: HomeController', function () {
     });
 
     it('Should set desktop image of how it works if is in desktop', function () {
-        expect($scope.howItWorksImage).toBe('desktop-como-funciona-comerciante.png');
+        expect($scope.howItWorksImage).toBe('como-funciona-comerciante-home-esp.jpg');
     });
 
     it('Should redirect to register trader on click button register', function () {
