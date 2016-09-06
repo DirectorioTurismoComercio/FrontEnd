@@ -4,6 +4,14 @@
     height: 200px;
 }
 
+.contact-info-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .contact-info {
     color: #2D3C4D;
     font-size: 14px;
@@ -28,10 +36,12 @@
     color: #0a3c5a;
     font-family: 'PT Sans', sans-serif;
     font-weight: normal;
+    margin-bottom: 10px;
 }
 
 .footer-title{
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .footer-background-color{
@@ -56,6 +66,12 @@
     color: #FFF;
     font-family: 'PT Sans', sans-serif;
     font-weight: normal;
+}
+
+.mail-footer{
+    color:#0071bc;
+    font-weight: bold;
+    font-family: 'PT Sans', sans-serif;
 }
 
 
