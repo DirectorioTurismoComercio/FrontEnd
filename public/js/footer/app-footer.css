@@ -76,6 +76,9 @@
 
 
 @media (max-width: 767px) {
+    .app-footer .img {
+        background-size: auto auto;
+    }
 }
 
 @media (min-width: 768px) {
@@ -87,6 +90,9 @@
 
     .contact-info {
         font-size: 16px;
+    }
+    .app-footer .img {
+        background-size: auto auto;
     }
 }
 
