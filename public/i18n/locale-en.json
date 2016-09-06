@@ -216,7 +216,6 @@
   "LABORATORIOS_VIRTUALES":"© Virtual Labs",
   "INCORRECT_ACCOUNT_TYPE_MUNICIPALITY":"It looks like you have a town account, please log in as a town",
   "INCORRECT_ACCOUNT_TYPE_TRADER":"It looks like you have a trader account, please log in as a trader",
-  "TIMEOUT_CONNECTION_ERROR":"The server is taking too long to respond, please check your internet connection or try again later"
-
-
+  "TIMEOUT_CONNECTION_ERROR":"The server is taking too long to respond, please check your internet connection or try again later",
+  "ROUTE_SITES":"Sites near route"
 }

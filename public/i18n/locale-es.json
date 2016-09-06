@@ -214,6 +214,7 @@
   "LABORATORIOS_VIRTUALES":"© Laboratorios virtuales",
   "INCORRECT_ACCOUNT_TYPE_MUNICIPALITY":"Parece que tu cuenta es de municipio, por favor inicia sesión como municipio",
   "INCORRECT_ACCOUNT_TYPE_TRADER":"Parece que tu cuenta es de comerciante, por favor inicia sesión como comerciante",
-  "TIMEOUT_CONNECTION_ERROR":"Está tardando demasiado la respuesta del servidor, por favor revisa tu conexión a internet o vuelve a intentarlo más tarde"
+  "TIMEOUT_CONNECTION_ERROR":"Está tardando demasiado la respuesta del servidor, por favor revisa tu conexión a internet o vuelve a intentarlo más tarde",
+  "ROUTE_SITES":"Sitios en la ruta"
 
 }

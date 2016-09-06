@@ -353,6 +353,12 @@ prev.search-results .map {
     width: 6em;
 }
 
+.sites-near-route-tittle{
+    color: #0A3C5A;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
