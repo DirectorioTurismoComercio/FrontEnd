@@ -33,7 +33,8 @@ angular.module('Municipality')
         }
 
         $scope.doneMunicipalityRegistration = function () {
-            if ($scope.flowMunicipalityMainPhoto.flow.files.length != 0) {
+            if ($scope.flowMunicipalityMainPhoto.flow.files.length != 0 && !$scope.loadingPhotos){
+                $scope.loadingPhotos=true;
                 savePhotosTemporally();
                 $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
                 municipalityInformationService.sendMunicipalityDataToServer(openConfirmationmessage, errorSaving);
@@ -162,7 +163,6 @@ angular.module('Municipality')
         }
 
         function openConfirmationmessage(){
-            $scope.loadingPhotos=true;
             ngDialog.open({
                 template: 'js/municipality/registerMunicipalityInformation/completeMunicipalityRegistration.html',
                 width: 'auto',
@@ -174,6 +174,7 @@ angular.module('Municipality')
         }
 
         function errorSaving(e){
+            $scope.loadingPhotos=false;
             console.log("hubo un error", e);
         }
 
