@@ -5,10 +5,26 @@ angular.module('map')
                                           SiteMarkerService, messageService, siteAndTownSaverService) {
 
         function calculateRoute(routeRequest, $scope, destinationSite) {
+
+            var waypts=[];
+
+            var punto=new google.maps.LatLng(4.732513230063399,-74.26302775740623);
+            waypts.push({
+                location:punto
+            });
+
+            var punto2= new google.maps.LatLng( 4.628837392723848, -74.4632613658905);
+            waypts.push({
+                location:punto2,
+                stopover:true
+            });
+
             var route = {
                 travelMode: google.maps.TravelMode.DRIVING,
                 origin: routeRequest.origin.location,
-                destination: routeRequest.destination.location
+                destination: routeRequest.destination.location,
+                waypoints: waypts,
+                optimizeWaypoints:true
             };
             MapService.clearMarkers();
             MapService.getDirectionsService().route(route, function (result, status) {
@@ -17,6 +33,7 @@ angular.module('map')
                     MapService.getDirectionsDisplay().setDirections(result);
 
                     var leg = result.routes[0].legs[0];
+                    console.log("lo que devolvio", leg);
                     var originIcon = MapService.createIcon('images/icons/salida-mapa.png', 50);
                     var destinationIcon = MapService.createIcon('images/icons/llegada-mapa.png', 50);
 

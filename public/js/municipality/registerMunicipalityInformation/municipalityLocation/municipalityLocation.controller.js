@@ -79,6 +79,7 @@ angular.module('Municipality')
                 lat: e.latLng.lat(),
                 lng: e.latLng.lng()
             };
+            console.log("la posición es: ", $scope.municipalityLocation);
             getClickedPositionTown();
         }
 
