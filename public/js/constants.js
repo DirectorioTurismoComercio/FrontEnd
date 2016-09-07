@@ -9,7 +9,7 @@ var objeto = {
         "new_password":"/rest-auth/password/change/",
         "categorias":"/categorias",
         "getTownOnMapClickURL":'http://maps.googleapis.com/maps/api/geocode/json?latlng=',
-        "timeout":999999
+        "timeout":120000
     }
 
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .factory('municipalityInformationService', function (authenticationService, $http, API_CONFIG, $q, $timeout, serverConnectionService) {
+    .factory('municipalityInformationService', function (authenticationService, $http, API_CONFIG, $q, $timeout, serverConnectionService, $location) {
         var municipalitySelected = undefined;
         var municipalityPhoneNumber = undefined;
         var municipalityWhatsapp = undefined;
@@ -215,6 +215,7 @@ angular.module('Municipality')
 
             promise.catch(function (e) {
                 serverConnectionService.checkTimeOutError(e);
+                $location.path('/home');
             });
 
             promise.success(successFunction).error(errorFunction);
