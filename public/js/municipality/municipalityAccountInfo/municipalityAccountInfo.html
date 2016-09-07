@@ -158,9 +158,9 @@
                 <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_MUNICIPALITY"></p>
             </div>
 
-            <div ng-class="user.sitios.length>2 ? 'scrollable-site-list':''">
-                <div class="row" ng-repeat="sitio in user.sitios">
-                    <div class="registered-business">
+            <div ng-class="addedMunicipalityes.length>2 ? 'scrollable-site-list':''">
+                <div class="row" ng-repeat="sitio in addedMunicipalityes">
+                    <div  class="registered-business">
                         <div class="row">
                             <div class="col-xs-4"><img class="business-image"
                                                        ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
@@ -182,10 +182,48 @@
 
 
             <div class="row registerTrader-button NextButtonRegister topMarginElements">
-                <button ng-show="!user.sitios.length>0" class="button" ng-click="addBusiness()"
+                <button ng-show="!user.sitios.length>0" class="button" ng-click="addMunicipality()"
                         translate="ACCOUNT_INFO.ADD_MUNICIPALITY"></button>
             </div>
         </form>
+
+
+
+        <form name="sitesMuniciplaity" class="form-group form">
+            <div class="row">
+                <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_MUNICIPALITY"></p>
+            </div>
+
+            <div ng-class="municipalitySites.length>2 ? 'scrollable-site-list':''">
+                <div class="row" ng-repeat="sitio in municipalitySites">
+                    <div  class="registered-business">
+                        <div class="row">
+                            <div class="col-xs-4"><img class="business-image"
+                                                       ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                            </div>
+                            <div class="col-xs-8">
+                                <p class="business-name">%%sitio.nombre%%</p>
+                                <p class="business-info">%%sitio.ubicacionlocal%%</p>
+                                <p class="business-info">%%sitio.telefono%%</p>
+                            </div>
+                        </div>
+                        <div class="row row-reverse">
+                            <button class="edit-local-button col-xs-3" ng-click="editSite(sitio)"
+                                    translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row registerTrader-button NextButtonRegister topMarginElements">
+                <button class="button" ng-click="addBusiness()"
+                        translate="ACCOUNT_INFO.ADD_MUNICIPALITY"></button>
+            </div>
+        </form>
+
+
 
 
     </div>

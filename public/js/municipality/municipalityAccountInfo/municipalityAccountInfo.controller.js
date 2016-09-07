@@ -15,7 +15,26 @@ angular.module('Municipality')
         authenticationService.getUserData($scope.user.token)
             .success(function (response) {
                 $scope.user = response;
+                console.log($scope.user.sitios);
+                splitSites();
+
             });
+
+        function  splitSites(){
+            $scope.municipalitySites=[];
+            $scope.addedMunicipalityes=[];
+            for(var i=0; i<$scope.user.sitios.length; i++){
+                if($scope.user.sitios[i].tipo_sitio=='S'){
+                    console.log("entro al sitio");
+                    $scope.municipalitySites.push($scope.user.sitios[i]);
+                }
+
+                if($scope.user.sitios[i].tipo_sitio=='M'){
+                    $scope.addedMunicipalityes.push($scope.user.sitios[i]);
+                }
+            }
+            console.log("separados", $scope.municipalitySites);
+        }
 
         $scope.$watch('user.email', function () {
             $scope.isValidEmail = formValidator.isValidEmail($scope.user.email);
@@ -127,10 +146,16 @@ angular.module('Municipality')
             );
         }
 
-        $scope.addBusiness = function () {
+        $scope.addMunicipality = function () {
             municipalityInformationService.resetData();
             $location.path('municipalityinfo');
         }
+
+        $scope.addBusiness=function(){
+            municipalityInformationService.resetData();
+            $location.path('businessinformation');
+        }
+
         $scope.editSite = function (sitio) {
 
             municipalityInformationService.setMunicipalityId(sitio.id);
