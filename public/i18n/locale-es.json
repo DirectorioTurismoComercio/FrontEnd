@@ -59,14 +59,14 @@
     "REQUIRED_FIELD": "campo obligatorio*"
   },
   "REGISTER_MUNICIPALITY_CONSTANTS": {
-    "CREATE_ACCOUNT": "Crea tu cuenta de municipio",
-    "NAME": "Nombre de tu municipio",
-    "MUNICIPALITY_ALREADY_REGISTER":"¿Ya tienes cuenta de municipio?",
+    "CREATE_ACCOUNT": "Crea la cuenta del municipio",
+    "NAME": "Nombre del municipio",
+    "MUNICIPALITY_ALREADY_REGISTER":"¿El  municipio ya tiene cuenta?",
     "REGISTER_MUNICIPALITY":"Registro municipio",
     "MUNICIPALITY_INFORMATION": "Información del municipio",
-    "MUNICIPALITY_DESCRIPTION":"Describe el municipio",
+    "MUNICIPALITY_DESCRIPTION":"Descripción del municipio",
     "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Información de punto de atención al ciudadano",
-    "MUNICIPALITY_OPENINGHOURS_TEXT":"Escribe los dias y horarios de atención del sitio de atención al ciudadano. Ejemplo: ",
+    "MUNICIPALITY_OPENINGHOURS_TEXT":"Escribe los dias y horarios del punto de atención al ciudadano. Ejemplo: ",
     "MUNICIPALITY_LOCATION": "Ubicación del punto de atención",
     "MUNICIPALITY_ADDRESS": "Dirección del punto de turismo",
     "MUNICIPALITY_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa dónde se encuentra el punto de atención al ciudadano",
@@ -76,7 +76,7 @@
     "UPLOAD_SECONDARY_PHOTOS_TIP": "Sube una o varias fotografías del municipio para que los usuarios lo conozcan",
     "MUNICIPALITY_GENERAL_PHOTOS": "Fotos del municipio",
     "MUNICIPALITY_ANTHEM_PHOTOS": "Foto del escudo del municipio",
-    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio, para poder ver tu municipio en la plataforma debes esperar la autorización del administrador",
+    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio. Ten en cuenta que la información que inscribiste sólo será visible después de ser corroborada por el administrador. Recibirás una confirmación via correo electrónico cuando el proceso esté completo.",
     "COMPLETE_MUNICIPALITY_UPLOAD_TEXT": "La información de tu municipio ha sido actualizada"
 
 
@@ -194,13 +194,13 @@
   "REGISTER_COMPLETE": "El registro fue exitoso",
   "HOW_TO_GET_THERE": "¿Cómo llegar?",
   "DESTINY": "Mi destino",
-  "INITIAL_PLACE":"Ver mi destino",
+  "INITIAL_PLACE":"Volver a  mi destino",
   "GET_SITES_ERROR": "No es posible usar el buscador en este momento intentalo más tarde o vuelve a cargar la página",
   "GET_TOWNS_ERROR": "No es posible cargar el listado de municipios, por favor intentalo más tarde o vuelve a cargar la página",
   "NO_RESULTS": "Lo sentimos, no hay resultados para esta búsqueda. Por favor intente con otras palabras",
   "BAD_LOGIN": "El usuario o contraseña son incorrectos",
   "REGISTER_SUCCESS": "Ya formas parte de la comunidad Marca_app. Ahora puedes registrar tu comercio, entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
-  "REGISTER_MUNICIPALITY_SUCCESS":"Ya formas parte de la comunidad Marca_app, Ahora puedes registrar tu municipio",
+  "REGISTER_MUNICIPALITY_SUCCESS":"Ya formas parte de la comunidad De Tour por Cundinamarca, Ahora puedes registrar la información del municipio",
   "CONTACT_INFO": "Si tienes problemas al utilizar la app, alguna duda o sugerencia, puedes escribirnos a: ",
   "E100": "Error de comunicación con el servidor, intente nuevamente.",
   "E101": "El correo ya existe",
@@ -215,6 +215,6 @@
   "INCORRECT_ACCOUNT_TYPE_MUNICIPALITY":"Parece que tu cuenta es de municipio, por favor inicia sesión como municipio",
   "INCORRECT_ACCOUNT_TYPE_TRADER":"Parece que tu cuenta es de comerciante, por favor inicia sesión como comerciante",
   "TIMEOUT_CONNECTION_ERROR":"Está tardando demasiado la respuesta del servidor, por favor revisa tu conexión a internet o vuelve a intentarlo más tarde",
-  "ROUTE_SITES":"Sitios en la ruta"
+  "ROUTE_SITES":"Otros sitios en la ruta"
 
 }
