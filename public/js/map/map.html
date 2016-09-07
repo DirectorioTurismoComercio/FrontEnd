@@ -10,13 +10,6 @@
                 <img src="./images/icons/lista_resultados.png">
             </div>
 
-            <div ng-show="(initialSelectedSite.id!=selectedSite.id && hasMadeFirstRouteToSite && !hasMadeCurrentSiteRoute)"
-                 ng-click="backToInitialPlace(initialSelectedSite)" class="control">
-                <p translate="INITIAL_PLACE"></p>
-                <img src="./images/icons/llegada-mapa.png">
-            </div>
-
-
             <div ng-show="!hasMadeCurrentSiteRoute" class="control" ng-click="showRouteToSite(selectedSite)">
                 <p translate="HOW_TO_GET_THERE"></p>
                 <img src="./images/icons/arma-tu-ruta.png">
@@ -27,6 +20,11 @@
                 <img src="./images/icons/llegada-mapa.png">
             </div>
 
+            <div ng-show="(initialSelectedSite.id!=selectedSite.id && hasMadeFirstRouteToSite && !hasMadeCurrentSiteRoute)"
+                 ng-click="backToInitialPlace(initialSelectedSite)" class="control">
+                <p translate="INITIAL_PLACE"></p>
+                <img src="./images/icons/llegada-mapa.png">
+            </div>
         </div>
         <div ng-show="!isShowingSiteDetail || isOnSitedetails">
             <search-tabs ng-show="!isOnSitedetails" isonmap="true" result="result" subcategoryname="subcategoryname"
