@@ -183,32 +183,27 @@ angular.module('Municipality')
 
         function sendMunicipalityDataToServer(successFunction, errorFunction) {
             var promise;
-            var timeout;
 
 
             var fd = buildMunicipalityFormData();
 
             if (municipalityId) {
-                timeout = $timeout(angular.noop, API_CONFIG.timeout);
                 promise = $http.put(API_CONFIG.url + API_CONFIG.sitio + "/detail/" + municipalityId, fd,
                     {
                         transformRequest: angular.identity,
                         headers: {
                             'Content-Type': undefined,
                             'Authorization': 'Token ' + authenticationService.getUser().token
-                        },
-                        timeout: timeout
+                        }
                     });
             } else {
-                timeout = $timeout(angular.noop, API_CONFIG.timeout);
                 promise = $http.post(API_CONFIG.url + API_CONFIG.sitio, fd,
                     {
                         transformRequest: angular.identity,
                         headers: {
                             'Content-Type': undefined,
                             'Authorization': 'Token ' + authenticationService.getUser().token
-                        },
-                        timeout: timeout
+                        }
                     })
 
             }
