@@ -2,7 +2,7 @@
 
 angular.module('map')
     .service('MapRouteService', function ($window, CUNDINAMARCA_COORDS, $http, MapService, sitesNearRoute,
-                                          SiteMarkerService, messageService, siteAndTownSaverService) {
+                                          SiteMarkerService, messageService, siteAndTownSaverService, filterFilter) {
 
         function calculateRoute(routeRequest, $scope, destinationSite) {
             var route = {
@@ -78,11 +78,10 @@ angular.module('map')
                 var marker;
 
                 if (sites[i].tipo_sitio != 'M') {
-                    marker = MapService.addMarkerWithCategoryIcon(position, sites[i].nombre, sites[i].categorias[0]);
+                    marker = MapService.addMarkerWithCategoryIcon(position, sites[i].nombre, filterFilter(sites[i].categorias,{tipo:1})[0]);
                 } else {
                     marker = MapService.addMarkerMunicipalityWithIcon(position);
                 }
-
 
                 sites[i].categoryicon = marker.generalIcon.url;
                 SiteMarkerService.addSiteMarker(sites[i], marker, $scope.showSiteDetail);
