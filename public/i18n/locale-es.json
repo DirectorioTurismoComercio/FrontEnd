@@ -183,7 +183,8 @@
     "PASSWORDS_MUST_BE_EQUAL": "La contraseña de confirmación debe coincidir con la nueva contraseña*",
     "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "La contraseña nueva debe ser diferente a la antigua*.",
     "REGISTERED_MUNICIPALITY":"Municipio registrado",
-    "ADD_MUNICIPALITY":"Añadir un municipio"
+    "ADD_MUNICIPALITY":"Añadir un municipio",
+    "MUNICIPALITY_SITES":"Sitios del municipio"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
