@@ -106,6 +106,10 @@ angular.module('map')
         };
 
         $scope.showSiteDetail = function (site, index) {
+            var top_anchor = $window.document.getElementById("top_anchor");
+            top_anchor.focus();
+            top_anchor.blur();
+            
             if (index) {
                 SiteMarkerService.highLightMarkerByIndex(index);
             }
@@ -327,7 +331,8 @@ angular.module('map')
                 closeByNavigation: true,
             });
         }
-        $scope.closeDialogWindowPhotos = function () {
+        $scope.closeDialogWindowPhotos = function (event) {
+            console.log(event.currentTarget);
             ngDialog.close();
             photosPopUp = undefined;
         }
