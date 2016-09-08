@@ -106,6 +106,11 @@ angular.module('map')
         };
 
         $scope.showSiteDetail = function (site, index) {
+
+            var top_anchor = $window.document.getElementById("top_anchor");
+            top_anchor.focus();
+            top_anchor.blur();
+
             if (index) {
                 SiteMarkerService.highLightMarkerByIndex(index);
             }

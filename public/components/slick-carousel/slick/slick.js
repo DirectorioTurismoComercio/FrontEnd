@@ -1,17 +1,17 @@
-/*
-     _ _      _       _
+/* slick.js
+ _ _      _       _
  ___| (_) ___| | __  (_)___
-/ __| | |/ __| |/ /  | / __|
-\__ \ | | (__|   < _ | \__ \
-|___/_|_|\___|_|\_(_)/ |___/
-                   |__/
+ / __| | |/ __| |/ /  | / __|
+ \__ \ | | (__|   < _ | \__ \
+ |___/_|_|\___|_|\_(_)/ |___/
+ |__/
 
  Version: 1.4.1
-  Author: Ken Wheeler
+ Author: Ken Wheeler
  Website: http://kenwheeler.github.io
-    Docs: http://kenwheeler.github.io/slick
-    Repo: http://github.com/kenwheeler/slick
-  Issues: http://github.com/kenwheeler/slick/issues
+ Docs: http://kenwheeler.github.io/slick
+ Repo: http://github.com/kenwheeler/slick
+ Issues: http://github.com/kenwheeler/slick/issues
 
  */
 
@@ -524,15 +524,15 @@
         var sliderWidth = _.$slider.width();
         var windowWidth = window.innerWidth || $(window).width();
         if (_.respondTo === "window") {
-          respondToWidth = windowWidth;
+            respondToWidth = windowWidth;
         } else if (_.respondTo === "slider") {
-          respondToWidth = sliderWidth;
+            respondToWidth = sliderWidth;
         } else if (_.respondTo === "min") {
-          respondToWidth = Math.min(windowWidth, sliderWidth);
+            respondToWidth = Math.min(windowWidth, sliderWidth);
         }
 
         if (_.originalSettings.responsive && _.originalSettings
-            .responsive.length > -1 && _.originalSettings.responsive !== null) {
+                .responsive.length > -1 && _.originalSettings.responsive !== null) {
 
             targetBreakpoint = null;
 
@@ -624,7 +624,7 @@
 
             case 'index':
                 var index = event.data.index === 0 ? 0 :
-                    event.data.index || $(event.target).parent().index() * _.options.slidesToScroll;
+                event.data.index || $(event.target).parent().index() * _.options.slidesToScroll;
 
                 _.slideHandler(_.checkNavigable(index), false, dontAnimate);
                 break;
@@ -1152,11 +1152,11 @@
                     imageSource = $(this).attr('data-lazy');
 
                 image
-                  .load(function() { image.animate({ opacity: 1 }, 200); })
-                  .css({ opacity: 0 })
-                  .attr('src', imageSource)
-                  .removeAttr('data-lazy')
-                  .removeClass('slick-loading');
+                    .load(function() { image.animate({ opacity: 1 }, 200); })
+                    .css({ opacity: 0 })
+                    .attr('src', imageSource)
+                    .removeAttr('data-lazy')
+                    .removeClass('slick-loading');
             });
         }
 
@@ -1180,10 +1180,10 @@
         loadRange = _.$slider.find('.slick-slide').slice(rangeStart, rangeEnd);
         loadImages(loadRange);
 
-          if (_.slideCount <= _.options.slidesToShow){
-              cloneRange = _.$slider.find('.slick-slide');
-              loadImages(cloneRange);
-          }else
+        if (_.slideCount <= _.options.slidesToShow){
+            cloneRange = _.$slider.find('.slick-slide');
+            loadImages(cloneRange);
+        }else
         if (_.currentSlide >= _.slideCount - _.options.slidesToShow) {
             cloneRange = _.$slider.find('.slick-cloned').slice(0, _.options.slidesToShow);
             loadImages(cloneRange);
@@ -1284,17 +1284,17 @@
         if (imgCount > 0) {
             targetImage = $('img[data-lazy]', _.$slider).first();
             targetImage.attr('src', targetImage.attr('data-lazy')).removeClass('slick-loading').load(function() {
-                targetImage.removeAttr('data-lazy');
-                _.progressiveLazyLoad();
-                
-                if( _.options.adaptiveHeight === true ) {
-                    _.setPosition();
-                }
-            })
-         .error(function () {
-          targetImage.removeAttr('data-lazy');
-          _.progressiveLazyLoad();
-         });
+                    targetImage.removeAttr('data-lazy');
+                    _.progressiveLazyLoad();
+
+                    if( _.options.adaptiveHeight === true ) {
+                        _.setPosition();
+                    }
+                })
+                .error(function () {
+                    targetImage.removeAttr('data-lazy');
+                    _.progressiveLazyLoad();
+                });
         }
 
     };
@@ -1677,7 +1677,7 @@
                 }
 
                 for (i = _.slideCount; i > (_.slideCount -
-                    infiniteCount); i -= 1) {
+                infiniteCount); i -= 1) {
                     slideIndex = i - 1;
                     $(_.$slides[slideIndex]).clone(true).attr('id', '')
                         .attr('data-slick-index', slideIndex-_.slideCount)
@@ -1925,16 +1925,16 @@
         var _ = this;
 
         if ((_.options.swipe === false) || ('ontouchend' in document && _.options.swipe === false)) {
-           return;
+            return;
         } else if (_.options.draggable === false && event.type.indexOf('mouse') !== -1) {
-           return;
+            return;
         }
 
         _.touchObject.fingerCount = event.originalEvent && event.originalEvent.touches !== undefined ?
             event.originalEvent.touches.length : 1;
 
         _.touchObject.minSwipe = _.listWidth / _.options
-            .touchThreshold;
+                .touchThreshold;
 
         switch (event.data.action) {
 
@@ -2138,7 +2138,7 @@
                 _[i].slick =  new Slick(_[i], opt);
             else
                 ret = _[i].slick[opt].apply(_[i].slick, args);
-                if (typeof ret != 'undefined') return ret;
+            if (typeof ret != 'undefined') return ret;
         }
         return _;
     };
