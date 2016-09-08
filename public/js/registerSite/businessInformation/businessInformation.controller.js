@@ -4,7 +4,7 @@ angular.module('registerSite')
     .controller('businessInformationController', function ($scope, $auth, $http, messageService,
                                                            API_CONFIG, categories,
                                                            $location, MunicipiosFactory, authenticationService, siteAndTownSaverService,
-                                                           siteInformationService, $translate, navigationService) {
+                                                           siteInformationService, $translate, navigationService, municipalityInformationService) {
 
 
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
@@ -16,8 +16,15 @@ angular.module('registerSite')
         $scope.businessDescription = siteInformationService.businessDescription;
         $scope.tags = siteInformationService.tags;
         $scope.businessEmail = siteInformationService.businessEmail;
-        $scope.businessAddress = siteInformationService.businessAddress;
+        $scope.businessAddress = siteInformationService.businessAddress
         $scope.businessMunicipality = siteInformationService.businessMunicipality;
+
+        if(!$scope.businessMunicipality){
+            $scope.businessMunicipality= municipalityInformationService.getMunicipalityName();
+            console.log($scope.businessMunicipality);
+        }
+
+
 
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;

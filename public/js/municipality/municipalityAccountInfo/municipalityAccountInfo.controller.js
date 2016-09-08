@@ -15,7 +15,6 @@ angular.module('Municipality')
         authenticationService.getUserData($scope.user.token)
             .success(function (response) {
                 $scope.user = response;
-                console.log($scope.user.sitios);
                 splitSites();
 
             });
@@ -30,6 +29,7 @@ angular.module('Municipality')
 
                 if($scope.user.sitios[i].tipo_sitio=='M'){
                     $scope.addedMunicipalityes.push($scope.user.sitios[i]);
+                    municipalityInformationService.setMunicipalityName($scope.user.sitios[i].municipio);
                 }
             }
         }
@@ -150,7 +150,7 @@ angular.module('Municipality')
         }
 
         $scope.addBusiness=function(){
-            municipalityInformationService.resetData();
+            siteInformationService.clearData(siteInformationService);
             $location.path('businessinformation');
         }
 
