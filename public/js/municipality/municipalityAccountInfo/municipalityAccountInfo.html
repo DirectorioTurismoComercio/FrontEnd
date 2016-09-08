@@ -196,6 +196,10 @@
             <div ng-class="municipalitySites.length>2 ? 'scrollable-site-list':''">
                 <div class="row" ng-repeat="sitio in municipalitySites">
                     <div  class="registered-business">
+                        <div class="row row-reverse">
+                            <img ng-click="deleteSite(sitio)" class="remove-icon"
+                                 src="./images/accountInfoIcons/borrar.png"/>
+                        </div>
                         <div class="row">
                             <div class="col-xs-4"><img class="business-image"
                                                        ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
@@ -218,7 +222,7 @@
 
             <div class="row registerTrader-button NextButtonRegister topMarginElements">
                 <button class="button" ng-click="addBusiness()"
-                        translate="ACCOUNT_INFO.ADD_MUNICIPALITY"></button>
+                        translate="ACCOUNT_INFO.ADD_BUSINESS"></button>
             </div>
 
 
