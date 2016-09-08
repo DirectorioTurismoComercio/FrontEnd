@@ -1,4 +1,4 @@
-/**
+/**  ANGULAR-CAROUSEL.JS
  * Angular Carousel - Mobile friendly touch carousel for AngularJS
  * @version v1.0.0 - 2015-10-09
  * @link http://revolunet.github.com/angular-carousel
