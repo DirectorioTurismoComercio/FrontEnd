@@ -21,6 +21,7 @@ angular.module('registerSite')
 
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
+        $scope.user = authenticationService.getUser();
 
         categories.getCategories().then(function (response) {
             $scope.categories = response;
@@ -45,7 +46,7 @@ angular.module('registerSite')
 
         };
         $scope.changeViewHome = function () {
-            navigationService.cameToBusinessInformationThrough == 'registertrader' ? $location.path('/home') : $location.path('/accountinfo');
+            navigationService.accountInfoRoute($scope.user);
         };
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
