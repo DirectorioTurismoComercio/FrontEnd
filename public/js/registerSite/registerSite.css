@@ -255,3 +255,15 @@ tags-input input {
 .progress-bar2 .current-step {
     background: #DE6525;
 }
+
+.padding-municipality-done-registration{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.municipality-info-buttons-conatiner{
+    justify-content: space-around !important;
+}
+.municipality-info-buttons{
+    width: 40% !important;
+}

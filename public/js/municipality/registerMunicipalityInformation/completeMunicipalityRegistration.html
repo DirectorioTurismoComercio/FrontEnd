@@ -1,0 +1,27 @@
+<div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
+    <div class="header container-fluid">
+        <p ng-show="!municipalityId" class="text" translate="REGISTER_SITE_CONSTANTS.COMPLETE_REGISTRATION_HEADER"></p>
+        <p ng-show="municipalityId" class="text" translate="REGISTER_SITE_CONSTANTS.COMPLETE_UPDATE_HEADER"></p>
+    </div>
+    <ul class="progress-bar2 progressBarPadding topMarginElements">
+        <li class="done-step"></li>
+        <li class="done-step"></li>
+        <li class="done-step"></li>
+        <li class="done-step"></li>
+    </ul>
+    <div>
+        <div class="text-center padding-municipality-done-registration">
+            <label ng-show="!municipalityId" class="topMarginElements texto-claroBusinessLocation"
+                   translate="REGISTER_MUNICIPALITY_CONSTANTS.COMPLETE_MUNICIPALITY_REGISTRATION_TEXT"></label>
+
+            <label ng-show="municipalityId" class="topMarginElements texto-claroBusinessLocation"
+                   translate="REGISTER_MUNICIPALITY_CONSTANTS.COMPLETE_MUNICIPALITY_UPLOAD_TEXT"></label>
+
+        </div>
+        <div class=" next-button NextButtonRegister topMarginElements">
+            <button  class="button" ng-click="doneRegistration()"
+                    translate="REGISTER_SITE_CONSTANTS.COMPLETE_REGISTRATION_POPUP_BUTTON"></button>
+        </div>
+    </div>
+
+</div>

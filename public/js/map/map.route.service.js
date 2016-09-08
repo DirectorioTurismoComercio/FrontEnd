@@ -21,8 +21,8 @@ angular.module('map')
                     var destinationIcon = MapService.createIcon('images/icons/llegada-mapa.png', 50);
 
                     MapService.addMarker(leg.start_location, 'origin', originIcon);
-                    var destinationMarker= MapService.addMarker(leg.end_location, 'destination', destinationIcon);
-                    
+                    var destinationMarker = MapService.addMarker(leg.end_location, 'destination', destinationIcon, 1000);
+
                     addDestinationSiteMarker(destinationSite, destinationMarker, $scope);
 
                     for (var i = 0; i < result.routes[0].overview_path.length; i++) {
@@ -57,21 +57,36 @@ angular.module('map')
         function drawRouteSites(points, $scope) {
             sitesNearRoute.getSitesNearRoute(points).success(function (sites) {
 
-                for (var i = 0; i < sites.length; i++) {
-                    var position = MapService.coordsToLatLngLiteral(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
-                    var marker = MapService.addMarkerWithCategoryIcon(position, sites[i].nombre, sites[i].categorias[0]);
-                    sites[i].categoryicon=marker.normalIcon.url;
-                    SiteMarkerService.addSiteMarker(sites[i], marker, $scope.showSiteDetail);
-                }
+                setSiteMarker(sites, $scope);
 
                 $scope.loading = false;
                 $scope.foundSites = sites;
                 $scope.routeMapZoom = $scope.map.zoom;
-                $scope.routeToSiteIsVisible=true;
-                $scope.hasMadeCurrentSiteRoute=true;
+                $scope.routeToSiteIsVisible = true;
+                $scope.hasMadeCurrentSiteRoute = true;
             }).error(function (error) {
                 console.log("Hubo un error", error);
             })
+        }
+
+
+        function setSiteMarker(sites,$scope){
+            for (var i = 0; i < sites.length; i++) {
+                var position = MapService.coordsToLatLngLiteral(parseFloat(sites[i].latitud), parseFloat(sites[i].longitud));
+
+
+                var marker;
+
+                if (sites[i].tipo_sitio != 'M') {
+                    marker = MapService.addMarkerWithCategoryIcon(position, sites[i].nombre, sites[i].categorias[0]);
+                } else {
+                    marker = MapService.addMarkerMunicipalityWithIcon(position);
+                }
+
+
+                sites[i].categoryicon = marker.generalIcon.url;
+                SiteMarkerService.addSiteMarker(sites[i], marker, $scope.showSiteDetail);
+            }
         }
 
         function transformPointName(point) {
@@ -94,6 +109,7 @@ angular.module('map')
 
         return {
             calculateRoute: calculateRoute,
-            setOriginAndDestinationdata: setOriginAndDestinationdata
+            setOriginAndDestinationdata: setOriginAndDestinationdata,
+            setSiteMarker:setSiteMarker
         }
     });

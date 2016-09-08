@@ -13,14 +13,22 @@ angular.module('Municipality', ['uiGmapgoogle-maps'])
             })
             .when('/municipalityinfo', {
                 templateUrl: 'js/municipality/registerMunicipalityInformation/municipalityInfo/municipalityinfo.html',
-                controller: 'municipalityInfoController'
+                controller: 'municipalityInfoController',
+                required_roles: 'authenticatedUser'
             })
             .when('/municipalitylocation', {
                 templateUrl: 'js/municipality/registerMunicipalityInformation/municipalityLocation/municipalityLocation.html',
-                controller: 'municipalityLocationController'
+                controller: 'municipalityLocationController',
+                required_roles: 'authenticatedUser'
             })
-            .when('/municiplaityphotos', {
+            .when('/municipalityphotos', {
                 templateUrl: 'js/municipality/registerMunicipalityInformation/municipalityPhotos/municipalityPhotos.html',
-                controller: 'municipalityPhotosController'
+                controller: 'municipalityPhotosController',
+                required_roles: 'authenticatedUser'
+            })
+            .when('/municipalityaccountinfo', {
+                templateUrl: 'js/municipality/municipalityAccountInfo/municipalityAccountInfo.html',
+                controller: 'municipalityAccountInfoController',
+                required_roles: 'authenticatedUser'
             });
     });

@@ -46,7 +46,7 @@ describe('Controller: municipalityInfoController', function () {
     }));
 
     it('Should redirect to home when user clicks changeViewHome button', function () {
-        $scope.changeViewHome();
+        $scope.changeViewMunicipalityAccount();
         expect(testLocation.path).toHaveBeenCalled();
     });
 
@@ -56,6 +56,11 @@ describe('Controller: municipalityInfoController', function () {
         expect($scope.municipalityWhatsapp).toBe('4321');
         expect($scope.municipalityDescription).toBe('está en cota');
         expect($scope.municipalityOpeningHours).toBe('10am-10pm');
+    });
+
+    it('Should redirect to home when user clicks cancelRegister button', function () {
+        $scope.cancelRegister();
+        expect(testLocation.path).toHaveBeenCalled();
     });
 
 

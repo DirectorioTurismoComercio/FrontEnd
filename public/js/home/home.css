@@ -44,8 +44,13 @@
     flex-flow: row wrap;
 }
 
+
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
+    .how-it-works-image-width{
+        width: 100%;
+    }
 }
 
 @media (min-width: 500px) {
@@ -67,6 +72,9 @@
         font-size: 1.0em;
         width: 22%;
     }
+    .how-it-works-image-width{
+        width: 100%;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -75,8 +83,15 @@
         font-size: 1.2em;
         width: 19%;
     }
+
+    .how-it-works-image-width{
+        width: auto;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+    .how-it-works-image-width{
+        width: auto;
+    }
 }

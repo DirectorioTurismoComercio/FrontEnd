@@ -1,6 +1,6 @@
 {
   "HEADER_CONSTANTS": {
-    "LOGIN_TRADER": "Login trader",
+    "LOGIN_TRADER": "Login for business",
     "REGISTER_BUSINESS": "Register your business",
     "LOG_OUT": "Log out",
     "MY_ACCOUNT": "My account"
@@ -29,15 +29,15 @@
   },
   "HOW_IT_WORKS": {
     "TITLE": "It's so easy! This is how it works:",
-    "DESCRIPTION_1": "Cundinamarca has for you many wonderful experiences and destinations",
-    "DESCRIPTION_2": "Tour by Cundinamarca helps you to find according to your interests and to discover the department",
-    "DESCRIPTION_3": "Enjoy new adventures awaiting for you"
+    "DESCRIPTION_1": "Cundinamarca has for you a lot of experiences and wonderful destinations",
+    "DESCRIPTION_2": "De Tour por Cundinamarca helps you to search places according to your interests so you get the opportunity to explore the region",
+    "DESCRIPTION_3": "Enjoy all the adventures waiting for you!"
   },
   "HOW_IT_WORKS_TRADER": {
-    "PAGE_TITLE": "Tour by Cundinamarca works this way :",
-    "DESCRIPTION_1": "Cundinamarca has for you many wonderful experiences and destinations",
-    "DESCRIPTION_2": "Tour by Cundinamarca helps you to find according to your interests and to discover the department",
-    "DESCRIPTION_3": "Enjoy new adventures awaiting for you",
+    "PAGE_TITLE": "This is how De Tour por Cundinamarca works:",
+    "DESCRIPTION_1": "Create a profile for your business; it is completely free!",
+    "DESCRIPTION_2": "Show your products and services on the Internet",
+    "DESCRIPTION_3": "Make your business visible to 48% of the national tourism",
     "REGISTER_BUTTON":"Register your business now!"
   },
   "REGISTER_USER_CONSTANTS": {
@@ -59,23 +59,27 @@
     "REQUIRED_FIELD": "Required field*"
   },
   "REGISTER_MUNICIPALITY_CONSTANTS": {
-    "CREATE_ACCOUNT": "Create your town account",
-    "NAME": "Town's name",
-    "MUNICIPALITY_ALREADY_REGISTER":"already register?",
-    "REGISTER_MUNICIPALITY":"Register Town",
-    "MUNICIPALITY_INFORMATION": "Town Information",
-    "MUNICIPALITY_DESCRIPTION":"Town's description",
-    "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Town hall info",
-    "MUNICIPALITY_OPENINGHOURS_TEXT":"Write Town hall opening hours. For example: ",
-    "MUNICIPALITY_LOCATION": "City hall location",
-    "MUNICIPALITY_ADDRESS": "City hall address",
-    "MUNICIPALITY_GET_USER_LOCATION_TIP": "Use your current location to indicate on the map that here is the city hall",
-    "MUNICIPALITY_LOCATION_TIP": "You can set a pin on the accurate city hall's location on the map",
-    "MUNICIPALITY_PHOTOS_PAGE": "Town photos",
+    "CREATE_ACCOUNT": "Create an account for your town",
+    "NAME": "Name of  your town",
+    "MUNICIPALITY_ALREADY_REGISTER":"Have a town account?",
+    "REGISTER_MUNICIPALITY":"Register your town",
+    "MUNICIPALITY_INFORMATION": "Town information",
+    "MUNICIPALITY_DESCRIPTION":"Town description",
+    "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Citizen attention point information",
+    "MUNICIPALITY_OPENINGHOURS_TEXT":"Write your Citizen attention point opening hours. For example: ",
+    "MUNICIPALITY_LOCATION": "Citizen attention point location",
+    "MUNICIPALITY_ADDRESS": "Tourists attention point address",
+    "MUNICIPALITY_GET_USER_LOCATION_TIP": "Use your current location to indicate on the map where the Citizen attention point is located",
+    "MUNICIPALITY_LOCATION_TIP": "You can set a pin on the accurate location of  the Citizen attention point",
+    "MUNICIPALITY_PHOTOS_PAGE": "Pictures of your town",
     "UPLOAD_MAIN_PHOTO_TIP": "Upload a town's profile picture",
-    "UPLOAD_SECONDARY_PHOTOS_TIP": "Upload photos of your town to help people get to know it",
+    "UPLOAD_SECONDARY_PHOTOS_TIP": "Upload photos of your town to help tourists get to know it",
     "MUNICIPALITY_GENERAL_PHOTOS": "Town photos",
-    "MUNICIPALITY_ANTHEM_PHOTOS": "Coat of arms photo"
+    "MUNICIPALITY_ANTHEM_PHOTOS": "Picture of town's shield",
+    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Thanks for registering your town.You can see what others will see when the admin gives you access to your account",
+    "COMPLETE_MUNICIPALITY_UPLOAD_TEXT": "Your town information has been updated"
+
+
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Description",
@@ -150,13 +154,13 @@
   },
   "LOGIN": {
     "TRADER_LOGIN": "Login",
-    "MUNICIPALITY_LOGIN":"Town login",
+    "MUNICIPALITY_LOGIN":"Login for town",
     "LOGIN_WITH_SOCIAL_NETWORKS": "Login with your social networks",
     "LOGIN_WITH_FACEBOOK": "Login with Facebook",
     "LOGIN_WITH_GOOGLE": "Login with Google",
     "LOGIN_WITH_ACCOUNT": "Or enter your account",
     "EMAIL_INPUT": "e-mail",
-    "EMAIL_MUNICIPAPLITY_INPUT": "town e-mail",
+    "EMAIL_MUNICIPAPLITY_INPUT": "Email of the town",
     "PASSWORD_INPUT": "Password",
     "FORGOTTEN_PASSWORD": "Forgot your password?",
     "LOGIN_BUTTON": "Login",
@@ -164,7 +168,7 @@
     "FORGOT_MUNICIPALITY_PASWORD":"Forgot password?",
     "REGISTER": "Sign in",
     "PASSWORD_LENGTH": "The password must be at least 6 characters long*",
-    "ADMINISTRATOR_ACCESS_REQUEST":"Ask for administrator access"
+    "ADMINISTRATOR_ACCESS_REQUEST":"Request admin access"
 
   },
   "ACCOUNT_INFO": {
@@ -178,7 +182,10 @@
     "ADD_BUSINESS": "Add business",
     "EDIT_BUTTON": "Edit",
     "PASSWORDS_MUST_BE_EQUAL": "The confirmation password must be the same as the password.*",
-    "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "New and confirm password must be the same*"
+    "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "New and confirm password must be the same*",
+    "REGISTERED_MUNICIPALITY":"Registered town",
+    "ADD_MUNICIPALITY":"Add town"
+
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
@@ -187,15 +194,15 @@
   "MY_POSITION": "My position",
   "SUCCESS_TITLE_MESSAGE": "Welcome",
   "REGISTER_COMPLETE": "your site registration is done",
-  "HOW_TO_GET_THERE": "¿How to get there?",
-  "DESTINY": "Destiny",
-  "INITIAL_PLACE":"Initial place",
+  "HOW_TO_GET_THERE": "How to get there?",
+  "DESTINY": "My destination",
+  "INITIAL_PLACE":"My destination",
   "GET_SITES_ERROR": "The search option is unavailable in this moment. Please reload the page",
   "GET_TOWNS_ERROR": "The towns list is unavailable in this moment. Please reload the page",
   "NO_RESULTS": "Sorry, there are no results for this search. Please try with different words.",
   "BAD_LOGIN": "Incorrect user or password",
   "REGISTER_SUCCESS": "You are the newest member of Marca_app. To edit the profile settings in your account, update your info or register other business or branch offices, please log in",
-  "REGISTER_MUNICIPALITY_SUCCESS":"You are the newest member of Marca_app. Now yoy can register your municiplaity",
+  "REGISTER_MUNICIPALITY_SUCCESS":"You are the newest member of Marca_app. Now you can register your town",
   "CONTACT_INFO": "If you have a problem, question or a suggestion, you can write to",
   "E100": "Error server, try again",
   "E101": "email already exists",
@@ -206,6 +213,9 @@
   "TOURISTS":"Tourists",
   "TRADERS":"Traders",
   "MUNICIPALITIES":"Municipalities",
-  "LABORATORIOS_VIRTUALES":"© Laboratorios virtuales"
-
+  "LABORATORIOS_VIRTUALES":"© Virtual Labs",
+  "INCORRECT_ACCOUNT_TYPE_MUNICIPALITY":"It looks like you have a town account, please log in as a town",
+  "INCORRECT_ACCOUNT_TYPE_TRADER":"It looks like you have a trader account, please log in as a trader",
+  "TIMEOUT_CONNECTION_ERROR":"The server is taking too long to respond, please check your internet connection or try again later",
+  "ROUTE_SITES":"Sites near route"
 }

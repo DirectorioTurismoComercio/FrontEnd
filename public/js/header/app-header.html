@@ -17,7 +17,7 @@
                 <li ng-show="!isUserLoggedIn"><a href="#/login" translate="HEADER_CONSTANTS.LOGIN_TRADER"></a></li>
                 <li ng-show="isUserLoggedIn" ng-click="logOut()"><a translate="HEADER_CONSTANTS.LOG_OUT"></a></li>
                 <li ng-show="!isUserLoggedIn"><a href="#/registertrader" translate="HEADER_CONSTANTS.REGISTER_BUSINESS"></a></li>
-                <li ng-show="isUserLoggedIn"><a href="#/accountinfo" translate="HEADER_CONSTANTS.MY_ACCOUNT"></a></li>
+                <li ng-show="isUserLoggedIn" ng-click="goToAccountInfo()"><a translate="HEADER_CONSTANTS.MY_ACCOUNT"></a></li>
                 <li>
                     <a class="language-buttons">
                         <div class="language-button" ng-click="changeLanguage('es')"

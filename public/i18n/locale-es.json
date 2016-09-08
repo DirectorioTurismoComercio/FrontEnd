@@ -1,6 +1,6 @@
 {
   "HEADER_CONSTANTS": {
-    "LOGIN_TRADER": "Ingreso comerciante",
+    "LOGIN_TRADER": "Ingreso para comerciantes",
     "REGISTER_BUSINESS": "Registra tu negocio",
     "LOG_OUT": "Cerrar sesión",
     "MY_ACCOUNT": "Mi cuenta"
@@ -30,15 +30,15 @@
   "HOW_IT_WORKS": {
     "TITLE": "Es muy fácil! Así es como funciona:",
     "DESCRIPTION_1": "Cundinamarca tiene para ti muchas experiencias y destinos maravillosos",
-    "DESCRIPTION_2": "De Tour por Cundinamarca te ayuda a buscar según tus intereses y a descubrir el departamento",
-    "DESCRIPTION_3": "Disfruta de nuevas aventuras que te esperan"
+    "DESCRIPTION_2": "De Tour por Cundinamarca te ayuda a buscar según tus intereses y así descubrir el departamento",
+    "DESCRIPTION_3": "¡Disfruta de todas las aventuras que esperan por ti!"
   },
   "HOW_IT_WORKS_TRADER": {
     "PAGE_TITLE": "De Tour por Cundinamarca funciona así:",
-    "DESCRIPTION_1": "Crea el perfil para tu negocio; es gratis",
+    "DESCRIPTION_1": "Crea el perfil para tu negocio; es totalmente gratis",
     "DESCRIPTION_2": "Muestra tus productos y servicios en internet",
-    "DESCRIPTION_3": "Haz visible tu negocio para el 50% del turismo nacional",
-    "REGISTER_BUTTON": "Inscribe tu comercio ahora"
+    "DESCRIPTION_3": "Haz visible tu negocio para el 48% del turismo nacional",
+    "REGISTER_BUTTON": "¡Inscribe tu comercio ahora!"
   },
   "REGISTER_USER_CONSTANTS": {
     "CREATE_ACCOUNT": "Crea tu cuenta",
@@ -59,23 +59,27 @@
     "REQUIRED_FIELD": "campo obligatorio*"
   },
   "REGISTER_MUNICIPALITY_CONSTANTS": {
-    "CREATE_ACCOUNT": "Crea tu cuenta de municipio",
+    "CREATE_ACCOUNT": "Crea la cuenta del municipio",
     "NAME": "Nombre del municipio",
-    "MUNICIPALITY_ALREADY_REGISTER":"¿Ya tienes cuenta de municipio?",
+    "MUNICIPALITY_ALREADY_REGISTER":"¿El  municipio ya tiene cuenta?",
     "REGISTER_MUNICIPALITY":"Registro municipio",
     "MUNICIPALITY_INFORMATION": "Información del municipio",
-    "MUNICIPALITY_DESCRIPTION":"Describe el municipio",
+    "MUNICIPALITY_DESCRIPTION":"Descripción del municipio",
     "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Información de punto de atención al ciudadano",
-    "MUNICIPALITY_OPENINGHOURS_TEXT":"Escribe los dias y horarios de atención del sitio de atención al ciudadano. Ejemplo: ",
-    "MUNICIPALITY_LOCATION": "Ubicación de punto de atención",
-    "MUNICIPALITY_ADDRESS": "Dirección punto de turismo",
+    "MUNICIPALITY_OPENINGHOURS_TEXT":"Escribe los dias y horarios del punto de atención al ciudadano. Ejemplo: ",
+    "MUNICIPALITY_LOCATION": "Ubicación del punto de atención",
+    "MUNICIPALITY_ADDRESS": "Dirección del punto de turismo",
     "MUNICIPALITY_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa dónde se encuentra el punto de atención al ciudadano",
     "MUNICIPALITY_LOCATION_TIP": "Puedes colocar un marcador en el mapa sobre la ubicación exacta del punto de atención al ciudadano",
     "MUNICIPALITY_PHOTOS_PAGE": "Fotografías del municipio",
     "UPLOAD_MAIN_PHOTO_TIP": "Sube una fotografía para identificar el municipio dentro de la plataforma",
     "UPLOAD_SECONDARY_PHOTOS_TIP": "Sube una o varias fotografías del municipio para que los usuarios lo conozcan",
     "MUNICIPALITY_GENERAL_PHOTOS": "Fotos del municipio",
-    "MUNICIPALITY_ANTHEM_PHOTOS": "Foto del escudo del municipio"
+    "MUNICIPALITY_ANTHEM_PHOTOS": "Foto del escudo del municipio",
+    "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio. Ten en cuenta que la información que inscribiste sólo será visible después de ser corroborada por el administrador. Recibirás una confirmación via correo electrónico cuando el proceso esté completo.",
+    "COMPLETE_MUNICIPALITY_UPLOAD_TEXT": "La información de tu municipio ha sido actualizada"
+
+
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Descripción",
@@ -115,8 +119,8 @@
     "CHOOSE_CATEGORY": "-- Elige categoria --",
     "CHOOSE_CATEGORY_TEXT": "Selecciona la categoría que corresponda a la actividad principal de tu negocio",
     "CHOOSE_AUXILIAR_CATEGORY_TEXT": "Selecciona la categoria que corresponda a la actividad adicional de tu negocio",
-    "CHOOSE_OTHER_CATEGORY_TEXT": "Si tu negocio tiene otras actividades comerciales puedes añadir 2 categorias adicionales",
-    "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "Si tu negocio tiene otras actividades comerciales puedes añadir 1 categoria adicional",
+    "CHOOSE_OTHER_CATEGORY_TEXT": "Si tu negocio tiene otras actividades comerciales, puedes añadir dos categorias adicionales",
+    "CHOOSE_OTHER_CATEGORY_TEXT_SECOND": "Si tu negocio tiene otras actividades comerciales, puedes añadir una categoria adicional",
     "MAIN_CATEGORY": "Categoría principal",
     "ADDITIONAL_CATEGORY_1": "Categoría adicional 1",
     "ADDITIONAL_CATEGORY_2": "Categoría adicional 2",
@@ -150,13 +154,13 @@
   },
   "LOGIN": {
     "TRADER_LOGIN": "Ingreso de comerciantes",
-    "MUNICIPALITY_LOGIN":"Ingreso Municipio",
+    "MUNICIPALITY_LOGIN":"Ingreso municipio",
     "LOGIN_WITH_SOCIAL_NETWORKS": "Ingresa con tus redes",
     "LOGIN_WITH_FACEBOOK": "Ingresa con Facebook",
     "LOGIN_WITH_GOOGLE": "Ingresa con Google",
     "LOGIN_WITH_ACCOUNT": "O ingresa con tu cuenta",
     "EMAIL_INPUT": "e-mail",
-    "EMAIL_MUNICIPAPLITY_INPUT": "correo municipio",
+    "EMAIL_MUNICIPAPLITY_INPUT": "Correo municipio",
     "PASSWORD_INPUT": "Contraseña",
     "FORGOTTEN_PASSWORD": "¿Has olvidado tu contraseña?",
     "LOGIN_BUTTON": "Iniciar sesión",
@@ -164,7 +168,7 @@
     "FORGOT_MUNICIPALITY_PASWORD":"¿Olvidaste la contraseña?",
     "REGISTER": "Regístrate",
     "PASSWORD_LENGTH": "La contraseña debe tener mínimo 6 caracteres*",
-    "ADMINISTRATOR_ACCESS_REQUEST":"Solicita acceso al administardor"
+    "ADMINISTRATOR_ACCESS_REQUEST":"Solicita acceso al administrador"
   },
   "ACCOUNT_INFO": {
     "ACCOUNT_INFO_TITLE": "Mi cuenta",
@@ -177,7 +181,9 @@
     "ADD_BUSINESS": "Añadir un negocio",
     "EDIT_BUTTON": "Editar",
     "PASSWORDS_MUST_BE_EQUAL": "La contraseña de confirmación debe coincidir con la nueva contraseña*",
-    "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "La contraseña nueva debe ser diferente a la antigua*."
+    "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "La contraseña nueva debe ser diferente a la antigua*.",
+    "REGISTERED_MUNICIPALITY":"Municipio registrado",
+    "ADD_MUNICIPALITY":"Añadir un municipio"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
@@ -187,15 +193,15 @@
   "SUCCESS_TITLE_MESSAGE": "Bienvenido",
   "REGISTER_COMPLETE": "El registro fue exitoso",
   "HOW_TO_GET_THERE": "¿Cómo llegar?",
-  "DESTINY": "Destino",
-  "INITIAL_PLACE":"Lugar inicial",
+  "DESTINY": "Mi destino",
+  "INITIAL_PLACE":"Volver a  mi destino",
   "GET_SITES_ERROR": "No es posible usar el buscador en este momento intentalo más tarde o vuelve a cargar la página",
   "GET_TOWNS_ERROR": "No es posible cargar el listado de municipios, por favor intentalo más tarde o vuelve a cargar la página",
   "NO_RESULTS": "Lo sentimos, no hay resultados para esta búsqueda. Por favor intente con otras palabras",
   "BAD_LOGIN": "El usuario o contraseña son incorrectos",
   "REGISTER_SUCCESS": "Ya formas parte de la comunidad Marca_app. Ahora puedes registrar tu comercio, entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
-  "REGISTER_MUNICIPALITY_SUCCESS":"Ya formas parte de la comunidad Marca_app, Ahora puedes registrar tu municipio",
-  "CONTACT_INFO": "Si tiene algun problema, duda o sugerencia puede escribirnos a",
+  "REGISTER_MUNICIPALITY_SUCCESS":"Ya formas parte de la comunidad De Tour por Cundinamarca, Ahora puedes registrar la información del municipio",
+  "CONTACT_INFO": "Si tienes problemas al utilizar la app, alguna duda o sugerencia, puedes escribirnos a: ",
   "E100": "Error de comunicación con el servidor, intente nuevamente.",
   "E101": "El correo ya existe",
   "E102": "El password debe ser de al menos 6 caracteres",
@@ -205,6 +211,10 @@
   "TOURISTS":"Turistas",
   "TRADERS":"Comerciantes",
   "MUNICIPALITIES":"Municipios",
-  "LABORATORIOS_VIRTUALES":"© Laboratorios virtuales"
+  "LABORATORIOS_VIRTUALES":"© Laboratorios virtuales",
+  "INCORRECT_ACCOUNT_TYPE_MUNICIPALITY":"Parece que tu cuenta es de municipio, por favor inicia sesión como municipio",
+  "INCORRECT_ACCOUNT_TYPE_TRADER":"Parece que tu cuenta es de comerciante, por favor inicia sesión como comerciante",
+  "TIMEOUT_CONNECTION_ERROR":"Está tardando demasiado la respuesta del servidor, por favor revisa tu conexión a internet o vuelve a intentarlo más tarde",
+  "ROUTE_SITES":"Otros sitios en la ruta"
 
 }

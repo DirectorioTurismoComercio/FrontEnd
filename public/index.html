@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="components/bootstrap-social/bootstrap-social.css"/>
     <link rel="stylesheet" href="components/fontawesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="js/map/map.css">
+    <link rel="stylesheet" href="js/map/route-controls.css">
     <link rel="stylesheet" href="js/registerSite/registerSite.css">
     <link rel="stylesheet" href="js/registerSite/category/category.css">
     <link rel="stylesheet" href="js/registerSite/location/location.css">
@@ -30,7 +31,6 @@
     <link rel="stylesheet" href="js/custom_components/carousel/jcarousel.connected-carousels.css">
 
     <script src="components/jquery/dist/jquery.min.js"></script>
-
 
 
     <script type="text/javascript" src="components/angular/angular.js"></script>
@@ -83,7 +83,7 @@
 </head>
 
 <body ng-app="gemStore">
-<div ng-view="" class=""></div>
+<div ng-view="" autoscroll="true" class=""></div>
 
 <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 
@@ -98,7 +98,8 @@
 <script type="text/javascript" src="components/satellizer/satellizer.min.js"></script>
 
 
-<link rel="stylesheet" href="components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" type="text/css"/>
+<link rel="stylesheet" href="components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css"
+      type="text/css"/>
 <script src="components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="components/ng-scrollbars/dist/scrollbars.min.js"></script>
 
@@ -143,11 +144,17 @@
 <script type="text/javascript" src="js/registerTrader/registerTrader.controller.js"></script>
 <script type="text/javascript" src="js/login/login.controller.js"></script>
 <script type="text/javascript" src="js/accountInfo/accountInfo.controller.js"></script>
-<script type="text/javascript" src="js/municipality/registerMunicipalityAccount/registerMunicipality.controller.js"></script>
+<script type="text/javascript"
+        src="js/municipality/registerMunicipalityAccount/registerMunicipality.controller.js"></script>
 <script type="text/javascript" src="js/municipality/loginMunicipality/loginMunicipality.controller.js"></script>
-<script type="text/javascript" src="js/municipality/registerMunicipalityInformation/municipalityInfo/municipalityInfo.controller.js"></script>
-<script type="text/javascript" src="js/municipality/registerMunicipalityInformation/municipalityLocation/municipalityLocation.controller.js"></script>
-<script type="text/javascript" src="js/municipality/registerMunicipalityInformation/municipalityPhotos/municipalityPhotos.controller.js"></script>
+<script type="text/javascript"
+        src="js/municipality/registerMunicipalityInformation/municipalityInfo/municipalityInfo.controller.js"></script>
+<script type="text/javascript"
+        src="js/municipality/registerMunicipalityInformation/municipalityLocation/municipalityLocation.controller.js"></script>
+<script type="text/javascript"
+        src="js/municipality/registerMunicipalityInformation/municipalityPhotos/municipalityPhotos.controller.js"></script>
+<script type="text/javascript"
+        src="js/municipality/municipalityAccountInfo/municipalityAccountInfo.controller.js"></script>
 
 
 <!-- directives -->
@@ -199,12 +206,15 @@
 
 <script type="text/javascript" src="js/utils/utils.module.js"></script>
 <script type="text/javascript" src="js/utils/image.service.js"></script>
+<script type="text/javascript" src="js/utils/serverConection.service.js"></script>
+
 
 
 <script type="text/javascript" src="js/custom_components/autocomplete.js"></script>
 <script type="text/javascript" src="js/utils/formValidatior.service.js"></script>
 
-<script type="text/javascript" src="js/municipality/registerMunicipalityInformation/municipalityInformation.service.js"></script>
+<script type="text/javascript"
+        src="js/municipality/registerMunicipalityInformation/municipalityInformation.service.js"></script>
 
 
 <!-- Revisar para que quede local y no desde internet -->

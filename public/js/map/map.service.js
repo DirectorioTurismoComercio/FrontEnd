@@ -72,8 +72,8 @@ angular.module('map')
             return isPlaceInsideRegion(latLngLiteralPlaceLocation, CUNDINAMARCA_COORDS);
         }
 
-        function addMarker(position, label, icon) {
-            var marker = new MarkerWithLabel({
+        function addMarker(position, label, icon,customZIndex) {
+           var marker = new MarkerWithLabel({
                 position: position,
                 map: gMap,
                 labelContent: label,
@@ -84,6 +84,10 @@ angular.module('map')
                 labelStyle: {
                     "font-weight": "bold",
                     opacity: 1
+                },
+                options:{
+                    zIndex:customZIndex||1,
+                    optimized: false
                 }
             });
 
@@ -103,6 +107,35 @@ angular.module('map')
             marker.lightedIcon = lightedIcon;
 
             return marker;
+        }
+
+        function addMarkerMunicipalityWithIcon(position){
+            var generalIcon = getMunicipalityGeneralIcon();
+            var normalIcon=getMunicipalityNormalIcon();
+            var lightedIcon = getMunicipalityLightedIcon();
+            var marker = addMarker(position, '', normalIcon);
+            marker.normalIcon = normalIcon;
+            marker.generalIcon = generalIcon;
+            marker.lightedIcon = lightedIcon;
+            return marker;
+        }
+
+        function getMunicipalityGeneralIcon(){
+            var iconSize=60;
+            var url = './images/icons/categories/Municipio.png';
+            return createIcon(url, iconSize);
+        }
+
+        function getMunicipalityNormalIcon(){
+            var iconSize=60;
+            var url = './images/icons/categories/pin-municipio.png';
+            return createIcon(url, iconSize);
+        }
+
+        function getMunicipalityLightedIcon(){
+            var iconSize=80;
+            var url = './images/icons/categories/lighted/pin-municipio-activo.png';
+            return createIcon(url, iconSize);
         }
 
         function getCategoryNormalIcon(categorySite) {
@@ -213,6 +246,7 @@ angular.module('map')
             clearRoute: clearRoute,
             setPinOnUserPosition: setPinOnUserPosition,
             addMarkerWithCategoryIcon: addMarkerWithCategoryIcon,
-            createIcon: createIcon
+            createIcon: createIcon,
+            addMarkerMunicipalityWithIcon:addMarkerMunicipalityWithIcon
         }
     });

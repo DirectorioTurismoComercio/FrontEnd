@@ -8,8 +8,7 @@ angular.module('home')
         siteAndTownSaverService.resetSearchAndRoute();
         siteAndTownSaverService.setSelectedCategory(undefined);
 
-        $scope.howItWorksImage = $window.innerWidth < 992 ? 'movil-como-funciona-comerciante.png' : 'desktop-como-funciona-comerciante.png';
-
+        setHowItWorksTraderImage('como-funciona-comerciante-home_mob-esp.jpg', 'como-funciona-comerciante-home-esp.jpg');
 
         $scope.doSearch = function (result) {
             if (result != undefined) {
@@ -36,11 +35,11 @@ angular.module('home')
 
         $rootScope.$on('$translateChangeSuccess', function () {
             if ($translate.use() == 'es') {
-               console.log("esta en español");
+                setHowItWorksTraderImage('como-funciona-comerciante-home_mob-esp.jpg', 'como-funciona-comerciante-home-esp.jpg');
             }
 
             if ($translate.use() == 'en') {
-                console.log("esta en español");
+                setHowItWorksTraderImage('como-funciona-comerciante-home_mob-eng.jpg', 'como-funciona-comerciante-home-eng.jpg');
             }
 
         });
@@ -57,6 +56,11 @@ angular.module('home')
             }).catch(function (error) {
                 messageService.showErrorMessage("GET_SITES_ERROR");
             });
+        }
+
+        function setHowItWorksTraderImage(imageMobile, imageDesktop){
+            $scope.howItWorksImage = $window.innerWidth < 992 ? imageMobile : imageDesktop;
+
         }
     })
 ;

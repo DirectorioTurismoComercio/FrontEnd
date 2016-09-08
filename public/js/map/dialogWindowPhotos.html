@@ -1,27 +1,30 @@
-<div style="flex-flow: column wrap;" class="row popup-carousel slick-height carousel-photos-display-desktop" ng-if="selectedSite.fotos">
-
-    <div class="text-center" ng-click="closeDialogWindowPhotos()">
-        <img class="close-button" src="./images/icons/site-detail/cerrar.png">
+<div style="flex-flow: column wrap;" class="row popup-carousel slick-height carousel-photos-display-desktop"
+     ng-if="selectedSite.fotos">
+    <div class="text-center">
+        <img class="close-button" src="./images/icons/site-detail/cerrar.png" ng-click="closeDialogWindowPhotos()">
     </div>
 
 
-    <slick infinite="true" fade="true" css-ease="linear" speed="200" next-arrow=".right" prev-arrow=".left">
-        <div style="display: flex; flex-flow: row wrap; justify-content: center" ng-repeat="photo in selectedSite.fotos">
+    <slick infinite="true" fade="true" css-ease="linear" speed="200" next-arrow=".right" prev-arrow=".left"
+           ng-click="closeDialogWindowPhotos()">
+        <div style="display: flex; flex-flow: row wrap; justify-content: center"
+             ng-repeat="photo in selectedSite.fotos">
             <img class="icon photos-carousel-arrow left" src="./images/icons/site-detail/flecha-atras.png"/>
-            <img style="min-height: 800px; width: auto !important"  class="image" ng-src="%%photo.URLfoto%%"/>
-            <img class="icon photos-carousel-arrow right" src="./images/icons/site-detail/flecha-adelante.png" />
+            <img style="min-height: 800px; width: auto !important" class="image" ng-src="%%photo.URLfoto%%"
+                 ng-click="imageClicked()"/>
+            <img class="icon photos-carousel-arrow right" src="./images/icons/site-detail/flecha-adelante.png"/>
         </div>
     </slick>
-
 </div>
 
-<div class="row popup-carousel carousel-photos-display-mobile" ng-if="selectedSite.fotos">
-    <div class="text-center" ng-click="closeDialogWindowPhotos()">
-        <img class="close-button" src="./images/icons/site-detail/cerrar.png">
+<div class="row popup-carousel carousel-photos-display-mobile" ng-if="selectedSite.fotos"
+     ng-click="closeDialogWindowPhotos()">
+    <div class="text-center">
+        <img class="close-button" src="./images/icons/site-detail/cerrar.png" ng-click="closeDialogWindowPhotos()">
     </div>
     <ul rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex" class="carousel">
         <li ng-repeat="photo in selectedSite.fotos" class="text-center">
-            <img class="image" ng-src="%%photo.URLfoto%%"/>
+            <img class="image" ng-src="%%photo.URLfoto%%" ng-click="imageClicked()"/>
         </li>
     </ul>
 </div>
