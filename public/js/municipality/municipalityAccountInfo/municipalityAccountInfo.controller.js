@@ -25,7 +25,6 @@ angular.module('Municipality')
             $scope.addedMunicipalityes=[];
             for(var i=0; i<$scope.user.sitios.length; i++){
                 if($scope.user.sitios[i].tipo_sitio=='S'){
-                    console.log("entro al sitio");
                     $scope.municipalitySites.push($scope.user.sitios[i]);
                 }
 
@@ -33,7 +32,6 @@ angular.module('Municipality')
                     $scope.addedMunicipalityes.push($scope.user.sitios[i]);
                 }
             }
-            console.log("separados", $scope.municipalitySites);
         }
 
         $scope.$watch('user.email', function () {
@@ -189,7 +187,6 @@ angular.module('Municipality')
 
 
         }
-
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
             if (next.$$route.controller == 'municipalityphotos' || next.$$route.controller == 'loginmunicipality') {
