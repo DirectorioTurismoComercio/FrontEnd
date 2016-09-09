@@ -16,7 +16,7 @@ angular.module('registerSite')
         $scope.businessDescription = siteInformationService.businessDescription;
         $scope.tags = siteInformationService.tags;
         $scope.businessEmail = siteInformationService.businessEmail;
-        $scope.businessAddress = siteInformationService.businessAddress
+        $scope.businessAddress = siteInformationService.businessAddress;
         $scope.businessMunicipality = siteInformationService.businessMunicipality;
         $scope.isInMunicipalitySite=false;
         checkBusinessType();
@@ -24,6 +24,7 @@ angular.module('registerSite')
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
         $scope.user = authenticationService.getUser();
+
 
         categories.getCategories().then(function (response) {
             $scope.categories = response;
@@ -44,7 +45,6 @@ angular.module('registerSite')
             } else {
                 $scope.showRequiredFieldMessage = true;
             }
-
 
         };
         $scope.changeViewHome = function () {
@@ -72,7 +72,7 @@ angular.module('registerSite')
         }
 
         function checkBusinessType() {
-            if (!$scope.businessMunicipality) {
+            if (!$scope.businessMunicipality || $scope.user.tipo_cuenta=="M" ) {
                 $scope.businessMunicipality = municipalityInformationService.getMunicipalityName();
                 if ($scope.businessMunicipality) {
                     $scope.isInMunicipalitySite = true;
