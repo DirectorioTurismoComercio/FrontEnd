@@ -18,13 +18,8 @@ angular.module('registerSite')
         $scope.businessEmail = siteInformationService.businessEmail;
         $scope.businessAddress = siteInformationService.businessAddress
         $scope.businessMunicipality = siteInformationService.businessMunicipality;
-
-        if(!$scope.businessMunicipality){
-            $scope.businessMunicipality= municipalityInformationService.getMunicipalityName();
-            console.log($scope.businessMunicipality);
-        }
-
-
+        $scope.isInMunicipalitySite=false;
+        checkBusinessType();
 
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
@@ -74,6 +69,15 @@ angular.module('registerSite')
         $scope.updateSite = function () {
             console.log("emiting...");
             $scope.$emit('saveSite');
+        }
+
+        function checkBusinessType() {
+            if (!$scope.businessMunicipality) {
+                $scope.businessMunicipality = municipalityInformationService.getMunicipalityName();
+                if ($scope.businessMunicipality) {
+                    $scope.isInMunicipalitySite = true;
+                }
+            }
         }
 
 

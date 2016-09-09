@@ -75,13 +75,18 @@
                            translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WEB"/>
                 </div>
             </div>
+
+
+
             <div class="topMarginElements col-xs-12">
                 <select ng-model="businessMunicipality"
                         ng-options="obj.nombre for obj in municipalities track by obj.id"
                         name="municipality"
                         class="form-control businessAddressInput businessAddressText"
+                        ng-class="isInMunicipalitySite?'disabled-color':''"
                         ng-change="deleteBusinessLocation()"
-                        required>
+                        required
+                        ng-disabled="isInMunicipalitySite">
                     <option value="" translate="REGISTER_SITE_CONSTANTS.SELECT_TOWN"></option>
                 </select>
                 <i ng-show="businessMunicipality==undefined"
@@ -90,6 +95,7 @@
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
             </div>
+
 
             <div class="input topMarginElements col-xs-12">
                         <textarea placeholder="Regular Placeholder" translate
