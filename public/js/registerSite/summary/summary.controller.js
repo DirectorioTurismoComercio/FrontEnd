@@ -3,7 +3,7 @@
 angular.module('registerSite')
     .controller('summaryController', function ($scope, $auth, $http, MapService, uiGmapIsReady, messageService,
                                                     API_CONFIG, categories,
-                                                    $location, MunicipiosFactory, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog, $cookies) {
+                                                    $location, MunicipiosFactory,navigationService, authenticationService, siteAndTownSaverService, siteInformationService, $translate, geolocation, ngDialog, $cookies) {
 
 
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
@@ -26,7 +26,8 @@ angular.module('registerSite')
 
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
-        
+
+        $scope.user = authenticationService.getUser();
 
         categories.getCategories().then(function (response) {
             $scope.categories = response;
@@ -73,7 +74,7 @@ angular.module('registerSite')
 
         $scope.doneRegistration = function () {
             ngDialog.close();
-            $location.path('accountinfo');
+            navigationService.accountInfoRoute($scope.user);
         }
 
 

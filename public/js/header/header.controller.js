@@ -1,5 +1,5 @@
 angular.module('appHeader', [])
-    .controller('appHeaderController', function ($scope, $translate, $location, siteInformationService, siteAndTownSaverService, isUserLoggedIn, authenticationService, $auth, $route, municipalityInformationService) {
+    .controller('appHeaderController', function ($scope, $translate, $location, navigationService, siteInformationService, siteAndTownSaverService, isUserLoggedIn, authenticationService, $auth, $route, municipalityInformationService) {
 
         $scope.selectedLanguage = $translate.use();
         $scope.isUserLoggedIn = isUserLoggedIn();
@@ -27,7 +27,7 @@ angular.module('appHeader', [])
         }
 
         $scope.goToAccountInfo = function () {
-            $scope.user.tipo_cuenta == "M" ? $location.path("/municipalityaccountinfo") : $location.path("/accountinfo");
+            navigationService.accountInfoRoute($scope.user);
         }
 
         function clearData() {

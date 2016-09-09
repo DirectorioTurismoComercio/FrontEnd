@@ -4,7 +4,7 @@ angular.module('registerSite')
     .controller('businessInformationController', function ($scope, $auth, $http, messageService,
                                                            API_CONFIG, categories,
                                                            $location, MunicipiosFactory, authenticationService, siteAndTownSaverService,
-                                                           siteInformationService, $translate, navigationService) {
+                                                           siteInformationService, $translate, navigationService, municipalityInformationService) {
 
 
         $scope.sitePhoneNumber = siteInformationService.sitePhoneNumber;
@@ -18,9 +18,13 @@ angular.module('registerSite')
         $scope.businessEmail = siteInformationService.businessEmail;
         $scope.businessAddress = siteInformationService.businessAddress;
         $scope.businessMunicipality = siteInformationService.businessMunicipality;
+        $scope.isInMunicipalitySite=false;
+        checkBusinessType();
 
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
+        $scope.user = authenticationService.getUser();
+
 
         categories.getCategories().then(function (response) {
             $scope.categories = response;
@@ -42,10 +46,9 @@ angular.module('registerSite')
                 $scope.showRequiredFieldMessage = true;
             }
 
-
         };
         $scope.changeViewHome = function () {
-            navigationService.cameToBusinessInformationThrough == 'registertrader' ? $location.path('/home') : $location.path('/accountinfo');
+            navigationService.accountInfoRoute($scope.user);
         };
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
@@ -66,6 +69,15 @@ angular.module('registerSite')
         $scope.updateSite = function () {
             console.log("emiting...");
             $scope.$emit('saveSite');
+        }
+
+        function checkBusinessType() {
+            if (!$scope.businessMunicipality || $scope.user.tipo_cuenta=="M" ) {
+                $scope.businessMunicipality = municipalityInformationService.getMunicipalityName();
+                if ($scope.businessMunicipality) {
+                    $scope.isInMunicipalitySite = true;
+                }
+            }
         }
 
 

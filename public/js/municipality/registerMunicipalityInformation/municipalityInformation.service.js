@@ -15,6 +15,7 @@ angular.module('Municipality')
         var municipalityFacadePhotos = [];
         var municiplaityURLPhotos = undefined;
         var municipalityId = undefined;
+        var municipalityName=undefined;
 
 
         return {
@@ -56,6 +57,8 @@ angular.module('Municipality')
 
             setMunicipalityId: setMunicipalityId,
             getMunicipalityId: getMunicipalityId,
+            setMunicipalityName:setMunicipalityName,
+            getMunicipalityName:getMunicipalityName,
 
             sendMunicipalityDataToServer: sendMunicipalityDataToServer,
             resetData: resetData
@@ -165,6 +168,14 @@ angular.module('Municipality')
             return municipalityId;
         }
 
+        function setMunicipalityName(name) {
+            municipalityName = name;
+        }
+
+        function getMunicipalityName() {
+            return municipalityName;
+        }
+
         function resetData() {
             municipalitySelected = undefined;
             municipalityPhoneNumber = undefined;
@@ -179,6 +190,7 @@ angular.module('Municipality')
             municipalityFacadePhotos = [];
             municiplaityURLPhotos = undefined;
             municipalityId = undefined;
+            municipalityName=undefined;
         }
 
         function sendMunicipalityDataToServer(successFunction, errorFunction) {

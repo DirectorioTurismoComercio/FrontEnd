@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityAccountInfoController', function ($scope, $location,$mdDialog, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog, authenticationService, formValidator, $translate) {
+    .controller('municipalityAccountInfoController', function ($scope, $location,$mdDialog, filterFilter, siteInformationService, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog, authenticationService, formValidator, $translate) {
 
         $scope.showRequiredFieldMessage = false;
         $scope.user = authenticationService.getUser();
@@ -15,7 +15,24 @@ angular.module('Municipality')
         authenticationService.getUserData($scope.user.token)
             .success(function (response) {
                 $scope.user = response;
+                splitSites();
+
             });
+
+        function  splitSites(){
+            $scope.municipalitySites=[];
+            $scope.addedMunicipalityes=[];
+            for(var i=0; i<$scope.user.sitios.length; i++){
+                if($scope.user.sitios[i].tipo_sitio=='S'){
+                    $scope.municipalitySites.push($scope.user.sitios[i]);
+                }
+
+                if($scope.user.sitios[i].tipo_sitio=='M'){
+                    $scope.addedMunicipalityes.push($scope.user.sitios[i]);
+                    municipalityInformationService.setMunicipalityName($scope.user.sitios[i].municipio);
+                }
+            }
+        }
 
         $scope.$watch('user.email', function () {
             $scope.isValidEmail = formValidator.isValidEmail($scope.user.email);
@@ -127,11 +144,17 @@ angular.module('Municipality')
             );
         }
 
-        $scope.addBusiness = function () {
+        $scope.addMunicipality = function () {
             municipalityInformationService.resetData();
             $location.path('municipalityinfo');
         }
-        $scope.editSite = function (sitio) {
+
+        $scope.addBusiness=function(){
+            siteInformationService.clearData(siteInformationService);
+            $location.path('businessinformation');
+        }
+
+        $scope.editMunicipality = function (sitio) {
 
             municipalityInformationService.setMunicipalityId(sitio.id);
             municipalityInformationService.setMunicipalityPhoneNumber(sitio.telefono);
@@ -147,6 +170,55 @@ angular.module('Municipality')
             $location.path('/municipalityinfo');
         }
 
+        $scope.editSite = function (sitio) {
+            var siteCategories = [];
+            var firstCategory, secondCategory, thirdCategory;
+            siteInformationService.siteId = sitio.id;
+            siteInformationService.sitePhoneNumber = sitio.telefono;
+            siteInformationService.whatsapp = sitio.whatsapp;
+            siteInformationService.web = sitio.web;
+            siteInformationService.openingHours = sitio.horariolocal;
+            siteInformationService.businessName = sitio.nombre;
+            siteInformationService.businessLocation = {lat: parseFloat(sitio.latitud), lng: parseFloat(sitio.longitud)};
+            siteInformationService.businessDescription = sitio.descripcion;
+            siteInformationService.tags = sitio.tags;
+            siteInformationService.businessEmail = sitio.correolocal;
+            siteInformationService.businessAddress = sitio.ubicacionlocal;
+            siteInformationService.businessCategories = {id: sitio.categorias[0]};
+            siteInformationService.URLphotos = sitio.fotos;
+            siteInformationService.businessMunicipality = sitio.municipio;
+            firstCategory = filterFilter(sitio.categorias, {tipo: 1})[0]
+            secondCategory = filterFilter(sitio.categorias, {tipo: 2})[0]
+            thirdCategory = filterFilter(sitio.categorias, {tipo: 3})[0]
+            if (firstCategory) siteInformationService.firstCategory = firstCategory.categoria;
+            if (secondCategory) siteInformationService.secondCategory = secondCategory.categoria;
+            if (thirdCategory) siteInformationService.thirdCategory = thirdCategory.categoria;
+
+            for (var i = 0; i < sitio.categorias.length; i++) {
+                siteCategories.push(sitio.categorias[i].categoria);
+            }
+
+            siteInformationService.businessSubcategories = {subcategories: siteCategories};
+            $location.path('businessinformation');
+        }
+
+        $scope.deleteSite = function (sitio) {
+            messageService.confirmMessage("¿Está seguro que desea borrar este sitio?", "Borrar sitio", removeSiteFromServer, sitio);
+
+        }
+        function removeSiteFromServer(sitio) {
+            $http.delete(API_CONFIG.url + "/sitio/detail/" + sitio.id,
+                {
+                    headers: {'Authorization': 'Token ' + authenticationService.getUser().token}
+                }).success(function (d) {
+                $scope.municipalitySites.splice($scope.municipalitySites.indexOf(sitio), 1);
+            }).error(function (error) {
+                console.log("hubo un error al borrar", error);
+
+            });
+
+
+        }
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
             if (next.$$route.controller == 'municipalityphotos' || next.$$route.controller == 'loginmunicipality') {
