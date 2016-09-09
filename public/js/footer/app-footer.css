@@ -1,10 +1,13 @@
-.app-footer .img {
-    background: #fff url("../../images/icons/footer/a.Extra-small-device-new.png") center no-repeat;
-    background-size: auto 180px;
-    height: 200px;
+.app-footer .partner {
+    text-align: center;
+    margin: 15px 0;
 }
 
-.contact-info-container{
+.app-footer .partner img {
+    max-width: 100%;
+}
+
+.contact-info-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -24,90 +27,63 @@
     display: inline-block;
 }
 
-.contact-info a{
+.contact-info a {
     text-decoration: none;
 }
 
-.contact-info ul{
+.contact-info ul {
     list-style-type: none;
 }
 
-.footer-text{
+.footer-text {
     color: #0a3c5a;
     font-family: 'PT Sans', sans-serif;
     font-weight: normal;
     margin-bottom: 10px;
 }
 
-.footer-title{
+.footer-title {
     font-weight: bold;
     margin-top: 10px;
 }
 
-.footer-background-color{
+.footer-background-color {
     background-color: #97d3e8;
 }
 
-.footer-separator{
+.footer-separator {
     height: 2px;
     width: 90%;
     margin-left: 5%;
 }
 
-.separator-blue{
+.separator-blue {
     background-color: #32a2d4
 }
 
-.separator-gray{
+.separator-gray {
     background-color: #cccccc
 }
 
-.contact-text{
+.contact-text {
     color: #FFF;
     font-family: 'PT Sans', sans-serif;
     font-weight: normal;
 }
 
-.mail-footer{
-    color:#0071bc;
+.mail-footer {
+    color: #0071bc;
     font-weight: bold;
     font-family: 'PT Sans', sans-serif;
 }
 
-
-@media (max-width: 767px) {
-    .app-footer .img {
-        background-size: auto auto;
-    }
-}
-
 @media (min-width: 768px) {
-    .app-footer .img {
-        background-image: url("../../images/icons/footer/b.Small-devices-new.png");
-        background-size: auto 121px;
-        height: 151px;
-    }
 
-    .contact-info {
-        font-size: 16px;
-    }
-    .app-footer .img {
-        background-size: auto auto;
-    }
 }
 
 @media (min-width: 992px) {
-    .app-footer .img {
-        background-image: url("../../images/icons/footer/c.Medium-devices-new.png");
-        background-size: auto 116px;
-        height: 146px;
-    }
+
 }
 
 @media (min-width: 1200px) {
-    .app-footer .img {
-        background-image: url("../../images/icons/footer/d.Large-devices-nuevo.png");
-        background-size: auto 202px;
-        height: 232px;
-    }
 }
