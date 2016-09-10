@@ -3,7 +3,7 @@ angular.module('interceptor', [])
   var numLoadings = 0;
     var responseInterceptor = {
         responseError: function(response) {
-        console.log("error",response)  
+      
         if (!(--numLoadings)) {
               $rootScope.$broadcast("loader_hide");
         }  
@@ -21,18 +21,17 @@ angular.module('interceptor', [])
             numLoadings++;  
             $rootScope.$broadcast("loader_show");
             }
-            console.log("request",numLoadings)
+            
             return config || $q.when(config)
 
 
         },
         response: function (response) {
-            console.log("response interceptor ")
+            $rootScope.$broadcast("loader_hide");
             if ((--numLoadings) === 0) {
                 
                 $rootScope.$broadcast("loader_hide");
             }
-            console.log("response interceptor ",numLoadings)
             return response || $q.when(response);
 
         },
