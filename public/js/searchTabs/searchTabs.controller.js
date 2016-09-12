@@ -114,6 +114,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         });
 
         $scope.setCategoryNameAsInputText=function(category){
+            $scope.previousSlide('subCategory');
                 if(category.isSelected){
                     category.isSelected=false;
                     $scope.result='';
