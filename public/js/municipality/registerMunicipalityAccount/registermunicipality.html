@@ -1,7 +1,7 @@
 <div class="hidden-xs hidden-sm">
     <app-header></app-header>
 </div>
-
+<loader></loader>
 <div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPort">
     <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
         <div class="header container-fluid">
@@ -66,12 +66,6 @@
    <span class="error" ng-show="submitted && municipalityInfoForm.password.$error.required"
          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
-
-            <div ng-show="registerLoading && submitted  && !municipalityInfoForm.email.$error.required && !municipalityInfoForm.lastname.$error.required && !municipalityInfoForm.municipalityName.$error.required && !municipalityInfoForm.password.$error.required"
-                 class="next-button col-xs-12 NextButtonRegister">
-                <md-progress-circular class="loading" md-mode="indeterminate"
-                ></md-progress-circular>
-            </div>
 
             <div class="registerTrader-button NextButtonRegister topMarginElements col-xs-12">
                 <button class="button" ng-click="save()"

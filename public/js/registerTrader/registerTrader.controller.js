@@ -8,7 +8,6 @@ angular.module('registerTrader')
         $scope.traderLastName = undefined;
         $scope.traderEmail = undefined;
         $scope.traderPassword;
-        $scope.registerLoading = false;
         $scope.userData = {
             nombres: undefined,
             apellidos: undefined,
@@ -66,7 +65,6 @@ angular.module('registerTrader')
             } else {
                 if ($scope.userData.correo != undefined && $scope.isValidEmail && $scope.userData.password != undefined && $scope.userData.password.length >= 6 && $scope.userData.nombres != undefined
                     && $scope.userData.apellidos != undefined) {
-                    $scope.registerLoading = true;
                     var promesa;
                     var deferred;
 
@@ -89,7 +87,6 @@ angular.module('registerTrader')
 
 
                     }).catch(function (errors) {
-                        $scope.registerLoading = false;
                         console.log("Errores retornado por el POST de agregar usuario", errors);
                         formValidator.emailAlreadyExistsShowError(errors);
                     });
@@ -106,7 +103,6 @@ angular.module('registerTrader')
         }
 
         function redirectToRegisterSite() {
-            $scope.registerLoading = false;
             navigationService.cameToBusinessInformationThrough = 'registertrader';
             ngDialog.open({
                 template: 'js/registerTrader/completeTraderRegistration.html',
@@ -119,7 +115,6 @@ angular.module('registerTrader')
         }
 
         function redirectToProfile() {
-            $scope.registerLoading = false;
             $location.path('/accountinfo');
         }
 

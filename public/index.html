@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="js/accountInfo/accountInfo.css">
     <link rel="stylesheet" href="js/custom_components/carousel/jcarousel.responsive.css">
     <link rel="stylesheet" href="js/custom_components/carousel/jcarousel.connected-carousels.css">
-
+    <link rel="stylesheet" href="js/loader/loader.css">
     <script src="components/jquery/dist/jquery.min.js"></script>
 
 
@@ -69,8 +69,7 @@
     <script type="text/javascript" src="components/ng-dialog/js/ngDialog.min.js"></script>
     <script type="text/javascript" src="components/exif.js"></script>
     <script type="text/javascript" src="components/checklist-model/checklist-model.js"></script>
-
-
+   
     <link rel="stylesheet" type="text/css" href="components/ng-dialog/css/ngDialog.css">
     <link rel="stylesheet" type="text/css" href="components/ng-dialog/css/ngDialog-theme-default.css">
 
@@ -84,7 +83,12 @@
 </head>
 
 <body ng-app="gemStore">
-<div ng-view="" autoscroll="true" class=""></div>
+<div ng-view="" autoscroll="true" class="">
+ yyy<div id="loaderDiv" loader class="hidden_loader">
+            <img src="./images/ajax-loader.gif" class="ajax-loader"/>
+        </div>
+
+</div>
 
 <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 
@@ -166,6 +170,7 @@
 <script type="text/javascript" src="js/dropDownTowns/dropDownTowns.directive.js"></script>
 <script type="text/javascript" src="js/header/header.directive.js"></script>
 <script type="text/javascript" src="js/footer/footer.directive.js"></script>
+<script type="text/javascript" src="js/loader/loader.directive.js"></script>
 
 <!-- services -->
 <script type="text/javascript" src="js/registerTrader/user.factory.js"></script>

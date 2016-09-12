@@ -9,7 +9,6 @@ angular.module('Municipality')
         };
 
         $scope.submitted = false;
-        $scope.registerLoading = false;
 
         var alreadyLoggedIn = authenticationService.getUser();
 
@@ -31,7 +30,6 @@ angular.module('Municipality')
                 messageService.showErrorMessage("DOUBLE_REGISTER_ERROR");
             }else{
                 if ($scope.municipalityData.email != undefined && $scope.isValidEmail && $scope.municipalityData.password != undefined && $scope.municipalityData.password.length >= 6 && $scope.municipalityData.name != undefined) {
-                    $scope.registerLoading = true;
 
                     var registerPromise;
                     var deferred = $q.defer();
@@ -54,7 +52,6 @@ angular.module('Municipality')
                     });
 
                     registerPromise.catch(function(e){
-                        $scope.registerLoading = false;
                         formValidator.emailAlreadyExistsShowError(e);
                     });
                 };            }
@@ -68,7 +65,6 @@ angular.module('Municipality')
         }
 
         function redirectToRegisterMunicipality(){
-            $scope.registerLoading=false;
             ngDialog.open({
                 template: 'js/municipality/registerMunicipalityAccount/completeMunicipalityRegistration.html',
                 width: 'auto',

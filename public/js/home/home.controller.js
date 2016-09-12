@@ -18,10 +18,10 @@ angular.module('home')
         }, {
             name: "Faca",
             img: "http://localhost:8000/Fotos/Fotos/3.jpg",
-            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et lorem dui. Cras finibus tempor felis in gravida. Etiam at ante ut metus congue vestibulum id non lectus. Mauris tincidunt, tortor non venenatis molestie, mauris arcu vestibulum quam, at pharetra enim lectus quis est."
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et lorem dui. Cras finibus tempor felis in gravida. Etiam at ante ut metus congue vestibulum id non lectus. Mauris tincidunt, tortor non venenatis molestie, mauris arcu vestibulum quam, at pharetra enim lectus quis est."
         }];
 
-        setHowItWorksTraderImage('como-funciona-comerciante-home_mob-esp.jpg', 'como-funciona-comerciante-home-esp.jpg');
+        setHowItWorksTraderImage();
 
         $scope.doSearch = function (result) {
             if (result != undefined) {
@@ -47,14 +47,7 @@ angular.module('home')
 
 
         $rootScope.$on('$translateChangeSuccess', function () {
-            if ($translate.use() == 'es') {
-                setHowItWorksTraderImage('como-funciona-comerciante-home_mob-esp.jpg', 'como-funciona-comerciante-home-esp.jpg');
-            }
-
-            if ($translate.use() == 'en') {
-                setHowItWorksTraderImage('como-funciona-comerciante-home_mob-eng.jpg', 'como-funciona-comerciante-home-eng.jpg');
-            }
-
+            setHowItWorksTraderImage();
         });
 
 
@@ -71,9 +64,19 @@ angular.module('home')
             });
         }
 
-        function setHowItWorksTraderImage(imageMobile, imageDesktop) {
-            $scope.howItWorksImage = $window.innerWidth < 992 ? imageMobile : imageDesktop;
 
+        function setHowItWorksTraderImage() {
+            if ($translate.use() == 'es') {
+                setHowItWorksTraderImageDevice('como-funciona-comerciante-home_mob-esp.jpg', 'como-funciona-comerciante-home-esp.jpg');
+            }
+
+            if ($translate.use() == 'en') {
+                setHowItWorksTraderImageDevice('como-funciona-comerciante-home_mob-eng.jpg', 'como-funciona-comerciante-home-eng.jpg');
+            }
+        }
+
+        function setHowItWorksTraderImageDevice(imageMobile, imageDesktop) {
+            $scope.howItWorksImage = $window.innerWidth < 992 ? imageMobile : imageDesktop;
         }
     })
 ;

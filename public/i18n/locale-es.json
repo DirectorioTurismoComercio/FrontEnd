@@ -216,5 +216,6 @@
   "INCORRECT_ACCOUNT_TYPE_TRADER": "Parece que tu cuenta es de comerciante, por favor inicia sesión como comerciante",
   "TIMEOUT_CONNECTION_ERROR": "Está tardando demasiado la respuesta del servidor, por favor revisa tu conexión a internet o vuelve a intentarlo más tarde",
   "ROUTE_SITES": "Otros sitios en la ruta",
-  "DOUBLE_REGISTER_ERROR": "Por favor cierra la sesión anterior antes de registrar otra cuenta"
+  "DOUBLE_REGISTER_ERROR": "Por favor cierra la sesión anterior antes de registrar otra cuenta",
+  "DOUBLE_LOGIN_ERROR": "Por favor cierra la sesión anterior antes de iniciar sesión con otra cuenta"
 }
