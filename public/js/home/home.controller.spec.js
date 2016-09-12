@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: HomeController', function () {
-    var homeController, $scope, deferred, location, testsiteAndTownSaverService, testmessageService, MapServiceTest, testWindow;
+    var homeController, test$translate, $scope, deferred, location, testsiteAndTownSaverService, testmessageService, MapServiceTest, testWindow;
 
     beforeEach(module('gemStore'));
     beforeEach(module('home'));
@@ -22,7 +22,7 @@ describe('Controller: HomeController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $location, siteAndTownSaverService, messageService, MapService, $window) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, $location, siteAndTownSaverService, messageService, MapService, $window, $translate) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         location = $location;
@@ -30,6 +30,7 @@ describe('Controller: HomeController', function () {
         testmessageService=messageService;
         MapServiceTest=MapService;
         testWindow=$window;
+        test$translate=$translate;
 
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
@@ -39,6 +40,7 @@ describe('Controller: HomeController', function () {
         spyOn(testsiteAndTownSaverService, 'resetSearchAndRoute');
         spyOn(MapServiceTest,'clearRoute');
         spyOn(testWindow,'innerWidth').and.returnValue(1000);
+        spyOn(test$translate,'use').and.returnValue('es');
 
 
         homeController = $controller('HomeController', {
@@ -46,7 +48,8 @@ describe('Controller: HomeController', function () {
             SearchForResultsFactory: SearchForResultsFactory,
             $location: location,
             siteAndTownSaverService:testsiteAndTownSaverService,
-            popErrorAlertService:messageService
+            popErrorAlertService:messageService,
+            $translate:test$translate
         });
     }));
 
