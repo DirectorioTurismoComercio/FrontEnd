@@ -85,7 +85,6 @@ angular.module('registerSite')
 
         function loadPhotosFromServer() {
             var i;
-            $scope.loadingPhotos = true;
             numPhotos = siteInformationService.URLphotos.length;
             for (i = 0; i < numPhotos; i++) {
                 loadPhotoFromURL(siteInformationService.URLphotos[i].URLfoto, siteInformationService.URLphotos[i].tipo);

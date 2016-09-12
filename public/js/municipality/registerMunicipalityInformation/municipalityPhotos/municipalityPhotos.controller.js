@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityPhotosController', function ($scope, $location, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog, $cookies) {
+    .controller('municipalityPhotosController', function ($scope, $location, municipalityInformationService, $rootScope, messageService, API_CONFIG, $http, ngDialog, $cookies) {
 
         $scope.$on('$viewContentLoaded', function () {
             checkSelectedPhotos();
@@ -34,7 +34,6 @@ angular.module('Municipality')
 
         $scope.doneMunicipalityRegistration = function () {
             if ($scope.flowMunicipalityMainPhoto.flow.files.length != 0 && !$scope.loadingPhotos){
-                $scope.loadingPhotos=true;
                 savePhotosTemporally();
                 $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
                 municipalityInformationService.sendMunicipalityDataToServer(openConfirmationmessage, errorSaving);
@@ -107,7 +106,6 @@ angular.module('Municipality')
 
         function loadPhotosFromServer() {
             var i;
-            $scope.loadingPhotos = true;
             numPhotos = municipalityInformationService.getMunicipalityURLPhotos().length;
             for (i = 0; i < numPhotos; i++) {
                 loadPhotoFromURL(municipalityInformationService.getMunicipalityURLPhotos()[i].URLfoto, municipalityInformationService.getMunicipalityURLPhotos()[i].tipo);
@@ -156,7 +154,6 @@ angular.module('Municipality')
         }
 
         $scope.doneRegistration = function () {
-            $scope.loadingPhotos=false;
             ngDialog.close();
             municipalityInformationService.resetData();
             $location.path('municipalityaccountinfo');
