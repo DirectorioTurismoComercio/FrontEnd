@@ -359,6 +359,10 @@ prev.search-results .map {
     font-weight: bold;
 }
 
+.category-icon{
+    margin: 0px !important;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
