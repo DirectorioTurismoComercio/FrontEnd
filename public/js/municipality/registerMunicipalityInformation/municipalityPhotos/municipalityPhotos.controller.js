@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityPhotosController', function ($scope, $location, municipalityInformationService, $rootScope, messageService, API_CONFIG, $http, ngDialog, $cookies) {
+    .controller('municipalityPhotosController', function ($scope, $location, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog, $cookies) {
 
         $scope.$on('$viewContentLoaded', function () {
             checkSelectedPhotos();
@@ -20,6 +20,7 @@ angular.module('Municipality')
         $scope.loadingMunicipalityMainPhoto = false;
         $scope.loadingCoatArmsPhoto = false
         $scope.loadingMunicipalityFacedePhotos = false;
+        $scope.loader=false;
 
         var numPhotos;
         var loadedPhotos = 0;
@@ -106,16 +107,17 @@ angular.module('Municipality')
 
         function loadPhotosFromServer() {
             var i;
-            $rootScope.$broadcast("loader_show");
+            $scope.loader = true;
             numPhotos = municipalityInformationService.getMunicipalityURLPhotos().length;
             for (i = 0; i < numPhotos; i++) {
                 loadPhotoFromURL(municipalityInformationService.getMunicipalityURLPhotos()[i].URLfoto, municipalityInformationService.getMunicipalityURLPhotos()[i].tipo);
             }
-
         }
 
         function loadPhotoFromURL(urlPhoto, tipo) {
+
             var arg = "?randnum=1"
+
             $http({
                 method: 'GET',
                 url: urlPhoto + arg,
@@ -131,7 +133,7 @@ angular.module('Municipality')
                 flowPhotos.flow.files.push(file);
                 loadedPhotos++;
                 if (loadedPhotos == numPhotos) {
-                    $rootScope.$broadcast("loader_hide");
+                    $scope.loader = false;
                 }
             }).error(function (error) {
                 console.log("hubo un error al cargar la foto", error);
@@ -154,6 +156,7 @@ angular.module('Municipality')
         }
 
         $scope.doneRegistration = function () {
+            $scope.loadingPhotos=false;
             ngDialog.close();
             municipalityInformationService.resetData();
             $location.path('municipalityaccountinfo');

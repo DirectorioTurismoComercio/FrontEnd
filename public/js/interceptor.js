@@ -27,7 +27,6 @@ angular.module('interceptor', [])
 
         },
         response: function (response) {
-            $rootScope.$broadcast("loader_hide");
             if ((--numLoadings) === 0) {
                 
                 $rootScope.$broadcast("loader_hide");
