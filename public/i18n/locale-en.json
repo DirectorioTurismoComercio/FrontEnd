@@ -7,7 +7,8 @@
   },
   "HOME_CONSTANTS": {
     "CAROUSEL_TEXT": "Discover the secrets Cundinamarca has for you",
-    "HOW_IT_WORKS": "How does it works?"
+    "HOW_IT_WORKS": "How does it works?",
+    "MUNICIPALITIES": "MUNICIPIOS"
   },
   "TABS_CONSTANTS": {
     "SEARCH_TAB": "Search",

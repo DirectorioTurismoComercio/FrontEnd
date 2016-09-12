@@ -7,6 +7,19 @@ angular.module('home')
 
         siteAndTownSaverService.resetSearchAndRoute();
         siteAndTownSaverService.setSelectedCategory(undefined);
+        $scope.municipalities = [{
+            name: "Faca",
+            img: "http://localhost:8000/Fotos/Fotos/1.jpg",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et lorem dui. Cras finibus tempor felis in gravida. Etiam at ante ut metus congue vestibulum id non lectus. Mauris tincidunt, tortor non venenatis molestie, mauris arcu vestibulum quam, at pharetra enim lectus quis est."
+        }, {
+            name: "Cota",
+            img: "http://localhost:8000/Fotos/Fotos/2.jpg",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et lorem dui. Cras finibus tempor felis in gravida. Etiam at ante ut metus congue vestibulum id non lectus. Mauris tincidunt, tortor non venenatis molestie, mauris arcu vestibulum quam, at pharetra enim lectus quis est."
+        }, {
+            name: "Faca",
+            img: "http://localhost:8000/Fotos/Fotos/3.jpg",
+            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et lorem dui. Cras finibus tempor felis in gravida. Etiam at ante ut metus congue vestibulum id non lectus. Mauris tincidunt, tortor non venenatis molestie, mauris arcu vestibulum quam, at pharetra enim lectus quis est."
+        }];
 
         setHowItWorksTraderImage('como-funciona-comerciante-home_mob-esp.jpg', 'como-funciona-comerciante-home-esp.jpg');
 
@@ -58,7 +71,7 @@ angular.module('home')
             });
         }
 
-        function setHowItWorksTraderImage(imageMobile, imageDesktop){
+        function setHowItWorksTraderImage(imageMobile, imageDesktop) {
             $scope.howItWorksImage = $window.innerWidth < 992 ? imageMobile : imageDesktop;
 
         }

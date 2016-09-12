@@ -7,7 +7,8 @@
   },
   "HOME_CONSTANTS": {
     "CAROUSEL_TEXT": "Descubre los secretos que Cundinamarca guarda para ti",
-    "HOW_IT_WORKS": "¿Cómo funciona?"
+    "HOW_IT_WORKS": "¿Cómo funciona?",
+    "MUNICIPALITIES": "MUNICIPIOS"
   },
   "TABS_CONSTANTS": {
     "SEARCH_TAB": "¿Qué buscas?",
@@ -61,12 +62,12 @@
   "REGISTER_MUNICIPALITY_CONSTANTS": {
     "CREATE_ACCOUNT": "Crea la cuenta del municipio",
     "NAME": "Nombre del municipio",
-    "MUNICIPALITY_ALREADY_REGISTER":"¿El  municipio ya tiene cuenta?",
-    "REGISTER_MUNICIPALITY":"Registro municipio",
+    "MUNICIPALITY_ALREADY_REGISTER": "¿El  municipio ya tiene cuenta?",
+    "REGISTER_MUNICIPALITY": "Registro municipio",
     "MUNICIPALITY_INFORMATION": "Información del municipio",
-    "MUNICIPALITY_DESCRIPTION":"Descripción del municipio",
+    "MUNICIPALITY_DESCRIPTION": "Descripción del municipio",
     "MUNICIPALITY_CITIZEN_HALL_INFO_TITLE": "Información de punto de atención al ciudadano",
-    "MUNICIPALITY_OPENINGHOURS_TEXT":"Escribe los dias y horarios del punto de atención al ciudadano. Ejemplo: ",
+    "MUNICIPALITY_OPENINGHOURS_TEXT": "Escribe los dias y horarios del punto de atención al ciudadano. Ejemplo: ",
     "MUNICIPALITY_LOCATION": "Ubicación del punto de atención",
     "MUNICIPALITY_ADDRESS": "Dirección del punto de turismo",
     "MUNICIPALITY_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa dónde se encuentra el punto de atención al ciudadano",
@@ -78,8 +79,6 @@
     "MUNICIPALITY_ANTHEM_PHOTOS": "Foto del escudo del municipio",
     "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio. Ten en cuenta que la información que inscribiste sólo será visible después de ser corroborada por el administrador. Recibirás una confirmación via correo electrónico cuando el proceso esté completo.",
     "COMPLETE_MUNICIPALITY_UPLOAD_TEXT": "La información de tu municipio ha sido actualizada"
-
-
   },
   "SITE_DETAIL_CONSTANTS": {
     "DESCRIPTION": "Descripción",
@@ -154,7 +153,7 @@
   },
   "LOGIN": {
     "TRADER_LOGIN": "Ingreso de comerciantes",
-    "MUNICIPALITY_LOGIN":"Ingreso municipio",
+    "MUNICIPALITY_LOGIN": "Ingreso municipio",
     "LOGIN_WITH_SOCIAL_NETWORKS": "Ingresa con tus redes",
     "LOGIN_WITH_FACEBOOK": "Ingresa con Facebook",
     "LOGIN_WITH_GOOGLE": "Ingresa con Google",
@@ -165,10 +164,10 @@
     "FORGOTTEN_PASSWORD": "¿Has olvidado tu contraseña?",
     "LOGIN_BUTTON": "Iniciar sesión",
     "STILL_NO_USER": "¿Aún no eres usuario?",
-    "FORGOT_MUNICIPALITY_PASWORD":"¿Olvidaste la contraseña?",
+    "FORGOT_MUNICIPALITY_PASWORD": "¿Olvidaste la contraseña?",
     "REGISTER": "Regístrate",
     "PASSWORD_LENGTH": "La contraseña debe tener mínimo 6 caracteres*",
-    "ADMINISTRATOR_ACCESS_REQUEST":"Solicita acceso al administrador"
+    "ADMINISTRATOR_ACCESS_REQUEST": "Solicita acceso al administrador"
   },
   "ACCOUNT_INFO": {
     "ACCOUNT_INFO_TITLE": "Mi cuenta",
@@ -182,9 +181,9 @@
     "EDIT_BUTTON": "Editar",
     "PASSWORDS_MUST_BE_EQUAL": "La contraseña de confirmación debe coincidir con la nueva contraseña*",
     "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "La contraseña nueva debe ser diferente a la antigua*.",
-    "REGISTERED_MUNICIPALITY":"Municipio registrado",
-    "ADD_MUNICIPALITY":"Añadir un municipio",
-    "MUNICIPALITY_SITES":"Sitios del municipio"
+    "REGISTERED_MUNICIPALITY": "Municipio registrado",
+    "ADD_MUNICIPALITY": "Añadir un municipio",
+    "MUNICIPALITY_SITES": "Sitios del municipio"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
@@ -195,28 +194,27 @@
   "REGISTER_COMPLETE": "El registro fue exitoso",
   "HOW_TO_GET_THERE": "¿Cómo llegar?",
   "DESTINY": "Mi destino",
-  "INITIAL_PLACE":"Volver a  mi destino",
+  "INITIAL_PLACE": "Volver a  mi destino",
   "GET_SITES_ERROR": "No es posible usar el buscador en este momento intentalo más tarde o vuelve a cargar la página",
   "GET_TOWNS_ERROR": "No es posible cargar el listado de municipios, por favor intentalo más tarde o vuelve a cargar la página",
   "NO_RESULTS": "Lo sentimos, no hay resultados para esta búsqueda. Por favor intente con otras palabras",
   "BAD_LOGIN": "El usuario o contraseña son incorrectos",
   "REGISTER_SUCCESS": "Ya formas parte de la comunidad Marca_app. Ahora puedes registrar tu comercio, entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
-  "REGISTER_MUNICIPALITY_SUCCESS":"Ya formas parte de la comunidad De Tour por Cundinamarca, Ahora puedes registrar la información del municipio",
+  "REGISTER_MUNICIPALITY_SUCCESS": "Ya formas parte de la comunidad De Tour por Cundinamarca, Ahora puedes registrar la información del municipio",
   "CONTACT_INFO": "Si tienes problemas al utilizar la app, alguna duda o sugerencia, puedes escribirnos a: ",
   "E100": "Error de comunicación con el servidor, intente nuevamente.",
   "E101": "El correo ya existe",
   "E102": "El password debe ser de al menos 6 caracteres",
   "E103": "Contraseña incorrecta.",
   "CANCEL_BUTTON": "Cancelar",
-  "LOGIN_FIELDS_INCOMPLETE":"Por favor ingrese correo y contraseña",
-  "TOURISTS":"Turistas",
-  "TRADERS":"Comerciantes",
-  "MUNICIPALITIES":"Municipios",
-  "LABORATORIOS_VIRTUALES":"© Laboratorios virtuales",
-  "INCORRECT_ACCOUNT_TYPE_MUNICIPALITY":"Parece que tu cuenta es de municipio, por favor inicia sesión como municipio",
-  "INCORRECT_ACCOUNT_TYPE_TRADER":"Parece que tu cuenta es de comerciante, por favor inicia sesión como comerciante",
-  "TIMEOUT_CONNECTION_ERROR":"Está tardando demasiado la respuesta del servidor, por favor revisa tu conexión a internet o vuelve a intentarlo más tarde",
-  "ROUTE_SITES":"Otros sitios en la ruta",
-  "DOUBLE_REGISTER_ERROR":"Por favor cierra la sesión anterior antes de registrar otra cuenta"
-
+  "LOGIN_FIELDS_INCOMPLETE": "Por favor ingrese correo y contraseña",
+  "TOURISTS": "Turistas",
+  "TRADERS": "Comerciantes",
+  "MUNICIPALITIES": "Municipios",
+  "LABORATORIOS_VIRTUALES": "© Laboratorios virtuales",
+  "INCORRECT_ACCOUNT_TYPE_MUNICIPALITY": "Parece que tu cuenta es de municipio, por favor inicia sesión como municipio",
+  "INCORRECT_ACCOUNT_TYPE_TRADER": "Parece que tu cuenta es de comerciante, por favor inicia sesión como comerciante",
+  "TIMEOUT_CONNECTION_ERROR": "Está tardando demasiado la respuesta del servidor, por favor revisa tu conexión a internet o vuelve a intentarlo más tarde",
+  "ROUTE_SITES": "Otros sitios en la ruta",
+  "DOUBLE_REGISTER_ERROR": "Por favor cierra la sesión anterior antes de registrar otra cuenta"
 }
