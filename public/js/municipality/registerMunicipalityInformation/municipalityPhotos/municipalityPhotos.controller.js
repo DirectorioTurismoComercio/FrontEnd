@@ -106,16 +106,16 @@ angular.module('Municipality')
 
         function loadPhotosFromServer() {
             var i;
+            $rootScope.$broadcast("loader_show");
             numPhotos = municipalityInformationService.getMunicipalityURLPhotos().length;
             for (i = 0; i < numPhotos; i++) {
                 loadPhotoFromURL(municipalityInformationService.getMunicipalityURLPhotos()[i].URLfoto, municipalityInformationService.getMunicipalityURLPhotos()[i].tipo);
             }
+
         }
 
         function loadPhotoFromURL(urlPhoto, tipo) {
-
             var arg = "?randnum=1"
-
             $http({
                 method: 'GET',
                 url: urlPhoto + arg,
@@ -131,7 +131,7 @@ angular.module('Municipality')
                 flowPhotos.flow.files.push(file);
                 loadedPhotos++;
                 if (loadedPhotos == numPhotos) {
-                    $scope.loadingPhotos = false;
+                    $rootScope.$broadcast("loader_hide");
                 }
             }).error(function (error) {
                 console.log("hubo un error al cargar la foto", error);
