@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<app-header></app-header>
+<loader></loader>
 
-</body>
-</html>
+<div class="row search-results">
+    <div class="col-md-6 no-padding">
+        <div class="header container-fluid route-header-color">
+            <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeViewMunicipalityAccount()">
+                <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+            </div>
+            <p class="text" translate="ROUTE_CREATION.FORM_TITLE"></p>
+        </div>
+    </div>
+
+    <div class="col-md-6 map map-container-no-padding" ng-if="!isMobileDevice()">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
+    </div>
+</div>
