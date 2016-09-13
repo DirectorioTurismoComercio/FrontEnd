@@ -24,4 +24,8 @@ angular.module('Municipality')
         $scope.changeViewMunicipalityAccount=function(){
             $location.path('/municipalityaccountinfo');
         }
+
+        $scope.cancelRegister=function(){
+            $location.path('/municipalityaccountinfo');
+        }
 });

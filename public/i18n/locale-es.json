@@ -183,7 +183,9 @@
     "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "La contraseña nueva debe ser diferente a la antigua*.",
     "REGISTERED_MUNICIPALITY": "Municipio registrado",
     "ADD_MUNICIPALITY": "Añadir un municipio",
-    "MUNICIPALITY_SITES": "Sitios del municipio"
+    "MUNICIPALITY_SITES": "Sitios del municipio",
+    "MUNICIPALITY_ROUTES":"Rutas",
+    "ADD_ROUTE":"Inscribir ruta"
   },
   "ROUTE_CREATION":{
     "FORM_TITLE":"Inscripción de ruta",

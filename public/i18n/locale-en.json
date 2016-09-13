@@ -186,7 +186,10 @@
     "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "New and confirm password must be the same*",
     "REGISTERED_MUNICIPALITY":"Registered town",
     "ADD_MUNICIPALITY":"Add town",
-    "MUNICIPALITY_SITES":"Town sites"
+    "MUNICIPALITY_SITES":"Town sites",
+    "MUNICIPALITY_ROUTES":"Routes",
+    "ADD_ROUTE":"Add route"
+
 
   },
   "ROUTE_CREATION":{
