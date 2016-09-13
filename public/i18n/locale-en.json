@@ -192,7 +192,8 @@
   "ROUTE_CREATION":{
     "FORM_TITLE":"Register route",
     "ROUTE_NAME":"Route name",
-    "ROUTE_DESCRIPTION":"Describe route"
+    "ROUTE_DESCRIPTION":"Describe route",
+    "MAKE_ROUTE_TIP":"You can set a route between town's already registered sites."
 
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",

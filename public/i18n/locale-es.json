@@ -188,7 +188,8 @@
   "ROUTE_CREATION":{
     "FORM_TITLE":"Inscripción de ruta",
     "ROUTE_NAME":"Nombre de la ruta",
-    "ROUTE_DESCRIPTION":"Describe la ruta"
+    "ROUTE_DESCRIPTION":"Describe la ruta",
+    "MAKE_ROUTE_TIP":"Puedes definir una ruta entre los sitios que hayas registrado en el municipio"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
