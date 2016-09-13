@@ -45,10 +45,60 @@
 
         <div class="registerTraderLineSeparator topMarginElements col-xs-10 col-xs-offset-1"></div>
 
-        <form name="municipalityRoutePointsForm">
+        <form name="municipalityRoutePointsForm" class="form-group form col-xs-10 col-xs-offset-1">
             <div class="row businessAddressText topMarginElements municipality-description-bottom-margin citizen-hall-title col-xs-12">
                 <span class="texto-claro-business"
                       translate="ROUTE_CREATION.MAKE_ROUTE_TIP"></span>
+            </div>
+
+
+
+            <div class="row control">
+                <div class="col-xs-2 container-fluid">
+                    <img class="confirmRegisterIcons" src="./images/icons/salida-mapa.png">
+                </div>
+                <div class="container-fluid col-xs-10 emailTraderContainer">
+                    <input input placeholder="Regular Placeholder" translate
+                           translate-attr-placeholder="ROUTE_CREATION.ROUTE_NAME"
+                           class="form-control col-xs-10 businessAddressInput"
+                           name="routeName"
+                           type="text" ng-model="$parent.routeName" required>
+
+                    <i ng-show="routeName==undefined"
+
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                </div>
+            </div>
+
+
+            <div class="row control">
+                <div class="col-xs-2 container-fluid">
+                </div>
+                <div class="route-controls add-route-point-container">
+                    <div class="control add-route-site-button" ng-click="showRouteToSite(selectedSite)">
+                        <p class="add-route-site-text" translate="ROUTE_CREATION.ADD_SITE"></p>
+                        <img src="./images/icons/arma-tu-ruta.png">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row control">
+                <div class="col-xs-2 container-fluid">
+                    <img class="confirmRegisterIcons" src="./images/icons/llegada-mapa.png">
+                </div>
+                <div class="container-fluid col-xs-10 emailTraderContainer">
+                    <input input placeholder="Regular Placeholder" translate
+                           translate-attr-placeholder="ROUTE_CREATION.ROUTE_NAME"
+                           class="form-control col-xs-10 businessAddressInput"
+                           name="routeName"
+                           type="text" ng-model="$parent.routeName" required>
+
+                    <i ng-show="routeName==undefined"
+
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                </div>
             </div>
 
 

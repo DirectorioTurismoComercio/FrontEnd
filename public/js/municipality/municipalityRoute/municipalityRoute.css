@@ -1,3 +1,20 @@
 .route-header-color{
     background-color: #0E5072;
 }
+
+.add-route-point-container{
+    background-color: white !important;
+    flex-flow: column wrap;
+    align-items: flex-start;
+}
+
+.add-route-site-button{
+    margin: 0px !important;
+    background-color: #97D3E8 !important;
+}
+
+.add-route-site-text{
+    color:#0A3C5A;
+    font-family: "PT Sans";
+    font-weight: normal;
+}
