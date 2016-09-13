@@ -190,7 +190,10 @@
 
   },
   "ROUTE_CREATION":{
-    "FORM_TITLE":"Register route"
+    "FORM_TITLE":"Register route",
+    "ROUTE_NAME":"Route name",
+    "ROUTE_DESCRIPTION":"Describe route"
+
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",

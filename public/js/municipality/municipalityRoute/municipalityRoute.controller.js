@@ -2,7 +2,6 @@
 
 angular.module('Municipality')
     .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $location) {
-
         $scope.map = {
             center: {
                 latitude: 4.6363623,
@@ -11,6 +10,9 @@ angular.module('Municipality')
             control: {},
             zoom: 9
         };
+
+        $scope.routeName=undefined;
+        $scope.routeDescription=undefined;
 
 
         uiGmapIsReady.promise().then(initMap);

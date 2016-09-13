@@ -9,6 +9,42 @@
             </div>
             <p class="text" translate="ROUTE_CREATION.FORM_TITLE"></p>
         </div>
+
+        <form name="municipalityRouteForm" class="form-group form">
+            <div class="row control">
+                <div class="col-xs-2 container-fluid">
+                    <img class="confirmRegisterIcons" src="./images/registerIcons/mail.png">
+                </div>
+                <div class="container-fluid col-xs-10 emailTraderContainer">
+                    <input input placeholder="Regular Placeholder" translate
+                           translate-attr-placeholder="ROUTE_CREATION.ROUTE_NAME"
+                           class="form-control col-xs-10 businessAddressInput"
+                           name="routeName"
+                           type="text" ng-model="$parent.routeName" required>
+
+                    <i ng-show="routeName==undefined"
+
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                </div>
+            </div>
+     <span class="error" ng-show="submitted && municipalityRouteForm.routeName.$error.required"
+           translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+
+         <div class="input topMarginElements col-xs-12 no-padding">
+             <textarea placeholder="Regular Placeholder" translate
+                       translate-attr-placeholder="ROUTE_CREATION.ROUTE_DESCRIPTION"
+                       class="form-control businessAddressInput"
+                       name="routeDescription" ng-model="$parent.routeDescription" required></textarea>
+             <i ng-show="routeDescription==undefined"
+                class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor"></i>
+             <span ng-show="submitted && municipalityRouteForm.routeDescription.$error.required"
+                   class="errorField businessAddressText"
+                   translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+         </div>
+
+
+        </form>
+
     </div>
 
     <div class="col-md-6 map map-container-no-padding" ng-if="!isMobileDevice()">
