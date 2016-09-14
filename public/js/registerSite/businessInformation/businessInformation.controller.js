@@ -26,6 +26,8 @@ angular.module('registerSite')
         $scope.user = authenticationService.getUser();
         checkBusinessType();
 
+        siteInformationService.user= $scope.user;
+
 
         categories.getCategories().then(function (response) {
             $scope.categories = response;

@@ -20,8 +20,12 @@
                 <li class="done-step"></li>
                 <li></li>
             </ul>
-            <label class="businessAddressText texto-claroBusinessLocation topMarginElements"
+            <label ng-show="user.tipo_cuenta=='C'" class="businessAddressText texto-claroBusinessLocation topMarginElements"
                    translate="REGISTER_SITE_CONSTANTS.BUSINESS_INFORMATION_CONFIRMATION_PAGE"></label>
+
+            <label ng-show="user.tipo_cuenta=='M'" class="businessAddressText texto-claroBusinessLocation topMarginElements"
+                   translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_INFORMATION_CONFIRMATION_PAGE"></label>
+
             <div class="row businessAddressText topMarginElements">
                 <div class="col-xs-2">
                     <img class="confirmRegisterIcons" src="./images/registerIcons/nombre-negocio.png">

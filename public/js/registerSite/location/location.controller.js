@@ -11,6 +11,9 @@ angular.module('registerSite')
         $scope.businessLocation = siteInformationService.businessLocation;
         $scope.businessAddress = siteInformationService.businessAddress;
 
+        $scope.user=siteInformationService.user;
+
+
         var joinOfFormatted_address;
 
 

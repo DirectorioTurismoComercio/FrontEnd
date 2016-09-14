@@ -1,18 +1,19 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $location,authenticationService, municipalityInformationService) {
+    .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $location) {
         $scope.map = {
             center: {
-                latitude:  parseFloat(municipalityInformationService.getMunicipalityName().latitud),
-                longitude: parseFloat(municipalityInformationService.getMunicipalityName().longitud)
+                latitude: 4.6363623, //parseFloat(municipalityInformationService.getMunicipalityName().latitud),
+                longitude: -74.0854427//parseFloat(municipalityInformationService.getMunicipalityName().longitud)
             },
             control: {},
             zoom: 13
         };
 
-        $scope.routeName=undefined;
-        $scope.routeDescription=undefined;
+        $scope.routeName = undefined;
+        $scope.routeDescription = undefined;
+        $scope.routeSites = [];
 
 
         uiGmapIsReady.promise().then(initMap);
@@ -21,11 +22,20 @@ angular.module('Municipality')
             MapService.setGMap($scope.map.control.getGMap());
         }
 
-        $scope.changeViewMunicipalityAccount=function(){
+        $scope.changeViewMunicipalityAccount = function () {
             $location.path('/municipalityaccountinfo');
         }
 
-        $scope.cancelRegister=function(){
+        $scope.cancelRegister = function () {
             $location.path('/municipalityaccountinfo');
         }
-});
+
+        $scope.addSite = function () {
+            var newRouteSite = $scope.routeSites.length + 1;
+            $scope.routeSites.push({'id': 'site' + newRouteSite});
+        }
+
+        $scope.removeSite = function (index) {
+            $scope.routeSites.splice(index, 1);
+        }
+    });

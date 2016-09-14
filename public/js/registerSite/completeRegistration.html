@@ -15,8 +15,12 @@
     </ul>
     <div ng-show="!siteId">
         <div class="text-center">
-            <label class="topMarginElements texto-claroBusinessLocation"
+            <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements texto-claroBusinessLocation"
                    translate="REGISTER_SITE_CONSTANTS.COMPLETE_REGISTRATION_TEXT"></label>
+
+            <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements texto-claroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_COMPLETE_REGISTRATION_TEXT"></label>
+
         </div>
         <div class=" next-button NextButtonRegister topMarginElements">
             <button class="button" ng-click="doneRegistration()"
@@ -25,8 +29,11 @@
     </div>
     <div ng-show="siteId">
         <div class="text-center">
-            <label class="topMarginElements texto-claroBusinessLocation"
+            <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements texto-claroBusinessLocation"
                    translate="REGISTER_SITE_CONSTANTS.COMPLETE_UPDATE_TEXT"></label>
+
+            <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements texto-claroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_COMPLETE_UPDATE_TEXT"></label>
         </div>
         <div class=" next-button NextButtonRegister topMarginElements">
             <button class="button" ng-click="doneRegistration()"

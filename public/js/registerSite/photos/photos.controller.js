@@ -23,6 +23,8 @@ angular.module('registerSite')
         $scope.loadingProductsPhoto = false;
         $scope.loadingPhotos = false;
         $scope.loader=false;
+        $scope.user=siteInformationService.user;
+
 
 
         var numPhotos;
