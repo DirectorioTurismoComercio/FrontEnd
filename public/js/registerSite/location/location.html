@@ -9,7 +9,10 @@
             <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeViewCategory()">
                 <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
             </div>
-            <p class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION"></p></div>
+            <p ng-show="user.tipo_cuenta=='C'" class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION"></p>
+            <p ng-show="user.tipo_cuenta=='M'" class="text" translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_LOCATION"></p>
+
+        </div>
         <ul class="progress-bar1 progressBarPadding topMarginElements">
             <li class="done-step"></li>
             <li class="done-step"></li>
@@ -20,9 +23,14 @@
         </ul>
         <form name="registerSiteForm" class="topMarginElements" role="businessAddressForm">
             <div class="form-group has-feedback businessAddressText">
-                <input type="text" class="form-control businessAddressInput" translate
+                <input ng-show="user.tipo_cuenta=='C'" type="text" class="form-control businessAddressInput" translate
                        translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS" name="businessAddress2"
                        type="text" ng-model="$parent.businessAddress" required/>
+
+                <input ng-show="user.tipo_cuenta=='M'" type="text" class="form-control businessAddressInput" translate
+                       translate-attr-placeholder="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_ADDRESS" name="businessAddress2"
+                       type="text" ng-model="$parent.businessAddress" required/>
+
                 <i ng-show="businessAddress==undefined"
                    class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconBusinessAddress"></i>
                 <span ng-show="showRequiredFieldMessage && registerSiteForm.businessAddress2.$error.required"
@@ -32,16 +40,22 @@
 
         <div class="row businessAddressText topMarginElements">
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-9 centerColumnNoPadding">
-                <label class="texto-claroBusinessLocation"
+                <label ng-show="user.tipo_cuenta=='C'" class="texto-claroBusinessLocation"
                        translate="REGISTER_SITE_CONSTANTS.BUSINESS_GET_USER_LOCATION_TIP"></label>
+
+                <label ng-show="user.tipo_cuenta=='M'" class="texto-claroBusinessLocation"
+                       translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_GET_USER_LOCATION_TIP"></label>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
                 <img class="getUserPositionBusinessAddressButton" src="./images/icons/mi-ubicacion.png"
                      ng-click="getUserPosition()">
             </div>
         </div>
-        <label class="businessAddressText texto-oscuroBusinessLocation topMarginElements"
+        <label ng-show="user.tipo_cuenta=='C'" class="businessAddressText texto-oscuroBusinessLocation topMarginElements"
                translate="REGISTER_SITE_CONSTANTS.BUSINESS_LOCATION_TIP"></label>
+        <label ng-show="user.tipo_cuenta=='M'" class="businessAddressText texto-oscuroBusinessLocation topMarginElements"
+               translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_LOCATION_TIP"></label>
+
         <div class="progressBarPadding topMarginElements">
             <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events"></ui-gmap-google-map>
             <span ng-show="showRequiredFieldMessage && businessLocation.lat==undefined" class="errorField"
