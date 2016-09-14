@@ -58,11 +58,9 @@
                     <img class="confirmRegisterIcons" src="./images/icons/salida-mapa.png">
                 </div>
                 <div class="container-fluid col-xs-10 emailTraderContainer">
-                    <input input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder="ROUTE_CREATION.ROUTE_NAME"
-                           class="form-control col-xs-10 businessAddressInput"
-                           name="routeName"
-                           type="text" ng-model="$parent.routeName" required>
+                    <browser-input-field isonmapview="false" isoncreateroute="true" result="result" do-search="doSearch(result)"
+                                         show-route="showRoute()"
+                                         subcategory-search="doSearch(subcategoryname)"></browser-input-field>
 
                     <i ng-show="routeName==undefined"
 

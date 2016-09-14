@@ -18,3 +18,13 @@
     font-family: "PT Sans";
     font-weight: normal;
 }
+
+.autocomplete-site-browser{
+    background-color: #F2F2F2 !important;
+}
+
+.autocomplete-li-border{
+    border-left: solid 1px #C7C7CD;
+    border-right: solid 1px #C7C7CD;
+
+}

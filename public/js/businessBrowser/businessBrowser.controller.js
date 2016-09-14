@@ -1,7 +1,13 @@
 angular.module('businessBrowser', [])
-    .controller('businessBrowserController', function ($scope, ResultRetriever, siteAndTownSaverService, $rootScope) {
+    .controller('businessBrowserController', function ($scope, ResultRetriever, siteAndTownSaverService, $rootScope, $location) {
 
         setValue();
+
+        $scope.isOnCreationRoute=checkPath();
+
+
+
+        console.log("el path actuL", $location.path());
 
         $scope.lookForSuggestions = function (typedthings) {
             $scope.newresults = ResultRetriever.getresults(typedthings, "SuggestionsFactory");
@@ -32,6 +38,10 @@ angular.module('businessBrowser', [])
 
         function setValue() {
             $scope.result = (siteAndTownSaverService.getCurrentSearchedSite() == null) ? undefined : siteAndTownSaverService.getCurrentSearchedSite();
+        }
+
+        function checkPath(){
+            return $location.path()=='/municipalityroute';
         }
     });
 
