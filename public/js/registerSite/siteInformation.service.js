@@ -25,6 +25,7 @@ angular.module('registerSite')
         this.businessSubcategories = {
             subcategories: ''
         };
+        this.user=undefined;
 
 
         this.buildSiteFormData = function () {
@@ -163,6 +164,7 @@ angular.module('registerSite')
             businessSubcategories: this.businessSubcategories,
             sendSiteDataToServer: this.sendSiteDataToServer,
             buildSiteFormData: this.buildSiteFormData,
+            user:this.user,
             clearData: function (siteInformationService) {
 
                 for (var property in this) {
