@@ -56,6 +56,8 @@ module.exports = function (config) {
             'public/components/angular-slick/dist/slick.js',
             'test/specHelpers.js',
             'test/specConstants.js',
+            'public/js/DAO/dao.module.js',
+            'public/js/DAO/municipalities.dao.js',
             'public/js/footer/footer.directive.js',
             'public/js/footer/footer.controller.js',
             'public/js/map/map.js',
