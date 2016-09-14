@@ -13,7 +13,10 @@
                 <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
             </div>
 
-            <p class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_PHOTOS_PAGE"></p></div>
+            <p ng-show="user.tipo_cuenta=='C'" class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_PHOTOS_PAGE"></p>
+            <p ng-show="user.tipo_cuenta=='M'" class="text" translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_PHOTOS_PAGE"></p>
+
+        </div>
         <ul class="progress-bar1 progressBarPadding topMarginElements">
             <li class="done-step"></li>
             <li class="done-step"></li>
@@ -24,8 +27,12 @@
         </ul>
 
 
-        <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
+        <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
                translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO_TIP"></label>
+
+        <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
+               translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_UPLOAD_MAIN_PHOTO_TIP"></label>
+
         <div class="mainPhotoContainer">
             <div class="title-main-photo-container">
 
@@ -62,11 +69,17 @@
                           class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
         </div>
 
-        <label class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
+        <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
                translate="REGISTER_SITE_CONSTANTS.UPLOAD_SECONDARY_PHOTOS_TIP"></label>
 
-        <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
+        <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
+               translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_UPLOAD_SECONDARY_PHOTOS_TIP"></label>
+
+        <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
                translate="REGISTER_SITE_CONSTANTS.BUSINESS_FACADE_PHOTOS"></label>
+
+        <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
+               translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_FACADE_PHOTOS"></label>
 
         <div class="topMarginElements businessAddressText">
             <div flow-init
@@ -92,8 +105,11 @@
             </div>
         </div>
 
-        <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
+        <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
                translate="REGISTER_SITE_CONSTANTS.BUSINESS_INSIDE_PHOTOS"></label>
+
+        <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
+               translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_INSIDE_PHOTOS"></label>
 
         <div class="topMarginElements businessAddressText">
             <div flow-init
@@ -117,8 +133,11 @@
             </div>
         </div>
 
-        <label class="topMarginElements businessAddressText texto-claroBusinessLocation"
+        <label ng-show="user.tipo_cuenta=='C'"  class="topMarginElements businessAddressText texto-claroBusinessLocation"
                translate="REGISTER_SITE_CONSTANTS.BUSINESS_PRODUCTS_PHOTOS"></label>
+
+        <label ng-show="user.tipo_cuenta=='M'"  class="topMarginElements businessAddressText texto-claroBusinessLocation"
+               translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_PRODUCTS_PHOTOS"></label>
 
         <div class="topMarginElements businessAddressText">
             <div flow-init
