@@ -60,7 +60,7 @@
                 <div class="container-fluid col-xs-10 emailTraderContainer">
                     <browser-input-field isonmapview="false" isoncreateroute="true" result="result" do-search="doSearch(result)"
                                          show-route="showRoute()"
-                                         subcategory-search="doSearch(subcategoryname)"></browser-input-field>
+                                         subcategory-search="doSearch(subcategoryname)" placeholdertext="startPoint"></browser-input-field>
 
                     <i ng-show="routeName==undefined"
 
@@ -91,17 +91,9 @@
                 <div class="col-xs-2 container-fluid">
                     <img class="confirmRegisterIcons" src="./images/icons/llegada-mapa.png">
                 </div>
-                <div class="container-fluid col-xs-10 emailTraderContainer">
-                    <input input placeholder="Regular Placeholder" translate
-                           translate-attr-placeholder="ROUTE_CREATION.ROUTE_NAME"
-                           class="form-control col-xs-10 businessAddressInput"
-                           name="routeName"
-                           type="text" ng-model="$parent.routeName" required>
-
-                    <i ng-show="routeName==undefined"
-
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
-                </div>
+                <browser-input-field isonmapview="false" isoncreateroute="true" result="result" do-search="doSearch(result)"
+                                     show-route="showRoute()" placeholdertext="endPoint"
+                                     subcategory-search="doSearch(subcategoryname)"></browser-input-field>
             </div>
 
 

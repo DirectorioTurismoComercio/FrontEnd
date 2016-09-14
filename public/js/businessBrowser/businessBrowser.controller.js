@@ -7,7 +7,7 @@ angular.module('businessBrowser', [])
 
 
 
-        console.log("el path actuL", $location.path());
+        console.log("la directiva business browser",$scope);
 
         $scope.lookForSuggestions = function (typedthings) {
             $scope.newresults = ResultRetriever.getresults(typedthings, "SuggestionsFactory");

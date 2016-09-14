@@ -16,7 +16,8 @@
       onType: '=onType',
       onSelect: '=onSelect',
       autocompleteRequired: '=',
-      isoncreateroute:'='
+      isoncreateroute:'=',
+      placeholderstring:'@'
     },
     controller: ['$scope', function($scope){
       // the index of the suggestions that's currently selected
@@ -124,6 +125,9 @@
 
     }],
     link: function(scope, element, attrs){
+
+      console.log("el valor de la directiva autocomplete", scope);
+
       setTimeout(function() {
         scope.initLock = false;
         scope.$apply();
