@@ -23,11 +23,11 @@ angular.module('home')
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et lorem dui. Cras finibus tempor felis in gravida. Etiam at ante ut metus congue vestibulum id non lectus. Mauris tincidunt, tortor non venenatis molestie, mauris arcu vestibulum quam, at pharetra enim lectus quis est."
         }];
 
-        MunicipalitiesDAO.getAllMunicipalities().then(function (municipalities) {
+       /* MunicipalitiesDAO.getAllMunicipalities().then(function (municipalities) {
             chooseRandomMunicipalitiesToShow(municipalities);
         }).catch(function (error) {
             $log.error(error);
-        });
+        });*/
 
         setHowItWorksTraderImage();
 
