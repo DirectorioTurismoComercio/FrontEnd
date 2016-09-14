@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $location) {
+    .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $location,authenticationService, municipalityInformationService) {
         $scope.map = {
             center: {
-                latitude: 4.6363623,
-                longitude: -74.0854427
+                latitude:  parseFloat(municipalityInformationService.getMunicipalityName().latitud),
+                longitude: parseFloat(municipalityInformationService.getMunicipalityName().longitud)
             },
             control: {},
-            zoom: 9
+            zoom: 13
         };
 
         $scope.routeName=undefined;
@@ -22,6 +22,10 @@ angular.module('Municipality')
         }
 
         $scope.changeViewMunicipalityAccount=function(){
+            $location.path('/municipalityaccountinfo');
+        }
+
+        $scope.cancelRegister=function(){
             $location.path('/municipalityaccountinfo');
         }
 });

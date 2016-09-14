@@ -149,6 +149,11 @@ angular.module('Municipality')
             $location.path('municipalityinfo');
         }
 
+        $scope.addRoute = function(){
+            $location.path('municipalityroute');
+
+        }
+
         $scope.addBusiness=function(){
             siteInformationService.clearData(siteInformationService);
             $location.path('businessinformation');
