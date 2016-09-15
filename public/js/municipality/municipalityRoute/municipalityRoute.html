@@ -62,7 +62,7 @@
                                          show-route="showRoute()"
                                          subcategory-search="doSearch(subcategoryname)" placeholdertext="startPoint"></browser-input-field>
 
-                    <i ng-show="routeName==undefined"
+                    <i ng-show="result==undefined"
 
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                     <span class="error" ng-show="submitted && result==undefined"
@@ -80,9 +80,10 @@
                                              show-route="showRoute()"
                                              subcategory-search="doSearch(subcategoryname)" placeholdertext="sitePoint"></browser-input-field>
 
-                        <i ng-show="routeName==undefined"
-
+                        <i ng-show="result==undefined"
                            class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                         <span class="error" ng-show="submitted && result==undefined"
+                               translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
                     </div>
                     <div class="col-xs-1 container-fluid" ng-click="removeSite($index)">
                         <img class="icon margin-left" src="./images/accountInfoIcons/borrar.png">
@@ -112,7 +113,7 @@
                                          show-route="showRoute()"
                                          subcategory-search="doSearch(subcategoryname)" placeholdertext="endPoint"></browser-input-field>
 
-                    <i ng-show="routeName==undefined"
+                    <i ng-show="resultDestiny==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                     <span class="error" ng-show="submitted && resultDestiny==undefined"
                           translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
