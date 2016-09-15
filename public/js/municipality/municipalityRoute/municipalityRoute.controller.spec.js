@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: municipalityRouteController', function () {
-    var registerMunicipalityAccountController, $scope, testLocation;
+    var registerMunicipalityAccountController, $scope, testLocation, testmunicipalityInformationService;
 
     beforeEach(module('gemStore'));
     beforeEach(module('Municipality'));
@@ -22,10 +22,17 @@ describe('Controller: municipalityRouteController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller, $rootScope, $location) {
+    beforeEach(inject(function ($controller, $rootScope, $location,municipalityInformationService) {
         $scope = $rootScope.$new();
         testLocation=$location;
+        testmunicipalityInformationService=municipalityInformationService;
 
+        testmunicipalityInformationService.setMunicipalityName({
+            id: 3,
+            nombre: "Anapoima",
+            latitud: "4.565941800000000000",
+            longitud: "-74.564331300000000000"
+        })
 
         spyOn($location,'path');
 
