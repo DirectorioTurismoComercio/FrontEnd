@@ -32,3 +32,13 @@
 .margin-left{
     margin-left: 10px;
 }
+
+.route-subtitles{
+    color: #32A2D4;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+}
+
+.route-subtitles-size{
+    font-size: 1.3em !important;
+}

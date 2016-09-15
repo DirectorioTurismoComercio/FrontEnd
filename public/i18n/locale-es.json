@@ -218,7 +218,8 @@
     "ROUTE_NAME":"Nombre de la ruta",
     "ROUTE_DESCRIPTION":"Describe la ruta",
     "MAKE_ROUTE_TIP":"Puedes definir una ruta entre los sitios que hayas registrado en el municipio",
-    "ADD_SITE":"Añadir parada"
+    "ADD_SITE":"Añadir parada",
+    "SITE":"Parada "
 
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",

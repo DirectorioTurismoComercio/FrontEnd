@@ -224,7 +224,8 @@
     "ROUTE_NAME":"Route name",
     "ROUTE_DESCRIPTION":"Describe route",
     "MAKE_ROUTE_TIP":"You can set a route between town's already registered sites.",
-    "ADD_SITE":"Add site"
+    "ADD_SITE":"Add site",
+    "SITE":"Site "
 
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",
