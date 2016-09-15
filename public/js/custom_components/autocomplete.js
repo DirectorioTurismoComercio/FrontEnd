@@ -108,7 +108,17 @@
       $rootScope.$on('$translateChangeSuccess', function () {
         if($translate.use()=='en'){
           if($scope.isoncreateroute){
-            $scope.attrs.placeholder='Select starting point';
+            switch ($scope.placeholderstring){
+
+              case 'startPoint':
+                $scope.attrs.placeholder='Select starting point';
+                    break;
+
+              case 'endPoint':
+                $scope.attrs.placeholder='Select destination point';
+                    break;
+            }
+
           }else{
             $scope.attrs.placeholder='I am searching...';
           }
@@ -116,7 +126,17 @@
         if($translate.use()=='es')
         {
           if($scope.isoncreateroute){
-            $scope.attrs.placeholder='Seleccionar punto de partida';
+            switch ($scope.placeholderstring){
+
+              case 'startPoint':
+                $scope.attrs.placeholder='Seleccionar punto de partida';
+                break;
+
+              case 'endPoint':
+                $scope.attrs.placeholder='Seleccionar punto de llegada';
+                break;
+
+            }
           }else{
             $scope.attrs.placeholder='Busco...';
           }
@@ -125,8 +145,6 @@
 
     }],
     link: function(scope, element, attrs){
-
-      console.log("el valor de la directiva autocomplete", scope);
 
       setTimeout(function() {
         scope.initLock = false;
@@ -139,7 +157,16 @@
       var placeholder;
       if($translate.use()=='en'){
         if(scope.isoncreateroute){
-          placeholder='Select starting point';
+          switch (scope.placeholderstring){
+
+            case 'startPoint':
+              placeholder='Select starting point';
+              break;
+
+            case 'endPoint':
+              placeholder='Select destination point';
+              break;
+          }
         }else{
           placeholder='I am searching...';
         }
@@ -148,7 +175,18 @@
       if($translate.use()=='es')
       {
         if(scope.isoncreateroute){
-          placeholder='Seleccionar punto de partida';
+          switch (scope.placeholderstring){
+
+            case 'startPoint':
+              placeholder='Seleccionar punto de partida';
+              break;
+
+            case 'endPoint':
+              placeholder='Seleccionar punto de llegada';
+              break;
+
+          }
+
         }else{
           placeholder='Busco...';        }
       }

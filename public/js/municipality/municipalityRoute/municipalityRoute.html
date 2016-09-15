@@ -86,16 +86,20 @@
             </div>
 
 
-
             <div class="row control">
                 <div class="col-xs-2 container-fluid">
                     <img class="confirmRegisterIcons" src="./images/icons/llegada-mapa.png">
                 </div>
-                <browser-input-field isonmapview="false" isoncreateroute="true" result="result" do-search="doSearch(result)"
-                                     show-route="showRoute()" placeholdertext="endPoint"
-                                     subcategory-search="doSearch(subcategoryname)"></browser-input-field>
-            </div>
+                <div class="container-fluid col-xs-10 emailTraderContainer">
+                    <browser-input-field isonmapview="false" isoncreateroute="true" result="result" do-search="doSearch(result)"
+                                         show-route="showRoute()"
+                                         subcategory-search="doSearch(subcategoryname)" placeholdertext="endPoint"></browser-input-field>
 
+                    <i ng-show="routeName==undefined"
+
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                </div>
+            </div>
 
             <div class=" municipality-info-buttons-conatiner next-button NextButtonRegister topMarginElements col-xs-12">
                 <button class="button edit-section-button cancel-button municipality-info-buttons"

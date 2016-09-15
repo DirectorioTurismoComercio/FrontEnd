@@ -6,9 +6,7 @@ angular.module('businessBrowser', [])
         $scope.isOnCreationRoute=checkPath();
 
 
-
-        console.log("la directiva business browser",$scope);
-
+        
         $scope.lookForSuggestions = function (typedthings) {
             $scope.newresults = ResultRetriever.getresults(typedthings, "SuggestionsFactory");
             $scope.newresults.then(function (data) {
