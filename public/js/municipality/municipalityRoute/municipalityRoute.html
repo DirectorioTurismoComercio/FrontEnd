@@ -1,4 +1,4 @@
-<app-header></app-header>
+<!--<app-header></app-header>
 <loader></loader>
 
 <div class="row search-results">
@@ -136,3 +136,32 @@
         <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
     </div>
 </div>
+
+-->
+
+
+<div>
+    <md-content layout-padding="" layout="column">
+        <form ng-submit="$event.preventDefault()">
+            <p>Use <code>md-autocomplete</code> with custom templates to show styled autocomplete results.</p>
+            <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItem" md-search-text-change="searchTextChange(searchText)" md-search-text="searchText" md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)" md-item-text="item.name" md-min-length="0" placeholder="Pick an Angular repository" md-menu-class="autocomplete-custom-template">
+                <md-item-template>
+          <span class="item-title">
+            <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+            <span> %%item.nombre%% </span>
+          </span>
+          <span class="item-metadata">
+            <span class="item-metastat">
+              <strong>%%item.watchers%%</strong> watchers
+            </span>
+            <span class="item-metastat">
+              <strong>%%item.forks%%</strong> forks
+            </span>
+          </span>
+                </md-item-template>
+            </md-autocomplete>
+        </form>
+    </md-content>
+</div>
+
+
