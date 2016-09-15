@@ -9,27 +9,14 @@ angular.module('home')
 
         siteAndTownSaverService.resetSearchAndRoute();
         siteAndTownSaverService.setSelectedCategory(undefined);
-        $scope.municipalities = [{
-            name: "Faca",
-            img: "http://localhost:8000/Fotos/Fotos/1.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et lorem dui. Cras finibus tempor felis in gravida. Etiam at ante ut metus congue vestibulum id non lectus. Mauris tincidunt, tortor non venenatis molestie, mauris arcu vestibulum quam, at pharetra enim lectus quis est."
-        }, {
-            name: "Cota",
-            img: "http://localhost:8000/Fotos/Fotos/2.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et lorem dui. Cras finibus tempor felis in gravida. Etiam at ante ut metus congue vestibulum id non lectus. Mauris tincidunt, tortor non venenatis molestie, mauris arcu vestibulum quam, at pharetra enim lectus quis est."
-        }, {
-            name: "Faca",
-            img: "http://localhost:8000/Fotos/Fotos/3.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et lorem dui. Cras finibus tempor felis in gravida. Etiam at ante ut metus congue vestibulum id non lectus. Mauris tincidunt, tortor non venenatis molestie, mauris arcu vestibulum quam, at pharetra enim lectus quis est."
-        }];
+
+        setHowItWorksTraderImage();
 
         MunicipalitiesDAO.getAllMunicipalities().then(function (municipalities) {
             chooseRandomMunicipalitiesToShow(municipalities);
         }).catch(function (error) {
             $log.error(error);
         });
-
-        setHowItWorksTraderImage();
 
         $scope.doSearch = function (result) {
             if (result != undefined) {
@@ -61,6 +48,7 @@ angular.module('home')
             var MUNICIPALITIES_LENGTH = 3;
             $scope.municipalities = [];
             var generatedRandomNumbers = [];
+
 
             for (var i = 0; i < MUNICIPALITIES_LENGTH; i++) {
                 var random = getDifferentRandomFrom(generatedRandomNumbers, 0, municipalities.length);

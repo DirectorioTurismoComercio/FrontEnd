@@ -16,10 +16,10 @@
     <h1 translate="HOME_CONSTANTS.MUNICIPALITIES" class="title"></h1>
     <div class="row municipalities">
         <div ng-repeat="municipality in municipalities" class="col-xs-12 col-sm-4">
-            <div class="municipality">
+            <div class="municipality"
+                 ng-style="{'background-image':'url(%%municipality.fotos[0].URLfoto%%)'}">
                 <h1 class="municipality-title">%%municipality.nombre%%</h1>
-                <h1 class="municipality-description">%%municipality.descripcion%%</h1>
-                <img ng-src="%%municipality.fotos[0].URLfoto%%" class="municipality-image">
+                <h1 clamp="3" class="municipality-description">%%municipality.descripcion%%</h1>
                 <div class="shadow"></div>
             </div>
         </div>
