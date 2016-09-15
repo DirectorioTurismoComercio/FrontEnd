@@ -1,4 +1,4 @@
-<!--<app-header></app-header>
+<app-header></app-header>
 <loader></loader>
 
 <div class="row search-results">
@@ -30,27 +30,27 @@
      <span class="col-xs-offset-2 error" ng-show="submitted && municipalityRouteBasicInfoForm.routeName.$error.required"
            translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
-         <div class="input topMarginElements col-xs-12 no-padding">
+            <div class="input topMarginElements col-xs-12 no-padding">
              <textarea placeholder="Regular Placeholder" translate
                        translate-attr-placeholder="ROUTE_CREATION.ROUTE_DESCRIPTION"
                        class="form-control businessAddressInput route-description"
                        name="routeDescription" ng-model="$parent.routeDescription" required></textarea>
-             <i ng-show="routeDescription==undefined"
-                class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor"></i>
+                <i ng-show="routeDescription==undefined"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor"></i>
              <span ng-show="submitted && municipalityRouteBasicInfoForm.routeDescription.$error.required"
                    class="errorField "
                    translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
-         </div>
+            </div>
         </form>
 
         <div class="registerTraderLineSeparator topMarginElements col-xs-10 col-xs-offset-1"></div>
 
-        <form name="municipalityRoutePointsForm" ng-class="routeSites.length>=5 ? 'scrollable-route-form': ''" class="form-group form col-xs-10 col-xs-offset-1">
+        <form name="municipalityRoutePointsForm" ng-class="routeSites.length>=5 ? 'scrollable-route-form': ''"
+              class="form-group form col-xs-10 col-xs-offset-1">
             <div class="row businessAddressText topMarginElements municipality-description-bottom-margin citizen-hall-title col-xs-12">
                 <span class="texto-oscuro-business route-subtitles-size"
                       translate="ROUTE_CREATION.MAKE_ROUTE_TIP"></span>
             </div>
-
 
 
             <div class="row control">
@@ -58,9 +58,28 @@
                     <img class="confirmRegisterIcons" src="./images/icons/salida-mapa.png">
                 </div>
                 <div class="container-fluid col-xs-10 emailTraderContainer">
-                    <browser-input-field isonmapview="false" isoncreateroute="true" result="result" do-search="doSearch(result)"
-                                         show-route="showRoute()"
-                                         subcategory-search="doSearch(subcategoryname)" placeholdertext="startPoint"></browser-input-field>
+                    <div>
+                        <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItem"
+                                         md-search-text-change="searchTextChange(searchText)" md-search-text="searchText"
+                                         md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)"
+                                         md-item-text="item.name" md-min-length="0" placeholder="%%texto%%"
+                                         md-menu-class="autocomplete-custom-template">
+                            <md-item-template>
+                              <span class="item-title">
+                                <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+                                <span> %%item.nombre%% </span>
+                              </span>
+                              <span class="item-metadata">
+                                <span class="item-metastat">
+                                  <strong>%%item.watchers%%</strong> watchers
+                                </span>
+                                <span class="item-metastat">
+                                  <strong>%%item.forks%%</strong> forks
+                                </span>
+                              </span>
+                            </md-item-template>
+                        </md-autocomplete>
+                    </div>
 
                     <i ng-show="result==undefined"
 
@@ -70,15 +89,36 @@
                 </div>
             </div>
 
-            <fieldset ng-class="routeSites.length>5 ? 'correct-width': ''"  data-ng-repeat="site in routeSites">
-                <div class="row topMarginElements" >
-                    <label class=" col-xs-offset-2 route-subtitles route-subtitles-size" translate="ROUTE_CREATION.SITE"></label><label class="route-subtitles route-subtitles-size">&nbsp %%$index +1 %%</label>
+            <fieldset ng-class="routeSites.length>5 ? 'correct-width': ''" data-ng-repeat="site in routeSites">
+                <div class="row topMarginElements">
+                    <label class=" col-xs-offset-2 route-subtitles route-subtitles-size"
+                           translate="ROUTE_CREATION.SITE"></label><label class="route-subtitles route-subtitles-size">&nbsp
+                    %%$index +1 %%</label>
                 </div>
                 <div class="row control no-padding">
                     <div class="container-fluid col-xs-9 col-xs-offset-2 emailTraderContainer">
-                        <browser-input-field isonmapview="false" isoncreateroute="true" result="result" do-search="doSearch(result)"
-                                             show-route="showRoute()"
-                                             subcategory-search="doSearch(subcategoryname)" placeholdertext="sitePoint"></browser-input-field>
+                        <div>
+                            <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItem"
+                                             md-search-text-change="searchTextChange(searchText)" md-search-text="searchText"
+                                             md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)"
+                                             md-item-text="item.name" md-min-length="0" placeholder="Pick an Angular repository"
+                                             md-menu-class="autocomplete-custom-template">
+                                <md-item-template>
+                                  <span class="item-title">
+                                    <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+                                    <span> %%item.nombre%% </span>
+                                  </span>
+                                  <span class="item-metadata">
+                                    <span class="item-metastat">
+                                      <strong>%%item.watchers%%</strong> watchers
+                                    </span>
+                                    <span class="item-metastat">
+                                      <strong>%%item.forks%%</strong> forks
+                                    </span>
+                                  </span>
+                                </md-item-template>
+                            </md-autocomplete>
+                        </div>
 
                         <i ng-show="result==undefined"
                            class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
@@ -109,9 +149,28 @@
                     <img class="confirmRegisterIcons" src="./images/icons/llegada-mapa.png">
                 </div>
                 <div class="container-fluid col-xs-10 emailTraderContainer">
-                    <browser-input-field isonmapview="false" isoncreateroute="true" result="resultDestiny" do-search="doSearch(resultDestiny)"
-                                         show-route="showRoute()"
-                                         subcategory-search="doSearch(subcategoryname)" placeholdertext="endPoint"></browser-input-field>
+                    <div>
+                        <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItem"
+                                         md-search-text-change="searchTextChange(searchText)" md-search-text="searchText"
+                                         md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)"
+                                         md-item-text="item.name" md-min-length="0" placeholder="Pick an Angular repository"
+                                         md-menu-class="autocomplete-custom-template">
+                            <md-item-template>
+                                  <span class="item-title">
+                                    <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+                                    <span> %%item.nombre%% </span>
+                                  </span>
+                                  <span class="item-metadata">
+                                    <span class="item-metastat">
+                                      <strong>%%item.watchers%%</strong> watchers
+                                    </span>
+                                    <span class="item-metastat">
+                                      <strong>%%item.forks%%</strong> forks
+                                    </span>
+                                  </span>
+                            </md-item-template>
+                        </md-autocomplete>
+                    </div>
 
                     <i ng-show="resultDestiny==undefined"
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
@@ -137,31 +196,8 @@
     </div>
 </div>
 
--->
 
 
-<div>
-    <md-content layout-padding="" layout="column">
-        <form ng-submit="$event.preventDefault()">
-            <p>Use <code>md-autocomplete</code> with custom templates to show styled autocomplete results.</p>
-            <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItem" md-search-text-change="searchTextChange(searchText)" md-search-text="searchText" md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)" md-item-text="item.name" md-min-length="0" placeholder="Pick an Angular repository" md-menu-class="autocomplete-custom-template">
-                <md-item-template>
-          <span class="item-title">
-            <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
-            <span> %%item.nombre%% </span>
-          </span>
-          <span class="item-metadata">
-            <span class="item-metastat">
-              <strong>%%item.watchers%%</strong> watchers
-            </span>
-            <span class="item-metastat">
-              <strong>%%item.forks%%</strong> forks
-            </span>
-          </span>
-                </md-item-template>
-            </md-autocomplete>
-        </form>
-    </md-content>
-</div>
+
 
 
