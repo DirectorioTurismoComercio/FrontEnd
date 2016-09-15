@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $location) {
+    .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $location, municipalityInformationService) {
         $scope.map = {
             center: {
-                latitude: 4.6363623, //parseFloat(municipalityInformationService.getMunicipalityName().latitud),
-                longitude: -74.0854427//parseFloat(municipalityInformationService.getMunicipalityName().longitud)
+                latitude: parseFloat(municipalityInformationService.getMunicipalityName().latitud),
+                longitude: parseFloat(municipalityInformationService.getMunicipalityName().longitud)
             },
             control: {},
             zoom: 13
