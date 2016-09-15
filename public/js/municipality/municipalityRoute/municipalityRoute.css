@@ -42,3 +42,16 @@
 .route-subtitles-size{
     font-size: 1.3em !important;
 }
+
+.route-description{
+    min-height: 80px;
+}
+
+.scrollable-route-form{
+    overflow-y: scroll;
+    height: 880px;
+}
+
+.correct-width{
+    width:102%;
+}

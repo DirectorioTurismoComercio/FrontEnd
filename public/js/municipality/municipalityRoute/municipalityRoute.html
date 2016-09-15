@@ -33,7 +33,7 @@
          <div class="input topMarginElements col-xs-12 no-padding">
              <textarea placeholder="Regular Placeholder" translate
                        translate-attr-placeholder="ROUTE_CREATION.ROUTE_DESCRIPTION"
-                       class="form-control businessAddressInput"
+                       class="form-control businessAddressInput route-description"
                        name="routeDescription" ng-model="$parent.routeDescription" required></textarea>
              <i ng-show="routeDescription==undefined"
                 class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor"></i>
@@ -45,7 +45,7 @@
 
         <div class="registerTraderLineSeparator topMarginElements col-xs-10 col-xs-offset-1"></div>
 
-        <form name="municipalityRoutePointsForm" class="form-group form col-xs-10 col-xs-offset-1">
+        <form name="municipalityRoutePointsForm" ng-class="routeSites.length>=5 ? 'scrollable-route-form': ''" class="form-group form col-xs-10 col-xs-offset-1">
             <div class="row businessAddressText topMarginElements municipality-description-bottom-margin citizen-hall-title col-xs-12">
                 <span class="texto-oscuro-business route-subtitles-size"
                       translate="ROUTE_CREATION.MAKE_ROUTE_TIP"></span>
@@ -68,11 +68,11 @@
                 </div>
             </div>
 
-            <fieldset  data-ng-repeat="site in routeSites">
+            <fieldset ng-class="routeSites.length>5 ? 'correct-width': ''"  data-ng-repeat="site in routeSites">
                 <div class="row topMarginElements" >
                     <label class=" col-xs-offset-2 route-subtitles route-subtitles-size" translate="ROUTE_CREATION.SITE"></label><label class="route-subtitles route-subtitles-size">&nbsp %%$index +1 %%</label>
                 </div>
-                <div class="row control">
+                <div class="row control no-padding">
                     <div class="container-fluid col-xs-9 col-xs-offset-2 emailTraderContainer">
                         <browser-input-field isonmapview="false" isoncreateroute="true" result="result" do-search="doSearch(result)"
                                              show-route="showRoute()"
