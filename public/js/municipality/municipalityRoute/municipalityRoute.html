@@ -27,7 +27,7 @@
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                 </div>
             </div>
-     <span class="error" ng-show="submitted && municipalityRouteBasicInfoForm.routeName.$error.required"
+     <span class="col-xs-offset-2 error" ng-show="submitted && municipalityRouteBasicInfoForm.routeName.$error.required"
            translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
          <div class="input topMarginElements col-xs-12 no-padding">
@@ -38,8 +38,8 @@
              <i ng-show="routeDescription==undefined"
                 class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor"></i>
              <span ng-show="submitted && municipalityRouteBasicInfoForm.routeDescription.$error.required"
-                   class="errorField businessAddressText"
-                   translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+                   class="errorField "
+                   translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
          </div>
         </form>
 
@@ -65,6 +65,8 @@
                     <i ng-show="routeName==undefined"
 
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                    <span class="error" ng-show="submitted && result==undefined"
+                          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
                 </div>
             </div>
 
@@ -111,8 +113,9 @@
                                          subcategory-search="doSearch(subcategoryname)" placeholdertext="endPoint"></browser-input-field>
 
                     <i ng-show="routeName==undefined"
-
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                    <span class="error" ng-show="submitted && resultDestiny==undefined"
+                          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
                 </div>
             </div>
 
@@ -121,7 +124,7 @@
                         ng-click="cancelRegister()"
                         translate="CANCEL_BUTTON"></button>
                 <button class="button municipality-info-buttons"
-                        ng-click="changeViewLocation()" translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
+                        ng-click="saveRoute()" translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
             </div>
 
         </form>

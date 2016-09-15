@@ -14,6 +14,7 @@ angular.module('Municipality')
         $scope.routeName = undefined;
         $scope.routeDescription = undefined;
         $scope.routeSites = [];
+        $scope.submitted=false;
 
 
         uiGmapIsReady.promise().then(initMap);
@@ -38,4 +39,9 @@ angular.module('Municipality')
         $scope.removeSite = function (index) {
             $scope.routeSites.splice(index, 1);
         }
+
+        $scope.saveRoute=function(){
+            $scope.submitted=true;
+        }
+
     });
