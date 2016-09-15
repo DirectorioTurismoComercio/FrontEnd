@@ -117,6 +117,10 @@
               case 'endPoint':
                 $scope.attrs.placeholder='Select destination point';
                     break;
+
+              case 'sitePoint':
+                $scope.attrs.placeholder='Site name';
+                break;
             }
 
           }else{
@@ -134,6 +138,10 @@
 
               case 'endPoint':
                 $scope.attrs.placeholder='Seleccionar punto de llegada';
+                break;
+
+              case 'sitePoint':
+                $scope.attrs.placeholder='Nombre de parada';
                 break;
 
             }
@@ -166,6 +174,10 @@
             case 'endPoint':
               placeholder='Select destination point';
               break;
+
+            case 'sitePoint':
+              placeholder='Site name';
+              break;
           }
         }else{
           placeholder='I am searching...';
@@ -185,6 +197,9 @@
               placeholder='Seleccionar punto de llegada';
               break;
 
+            case 'sitePoint':
+              placeholder='Nombre de parada';
+              break;
           }
 
         }else{

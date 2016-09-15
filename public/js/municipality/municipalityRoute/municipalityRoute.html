@@ -69,8 +69,20 @@
             </div>
 
             <fieldset  data-ng-repeat="site in routeSites">
-                <input type="text" ng-model="site.name" name="" placeholder="Enter mobile number">
-                <button class="remove" ng-click="removeSite($index)">-</button>
+                <div class="row control">
+                    <div class="container-fluid col-xs-9 col-xs-offset-2 emailTraderContainer">
+                        <browser-input-field isonmapview="false" isoncreateroute="true" result="result" do-search="doSearch(result)"
+                                             show-route="showRoute()"
+                                             subcategory-search="doSearch(subcategoryname)" placeholdertext="sitePoint"></browser-input-field>
+
+                        <i ng-show="routeName==undefined"
+
+                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                    </div>
+                    <div class="col-xs-1 container-fluid" ng-click="removeSite($index)">
+                        <img class="icon margin-left" src="./images/accountInfoIcons/borrar.png">
+                    </div>
+                </div>
             </fieldset>
 
 
@@ -91,7 +103,7 @@
                     <img class="confirmRegisterIcons" src="./images/icons/llegada-mapa.png">
                 </div>
                 <div class="container-fluid col-xs-10 emailTraderContainer">
-                    <browser-input-field isonmapview="false" isoncreateroute="true" result="result" do-search="doSearch(result)"
+                    <browser-input-field isonmapview="false" isoncreateroute="true" result="resultDestiny" do-search="doSearch(resultDestiny)"
                                          show-route="showRoute()"
                                          subcategory-search="doSearch(subcategoryname)" placeholdertext="endPoint"></browser-input-field>
 
