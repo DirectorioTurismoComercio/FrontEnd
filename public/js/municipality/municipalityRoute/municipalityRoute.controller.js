@@ -5,13 +5,14 @@ angular.module('Municipality')
         function ($scope, $http, API_CONFIG, uiGmapIsReady, MapService, $rootScope,$location, municipalityInformationService, MunicipiosFactory, $q,  $log, $translate, messageService) {
         $scope.map = {
             center: {
-                latitude: 0, // parseFloat(municipalityInformationService.getMunicipalityName().latitud),
-                longitude: 0 // parseFloat(municipalityInformationService.getMunicipalityName().longitud)
+                latitude:  parseFloat(municipalityInformationService.getMunicipalityName().latitud),
+                longitude: parseFloat(municipalityInformationService.getMunicipalityName().longitud)
             },
             control: {},
             zoom: 13
         };
 
+        var selectedSite = undefined;
         setPlaceholders();
 
         $scope.routeName = undefined;
@@ -21,14 +22,9 @@ angular.module('Municipality')
 
         $scope.simulateQuery = false;
         $scope.isDisabled    = false;
+        
 
- /*        MunicipiosFactory.getTowns().then(function (response) {
-            $scope.repos = response;
-                  console.log(response);
-        }).catch(function (error) {
-            messageService.showErrorMessage("GET_TOWNS_ERROR");
-        }); 
-*/
+
         $http({
             url: API_CONFIG.url + '/municipio/sitios', 
             method: "GET",
@@ -36,7 +32,7 @@ angular.module('Municipality')
 
          }).then(function (response) {
                             console.log(response);
-                            $scope.repos = response.data;
+                            $scope.sites = response.data;
                         }
                     )
                     .catch(
@@ -46,9 +42,10 @@ angular.module('Municipality')
                         }
                     );
 
-        $scope.selectedCountry = function(selected) {
+        $scope.selectedSite = function(selected) {
             if (selected) {
-                window.alert('You have selected ' + selected.title);
+                selectedSite=selected;
+
             } else {
                 console.log('cleared');
             }
@@ -75,8 +72,12 @@ angular.module('Municipality')
         }
 
         $scope.addSite = function () {
-            var newRouteSite = $scope.routeSites.length + 1;
-            $scope.routeSites.push({'id': 'site' + newRouteSite});
+                if(selectedSite){
+                $scope.routeSites.push(selectedSite);
+                console.log($scope.routeSites);
+                $scope.$broadcast('angucomplete-alt:clearInput');
+                selectedSite=undefined;
+                }
         }
 
         $scope.removeSite = function (index) {
