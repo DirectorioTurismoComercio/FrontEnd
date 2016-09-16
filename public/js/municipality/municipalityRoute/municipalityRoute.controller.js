@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $rootScope,$location, municipalityInformationService, MunicipiosFactory, $q,  $log, $translate) {
+    .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $rootScope,$location, municipalityInformationService, MunicipiosFactory, $q,  $log, $translate, messageService) {
         $scope.map = {
             center: {
                 latitude: parseFloat(municipalityInformationService.getMunicipalityName().latitud),
@@ -23,18 +23,18 @@ angular.module('Municipality')
 
         MunicipiosFactory.getTowns().then(function (response) {
             $scope.repos = response;
-            console.log($scope.repos);
-            /*$scope.repos=$scope.repos.map( function (repo) {
-                repo.value = repo.nombre.toLowerCase();
-                return repo;
-            });*/
-            console.log("luego del map", $scope.repos)
         }).catch(function (error) {
             messageService.showErrorMessage("GET_TOWNS_ERROR");
         });
 
 
-
+        $scope.selectedCountry = function(selected) {
+            if (selected) {
+                window.alert('You have selected ' + selected.title);
+            } else {
+                console.log('cleared');
+            }
+        };
 
         $rootScope.$on('$translateChangeSuccess', function () {
             setPlaceholders();
@@ -47,25 +47,6 @@ angular.module('Municipality')
             MapService.setGMap($scope.map.control.getGMap());
         }
 
-        $scope.querySearch =function (query) {
-            var results = query ? $scope.repos.filter( createFilterFor(query) ) : $scope.repos,
-                deferred;
-            if ($scope.simulateQuery) {
-                deferred = $q.defer();
-                $timeout(function () { deferred.resolve( results ); }, Math.random() * 1000, false);
-                return deferred.promise;
-            } else {
-                return results;
-            }
-        }
-
-        $scope.searchTextChange = function(text) {
-            $log.info('Text changed to ' + text);
-        }
-
-        $scope.selectedItemChange = function(item) {
-            $log.info('Item changed to ' + JSON.stringify(item));
-        }
 
         $scope.changeViewMunicipalityAccount = function () {
             $location.path('/municipalityaccountinfo');
@@ -88,14 +69,6 @@ angular.module('Municipality')
             $scope.submitted=true;
         }
 
-        function createFilterFor(query) {
-            var lowercaseQuery = angular.lowercase(query);
-
-            return function filterFn(item) {
-                return (item.value.indexOf(lowercaseQuery) === 0);
-            };
-
-        }
 
         function setPlaceholders(){
             if($translate.use()=='en'){
