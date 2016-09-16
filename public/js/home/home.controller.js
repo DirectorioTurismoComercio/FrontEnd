@@ -11,13 +11,13 @@ angular.module('home')
         siteAndTownSaverService.setSelectedCategory(undefined);
 
         setHowItWorksTraderImage();
-
+/*
         MunicipalitiesDAO.getAllMunicipalities().then(function (municipalities) {
             chooseRandomMunicipalitiesToShow(municipalities);
         }).catch(function (error) {
             $log.error(error);
         });
-
+*/
         $scope.doSearch = function (result) {
             if (result != undefined) {
                 MapService.clearRoute();

@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $rootScope,$location, municipalityInformationService, MunicipiosFactory, $q,  $log, $translate, messageService) {
+    .controller('municipalityRouteController', 
+        function ($scope, $http, API_CONFIG, uiGmapIsReady, MapService, $rootScope,$location, municipalityInformationService, MunicipiosFactory, $q,  $log, $translate, messageService) {
         $scope.map = {
             center: {
-                latitude: parseFloat(municipalityInformationService.getMunicipalityName().latitud),
-                longitude: parseFloat(municipalityInformationService.getMunicipalityName().longitud)
+                latitude: 0, // parseFloat(municipalityInformationService.getMunicipalityName().latitud),
+                longitude: 0 // parseFloat(municipalityInformationService.getMunicipalityName().longitud)
             },
             control: {},
             zoom: 13
@@ -21,12 +22,29 @@ angular.module('Municipality')
         $scope.simulateQuery = false;
         $scope.isDisabled    = false;
 
-        MunicipiosFactory.getTowns().then(function (response) {
+ /*        MunicipiosFactory.getTowns().then(function (response) {
             $scope.repos = response;
+                  console.log(response);
         }).catch(function (error) {
             messageService.showErrorMessage("GET_TOWNS_ERROR");
-        });
+        }); 
+*/
+        $http({
+            url: API_CONFIG.url + '/municipio/sitios', 
+            method: "GET",
+            params: {'municipio_id':60},
 
+         }).then(function (response) {
+                            console.log(response);
+                            $scope.repos = response.data;
+                        }
+                    )
+                    .catch(
+                        function (errors) {
+                            console.log("Errores retornado por el servidor", errors);
+                            formValidator.emailAlreadyExistsShowError(errors);
+                        }
+                    );
 
         $scope.selectedCountry = function(selected) {
             if (selected) {
