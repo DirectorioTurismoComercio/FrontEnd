@@ -59,3 +59,8 @@
 .input-create-route{
     background-color: #F2F2F2;
 }
+
+.input-create-route-highlight {
+    color: #000;
+    font-weight: bold;
+}

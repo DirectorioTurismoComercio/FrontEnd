@@ -7,16 +7,19 @@
     border-width: 1px;
     border-style: solid;
     border-radius: 2px;
-    width: 250px;
-    padding: 6px;
+    border-left: solid 1px #F2F2F2;
+    border-bottom: solid 1px #F2F2F2;
+    width: 100%;
     cursor: pointer;
     z-index: 9999;
     position: absolute;
     /*top: 32px;
     left: 0px;
     */
-    margin-top: -6px;
+    margin-top: -2px;
     background-color: #ffffff;
+    overflow-y: auto;
+    max-height: 200px;
 }
 
 .angucomplete-searching {
@@ -31,13 +34,16 @@
 .angucomplete-row {
     padding: 5px;
     color: #000000;
-    margin-bottom: 4px;
     clear: both;
+    border-left: solid 1px #cccccc;
+    border-bottom: solid 1px #cccccc;
+    border-left: solid 1px #cccccc;
+    border-right: solid 1px #cccccc;
 }
 
 .angucomplete-selected-row {
-    background-color: lightblue;
-    color: #ffffff;
+    background-color: #ebf2fe;
+    color: #000;
 }
 
 .angucomplete-image-holder {
