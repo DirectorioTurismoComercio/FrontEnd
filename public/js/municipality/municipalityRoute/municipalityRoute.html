@@ -59,26 +59,15 @@
                 </div>
                 <div class="container-fluid col-xs-10 emailTraderContainer">
                     <div>
-                        <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItem"
-                                         md-search-text-change="searchTextChange(searchText)" md-search-text="searchText"
-                                         md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)"
-                                         md-item-text="item.name" md-min-length="0" placeholder="%%texto%%"
-                                         md-menu-class="autocomplete-custom-template">
-                            <md-item-template>
-                              <span class="item-title">
-                                <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
-                                <span> %%item.nombre%% </span>
-                              </span>
-                              <span class="item-metadata">
-                                <span class="item-metastat">
-                                  <strong>%%item.watchers%%</strong> watchers
-                                </span>
-                                <span class="item-metastat">
-                                  <strong>%%item.forks%%</strong> forks
-                                </span>
-                              </span>
-                            </md-item-template>
-                        </md-autocomplete>
+                        <angucomplete-alt id="ex1"
+                                          placeholder="%%startPointPlaceholder%%"
+                                          pause="100"
+                                          selected-object="selectedCountry"
+                                          local-data="repos"
+                                          search-fields="name"
+                                          title-field="name"
+                                          minlength="1"
+                                          input-class="form-control form-control-small"/>
                     </div>
 
                     <i ng-show="result==undefined"
@@ -98,26 +87,15 @@
                 <div class="row control no-padding">
                     <div class="container-fluid col-xs-9 col-xs-offset-2 emailTraderContainer">
                         <div>
-                            <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItem"
-                                             md-search-text-change="searchTextChange(searchText)" md-search-text="searchText"
-                                             md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)"
-                                             md-item-text="item.name" md-min-length="0" placeholder="Pick an Angular repository"
-                                             md-menu-class="autocomplete-custom-template">
-                                <md-item-template>
-                                  <span class="item-title">
-                                    <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
-                                    <span> %%item.nombre%% </span>
-                                  </span>
-                                  <span class="item-metadata">
-                                    <span class="item-metastat">
-                                      <strong>%%item.watchers%%</strong> watchers
-                                    </span>
-                                    <span class="item-metastat">
-                                      <strong>%%item.forks%%</strong> forks
-                                    </span>
-                                  </span>
-                                </md-item-template>
-                            </md-autocomplete>
+                            <angucomplete-alt id="ex1"
+                                              placeholder="%%sitePointPlaceholder%%"
+                                              pause="100"
+                                              selected-object="selectedCountry"
+                                              local-data="repos"
+                                              search-fields="name"
+                                              title-field="name"
+                                              minlength="1"
+                                              input-class="form-control form-control-small"/>
                         </div>
 
                         <i ng-show="result==undefined"
@@ -150,26 +128,17 @@
                 </div>
                 <div class="container-fluid col-xs-10 emailTraderContainer">
                     <div>
-                        <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItem"
-                                         md-search-text-change="searchTextChange(searchText)" md-search-text="searchText"
-                                         md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)"
-                                         md-item-text="item.name" md-min-length="0" placeholder="Pick an Angular repository"
-                                         md-menu-class="autocomplete-custom-template">
-                            <md-item-template>
-                                  <span class="item-title">
-                                    <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
-                                    <span> %%item.nombre%% </span>
-                                  </span>
-                                  <span class="item-metadata">
-                                    <span class="item-metastat">
-                                      <strong>%%item.watchers%%</strong> watchers
-                                    </span>
-                                    <span class="item-metastat">
-                                      <strong>%%item.forks%%</strong> forks
-                                    </span>
-                                  </span>
-                            </md-item-template>
-                        </md-autocomplete>
+                        <div>
+                            <angucomplete-alt id="ex1"
+                                              placeholder="%%destinationPointPlaceholder%%"
+                                              pause="100"
+                                              selected-object="selectedCountry"
+                                              local-data="repos"
+                                              search-fields="name"
+                                              title-field="name"
+                                              minlength="1"
+                                              input-class="form-control form-control-small"/>
+                        </div>
                     </div>
 
                     <i ng-show="resultDestiny==undefined"

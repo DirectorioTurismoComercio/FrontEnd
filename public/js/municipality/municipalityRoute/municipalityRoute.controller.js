@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $location, municipalityInformationService, MunicipiosFactory, $q,  $log, $translate) {
+    .controller('municipalityRouteController', function ($scope, uiGmapIsReady, MapService, $rootScope,$location, municipalityInformationService, MunicipiosFactory, $q,  $log, $translate) {
         $scope.map = {
             center: {
                 latitude: parseFloat(municipalityInformationService.getMunicipalityName().latitud),
@@ -11,7 +11,8 @@ angular.module('Municipality')
             zoom: 13
         };
 
-        $scope.texto=$translate.instant("TABS_CONSTANTS.ROUTE_STARTING_POINT");
+        setPlaceholders();
+
         $scope.routeName = undefined;
         $scope.routeDescription = undefined;
         $scope.routeSites = [];
@@ -23,13 +24,20 @@ angular.module('Municipality')
         MunicipiosFactory.getTowns().then(function (response) {
             $scope.repos = response;
             console.log($scope.repos);
-            $scope.repos=$scope.repos.map( function (repo) {
+            /*$scope.repos=$scope.repos.map( function (repo) {
                 repo.value = repo.nombre.toLowerCase();
                 return repo;
-            });
+            });*/
             console.log("luego del map", $scope.repos)
         }).catch(function (error) {
             messageService.showErrorMessage("GET_TOWNS_ERROR");
+        });
+
+
+
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            setPlaceholders();
         });
 
 
@@ -87,6 +95,22 @@ angular.module('Municipality')
                 return (item.value.indexOf(lowercaseQuery) === 0);
             };
 
+        }
+
+        function setPlaceholders(){
+            if($translate.use()=='en'){
+                $scope.startPointPlaceholder=$translate.instant("ROUTE_CREATION.ROUTE_START_POINT_ENGLISH");
+                $scope.destinationPointPlaceholder=$translate.instant("ROUTE_CREATION.ROUTE_DESTINATION_POINT_ENGLISH");
+                $scope.sitePointPlaceholder=$translate.instant("ROUTE_CREATION.ROUTE_POINT_ENGLISH");
+            }
+            if($translate.use()=='es')
+            {
+                $scope.startPointPlaceholder=$translate.instant("ROUTE_CREATION.ROUTE_START_POINT");
+                $scope.destinationPointPlaceholder=$translate.instant("ROUTE_CREATION.ROUTE_DESTINATION_POINT");
+                $scope.sitePointPlaceholder=$translate.instant("ROUTE_CREATION.ROUTE_POINT");
+
+
+            }
         }
 
     });

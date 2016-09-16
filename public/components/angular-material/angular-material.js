@@ -17874,7 +17874,7 @@ function MdAutocomplete () {
                 ng-keydown="$mdAutocompleteCtrl.keydown($event)"\
                 ng-blur="$mdAutocompleteCtrl.blur()"\
                 ng-focus="$mdAutocompleteCtrl.focus()"\
-                placeholder="{{placeholder}}"\
+                translate  translate-attr-placeholder="{{placeholder}}"\
                 aria-owns="ul-{{$mdAutocompleteCtrl.id}}"\
                 aria-label="{{placeholder}}"\
                 aria-autocomplete="list"\
