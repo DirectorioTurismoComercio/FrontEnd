@@ -188,9 +188,13 @@
 
 
 
+            <div ng-show="addedMunicipalityes.length>0" class="registerTraderLineSeparator col-xs-10 col-xs-offset-1"></div>
 
-            <div  ng-show="addedMunicipalityes.length>0" class="row">
-                <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.MUNICIPALITY_SITES"></p>
+            <div  ng-show="addedMunicipalityes.length>0">
+                <div class="account-info-munucipality-title-container municipality-sites-title-container topMarginElements">
+                    <img class="confirmRegisterIcons" src="./images/accountInfoIcons/municipio_sitios.png">
+                    <p class="account-info-subtitle account-info-munucipality-title" translate="ACCOUNT_INFO.MUNICIPALITY_SITES"></p>
+                </div>
             </div>
 
             <div ng-class="municipalitySites.length>2 ? 'scrollable-site-list':''">
@@ -228,11 +232,12 @@
 
 
 
+            <div ng-show="addedMunicipalityes.length>0" class="registerTraderLineSeparator col-xs-10 col-xs-offset-1"></div>
 
             <div ng-show="addedMunicipalityes.length>0">
-                <div class="registerTraderLineSeparator col-xs-10 col-xs-offset-1"></div>
-                <div class="row">
-                    <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.MUNICIPALITY_ROUTES"></p>
+                <div class="account-info-munucipality-title-container topMarginElements">
+                    <img class="  confirmRegisterIcons" src="./images/accountInfoIcons/municipio_rutas.png">
+                    <p class="account-info-subtitle account-info-munucipality-title" translate="ACCOUNT_INFO.MUNICIPALITY_ROUTES"></p>
                 </div>
 
                 <div class="row registerTrader-button NextButtonRegister topMarginElements">

@@ -84,6 +84,20 @@
     height: 400px;
 }
 
+.account-info-munucipality-title-container{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.account-info-munucipality-title{
+    display: inline-block;
+}
+
+.municipality-sites-title-container{
+    width: 90% !important;
+}
+
 @media (min-width: 768px) {
     .registered-business .business-name {
 
