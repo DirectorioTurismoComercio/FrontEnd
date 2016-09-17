@@ -75,6 +75,17 @@
                           translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
                 </div>
             </div>
+            
+            <div ng-show="routeSites.length<8" class="row control">
+                <div class="col-xs-2 container-fluid">
+                </div>
+                <div class="route-controls add-route-point-container">
+                    <div class="control add-route-site-button no-padding" ng-click="addSite()">
+                        <p class="add-route-site-text" translate="ROUTE_CREATION.ADD_SITE"></p>
+                        <img src="./images/icons/municipio_puntos.png">
+                    </div>
+                </div>
+            </div>
 
             <fieldset ng-class="routeSites.length>5 ? 'correct-width': ''" data-ng-repeat="site in routeSites track by $index">
                 <div class="row topMarginElements">
@@ -94,7 +105,7 @@
                     <img class="confirmRegisterIcons" src="./images/icons/llegada-mapa.png">
                   </div>
                     <div class="container-fluid col-xs-9 col-xs-offset-2 emailTraderContainer">
-                        <div>%%site.title%%</div>
+                        <div>%%site.nombre%%</div>
 
                         <i ng-show="result==undefined"
                            class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
@@ -108,16 +119,6 @@
             </fieldset>
 
 
-            <div ng-show="routeSites.length<8" class="row control">
-                <div class="col-xs-2 container-fluid">
-                </div>
-                <div class="route-controls add-route-point-container">
-                    <div class="control add-route-site-button no-padding" ng-click="addSite()">
-                        <p class="add-route-site-text" translate="ROUTE_CREATION.ADD_SITE"></p>
-                        <img src="./images/icons/municipio_puntos.png">
-                    </div>
-                </div>
-            </div>
 
 
             <div class=" municipality-info-buttons-conatiner next-button NextButtonRegister topMarginElements col-xs-12">

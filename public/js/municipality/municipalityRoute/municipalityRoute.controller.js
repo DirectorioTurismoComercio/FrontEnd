@@ -2,11 +2,13 @@
 
 angular.module('Municipality')
     .controller('municipalityRouteController', 
-        function ($scope, $http, API_CONFIG, uiGmapIsReady, MapService, $rootScope,$location, municipalityInformationService, MunicipiosFactory, $q,  $log, $translate, messageService) {
+        function ($scope, $http, API_CONFIG, uiGmapIsReady, MapService, uiGmapGoogleMapApi,
+            $rootScope,$location, municipalityInformationService, $timeout,
+            MunicipiosFactory, $q,  $log, $translate, messageService,MapRouteSitesService) {
         $scope.map = {
             center: {
-                latitude:  parseFloat(municipalityInformationService.getMunicipalityName().latitud),
-                longitude: parseFloat(municipalityInformationService.getMunicipalityName().longitud)
+                latitude:  5.050000000000000000,//parseFloat(municipalityInformationService.getMunicipalityName().latitud),
+                longitude:  -73.883333333333300000//parseFloat(municipalityInformationService.getMunicipalityName().longitud)
             },
             control: {},
             zoom: 13
@@ -23,7 +25,7 @@ angular.module('Municipality')
         $scope.simulateQuery = false;
         $scope.isDisabled    = false;
         
-
+        
 
         $http({
             url: API_CONFIG.url + '/municipio/sitios', 
@@ -41,6 +43,17 @@ angular.module('Municipality')
                             formValidator.emailAlreadyExistsShowError(errors);
                         }
                     );
+        function drawRoute(){            
+            if($scope.routeSites.length>0){
+            reloadMap();            
+            MapRouteSitesService.calculateRoute($scope.routeSites, $scope, undefined);
+            }
+        }
+        function reloadMap() {
+            $timeout(function () {
+                google.maps.event.trigger($scope.map.control.getGMap(), 'resize');
+            });
+        }            
 
         $scope.selectedSite = function(selected) {
             if (selected) {
@@ -73,15 +86,17 @@ angular.module('Municipality')
 
         $scope.addSite = function () {
                 if(selectedSite){
-                $scope.routeSites.push(selectedSite);
+                $scope.routeSites.push(selectedSite.originalObject);
                 console.log($scope.routeSites);
                 $scope.$broadcast('angucomplete-alt:clearInput');
                 selectedSite=undefined;
+                   drawRoute();
                 }
         }
 
         $scope.removeSite = function (index) {
             $scope.routeSites.splice(index, 1);
+            drawRoute();
         }
 
         $scope.saveRoute=function(){
