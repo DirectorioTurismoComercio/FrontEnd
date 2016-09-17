@@ -229,8 +229,10 @@
     "ROUTE_START_POINT_ENGLISH":"Select starting point",
     "ROUTE_DESTINATION_POINT_ENGLISH":"Select destination point",
     "ROUTE_POINT_ENGLISH":"Select site",
-    "ADD_ROUTE_POINT":"Add route site",
-    "ROUTE_LIST_TITLE":"Your route"
+    "ADD_ROUTE_POINT_ENGLISH":"Add route site",
+    "ROUTE_LIST_TITLE":"Your route",
+    "ROUTE_APROX_DISTANCE":"Distance aprox.",
+    "ROUTE_APROX_DURATION":"Duration aprox."
 
 
   },
