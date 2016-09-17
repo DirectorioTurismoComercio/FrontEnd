@@ -49,7 +49,8 @@
 
 .scrollable-route-form{
     overflow-y: scroll;
-    height: 580px;
+    overflow-x: hidden;
+    height: 300px;
 }
 
 .correct-width{

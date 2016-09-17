@@ -45,7 +45,7 @@
 
         <div class="registerTraderLineSeparator topMarginElements col-xs-10 col-xs-offset-1"></div>
 
-        <form name="municipalityRoutePointsForm" ng-class="routeSites.length>=4 ? 'scrollable-route-form': ''"
+        <form name="municipalityRoutePointsForm"
               class="form-group form col-xs-10 col-xs-offset-1">
             <div class="row businessAddressText topMarginElements municipality-description-bottom-margin citizen-hall-title col-xs-12">
                 <span class="texto-oscuro-business route-subtitles-size"
@@ -78,40 +78,33 @@
             </div>
 
 
-            <div class="row route-list-title-container topMarginElements">
-                <p class="route-list-title" translate="ROUTE_CREATION.ROUTE_LIST_TITLE"></p>
-            </div>
 
-            <fieldset ng-class="routeSites.length>5 ? 'correct-width': ''" data-ng-repeat="site in routeSites">
-                <div class="row topMarginElements">
-                    <label class=" col-xs-offset-2 route-subtitles route-subtitles-size"
-                           translate="ROUTE_CREATION.SITE"></label><label class="route-subtitles route-subtitles-size">&nbsp
-                    %%$index +1 %%</label>
+                <div class="row route-list-title-container topMarginElements">
+                    <p class="route-list-title" translate="ROUTE_CREATION.ROUTE_LIST_TITLE"></p>
                 </div>
-                <div class="row control no-padding">
-                    <div class="container-fluid col-xs-9 col-xs-offset-2 emailTraderContainer">
-                        <div>
-                            <angucomplete-alt id="ex1"
-                                              placeholder="%%sitePointPlaceholder%%"
-                                              pause="100"
-                                              selected-object="selectedCountry"
-                                              local-data="repos"
-                                              search-fields="name"
-                                              title-field="name"
-                                              minlength="1"
-                                              input-class="form-control form-control-small input-create-route"/>
+
+            <div ng-class="routeSites.length>=4 ? 'scrollable-route-form': ''">
+
+                <fieldset ng-class="routeSites.length>4 ? 'correct-width': ''" data-ng-repeat="site in routeSites">
+                    <div class="row topMarginElements">
+                        <div class="col-xs-1 container-fluid">
+                            <img ng-show="$index==0" class="icon" src="./images/icons/salida-mapa.png">
+                            <img ng-show="($index>0 && $index<9) && ($index+1)!=routeSites.length" class="icon" src="./images/icons/municipio_puntos.png">
+                            <img ng-show="(($index+1)==routeSites.length)&& routeSites.length>=2" class="icon" src="./images/icons/llegada-mapa.png">
                         </div>
 
-                        <i ng-show="result==undefined"
-                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
-                         <span class="error" ng-show="submitted && result==undefined"
-                               translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+                        <div class="col-xs-8 container-fluid">
+                            <label class="route-subtitles route-subtitles-size"
+                                   translate="ROUTE_CREATION.SITE"></label><label class="route-subtitles route-subtitles-size">&nbsp
+                            %%$index +1 %%</label>
+                        </div>
+                        <div class="col-xs-1 container-fluid" ng-click="removeSite($index)">
+                            <img class="icon margin-left" src="./images/accountInfoIcons/borrar.png">
+                        </div>
+
                     </div>
-                    <div class="col-xs-1 container-fluid" ng-click="removeSite($index)">
-                        <img class="icon margin-left" src="./images/accountInfoIcons/borrar.png">
-                    </div>
-                </div>
-            </fieldset>
+                </fieldset>
+            </div>
 
             <div class=" municipality-info-buttons-conatiner next-button NextButtonRegister topMarginElements col-xs-12">
                 <button class="button edit-section-button cancel-button municipality-info-buttons"
