@@ -45,15 +45,14 @@
 
         <div class="registerTraderLineSeparator topMarginElements col-xs-10 col-xs-offset-1"></div>
 
-        <form name="municipalityRoutePointsForm" ng-class="routeSites.length>=5 ? 'scrollable-route-form': ''"
+        <form name="municipalityRoutePointsForm" ng-class="routeSites.length>=4 ? 'scrollable-route-form': ''"
               class="form-group form col-xs-10 col-xs-offset-1">
             <div class="row businessAddressText topMarginElements municipality-description-bottom-margin citizen-hall-title col-xs-12">
                 <span class="texto-oscuro-business route-subtitles-size"
                       translate="ROUTE_CREATION.MAKE_ROUTE_TIP"></span>
             </div>
 
-
-            <div class="row control">
+            <div class="row control" ng-show="routeSites.length<10">
                 <div class="container-fluid col-xs-8 ">
                     <div>
                         <angucomplete-alt id="ex1"
@@ -76,6 +75,11 @@
                 <div class="col-xs-2 col-xs-offset-2  add-site-route-button"  ng-click="addSite()">
                     <img class="confirmRegisterIcons add-site-icon" src="./images/icons/municipio_puntos.png">
                 </div>
+            </div>
+
+
+            <div class="row route-list-title-container topMarginElements">
+                <p class="route-list-title" translate="ROUTE_CREATION.ROUTE_LIST_TITLE"></p>
             </div>
 
             <fieldset ng-class="routeSites.length>5 ? 'correct-width': ''" data-ng-repeat="site in routeSites">

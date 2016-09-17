@@ -49,7 +49,7 @@
 
 .scrollable-route-form{
     overflow-y: scroll;
-    height: 880px;
+    height: 580px;
 }
 
 .correct-width{
@@ -79,6 +79,15 @@
     -webkit-border-radius: 5px;
 }
 
+.route-list-title-container{
+    display: inline-block;
+}
+
+.route-list-title{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #32A2D4;
+}
 
 
 @media (max-width: 767px) {
