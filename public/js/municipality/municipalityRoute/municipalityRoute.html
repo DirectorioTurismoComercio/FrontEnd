@@ -54,10 +54,7 @@
 
 
             <div class="row control">
-                <div class="col-xs-2 container-fluid">
-                    <img class="confirmRegisterIcons" src="./images/icons/salida-mapa.png">
-                </div>
-                <div class="container-fluid col-xs-10 emailTraderContainer">
+                <div class="container-fluid col-xs-8 ">
                     <div>
                         <angucomplete-alt id="ex1"
                                           placeholder="%%startPointPlaceholder%%"
@@ -70,12 +67,14 @@
                                           input-class="form-control form-control-small input-create-route"
                                           match-class="input-create-route-highlight"/>
                     </div>
+                    <div>
 
-                    <i ng-show="result==undefined"
-
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                    </div>
                     <span class="error" ng-show="submitted && result==undefined"
                           translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+                </div>
+                <div class="col-xs-2 col-xs-offset-2  add-site-route-button"  ng-click="addSite()">
+                    <img class="confirmRegisterIcons add-site-icon" src="./images/icons/municipio_puntos.png">
                 </div>
             </div>
 
@@ -109,45 +108,6 @@
                     </div>
                 </div>
             </fieldset>
-
-
-            <div ng-show="routeSites.length<8" class="row control">
-                <div class="col-xs-2 container-fluid">
-                </div>
-                <div class="route-controls add-route-point-container">
-                    <div class="control add-route-site-button no-padding" ng-click="addSite()">
-                        <p class="add-route-site-text" translate="ROUTE_CREATION.ADD_SITE"></p>
-                        <img src="./images/icons/municipio_puntos.png">
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row control">
-                <div class="col-xs-2 container-fluid">
-                    <img class="confirmRegisterIcons" src="./images/icons/llegada-mapa.png">
-                </div>
-                <div class="container-fluid col-xs-10 emailTraderContainer">
-                    <div>
-                        <div>
-                            <angucomplete-alt id="ex1"
-                                              placeholder="%%destinationPointPlaceholder%%"
-                                              pause="100"
-                                              selected-object="selectedCountry"
-                                              local-data="repos"
-                                              search-fields="name"
-                                              title-field="name"
-                                              minlength="1"
-                                              input-class="form-control form-control-small input-create-route"/>
-                        </div>
-                    </div>
-
-                    <i ng-show="resultDestiny==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
-                    <span class="error" ng-show="submitted && resultDestiny==undefined"
-                          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
-                </div>
-            </div>
 
             <div class=" municipality-info-buttons-conatiner next-button NextButtonRegister topMarginElements col-xs-12">
                 <button class="button edit-section-button cancel-button municipality-info-buttons"

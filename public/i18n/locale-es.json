@@ -222,7 +222,8 @@
     "SITE":"Parada ",
     "ROUTE_START_POINT":"Seleccionar punto de partida",
     "ROUTE_DESTINATION_POINT":"Seleccionar punto de llegada",
-    "ROUTE_POINT":"Seleccionar parada"
+    "ROUTE_POINT":"Seleccionar parada",
+    "ADD_ROUTE_POINT":"Añade un punto a tu ruta"
 
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",

@@ -58,9 +58,56 @@
 
 .input-create-route{
     background-color: #F2F2F2;
+    height: 40px;
 }
 
 .input-create-route-highlight {
     color: #000;
     font-weight: bold;
+}
+
+.add-site-route-button{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    background-color: #97D3E8 !important;
+    height: 40px;
+    border: none;
+    padding: 0;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+
+
+@media (max-width: 767px) {
+    .add-site-icon{
+        height: 8vmin;
+        width: 8vmin;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .add-site-icon{
+        height: 5vmin;
+        width: 5vmin;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .add-site-icon{
+        height: 4vmin;
+        width: 4vmin;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .add-site-icon{
+        height: 4vmin;
+        width: 4vmin;
+    }
 }
