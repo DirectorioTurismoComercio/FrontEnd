@@ -228,7 +228,8 @@
     "SITE":"Site ",
     "ROUTE_START_POINT_ENGLISH":"Select starting point",
     "ROUTE_DESTINATION_POINT_ENGLISH":"Select destination point",
-    "ROUTE_POINT_ENGLISH":"Select site"
+    "ROUTE_POINT_ENGLISH":"Select site",
+    "INCORRECT_NUMBER_OF_POINTS_ERROR":"The Route must have at least two sites*"
 
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",

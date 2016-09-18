@@ -22,6 +22,7 @@ angular.module('Municipality')
         $scope.routeSites = [];
         $scope.submitted=false;
 
+
         $scope.simulateQuery = false;
         $scope.isDisabled    = false;
                 
@@ -96,9 +97,38 @@ angular.module('Municipality')
 
         $scope.saveRoute=function(){
             $scope.submitted=true;
+             if ($scope.municipalityRouteBasicInfoForm.$valid && $scope.routeSites.length>=2) {
+                    sendToServer();
+             }
+
+            
+            }
+
+        function sendToServer(){
+            var sites=[];
+            for(var i=0;i<$scope.routeSites.length;i++){
+                sites.push({sitio_id: $scope.routeSites[i].id, orden: i+1});
+            }
+           $http.post(
+            API_CONFIG.url + '/ruta/crear',
+            {
+                'nombre': $scope.routeName,
+                'descripcion': $scope.routeDescription,
+                'sitio': 3004,
+                'sitios': sites
+            }
+            
+            ).then(function (response) {                
+               $location.path('/municipalityaccountinfo');
+            }
+            )
+            .catch(
+                function (errors) {
+                                console.log("Errores retornado por el servidor", errors);
+                                
+                }
+                )
         }
-
-
         function setPlaceholders(){
             if($translate.use()=='en'){
                 $scope.startPointPlaceholder=$translate.instant("ROUTE_CREATION.ROUTE_START_POINT_ENGLISH");

@@ -71,8 +71,8 @@
                     <i ng-show="result==undefined"
 
                        class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
-                    <span class="error" ng-show="submitted && result==undefined"
-                          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+                    <span class="error" ng-show="submitted && routeSites.length<2"
+                          translate="ROUTE_CREATION.INCORRECT_NUMBER_OF_POINTS_ERROR"></span>
                 </div>
             </div>
             
@@ -106,11 +106,6 @@
                   </div>
                     <div class="container-fluid col-xs-9 col-xs-offset-2 emailTraderContainer">
                         <div>%%site.nombre%%</div>
-
-                        <i ng-show="result==undefined"
-                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
-                         <span class="error" ng-show="submitted && result==undefined"
-                               translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
                     </div>
                     <div class="col-xs-1 container-fluid" ng-click="removeSite($index)">
                         <img class="icon margin-left" src="./images/accountInfoIcons/borrar.png">
