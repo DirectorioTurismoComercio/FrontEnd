@@ -24,25 +24,23 @@ angular.module('Municipality')
 
         $scope.simulateQuery = false;
         $scope.isDisabled    = false;
-        
-        
-
+                
         $http({
             url: API_CONFIG.url + '/municipio/sitios', 
             method: "GET",
             params: {'municipio_id':60},
 
-         }).then(function (response) {
-                            console.log(response);
-                            $scope.sites = response.data;
-                        }
-                    )
-                    .catch(
-                        function (errors) {
+         }).then(function (response) {                
+             $scope.sites = response.data;
+        }
+        )
+        .catch(
+            function (errors) {
                             console.log("Errores retornado por el servidor", errors);
                             formValidator.emailAlreadyExistsShowError(errors);
-                        }
-                    );
+            }
+        );
+        
         function drawRoute(){            
             if($scope.routeSites.length>0){
             reloadMap();            
@@ -59,9 +57,7 @@ angular.module('Municipality')
             if (selected) {
                 selectedSite=selected;
 
-            } else {
-                console.log('cleared');
-            }
+            } 
         };
 
         $rootScope.$on('$translateChangeSuccess', function () {
@@ -87,7 +83,6 @@ angular.module('Municipality')
         $scope.addSite = function () {
                 if(selectedSite){
                 $scope.routeSites.push(selectedSite.originalObject);
-                console.log($scope.routeSites);
                 $scope.$broadcast('angucomplete-alt:clearInput');
                 selectedSite=undefined;
                    drawRoute();
