@@ -49,17 +49,4 @@ describe('Controller: municipalityRouteController', function () {
         expect(testLocation.path).toHaveBeenCalled();
     });
 
-    it('Should add a site when user clicks addSite', function () {
-        $scope.addSite();
-        $scope.addSite();
-        expect($scope.routeSites.length).toBe(2);
-    });
-
-    it('Should delete a site when user clicks removeSite', function () {
-        $scope.addSite();
-        $scope.addSite();
-        $scope.removeSite(1);
-        expect($scope.routeSites.length).toBe(1);
-    });
-
 });

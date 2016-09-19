@@ -30,7 +30,6 @@ angular.module('Municipality')
             $scope.selectedSite = function (selected) {
                 if (selected) {
                     selectedSite = selected;
-
                 }
             };
 

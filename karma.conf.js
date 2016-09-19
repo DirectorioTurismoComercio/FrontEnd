@@ -54,6 +54,8 @@ module.exports = function (config) {
             'public/components/ng-scrollbars/dist/scrollbars.min.js',
             'public/components/slick-carousel/slick/slick.js',
             'public/components/angular-slick/dist/slick.js',
+            'public/components/angucomplete-alt/angucomplete-alt.js',
+            'public/components/angucomplete-alt/dist/angucomplete-alt.min.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/DAO/dao.module.js',
