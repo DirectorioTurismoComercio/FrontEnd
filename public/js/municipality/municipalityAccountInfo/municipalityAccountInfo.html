@@ -234,19 +234,14 @@
 
             <div ng-show="addedMunicipalityes.length>0" class="registerTraderLineSeparator col-xs-10 col-xs-offset-1"></div>
 
-            <div class="row">
-                <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.MUNICIPALITY_ROUTES"></p>
-            </div>
-                
-                <div ng-repeat="route in routes">
-                    <p>%%route.nombre%% <span ng-click="editRoute(route)">Editar</span></p>
-                </div>
-
-
             <div ng-show="addedMunicipalityes.length>0">
                 <div class="account-info-munucipality-title-container topMarginElements">
                     <img class="  confirmRegisterIcons" src="./images/accountInfoIcons/municipio_rutas.png">
                     <p class="account-info-subtitle account-info-munucipality-title" translate="ACCOUNT_INFO.MUNICIPALITY_ROUTES"></p>
+                </div>
+
+                <div ng-repeat="route in routes">
+                    <p>%%route.nombre%% <span ng-click="editRoute(route)">Editar</span></p>
                 </div>
 
                 <div class="row registerTrader-button NextButtonRegister topMarginElements">

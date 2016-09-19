@@ -21,7 +21,6 @@ angular.module('Municipality')
                 municipalityInformationService.setMunicipalitySite(muncipalitySite[0]);
                 if(muncipalitySite.length>0){
                     $scope.routes=muncipalitySite[0].rutas;
-                    console.log($scope.routes);
                 }
 
                 splitSites();
