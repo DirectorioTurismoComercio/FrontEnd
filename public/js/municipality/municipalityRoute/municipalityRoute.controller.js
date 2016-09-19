@@ -143,7 +143,9 @@ angular.module('Municipality')
                         'nombre': $scope.routeName,
                         'descripcion': $scope.routeDescription,
                         'sitio': municipalityInformationService.getMunicipalitySite().id,
-                        'sitios': sites
+                        'sitios': sites,
+                        'tiempo': $scope.routeDuration,
+                        'distancia':  $scope.routeDistance
                     }
                 ).then(function (response) {
                         $location.path('/municipalityaccountinfo');
