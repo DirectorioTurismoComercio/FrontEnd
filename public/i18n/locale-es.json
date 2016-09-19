@@ -176,7 +176,7 @@
     "COMPLETE_UPDATE_BUTTON": "Actualizar",
     "COMPLETE_UPDATE_HEADER": "Actualización terminada",
     "COMPLETE_UPDATE_POPUP_BUTTON": "Continuar",
-    "ADD_MUNICIPALITY_SITE_BUTTON":"Añadir un sitio"
+    "ADD_MUNICIPALITY_SITE_BUTTON": "Añadir un sitio"
   },
   "LOGIN": {
     "TRADER_LOGIN": "Ingreso de comerciantes",
@@ -211,25 +211,24 @@
     "REGISTERED_MUNICIPALITY": "Municipio registrado",
     "ADD_MUNICIPALITY": "Añadir un municipio",
     "MUNICIPALITY_SITES": "Sitios del municipio",
-    "MUNICIPALITY_ROUTES":"Rutas",
-    "ADD_ROUTE":"Inscribir ruta"
+    "MUNICIPALITY_ROUTES": "Rutas",
+    "ADD_ROUTE": "Inscribir ruta"
   },
-  "ROUTE_CREATION":{
-    "FORM_TITLE":"Inscripción de ruta",
-    "ROUTE_NAME":"Nombre de la ruta",
-    "ROUTE_DESCRIPTION":"Describe la ruta",
-    "MAKE_ROUTE_TIP":"Puedes definir una ruta entre los sitios que hayas registrado en el municipio",
-    "ADD_SITE":"Añadir parada",
-    "SITE":"Parada ",
-    "ROUTE_START_POINT":"Seleccionar punto de partida",
-    "ROUTE_DESTINATION_POINT":"Seleccionar punto de llegada",
-    "ROUTE_POINT":"Seleccionar parada",
-    "ADD_ROUTE_POINT":"Añade un punto a tu ruta",
-    "ROUTE_LIST_TITLE":"Tu ruta",
-    "ROUTE_APROX_DISTANCE":"Distancia aprox.",
-    "ROUTE_APROX_DURATION":"Duración aprox.",
-    "INCORRECT_NUMBER_OF_POINTS_ERROR":"La ruta debe tener al menos dos sitios*"
-
+  "ROUTE_CREATION": {
+    "FORM_TITLE": "Inscripción de ruta",
+    "ROUTE_NAME": "Nombre de la ruta",
+    "ROUTE_DESCRIPTION": "Describe la ruta",
+    "MAKE_ROUTE_TIP": "Puedes definir una ruta entre los sitios que hayas registrado en el municipio",
+    "ADD_SITE": "Añadir parada",
+    "SITE": "Parada ",
+    "ROUTE_START_POINT": "Seleccionar punto de partida",
+    "ROUTE_DESTINATION_POINT": "Seleccionar punto de llegada",
+    "ROUTE_POINT": "Seleccionar parada",
+    "ADD_ROUTE_POINT": "Añade un punto a tu ruta",
+    "ROUTE_LIST_TITLE": "Tu ruta",
+    "ROUTE_APROX_DISTANCE": "Distancia aprox.",
+    "ROUTE_APROX_DURATION": "Duración aprox.",
+    "INCORRECT_NUMBER_OF_POINTS_ERROR": "La ruta debe tener al menos dos sitios*"
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
@@ -263,5 +262,9 @@
   "TIMEOUT_CONNECTION_ERROR": "Está tardando demasiado la respuesta del servidor, por favor revisa tu conexión a internet o vuelve a intentarlo más tarde",
   "ROUTE_SITES": "Otros sitios en la ruta",
   "DOUBLE_REGISTER_ERROR": "Por favor cierra la sesión anterior antes de registrar otra cuenta",
-  "DOUBLE_LOGIN_ERROR": "Por favor cierra la sesión anterior antes de iniciar sesión con otra cuenta"
+  "DOUBLE_LOGIN_ERROR": "Por favor cierra la sesión anterior antes de iniciar sesión con otra cuenta",
+  "MUNICIPALITIES_VIEW": {
+    "TITLE": "Municipios de Cundinamarca",
+    "SEARCH_BOX": "Buscar"
+  }
 }

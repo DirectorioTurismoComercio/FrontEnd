@@ -2,5 +2,9 @@
 
 angular.module('Municipality')
     .controller('searchMunicipalityController', function ($scope, $log, $translate, MunicipalitiesDAO) {
+        $scope.municipalities = [];
 
+        MunicipalitiesDAO.getAllMunicipalities().then(function (municipalities) {
+            $scope.municipalities = municipalities;
+        });
     });
