@@ -6,6 +6,8 @@ angular.module('Municipality')
 
         function calculateRoute(sites, $scope, destinationSite) {
 
+            console.log("entrada calcular mapa");
+
             var origin = new google.maps.LatLng(sites[0].latitud,sites[0].longitud);
             var destination = new google.maps.LatLng(sites[sites.length-1].latitud,sites[sites.length-1].longitud); 
             var waypoints=[];
@@ -25,6 +27,7 @@ angular.module('Municipality')
             MapService.getDirectionsService().route(route, function (result, status) {
                 var points = [];
                 if (status == google.maps.DirectionsStatus.OK) {
+                    console.log("los resultados", result);
                     MapService.getDirectionsDisplay().setDirections(result);
 
                     var leg = result.routes[0].legs[0];
@@ -42,6 +45,8 @@ angular.module('Municipality')
                         MapService.addMarker(waypoints[i].location, 'site', siteIcon);
                     }
                  
+                }else{
+                    console.log("error en el direction status");
                 }
             });
         }

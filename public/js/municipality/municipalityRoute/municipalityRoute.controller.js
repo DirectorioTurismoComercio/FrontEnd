@@ -3,7 +3,7 @@
 angular.module('Municipality')
     .controller('municipalityRouteController',
         function ($scope, $http, API_CONFIG, uiGmapIsReady, MapService, uiGmapGoogleMapApi,
-                  $rootScope, $location, municipalityInformationService, $timeout, $q, $log, $translate, messageService, MapRouteSitesService) {
+                  $rootScope, $location, municipalityInformationService, $timeout, $q, $window, $log, $translate, messageService, MapRouteSitesService) {
             $scope.map = {
                 center: {
                     latitude: 5.050000000000000000,//parseFloat(municipalityInformationService.getMunicipalityName().latitud),
@@ -98,7 +98,9 @@ angular.module('Municipality')
 
 
             $scope.addSite = function () {
+                console.log("add site")
                 if (selectedSite) {
+                    console.log("add site dentro del if")
                     $scope.routeSites.push(selectedSite.originalObject);
                     $scope.$broadcast('angucomplete-alt:clearInput');
                     selectedSite = undefined;

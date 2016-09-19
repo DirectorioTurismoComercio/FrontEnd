@@ -58,8 +58,8 @@
                         <angucomplete-alt id="ex1"
                                           placeholder="%%startPointPlaceholder%%"
                                           pause="100"
-                                          selected-object="selectedCountry"
-                                          local-data="repos"
+                                          selected-object="selectedSite"
+                                          local-data="sites"
                                           search-fields="nombre"
                                           title-field="nombre"
                                           minlength="1"
@@ -69,8 +69,8 @@
                     <div>
 
                     </div>
-                    <span class="error" ng-show="submitted && result==undefined"
-                          translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+                    <span class="error" ng-show="submitted && routeSites.length<2"
+                          translate="ROUTE_CREATION.INCORRECT_NUMBER_OF_POINTS_ERROR"></span>
                 </div>
                 <div class="col-xs-2 col-xs-offset-2  add-site-route-button"  ng-click="addSite()">
                     <img class="confirmRegisterIcons add-site-icon" src="./images/icons/municipio_puntos.png">
@@ -85,7 +85,7 @@
 
             <div ng-class="routeSites.length>=5 && !isMobileDevice() ? 'scrollable-route-form': ''">
 
-                <fieldset ng-class="routeSites.length>5 ? 'correct-width': ''" data-ng-repeat="site in routeSites">
+                <fieldset ng-class="routeSites.length>5 ? 'correct-width': ''" data-ng-repeat="site in routeSites track by $index">
                     <div class="row topMarginElements">
                         <div class="col-xs-1 container-fluid">
                             <img ng-show="$index==0" class="icon" src="./images/icons/salida-mapa.png">
@@ -96,7 +96,7 @@
                         <div class="col-xs-8 container-fluid">
                             <label class="route-subtitles route-subtitles-size"
                                    translate="ROUTE_CREATION.SITE"></label><label class="route-subtitles route-subtitles-size">&nbsp
-                            %%$index +1 %%</label>
+                            %%site.nombre%%</label>
                         </div>
                         <div class="col-xs-1 container-fluid" ng-click="removeSite($index)">
                             <img class="icon margin-left" src="./images/accountInfoIcons/borrar.png">
