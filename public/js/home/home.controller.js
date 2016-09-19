@@ -11,13 +11,13 @@ angular.module('home')
         siteAndTownSaverService.setSelectedCategory(undefined);
 
         setHowItWorksTraderImage();
-/*
+
         MunicipalitiesDAO.getAllMunicipalities().then(function (municipalities) {
             chooseRandomMunicipalitiesToShow(municipalities);
         }).catch(function (error) {
             $log.error(error);
         });
-*/
+
         $scope.doSearch = function (result) {
             if (result != undefined) {
                 MapService.clearRoute();
@@ -45,15 +45,13 @@ angular.module('home')
         });
 
         function chooseRandomMunicipalitiesToShow(municipalities) {
-            var MUNICIPALITIES_LENGTH = 3;
-            $scope.municipalities = [];
+            var MUNICIPALITIES_LENGTH = Math.min(municipalities.length, 3);
             var generatedRandomNumbers = [];
+            $scope.municipalities = [];
 
 
             for (var i = 0; i < MUNICIPALITIES_LENGTH; i++) {
                 var random = getDifferentRandomFrom(generatedRandomNumbers, 0, municipalities.length);
-                $log.info(random);
-                $log.info(generatedRandomNumbers.indexOf(random));
 
                 if (generatedRandomNumbers.indexOf(random) == -1) {
                     generatedRandomNumbers.push(random);
@@ -92,10 +90,14 @@ angular.module('home')
         }
 
         function getDifferentRandomFrom(randomNumbers, min, max) {
-            var random = getRandom(min, max);
+            var random;
 
-            while (randomNumbers.indexOf(random) != -1) {
+            if (randomNumbers.length < (max - min)) {
                 random = getRandom(min, max);
+
+                while (randomNumbers.indexOf(random) != -1) {
+                    random = getRandom(min, max);
+                }
             }
 
             return random;

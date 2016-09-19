@@ -71,6 +71,8 @@
 
 .random-municipalities .button {
     max-width: 250px;
+    padding: 10px 60px;
+    font-size: 1em;
 }
 
 @media (min-width: 768px) {
@@ -96,5 +98,10 @@
         right: 35px;
         height: 95px;
         font-size: 1.5em;
+    }
+
+    .random-municipalities .button {
+        font-size: 1.2em;
+        padding: 10px 100px;
     }
 }

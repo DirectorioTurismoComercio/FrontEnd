@@ -12,6 +12,23 @@ input {
     font-family: 'PT Sans', sans-serif;
 }
 
+a.button {
+    height: 40px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    background-color: #FFC501;
+    color: #2D3C4D;
+    padding: 10px 30px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+a.button:hover {
+    text-decoration: none;
+}
+
 .container-fluid {
     padding-left: 0;
     padding-right: 0;
@@ -51,7 +68,7 @@ input {
     display: flex;
 }
 
-.rotateImage{
+.rotateImage {
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
