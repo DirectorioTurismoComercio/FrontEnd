@@ -20,6 +20,7 @@ angular.module('Municipality')
                 muncipalitySite = filterFilter($scope.user.sitios, {tipo_sitio: 'M'});
                 if(muncipalitySite.length>0){
                     $scope.routes=muncipalitySite[0].rutas;
+                    console.log($scope.routes);
                 }
 
                 splitSites();
@@ -157,6 +158,13 @@ angular.module('Municipality')
         }
 
         $scope.addRoute = function(){
+            municipalityInformationService.currentRoute=undefined;
+            $location.path('municipalityroute');
+
+        }
+        $scope.editRoute = function(route){
+            console.log("r",route);
+            municipalityInformationService.setCurrentRoute(route);
             $location.path('municipalityroute');
 
         }

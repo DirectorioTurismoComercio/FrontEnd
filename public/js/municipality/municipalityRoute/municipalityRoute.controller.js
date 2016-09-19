@@ -3,8 +3,7 @@
 angular.module('Municipality')
     .controller('municipalityRouteController', 
         function ($scope, $http, API_CONFIG, uiGmapIsReady, MapService, uiGmapGoogleMapApi,
-            $rootScope,$location, municipalityInformationService, $timeout,
-            MunicipiosFactory, $q,  $log, $translate, messageService,MapRouteSitesService) {
+            $rootScope,$location, municipalityInformationService, $timeout, $q,  $log, $translate, messageService,MapRouteSitesService) {
         $scope.map = {
             center: {
                 latitude:  5.050000000000000000,//parseFloat(municipalityInformationService.getMunicipalityName().latitud),
@@ -25,6 +24,16 @@ angular.module('Municipality')
 
         $scope.simulateQuery = false;
         $scope.isDisabled    = false;
+
+        if(municipalityInformationService.getCurrentRoute()){
+            var route = municipalityInformationService.getCurrentRoute();
+              $scope.routeName = route.nombre;
+             $scope.routeDescription = route.descripcion;
+            for(var i=0;i<route.sitios.length;i++){     
+            $scope.routeSites.push(route.sitios[i].sitio);
+            }
+            drawRoute();
+        }
                 
         $http({
             url: API_CONFIG.url + '/municipio/sitios', 
