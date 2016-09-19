@@ -6,12 +6,13 @@ angular.module('Municipality')
                   $rootScope, $location, municipalityInformationService, $timeout, $q, $window, $log, $translate, messageService, MapRouteSitesService) {
             $scope.map = {
                 center: {
-                    latitude: 5.050000000000000000,//parseFloat(municipalityInformationService.getMunicipalityName().latitud),
-                    longitude: -73.883333333333300000//parseFloat(municipalityInformationService.getMunicipalityName().longitud)
+                    latitude: parseFloat(municipalityInformationService.getMunicipalityName().latitud),
+                    longitude: parseFloat(municipalityInformationService.getMunicipalityName().longitud)
                 },
                 control: {},
                 zoom: 13
             };
+
 
             var selectedSite = undefined;
             setPlaceholders();
@@ -38,7 +39,7 @@ angular.module('Municipality')
             $http({
                 url: API_CONFIG.url + '/municipio/sitios',
                 method: "GET",
-                params: {'municipio_id': 60},
+                params: {'municipio_id': municipalityInformationService.getMunicipalityName().id},
 
             }).then(function (response) {
                     $scope.sites = response.data;
@@ -52,6 +53,7 @@ angular.module('Municipality')
                 );
 
             function drawRoute() {
+                MapService.clearMarkers();
                 if ($scope.routeSites.length > 0) {
                     reloadMap();
                     MapRouteSitesService.calculateRoute($scope.routeSites, $scope, undefined);
@@ -98,9 +100,7 @@ angular.module('Municipality')
 
 
             $scope.addSite = function () {
-                console.log("add site")
                 if (selectedSite) {
-                    console.log("add site dentro del if")
                     $scope.routeSites.push(selectedSite.originalObject);
                     $scope.$broadcast('angucomplete-alt:clearInput');
                     selectedSite = undefined;
@@ -132,7 +132,7 @@ angular.module('Municipality')
                     {
                         'nombre': $scope.routeName,
                         'descripcion': $scope.routeDescription,
-                        'sitio': 3004,
+                        'sitio': municipalityInformationService.getMunicipalitySite().id,
                         'sitios': sites
                     }
                 ).then(function (response) {
@@ -147,10 +147,6 @@ angular.module('Municipality')
                     )
             }
 
-
-            $scope.saveRoute = function () {
-                $scope.submitted = true;
-            }
 
             $scope.openNav = function () {
                 document.getElementById("myNav").style.width = "100%";

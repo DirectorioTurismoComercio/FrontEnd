@@ -18,6 +18,7 @@ angular.module('Municipality')
                 var muncipalitySite;
                 $scope.user = response;
                 muncipalitySite = filterFilter($scope.user.sitios, {tipo_sitio: 'M'});
+                municipalityInformationService.setMunicipalitySite(muncipalitySite[0]);
                 if(muncipalitySite.length>0){
                     $scope.routes=muncipalitySite[0].rutas;
                     console.log($scope.routes);
