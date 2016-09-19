@@ -3,6 +3,10 @@
 angular.module('Municipality', ['uiGmapgoogle-maps'])
     .config(function ($routeProvider) {
         $routeProvider
+            .when('/municipalities', {
+                templateUrl: 'js/municipality/searchMunicipality/searchMunicipality.html',
+                controller: 'searchMunicipalityController'
+            })
             .when('/registermunicipality', {
                 templateUrl: 'js/municipality/registerMunicipalityAccount/registermunicipality.html',
                 controller: 'registerMunicipalityAccountController'
