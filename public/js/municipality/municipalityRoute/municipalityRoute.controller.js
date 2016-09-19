@@ -19,6 +19,8 @@ angular.module('Municipality')
             $scope.submitted = false;
             $scope.simulateQuery = false;
             $scope.isDisabled = false;
+            $scope.routeDistance=undefined;
+            $scope.routeDuration=undefined;
 
             var selectedSite = undefined;
 

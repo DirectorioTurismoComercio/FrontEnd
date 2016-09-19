@@ -22,6 +22,7 @@ angular.module('Municipality')
 
             MapService.clearMarkers();
             MapService.getDirectionsService().route(route, function (result, status) {
+                setTextRouteproperties($scope,result);
                 var points = [];
                 if (status == google.maps.DirectionsStatus.OK) {
                     MapService.getDirectionsDisplay().setDirections(result);
@@ -34,7 +35,6 @@ angular.module('Municipality')
 
                     MapService.addMarker(origin, 'origin', originIcon);
                     if(sites.length>1){
-                        console.log("coloca marcador de destino");
                     MapService.addMarker(destination, 'destination', destinationIcon);
                     }
 
@@ -46,6 +46,11 @@ angular.module('Municipality')
                     console.log("error en el direction status");
                 }
             });
+        }
+
+        function setTextRouteproperties($scope,result){
+            $scope.routeDistance=result.routes[0].legs[0].distance.text;
+            $scope.routeDuration=result.routes[0].legs[0].duration.text;
         }
 
         return {
