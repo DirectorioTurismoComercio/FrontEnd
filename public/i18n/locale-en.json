@@ -233,6 +233,7 @@
     "ROUTE_LIST_TITLE":"Your route",
     "ROUTE_APROX_DISTANCE":"Distance aprox.",
     "ROUTE_APROX_DURATION":"Duration aprox."
+    "INCORRECT_NUMBER_OF_POINTS_ERROR":"The Route must have at least two sites*"
 
 
   },

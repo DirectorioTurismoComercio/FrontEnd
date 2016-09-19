@@ -2,16 +2,18 @@
 
 angular.module('Municipality')
     .controller('municipalityRouteController',
-        function ($scope, $http, API_CONFIG, uiGmapIsReady, MapService, $window, $rootScope, $location, $timeout, municipalityInformationService, MunicipiosFactory, $q, $log, $translate, messageService) {
+        function ($scope, $http, API_CONFIG, uiGmapIsReady, MapService, uiGmapGoogleMapApi,
+                  $rootScope, $location, municipalityInformationService, $timeout, $q, $log, $translate, messageService, MapRouteSitesService) {
             $scope.map = {
                 center: {
-                    latitude: 4.6363623,//parseFloat(municipalityInformationService.getMunicipalityName().latitud),
-                    longitude: -74.0854427//parseFloat(municipalityInformationService.getMunicipalityName().longitud)
+                    latitude: 5.050000000000000000,//parseFloat(municipalityInformationService.getMunicipalityName().latitud),
+                    longitude: -73.883333333333300000//parseFloat(municipalityInformationService.getMunicipalityName().longitud)
                 },
                 control: {},
                 zoom: 13
             };
 
+            var selectedSite = undefined;
             setPlaceholders();
 
             $scope.routeName = undefined;
@@ -19,38 +21,53 @@ angular.module('Municipality')
             $scope.routeSites = [];
             $scope.submitted = false;
 
+
             $scope.simulateQuery = false;
             $scope.isDisabled = false;
 
-            MunicipiosFactory.getTowns().then(function (response) {
-                $scope.repos = response;
-                console.log(response);
-            }).catch(function (error) {
-                messageService.showErrorMessage("GET_TOWNS_ERROR");
-            });
+            if (municipalityInformationService.getCurrentRoute()) {
+                var route = municipalityInformationService.getCurrentRoute();
+                $scope.routeName = route.nombre;
+                $scope.routeDescription = route.descripcion;
+                for (var i = 0; i < route.sitios.length; i++) {
+                    $scope.routeSites.push(route.sitios[i].sitio);
+                }
+                drawRoute();
+            }
 
-            /*$http({
-             url: API_CONFIG.url + '/municipio/sitios',
-             method: "GET",
-             params: {'municipio_id':60},
+            $http({
+                url: API_CONFIG.url + '/municipio/sitios',
+                method: "GET",
+                params: {'municipio_id': 60},
 
-             }).then(function (response) {
-             console.log(response);
-             $scope.repos = response.data;
-             }
-             )
-             .catch(
-             function (errors) {
-             console.log("Errores retornado por el servidor", errors);
-             formValidator.emailAlreadyExistsShowError(errors);
-             }
-             );*/
+            }).then(function (response) {
+                    $scope.sites = response.data;
+                }
+                )
+                .catch(
+                    function (errors) {
+                        console.log("Errores retornado por el servidor", errors);
+                        formValidator.emailAlreadyExistsShowError(errors);
+                    }
+                );
 
-            $scope.selectedCountry = function (selected) {
+            function drawRoute() {
+                if ($scope.routeSites.length > 0) {
+                    reloadMap();
+                    MapRouteSitesService.calculateRoute($scope.routeSites, $scope, undefined);
+                }
+            }
+
+            function reloadMap() {
+                $timeout(function () {
+                    google.maps.event.trigger($scope.map.control.getGMap(), 'resize');
+                });
+            }
+
+            $scope.selectedSite = function (selected) {
                 if (selected) {
-                    window.alert('You have selected ' + selected.title);
-                } else {
-                    console.log('cleared');
+                    selectedSite = selected;
+
                 }
             };
 
@@ -79,14 +96,55 @@ angular.module('Municipality')
                 $location.path('/municipalityaccountinfo');
             }
 
+
             $scope.addSite = function () {
-                var newRouteSite = $scope.routeSites.length + 1;
-                $scope.routeSites.push({'id': 'site' + newRouteSite});
+                if (selectedSite) {
+                    $scope.routeSites.push(selectedSite.originalObject);
+                    $scope.$broadcast('angucomplete-alt:clearInput');
+                    selectedSite = undefined;
+                    drawRoute();
+                }
             }
 
             $scope.removeSite = function (index) {
                 $scope.routeSites.splice(index, 1);
+                drawRoute();
             }
+
+            $scope.saveRoute = function () {
+                $scope.submitted = true;
+                if ($scope.municipalityRouteBasicInfoForm.$valid && $scope.routeSites.length >= 2) {
+                    sendToServer();
+                }
+
+
+            }
+
+            function sendToServer() {
+                var sites = [];
+                for (var i = 0; i < $scope.routeSites.length; i++) {
+                    sites.push({sitio_id: $scope.routeSites[i].id, orden: i + 1});
+                }
+                $http.post(
+                    API_CONFIG.url + '/ruta/crear',
+                    {
+                        'nombre': $scope.routeName,
+                        'descripcion': $scope.routeDescription,
+                        'sitio': 3004,
+                        'sitios': sites
+                    }
+                ).then(function (response) {
+                        $location.path('/municipalityaccountinfo');
+                    }
+                    )
+                    .catch(
+                        function (errors) {
+                            console.log("Errores retornado por el servidor", errors);
+
+                        }
+                    )
+            }
+
 
             $scope.saveRoute = function () {
                 $scope.submitted = true;
@@ -112,7 +170,7 @@ angular.module('Municipality')
                     $scope.startPointPlaceholder = $translate.instant("ROUTE_CREATION.ADD_ROUTE_POINT");
                 }
             }
-            
+
             function reloadMap() {
                 $timeout(function () {
                     google.maps.event.trigger($scope.map.control.getGMap(), 'resize');

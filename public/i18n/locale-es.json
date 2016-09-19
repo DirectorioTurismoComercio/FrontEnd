@@ -227,7 +227,7 @@
     "ROUTE_LIST_TITLE":"Tu ruta",
     "ROUTE_APROX_DISTANCE":"Distancia aprox.",
     "ROUTE_APROX_DURATION":"Duración aprox."
-
+    "INCORRECT_NUMBER_OF_POINTS_ERROR":"La ruta debe tener al menos dos sitios*"
 
   },
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
