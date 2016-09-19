@@ -46,13 +46,12 @@ angular.module('Municipality')
 
 
             $scope.changeViewMunicipalityAccount = function () {
-                $location.path('/municipalityaccountinfo');
+                goBackToAccount();
             }
 
             $scope.cancelRegister = function () {
-                $location.path('/municipalityaccountinfo');
+                goBackToAccount();
             }
-
 
             $scope.addSite = function () {
                 if (selectedSite) {
@@ -60,6 +59,7 @@ angular.module('Municipality')
                     $scope.$broadcast('angucomplete-alt:clearInput');
                     selectedSite = undefined;
                     drawRoute();
+                    correctRouteZoom();
                 }
             }
 
@@ -102,6 +102,7 @@ angular.module('Municipality')
                         $scope.routeSites.push(route.sitios[i].sitio);
                     }
                     drawRoute();
+                    correctRouteZoom();
                 }
             }
 
@@ -165,10 +166,21 @@ angular.module('Municipality')
                 }
             }
 
+
             function reloadMap() {
                 $timeout(function () {
                     google.maps.event.trigger($scope.map.control.getGMap(), 'resize');
                 });
+            }
+
+            function correctRouteZoom(){
+                var position=MapService.coordsToLatLngLiteral(parseFloat($scope.map.center.latitude), parseFloat($scope.map.center.longitude));
+                MapService.moveMapToPosition(position,$scope.map.zoom-2);
+            }
+
+            function goBackToAccount(){
+                MapService.clearRoute();
+                $location.path('/municipalityaccountinfo');
             }
 
         });
