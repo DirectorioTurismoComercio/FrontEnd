@@ -244,7 +244,7 @@
                     <div class="row" ng-repeat="route in routes">
                         <div  class="registered-business">
                             <div class="row row-reverse">
-                                <img ng-click="deleteSite(sitio)" class="remove-icon"
+                                <img ng-click="deleteRoute(route)" class="remove-icon"
                                      src="./images/accountInfoIcons/borrar.png"/>
                             </div>
                             <div class="row">
@@ -258,11 +258,11 @@
                                 </div>
                             </div>
                             <div class="row row-reverse">
-                                <button class="edit-local-button col-xs-3" ng-click="editSite(sitio)"
+                                <button class="edit-local-button col-xs-3" ng-click="editRoute(route)"
                                         translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
                             </div>
                         </div>
-                        
+
                         <p>%%route.nombre%% <span ng-click="editRoute(route)">Editar</span></p>
                     </div>
 

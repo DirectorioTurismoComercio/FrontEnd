@@ -137,26 +137,51 @@ angular.module('Municipality')
                 for (var i = 0; i < $scope.routeSites.length; i++) {
                     sites.push({sitio_id: $scope.routeSites[i].id, orden: i + 1});
                 }
-                $http.post(
-                    API_CONFIG.url + '/ruta/crear',
-                    {
-                        'nombre': $scope.routeName,
-                        'descripcion': $scope.routeDescription,
-                        'sitio': municipalityInformationService.getMunicipalitySite().id,
-                        'sitios': sites,
-                        'tiempo': $scope.routeDuration,
-                        'distancia':  $scope.routeDistance
-                    }
-                ).then(function (response) {
-                        $location.path('/municipalityaccountinfo');
-                    }
-                    )
-                    .catch(
-                        function (errors) {
-                            console.log("Errores retornado por el servidor", errors);
-
+                if(municipalityInformationService.getCurrentRoute()){
+                    $http.put(
+                        API_CONFIG.url + '/ruta/actualizar/'+municipalityInformationService.getCurrentRoute().id,
+                        {
+                            'nombre': $scope.routeName,
+                            'descripcion': $scope.routeDescription,
+                            'sitio': municipalityInformationService.getMunicipalitySite().id,
+                            'sitios': sites,
+                            'tiempo': $scope.routeDuration,
+                            'distancia':  $scope.routeDistance
                         }
-                    )
+                    ).then(function (response) {
+                            $location.path('/municipalityaccountinfo');
+                        }
+                        )
+                        .catch(
+                            function (errors) {
+                                console.log("Errores retornado por el servidor", errors);
+
+                            }
+                        )
+                }
+                else{
+                    $http.post(
+                        API_CONFIG.url + '/ruta/crear',
+                        {
+                            'nombre': $scope.routeName,
+                            'descripcion': $scope.routeDescription,
+                            'sitio': municipalityInformationService.getMunicipalitySite().id,
+                            'sitios': sites,
+                            'tiempo': $scope.routeDuration,
+                            'distancia':  $scope.routeDistance
+                        }
+                    ).then(function (response) {
+                            $location.path('/municipalityaccountinfo');
+                        }
+                        )
+                        .catch(
+                            function (errors) {
+                                console.log("Errores retornado por el servidor", errors);
+
+                            }
+                        )
+                }
+
             }
 
             function setPlaceholders() {

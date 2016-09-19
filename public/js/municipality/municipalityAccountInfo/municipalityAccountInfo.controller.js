@@ -163,7 +163,6 @@ angular.module('Municipality')
 
         }
         $scope.editRoute = function(route){
-            console.log("r",route);
             municipalityInformationService.setCurrentRoute(route);
             $location.path('municipalityroute');
 
@@ -226,6 +225,12 @@ angular.module('Municipality')
             messageService.confirmMessage("¿Está seguro que desea borrar este sitio?", "Borrar sitio", removeSiteFromServer, sitio);
 
         }
+
+        $scope.deleteRoute = function (route){
+            messageService.confirmMessage("¿Está seguro que desea borrar esta ruta?", "Borrar ruta", removeRouteFromServer, route);
+
+        }
+
         function removeSiteFromServer(sitio) {
             $http.delete(API_CONFIG.url + "/sitio/detail/" + sitio.id,
                 {
@@ -236,8 +241,18 @@ angular.module('Municipality')
                 console.log("hubo un error al borrar", error);
 
             });
+        }
 
+        function removeRouteFromServer(route) {
+            $http.delete(API_CONFIG.url + "/ruta/actualizar/" + route.id,
+                {
+                    headers: {'Authorization': 'Token ' + authenticationService.getUser().token}
+                }).success(function (d) {
+                $scope.municipalitySites.splice($scope.municipalitySites.indexOf(route), 1);
+            }).error(function (error) {
+                console.log("hubo un error al borrar", error);
 
+            });
         }
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
