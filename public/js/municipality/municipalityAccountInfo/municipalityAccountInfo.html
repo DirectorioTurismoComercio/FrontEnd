@@ -232,6 +232,10 @@
             <div class="row">
                 <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.MUNICIPALITY_ROUTES"></p>
             </div>
+                
+                <div ng-repeat="route in routes">
+                    <p>%%route.nombre%%</p>
+                </div>
 
             <div class="row registerTrader-button NextButtonRegister topMarginElements">
                 <button class="button" ng-click="addRoute()"

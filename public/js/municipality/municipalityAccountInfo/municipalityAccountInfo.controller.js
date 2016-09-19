@@ -9,12 +9,19 @@ angular.module('Municipality')
         $scope.isChangingPassword = false;
         $scope.changePasswordSubmitted = false;
         $scope.municipalityInfoSubmitted = false;
+        $scope.routes=[];
         var infoBackup;
 
 
         authenticationService.getUserData($scope.user.token)
             .success(function (response) {
+                var muncipalitySite;
                 $scope.user = response;
+                muncipalitySite = filterFilter($scope.user.sitios, {tipo_sitio: 'M'});
+                if(muncipalitySite.length>0){
+                    $scope.routes=muncipalitySite[0].rutas;
+                }
+
                 splitSites();
 
             });
