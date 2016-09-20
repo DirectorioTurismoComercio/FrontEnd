@@ -2,192 +2,193 @@
     <app-header></app-header>
 </div>
 <loader></loader>
-
-<form name="registerSiteForm">
-    <div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortSummary">
-        <div class="col-md-4  col-md-offset-4 centerColumnNoPadding PhotosFormPadding registerSiteFormBackgroundColor">
-            <div class="header container-fluid">
-                <div ng-click="changeViewPhotos()" class="col-xs-1 registerHeaderBackIconcontainer">
-                    <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+<div class="forms-container">
+    <form name="registerSiteForm">
+        <div class="row topMarginHeader registerSiteBackgroundColor forms-height">
+            <div class="col-md-4  col-md-offset-4 centerColumnNoPadding PhotosFormPadding registerSiteFormBackgroundColor">
+                <div class="header container-fluid">
+                    <div ng-click="changeViewPhotos()" class="col-xs-1 registerHeaderBackIconcontainer">
+                        <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+                    </div>
+                    <p class="text" translate="REGISTER_SITE_CONSTANTS.SUMMARY"></p>
                 </div>
-                <p class="text" translate="REGISTER_SITE_CONSTANTS.SUMMARY"></p>
-            </div>
-            <ul class="progress-bar1 progressBarPadding topMarginElements">
-                <li class="done-step"></li>
-                <li class="done-step"></li>
-                <li class="done-step"></li>
-                <li class="done-step"></li>
-                <li class="done-step"></li>
-                <li></li>
-            </ul>
-            <label ng-show="user.tipo_cuenta=='C'" class="businessAddressText texto-claroBusinessLocation topMarginElements"
-                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_INFORMATION_CONFIRMATION_PAGE"></label>
+                <ul class="progress-bar1 progressBarPadding topMarginElements">
+                    <li class="done-step"></li>
+                    <li class="done-step"></li>
+                    <li class="done-step"></li>
+                    <li class="done-step"></li>
+                    <li class="done-step"></li>
+                    <li></li>
+                </ul>
+                <label ng-show="user.tipo_cuenta=='C'" class="businessAddressText texto-claroBusinessLocation topMarginElements"
+                       translate="REGISTER_SITE_CONSTANTS.BUSINESS_INFORMATION_CONFIRMATION_PAGE"></label>
 
-            <label ng-show="user.tipo_cuenta=='M'" class="businessAddressText texto-claroBusinessLocation topMarginElements"
-                   translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_INFORMATION_CONFIRMATION_PAGE"></label>
+                <label ng-show="user.tipo_cuenta=='M'" class="businessAddressText texto-claroBusinessLocation topMarginElements"
+                       translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_INFORMATION_CONFIRMATION_PAGE"></label>
 
-            <div class="row businessAddressText topMarginElements">
-                <div class="col-xs-2">
-                    <img class="confirmRegisterIcons" src="./images/registerIcons/nombre-negocio.png">
-                </div>
-                <div class="col-xs-10">
-                    <input type="text" class="form-control businessAddressInput" name="businessName" type="text"
-                           ng-model="$parent.businessName" placeholder="Regular Placeholder"
-                           translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_NAME" required/>
-                    <i ng-show="businessName==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessStar"></i>
+                <div class="row businessAddressText topMarginElements">
+                    <div class="col-xs-2">
+                        <img class="confirmRegisterIcons" src="./images/registerIcons/nombre-negocio.png">
+                    </div>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control businessAddressInput" name="businessName" type="text"
+                               ng-model="$parent.businessName" placeholder="Regular Placeholder"
+                               translate translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_NAME" required/>
+                        <i ng-show="businessName==undefined"
+                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.businessName.$error.required"
                               class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="row businessAddressText topMarginElements">
-                <div class="col-xs-2">
-                    <img class="confirmRegisterIcons" src="./images/registerIcons/telefono.png">
-                </div>
-                <div class="col-xs-10">
-                    <input type="tel" ng-pattern="/^\d+$/" ng-minlength="7" ng-maxlength="10"
-                           class="form-control businessAddressInput" name="businessPhone" type="text"
-                           type="text" translate
-                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_PHONE"
-                           ng-model="$parent.sitePhoneNumber" required/>
-                    <i ng-show="sitePhoneNumber==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessStar"></i>
+                <div class="row businessAddressText topMarginElements">
+                    <div class="col-xs-2">
+                        <img class="confirmRegisterIcons" src="./images/registerIcons/telefono.png">
+                    </div>
+                    <div class="col-xs-10">
+                        <input type="tel" ng-pattern="/^\d+$/" ng-minlength="7" ng-maxlength="10"
+                               class="form-control businessAddressInput" name="businessPhone" type="text"
+                               type="text" translate
+                               translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_PHONE"
+                               ng-model="$parent.sitePhoneNumber" required/>
+                        <i ng-show="sitePhoneNumber==undefined"
+                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessStar"></i>
                     <span ng-show="showRequiredFieldMessage && registerSiteForm.businessPhone.$error.required"
                           class="errorField" translate="REGISTER_SITE_CONSTANTS.PHONE_VALIDATION"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="row businessAddressText topMarginElements">
-                <div class="col-xs-2">
-                    <img class="confirmRegisterIcons" src="./images/registerIcons/whatsapp.png">
+                <div class="row businessAddressText topMarginElements">
+                    <div class="col-xs-2">
+                        <img class="confirmRegisterIcons" src="./images/registerIcons/whatsapp.png">
+                    </div>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control businessAddressInput" name="businessWhatsapp" type="text"
+                               ng-model="$parent.whatsapp" translate
+                               translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WHATS_APP"/>
+                    </div>
                 </div>
-                <div class="col-xs-10">
-                    <input type="text" class="form-control businessAddressInput" name="businessWhatsapp" type="text"
-                           ng-model="$parent.whatsapp" translate
-                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WHATS_APP"/>
+                <div class="row businessAddressText topMarginElements">
+                    <div class="col-xs-2">
+                        <img class="confirmRegisterIcons" src="./images/registerIcons/web.png">
+                    </div>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control businessAddressInput" name="businessWeb" type="text"
+                               ng-model="$parent.web" translate
+                               translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WEB"/>
+                    </div>
                 </div>
-            </div>
-            <div class="row businessAddressText topMarginElements">
-                <div class="col-xs-2">
-                    <img class="confirmRegisterIcons" src="./images/registerIcons/web.png">
-                </div>
-                <div class="col-xs-10">
-                    <input type="text" class="form-control businessAddressInput" name="businessWeb" type="text"
-                           ng-model="$parent.web" translate
-                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_WEB"/>
-                </div>
-            </div>
-            <div class="topMarginElements col-xs-12">
+                <div class="topMarginElements col-xs-12">
 
-                <select ng-model="businessMunicipality"
-                        ng-options="obj.nombre for obj in municipalities track by obj.id"
-                        name="municipality"
-                        class="form-control businessAddressInput businessAddressText disabled-color"
-                        required
-                        disabled>
-                    <option selected="businessMunicipality" value=""
-                            translate="REGISTER_SITE_CONSTANTS.SELECT_TOWN"></option>
-                </select>
-                <i ng-show="businessMunicipality==undefined"
-                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
+                    <select ng-model="businessMunicipality"
+                            ng-options="obj.nombre for obj in municipalities track by obj.id"
+                            name="municipality"
+                            class="form-control businessAddressInput businessAddressText disabled-color"
+                            required
+                            disabled>
+                        <option selected="businessMunicipality" value=""
+                                translate="REGISTER_SITE_CONSTANTS.SELECT_TOWN"></option>
+                    </select>
+                    <i ng-show="businessMunicipality==undefined"
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconCategoryStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.municipality.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
 
-            </div>
+                </div>
 
-            <div class="input topMarginElements businessAddressText col-xs-12">
-                <div class="form-group has-feedback ">
-                    <input type="text" class="form-control businessAddressInput" translate
-                           translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS"
-                           name="businessAddress2" type="text" ng-model="$parent.businessAddress" required/>
-                    <i ng-show="businessAddress==undefined"
-                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessAddress"></i>
+                <div class="input topMarginElements businessAddressText col-xs-12">
+                    <div class="form-group has-feedback ">
+                        <input type="text" class="form-control businessAddressInput" translate
+                               translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_ADDRESS"
+                               name="businessAddress2" type="text" ng-model="$parent.businessAddress" required/>
+                        <i ng-show="businessAddress==undefined"
+                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessAddress"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.businessAddress2.$error.required"
                               class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
+                    </div>
                 </div>
-            </div>
 
-            <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
-                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION_CONFIRMATION_PAGE"></label>
-            <div class="input topMarginElements col-xs-12">
+                <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
+                       translate="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION_CONFIRMATION_PAGE"></label>
+                <div class="input topMarginElements col-xs-12">
                         <textarea placeholder="Regular Placeholder" translate
                                   translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_DESCRIPTION"
                                   class="form-control businessAddressInput businessAddressText "
                                   name="businessDescription" ng-model="$parent.businessDescription" required></textarea>
-                <i ng-show="businessDescription==undefined"
-                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessDescriptionStar"></i>
+                    <i ng-show="businessDescription==undefined"
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor glyphiconBusinessDescriptionStar"></i>
                         <span ng-show="showRequiredFieldMessage && registerSiteForm.businessDescription.$error.required"
                               class="errorField businessAddressText"
                               translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
 
-            </div>
-            <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
-                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"></label>
-            <div class="input topMarginElements col-xs-12">
+                </div>
+                <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
+                       translate="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"></label>
+                <div class="input topMarginElements col-xs-12">
 
                         <textarea placeholder="Regular Placeholder" translate
                                   translate-attr-placeholder="REGISTER_SITE_CONSTANTS.BUSINESS_OPENINGHOURS"
                                   class="form-control businessAddressInput businessAddressText"
                                   name="businessOpeningHours" ng-model="$parent.openingHours"></textarea>
-            </div>
-            <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
-                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_MAIN_CATEGORY"></label>
-
-           <div class="input businessAddressText topMarginElements col-xs-12">
-               <div class="form-group has-feedback ">
-                   <input type="text" class="form-control businessAddressInput" translate
-                          placeholder="%%firstCategory.nombre%%"
-                            readonly required/>
-               </div>
-            </div>
-
-            <div ng-show="secondCategory!= undefined || thirdCategory!=undefined">
+                </div>
                 <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
-                       translate="REGISTER_SITE_CONSTANTS.BUSINNES_ADITIONAL_CATEGORIES"></label>
+                       translate="REGISTER_SITE_CONSTANTS.BUSINESS_MAIN_CATEGORY"></label>
 
-                <div ng-show="secondCategory!= undefined" class="input businessAddressText topMarginElements col-xs-12">
+                <div class="input businessAddressText topMarginElements col-xs-12">
                     <div class="form-group has-feedback ">
                         <input type="text" class="form-control businessAddressInput" translate
-                               placeholder="%%secondCategory.nombre%%"
+                               placeholder="%%firstCategory.nombre%%"
                                readonly required/>
                     </div>
                 </div>
 
-                <div ng-show="thirdCategory!=undefined" class="input businessAddressText topMarginElements col-xs-12">
-                    <div class="form-group has-feedback ">
-                        <input type="text" class="form-control businessAddressInput" translate
-                               placeholder="%%thirdCategory.nombre%%"
-                               readonly required/>
+                <div ng-show="secondCategory!= undefined || thirdCategory!=undefined">
+                    <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
+                           translate="REGISTER_SITE_CONSTANTS.BUSINNES_ADITIONAL_CATEGORIES"></label>
+
+                    <div ng-show="secondCategory!= undefined" class="input businessAddressText topMarginElements col-xs-12">
+                        <div class="form-group has-feedback ">
+                            <input type="text" class="form-control businessAddressInput" translate
+                                   placeholder="%%secondCategory.nombre%%"
+                                   readonly required/>
+                        </div>
+                    </div>
+
+                    <div ng-show="thirdCategory!=undefined" class="input businessAddressText topMarginElements col-xs-12">
+                        <div class="form-group has-feedback ">
+                            <input type="text" class="form-control businessAddressInput" translate
+                                   placeholder="%%thirdCategory.nombre%%"
+                                   readonly required/>
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
-            <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
-                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_TAGS_CONFIRMATION_PAGE"></label>
-            <div class="topMarginElements col-xs-12">
-                <tags-input class="businessAddressText businessAddressInput" name="tags" ng-model="tags"
-                            add-on-comma=true
-                            replace-spaces-with-dashes=false>
-                </tags-input>
-            </div>
-            <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
-                   translate="REGISTER_SITE_CONSTANTS.TERMS_AND_CONDITIONS_LABEL"></label>
-            <div class="input topMarginElements col-xs-12">
+                <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
+                       translate="REGISTER_SITE_CONSTANTS.BUSINESS_TAGS_CONFIRMATION_PAGE"></label>
+                <div class="topMarginElements col-xs-12">
+                    <tags-input class="businessAddressText businessAddressInput" name="tags" ng-model="tags"
+                                add-on-comma=true
+                                replace-spaces-with-dashes=false>
+                    </tags-input>
+                </div>
+                <label class="businessAddressText texto-claroBusinessLocation topMarginElements col-xs-12"
+                       translate="REGISTER_SITE_CONSTANTS.TERMS_AND_CONDITIONS_LABEL"></label>
+                <div class="input topMarginElements col-xs-12">
                     <textarea class="form-control businessAddressInput businessAddressText "
                               translate="REGISTER_SITE_CONSTANTS.TERMS_AND_CONDITIONS" readonly></textarea>
-            </div>
+                </div>
 
 
-            <div class="next-button NextButtonRegister topMarginElements col-xs-12">
-                
-                <button ng-show="!siteId" class="button" translate="REGISTER_SITE_CONSTANTS.COMPLETE_REGISTRATION_BUTTON"
-                        ng-click="register()">
-                </button>
-                <button ng-show="siteId" class="button" translate="REGISTER_SITE_CONSTANTS.COMPLETE_UPDATE_BUTTON"
-                        ng-click="register()">
-                </button>
+                <div class="next-button NextButtonRegister topMarginElements col-xs-12">
+
+                    <button ng-show="!siteId" class="button" translate="REGISTER_SITE_CONSTANTS.COMPLETE_REGISTRATION_BUTTON"
+                            ng-click="register()">
+                    </button>
+                    <button ng-show="siteId" class="button" translate="REGISTER_SITE_CONSTANTS.COMPLETE_UPDATE_BUTTON"
+                            ng-click="register()">
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>

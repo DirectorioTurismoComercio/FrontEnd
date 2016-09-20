@@ -4,168 +4,170 @@
 <loader></loader>
 <div id="loaderDiv" ng-class="loader?'':'hidden_loader'"><img src="./images/ajax-loader.gif" class="ajax-loader"/></div>
 
+<div class="forms-container">
+    <div class="row topMarginHeader registerSiteBackgroundColor forms-height">
+        <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor PhotosFormPadding">
+            <div class="header container-fluid">
 
-<div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPortPhotos">
-    <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor PhotosFormPadding">
-        <div class="header container-fluid">
-
-            <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeViewLocation()">
-                <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
-            </div>
-
-            <p ng-show="user.tipo_cuenta=='C'" class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_PHOTOS_PAGE"></p>
-            <p ng-show="user.tipo_cuenta=='M'" class="text" translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_PHOTOS_PAGE"></p>
-
-        </div>
-        <ul class="progress-bar1 progressBarPadding topMarginElements">
-            <li class="done-step"></li>
-            <li class="done-step"></li>
-            <li class="done-step"></li>
-            <li class="done-step"></li>
-            <li></li>
-            <li></li>
-        </ul>
-
-
-        <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO_TIP"></label>
-
-        <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_UPLOAD_MAIN_PHOTO_TIP"></label>
-
-        <div class="mainPhotoContainer">
-            <div class="title-main-photo-container">
-
-                <md-progress-circular class="loading loadingGlobalPhoto" md-mode="indeterminate"
-                                      ng-show="loadingPhotos"></md-progress-circular>
-
-                <i ng-show="flowMainPhoto.flow.files.length==0"
-                   class="form-control-feedback photo-asterisk  glyphicon glyphicon-asterisk glyphiconStarColor"></i>
-                <label class="topMarginmainPhotolabel texto-claroBusinessLocation"
-                       translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO"></label>
-            </div>
-
-            <div flow-init
-                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
-                 flow-name="flowMainPhoto.flow">
-                <div ng-show="!$flow.files.length">
-                    <flow-btn flow-single-file="false">
-                        <img class="btn" ng-show="!$flow.files.length" ng-click="mainPhotoOnClick()"
-                             src="./images/registerIcons/foto-subir.png"/>
-                    </flow-btn>
+                <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeViewLocation()">
+                    <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
                 </div>
 
+                <p ng-show="user.tipo_cuenta=='C'" class="text" translate="REGISTER_SITE_CONSTANTS.BUSINESS_PHOTOS_PAGE"></p>
+                <p ng-show="user.tipo_cuenta=='M'" class="text" translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_PHOTOS_PAGE"></p>
 
-                <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
-                    <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
-                                          ng-show="loadingMainPhoto"></md-progress-circular>
-                    <img image-onload="imgLoadedCallback($flow.files[0])" class="selectedMainPhoto"
-                         flow-img="$flow.files[0]" ng-class="correctOrientation($flow.files[0].orientation)"/>
-                    <img class="deletePhoto deletePhotoSize" ng-click="$flow.cancel()"
-                         src="./images/registerIcons/foto-borrar.png">
-                </div>
             </div>
+            <ul class="progress-bar1 progressBarPadding topMarginElements">
+                <li class="done-step"></li>
+                <li class="done-step"></li>
+                <li class="done-step"></li>
+                <li class="done-step"></li>
+                <li></li>
+                <li></li>
+            </ul>
+
+
+            <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO_TIP"></label>
+
+            <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_UPLOAD_MAIN_PHOTO_TIP"></label>
+
+            <div class="mainPhotoContainer">
+                <div class="title-main-photo-container">
+
+                    <md-progress-circular class="loading loadingGlobalPhoto" md-mode="indeterminate"
+                                          ng-show="loadingPhotos"></md-progress-circular>
+
+                    <i ng-show="flowMainPhoto.flow.files.length==0"
+                       class="form-control-feedback photo-asterisk  glyphicon glyphicon-asterisk glyphiconStarColor"></i>
+                    <label class="topMarginmainPhotolabel texto-claroBusinessLocation"
+                           translate="REGISTER_SITE_CONSTANTS.UPLOAD_MAIN_PHOTO"></label>
+                </div>
+
+                <div flow-init
+                     flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
+                     flow-name="flowMainPhoto.flow">
+                    <div ng-show="!$flow.files.length">
+                        <flow-btn flow-single-file="false">
+                            <img class="btn" ng-show="!$flow.files.length" ng-click="mainPhotoOnClick()"
+                                 src="./images/registerIcons/foto-subir.png"/>
+                        </flow-btn>
+                    </div>
+
+
+                    <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
+                        <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
+                                              ng-show="loadingMainPhoto"></md-progress-circular>
+                        <img image-onload="imgLoadedCallback($flow.files[0])" class="selectedMainPhoto"
+                             flow-img="$flow.files[0]" ng-class="correctOrientation($flow.files[0].orientation)"/>
+                        <img class="deletePhoto deletePhotoSize" ng-click="$flow.cancel()"
+                             src="./images/registerIcons/foto-borrar.png">
+                    </div>
+                </div>
                     <span ng-show="showMainPhotoRequired"
                           class="errorField" translate="REGISTER_SITE_CONSTANTS.REQUIRED_FIELD"></span>
-        </div>
-
-        <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.UPLOAD_SECONDARY_PHOTOS_TIP"></label>
-
-        <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_UPLOAD_SECONDARY_PHOTOS_TIP"></label>
-
-        <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.BUSINESS_FACADE_PHOTOS"></label>
-
-        <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_FACADE_PHOTOS"></label>
-
-        <div class="topMarginElements businessAddressText">
-            <div flow-init
-                 flow-name="flowFacadePhotos.flow"
-                 flow-files-submitted="$flow.upload()"
-                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
-
-                <div ng-repeat="flowFile in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
-                    <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
-                        <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
-                                              ng-show="loadingFacadePhoto"></md-progress-circular>
-                        <img image-onload="imgLoadedCallback(flowFile)" class="selectedRowPhotos"
-                             class="selectedRowPhotos" flow-img="flowFile"
-                             ng-class="correctOrientation(flowFile.orientation)"/>
-
-                        <img class="deletePhoto deletePhotoSize" ng-click="flowFile.cancel()"
-                             src="./images/registerIcons/foto-borrar.png">
-                    </div>
-                </div>
-                <flow-btn flow-single-file="false">
-                    <img class="rowPhotosButton" src="./images/registerIcons/foto-subir.png"/>
-                </flow-btn>
             </div>
-        </div>
 
-        <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.BUSINESS_INSIDE_PHOTOS"></label>
+            <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.UPLOAD_SECONDARY_PHOTOS_TIP"></label>
 
-        <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_INSIDE_PHOTOS"></label>
+            <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-oscuroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_UPLOAD_SECONDARY_PHOTOS_TIP"></label>
 
-        <div class="topMarginElements businessAddressText">
-            <div flow-init
-                 flow-name="flowInsidePhotos.flow"
-                 flow-files-submitted="$flow.upload()"
-                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+            <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_FACADE_PHOTOS"></label>
 
-                <div ng-repeat="flowFile in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
-                    <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
-                        <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
-                                              ng-show="loadingInsidePhoto"></md-progress-circular>
-                        <img image-onload="imgLoadedCallback(flowFile)" class="selectedRowPhotos"
-                             flow-img="flowFile" ng-class="correctOrientation(flowFile.orientation)"/>
-                        <img class="deletePhoto deletePhotoSize" ng-click="flowFile.cancel()"
-                             src="./images/registerIcons/foto-borrar.png">
+            <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_FACADE_PHOTOS"></label>
+
+            <div class="topMarginElements businessAddressText">
+                <div flow-init
+                     flow-name="flowFacadePhotos.flow"
+                     flow-files-submitted="$flow.upload()"
+                     flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+
+                    <div ng-repeat="flowFile in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
+                        <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
+                            <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
+                                                  ng-show="loadingFacadePhoto"></md-progress-circular>
+                            <img image-onload="imgLoadedCallback(flowFile)" class="selectedRowPhotos"
+                                 class="selectedRowPhotos" flow-img="flowFile"
+                                 ng-class="correctOrientation(flowFile.orientation)"/>
+
+                            <img class="deletePhoto deletePhotoSize" ng-click="flowFile.cancel()"
+                                 src="./images/registerIcons/foto-borrar.png">
+                        </div>
                     </div>
+                    <flow-btn flow-single-file="false">
+                        <img class="rowPhotosButton" src="./images/registerIcons/foto-subir.png"/>
+                    </flow-btn>
                 </div>
-                <flow-btn flow-single-file="false">
-                    <img class="rowPhotosButton" src="./images/registerIcons/foto-subir.png"/>
-                </flow-btn>
             </div>
-        </div>
 
-        <label ng-show="user.tipo_cuenta=='C'"  class="topMarginElements businessAddressText texto-claroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.BUSINESS_PRODUCTS_PHOTOS"></label>
+            <label ng-show="user.tipo_cuenta=='C'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_INSIDE_PHOTOS"></label>
 
-        <label ng-show="user.tipo_cuenta=='M'"  class="topMarginElements businessAddressText texto-claroBusinessLocation"
-               translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_PRODUCTS_PHOTOS"></label>
+            <label ng-show="user.tipo_cuenta=='M'" class="topMarginElements businessAddressText texto-claroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_INSIDE_PHOTOS"></label>
 
-        <div class="topMarginElements businessAddressText">
-            <div flow-init
-                 flow-name="flowProductsPhotos.flow"
-                 flow-files-submitted="$flow.upload()"
-                 flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+            <div class="topMarginElements businessAddressText">
+                <div flow-init
+                     flow-name="flowInsidePhotos.flow"
+                     flow-files-submitted="$flow.upload()"
+                     flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
 
-                <div ng-repeat="flowFile in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
-                    <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
-                        <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
-                                              ng-show="loadingProductsPhoto"></md-progress-circular>
-                        <img image-onload="imgLoadedCallback(flowFile)" class="selectedRowPhotos"
-                             flow-img="flowFile" ng-class="correctOrientation(flowFile.orientation)"/>
-                        <img class="deletePhoto deletePhotoSize" ng-click="flowFile.cancel()"
-                             src="./images/registerIcons/foto-borrar.png">
+                    <div ng-repeat="flowFile in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
+                        <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
+                            <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
+                                                  ng-show="loadingInsidePhoto"></md-progress-circular>
+                            <img image-onload="imgLoadedCallback(flowFile)" class="selectedRowPhotos"
+                                 flow-img="flowFile" ng-class="correctOrientation(flowFile.orientation)"/>
+                            <img class="deletePhoto deletePhotoSize" ng-click="flowFile.cancel()"
+                                 src="./images/registerIcons/foto-borrar.png">
+                        </div>
                     </div>
+                    <flow-btn flow-single-file="false">
+                        <img class="rowPhotosButton" src="./images/registerIcons/foto-subir.png"/>
+                    </flow-btn>
                 </div>
-                <flow-btn flow-single-file="false">
-                    <img class="rowPhotosButton" src="./images/registerIcons/foto-subir.png"/>
-                </flow-btn>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-xs-12 next-button NextButtonRegister topMarginElements">
-                <button class="button" ng-click="changeViewSummary()"
-                        translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
+            <label ng-show="user.tipo_cuenta=='C'"  class="topMarginElements businessAddressText texto-claroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.BUSINESS_PRODUCTS_PHOTOS"></label>
+
+            <label ng-show="user.tipo_cuenta=='M'"  class="topMarginElements businessAddressText texto-claroBusinessLocation"
+                   translate="REGISTER_SITE_CONSTANTS.MUNICIPALITY_BUSINESS_PRODUCTS_PHOTOS"></label>
+
+            <div class="topMarginElements businessAddressText">
+                <div flow-init
+                     flow-name="flowProductsPhotos.flow"
+                     flow-files-submitted="$flow.upload()"
+                     flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+
+                    <div ng-repeat="flowFile in $flow.files" class="gallery-box rowPhotos mainPhotoImagesContainer">
+                        <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
+                            <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
+                                                  ng-show="loadingProductsPhoto"></md-progress-circular>
+                            <img image-onload="imgLoadedCallback(flowFile)" class="selectedRowPhotos"
+                                 flow-img="flowFile" ng-class="correctOrientation(flowFile.orientation)"/>
+                            <img class="deletePhoto deletePhotoSize" ng-click="flowFile.cancel()"
+                                 src="./images/registerIcons/foto-borrar.png">
+                        </div>
+                    </div>
+                    <flow-btn flow-single-file="false">
+                        <img class="rowPhotosButton" src="./images/registerIcons/foto-subir.png"/>
+                    </flow-btn>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 next-button NextButtonRegister topMarginElements">
+                    <button class="button" ng-click="changeViewSummary()"
+                            translate="REGISTER_SITE_CONSTANTS.NEXT_BUTTON"></button>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
