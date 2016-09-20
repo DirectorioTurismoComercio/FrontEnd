@@ -205,6 +205,7 @@ angular.module('Municipality')
 
             function goBackToAccount() {
                 MapService.clearRoute();
+                municipalityInformationService.setCurrentRoute(undefined);
                 $location.path('/municipalityaccountinfo');
             }
 
