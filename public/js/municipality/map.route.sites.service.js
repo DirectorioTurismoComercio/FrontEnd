@@ -33,9 +33,9 @@ angular.module('Municipality')
                     var destinationIcon = MapService.createIcon('images/icons/llegada-mapa.png', 50);
                     var siteIcon = MapService.createIcon('images/icons/pin-ubicacion-local.png', 50);
 
-                    MapService.addMarker(origin, 'origin', originIcon);
+                    MapService.addMarker(origin, 'origin', originIcon,100);
                     if(sites.length>1){
-                    MapService.addMarker(destination, 'destination', destinationIcon);
+                    MapService.addMarker(destination, 'destination', destinationIcon,100);
                     }
 
                     for(var i=0;i<waypoints.length;i++){

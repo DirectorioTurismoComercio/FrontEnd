@@ -82,7 +82,7 @@
             </div>
 
 
-            <div ng-class="routeSites.length>=5 && !isMobileDevice() ? 'scrollable-route-form': ''">
+            <div ng-class="routeSites.length>5 && !isMobileDevice() ? 'scrollable-route-form': ''">
                 <fieldset ng-class="routeSites.length>5 ? 'correct-width': ''" data-ng-repeat="site in routeSites track by $index">
                     <div class="row topMarginElements">
                         <div class="col-xs-1 container-fluid">
