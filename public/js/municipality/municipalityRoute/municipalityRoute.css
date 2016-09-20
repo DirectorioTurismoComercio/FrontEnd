@@ -94,7 +94,11 @@
     color: #000 !important;
 }
 
-
+.route-loading-mobile{
+    z-index: 10;
+    top: 50%;
+    margin:auto;
+}
 
 
 
@@ -119,9 +123,16 @@
 .overlay-content {
     padding: 10px;
     position: relative;
-    top: 10%; /* 25% from the top */
     width: 100%; /* 100% width */
     text-align: center; /* Centered text/links */
+}
+
+.overlay-content-loading-map{
+    top: 0;
+}
+
+.overlay-content-loaded-map{
+    top:10%
 }
 
 /* The navigation links inside the overlay */

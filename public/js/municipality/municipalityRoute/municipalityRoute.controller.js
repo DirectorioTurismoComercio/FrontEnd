@@ -21,6 +21,9 @@ angular.module('Municipality')
             $scope.isDisabled = false;
             $scope.routeDistance = undefined;
             $scope.routeDuration = undefined;
+            $scope.currentMapPosition=undefined;
+            $scope.currentzoom=undefined;
+            $scope.loadingMobileMap=false;
 
             var selectedSite = undefined;
 
@@ -77,11 +80,21 @@ angular.module('Municipality')
             }
 
             $scope.openNav = function () {
+                $scope.loadingMobileMap=true;
+                if(!$scope.currentMapPosition){
+                    $scope.currentMapPosition = MapService.coordsToLatLngLiteral(parseFloat($scope.map.center.latitude), parseFloat($scope.map.center.longitude));
+                    $scope.currentzoom =$scope.map.zoom;
+                }
                 document.getElementById("myNav").style.width = "100%";
                 $("#createRouteMap .angular-google-map-container").height('80vh');
                 $timeout(function () {
                     reloadMap();
                 }, 500);
+               $timeout(function () {
+                    MapService.moveMapToPosition( $scope.currentMapPosition,  $scope.currentzoom+8);
+                   $scope.loadingMobileMap=false;
+                }, 700);
+
             };
 
             $scope.closeNav = function () {

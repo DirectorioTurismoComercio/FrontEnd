@@ -141,7 +141,8 @@
 
 <div id="myNav" class="overlay" ng-if="isMobileDevice()" >
     <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()">&times;</a>
-    <div class="overlay-content">
+    <md-progress-circular ng-show="loadingMobileMap" class="route-loading-mobile" md-mode="indeterminate"></md-progress-circular>
+    <div class="overlay-content" ng-class="loadingMobileMap ? 'overlay-content-loading-map':'overlay-content-loaded-map'">
         <ui-gmap-google-map id="createRouteMap" center='map.center' zoom='map.zoom' control="map.control"/>
     </div>
 </div>
