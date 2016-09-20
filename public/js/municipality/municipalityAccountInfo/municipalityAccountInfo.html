@@ -240,7 +240,7 @@
                     <p class="account-info-subtitle account-info-munucipality-title" translate="ACCOUNT_INFO.MUNICIPALITY_ROUTES"></p>
                 </div>
 
-                <div ng-class="routes.length>2 ? 'scrollable-site-list':''">
+                <div class="topMarginElements" ng-class="routes.length>2 ? 'scrollable-site-list':''">
                     <div class="row" ng-repeat="route in routes">
                         <div  class="registered-business">
                             <div class="row row-reverse">
@@ -252,9 +252,9 @@
                                                            ng-src="%%(route.sitios[0].sitio.fotos| filter:{tipo:'P'}:true)[0].URLfoto%%"/>
                                 </div>
                                 <div class="col-xs-8">
-                                    <p class="business-name">%%sitio.nombre%%</p>
-                                    <p class="business-info">%%sitio.ubicacionlocal%%</p>
-                                    <p class="business-info">%%sitio.telefono%%</p>
+                                    <p class="business-name">%%route.nombre%%</p>
+                                    <p class="texto-claro-business route-properties-text-display" translate="ROUTE_CREATION.ROUTE_APROX_DISTANCE"></p><p class="business-info route-properties-text-display">&nbsp %%route.distancia%%</p><br>
+                                    <p class="texto-claro-business route-properties-text-display" translate="ROUTE_CREATION.ROUTE_APROX_DURATION"></p><p class="business-info route-properties-text-display">&nbsp %%route.tiempo%%</p>
                                 </div>
                             </div>
                             <div class="row row-reverse">
@@ -262,10 +262,7 @@
                                         translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
                             </div>
                         </div>
-
-                        <p>%%route.nombre%% <span ng-click="editRoute(route)">Editar</span></p>
                     </div>
-
                 </div>
 
                 <div class="row registerTrader-button NextButtonRegister topMarginElements">
@@ -273,14 +270,7 @@
                             translate="ACCOUNT_INFO.ADD_ROUTE"></button>
                 </div>
             </div>
-
-
         </form>
-
-
-
-
-
 
     </div>
 </div>
