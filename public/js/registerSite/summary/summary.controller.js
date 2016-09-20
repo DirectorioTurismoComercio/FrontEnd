@@ -36,7 +36,7 @@ angular.module('registerSite')
 
 
         MunicipiosFactory.getTowns().then(function (response) {
-            $scope.municipalitiesGroupedByLetter = response;
+            $scope.municipalities = response;
         }).catch(function (error) {
             console.log("Ocurrio un error", error);
         });
