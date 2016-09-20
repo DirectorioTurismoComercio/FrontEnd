@@ -12,10 +12,10 @@
 </div>
 <search-tabs isonmap="false" result="result" do-search="doSearch(result)" show-route="showRoute()"></search-tabs>
 
-<div class="random-municipalities" ng-if="municipalitiesGroupedByLetter.length">
+<div class="random-municipalities" ng-if="municipalities.length">
     <h1 translate="HOME_CONSTANTS.MUNICIPALITIES" class="title"></h1>
     <div class="row municipalities">
-        <div ng-repeat="municipality in municipalitiesGroupedByLetter" class="col-xs-12 col-sm-4">
+        <div ng-repeat="municipality in municipalities" class="col-xs-12 col-sm-4">
             <div class="municipality"
                  ng-style="{'background-image':'url(%%municipality.fotos[0].URLfoto%%)'}">
                 <h1 class="municipality-title">%%municipality.nombre%%</h1>

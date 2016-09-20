@@ -3,6 +3,7 @@
 angular.module('Municipality')
     .controller('searchMunicipalityController', function ($scope, $log, $translate, MunicipalitiesDAO) {
         $scope.municipalitiesGroupedByLetter = [];
+        $scope.textSearch = "";
 
         MunicipalitiesDAO.getAllMunicipalities().then(function (municipalities) {
             $scope.municipalitiesGroupedByLetter = groupMunicipalitiesByLetter(municipalities);
@@ -41,5 +42,13 @@ angular.module('Municipality')
 
         $scope.getFirstLetter = function (municipality) {
             return municipality.nombre.charAt(0);
-        }
+        };
+
+        $scope.filterMunicipalities = function (textSearch) {
+            $log.info(textSearch);
+            for (var i = 0; i < $scope.municipalitiesGroupedByLetter.length; i++) {
+
+            }
+        };
+
     });

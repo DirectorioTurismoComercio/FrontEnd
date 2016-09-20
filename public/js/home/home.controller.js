@@ -5,15 +5,14 @@ angular.module('home')
                                             $location, $mdDialog, siteAndTownSaverService, $log,
                                             messageService, MapService, $window, $rootScope, $translate,
                                             MunicipalitiesDAO) {
-        $scope.municipalitiesGroupedByLetter = [];
-
+        $scope.municipalities = [];
         siteAndTownSaverService.resetSearchAndRoute();
         siteAndTownSaverService.setSelectedCategory(undefined);
 
         setHowItWorksTraderImage();
 
         MunicipalitiesDAO.getAllMunicipalities().then(function (municipalities) {
-            chooseRandomMunicipalitiesToShow(municipalitiesGroupedByLetter);
+            chooseRandomMunicipalitiesToShow(municipalities);
         }).catch(function (error) {
             $log.error(error);
         });
@@ -45,17 +44,17 @@ angular.module('home')
         });
 
         function chooseRandomMunicipalitiesToShow(municipalities) {
-            var MUNICIPALITIES_LENGTH = Math.min(municipalitiesGroupedByLetter.length, 3);
+            var MUNICIPALITIES_LENGTH = Math.min(municipalities.length, 3);
             var generatedRandomNumbers = [];
-            $scope.municipalitiesGroupedByLetter = [];
+            $scope.municipalities = [];
 
 
             for (var i = 0; i < MUNICIPALITIES_LENGTH; i++) {
-                var random = getDifferentRandomFrom(generatedRandomNumbers, 0, municipalitiesGroupedByLetter.length);
+                var random = getDifferentRandomFrom(generatedRandomNumbers, 0, municipalities.length);
 
                 if (generatedRandomNumbers.indexOf(random) == -1) {
                     generatedRandomNumbers.push(random);
-                    $scope.municipalitiesGroupedByLetter.push(municipalitiesGroupedByLetter[random]);
+                    $scope.municipalities.push(municipalities[random]);
                 }
             }
         }
