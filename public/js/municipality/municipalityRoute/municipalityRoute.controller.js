@@ -19,8 +19,8 @@ angular.module('Municipality')
             $scope.submitted = false;
             $scope.simulateQuery = false;
             $scope.isDisabled = false;
-            $scope.routeDistance=undefined;
-            $scope.routeDuration=undefined;
+            $scope.routeDistance = undefined;
+            $scope.routeDuration = undefined;
 
             var selectedSite = undefined;
 
@@ -93,7 +93,7 @@ angular.module('Municipality')
                 drawRouteIfIsEditing();
             }
 
-            function drawRouteIfIsEditing(){
+            function drawRouteIfIsEditing() {
                 if (municipalityInformationService.getCurrentRoute()) {
                     var route = municipalityInformationService.getCurrentRoute();
                     $scope.routeName = route.nombre;
@@ -114,9 +114,9 @@ angular.module('Municipality')
                 }
             }
 
-            function getMunicipalitySites(){
+            function getMunicipalitySites() {
                 $http({
-                    url: API_CONFIG.url + '/municipio/sitios',
+                    url: API_CONFIG.url + API_CONFIG.getMunicipalitySites,
                     method: "GET",
                     params: {'municipio_id': municipalityInformationService.getMunicipalityName().id},
 
@@ -126,7 +126,7 @@ angular.module('Municipality')
                     )
                     .catch(
                         function (errors) {
-                            console.log("Errores retornado por el servidor", errors);
+                            messageService.showErrorMessage("ERROR_SERVER_COMMUNICATION", true);
                             formValidator.emailAlreadyExistsShowError(errors);
                         }
                     );
@@ -137,52 +137,50 @@ angular.module('Municipality')
                 for (var i = 0; i < $scope.routeSites.length; i++) {
                     sites.push({sitio_id: $scope.routeSites[i].id, orden: i + 1});
                 }
-                if(municipalityInformationService.getCurrentRoute()){
-                    $http.put(
-                        API_CONFIG.url + '/ruta/actualizar/'+municipalityInformationService.getCurrentRoute().id,
-                        {
-                            'nombre': $scope.routeName,
-                            'descripcion': $scope.routeDescription,
-                            'sitio': municipalityInformationService.getMunicipalitySite().id,
-                            'sitios': sites,
-                            'tiempo': $scope.routeDuration,
-                            'distancia':  $scope.routeDistance
-                        }
-                    ).then(function (response) {
-                            $location.path('/municipalityaccountinfo');
-                        }
-                        )
-                        .catch(
-                            function (errors) {
-                                console.log("Errores retornado por el servidor", errors);
-
-                            }
-                        )
+                if (municipalityInformationService.getCurrentRoute()) {
+                    editRouteInServer(sites);
                 }
-                else{
-                    $http.post(
-                        API_CONFIG.url + '/ruta/crear',
-                        {
-                            'nombre': $scope.routeName,
-                            'descripcion': $scope.routeDescription,
-                            'sitio': municipalityInformationService.getMunicipalitySite().id,
-                            'sitios': sites,
-                            'tiempo': $scope.routeDuration,
-                            'distancia':  $scope.routeDistance
-                        }
-                    ).then(function (response) {
-                            $location.path('/municipalityaccountinfo');
-                        }
-                        )
-                        .catch(
-                            function (errors) {
-                                console.log("Errores retornado por el servidor", errors);
-
-                            }
-                        )
+                else {
+                    saveRouteInServer(sites);
                 }
-
             }
+
+            function editRouteInServer(sites) {
+                $http.put(
+                        API_CONFIG.url + API_CONFIG.updateRoute + municipalityInformationService.getCurrentRoute().id, dataToBeSendedToServer(sites))
+                    .then(goBackToAccount())
+                    .catch(function (err) {
+                            saveServerError(err)
+                        }
+                    );
+            }
+
+            function saveRouteInServer(sites) {
+                $http.post(
+                        API_CONFIG.url + API_CONFIG.createRoute, dataToBeSendedToServer(sites))
+                    .then(goBackToAccount())
+                    .catch(function (err) {
+                            saveServerError(err)
+                        }
+                    );
+            }
+
+            function dataToBeSendedToServer(sites) {
+                return {
+                    'nombre': $scope.routeName,
+                    'descripcion': $scope.routeDescription,
+                    'sitio': municipalityInformationService.getMunicipalitySite().id,
+                    'sitios': sites,
+                    'tiempo': $scope.routeDuration,
+                    'distancia': $scope.routeDistance
+                }
+            }
+
+            function saveServerError(e) {
+                messageService.showErrorMessage("ERROR_SERVER_COMMUNICATION", true);
+                console.log("error", e);
+            }
+
 
             function setPlaceholders() {
                 if ($translate.use() == 'en') {
@@ -200,12 +198,12 @@ angular.module('Municipality')
                 });
             }
 
-            function correctRouteZoom(){
-                var position=MapService.coordsToLatLngLiteral(parseFloat($scope.map.center.latitude), parseFloat($scope.map.center.longitude));
-                MapService.moveMapToPosition(position,$scope.map.zoom-2);
+            function correctRouteZoom() {
+                var position = MapService.coordsToLatLngLiteral(parseFloat($scope.map.center.latitude), parseFloat($scope.map.center.longitude));
+                MapService.moveMapToPosition(position, $scope.map.zoom - 2);
             }
 
-            function goBackToAccount(){
+            function goBackToAccount() {
                 MapService.clearRoute();
                 $location.path('/municipalityaccountinfo');
             }

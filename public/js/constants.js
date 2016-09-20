@@ -9,6 +9,9 @@ var objeto = {
         "new_password":"/rest-auth/password/change/",
         "categorias":"/categorias",
         "getTownOnMapClickURL":'http://maps.googleapis.com/maps/api/geocode/json?latlng=',
+        "getMunicipalitySites":"/municipio/sitios",
+        "createRoute":'/ruta/crear',
+        "updateRoute":'/ruta/actualizar/',
         "timeout":120000
     }
 

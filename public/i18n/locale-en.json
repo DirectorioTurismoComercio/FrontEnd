@@ -242,6 +242,7 @@
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN": "You must choose your starting point",
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "You must choose your destination",
+  "ERROR_SERVER_COMMUNICATION":"Has occurred an server error, please try again later",
   "MY_POSITION": "My position",
   "SUCCESS_TITLE_MESSAGE": "Welcome",
   "REGISTER_COMPLETE": "your site registration is done",
