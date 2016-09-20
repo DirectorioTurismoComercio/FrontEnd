@@ -222,17 +222,17 @@ angular.module('Municipality')
         }
 
         $scope.deleteSite = function (sitio) {
-            messageService.confirmMessage("¿Está seguro que desea borrar este sitio?", "Borrar sitio", removeSiteFromServer, sitio);
+            messageService.confirmMessage($translate.instant("CONFIRM_DELETE_SITE"), $translate.instant("DELETE_SITE"), removeSiteFromServer, sitio);
 
         }
 
         $scope.deleteRoute = function (route){
-            messageService.confirmMessage("¿Está seguro que desea borrar esta ruta?", "Borrar ruta", removeRouteFromServer, route);
+            messageService.confirmMessage($translate.instant("CONFIRM_DELETE_ROUTE"), $translate.instant("DELETE_ROUTE"), removeRouteFromServer, route);
 
         }
 
         function removeSiteFromServer(sitio) {
-            $http.delete(API_CONFIG.url + "/sitio/detail/" + sitio.id,
+            $http.delete(API_CONFIG.url + API_CONFIG.siteDetail + sitio.id,
                 {
                     headers: {'Authorization': 'Token ' + authenticationService.getUser().token}
                 }).success(function (d) {
@@ -244,11 +244,11 @@ angular.module('Municipality')
         }
 
         function removeRouteFromServer(route) {
-            $http.delete(API_CONFIG.url + "/ruta/actualizar/" + route.id,
+            $http.delete(API_CONFIG.url + API_CONFIG.updateRoute + route.id,
                 {
                     headers: {'Authorization': 'Token ' + authenticationService.getUser().token}
                 }).success(function (d) {
-                $scope.municipalitySites.splice($scope.municipalitySites.indexOf(route), 1);
+                $scope.routes.splice($scope.routes.indexOf(route), 1);
             }).error(function (error) {
                 console.log("hubo un error al borrar", error);
 

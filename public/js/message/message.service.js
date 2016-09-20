@@ -44,8 +44,8 @@ angular.module('message', [])
                     .title(title)
                     .content(message)
                     .ariaLabel('Alert Dialog Demo')
-                    .ok('Aceptar')
-                    .cancel('cancelar')
+                    .ok($translate.instant('ACCEPT_BUTTON'))
+                    .cancel($translate.instant('CANCEL_BUTTON'))
                     .targetEvent('$event')
             ).then(
             function (){
