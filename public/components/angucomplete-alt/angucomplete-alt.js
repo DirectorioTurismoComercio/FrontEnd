@@ -352,6 +352,10 @@
         var row = null;
         var rowTop = null;
 
+        if(which === KEY_EN){
+          event.preventDefault();
+        }
+
         if (which === KEY_EN && scope.results) {
           if (scope.currentIndex >= 0 && scope.currentIndex < scope.results.length) {
             event.preventDefault();

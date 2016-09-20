@@ -14,7 +14,7 @@ angular.module('Municipality')
 
 
         MunicipiosFactory.getTowns().then(function (response) {
-            $scope.municipalities = response;
+            $scope.municipalitiesGroupedByLetter = response;
         }).catch(function (error) {
             console.log("Ocurrio un error", error);
         });

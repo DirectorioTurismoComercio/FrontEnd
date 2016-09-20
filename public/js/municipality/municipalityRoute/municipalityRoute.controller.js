@@ -6,68 +6,32 @@ angular.module('Municipality')
                   $rootScope, $location, municipalityInformationService, $timeout, $q, $window, $log, $translate, messageService, MapRouteSitesService) {
             $scope.map = {
                 center: {
-                    latitude: 5.050000000000000000,//parseFloat(municipalityInformationService.getMunicipalityName().latitud),
-                    longitude: -73.883333333333300000//parseFloat(municipalityInformationService.getMunicipalityName().longitud)
+                    latitude: parseFloat(municipalityInformationService.getMunicipalityName().latitud),
+                    longitude: parseFloat(municipalityInformationService.getMunicipalityName().longitud)
                 },
                 control: {},
                 zoom: 13
             };
 
-            var selectedSite = undefined;
-            setPlaceholders();
-
             $scope.routeName = undefined;
             $scope.routeDescription = undefined;
             $scope.routeSites = [];
             $scope.submitted = false;
-
-
             $scope.simulateQuery = false;
             $scope.isDisabled = false;
+            $scope.routeDistance = undefined;
+            $scope.routeDuration = undefined;
 
-            if (municipalityInformationService.getCurrentRoute()) {
-                var route = municipalityInformationService.getCurrentRoute();
-                $scope.routeName = route.nombre;
-                $scope.routeDescription = route.descripcion;
-                for (var i = 0; i < route.sitios.length; i++) {
-                    $scope.routeSites.push(route.sitios[i].sitio);
-                }
-                drawRoute();
-            }
+            var selectedSite = undefined;
 
-            $http({
-                url: API_CONFIG.url + '/municipio/sitios',
-                method: "GET",
-                params: {'municipio_id': 60},
+            setPlaceholders();
+            uiGmapIsReady.promise().then(initMap);
+            getMunicipalitySites();
 
-            }).then(function (response) {
-                    $scope.sites = response.data;
-                }
-                )
-                .catch(
-                    function (errors) {
-                        console.log("Errores retornado por el servidor", errors);
-                        formValidator.emailAlreadyExistsShowError(errors);
-                    }
-                );
-
-            function drawRoute() {
-                if ($scope.routeSites.length > 0) {
-                    reloadMap();
-                    MapRouteSitesService.calculateRoute($scope.routeSites, $scope, undefined);
-                }
-            }
-
-            function reloadMap() {
-                $timeout(function () {
-                    google.maps.event.trigger($scope.map.control.getGMap(), 'resize');
-                });
-            }
 
             $scope.selectedSite = function (selected) {
                 if (selected) {
                     selectedSite = selected;
-
                 }
             };
 
@@ -81,30 +45,21 @@ angular.module('Municipality')
             };
 
 
-            uiGmapIsReady.promise().then(initMap);
-
-            function initMap() {
-                MapService.setGMap($scope.map.control.getGMap());
-            }
-
-
             $scope.changeViewMunicipalityAccount = function () {
-                $location.path('/municipalityaccountinfo');
+                goBackToAccount();
             }
 
             $scope.cancelRegister = function () {
-                $location.path('/municipalityaccountinfo');
+                goBackToAccount();
             }
 
-
             $scope.addSite = function () {
-                console.log("add site")
                 if (selectedSite) {
-                    console.log("add site dentro del if")
                     $scope.routeSites.push(selectedSite.originalObject);
                     $scope.$broadcast('angucomplete-alt:clearInput');
                     selectedSite = undefined;
                     drawRoute();
+                    correctRouteZoom();
                 }
             }
 
@@ -119,37 +74,6 @@ angular.module('Municipality')
                     sendToServer();
                 }
 
-
-            }
-
-            function sendToServer() {
-                var sites = [];
-                for (var i = 0; i < $scope.routeSites.length; i++) {
-                    sites.push({sitio_id: $scope.routeSites[i].id, orden: i + 1});
-                }
-                $http.post(
-                    API_CONFIG.url + '/ruta/crear',
-                    {
-                        'nombre': $scope.routeName,
-                        'descripcion': $scope.routeDescription,
-                        'sitio': 3004,
-                        'sitios': sites
-                    }
-                ).then(function (response) {
-                        $location.path('/municipalityaccountinfo');
-                    }
-                    )
-                    .catch(
-                        function (errors) {
-                            console.log("Errores retornado por el servidor", errors);
-
-                        }
-                    )
-            }
-
-
-            $scope.saveRoute = function () {
-                $scope.submitted = true;
             }
 
             $scope.openNav = function () {
@@ -164,6 +88,100 @@ angular.module('Municipality')
                 document.getElementById("myNav").style.width = "0%";
             };
 
+            function initMap() {
+                MapService.setGMap($scope.map.control.getGMap());
+                drawRouteIfIsEditing();
+            }
+
+            function drawRouteIfIsEditing() {
+                if (municipalityInformationService.getCurrentRoute()) {
+                    var route = municipalityInformationService.getCurrentRoute();
+                    $scope.routeName = route.nombre;
+                    $scope.routeDescription = route.descripcion;
+                    for (var i = 0; i < route.sitios.length; i++) {
+                        $scope.routeSites.push(route.sitios[i].sitio);
+                    }
+                    drawRoute();
+                    correctRouteZoom();
+                }
+            }
+
+            function drawRoute() {
+                MapService.clearMarkers();
+                if ($scope.routeSites.length > 0) {
+                    reloadMap();
+                    MapRouteSitesService.calculateRoute($scope.routeSites, $scope, undefined);
+                }
+            }
+
+            function getMunicipalitySites() {
+                $http({
+                    url: API_CONFIG.url + API_CONFIG.getMunicipalitySites,
+                    method: "GET",
+                    params: {'municipio_id': municipalityInformationService.getMunicipalityName().id},
+
+                }).then(function (response) {
+                        $scope.sites = response.data;
+                    }
+                    )
+                    .catch(
+                        function (errors) {
+                            messageService.showErrorMessage("ERROR_SERVER_COMMUNICATION", true);
+                            formValidator.emailAlreadyExistsShowError(errors);
+                        }
+                    );
+            }
+
+            function sendToServer() {
+                var sites = [];
+                for (var i = 0; i < $scope.routeSites.length; i++) {
+                    sites.push({sitio_id: $scope.routeSites[i].id, orden: i + 1});
+                }
+                if (municipalityInformationService.getCurrentRoute()) {
+                    editRouteInServer(sites);
+                }
+                else {
+                    saveRouteInServer(sites);
+                }
+            }
+
+            function editRouteInServer(sites) {
+                $http.put(
+                        API_CONFIG.url + API_CONFIG.updateRoute + municipalityInformationService.getCurrentRoute().id, dataToBeSendedToServer(sites))
+                    .then(goBackToAccount())
+                    .catch(function (err) {
+                            saveServerError(err)
+                        }
+                    );
+            }
+
+            function saveRouteInServer(sites) {
+                $http.post(
+                        API_CONFIG.url + API_CONFIG.createRoute, dataToBeSendedToServer(sites))
+                    .then(goBackToAccount())
+                    .catch(function (err) {
+                            saveServerError(err)
+                        }
+                    );
+            }
+
+            function dataToBeSendedToServer(sites) {
+                return {
+                    'nombre': $scope.routeName,
+                    'descripcion': $scope.routeDescription,
+                    'sitio': municipalityInformationService.getMunicipalitySite().id,
+                    'sitios': sites,
+                    'tiempo': $scope.routeDuration,
+                    'distancia': $scope.routeDistance
+                }
+            }
+
+            function saveServerError(e) {
+                messageService.showErrorMessage("ERROR_SERVER_COMMUNICATION", true);
+                console.log("error", e);
+            }
+
+
             function setPlaceholders() {
                 if ($translate.use() == 'en') {
                     $scope.startPointPlaceholder = $translate.instant("ROUTE_CREATION.ADD_ROUTE_POINT_ENGLISH");
@@ -173,10 +191,21 @@ angular.module('Municipality')
                 }
             }
 
+
             function reloadMap() {
                 $timeout(function () {
                     google.maps.event.trigger($scope.map.control.getGMap(), 'resize');
                 });
+            }
+
+            function correctRouteZoom() {
+                var position = MapService.coordsToLatLngLiteral(parseFloat($scope.map.center.latitude), parseFloat($scope.map.center.longitude));
+                MapService.moveMapToPosition(position, $scope.map.zoom - 2);
+            }
+
+            function goBackToAccount() {
+                MapService.clearRoute();
+                $location.path('/municipalityaccountinfo');
             }
 
         });

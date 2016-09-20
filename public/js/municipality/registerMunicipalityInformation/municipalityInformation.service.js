@@ -17,6 +17,7 @@ angular.module('Municipality')
         var municipalityId = undefined;
         var municipalityName=undefined;
         var currentRoute=undefined;
+        var municipalitySite=undefined;
 
 
         return {
@@ -62,6 +63,8 @@ angular.module('Municipality')
             getMunicipalityName:getMunicipalityName,
             setCurrentRoute: setCurrentRoute,
             getCurrentRoute: getCurrentRoute,
+            setMunicipalitySite:setMunicipalitySite,
+            getMunicipalitySite:getMunicipalitySite,
 
             sendMunicipalityDataToServer: sendMunicipalityDataToServer,
             resetData: resetData
@@ -185,6 +188,13 @@ angular.module('Municipality')
             return currentRoute;
         }
 
+        function setMunicipalitySite(siteMunicipality){
+            municipalitySite = siteMunicipality;
+        }
+        function getMunicipalitySite(){
+            return municipalitySite;
+        }
+
         function resetData() {
             municipalitySelected = undefined;
             municipalityPhoneNumber = undefined;
@@ -201,6 +211,7 @@ angular.module('Municipality')
             municipalityId = undefined;
             municipalityName=undefined;
             currentRoute=undefined;
+            municipalitySite=undefined;
         }
 
         function sendMunicipalityDataToServer(successFunction, errorFunction) {

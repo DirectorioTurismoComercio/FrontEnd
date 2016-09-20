@@ -165,8 +165,6 @@
 @media (max-width: 767px) {
     .add-site-icon{
         height: 8vmin;
-        width: 8vmin;
-        margin-top: 4%;
     }
 
     .form-no-padding-mobile{
@@ -178,9 +176,6 @@
 @media (min-width: 768px) {
     .add-site-icon{
         height: 5vmin;
-        width: 5vmin;
-        margin-top: 4%;
-
     }
 
     .form-no-padding-mobile{
@@ -192,18 +187,13 @@
 @media (min-width: 992px) {
     .add-site-icon{
         height: 4vmin;
-        width: 4vmin;
-        margin-top: 4%;
-
     }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .add-site-icon{
-        height: 4vmin;
-        width: 4vmin;
-        margin-top: 4%;
-
+        height: 3vmin;
+        margin-top: 0px !important;
     }
 }

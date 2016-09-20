@@ -234,19 +234,35 @@
 
             <div ng-show="addedMunicipalityes.length>0" class="registerTraderLineSeparator col-xs-10 col-xs-offset-1"></div>
 
-            <div class="row">
-                <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.MUNICIPALITY_ROUTES"></p>
-            </div>
-                
-                <div ng-repeat="route in routes">
-                    <p>%%route.nombre%% <span ng-click="editRoute(route)">Editar</span></p>
-                </div>
-
-
             <div ng-show="addedMunicipalityes.length>0">
                 <div class="account-info-munucipality-title-container topMarginElements">
                     <img class="  confirmRegisterIcons" src="./images/accountInfoIcons/municipio_rutas.png">
                     <p class="account-info-subtitle account-info-munucipality-title" translate="ACCOUNT_INFO.MUNICIPALITY_ROUTES"></p>
+                </div>
+
+                <div class="topMarginElements" ng-class="routes.length>2 ? 'scrollable-site-list':''">
+                    <div class="row" ng-repeat="route in routes">
+                        <div  class="registered-business">
+                            <div class="row row-reverse">
+                                <img ng-click="deleteRoute(route)" class="remove-icon"
+                                     src="./images/accountInfoIcons/borrar.png"/>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4"><img class="business-image"
+                                                           ng-src="%%(route.sitios[0].sitio.fotos| filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                </div>
+                                <div class="col-xs-8">
+                                    <p class="business-name">%%route.nombre%%</p>
+                                    <p class="texto-claro-business route-properties-text-display" translate="ROUTE_CREATION.ROUTE_APROX_DISTANCE"></p><p class="business-info route-properties-text-display">&nbsp %%route.distancia%%</p><br>
+                                    <p class="texto-claro-business route-properties-text-display" translate="ROUTE_CREATION.ROUTE_APROX_DURATION"></p><p class="business-info route-properties-text-display">&nbsp %%route.tiempo%%</p>
+                                </div>
+                            </div>
+                            <div class="row row-reverse">
+                                <button class="edit-local-button col-xs-3" ng-click="editRoute(route)"
+                                        translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row registerTrader-button NextButtonRegister topMarginElements">
@@ -254,14 +270,7 @@
                             translate="ACCOUNT_INFO.ADD_ROUTE"></button>
                 </div>
             </div>
-
-
         </form>
-
-
-
-
-
 
     </div>
 </div>

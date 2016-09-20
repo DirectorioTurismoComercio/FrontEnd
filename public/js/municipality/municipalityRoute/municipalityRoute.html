@@ -73,7 +73,7 @@
                           translate="ROUTE_CREATION.INCORRECT_NUMBER_OF_POINTS_ERROR"></span>
                 </div>
                 <div class="col-xs-2 col-xs-offset-2  add-site-route-button"  ng-click="addSite()">
-                    <img class="confirmRegisterIcons add-site-icon" src="./images/icons/municipio_puntos.png">
+                    <img class="confirmRegisterIcons add-site-icon" src="./images/icons/boton_parada.png">
                 </div>
             </div>
 
@@ -92,9 +92,7 @@
                         </div>
 
                         <div class="col-xs-8 container-fluid">
-                            <label class="route-subtitles route-subtitles-size"
-                                   translate="ROUTE_CREATION.SITE"></label><label class="route-subtitles route-subtitles-size">&nbsp
-                            %%site.nombre%%</label>
+                            <label class="route-subtitles route-subtitles-size">&nbsp %%site.nombre%%</label>
                         </div>
                         <div class="col-xs-1 container-fluid" ng-click="removeSite($index)">
                             <img class="icon margin-left" src="./images/accountInfoIcons/borrar.png">
@@ -108,14 +106,14 @@
             <div class="row control topMarginElements">
                 <div class="container-fluid col-xs-8 ">
                     <label class="route-subtitles route-subtitles-size" translate="ROUTE_CREATION.ROUTE_APROX_DISTANCE"></label>
-                    <label class="route-subtitles route-text-property route-subtitles-size" translate="ROUTE_CREATION.ROUTE_APROX_DISTANCE">&nbsp</label>
+                    <label class="route-subtitles route-text-property route-subtitles-size">&nbsp %%routeDistance%%</label>
                 </div>
             </div>
 
             <div class="row control topMarginElements">
                 <div class="container-fluid col-xs-8 ">
                     <label class="route-subtitles route-subtitles-size" translate="ROUTE_CREATION.ROUTE_APROX_DURATION"></label>
-                    <label class="route-subtitles route-text-property route-subtitles-size" translate="ROUTE_CREATION.ROUTE_APROX_DURATION">&nbsp</label>
+                    <label class="route-subtitles route-text-property route-subtitles-size">&nbsp %%routeDuration%%</label>
                 </div>
                 <div class="col-xs-2 col-xs-offset-2  add-site-route-button"  ng-click="openNav()"  ng-if="isMobileDevice()">
                     <img class="confirmRegisterIcons add-site-icon" src="./images/accountInfoIcons/municipio_rutas.png">

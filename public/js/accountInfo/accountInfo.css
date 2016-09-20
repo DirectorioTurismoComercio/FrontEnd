@@ -98,6 +98,10 @@
     width: 90% !important;
 }
 
+.route-properties-text-display{
+    display: inline-block;
+}
+
 @media (min-width: 768px) {
     .registered-business .business-name {
 
