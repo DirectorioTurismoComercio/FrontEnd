@@ -74,6 +74,15 @@ a.button:hover {
     display: flex;
 }
 
+
+.padding-bottom-forms{
+    padding-bottom: 3% !important;
+}
+
+.forms-height{
+    height: auto !important;
+}
+
 .rotateImage {
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
@@ -84,6 +93,14 @@ a.button:hover {
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
+    .forms-container{
+        position: absolute;
+        top:0;
+        left:0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+    }
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -91,13 +108,37 @@ a.button:hover {
     .button {
         width: 50%;
     }
+    .forms-container{
+        position: absolute;
+        top:0;
+        left:0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    .forms-container{
+        position: absolute;
+        top:65px;
+        left:0;
+        right: 0;
+        bottom: 0;
+        background-color: #E4EDEF;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+    .forms-container{
+        position: absolute;
+        top:65px;
+        left:0;
+        right: 0;
+        bottom: 0;
+        background-color: #E4EDEF;
+    }
 }
 
