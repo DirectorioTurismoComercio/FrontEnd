@@ -248,8 +248,8 @@ angular.module('Municipality')
                 {
                     headers: {'Authorization': 'Token ' + authenticationService.getUser().token}
                 }).success(function () {
-                    deleteItemFromArray(serverRoute, item);
-                }).error(function (error) {
+                deleteItemFromArray(serverRoute, item);
+            }).error(function (error) {
                 serverConnectionService.communicationError(error);
             });
         }
