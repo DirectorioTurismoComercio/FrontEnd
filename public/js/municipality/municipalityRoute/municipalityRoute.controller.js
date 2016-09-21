@@ -2,7 +2,7 @@
 
 angular.module('Municipality')
     .controller('municipalityRouteController',
-        function ($scope, $http, API_CONFIG, uiGmapIsReady, MapService, uiGmapGoogleMapApi,
+        function ($scope, $http, API_CONFIG, uiGmapIsReady, MapService, uiGmapGoogleMapApi,authenticationService,
                   $rootScope, $location, municipalityInformationService, $timeout, $q, $window, $log, $translate, messageService, MapRouteSitesService) {
             $scope.map = {
                 center: {
@@ -160,7 +160,11 @@ angular.module('Municipality')
 
             function editRouteInServer(sites) {
                 $http.put(
-                        API_CONFIG.url + API_CONFIG.updateRoute + municipalityInformationService.getCurrentRoute().id, dataToBeSendedToServer(sites))
+                        API_CONFIG.url + API_CONFIG.updateRoute + municipalityInformationService.getCurrentRoute().id, dataToBeSendedToServer(sites),  {
+                        headers: {
+                            'Authorization': 'Token ' + authenticationService.getUser().token
+                        }
+                    })
                     .then(goBackToAccount())
                     .catch(function (err) {
                             saveServerError(err)
@@ -170,7 +174,14 @@ angular.module('Municipality')
 
             function saveRouteInServer(sites) {
                 $http.post(
-                        API_CONFIG.url + API_CONFIG.createRoute, dataToBeSendedToServer(sites))
+                        API_CONFIG.url + API_CONFIG.createRoute, dataToBeSendedToServer(sites),
+                         {
+                        headers: {
+                            'Authorization': 'Token ' + authenticationService.getUser().token
+                        }
+                       }
+
+                        )
                     .then(goBackToAccount())
                     .catch(function (err) {
                             saveServerError(err)
