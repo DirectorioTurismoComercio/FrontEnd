@@ -1,6 +1,7 @@
 angular.module('Municipality').filter('searchMunicipality', function () {
-    return function (groups, searchText) {
-        searchText = (searchText || "").toLowerCase();
+    return function (groups, search) {
+        var searchText = (search.text || "").toLowerCase();
+        search.areThereResults = false;
 
         angular.forEach(groups, function (group) {
             group.visible = false;
@@ -9,6 +10,7 @@ angular.module('Municipality').filter('searchMunicipality', function () {
                 if (municipality.nombre.toLowerCase().indexOf(searchText) !== -1) {
                     municipality.visible = true;
                     group.visible = true;
+                    search.areThereResults = true;
                 } else {
                     municipality.visible = false;
                 }

@@ -8,8 +8,13 @@
         </div>
     </div>
 
+
+    <div ng-if="!search.areThereResults" class="opacity-effect">
+        <h1 class="no-results" translate="NO_RESULTS"></h1>
+    </div>
+
     <div ng-if="group.visible"
-         ng-repeat="group in municipalitiesGroupedByLetter | searchMunicipality:search.text"
+         ng-repeat="group in municipalitiesGroupedByLetter | searchMunicipality:search"
          class="row municipalities opacity-effect">
 
         <h1 class="title-section">%%group.letter%%</h1>
@@ -22,6 +27,7 @@
                 <h1 clamp="3" class="municipality-description">%%municipality.descripcion%%</h1>
                 <div class="shadow"></div>
             </div>
+            %%areThereResults=municipality.visible;""%%
         </div>
     </div>
 </div>
