@@ -10,7 +10,7 @@
 
     <div ng-if="group.visible"
          ng-repeat="group in municipalitiesGroupedByLetter | searchMunicipality:search.text"
-         class="row municipalities">
+         class="row municipalities opacity-effect">
 
         <h1 class="title-section">%%group.letter%%</h1>
         <div ng-if="municipality.visible" ng-repeat="municipality in group.municipalities"
