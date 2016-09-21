@@ -102,25 +102,55 @@
                 </fieldset>
             </div>
 
+            <div ng-if="!isMobileDevice()" >
+                <div class="row control topMarginElements">
+                    <div class="container-fluid col-xs-8 ">
+                        <label class="route-subtitles route-properties-text" translate="ROUTE_CREATION.ROUTE_APROX_DISTANCE"></label>
+                        <label class="route-subtitles route-text-property route-properties-text">&nbsp %%routeDistance%%</label>
+                    </div>
+                </div>
 
+                <div class="row control topMarginElements">
+                    <div class="container-fluid col-xs-8 ">
+                        <label class="route-subtitles route-properties-text" translate="ROUTE_CREATION.ROUTE_APROX_DURATION"></label>
+                        <label class="route-subtitles route-text-property route-properties-text">&nbsp %%routeDuration%%</label>
+                    </div>
+                    <div class="col-xs-2 col-xs-offset-2  add-site-route-button"  ng-click="openNav()"  ng-if="isMobileDevice()">
+                        <img class="confirmRegisterIcons add-site-icon" src="./images/accountInfoIcons/municipio_rutas.png">
+                    </div>
+                </div>
+
+
+
+                <div class=" municipality-info-buttons-conatiner next-button NextButtonRegister topMarginElements col-xs-12">
+                    <button class="button edit-section-button cancel-button municipality-info-buttons"
+                            ng-click="cancelRegister()"
+                            translate="CANCEL_BUTTON"></button>
+                    <button class="button municipality-info-buttons"
+                            ng-click="saveRoute()" translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
+                </div>
+            </div>
+
+        </form>
+
+
+        <div ng-if="isMobileDevice()">
             <div class="row control topMarginElements">
-                <div class="container-fluid col-xs-8 ">
-                    <label class="route-subtitles route-subtitles-size" translate="ROUTE_CREATION.ROUTE_APROX_DISTANCE"></label>
-                    <label class="route-subtitles route-text-property route-subtitles-size">&nbsp %%routeDistance%%</label>
+                <div class="container-fluid col-xs-8 col-xs-offset-2 col-md-offset-0">
+                    <label class="route-subtitles route-properties-text" translate="ROUTE_CREATION.ROUTE_APROX_DISTANCE"></label>
+                    <label class="route-subtitles route-text-property route-properties-text">&nbsp %%routeDistance%%</label>
                 </div>
             </div>
 
             <div class="row control topMarginElements">
-                <div class="container-fluid col-xs-8 ">
-                    <label class="route-subtitles route-subtitles-size" translate="ROUTE_CREATION.ROUTE_APROX_DURATION"></label>
-                    <label class="route-subtitles route-text-property route-subtitles-size">&nbsp %%routeDuration%%</label>
+                <div class="col-xs-2  add-site-route-button open-overlay-map-button"  ng-click="openNav()"  ng-if="isMobileDevice()">
+                    <img class="confirmRegisterIcons add-site-icon" src="./images/icons/boton_mapa.png">
                 </div>
-                <div class="col-xs-2 col-xs-offset-2  add-site-route-button"  ng-click="openNav()"  ng-if="isMobileDevice()">
-                    <img class="confirmRegisterIcons add-site-icon" src="./images/accountInfoIcons/municipio_rutas.png">
+                <div class="container-fluid col-xs-8">
+                    <label class="col-xs-offset-1 col-md-offset-0 route-subtitles route-properties-text" translate="ROUTE_CREATION.ROUTE_APROX_DURATION"></label>
+                    <label class="route-subtitles route-text-property route-properties-text">&nbsp %%routeDuration%%</label>
                 </div>
             </div>
-
-
 
             <div class=" municipality-info-buttons-conatiner next-button NextButtonRegister topMarginElements col-xs-12">
                 <button class="button edit-section-button cancel-button municipality-info-buttons"
@@ -129,8 +159,7 @@
                 <button class="button municipality-info-buttons"
                         ng-click="saveRoute()" translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
             </div>
-
-        </form>
+        </div>
 
     </div>
 

@@ -43,6 +43,10 @@
     font-size: 1.3em !important;
 }
 
+.route-properties-text{
+    font-size: 1.1em;
+}
+
 .route-description{
     min-height: 80px;
 }
@@ -98,6 +102,10 @@
     z-index: 10;
     top: 50%;
     margin:auto;
+}
+
+.open-overlay-map-button{
+    width: auto ;
 }
 
 
