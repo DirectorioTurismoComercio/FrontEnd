@@ -3,16 +3,18 @@
     <h1 translate="MUNICIPALITIES_VIEW.TITLE" class="title"></h1>
     <div class="row">
         <div class="col-xs-12 text-center">
-            <input type="text" class="text-input" translate
-                   translate-attr-placeholder="MUNICIPALITIES_VIEW.SEARCH_BOX" ng-model="textSearch"
-                   ng-keyup="filterMunicipalities(textSearch)"/>
+            <input type="text" class="text-input" ng-model="search.text" translate
+                   translate-attr-placeholder="MUNICIPALITIES_VIEW.SEARCH_BOX"/>
         </div>
     </div>
 
-    <div ng-if="municipalitiesGroupedByLetter.length" ng-repeat="group in municipalitiesGroupedByLetter"
+    <div ng-if="group.visible"
+         ng-repeat="group in municipalitiesGroupedByLetter | searchMunicipality:search.text"
          class="row municipalities">
+
         <h1 class="title-section">%%group.letter%%</h1>
-        <div ng-repeat="municipality in group.municipalities | filter : textSearch : $.nombre " class="col-xs-12 col-sm-4">
+        <div ng-if="municipality.visible" ng-repeat="municipality in group.municipalities"
+             class="col-xs-12 col-sm-4">
             <div class="municipality"
                  ng-style="{'background-image':'url(%%municipality.fotos[0].URLfoto%%)'}">
                 <h1 class="municipality-title">%%municipality.nombre%%</h1>
@@ -21,5 +23,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>
