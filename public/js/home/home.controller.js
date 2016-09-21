@@ -4,11 +4,10 @@ angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory,
                                             $location, $mdDialog, siteAndTownSaverService, $log,
                                             messageService, MapService, $window, $rootScope, $translate,
-                                            MunicipalitiesDAO) {
+                                            MunicipalitiesDAO, requestedMunicipalityDetail) {
         $scope.municipalities = [];
         siteAndTownSaverService.resetSearchAndRoute();
         siteAndTownSaverService.setSelectedCategory(undefined);
-
         setHowItWorksTraderImage();
 
         MunicipalitiesDAO.getAllMunicipalities().then(function (municipalities) {
@@ -16,6 +15,11 @@ angular.module('home')
         }).catch(function (error) {
             $log.error(error);
         });
+
+        $scope.showMunicipalityDetail = function (municipality) {
+            requestedMunicipalityDetail.setMunicipality(municipality);
+            $location.path('/map');
+        };
 
         $scope.doSearch = function (result) {
             if (result != undefined) {
@@ -105,5 +109,4 @@ angular.module('home')
         function getRandom(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
         }
-    })
-;
+    });

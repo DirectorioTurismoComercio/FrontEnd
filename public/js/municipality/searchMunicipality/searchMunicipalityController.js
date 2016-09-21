@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('searchMunicipalityController', function ($scope, $log, $translate, MunicipalitiesDAO) {
+    .controller('searchMunicipalityController', function ($scope, $log, $translate, $location, MunicipalitiesDAO,
+                                                          requestedMunicipalityDetail) {
         $scope.municipalitiesGroupedByLetter = [];
         $scope.search = {};
 
@@ -10,7 +11,8 @@ angular.module('Municipality')
         });
 
         $scope.showMunicipalityDetail = function (municipality) {
-
+            requestedMunicipalityDetail.setMunicipality(municipality);
+            $location.path('/map');
         };
 
         function groupMunicipalitiesByLetter(municipalities) {
@@ -48,4 +50,5 @@ angular.module('Municipality')
         $scope.getFirstLetter = function (municipality) {
             return municipality.nombre.charAt(0);
         };
+
     });
