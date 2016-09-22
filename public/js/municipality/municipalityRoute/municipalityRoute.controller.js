@@ -27,6 +27,7 @@ angular.module('Municipality')
 
             var selectedSite = undefined;
 
+            MapService.clearRoute();
             setPlaceholders();
             uiGmapIsReady.promise().then(initMap);
             getMunicipalitySites();
