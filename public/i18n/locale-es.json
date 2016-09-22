@@ -239,6 +239,7 @@
   "CONFIRM_DELETE_ROUTE":"¿Está seguro que desea borrar esta ruta?",
   "DELETE_SITE":"Borrar sitio",
   "DELETE_ROUTE":"Borrar ruta",
+  "ERROR_ROUTE_NOT_VALID":"En una ruta con sólo 2 puntos, el punto inicial no puede ser el mismo que el punto final",
   "MY_POSITION": "Mi posición actual",
   "SUCCESS_TITLE_MESSAGE": "Bienvenido",
   "REGISTER_COMPLETE": "El registro fue exitoso",

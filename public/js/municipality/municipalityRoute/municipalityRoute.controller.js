@@ -74,7 +74,11 @@ angular.module('Municipality')
 
             $scope.saveRoute = function () {
                 $scope.submitted = true;
-                if ($scope.municipalityRouteBasicInfoForm.$valid && $scope.routeSites.length >= 2) {
+                if(!isRouteValid()){
+                    messageService.showErrorMessage("ERROR_ROUTE_NOT_VALID", true);
+                }
+
+                if ($scope.municipalityRouteBasicInfoForm.$valid && $scope.routeSites.length >= 2 && isRouteValid()) {
                     sendToServer();
                 }
 
@@ -144,6 +148,10 @@ angular.module('Municipality')
                             formValidator.emailAlreadyExistsShowError(errors);
                         }
                     );
+            }
+            function isRouteValid(){
+                var justTwoPointsInitialEqualToEndPoint= $scope.routeSites.length==2 && $scope.routeSites[0].id==$scope.routeSites[1].id;
+                return !justTwoPointsInitialEqualToEndPoint
             }
 
             function sendToServer() {

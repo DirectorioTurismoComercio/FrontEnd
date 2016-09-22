@@ -240,6 +240,7 @@
   "CONFIRM_DELETE_ROUTE":"Are you sure to delete this route?",
   "DELETE_SITE":"Delete site",
   "DELETE_ROUTE":"Delete route",
+  "ERROR_ROUTE_NOT_VALID":"Route with just 2 sites, initial site can not be the same that destiny site",
   "SUCCESS_TITLE_MESSAGE": "Welcome",
   "REGISTER_COMPLETE": "your site registration is done",
   "HOW_TO_GET_THERE": "How to get there?",
