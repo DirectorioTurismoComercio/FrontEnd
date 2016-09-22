@@ -20,7 +20,7 @@ angular.module('Municipality')
             var groupedMunicipalities = [];
 
             for (var i = 0; i < municipalities.length; i++) {
-                const municipality = municipalities[i];
+                var municipality = municipalities[i];
                 var nameFirstLetter = municipality.nombre.charAt(0);
 
                 if (lastFoundLetter != nameFirstLetter) {
