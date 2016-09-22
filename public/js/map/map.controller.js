@@ -212,7 +212,7 @@ angular.module('map')
                 drawSitesByKeyWord(keyWord);
             }
             else {
-                messageService.showErrorMessage("Por favor ingrese un criterio de busqueda");
+                messageService.showErrorMessage("ERROR_NO_KEYWORD_SEARCH");
             }
         }
 
@@ -274,7 +274,7 @@ angular.module('map')
                     showFoundPlaces();
                 } else {
                     $scope.foundSites = 0;
-                    messageService.showErrorMessage("No se han encontrado resultados");
+                    messageService.showErrorMessage("ERROR_NO_RESULTS");
                 }
             }).catch(function (error) {
                 console.log("ocurrio un error", error);
@@ -293,7 +293,7 @@ angular.module('map')
 
         function handleLocationError() {
             resetFirstSiteSearchedRoute();
-            messageService.showErrorMessage("No es posible obtener la ubicación");
+            messageService.showErrorMessage("ERROR_UNAVAILABLE_LOCATION");
         }
 
         function checkSelectedSiteWebPage() {

@@ -27,7 +27,7 @@ angular.module('home')
                 getSites(result);
             }
             else {
-                messageService.showErrorMessage("Por favor ingrese un criterio de busqueda");
+                messageService.showErrorMessage("ERROR_NO_KEYWORD_SEARCH");
             }
         };
 
@@ -70,7 +70,7 @@ angular.module('home')
                     siteAndTownSaverService.setCurrentSearchedSite(result);
                     $location.path('/map');
                 } else {
-                    messageService.showErrorMessage("No se han encontrado resultados");
+                    messageService.showErrorMessage("ERROR_NO_RESULTS");
                 }
             }).catch(function (error) {
                 messageService.showErrorMessage("GET_SITES_ERROR");
