@@ -88,7 +88,7 @@ angular.module('Municipality')
                 $scope.loadingMobileMap=true;
                 if(!$scope.currentMapPosition){
                     $scope.currentMapPosition = MapService.coordsToLatLngLiteral(parseFloat($scope.map.center.latitude), parseFloat($scope.map.center.longitude));
-                    $scope.currentzoom =$scope.map.zoom;
+                    $scope.currentzoom =$scope.map.zoom + 8;
                 }
                 document.getElementById("myNav").style.width = "100%";
                 $("#createRouteMap .angular-google-map-container").height('80vh');
@@ -96,7 +96,10 @@ angular.module('Municipality')
                     reloadMap();
                 }, 500);
                $timeout(function () {
-                    MapService.moveMapToPosition( $scope.currentMapPosition,  $scope.currentzoom+8);
+                   if($scope.routeSites.length<2){
+                       $scope.currentzoom=13;
+                   }
+                    MapService.moveMapToPosition( $scope.currentMapPosition,  $scope.currentzoom);
                    $scope.loadingMobileMap=false;
                 }, 700);
 
