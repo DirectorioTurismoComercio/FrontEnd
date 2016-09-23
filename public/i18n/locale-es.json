@@ -209,7 +209,7 @@
     "PASSWORDS_MUST_BE_EQUAL": "La contraseña de confirmación debe coincidir con la nueva contraseña*",
     "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "La contraseña nueva debe ser diferente a la antigua*.",
     "REGISTERED_MUNICIPALITY": "Municipio registrado",
-    "ADD_MUNICIPALITY": "Añadir un municipio",
+    "ADD_MUNICIPALITY": "Añadir información",
     "MUNICIPALITY_SITES": "Sitios del municipio",
     "MUNICIPALITY_ROUTES": "Rutas",
     "ADD_ROUTE": "Inscribir ruta"
