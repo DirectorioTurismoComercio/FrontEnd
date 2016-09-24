@@ -1,0 +1,182 @@
+<app-header></app-header>
+<loader></loader>
+
+<div class="row search-results">
+    <div class="col-md-6 no-padding">
+        <div class="header container-fluid route-header-color">
+            <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="changeViewMunicipalityAccount()">
+                <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+            </div>
+            <p class="text" translate="ROUTE_CREATION.FORM_TITLE"></p>
+        </div>
+
+        <form name="municipalityRouteBasicInfoForm" class="form-group form col-xs-10 col-xs-offset-1">
+            <div class="row control">
+                <div class="col-xs-2 container-fluid">
+                    <img class="confirmRegisterIcons" src="./images/icons/municipio_puntos.png">
+                </div>
+                <div class="container-fluid col-xs-10 emailTraderContainer">
+                    <input input placeholder="Regular Placeholder" translate
+                           translate-attr-placeholder="ROUTE_CREATION.ROUTE_NAME"
+                           class="form-control col-xs-10 businessAddressInput"
+                           name="routeName"
+                           type="text" ng-model="$parent.routeName" required>
+
+                    <i ng-show="routeName==undefined"
+
+                       class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                </div>
+            </div>
+     <span class="col-xs-offset-2 error" ng-show="submitted && municipalityRouteBasicInfoForm.routeName.$error.required"
+           translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+
+            <div class="input topMarginElements col-xs-12 no-padding">
+             <textarea placeholder="Regular Placeholder" translate
+                       translate-attr-placeholder="ROUTE_CREATION.ROUTE_DESCRIPTION"
+                       class="form-control businessAddressInput route-description"
+                       name="routeDescription" ng-model="$parent.routeDescription" required></textarea>
+                <i ng-show="routeDescription==undefined"
+                   class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconStarColor"></i>
+             <span ng-show="submitted && municipalityRouteBasicInfoForm.routeDescription.$error.required"
+                   class="errorField "
+                   translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
+            </div>
+        </form>
+
+        <div class="registerTraderLineSeparator topMarginElements col-xs-10 col-xs-offset-1"></div>
+
+        <form name="municipalityRoutePointsForm"
+              class="form-group  form col-xs-10 col-xs-offset-1" ng-class="isMobileDevice()?'form-no-padding-mobile':''">
+            <div class="row businessAddressText topMarginElements municipality-description-bottom-margin citizen-hall-title col-xs-12">
+                <span class="texto-oscuro-business route-subtitles-size"
+                      translate="ROUTE_CREATION.MAKE_ROUTE_TIP"></span>
+            </div>
+
+            <div class="row control" ng-show="routeSites.length<10">
+                <div class="container-fluid col-xs-8 ">
+                    <div>
+                        <angucomplete-alt id="ex1"
+                                          placeholder="%%startPointPlaceholder%%"
+                                          pause="100"
+                                          selected-object="selectedSite"
+                                          local-data="sites"
+                                          search-fields="nombre"
+                                          title-field="nombre"
+                                          minlength="1"
+                                          input-class="form-control form-control-small input-create-route"
+                                          match-class="input-create-route-highlight"/>
+                    </div>
+                    <div>
+
+                    </div>
+                    <span class="error" ng-show="submitted && routeSites.length<2"
+                          translate="ROUTE_CREATION.INCORRECT_NUMBER_OF_POINTS_ERROR"></span>
+                </div>
+                <div class="col-xs-2 col-xs-offset-2  add-site-route-button"  ng-click="addSite()">
+                    <img class="confirmRegisterIcons add-site-icon" src="./images/icons/boton_parada.png">
+                </div>
+            </div>
+
+            <div class="row route-list-title-container topMarginElements">
+                <p class="route-list-title" translate="ROUTE_CREATION.ROUTE_LIST_TITLE"></p>
+            </div>
+
+
+            <div ng-class="routeSites.length>5 && !isMobileDevice() ? 'scrollable-route-form': ''">
+                <fieldset ng-class="routeSites.length>5 ? 'correct-width': ''" data-ng-repeat="site in routeSites track by $index">
+                    <div class="row topMarginElements">
+                        <div class="col-xs-1 container-fluid">
+                            <img ng-show="$index==0" class="icon" src="./images/icons/salida-mapa.png">
+                            <img ng-show="($index>0 && $index<9) && ($index+1)!=routeSites.length" class="icon" src="./images/icons/municipio_puntos.png">
+                            <img ng-show="(($index+1)==routeSites.length)&& routeSites.length>=2" class="icon" src="./images/icons/llegada-mapa.png">
+                        </div>
+
+                        <div class="col-xs-8 container-fluid">
+                            <label class="route-subtitles route-subtitles-size">&nbsp %%site.nombre%%</label>
+                        </div>
+                        <div class="col-xs-1 container-fluid" ng-click="removeSite($index)">
+                            <img class="icon margin-left" src="./images/accountInfoIcons/borrar.png">
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <div ng-if="!isMobileDevice()" >
+                <div class="row control topMarginElements">
+                    <div class="container-fluid col-xs-8 ">
+                        <label class="route-subtitles route-properties-text" translate="ROUTE_CREATION.ROUTE_APROX_DISTANCE"></label>
+                        <label class="route-subtitles route-text-property route-properties-text">&nbsp %%routeDistance%%</label>
+                    </div>
+                </div>
+
+                <div class="row control topMarginElements">
+                    <div class="container-fluid col-xs-8 ">
+                        <label class="route-subtitles route-properties-text" translate="ROUTE_CREATION.ROUTE_APROX_DURATION"></label>
+                        <label class="route-subtitles route-text-property route-properties-text">&nbsp %%routeDuration%%</label>
+                    </div>
+                    <div class="col-xs-2 col-xs-offset-2  add-site-route-button"  ng-click="openNav()"  ng-if="isMobileDevice()">
+                        <img class="confirmRegisterIcons add-site-icon" src="./images/accountInfoIcons/municipio_rutas.png">
+                    </div>
+                </div>
+
+
+
+                <div class=" municipality-info-buttons-conatiner next-button NextButtonRegister topMarginElements col-xs-12">
+                    <button class="button edit-section-button cancel-button municipality-info-buttons"
+                            ng-click="cancelRegister()"
+                            translate="CANCEL_BUTTON"></button>
+                    <button class="button municipality-info-buttons"
+                            ng-click="saveRoute()" translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
+                </div>
+            </div>
+
+        </form>
+
+
+        <div ng-if="isMobileDevice()">
+            <div class="row control topMarginElements">
+                <div class="container-fluid col-xs-8 col-xs-offset-2 col-md-offset-0">
+                    <label class="route-subtitles route-properties-text" translate="ROUTE_CREATION.ROUTE_APROX_DISTANCE"></label>
+                    <label class="route-subtitles route-text-property route-properties-text">&nbsp %%routeDistance%%</label>
+                </div>
+            </div>
+
+            <div class="row control topMarginElements">
+                <div class="col-xs-2  add-site-route-button open-overlay-map-button"  ng-click="openNav()"  ng-if="isMobileDevice()">
+                    <img class="confirmRegisterIcons add-site-icon" src="./images/icons/boton_mapa.png">
+                </div>
+                <div class="container-fluid col-xs-8">
+                    <label class="col-xs-offset-1 col-md-offset-0 route-subtitles route-properties-text" translate="ROUTE_CREATION.ROUTE_APROX_DURATION"></label>
+                    <label class="route-subtitles route-text-property route-properties-text">&nbsp %%routeDuration%%</label>
+                </div>
+            </div>
+
+            <div class=" municipality-info-buttons-conatiner next-button NextButtonRegister topMarginElements col-xs-12">
+                <button class="button edit-section-button cancel-button municipality-info-buttons"
+                        ng-click="cancelRegister()"
+                        translate="CANCEL_BUTTON"></button>
+                <button class="button municipality-info-buttons"
+                        ng-click="saveRoute()" translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-xs-6 map map-container-no-padding" ng-if="!isMobileDevice()">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
+    </div>
+</div>
+
+<div id="myNav" class="overlay" ng-if="isMobileDevice()" >
+    <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()">&times;</a>
+    <md-progress-circular ng-show="loadingMobileMap" class="route-loading-mobile" md-mode="indeterminate"></md-progress-circular>
+    <div class="overlay-content" ng-class="loadingMobileMap ? 'overlay-content-loading-map':'overlay-content-loaded-map'">
+        <ui-gmap-google-map id="createRouteMap" center='map.center' zoom='map.zoom' control="map.control"/>
+    </div>
+</div>
+
+
+
+
+

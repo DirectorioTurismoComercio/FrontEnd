@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="search-municipalities">
+    <h1 translate="MUNICIPALITIES_VIEW.TITLE" class="title"></h1>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <input type="text" class="text-input" ng-model="search.text" translate
+                   translate-attr-placeholder="MUNICIPALITIES_VIEW.SEARCH_BOX"/>
+        </div>
+    </div>
+
+
+    <div ng-if="!search.areThereResults" class="opacity-effect">
+        <h1 class="no-results" translate="NO_RESULTS"></h1>
+    </div>
+
+    <div ng-if="group.visible"
+         ng-repeat="group in municipalitiesGroupedByLetter | searchMunicipality:search"
+         class="row municipalities opacity-effect">
+
+        <h1 class="title-section">%%group.letter%%</h1>
+        <div ng-if="municipality.visible" ng-repeat="municipality in group.municipalities"
+             class="col-xs-12 col-sm-4">
+            <div class="municipality"
+                 ng-style="{'background-image':'url(%%municipality.fotos[0].URLfoto%%)'}"
+                 ng-click="showMunicipalityDetail(municipality)">
+                <h1 class="municipality-title">%%municipality.nombre%%</h1>
+                <h1 clamp="3" class="municipality-description">%%municipality.descripcion%%</h1>
+                <div class="shadow"></div>
+            </div>
+            %%areThereResults=municipality.visible;""%%
+        </div>
+    </div>
+</div>

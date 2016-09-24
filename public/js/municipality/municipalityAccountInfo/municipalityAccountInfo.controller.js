@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityAccountInfoController', function ($scope, $location,$mdDialog, filterFilter, siteInformationService, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog, authenticationService, formValidator, $translate) {
+    .controller('municipalityAccountInfoController', function ($scope, $location, $mdDialog, filterFilter, siteInformationService, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog, authenticationService, formValidator, $translate, serverConnectionService) {
 
         $scope.showRequiredFieldMessage = false;
         $scope.user = authenticationService.getUser();
@@ -9,25 +9,33 @@ angular.module('Municipality')
         $scope.isChangingPassword = false;
         $scope.changePasswordSubmitted = false;
         $scope.municipalityInfoSubmitted = false;
+        $scope.routes = [];
         var infoBackup;
 
 
         authenticationService.getUserData($scope.user.token)
             .success(function (response) {
+                var muncipalitySite;
                 $scope.user = response;
+                muncipalitySite = filterFilter($scope.user.sitios, {tipo_sitio: 'M'});
+                municipalityInformationService.setMunicipalitySite(muncipalitySite[0]);
+                if (muncipalitySite.length > 0) {
+                    $scope.routes = muncipalitySite[0].rutas;
+                }
+
                 splitSites();
 
             });
 
-        function  splitSites(){
-            $scope.municipalitySites=[];
-            $scope.addedMunicipalityes=[];
-            for(var i=0; i<$scope.user.sitios.length; i++){
-                if($scope.user.sitios[i].tipo_sitio=='S'){
+        function splitSites() {
+            $scope.municipalitySites = [];
+            $scope.addedMunicipalityes = [];
+            for (var i = 0; i < $scope.user.sitios.length; i++) {
+                if ($scope.user.sitios[i].tipo_sitio == 'S') {
                     $scope.municipalitySites.push($scope.user.sitios[i]);
                 }
 
-                if($scope.user.sitios[i].tipo_sitio=='M'){
+                if ($scope.user.sitios[i].tipo_sitio == 'M') {
                     $scope.addedMunicipalityes.push($scope.user.sitios[i]);
                     municipalityInformationService.setMunicipalityName($scope.user.sitios[i].municipio);
                 }
@@ -149,7 +157,18 @@ angular.module('Municipality')
             $location.path('municipalityinfo');
         }
 
-        $scope.addBusiness=function(){
+        $scope.addRoute = function () {
+            municipalityInformationService.currentRoute = undefined;
+            $location.path('municipalityroute');
+
+        }
+        $scope.editRoute = function (route) {
+            municipalityInformationService.setCurrentRoute(route);
+            $location.path('municipalityroute');
+
+        }
+
+        $scope.addBusiness = function () {
             siteInformationService.clearData(siteInformationService);
             $location.path('businessinformation');
         }
@@ -164,7 +183,10 @@ angular.module('Municipality')
             municipalityInformationService.setMunicipalitySelected(sitio.municipio);
             municipalityInformationService.setMunicipalityDescription(sitio.descripcion);
             municipalityInformationService.setMunicipalityAddress(sitio.ubicacionlocal);
-            municipalityInformationService.setMunicipalityLocation({lat: parseFloat(sitio.latitud), lng: parseFloat(sitio.longitud)});
+            municipalityInformationService.setMunicipalityLocation({
+                lat: parseFloat(sitio.latitud),
+                lng: parseFloat(sitio.longitud)
+            });
             municipalityInformationService.setMunicipalityURLPhotos(sitio.fotos);
 
             $location.path('/municipalityinfo');
@@ -203,22 +225,43 @@ angular.module('Municipality')
         }
 
         $scope.deleteSite = function (sitio) {
-            messageService.confirmMessage("¿Está seguro que desea borrar este sitio?", "Borrar sitio", removeSiteFromServer, sitio);
+            messageService.confirmMessage($translate.instant("CONFIRM_DELETE_SITE"), $translate.instant("DELETE_SITE"), removeSiteFromServer, sitio);
 
         }
+
+        $scope.deleteRoute = function (route) {
+            messageService.confirmMessage($translate.instant("CONFIRM_DELETE_ROUTE"), $translate.instant("DELETE_ROUTE"), removeRouteFromServer, route);
+
+        }
+
         function removeSiteFromServer(sitio) {
-            $http.delete(API_CONFIG.url + "/sitio/detail/" + sitio.id,
+            removeItemFromServer(sitio, API_CONFIG.siteDetail);
+        }
+
+        function removeRouteFromServer(route) {
+            removeItemFromServer(route, API_CONFIG.updateRoute);
+
+        }
+
+        function removeItemFromServer(item, serverRoute) {
+            $http.delete(API_CONFIG.url + serverRoute + item.id,
                 {
                     headers: {'Authorization': 'Token ' + authenticationService.getUser().token}
-                }).success(function (d) {
-                $scope.municipalitySites.splice($scope.municipalitySites.indexOf(sitio), 1);
+                }).success(function () {
+                deleteItemFromArray(serverRoute, item);
             }).error(function (error) {
-                console.log("hubo un error al borrar", error);
-
+                serverConnectionService.communicationError(error);
             });
-
-
         }
+
+        function deleteItemFromArray(serverRoute, item){
+            if (serverRoute == API_CONFIG.siteDetail) {
+                $scope.municipalitySites.splice($scope.municipalitySites.indexOf(item), 1);
+            } else if (serverRoute == API_CONFIG.updateRoute) {
+                $scope.routes.splice($scope.routes.indexOf(item), 1);
+            }
+        }
+
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
             if (next.$$route.controller == 'municipalityphotos' || next.$$route.controller == 'loginmunicipality') {
@@ -226,4 +269,4 @@ angular.module('Municipality')
             }
         });
 
-});
+    });

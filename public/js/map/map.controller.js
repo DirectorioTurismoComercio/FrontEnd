@@ -3,7 +3,8 @@
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory,
                                            MapService, ngDialog, SiteMarkerService, $location, messageService, $timeout,
-                                           siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS, filterFilter) {
+                                           siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS, filterFilter,
+                                           requestedMunicipalityDetail) {
         var userPosition = {};
         var hasMadeRoute = false;
         var photosPopUp = undefined;
@@ -12,7 +13,6 @@ angular.module('map')
         $scope.selectedSite = null;
         $scope.isShowingSiteDetail = false;
         $scope.isOnSitedetails = false;
-        $scope.loading = false;
         $scope.foundSites = [];
         $scope.noResults = false;
         $scope.map = {
@@ -48,6 +48,11 @@ angular.module('map')
             if (siteAndTownSaverService.searchedRoute.origin != undefined && siteAndTownSaverService.getCurrentSearchedSite() == undefined) {
                 showSearchedRoute();
             }
+
+            if (requestedMunicipalityDetail.getMunicipality()) {
+                var municipality = requestedMunicipalityDetail.getMunicipality();
+                $scope.foundSites = [municipality];
+            }
         }
 
         function reloadMap() {
@@ -58,7 +63,6 @@ angular.module('map')
 
 
         function showSearchedRoute() {
-            $scope.loading = true;
             $scope.resulListInCompactMode = true;
             reloadMap();
             SiteMarkerService.deleteMarkers();
@@ -150,7 +154,6 @@ angular.module('map')
         $scope.showRouteToSite = function (site) {
             saveFirstSiteSearchedRoute(site);
             $scope.hasMadeFirstRouteToSite = true;
-            $scope.loading = true;
             $scope.resulListInCompactMode = true;
             reloadMap();
             SiteMarkerService.deleteMarkers();
@@ -204,13 +207,12 @@ angular.module('map')
             MapService.clearRoute();
             if (keyWord != undefined) {
                 $scope.hideSiteDetail();
-                $scope.loading = true;
                 centerMapOnSearchedTown();
                 MapService.clearMarkers();
                 drawSitesByKeyWord(keyWord);
             }
             else {
-                messageService.showErrorMessage("Por favor ingrese un criterio de busqueda");
+                messageService.showErrorMessage("ERROR_NO_KEYWORD_SEARCH");
             }
         }
 
@@ -270,11 +272,9 @@ angular.module('map')
 
                 if (response.length > 0) {
                     showFoundPlaces();
-                    $scope.loading = false;
                 } else {
                     $scope.foundSites = 0;
-                    messageService.showErrorMessage("No se han encontrado resultados");
-                    $scope.loading = false;
+                    messageService.showErrorMessage("ERROR_NO_RESULTS");
                 }
             }).catch(function (error) {
                 console.log("ocurrio un error", error);
@@ -293,7 +293,7 @@ angular.module('map')
 
         function handleLocationError() {
             resetFirstSiteSearchedRoute();
-            messageService.showErrorMessage("No es posible obtener la ubicación");
+            messageService.showErrorMessage("ERROR_UNAVAILABLE_LOCATION");
         }
 
         function checkSelectedSiteWebPage() {

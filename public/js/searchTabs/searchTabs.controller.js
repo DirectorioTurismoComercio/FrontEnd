@@ -7,7 +7,6 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.ROUTE_SEARCH_SECTION = ROUTE_SEARCH_SECTION;
         $scope.isSearchFormVisible = false;
         $scope.isRouteFormVisible = false;
-        $scope.loadingCurrentPosition = false;
         $scope.searchedRoute = siteAndTownSaverService.searchedRoute;
         $scope.categoryScrollPorcentaje=0;
         $scope.subcategoryScrollPorcentaje=0;
@@ -114,6 +113,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         });
 
         $scope.setCategoryNameAsInputText=function(category){
+            $scope.previousSlide('subCategory');
                 if(category.isSelected){
                     category.isSelected=false;
                     $scope.result='';
@@ -313,7 +313,6 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         }
 
         $scope.getUserPosition = function () {
-            $scope.loadingCurrentPosition = true;
             geolocation.getLocation().then(function (data) {
                 var userPosition = MapService.coordsToLatLngLiteral(data.coords.latitude, data.coords.longitude);
                 setSearchedRouteOrigin({
@@ -323,9 +322,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
                 MapService.setPinOnUserPosition(userPosition);
 
-                $scope.loadingCurrentPosition = false;
             }).catch(function (error) {
-                $scope.loadingCurrentPosition = false;
                 messageService.showErrorMessage("ERROR_UNAVAILABLE_LOCATION");
                 console.log(error);
             });

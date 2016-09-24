@@ -68,29 +68,12 @@ describe('Controller: registerMunicipalityAccountController', function () {
         expect($scope.submitted).toBe(true);
     });
 
-    it('Should not show registerLoading when user clicks save and form fields are not valids', function () {
-        $scope.municipalityData = {
-            name: undefined,
-            email: undefined,
-            password: undefined
-        };
-        $scope.municipalityData.email='town@';
-        $scope.$digest();
-
-        $scope.save();
-        expect($scope.registerLoading).toBe(false);
-    });
 
     it('Should set to True submitted when user clicks RegisterButton', function () {
         $scope.save();
         expect($scope.submitted).toBe(true);
     });
 
-    it('Should show registerLoading when user clicks save and form fields are valids', function () {
-        setValidFormFields($scope);
-        $scope.save();
-        expect($scope.registerLoading).toBe(true);
-    });
 
     xit('Should set Token when user register', function () {
         setValidFormFields($scope);
@@ -100,13 +83,6 @@ describe('Controller: registerMunicipalityAccountController', function () {
         expect(testngDialog.open).toHaveBeenCalled();
     });
 
-    it('Should hide loading and show Error Message when register fails', function () {
-        setValidFormFields($scope);
-        $scope.save();
-        $httpBackendTest.when('POST',testAPI_CONFIG.url+testAPI_CONFIG.user).respond(404);
-        $httpBackendTest.flush();
-        expect($scope.registerLoading).toBe(false);
-    });
 
     it('Should close pop up window and redirect to municipality info when registration is done', function () {
         $scope.doneRegistration();

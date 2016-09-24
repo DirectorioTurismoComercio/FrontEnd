@@ -20,6 +20,7 @@ angular.module('Municipality')
         $scope.loadingMunicipalityMainPhoto = false;
         $scope.loadingCoatArmsPhoto = false
         $scope.loadingMunicipalityFacedePhotos = false;
+        $scope.loader=false;
 
         var numPhotos;
         var loadedPhotos = 0;
@@ -34,7 +35,6 @@ angular.module('Municipality')
 
         $scope.doneMunicipalityRegistration = function () {
             if ($scope.flowMunicipalityMainPhoto.flow.files.length != 0 && !$scope.loadingPhotos){
-                $scope.loadingPhotos=true;
                 savePhotosTemporally();
                 $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
                 municipalityInformationService.sendMunicipalityDataToServer(openConfirmationmessage, errorSaving);
@@ -107,7 +107,7 @@ angular.module('Municipality')
 
         function loadPhotosFromServer() {
             var i;
-            $scope.loadingPhotos = true;
+            $scope.loader = true;
             numPhotos = municipalityInformationService.getMunicipalityURLPhotos().length;
             for (i = 0; i < numPhotos; i++) {
                 loadPhotoFromURL(municipalityInformationService.getMunicipalityURLPhotos()[i].URLfoto, municipalityInformationService.getMunicipalityURLPhotos()[i].tipo);
@@ -133,7 +133,7 @@ angular.module('Municipality')
                 flowPhotos.flow.files.push(file);
                 loadedPhotos++;
                 if (loadedPhotos == numPhotos) {
-                    $scope.loadingPhotos = false;
+                    $scope.loader = false;
                 }
             }).error(function (error) {
                 console.log("hubo un error al cargar la foto", error);

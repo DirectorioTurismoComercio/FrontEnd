@@ -25,7 +25,6 @@ angular.module('registerSite')
 
 
         $scope.showRequiredFieldMessage = false;
-        $scope.waitingRegister = false;
 
         $scope.user = authenticationService.getUser();
 
@@ -44,7 +43,6 @@ angular.module('registerSite')
 
         $scope.register = function () {
             if ($scope.registerSiteForm.$valid) {
-                $scope.waitingRegister = true;
                 siteInformationService.sitePhoneNumber = $scope.sitePhoneNumber;
                 siteInformationService.whatsapp = $scope.whatsapp ;
                 siteInformationService.web = $scope.web;
@@ -80,7 +78,6 @@ angular.module('registerSite')
 
         var succesfullySaved = function (d) {
                     siteAndTownSaverService.setCurrentSearchedTown(undefined);
-                    $scope.waitingRegister = false;
                     clearData();
                     ngDialog.open({
                         template: 'js/registerSite/completeRegistration.html',

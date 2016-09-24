@@ -1,0 +1,218 @@
+.route-header-color{
+    background-color: #0E5072;
+}
+
+.add-route-point-container{
+    background-color: white !important;
+    flex-flow: column wrap;
+    align-items: flex-start;
+}
+
+.add-route-site-button{
+    margin: 0px !important;
+    background-color: #97D3E8 !important;
+}
+
+.add-route-site-text{
+    color:#0A3C5A;
+    font-family: "PT Sans";
+    font-weight: normal;
+}
+
+.autocomplete-site-browser{
+    background-color: #F2F2F2 !important;
+}
+
+.autocomplete-li-border{
+    border-left: solid 1px #C7C7CD;
+    border-right: solid 1px #C7C7CD;
+
+}
+
+.margin-left{
+    margin-left: 10px;
+}
+
+.route-subtitles{
+    color: #32A2D4;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+}
+
+.route-subtitles-size{
+    font-size: 1.3em !important;
+}
+
+.route-properties-text{
+    font-size: 1.1em;
+}
+
+.route-description{
+    min-height: 80px;
+}
+
+.scrollable-route-form{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 300px;
+}
+
+.correct-width{
+    width:102%;
+}
+
+.input-create-route{
+    background-color: #F2F2F2;
+    height: 40px;
+}
+
+.input-create-route-highlight {
+    color: #000;
+    font-weight: bold;
+}
+
+.add-site-route-button{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    background-color: #97D3E8 !important;
+    height: 40px;
+    border: none;
+    padding: 0;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.route-list-title-container{
+    display: inline-block;
+}
+
+.route-list-title{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #32A2D4;
+}
+
+.route-text-property{
+    color: #000 !important;
+}
+
+.route-loading-mobile{
+    z-index: 10;
+    top: 50%;
+    margin:auto;
+}
+
+.open-overlay-map-button{
+    width: auto ;
+}
+
+
+
+
+
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    padding: 10px;
+    position: relative;
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+}
+
+.overlay-content-loading-map{
+    top: 0;
+}
+
+.overlay-content-loaded-map{
+    top:10%
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    padding: 0px !important;
+    position: absolute;
+    right: 45px;
+    font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 767px) {
+    .add-site-icon{
+        height: 8vmin;
+    }
+
+    .form-no-padding-mobile{
+        padding: 0px !important;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .add-site-icon{
+        height: 5vmin;
+    }
+
+    .form-no-padding-mobile{
+        padding: 0px !important;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .add-site-icon{
+        height: 4vmin;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .add-site-icon{
+        height: 3vmin;
+        margin-top: 0px !important;
+    }
+}

@@ -3,6 +3,10 @@
 angular.module('Municipality', ['uiGmapgoogle-maps'])
     .config(function ($routeProvider) {
         $routeProvider
+            .when('/municipalities', {
+                templateUrl: 'js/municipality/searchMunicipality/searchMunicipality.html',
+                controller: 'searchMunicipalityController'
+            })
             .when('/registermunicipality', {
                 templateUrl: 'js/municipality/registerMunicipalityAccount/registermunicipality.html',
                 controller: 'registerMunicipalityAccountController'
@@ -30,5 +34,10 @@ angular.module('Municipality', ['uiGmapgoogle-maps'])
                 templateUrl: 'js/municipality/municipalityAccountInfo/municipalityAccountInfo.html',
                 controller: 'municipalityAccountInfoController',
                 required_roles: 'authenticatedUser'
+            })
+            .when('/municipalityroute', {
+                templateUrl: 'js/municipality/municipalityRoute/municipalityRoute.html',
+                controller: 'municipalityRouteController'
+               // required_roles: 'authenticatedUser'
             });
     });

@@ -19,11 +19,14 @@ angular.module('registerSite')
         $scope.businessAddress = siteInformationService.businessAddress;
         $scope.businessMunicipality = siteInformationService.businessMunicipality;
         $scope.isInMunicipalitySite=false;
-        checkBusinessType();
+
 
         $scope.showRequiredFieldMessage = false;
         $scope.waitingRegister = false;
         $scope.user = authenticationService.getUser();
+        checkBusinessType();
+
+        siteInformationService.user= $scope.user;
 
 
         categories.getCategories().then(function (response) {

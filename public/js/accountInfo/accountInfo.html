@@ -1,77 +1,78 @@
 <div class="hidden-xs hidden-sm">
     <app-header></app-header>
 </div>
-
-<div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPort">
-    <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
-        <div class="header container-fluid">
-            <a href="#/home">
-                <div class="col-xs-1 registerHeaderBackIconcontainer">
-                    <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
-                </div>
-                <p class="text" translate="ACCOUNT_INFO.ACCOUNT_INFO_TITLE"></p></a>
-        </div>
-
-
-        <form name="personalInfoForm" class="form-group form">
-            <div class="row">
-                <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.ACCOUNT_INFO_SUBTITLE"></p>
-            </div>
-            <div class="row control topMarginHeader" ng-show="!isEditingPersonalInfo">
-                <div class="container-fluid col-xs-12">
-                    <h3 class="personal-info text-center">%%usuario.first_name%%</h3>
-                    <h3 class="personal-info text-center" style="margin-top:-3px">%%usuario.last_name%%</h3>
-                    <h4 class="personal-info text-center">%%usuario.email%%</h4>
-
-                </div>
-
-            </div>
-            <div ng-show="isEditingPersonalInfo">
-                <div class="row control topMarginHeader">
-                    <div class="container-fluid col-xs-12">
-                        <input name="firstname" placeholder="Regular Placeholder" translate
-                               translate-attr-placeholder="REGISTER_USER_CONSTANTS.FIRST_NAME"
-                               class="form-control col-xs-10 businessAddressInput"
-                               name="firstname" type="text" ng-model="usuario.first_name" required>
-
-
-                        <i ng-show="usuario.first_name==undefined"
-                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+<loader></loader>
+<div class="forms-container">
+    <div class="row topMarginHeader registerSiteBackgroundColor forms-height padding-bottom-forms">
+        <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
+            <div class="header container-fluid">
+                <a href="#/home">
+                    <div class="col-xs-1 registerHeaderBackIconcontainer">
+                        <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
                     </div>
+                    <p class="text" translate="ACCOUNT_INFO.ACCOUNT_INFO_TITLE"></p></a>
+            </div>
+
+
+            <form name="personalInfoForm" class="form-group form">
+                <div class="row">
+                    <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.ACCOUNT_INFO_SUBTITLE"></p>
                 </div>
+                <div class="row control topMarginHeader" ng-show="!isEditingPersonalInfo">
+                    <div class="container-fluid col-xs-12">
+                        <h3 class="personal-info text-center">%%usuario.first_name%%</h3>
+                        <h3 class="personal-info text-center" style="margin-top:-3px">%%usuario.last_name%%</h3>
+                        <h4 class="personal-info text-center">%%usuario.email%%</h4>
+
+                    </div>
+
+                </div>
+                <div ng-show="isEditingPersonalInfo">
+                    <div class="row control topMarginHeader">
+                        <div class="container-fluid col-xs-12">
+                            <input name="firstname" placeholder="Regular Placeholder" translate
+                                   translate-attr-placeholder="REGISTER_USER_CONSTANTS.FIRST_NAME"
+                                   class="form-control col-xs-10 businessAddressInput"
+                                   name="firstname" type="text" ng-model="usuario.first_name" required>
+
+
+                            <i ng-show="usuario.first_name==undefined"
+                               class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                        </div>
+                    </div>
            <span class="error" ng-show="personalInfoSubmitted && personalInfoForm.firstname.$error.required"
                  translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
 
-                <div class="row control topMarginHeader">
-                    <div class="container-fluid col-xs-12">
-                        <input placeholder="Regular Placeholder" translate
-                               translate-attr-placeholder="REGISTER_USER_CONSTANTS.LAST_NAME" type="text"
-                               class="form-control col-xs-10 businessAddressInput"
-                               name="lastname" ng-model="usuario.last_name" required required>
+                    <div class="row control topMarginHeader">
+                        <div class="container-fluid col-xs-12">
+                            <input placeholder="Regular Placeholder" translate
+                                   translate-attr-placeholder="REGISTER_USER_CONSTANTS.LAST_NAME" type="text"
+                                   class="form-control col-xs-10 businessAddressInput"
+                                   name="lastname" ng-model="usuario.last_name" required required>
 
-                        <i ng-show="usuario.last_name==undefined"
-                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                            <i ng-show="usuario.last_name==undefined"
+                               class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                        </div>
                     </div>
-                </div>
             <span class="error" ng-show="personalInfoSubmitted && personalInfoForm.lastname.$error.required"
                   translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
-                <div class="row control">
-                    <div class="col-xs-2 container-fluid">
-                        <img class="confirmRegisterIcons" src="./images/registerIcons/mail.png">
-                    </div>
-                    <div class="container-fluid col-xs-10 emailTraderContainer">
-                        <input input placeholder="Regular Placeholder" translate
-                               translate-attr-placeholder="REGISTER_USER_CONSTANTS.EMAIL"
-                               class="form-control col-xs-10 businessAddressInput"
-                               name="email"
-                               type="email" ng-model="usuario.email" required>
+                    <div class="row control">
+                        <div class="col-xs-2 container-fluid">
+                            <img class="confirmRegisterIcons" src="./images/registerIcons/mail.png">
+                        </div>
+                        <div class="container-fluid col-xs-10 emailTraderContainer">
+                            <input input placeholder="Regular Placeholder" translate
+                                   translate-attr-placeholder="REGISTER_USER_CONSTANTS.EMAIL"
+                                   class="form-control col-xs-10 businessAddressInput"
+                                   name="email"
+                                   type="email" ng-model="usuario.email" required>
 
-                        <i ng-show="usuario.email==undefined"
-                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                            <i ng-show="usuario.email==undefined"
+                               class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                        </div>
                     </div>
-                </div>
              <span class="error" ng-show="personalInfoSubmitted && personalInfoForm.email.$error.required"
                    translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
@@ -81,70 +82,70 @@
                    translate="REGISTER_USER_CONSTANTS.EMAIL_VALIDATION"></span>
 
 
-            </div>
-            <div class="registerTrader-button NextButtonRegister topMarginElements">
-                <button ng-show="!isEditingPersonalInfo" class="button" ng-click="editPersonalInfo()"
-                        translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
-                <button ng-show="isEditingPersonalInfo" class="button edit-section-button cancel-button"
-                        ng-click="cancelEditing()"
-                        translate="CANCEL_BUTTON"></button>
-                <button ng-show="isEditingPersonalInfo" class="button edit-section-button" ng-click="savePersonalInfo()"
-                        translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
-            </div>
-        </form>
-
-        <div class="registerTraderLineSeparator row col-xs-12" ng-show="!isResgisteredWithSocialNetwork()"></div>
-
-        <form class="form-group form" name="passwordForm" ng-show="!isResgisteredWithSocialNetwork()">
-
-
-            <div class="row">
-                <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.ACCOUNT_PASSWORD_SUBTITLE"></p>
-            </div>
-            <div ng-show="isChangingPassword">
-                <div class="row control topMarginHeader">
-                    <div class="container-fluid col-xs-12">
-                        <input input placeholder="Regular Placeholder" translate
-                               translate-attr-placeholder="REGISTER_USER_CONSTANTS.PASSWORD"
-                               class="form-control col-xs-10 businessAddressInput"
-                               name="password" type="password" ng-model="usuario.password" required>
-
-                        <i ng-show="usuario.password==undefined"
-                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
-                    </div>
                 </div>
-          
-  
+                <div class="registerTrader-button NextButtonRegister topMarginElements">
+                    <button ng-show="!isEditingPersonalInfo" class="button" ng-click="editPersonalInfo()"
+                            translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
+                    <button ng-show="isEditingPersonalInfo" class="button edit-section-button cancel-button"
+                            ng-click="cancelEditing()"
+                            translate="CANCEL_BUTTON"></button>
+                    <button ng-show="isEditingPersonalInfo" class="button edit-section-button" ng-click="savePersonalInfo()"
+                            translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
+                </div>
+            </form>
+
+            <div class="registerTraderLineSeparator row col-xs-12" ng-show="!isResgisteredWithSocialNetwork()"></div>
+
+            <form class="form-group form" name="passwordForm" ng-show="!isResgisteredWithSocialNetwork()">
+
+
+                <div class="row">
+                    <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.ACCOUNT_PASSWORD_SUBTITLE"></p>
+                </div>
+                <div ng-show="isChangingPassword">
+                    <div class="row control topMarginHeader">
+                        <div class="container-fluid col-xs-12">
+                            <input input placeholder="Regular Placeholder" translate
+                                   translate-attr-placeholder="REGISTER_USER_CONSTANTS.PASSWORD"
+                                   class="form-control col-xs-10 businessAddressInput"
+                                   name="password" type="password" ng-model="usuario.password" required>
+
+                            <i ng-show="usuario.password==undefined"
+                               class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                        </div>
+                    </div>
+
+
        <span class="error" ng-show="changePasswordSubmitted && passwordForm.password.$error.required"
              translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
-                <div class="row control topMarginHeader">
-                    <div class="container-fluid col-xs-12">
-                        <input input placeholder="Regular Placeholder" translate
-                               translate-attr-placeholder="REGISTER_USER_CONSTANTS.NEW_PASSWORD"
-                               class="form-control col-xs-10 businessAddressInput"
-                               name="newpassword" type="password" ng-model="usuario.newpassword" required>
+                    <div class="row control topMarginHeader">
+                        <div class="container-fluid col-xs-12">
+                            <input input placeholder="Regular Placeholder" translate
+                                   translate-attr-placeholder="REGISTER_USER_CONSTANTS.NEW_PASSWORD"
+                                   class="form-control col-xs-10 businessAddressInput"
+                                   name="newpassword" type="password" ng-model="usuario.newpassword" required>
 
-                        <i ng-show="usuario.newpassword==undefined"
-                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                            <i ng-show="usuario.newpassword==undefined"
+                               class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                        </div>
                     </div>
-                </div>
 
-  
+
        <span class="error" ng-show="changePasswordSubmitted && passwordForm.newpassword.$error.required"
              translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
-                <div class="row control topMarginHeader">
-                    <div class="container-fluid col-xs-12">
-                        <input input placeholder="Regular Placeholder" translate
-                               translate-attr-placeholder="REGISTER_USER_CONSTANTS.CONFIRM_NEW_PASSWORD"
-                               class="form-control col-xs-10 businessAddressInput"
-                               name="confirmnewpassword" type="password" ng-model="usuario.confirmnewpassword" required>
+                    <div class="row control topMarginHeader">
+                        <div class="container-fluid col-xs-12">
+                            <input input placeholder="Regular Placeholder" translate
+                                   translate-attr-placeholder="REGISTER_USER_CONSTANTS.CONFIRM_NEW_PASSWORD"
+                                   class="form-control col-xs-10 businessAddressInput"
+                                   name="confirmnewpassword" type="password" ng-model="usuario.confirmnewpassword" required>
 
-                        <i ng-show="usuario.confirmnewpassword==undefined"
-                           class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                            <i ng-show="usuario.confirmnewpassword==undefined"
+                               class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
+                        </div>
                     </div>
-                </div>
        <span class="error" ng-show="changePasswordSubmitted && passwordForm.confirmnewpassword.$error.required"
              translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
        <span class="error" ng-show="changePasswordSubmitted && usuario.newpassword!=usuario.confirmnewpassword"
@@ -153,61 +154,62 @@
               translate="LOGIN.PASSWORD_LENGTH"></span>
         <span class="error" ng-show="changePasswordSubmitted && usuario.password==usuario.newpassword"
               translate="ACCOUNT_INFO.OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT"></span>
-            </div>
-
-            <div class="registerTrader-button NextButtonRegister topMarginElements">
-                <button ng-show="!isChangingPassword" class="button" ng-click="changePassword()"
-                        translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
-                <button ng-show="isChangingPassword" class="button edit-section-button cancel-button"
-                        ng-click="cancelEditing()"
-                        translate="CANCEL_BUTTON"></button>
-                <button ng-show="isChangingPassword" class="button edit-section-button" ng-click="saveNewPassword()"
-                        translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
-            </div>
-
-        </form>
-
-        <div class="registerTraderLineSeparator row col-xs-12"></div>
-
-        <form name="sites" class="form-group form">
-            <div class="row">
-                <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_BUSINESS"></p>
-            </div>
-
-            <div ng-class="usuario.sitios.length>2 ? 'scrollable-site-list':''">
-                <div class="row" ng-repeat="sitio in usuario.sitios">
-                    <div class="registered-business">
-
-                        <div class="row row-reverse">
-                            <img ng-click="deleteSite(sitio)" class="remove-icon"
-                                 src="./images/accountInfoIcons/borrar.png"/>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-4"><img class="business-image"
-                                                       ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
-                            </div>
-                            <div class="col-xs-8">
-                                <p class="business-name">%%sitio.nombre%%</p>
-                                <p class="business-info">%%sitio.ubicacionlocal%%</p>
-                                <p class="business-info">%%sitio.telefono%%</p>
-                            </div>
-                        </div>
-                        <div class="row row-reverse">
-                            <button class="edit-local-button col-xs-3" ng-click="editSite(sitio)"
-                                    translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
+
+                <div class="registerTrader-button NextButtonRegister topMarginElements">
+                    <button ng-show="!isChangingPassword" class="button" ng-click="changePassword()"
+                            translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
+                    <button ng-show="isChangingPassword" class="button edit-section-button cancel-button"
+                            ng-click="cancelEditing()"
+                            translate="CANCEL_BUTTON"></button>
+                    <button ng-show="isChangingPassword" class="button edit-section-button" ng-click="saveNewPassword()"
+                            translate="ACCOUNT_INFO.SAVE_BUTTON"></button>
+                </div>
+
+            </form>
+
+            <div class="registerTraderLineSeparator row col-xs-12"></div>
+
+            <form name="sites" class="form-group form">
+                <div class="row">
+                    <p class="col-xs-12 account-info-subtitle" translate="ACCOUNT_INFO.REGISTERED_BUSINESS"></p>
+                </div>
+
+                <div ng-class="usuario.sitios.length>2 ? 'scrollable-site-list':''">
+                    <div class="row" ng-repeat="sitio in usuario.sitios">
+                        <div class="registered-business">
+
+                            <div class="row row-reverse">
+                                <img ng-click="deleteSite(sitio)" class="remove-icon"
+                                     src="./images/accountInfoIcons/borrar.png"/>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4"><img class="business-image"
+                                                           ng-src="%%(sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                </div>
+                                <div class="col-xs-8">
+                                    <p class="business-name">%%sitio.nombre%%</p>
+                                    <p class="business-info">%%sitio.ubicacionlocal%%</p>
+                                    <p class="business-info">%%sitio.telefono%%</p>
+                                </div>
+                            </div>
+                            <div class="row row-reverse">
+                                <button class="edit-local-button col-xs-3" ng-click="editSite(sitio)"
+                                        translate="ACCOUNT_INFO.EDIT_BUTTON"></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
 
-            <div class="row registerTrader-button NextButtonRegister topMarginElements">
-                <button class="button" ng-click="addBusiness()"
-                        translate="ACCOUNT_INFO.ADD_BUSINESS"></button>
-            </div>
-        </form>
+                <div class="row registerTrader-button NextButtonRegister topMarginElements">
+                    <button class="button" ng-click="addBusiness()"
+                            translate="ACCOUNT_INFO.ADD_BUSINESS"></button>
+                </div>
+            </form>
 
 
+        </div>
     </div>
 </div>

@@ -43,7 +43,7 @@ angular.module('map')
 
         function setOriginAndDestinationdata(originData, destinationData) {
             if (originData == '' || destinationData == '') {
-                messageService.showErrorMessage("Indique un punto de partida y un destino");
+                messageService.showErrorMessage("ERROR_INITIAL_AND_DESTINY_POINTS");
                 return false;
             } else {
                 if (originData != "Mi posición actual") {

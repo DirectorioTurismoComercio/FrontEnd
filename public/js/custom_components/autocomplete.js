@@ -15,7 +15,9 @@
       suggestions: '=data',
       onType: '=onType',
       onSelect: '=onSelect',
-      autocompleteRequired: '='
+      autocompleteRequired: '=',
+      isoncreateroute:'=',
+      placeholderstring:'@'
     },
     controller: ['$scope', function($scope){
       // the index of the suggestions that's currently selected
@@ -105,11 +107,47 @@
 
       $rootScope.$on('$translateChangeSuccess', function () {
         if($translate.use()=='en'){
-          $scope.attrs.placeholder='I am searching...';
+          if($scope.isoncreateroute){
+            switch ($scope.placeholderstring){
+
+              case 'startPoint':
+                $scope.attrs.placeholder='Select starting point';
+                    break;
+
+              case 'endPoint':
+                $scope.attrs.placeholder='Select destination point';
+                    break;
+
+              case 'sitePoint':
+                $scope.attrs.placeholder='Site name';
+                break;
+            }
+
+          }else{
+            $scope.attrs.placeholder='I am searching...';
+          }
         }
         if($translate.use()=='es')
         {
-          $scope.attrs.placeholder='Busco...';
+          if($scope.isoncreateroute){
+            switch ($scope.placeholderstring){
+
+              case 'startPoint':
+                $scope.attrs.placeholder='Seleccionar punto de partida';
+                break;
+
+              case 'endPoint':
+                $scope.attrs.placeholder='Seleccionar punto de llegada';
+                break;
+
+              case 'sitePoint':
+                $scope.attrs.placeholder='Nombre de parada';
+                break;
+
+            }
+          }else{
+            $scope.attrs.placeholder='Busco...';
+          }
         }
       });
 
@@ -126,11 +164,46 @@
       // Default atts
       var placeholder;
       if($translate.use()=='en'){
-        placeholder='I am searching...';
+        if(scope.isoncreateroute){
+          switch (scope.placeholderstring){
+
+            case 'startPoint':
+              placeholder='Select starting point';
+              break;
+
+            case 'endPoint':
+              placeholder='Select destination point';
+              break;
+
+            case 'sitePoint':
+              placeholder='Site name';
+              break;
+          }
+        }else{
+          placeholder='I am searching...';
+        }
+
       }
       if($translate.use()=='es')
       {
-        placeholder='Busco...';
+        if(scope.isoncreateroute){
+          switch (scope.placeholderstring){
+
+            case 'startPoint':
+              placeholder='Seleccionar punto de partida';
+              break;
+
+            case 'endPoint':
+              placeholder='Seleccionar punto de llegada';
+              break;
+
+            case 'sitePoint':
+              placeholder='Nombre de parada';
+              break;
+          }
+
+        }else{
+          placeholder='Busco...';        }
       }
 
       scope.attrs = {
@@ -270,14 +343,34 @@
     template: '\
         <div class="autocomplete %% attrs.class %%" id="%% attrs.id %%">\
           <input\
+          ng-show="!isoncreateroute" \
             type="text"\
             ng-model="searchParam"\
             placeholder="%% attrs.placeholder %%"\
             class="%% attrs.inputclass %%"\
             id="%% attrs.inputid %%"\
             ng-required="%% autocompleteRequired %%" />\
+            <input\
+            ng-show="isoncreateroute" \
+            type="text"\
+            ng-model="searchParam"\
+            placeholder="%% attrs.placeholder %%"\
+            class="%% attrs.inputclass %% autocomplete-site-browser"\
+            id="%% attrs.inputid %%"\
+            ng-required="%% autocompleteRequired %%" />\
           <ul ng-show="completing && (suggestions | filter:searchFilter).length > 0">\
             <li\
+              ng-show="!isoncreateroute"\
+              suggestion\
+              ng-repeat="suggestion in suggestions | filter:searchFilter | orderBy:\'toString()\' track by $index"\
+              index="%% $index %%"\
+              val="%% suggestion %%"\
+              ng-class="{ active: ($index === selectedIndex) }"\
+              ng-click="select(suggestion)"\
+              ng-bind-html="suggestion | highlight:searchParam"></li>\
+            <li\
+              ng-show="isoncreateroute"\
+              class="autocomplete-li-border" \
               suggestion\
               ng-repeat="suggestion in suggestions | filter:searchFilter | orderBy:\'toString()\' track by $index"\
               index="%% $index %%"\

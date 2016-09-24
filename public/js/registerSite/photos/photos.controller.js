@@ -22,6 +22,9 @@ angular.module('registerSite')
         $scope.loadingInsidePhoto = false;
         $scope.loadingProductsPhoto = false;
         $scope.loadingPhotos = false;
+        $scope.loader=false;
+        $scope.user=siteInformationService.user;
+
 
 
         var numPhotos;
@@ -85,7 +88,7 @@ angular.module('registerSite')
 
         function loadPhotosFromServer() {
             var i;
-            $scope.loadingPhotos = true;
+            $scope.loader = true;
             numPhotos = siteInformationService.URLphotos.length;
             for (i = 0; i < numPhotos; i++) {
                 loadPhotoFromURL(siteInformationService.URLphotos[i].URLfoto, siteInformationService.URLphotos[i].tipo);
@@ -126,7 +129,6 @@ angular.module('registerSite')
             EXIF.getData(flowFile.file, function () {
                 orientation = this.exifdata.Orientation;
                 flowFile.orientation = orientation;
-                console.log("Image Orientation: ", orientation);
                 $scope.$apply();
             });
         };
@@ -151,7 +153,7 @@ angular.module('registerSite')
                 flowPhotos.flow.files.push(file);
                 loadedPhotos++;
                 if (loadedPhotos == numPhotos) {
-                    $scope.loadingPhotos = false;
+                    $scope.loader = false;
                 }
             }).error(function (error) {
                 console.log("hubo un error al cargar la foto", error);

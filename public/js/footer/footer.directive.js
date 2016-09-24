@@ -3,5 +3,6 @@ angular.module('appFooter',[])
         return {
             restrict: 'E',
             templateUrl: 'js/footer/app-footer.html',
+            controller: 'footerController'
         }
     }]);

@@ -8,8 +8,31 @@ body {
     margin: 0;
 }
 
-input {
-    font-family: 'PT Sans', sans-serif;
+input.text-input {
+    color: #2D3C4D;
+    background-color: #f2f2f2;
+    font-size: 1.2em;
+    width: auto;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+}
+
+a.button {
+    height: 40px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    background-color: #FFC501;
+    color: #2D3C4D;
+    padding: 10px 30px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+a.button:hover {
+    text-decoration: none;
 }
 
 .container-fluid {
@@ -22,7 +45,7 @@ input {
 }
 
 .no-padding {
-    padding: 0;
+    padding: 0 !important;
 }
 
 .button {
@@ -51,34 +74,32 @@ input {
     display: flex;
 }
 
-.rotateImage{
+.padding-bottom-forms {
+    padding-bottom: 3% !important;
+}
+
+.forms-height {
+    height: auto !important;
+}
+
+.rotateImage {
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-#loaderDiv {
-   position: fixed;
-   top: 0;
-   right: 0;
-   bottom: 0;
-   left: 0;
-   z-index: 1100;
-   background-color: white;
-   opacity: .6;
-}
-
-.ajax-loader {
-   position: absolute;
-   left: 50%;
-   top: 50%;
-   transform: translate(-50%, -50%);
-   display: block;
-}
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
+    .forms-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+    }
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -86,13 +107,38 @@ input {
     .button {
         width: 50%;
     }
+
+    .forms-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    .forms-container {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #E4EDEF;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+    .forms-container {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #E4EDEF;
+    }
 }
 

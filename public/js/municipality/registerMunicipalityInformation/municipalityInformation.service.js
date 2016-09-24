@@ -16,6 +16,8 @@ angular.module('Municipality')
         var municiplaityURLPhotos = undefined;
         var municipalityId = undefined;
         var municipalityName=undefined;
+        var currentRoute=undefined;
+        var municipalitySite=undefined;
 
 
         return {
@@ -59,6 +61,10 @@ angular.module('Municipality')
             getMunicipalityId: getMunicipalityId,
             setMunicipalityName:setMunicipalityName,
             getMunicipalityName:getMunicipalityName,
+            setCurrentRoute: setCurrentRoute,
+            getCurrentRoute: getCurrentRoute,
+            setMunicipalitySite:setMunicipalitySite,
+            getMunicipalitySite:getMunicipalitySite,
 
             sendMunicipalityDataToServer: sendMunicipalityDataToServer,
             resetData: resetData
@@ -175,6 +181,19 @@ angular.module('Municipality')
         function getMunicipalityName() {
             return municipalityName;
         }
+        function setCurrentRoute(route){
+            currentRoute = route;
+        }
+        function getCurrentRoute(){
+            return currentRoute;
+        }
+
+        function setMunicipalitySite(siteMunicipality){
+            municipalitySite = siteMunicipality;
+        }
+        function getMunicipalitySite(){
+            return municipalitySite;
+        }
 
         function resetData() {
             municipalitySelected = undefined;
@@ -191,6 +210,8 @@ angular.module('Municipality')
             municiplaityURLPhotos = undefined;
             municipalityId = undefined;
             municipalityName=undefined;
+            currentRoute=undefined;
+            municipalitySite=undefined;
         }
 
         function sendMunicipalityDataToServer(successFunction, errorFunction) {

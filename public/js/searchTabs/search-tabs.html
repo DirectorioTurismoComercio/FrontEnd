@@ -119,9 +119,9 @@
                             <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-map-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-map-container search-tab-category-unselected-container'"
                                  ng-click="setCategoryNameAsInputText(category)">
                                 <div>
-                                    <img class="icon" ng-src="%%category.URL_icono_general%%">
+                                    <img class="icon category-icon" ng-src="%%category.URL_icono_general%%">
                                 </div>
-                                <div class="search-tab-category-inside-container">
+                                <div >
                                     <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
                                 </div>
                             </div>
@@ -250,8 +250,6 @@
                             <p class="tip md-margin-top" translate="TABS_CONSTANTS.CURRENT_LOCATION"></p>
                             <img class="my-position-icon" src="./images/icons/mi-ubicacion.png"
                                  ng-click="getUserPosition()">
-                            <md-progress-circular class="loadingSitesOnMap" ng-show="loadingCurrentPosition"
-                                                  md-mode="indeterminate"></md-progress-circular>
                         </div>
                     </div>
                 </div>
@@ -327,8 +325,6 @@
                             <p class="tip md-margin-top" translate="TABS_CONSTANTS.CURRENT_LOCATION"></p>
                             <img class="my-position-icon" src="./images/icons/mi-ubicacion.png"
                                  ng-click="getUserPosition()">
-                            <md-progress-circular class="loadingSitesOnMap" ng-show="loadingCurrentPosition"
-                                                  md-mode="indeterminate"></md-progress-circular>
                         </div>
                     </div>
                 </div>

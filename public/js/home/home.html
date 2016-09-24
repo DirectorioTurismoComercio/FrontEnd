@@ -1,4 +1,6 @@
 <app-header></app-header>
+<loader></loader>
+
 <div class="row how-it-works">
     <div class="col-xs-12">
         <div class="text-center">
@@ -8,12 +10,34 @@
                 ng-click="goToHowItWorks()"></button>
     </div>
 </div>
-<search-tabs isonmap="false" result="result"  do-search="doSearch(result)" show-route="showRoute()"></search-tabs>
+<search-tabs isonmap="false" result="result" do-search="doSearch(result)" show-route="showRoute()"></search-tabs>
+
+<div class="random-municipalities" ng-if="municipalities.length">
+    <h1 translate="HOME_CONSTANTS.MUNICIPALITIES" class="title"></h1>
+    <div class="row municipalities">
+        <div ng-repeat="municipality in municipalities" class="col-xs-12 col-sm-4">
+            <div class="municipality"
+                 ng-style="{'background-image':'url(%%municipality.fotos[0].URLfoto%%)'}"
+                 ng-click="showMunicipalityDetail(municipality)">
+                <h1 class="municipality-title">%%municipality.nombre%%</h1>
+                <h1 clamp="3" class="municipality-description">%%municipality.descripcion%%</h1>
+                <div class="shadow"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <a class="button" translate="HOME_CONSTANTS.WATCH_MORE" href="#/municipalities"></a>
+        </div>
+    </div>
+</div>
 
 <div class="how-it-works-container text-center">
     <div class="row images-section">
         <div class="col-xs-12">
-            <img class="how-it-works-image-width" ng-click="goToHowItWorksTrader()" ng-src="images/howItWorks/howItWorksTrader/%%howItWorksImage%%">
+            <img class="how-it-works-image-width" ng-click="goToHowItWorksTrader()"
+                 ng-src="images/howItWorks/howItWorksTrader/%%howItWorksImage%%">
         </div>
     </div>
 </div>

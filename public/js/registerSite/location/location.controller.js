@@ -11,6 +11,9 @@ angular.module('registerSite')
         $scope.businessLocation = siteInformationService.businessLocation;
         $scope.businessAddress = siteInformationService.businessAddress;
 
+        $scope.user=siteInformationService.user;
+
+
         var joinOfFormatted_address;
 
 
@@ -110,7 +113,7 @@ angular.module('registerSite')
         function drawMarkerIfIsInsideBoundaries() {
             var selectedMunicipalityName = siteInformationService.businessMunicipality.nombre;
             if (!joinOfFormatted_address.includes(selectedMunicipalityName)) {
-                displayOutsideBoundaryErrorMessage("Verifique que la ubicación se encuentre en el municipio seleccionado");
+                displayOutsideBoundaryErrorMessage("ERROR_POINT_OUTSIDE_MUNICIPALITY_BOUNDARIES");
             } else {
                 MapService.addMarker($scope.businessLocation, siteInformationService.businessName);
             }

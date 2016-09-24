@@ -19,6 +19,8 @@ angular.module('registerSite')
 
         $scope.businessSubcategories = siteInformationService.businessSubcategories;
 
+        $scope.user=siteInformationService.user;
+
 
         $scope.arrayCategories = [];
 

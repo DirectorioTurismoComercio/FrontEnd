@@ -8,7 +8,9 @@ angular.module('businessBrowser')
                 isonmapview:'=',
                 result:'=',
                 doSearch:'&',
-                showRoute:'&'
+                showRoute:'&',
+                isoncreateroute:'=',
+                placeholdertext:'@'
             }
         }
     }]);

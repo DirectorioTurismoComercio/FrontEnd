@@ -1,6 +1,7 @@
 <div class="hidden-xs hidden-sm">
     <app-header></app-header>
 </div>
+<loader></loader>
 
 <div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPort">
     <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
@@ -78,10 +79,6 @@
 
             <a ng-click="forgottenPassword()" translate="LOGIN.FORGOTTEN_PASSWORD"></a>
 
-            <div ng-show="loginLoading" class="next-button col-xs-12 NextButtonRegister">
-                <md-progress-circular class="loading" md-mode="indeterminate"
-                ></md-progress-circular>
-            </div>
 
             <div class="registerTrader-button NextButtonRegister topMarginElements col-xs-12">
                 <button id="login" class="button" translate="LOGIN.LOGIN_BUTTON" ng-click="login()"></button>
