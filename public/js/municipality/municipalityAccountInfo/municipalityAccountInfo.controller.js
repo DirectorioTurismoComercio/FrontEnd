@@ -17,6 +17,7 @@ angular.module('Municipality')
             .success(function (response) {
                 var muncipalitySite;
                 $scope.user = response;
+                console.log("datos retornados",response);
                 muncipalitySite = filterFilter($scope.user.sitios, {tipo_sitio: 'M'});
                 municipalityInformationService.setMunicipalitySite(muncipalitySite[0]);
                 if (muncipalitySite.length > 0) {
@@ -25,7 +26,11 @@ angular.module('Municipality')
 
                 splitSites();
 
-            });
+            })
+            .error(function(error){
+                console.log("error",error);
+            }
+            );
 
         function splitSites() {
             $scope.municipalitySites = [];

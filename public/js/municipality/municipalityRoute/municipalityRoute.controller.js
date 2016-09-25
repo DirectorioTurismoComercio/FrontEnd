@@ -177,7 +177,11 @@ angular.module('Municipality')
                             'Authorization': 'Token ' + authenticationService.getUser().token
                         }
                     })
-                    .then(goBackToAccount())
+                    .then(
+                        function(response){
+                        goBackToAccount();
+                        }
+                    )
                     .catch(function (err) {
                             saveServerError(err)
                         }
@@ -194,7 +198,12 @@ angular.module('Municipality')
                        }
 
                         )
-                    .then(goBackToAccount())
+                    .then(
+                        function(response){
+                        goBackToAccount();
+                        } 
+
+                        )
                     .catch(function (err) {
                             saveServerError(err)
                         }
@@ -243,6 +252,9 @@ angular.module('Municipality')
                 MapService.clearRoute();
                 municipalityInformationService.setCurrentRoute(undefined);
                 $location.path('/municipalityaccountinfo');
-            }
+/*                $timeout(function(){
+                $location.path('/municipalityaccountinfo');
+                },2000);
+*/            }
 
         });
