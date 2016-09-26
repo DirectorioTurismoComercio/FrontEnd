@@ -3,8 +3,7 @@
 angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory,
                                            MapService, ngDialog, SiteMarkerService, $location, messageService, $timeout,
-                                           siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS, filterFilter,
-                                           requestedMunicipalityDetail) {
+                                           siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS) {
         var hasMadeRoute = false;
         var photosPopUp = undefined;
         $scope.hasMadeFirstRouteToSite = false;
@@ -31,7 +30,6 @@ angular.module('map')
         function initMap() {
             MapService.setGMap($scope.map.control.getGMap());
 
-
             setCundinamarcaPolygon();
             if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
                 showFoundPlaces();
@@ -40,30 +38,13 @@ angular.module('map')
             if (siteAndTownSaverService.searchedRoute.origin != undefined && siteAndTownSaverService.getCurrentSearchedSite() == undefined) {
                 showSearchedRoute();
             }
-
-            if (requestedMunicipalityDetail.getMunicipality()) {
-                var municipality = requestedMunicipalityDetail.getMunicipality();
-                requestedMunicipalityDetail.setMunicipality(undefined);
-                $scope.selectedSite = municipality;
-                $scope.isShowingSiteDetail = true;
-                MapService.clearRoute();
-                console.log(municipality);
-                MapService.addMarkerMunicipalityWithIcon({
-                    lat: parseFloat(municipality.latitud),
-                    lng: parseFloat(municipality.longitud)
-                });
-                showFoundPlaces();
-            }
         }
 
         function initMapProperties() {
-            var municipality = requestedMunicipalityDetail.getMunicipality();
             var searchedTown = siteAndTownSaverService.getCurrentSearchedTown();
             var map = createMapControls(4.6363623, -74.0854427, 9);
 
-            if (municipality) {
-                map = createMapControls(municipality.latitud, municipality.longitud, 14);
-            } else if (searchedTown) {
+            if (searchedTown) {
                 map = createMapControls(searchedTown.latitud, searchedTown.longitud, 9);
             }
 
