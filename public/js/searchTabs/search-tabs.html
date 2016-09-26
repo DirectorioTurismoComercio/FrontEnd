@@ -43,7 +43,7 @@
                                              ng-src="%%category.URL_icono_general%%">
                                     </div>
                                     <div class="search-tab-category-inside-container">
-                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%getCategoryText(category)%%</label>
                                     </div>
                                 </div>
                             </li>
@@ -71,7 +71,7 @@
                             <img class="icon" ng-src="%%category.URL_icono_general%%">
                         </div>
                         <div class="search-tab-category-inside-container">
-                            <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                            <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%getCategoryText(category)%%</label>
                         </div>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                                     <img class="icon category-icon" ng-src="%%category.URL_icono_general%%">
                                 </div>
                                 <div >
-                                    <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                                    <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%getCategoryText(category)%%</label>
                                 </div>
                             </div>
                         </li>
@@ -146,7 +146,7 @@
                         <div ng-click="selectSubcategory(subcategory)">
                             <div class="subcategory-label-container-map subcategory-label-border">
                                 <div>
-                                    <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%subcategory.nombre%%</label>
+                                    <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%getCategoryText(subcategory)%%</label>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                                              ng-src="%%category.URL_icono_general%%">
                                     </div>
                                     <div class="search-tab-category-inside-container">
-                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%getCategoryText(category)%%</label>
                                     </div>
                                 </div>
                             </li>
@@ -201,7 +201,7 @@
                                 <div ng-click="selectSubcategory(subcategory)">
                                     <div class="subcategory-label-container-map subcategory-label-border">
                                         <div>
-                                            <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%subcategory.nombre%%</label>
+                                            <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%getCategoryText(subcategory)%%</label>
                                         </div>
                                     </div>
                                 </div>

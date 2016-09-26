@@ -1,7 +1,7 @@
 angular.module('searchTabs', ['google.places', 'geolocation'])
     .controller('searchTabsController', function ($scope, geolocation, messageService, $timeout,
                                                   siteAndTownSaverService, CUNDINAMARCA_COORDS,
-                                                  MapService, $translate, KEYWORD_SEARCH_SECTION,
+                                                  MapService, $translate, KEYWORD_SEARCH_SECTION, $rootScope,
                                                   ROUTE_SEARCH_SECTION, $window, categories) {
         $scope.KEYWORD_SEARCH_SECTION = KEYWORD_SEARCH_SECTION;
         $scope.ROUTE_SEARCH_SECTION = ROUTE_SEARCH_SECTION;
@@ -10,7 +10,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.searchedRoute = siteAndTownSaverService.searchedRoute;
         $scope.categoryScrollPorcentaje=0;
         $scope.subcategoryScrollPorcentaje=0;
-
+        $scope.selectedLanguage = $translate.use();
 
         var initializedFields = false;
         var originRouteInput;
@@ -327,6 +327,22 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 console.log(error);
             });
         };
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $scope.selectedLanguage = $translate.use();
+
+        }
+        );
+
+        $scope.getCategoryText = function(category){
+            if($scope.selectedLanguage=='en'){
+                return category.name;
+            }
+            if($scope.selectedLanguage=='es'){
+                return category.nombre;
+            }
+
+        }
 
         $scope.display_limit = 5;
         $scope.clear = function () {
