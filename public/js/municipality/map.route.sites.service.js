@@ -49,8 +49,19 @@ angular.module('Municipality')
         }
 
         function setTextRouteproperties($scope,result){
-            $scope.routeDistance=result.routes[0].legs[0].distance.text;
-            $scope.routeDuration=result.routes[0].legs[0].duration.text;
+            var distance = 0;
+            var time = 0;
+            for(var i=0;i<result.routes[0].legs.length;i++){
+                distance = distance +  result.routes[0].legs[i].distance.value;
+                time = time + result.routes[0].legs[i].duration.value;
+
+            }
+            distance = distance / 1000;
+            time = time / 60;
+
+
+            $scope.routeDistance=distance.toFixed(2)+" Km";
+            $scope.routeDuration=time.toFixed(2)+" min";
         }
 
         return {
