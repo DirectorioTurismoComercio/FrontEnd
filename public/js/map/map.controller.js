@@ -5,7 +5,6 @@ angular.module('map')
                                            MapService, ngDialog, SiteMarkerService, $location, messageService, $timeout,
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS, filterFilter,
                                            requestedMunicipalityDetail) {
-        var userPosition = {};
         var hasMadeRoute = false;
         var photosPopUp = undefined;
         $scope.hasMadeFirstRouteToSite = false;
@@ -15,14 +14,6 @@ angular.module('map')
         $scope.isOnSitedetails = false;
         $scope.foundSites = [];
         $scope.noResults = false;
-        $scope.map = {
-            center: {
-                latitude: siteAndTownSaverService.getCurrentSearchedTown() == undefined ? 4.6363623 : parseFloat(siteAndTownSaverService.getCurrentSearchedTown().latitud),
-                longitude: siteAndTownSaverService.getCurrentSearchedTown() == undefined ? -74.0854427 : parseFloat(siteAndTownSaverService.getCurrentSearchedTown().longitud)
-            },
-            control: {},
-            zoom: 9
-        };
         $scope.routeToController = {
             routeFrom: '',
             routeTo: ''
@@ -32,18 +23,19 @@ angular.module('map')
         $scope.initialSelectedSite = undefined;
         $scope.hasMadeCurrentSiteRoute = false;
         $scope.isMakingASearchByKeyword = siteAndTownSaverService.getQueryMadeByUser();
-
+        $scope.map = initMapProperties();
 
         uiGmapIsReady.promise().then(initMap);
 
+
         function initMap() {
             MapService.setGMap($scope.map.control.getGMap());
-            setCundinamarcaPolygon();
 
+
+            setCundinamarcaPolygon();
             if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
                 showFoundPlaces();
             }
-            //showFoundPlaces();
 
             if (siteAndTownSaverService.searchedRoute.origin != undefined && siteAndTownSaverService.getCurrentSearchedSite() == undefined) {
                 showSearchedRoute();
@@ -51,9 +43,44 @@ angular.module('map')
 
             if (requestedMunicipalityDetail.getMunicipality()) {
                 var municipality = requestedMunicipalityDetail.getMunicipality();
-                $scope.foundSites = [municipality];
+                requestedMunicipalityDetail.setMunicipality(undefined);
+                $scope.selectedSite = municipality;
+                $scope.isShowingSiteDetail = true;
+                MapService.clearRoute();
+                console.log(municipality);
+                MapService.addMarkerMunicipalityWithIcon({
+                    lat: parseFloat(municipality.latitud),
+                    lng: parseFloat(municipality.longitud)
+                });
+                showFoundPlaces();
             }
         }
+
+        function initMapProperties() {
+            var municipality = requestedMunicipalityDetail.getMunicipality();
+            var searchedTown = siteAndTownSaverService.getCurrentSearchedTown();
+            var map = createMapControls(4.6363623, -74.0854427, 9);
+
+            if (municipality) {
+                map = createMapControls(municipality.latitud, municipality.longitud, 14);
+            } else if (searchedTown) {
+                map = createMapControls(searchedTown.latitud, searchedTown.longitud, 9);
+            }
+
+            return map;
+        }
+
+        function createMapControls(latitud, longitud, zoom) {
+            return {
+                center: {
+                    latitude: parseFloat(latitud),
+                    longitude: parseFloat(longitud)
+                },
+                control: {},
+                zoom: zoom
+            };
+        }
+
 
         function reloadMap() {
             $timeout(function () {
@@ -75,7 +102,7 @@ angular.module('map')
             hasMadeRoute = true;
             siteAndTownSaverService.setCurrentSearchedTown(undefined);
             showSearchedRoute();
-        }
+        };
 
         $scope.goBackToSiteList = function () {
             resetFirstSiteSearchedRoute();
@@ -88,7 +115,7 @@ angular.module('map')
             if (siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE") {
                 $scope.showRoute();
             }
-        }
+        };
 
 
         $scope.hideSiteDetail = function () {
