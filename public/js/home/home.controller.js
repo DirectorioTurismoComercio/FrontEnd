@@ -18,7 +18,7 @@ angular.module('home')
 
         $scope.showMunicipalityDetail = function (municipality) {
             requestedMunicipalityDetail.setMunicipality(municipality);
-            $location.path('/municipality-detail');
+            $location.path('/map');
         };
 
         $scope.doSearch = function (result) {

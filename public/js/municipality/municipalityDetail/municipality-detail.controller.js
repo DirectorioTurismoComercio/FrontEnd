@@ -7,10 +7,12 @@ angular.module('Municipality')
                                                           requestedMunicipalityDetail) {
         var hasMadeRoute = false;
         var photosPopUp = undefined;
+        var requestedMunicipality = requestedMunicipalityDetail.getMunicipality();
+        var searchedTown = siteAndTownSaverService.getCurrentSearchedTown();
         $scope.hasMadeFirstRouteToSite = false;
         $scope.routeMapZoom = undefined;
         $scope.selectedSite = null;
-        $scope.isShowingSiteDetail = false;
+        $scope.isShowingSiteDetail = true;
         $scope.isOnSitedetails = false;
         $scope.foundSites = [];
         $scope.noResults = false;
@@ -23,7 +25,7 @@ angular.module('Municipality')
         $scope.initialSelectedSite = undefined;
         $scope.hasMadeCurrentSiteRoute = false;
         $scope.isMakingASearchByKeyword = siteAndTownSaverService.getQueryMadeByUser();
-        $scope.map = initMapProperties();
+        $scope.map = getMapProperties();
 
         uiGmapIsReady.promise().then(initMap);
 
@@ -41,33 +43,30 @@ angular.module('Municipality')
                 showSearchedRoute();
             }
 
-            if (requestedMunicipalityDetail.getMunicipality()) {
-                var municipality = requestedMunicipalityDetail.getMunicipality();
-                requestedMunicipalityDetail.setMunicipality(undefined);
-                $scope.selectedSite = municipality;
-                $scope.isShowingSiteDetail = true;
+            if (requestedMunicipality) {
                 MapService.clearRoute();
-                console.log(municipality);
                 MapService.addMarkerMunicipalityWithIcon({
-                    lat: parseFloat(municipality.latitud),
-                    lng: parseFloat(municipality.longitud)
+                    lat: parseFloat(requestedMunicipality.latitud),
+                    lng: parseFloat(requestedMunicipality.longitud)
                 });
-                showFoundPlaces();
             }
         }
 
-        function initMapProperties() {
-            var municipality = requestedMunicipalityDetail.getMunicipality();
-            var searchedTown = siteAndTownSaverService.getCurrentSearchedTown();
-            var map = createMapControls(4.6363623, -74.0854427, 9);
+        function getMapProperties() {
+            var mapControls = createMapControls(4.6363623, -74.0854427, 9);
 
-            if (municipality) {
-                map = createMapControls(municipality.latitud, municipality.longitud, 14);
+
+            if (requestedMunicipality) {
+                $scope.selectedSite = requestedMunicipality;
+                $scope.isShowingSiteDetail = true;
+                requestedMunicipalityDetail.setMunicipality(undefined);
+                console.log(requestedMunicipality);
+                mapControls = createMapControls(requestedMunicipality.latitud, requestedMunicipality.longitud, 14);
             } else if (searchedTown) {
-                map = createMapControls(searchedTown.latitud, searchedTown.longitud, 9);
+                mapControls = createMapControls(searchedTown.latitud, searchedTown.longitud, 9);
             }
 
-            return map;
+            return mapControls;
         }
 
         function createMapControls(latitud, longitud, zoom) {
