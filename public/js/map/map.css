@@ -1,3 +1,28 @@
+.municipality-additional-info .button {
+    max-width: 250px;
+    margin: 5px 0;
+    padding-top: 9px !important;
+    padding: 9px 5px;
+    display: inline-block;
+}
+
+.municipality-additional-info .button img {
+    width: 26px;
+    height: auto;
+}
+
+.municipality-additional-info .image {
+    width: 160px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.municipality-additional-info .office {
+    color: #32A2D4;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
 prev.search-results .map {
     padding: 0;
 }
@@ -348,18 +373,18 @@ prev.search-results .map {
     height: auto !important;
 }
 
-.mobile-image-preview{
+.mobile-image-preview {
     height: 6em;
     width: 6em;
 }
 
-.sites-near-route-tittle{
+.sites-near-route-tittle {
     color: #0A3C5A;
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
 }
 
-.category-icon{
+.category-icon {
     margin: 0px !important;
 }
 

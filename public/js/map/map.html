@@ -113,6 +113,25 @@
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.DESCRIPTION"></span>
                             <p class="dark-text">%%selectedSite.descripcion%%</p>
                         </div>
+                        <div ng-if="selectedSite.tipo_sitio == 'M'" class="municipality-additional-info">
+                            <div class="text-center">
+                                <img ng-src="%%selectedSite.fotos[0].URLfoto%%" class="image"/>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-center item button">
+                                    <img src="./images/accountInfoIcons/municipio_sitios.png"/>
+                                    <span class="dark-text">Sitios del municipio</span>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-center item button">
+                                    <img src="./images/accountInfoIcons/municipio_rutas.png"/>
+                                    <span class="dark-text">Rutas del municipio</span>
+                                </div>
+                            </div>
+                            <h4 class="office">Atencion al ciudadano</h4>
+                        </div>
+
                         <div ng-show="!isEmpty(selectedSite.horariolocal)" class="item">
                             <img src="./images/icons/site-detail/horario.png">
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.OPENINGHOURS"></span>
