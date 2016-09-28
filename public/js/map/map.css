@@ -512,9 +512,9 @@ prev.search-results .map {
     }
 
     .site-photo-height {
-        height: 250px;
-        min-width: 250px !important;
-        max-width: 250px !important;
+        height: 20vmin;
+        min-width: 20vmin !important;
+        max-width: 20vmin !important;
     }
 
     .carousel-photos-display-mobile {
