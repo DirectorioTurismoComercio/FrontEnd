@@ -31,7 +31,7 @@
                          do-search="doSearch(result)"
                          show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
             <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode || isOnSitedetails">
-                <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
+                <ui-gmap-google-map id="mobileResultMap" center='map.center' zoom='map.zoom' control="map.control"/>
             </div>
         </div>
         <div class="result-list">

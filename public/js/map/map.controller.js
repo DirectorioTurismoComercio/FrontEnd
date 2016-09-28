@@ -26,7 +26,6 @@ angular.module('map')
         $scope.hasMadeCurrentSiteRoute = false;
         $scope.isMakingASearchByKeyword = siteAndTownSaverService.getQueryMadeByUser();
         $scope.map = getMapProperties();
-
         uiGmapIsReady.promise().then(initMap);
 
 
@@ -330,6 +329,7 @@ angular.module('map')
         }
 
         $scope.isMobileDevice = function () {
+            $("#mobileResultMap .angular-google-map-container").height('50vh');
             return $window.innerWidth < 992;
         };
 
