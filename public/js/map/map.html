@@ -156,18 +156,18 @@
                                 <img ng-src="%%selectedSite.fotos[0].URLfoto%%" class="image"/>
                             </div>
                             <div class="text-center">
-                                <div class="text-center item button">
+                                <div class="text-center item button" ng-click="">
                                     <img src="./images/accountInfoIcons/municipio_sitios.png"/>
-                                    <span class="dark-text">Sitios del municipio</span>
+                                    <span class="dark-text" translate="MUNICIPALITY-DETAIL.SITES"></span>
                                 </div>
                             </div>
                             <div class="text-center">
                                 <div class="text-center item button" ng-click="showRouteList()">
                                     <img src="./images/accountInfoIcons/municipio_rutas.png"/>
-                                    <span class="dark-text">Rutas del municipio</span>
+                                    <span class="dark-text" translate="MUNICIPALITY-DETAIL.ROUTES"></span>
                                 </div>
                             </div>
-                            <h4 class="office">Atencion al ciudadano</h4>
+                            <h4 class="office" translate="MUNICIPALITY-DETAIL.OFFICE"></h4>
                         </div>
 
                         <div ng-show="!isEmpty(selectedSite.horariolocal)" class="item">

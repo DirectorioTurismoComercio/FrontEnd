@@ -279,5 +279,10 @@
   "MUNICIPALITIES_VIEW": {
     "TITLE": "Municipios de Cundinamarca",
     "SEARCH_BOX": "Buscar"
+  },
+  "MUNICIPALITY-DETAIL":{
+    "OFFICE":"Atención al ciudadano",
+    "ROUTES":"Rutas del municipio",
+    "SITES":"Sitios del municipio"
   }
 }

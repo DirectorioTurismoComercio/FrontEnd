@@ -12,7 +12,7 @@ angular.module('map')
         $scope.hasMadeFirstRouteToSite = false;
         $scope.routeMapZoom = undefined;
         $scope.selectedSite = null;
-        $scope.isShowingSiteDetail = true;
+        $scope.isShowingSiteDetail = false;
         $scope.isOnSitedetails = false;
         $scope.foundSites = [];
         $scope.noResults = false;
