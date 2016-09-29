@@ -32,8 +32,8 @@
   "HOW_IT_WORKS": {
     "TITLE": "Es muy fácil! Así es como funciona:",
     "DESCRIPTION_1": "Cundinamarca tiene para ti muchas experiencias y destinos maravillosos",
-    "DESCRIPTION_2": "De Tour por Cundinamarca te ayuda a buscar según tus intereses y así descubrir el departamento",
-    "DESCRIPTION_3": "¡Disfruta de todas las aventuras que esperan por ti!"
+    "DESCRIPTION_2": "De Tour por Cundinamarca te ayuda a buscar según tus intereses para descubrir el departamento",
+    "DESCRIPTION_3": "¡Vive todas las aventuras increíbles que te esperan en nuestros municipios!"
   },
   "HOW_IT_WORKS_TRADER": {
     "PAGE_TITLE": "De Tour por Cundinamarca funciona así:",
@@ -71,7 +71,7 @@
     "MUNICIPALITY_OPENINGHOURS_TEXT": "Escribe los dias y horarios del punto de atención al ciudadano. Ejemplo: ",
     "MUNICIPALITY_LOCATION": "Ubicación del punto de atención",
     "MUNICIPALITY_ADDRESS": "Dirección del punto de turismo",
-    "MUNICIPALITY_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa dónde se encuentra el punto de atención al ciudadano",
+    "MUNICIPALITY_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa que aquí se encuentra el punto de atención al ciudadano",
     "MUNICIPALITY_LOCATION_TIP": "Puedes colocar un marcador en el mapa sobre la ubicación exacta del punto de atención al ciudadano",
     "MUNICIPALITY_PHOTOS_PAGE": "Fotografías del municipio",
     "UPLOAD_MAIN_PHOTO_TIP": "Sube una fotografía para identificar el municipio dentro de la plataforma",
@@ -119,7 +119,7 @@
     "MUNICIPALITY_BUSINESS_CATEGORY_TITLE": "Categoría del sitio",
     "BUSINESS_LOCATION": "Ubicación de tu negocio",
     "MUNICIPALITY_BUSINESS_LOCATION": "Ubicación del sitio",
-    "BUSINESS_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa dónde se encuentra tu negocio",
+    "BUSINESS_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa que aquí se encuentra tu negocio",
     "MUNICIPALITY_BUSINESS_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa dónde se encuentra el sitio",
     "BUSINESS_LOCATION_TIP": "Puedes colocar un marcador en el mapa sobre la ubicación exacta de tu negocio",
     "MUNICIPALITY_BUSINESS_LOCATION_TIP": "Puedes colocar un marcador en el mapa sobre la ubicación exacta del sitio",
@@ -254,7 +254,7 @@
   "GET_TOWNS_ERROR": "No es posible cargar el listado de municipios, por favor intentalo más tarde o vuelve a cargar la página",
   "NO_RESULTS": "Lo sentimos, no hay resultados para esta búsqueda. Por favor intente con otras palabras",
   "BAD_LOGIN": "El usuario o contraseña son incorrectos",
-  "REGISTER_SUCCESS": "Ya formas parte de la comunidad Marca_app. Ahora puedes registrar tu comercio, entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
+  "REGISTER_SUCCESS": "Ya formas parte de la comunidad De Tour por Cundinamarca, ahora puedes registrar tu comercio, entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
   "REGISTER_MUNICIPALITY_SUCCESS": "Ya formas parte de la comunidad De Tour por Cundinamarca, Ahora puedes registrar la información del municipio",
   "CONTACT_INFO": "Si tienes problemas al utilizar la app, alguna duda o sugerencia, puedes escribirnos a: ",
   "E100": "Error de comunicación con el servidor, intente nuevamente.",
