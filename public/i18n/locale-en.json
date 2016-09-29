@@ -226,6 +226,8 @@
     "ROUTE_POINT_ENGLISH": "Select site",
     "ADD_ROUTE_POINT_ENGLISH": "Add route site",
     "ROUTE_LIST_TITLE": "Your route",
+    "ROUTE_DISTANCE": "Distance:",
+    "ROUTE_DURATION": "Duration:",
     "ROUTE_APROX_DISTANCE": "Distance aprox.",
     "ROUTE_APROX_DURATION": "Duration aprox.",
     "INCORRECT_NUMBER_OF_POINTS_ERROR": "The Route must have at least two sites*"

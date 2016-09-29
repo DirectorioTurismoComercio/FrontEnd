@@ -226,6 +226,8 @@
     "ROUTE_POINT": "Seleccionar parada",
     "ADD_ROUTE_POINT": "Añade un punto a tu ruta",
     "ROUTE_LIST_TITLE": "Tu ruta",
+    "ROUTE_DISTANCE": "Distancia:",
+    "ROUTE_DURATION": "Duración:",
     "ROUTE_APROX_DISTANCE": "Distancia aprox.",
     "ROUTE_APROX_DURATION": "Duración aprox.",
     "INCORRECT_NUMBER_OF_POINTS_ERROR": "La ruta debe tener al menos dos sitios*"

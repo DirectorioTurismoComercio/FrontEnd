@@ -388,6 +388,19 @@ prev.search-results .map {
     margin: 0px !important;
 }
 
+.route-list-subtitles{
+    font-weight: normal !important;
+}
+
+.route-list-parameters-text{
+    display: inline-block !important;
+}
+
+.route-list-parameter-value{
+    color: #000 !important;
+    font-weight: normal !important;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {

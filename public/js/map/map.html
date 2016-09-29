@@ -34,6 +34,7 @@
                 <ui-gmap-google-map id="mobileResultMap" center='map.center' zoom='map.zoom' control="map.control"/>
             </div>
         </div>
+
         <div class="result-list">
             <div ng-if="noResults" class="center-block text-center">
                 <h4 class="no-results" translate="NO_RESULTS"></h4>
@@ -87,6 +88,43 @@
                 </ul>
             </div>
 
+
+
+            <!--Lista de resultados de rutas-->
+            <div ng-if="isShowingRouteList">
+                <div ng-show="requestedMunicipalityRoutes.length > 0 && !isShowingSiteDetail">
+                    <div ng-if="!showResultListHorizontally()"
+                         ng-repeat="route in requestedMunicipalityRoutes">
+                        <div class="list-item ">
+                            <div class="row" ng-click="showSiteDetail(route, $index)">
+                                <div class="col-xs-8 info">
+                                    <div class="row category-container-map-list-result">
+                                        <h3 class="">%%route.nombre%%</h3>
+                                    </div>
+                                    <div class="row topMarginElements">
+                                        <img class="icon" src="./images/icons/Distancia.png">
+                                        <h4 class="route-list-subtitles route-list-parameters-text" translate="ROUTE_CREATION.ROUTE_DISTANCE"></h4>
+                                        <h4 class="route-list-parameters-text route-list-parameter-value" >%%route.distancia%%</h4>
+                                    </div>
+                                    <div class="row">
+                                        <img class="icon" src="./images/icons//site-detail/horario.png">
+                                        <h4 class="route-list-subtitles route-list-parameters-text" translate="ROUTE_CREATION.ROUTE_DURATION"></h4>
+                                        <h4 class="route-list-parameters-text route-list-parameter-value" >%%route.tiempo%%</h4>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 image">
+                                    <img class="img-responsive  site-photo-height"
+                                         ng-src="%%(route.sitios[0].sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-separator"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
             <div ng-show="isShowingSiteDetail">
                 <div class="site-title" ng-if="isMobileDevice()">
                     <h1 class="name">%%selectedSite.nombre%%</h1>
@@ -124,7 +162,7 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <div class="text-center item button">
+                                <div class="text-center item button" ng-click="showRouteList()">
                                     <img src="./images/accountInfoIcons/municipio_rutas.png"/>
                                     <span class="dark-text">Rutas del municipio</span>
                                 </div>

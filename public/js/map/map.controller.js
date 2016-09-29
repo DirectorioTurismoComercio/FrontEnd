@@ -26,6 +26,9 @@ angular.module('map')
         $scope.hasMadeCurrentSiteRoute = false;
         $scope.isMakingASearchByKeyword = siteAndTownSaverService.getQueryMadeByUser();
         $scope.map = getMapProperties();
+
+        $scope.isShowingRouteList=false;
+
         uiGmapIsReady.promise().then(initMap);
 
 
@@ -366,5 +369,12 @@ angular.module('map')
 
             return isEmpty;
         };
+
+        $scope.showRouteList=function(){
+            $scope.isShowingRouteList=true;
+            $scope.isShowingSiteDetail=false;
+            $scope.requestedMunicipalityRoutes=requestedMunicipality.rutas;
+            console.log("hizo click en mostrar rutas", requestedMunicipality);
+        }
     })
 ;
