@@ -5,7 +5,7 @@
 
 
     <div class="col-md-6 no-padding">
-        <div ng-show="isShowingSiteDetail" class="route-controls">
+        <div ng-show="isShowingSiteDetail && !isShowingRouteList" class="route-controls">
             <div ng-click="goBackToSiteList()" class="list-button">
                 <img src="./images/icons/lista_resultados.png">
             </div>
@@ -26,12 +26,28 @@
                 <img src="./images/icons/llegada-mapa.png">
             </div>
         </div>
-        <div ng-show="!isShowingSiteDetail || isOnSitedetails">
-            <search-tabs ng-show="!isOnSitedetails" isonmap="true" result="result" subcategoryname="subcategoryname"
-                         do-search="doSearch(result)"
-                         show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
-            <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode || isOnSitedetails">
-                <ui-gmap-google-map id="mobileResultMap" center='map.center' zoom='map.zoom' control="map.control"/>
+
+
+        <!--Header Route list-->
+        <div ng-show="!isShowingSiteDetail && isShowingRouteList" class="header route-list-header-color container-fluid">
+            <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="goBackToSiteList()">
+                <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+            </div>
+            <div class="col-xs-10 route-list-header-container">
+                <p class="text route-list-municipality-name" translate="MUNICIPALITY_ROUTE_LIST.TITLE"></p><p class="text route-list-municipality-name">&nbsp %%selectedSite.nombre%%</p>
+            </div>
+        </div>
+
+
+
+        <div ng-show="!isShowingRouteList">
+            <div ng-show="!isShowingSiteDetail || isOnSitedetails">
+                <search-tabs ng-show="!isOnSitedetails" isonmap="true" result="result" subcategoryname="subcategoryname"
+                             do-search="doSearch(result)"
+                             show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
+                <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode || isOnSitedetails">
+                    <ui-gmap-google-map id="mobileResultMap" center='map.center' zoom='map.zoom' control="map.control"/>
+                </div>
             </div>
         </div>
 

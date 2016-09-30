@@ -284,5 +284,8 @@
     "OFFICE":"Atención al ciudadano",
     "ROUTES":"Rutas del municipio",
     "SITES":"Sitios del municipio"
+  },
+  "MUNICIPALITY_ROUTE_LIST":{
+    "TITLE":"Rutas en "
   }
 }

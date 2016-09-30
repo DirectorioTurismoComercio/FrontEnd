@@ -284,5 +284,8 @@
     "OFFICE": "Citizen attention",
     "ROUTES": "Municipality routes",
     "SITES": "Municipality cites"
+  },
+  "MUNICIPALITY_ROUTE_LIST":{
+    "TITLE":"Routes in "
   }
 }

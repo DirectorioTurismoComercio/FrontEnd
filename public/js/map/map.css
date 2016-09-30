@@ -401,6 +401,17 @@ prev.search-results .map {
     font-weight: normal !important;
 }
 
+.route-list-header-container{
+    text-align: center;
+}
+
+.route-list-header-color{
+    background-color: #2F6586 !important;
+}
+.route-list-municipality-name{
+    display: inline-block;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
