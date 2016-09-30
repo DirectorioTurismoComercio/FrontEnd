@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: MapController', function () {
-    var MapController, $scope, testpopErrorAlertService, deferred, MapServiceTest, testSearchForResultsFactory, testMapRouteService, testsiteAndTownSaverService, testrequestedMunicipalityDetail;
+    var MapController, $scope, testpopErrorAlertService, deferred, MapServiceTest, testSearchForResultsFactory, testMapRouteService, testsiteAndTownSaverService, testrequestedMunicipalityDetail, testnavigationService;
     var sitesResponse={
         nombre:'site',
         categorias:[{
@@ -285,7 +285,7 @@ describe('Controller: MapController', function () {
 
     }));
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, messageService, MapRouteService, siteAndTownSaverService, requestedMunicipalityDetail) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, messageService, MapRouteService, siteAndTownSaverService, requestedMunicipalityDetail, navigationService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         testpopErrorAlertService = messageService;
@@ -294,6 +294,7 @@ describe('Controller: MapController', function () {
         testMapRouteService=MapRouteService;
         testsiteAndTownSaverService=siteAndTownSaverService;
         testrequestedMunicipalityDetail=requestedMunicipalityDetail;
+        testnavigationService=navigationService;
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
         spyOn(testpopErrorAlertService, 'showErrorMessage');
@@ -312,7 +313,8 @@ describe('Controller: MapController', function () {
             SearchForResultsFactory:testSearchForResultsFactory,
             MapRouteService:testMapRouteService,
             siteAndTownSaverService:testsiteAndTownSaverService,
-            requestedMunicipalityDetail:testrequestedMunicipalityDetail
+            requestedMunicipalityDetail:testrequestedMunicipalityDetail,
+            navigationService:testnavigationService
         });
     }));
 

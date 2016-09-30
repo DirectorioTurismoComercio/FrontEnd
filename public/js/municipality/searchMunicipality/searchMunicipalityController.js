@@ -2,7 +2,7 @@
 
 angular.module('Municipality')
     .controller('searchMunicipalityController', function ($scope, $log, $translate, $location, MunicipalitiesDAO,
-                                                          requestedMunicipalityDetail) {
+                                                          requestedMunicipalityDetail, navigationService) {
         $scope.municipalitiesGroupedByLetter = [];
         $scope.search = {};
 
@@ -11,7 +11,8 @@ angular.module('Municipality')
         });
 
         $scope.showMunicipalityDetail = function (municipality) {
-            requestedMunicipalityDetail.setMunicipality(municipality);
+            requestedMunicipalityDetail.setMunicipality(municipality)
+            navigationService.setMunicipalityDetailNavigation('fromMunicipalitiesList');
             $location.path('/map');
         };
 
