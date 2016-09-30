@@ -385,7 +385,17 @@ angular.module('map')
             $scope.showRouteList = function () {
                 $scope.isShowingRouteList = true;
                 $scope.isShowingSiteDetail = false;
-                $scope.requestedMunicipalityRoutes = requestedMunicipality.rutas;
+                if(requestedMunicipality){
+                    $scope.requestedMunicipalityRoutes = requestedMunicipality.rutas;
+                }else{
+                    ////FUNCIONA FALTA DEVOLVER DESDE BUSCADOR TAL VEZ PONER ACA EL NAVIGATION SERVCIE////
+                    $scope.requestedMunicipalityRoutes = $scope.selectedSite.rutas;
+                    navigationService.setMunicipalityDetailNavigation()
+                }
+                console.log("seleccionado", $scope.selectedSite)
+
+
+
                 console.log("hizo click en mostrar rutas", requestedMunicipality);
             }
         }

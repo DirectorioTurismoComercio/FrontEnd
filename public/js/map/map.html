@@ -51,58 +51,63 @@
             </div>
         </div>
 
+
         <div class="result-list">
             <div ng-if="noResults" class="center-block text-center">
                 <h4 class="no-results" translate="NO_RESULTS"></h4>
             </div>
-            <div ng-show="foundSites.length > 0 && !isShowingSiteDetail">
-                <div ng-if="!showResultListHorizontally()"
-                     ng-repeat="site in foundSites"
-                     ng-mouseover="highLightMarker($index)"
-                     ng-mouseleave="clearHighLightedMarker($index)">
-                    <div class="list-item ">
-                        <div class="row" ng-click="showSiteDetail(site, $index)">
-                            <div class="col-xs-8 info">
-                                <div class="row category-container-map-list-result">
-                                    <img class="icon" ng-src="%%site.categoryicon%%">
-                                    <h3 class="">%%site.nombre%%</h3>
-                                </div>
-                                <h4 class="">%%site.municipio.nombre%%</h4>
-                                <p clamp="3" class="description">%%site.descripcion%%</p>
-                            </div>
-                            <div class="col-xs-4 image">
-                                <img class="img-responsive  site-photo-height"
-                                     ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-separator"></div>
-                </div>
 
-                <ul rn-carousel rn-carousel-controls ng-if="showResultListHorizontally()" class="image"
-                    style="height: 110px;">
-                    <li ng-repeat="site in foundSites"
-                        ng-mouseover="highLightMarker($index)"
-                        ng-mouseleave="clearHighLightedMarker($index)">
-                        <div class="list-item list-item-background">
-                            <div class="row vertical-align-arrow" ng-click="showSiteDetail(site, $index)">
-                                <div class="col-xs-7 info">
+            <div ng-if="!isShowingRouteList">
+                <div ng-show="foundSites.length > 0 && !isShowingSiteDetail">
+                    <div ng-if="!showResultListHorizontally()"
+                         ng-repeat="site in foundSites"
+                         ng-mouseover="highLightMarker($index)"
+                         ng-mouseleave="clearHighLightedMarker($index)">
+                        <div class="list-item ">
+                            <div class="row" ng-click="showSiteDetail(site, $index)">
+                                <div class="col-xs-8 info">
                                     <div class="row category-container-map-list-result">
                                         <img class="icon" ng-src="%%site.categoryicon%%">
                                         <h3 class="">%%site.nombre%%</h3>
                                     </div>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
-                                    <p clamp="2" class="description">%%site.descripcion%%</p>
+                                    <p clamp="3" class="description">%%site.descripcion%%</p>
                                 </div>
-                                <div class="col-xs-5 image">
-                                    <img class="img-responsive mobile-image-preview"
+                                <div class="col-xs-4 image">
+                                    <img class="img-responsive  site-photo-height"
                                          ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                </ul>
+                        <div class="item-separator"></div>
+                    </div>
+
+                    <ul rn-carousel rn-carousel-controls ng-if="showResultListHorizontally()" class="image"
+                        style="height: 110px;">
+                        <li ng-repeat="site in foundSites"
+                            ng-mouseover="highLightMarker($index)"
+                            ng-mouseleave="clearHighLightedMarker($index)">
+                            <div class="list-item list-item-background">
+                                <div class="row vertical-align-arrow" ng-click="showSiteDetail(site, $index)">
+                                    <div class="col-xs-7 info">
+                                        <div class="row category-container-map-list-result">
+                                            <img class="icon" ng-src="%%site.categoryicon%%">
+                                            <h3 class="">%%site.nombre%%</h3>
+                                        </div>
+                                        <h4 class="">%%site.municipio.nombre%%</h4>
+                                        <p clamp="2" class="description">%%site.descripcion%%</p>
+                                    </div>
+                                    <div class="col-xs-5 image">
+                                        <img class="img-responsive mobile-image-preview"
+                                             ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
 
 
 
