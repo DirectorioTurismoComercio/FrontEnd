@@ -44,6 +44,7 @@ angular.module('map')
             if (marker) {
                 marker = addDestinationIconMarker(marker, "normal");
                 setMarkerIcon(marker, marker.normalIcon);
+                marker.zIndex = 1;
             }
         }
 
@@ -54,6 +55,7 @@ angular.module('map')
                 selectedMarker = marker;
                 marker = addDestinationIconMarker(marker, "lighted");
                 setMarkerIcon(marker, marker.lightedIcon);
+                marker.zIndex=10;
             }
         }
 
