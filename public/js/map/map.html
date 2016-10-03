@@ -118,7 +118,7 @@
                     <div ng-if="!showResultListHorizontally()"
                          ng-repeat="route in requestedMunicipalityRoutes">
                         <div class="list-item ">
-                            <div class="row" ng-click="showSiteDetail(route, $index)">
+                            <div class="row" ng-click="showRouteDetail(route, $index)">
                                 <div class="col-xs-8 info">
                                     <div class="row category-container-map-list-result">
                                         <h3 class="">%%route.nombre%%</h3>
@@ -183,7 +183,7 @@
                                     <span class="dark-text" translate="MUNICIPALITY-DETAIL.SITES"></span>
                                 </div>
                             </div> -->
-                            <div class="text-center">
+                            <div ng-if="selectedSite.rutas.length>0" class="text-center">
                                 <div class="text-center item button" ng-click="showRouteList()">
                                     <img src="./images/accountInfoIcons/municipio_rutas.png"/>
                                     <span class="dark-text" translate="MUNICIPALITY-DETAIL.ROUTES"></span>
@@ -248,6 +248,97 @@
 
 
             </div>
+
+
+
+            <!--Route detail-->
+            <div ng-show="isShowingRouteDetail">
+                <div class="site-title" ng-if="isMobileDevice()">
+                    <h1 class="name">%%selectedRoute.nombre%%</h1>
+                </div>
+                <div class="row site-detail-carousel" ng-if="selectedRoute.fotos">
+                    <ul ng-if="isMobileDevice()" rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex"
+                        class="carousel" ng-click="openDialogWindowPhotos()">
+                        <li ng-repeat="photo in selectedRoute.fotos" class="text-center">
+                            <img class="image" ng-src="%%photo.URLfoto%%"/>
+                        </li>
+                    </ul>
+                    <carousel ng-if="!isMobileDevice()" images="selectedSite.fotos"
+                              image-click-event="openDialogWindowPhotos()">
+                    </carousel>
+                </div>
+
+                <div class="row">
+                    <div class="site-detail col-md-12">
+                        <h1 class="name" ng-if="!isMobileDevice()">%%selectedRoute.nombre%%</h1>
+                        <div class="item">
+                            <img src="./images/icons/site-detail/descripcion.png">
+                            <span class="light-text" translate="SITE_DETAIL_CONSTANTS.DESCRIPTION"></span>
+                            <p class="dark-text">%%selectedRoute.descripcion%%</p>
+                        </div>
+
+                        <div class="item">
+                            <img src="./images/icons/Distancia.png">
+                            <span class="light-text" translate="SITE_DETAIL_CONSTANTS.OPENINGHOURS"></span>
+                            <p class="dark-text">%%selectedRoute.distancia%%</p>
+                        </div>
+                        <div class="item">
+                            <img src="./images/icons/site-detail/direccion.png">
+                            <span class="dark-text">%%selectedRoute.ubicacionlocal%%</span>
+                        </div>
+                        <div class="item">
+                            <img src="./images/icons/site-detail/telefono.png">
+                            <span class="dark-text"><a
+                                    ng-href="tel:%%selectedRoute.telefono%%">%%selectedRoute.telefono%%</a></span>
+                        </div>
+                        <div ng-show="!isEmpty(selectedRoute.whatsapp)" class="item">
+                            <img src="./images/icons/site-detail/whatsapp.png">
+                            <span class="dark-text"><a
+                                    ng-href="tel:%%selectedRoute.whatsapp%%">%%selectedRoute.whatsapp%%</a></span>
+                        </div>
+                        <div ng-show="!isEmpty(selectedRoute.web)" class="item">
+                            <img src="./images/icons/site-detail/web.png">
+                            <span class="light-text"><a
+                                    ng-href="%%selectedRoute.web%%" target="_blank">%%selectedRoute.web%%</a></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div ng-show="foundSites.length > 0 && routeToSiteIsVisible">
+                    <div><h3 class="sites-near-route-tittle" translate="ROUTE_SITES"></h3></div>
+                    <div ng-show="selectedSite.id!=site.id" class="item-separator"></div>
+                    <div ng-repeat="site in foundSites"
+                         ng-mouseover="highLightMarker($index)"
+                         ng-mouseleave="clearHighLightedMarker($index)">
+                        <div ng-show="selectedSite.id!=site.id" class="list-item ">
+                            <div class="row" ng-click="showSiteDetail(site, $index)">
+                                <div class="col-xs-8 info">
+                                    <div class="row category-container-map-list-result">
+                                        <img class="icon" ng-src="%%site.categoryicon%%">
+                                        <h3 class="">%%site.nombre%%</h3>
+                                    </div>
+                                    <h4 class="">%%site.municipio.nombre%%</h4>
+                                    <p clamp="3" class="description">%%site.descripcion%%</p>
+                                </div>
+                                <div class="col-xs-4 image">
+                                    <img class="img-responsive  site-photo-height"
+                                         ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="selectedSite.id!=site.id" class="item-separator"></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+
+
         </div>
     </div>
 

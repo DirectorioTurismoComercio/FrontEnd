@@ -12,6 +12,7 @@ angular.module('map')
             $scope.hasMadeFirstRouteToSite = false;
             $scope.routeMapZoom = undefined;
             $scope.selectedSite = null;
+            $scope.selectedRoute = undefined;
             $scope.isShowingSiteDetail = false;
             $scope.isOnSitedetails = false;
             $scope.foundSites = [];
@@ -28,6 +29,7 @@ angular.module('map')
             $scope.map = getMapProperties();
 
             $scope.isShowingRouteList = false;
+            $scope.isShowingRouteDetail = false;
 
             uiGmapIsReady.promise().then(initMap);
 
@@ -62,6 +64,7 @@ angular.module('map')
 
                 if (requestedMunicipality) {
                     $scope.selectedSite = requestedMunicipality;
+                    console.log("selected site", $scope.selectedSite);
                     $scope.isShowingSiteDetail = true;
                     requestedMunicipalityDetail.setMunicipality(undefined);
                     mapControls = createMapControls(requestedMunicipality.latitud, requestedMunicipality.longitud, 14);
@@ -399,6 +402,16 @@ angular.module('map')
 
                 console.log("hizo click en mostrar rutas", requestedMunicipality);
             }
+
+            $scope.showRouteDetail=function(route,index){
+                $scope.isShowingRouteList=false;
+                $scope.isShowingRouteDetail = true;
+                $scope.isShowingSiteDetail=false;
+                $scope.selectedRoute = route;
+                console.log("la ruta fue", index);
+                console.log("los datos son", route);
+            }
+
         }
     )
 ;
