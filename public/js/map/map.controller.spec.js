@@ -266,10 +266,7 @@ describe('Controller: MapController', function () {
         "ubicacionlocal": "423432",
         "tipo_sitio": "M",
         "usuario": 56
-    }
-
-
-    beforeEach(module('gemStore'));
+    };
 
     beforeEach(module('gemStore', function ($provide, $translateProvider) {
 
@@ -545,7 +542,7 @@ describe('Controller: MapController', function () {
     });
 
     it('Should show route detail, hide routeList, and siteDetail when user clicks showRouteDetail', function(){
-        $scope.showRouteDetail();
+        $scope.showRouteDetail(requestedMunicipality.rutas[0]);
         expect($scope.isShowingRouteList).toBe(false);
         expect($scope.isShowingRouteDetail).toBe(true);
         expect($scope.isShowingSiteDetail).toBe(false);
