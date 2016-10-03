@@ -153,7 +153,6 @@ angular.module('map')
             };
 
             $scope.showSiteDetail = function (site, index) {
-
                 var top_anchor = $window.document.getElementById("top_anchor");
                 top_anchor.focus();
                 top_anchor.blur();
@@ -227,7 +226,7 @@ angular.module('map')
 
                 else if (next.$$route.controller == 'HomeController' && $scope.isShowingSiteDetail) {
                     event.preventDefault();
-                    $scope.hideSiteDetail();
+                    $scope.goBackToSiteList();
                 }
 
             });
