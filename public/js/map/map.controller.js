@@ -30,6 +30,7 @@ angular.module('map')
 
             $scope.isShowingRouteList = false;
             $scope.isShowingRouteDetail = false;
+            $scope.routePhotos=undefined;
 
             uiGmapIsReady.promise().then(initMap);
 
@@ -408,10 +409,25 @@ angular.module('map')
                 $scope.isShowingRouteDetail = true;
                 $scope.isShowingSiteDetail=false;
                 $scope.selectedRoute = route;
+
+                $scope.routePhotos=ensambleRoutePhotos(route);
+
+
+
+
                 console.log("la ruta fue", index);
                 console.log("los datos son", route);
             }
 
+            function ensambleRoutePhotos(route){
+                var selectedRoutePhotos=[];
+
+                for(var i=0; i<route.sitios.length; i++){
+                    selectedRoutePhotos.push(route.sitios[i].sitio.fotos[0]);
+                }
+
+                return selectedRoutePhotos;
+            }
         }
     )
 ;

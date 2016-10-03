@@ -147,7 +147,7 @@
 
 
 
-            <div ng-show="isShowingSiteDetail">
+            <div ng-if="isShowingSiteDetail">
                 <div class="site-title" ng-if="isMobileDevice()">
                     <h1 class="name">%%selectedSite.nombre%%</h1>
                     <h2 class="location">%%selectedSite.municipio.nombre%%</h2>
@@ -252,22 +252,21 @@
 
 
             <!--Route detail-->
-            <div ng-show="isShowingRouteDetail">
-                <div class="site-title" ng-if="isMobileDevice()">
-                    <h1 class="name">%%selectedRoute.nombre%%</h1>
-                </div>
-                <div class="row site-detail-carousel" ng-if="selectedRoute.fotos">
-                    <ul ng-if="isMobileDevice()" rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex"
+            <div ng-if="isShowingRouteDetail">
+                <div class="row site-detail-carousel">
+                    <ul ng-if="isMobileDevice()" rn-carousel rn-carousel-controls rn-carousel-index="0"
                         class="carousel" ng-click="openDialogWindowPhotos()">
-                        <li ng-repeat="photo in selectedRoute.fotos" class="text-center">
-                            <img class="image" ng-src="%%photo.URLfoto%%"/>
+                        <li ng-repeat="routePhoto in routePhotos" class="text-center">
+                            <img class="image" ng-src="%%routePhoto.URLfoto%%"/>
                         </li>
                     </ul>
-                    <carousel ng-if="!isMobileDevice()" images="selectedSite.fotos"
+                    <carousel ng-if="!isMobileDevice()" images="routePhotos"
                               image-click-event="openDialogWindowPhotos()">
                     </carousel>
                 </div>
-
+                <div class="site-title" ng-if="isMobileDevice()">
+                    <h1 class="name">%%selectedRoute.nombre%%</h1>
+                </div>
                 <div class="row">
                     <div class="site-detail col-md-12">
                         <h1 class="name" ng-if="!isMobileDevice()">%%selectedRoute.nombre%%</h1>
