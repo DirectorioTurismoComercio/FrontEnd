@@ -7,7 +7,8 @@
     <div class="col-md-6 no-padding">
         <div ng-show="isShowingSiteDetail && !isShowingRouteList" class="route-controls">
             <div ng-click="goBackToSiteList()" class="list-button">
-                <img src="./images/icons/lista_resultados.png">
+                <img ng-if="navigationToMunicipalityDetail==undefined" src="./images/icons/lista_resultados.png">
+                <img ng-if="navigationToMunicipalityDetail!=undefined" src="./images/registerIcons/atras.png">
             </div>
 
             <div ng-show="!hasMadeCurrentSiteRoute" class="control" ng-click="showRouteToSite(selectedSite)">
@@ -176,12 +177,12 @@
                             <div class="text-center">
                                 <img ng-src="%%selectedSite.fotos[0].URLfoto%%" class="image"/>
                             </div>
-                            <div class="text-center">
+                           <!-- <div class="text-center">
                                 <div class="text-center item button" ng-click="">
                                     <img src="./images/accountInfoIcons/municipio_sitios.png"/>
                                     <span class="dark-text" translate="MUNICIPALITY-DETAIL.SITES"></span>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="text-center">
                                 <div class="text-center item button" ng-click="showRouteList()">
                                     <img src="./images/accountInfoIcons/municipio_rutas.png"/>

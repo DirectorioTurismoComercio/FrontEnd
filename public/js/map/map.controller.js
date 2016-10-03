@@ -31,6 +31,9 @@ angular.module('map')
 
         uiGmapIsReady.promise().then(initMap);
 
+        $scope.navigationToMunicipalityDetail=navigationService.getMunicipalityDetailNavigation()
+
+
 
         function initMap() {
             MapService.setGMap($scope.map.control.getGMap());
@@ -388,7 +391,6 @@ angular.module('map')
                 if(requestedMunicipality){
                     $scope.requestedMunicipalityRoutes = requestedMunicipality.rutas;
                 }else{
-                    ////FUNCIONA FALTA DEVOLVER DESDE BUSCADOR TAL VEZ PONER ACA EL NAVIGATION SERVCIE////
                     $scope.requestedMunicipalityRoutes = $scope.selectedSite.rutas;
                     navigationService.setMunicipalityDetailNavigation()
                 }
