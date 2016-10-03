@@ -19,6 +19,7 @@ angular.module('home')
         $scope.showMunicipalityDetail = function (municipality) {
             requestedMunicipalityDetail.setMunicipality(municipality);
             navigationService.setMunicipalityDetailNavigation("fromHome");
+            siteAndTownSaverService.setQueryMadeByUser(undefined);
             $location.path('/map');
         };
 

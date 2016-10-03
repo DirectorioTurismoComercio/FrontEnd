@@ -65,7 +65,6 @@ angular.module('map')
                 $scope.selectedSite = requestedMunicipality;
                 $scope.isShowingSiteDetail = true;
                 requestedMunicipalityDetail.setMunicipality(undefined);
-                console.log(requestedMunicipality);
                 mapControls = createMapControls(requestedMunicipality.latitud, requestedMunicipality.longitud, 14);
             } else if (searchedTown) {
                 mapControls = createMapControls(searchedTown.latitud, searchedTown.longitud, 9);

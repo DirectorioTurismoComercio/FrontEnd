@@ -13,6 +13,7 @@ angular.module('Municipality')
         $scope.showMunicipalityDetail = function (municipality) {
             requestedMunicipalityDetail.setMunicipality(municipality)
             navigationService.setMunicipalityDetailNavigation('fromMunicipalitiesList');
+            siteAndTownSaverService.setQueryMadeByUser(undefined);
             $location.path('/map');
         };
 
