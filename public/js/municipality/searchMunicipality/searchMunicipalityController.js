@@ -2,7 +2,7 @@
 
 angular.module('Municipality')
     .controller('searchMunicipalityController', function ($scope, $log, $translate, $location, MunicipalitiesDAO,
-                                                          requestedMunicipalityDetail, navigationService) {
+                                                          requestedMunicipalityDetail, navigationService, siteAndTownSaverService) {
         $scope.municipalitiesGroupedByLetter = [];
         $scope.search = {};
 

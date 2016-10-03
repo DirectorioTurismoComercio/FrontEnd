@@ -5,128 +5,130 @@ angular.module('map')
                                            MapService, ngDialog, SiteMarkerService, $location, messageService, $timeout,
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS, filterFilter,
                                            requestedMunicipalityDetail, navigationService) {
-        var hasMadeRoute = false;
-        var photosPopUp = undefined;
-        var requestedMunicipality = requestedMunicipalityDetail.getMunicipality();
-        var searchedTown = siteAndTownSaverService.getCurrentSearchedTown();
-        $scope.hasMadeFirstRouteToSite = false;
-        $scope.routeMapZoom = undefined;
-        $scope.selectedSite = null;
-        $scope.isShowingSiteDetail = false;
-        $scope.isOnSitedetails = false;
-        $scope.foundSites = [];
-        $scope.noResults = false;
-        $scope.routeToController = {
-            routeFrom: '',
-            routeTo: ''
-        };
-        $scope.resulListInCompactMode = false;
-        $scope.routeToSiteIsVisible = false;
-        $scope.initialSelectedSite = undefined;
-        $scope.hasMadeCurrentSiteRoute = false;
-        $scope.isMakingASearchByKeyword = siteAndTownSaverService.getQueryMadeByUser();
-        $scope.map = getMapProperties();
+            var hasMadeRoute = false;
+            var photosPopUp = undefined;
+            var requestedMunicipality = requestedMunicipalityDetail.getMunicipality();
+            var searchedTown = siteAndTownSaverService.getCurrentSearchedTown();
+            $scope.hasMadeFirstRouteToSite = false;
+            $scope.routeMapZoom = undefined;
+            $scope.selectedSite = null;
+            $scope.isShowingSiteDetail = false;
+            $scope.isOnSitedetails = false;
+            $scope.foundSites = [];
+            $scope.noResults = false;
+            $scope.routeToController = {
+                routeFrom: '',
+                routeTo: ''
+            };
+            $scope.resulListInCompactMode = false;
+            $scope.routeToSiteIsVisible = false;
+            $scope.initialSelectedSite = undefined;
+            $scope.hasMadeCurrentSiteRoute = false;
+            $scope.isMakingASearchByKeyword = siteAndTownSaverService.getQueryMadeByUser();
+            $scope.map = getMapProperties();
 
-        $scope.isShowingRouteList = false;
+            $scope.isShowingRouteList = false;
 
-        uiGmapIsReady.promise().then(initMap);
+            uiGmapIsReady.promise().then(initMap);
 
-        $scope.navigationToMunicipalityDetail=navigationService.getMunicipalityDetailNavigation()
-
-
-
-        function initMap() {
-            MapService.setGMap($scope.map.control.getGMap());
+            $scope.navigationToMunicipalityDetail = navigationService.getMunicipalityDetailNavigation()
 
 
-            setCundinamarcaPolygon();
-            if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
-                showFoundPlaces();
+            function initMap() {
+                MapService.setGMap($scope.map.control.getGMap());
+
+
+                setCundinamarcaPolygon();
+                if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
+                    showFoundPlaces();
+                }
+
+                if (siteAndTownSaverService.searchedRoute.origin != undefined && siteAndTownSaverService.getCurrentSearchedSite() == undefined) {
+                    showSearchedRoute();
+                }
+
+                if (requestedMunicipality) {
+                    MapService.clearRoute();
+                    MapService.addMarkerMunicipalityWithIcon({
+                        lat: parseFloat(requestedMunicipality.latitud),
+                        lng: parseFloat(requestedMunicipality.longitud)
+                    });
+                }
             }
 
-            if (siteAndTownSaverService.searchedRoute.origin != undefined && siteAndTownSaverService.getCurrentSearchedSite() == undefined) {
-                showSearchedRoute();
+            function getMapProperties() {
+                var mapControls = createMapControls(4.6363623, -74.0854427, 9);
+
+
+                if (requestedMunicipality) {
+                    $scope.selectedSite = requestedMunicipality;
+                    $scope.isShowingSiteDetail = true;
+                    requestedMunicipalityDetail.setMunicipality(undefined);
+                    mapControls = createMapControls(requestedMunicipality.latitud, requestedMunicipality.longitud, 14);
+                } else if (searchedTown) {
+                    mapControls = createMapControls(searchedTown.latitud, searchedTown.longitud, 9);
+                }
+
+                return mapControls;
             }
 
-            if (requestedMunicipality) {
-                MapService.clearRoute();
-                MapService.addMarkerMunicipalityWithIcon({
-                    lat: parseFloat(requestedMunicipality.latitud),
-                    lng: parseFloat(requestedMunicipality.longitud)
+            function createMapControls(latitud, longitud, zoom) {
+                return {
+                    center: {
+                        latitude: parseFloat(latitud),
+                        longitude: parseFloat(longitud)
+                    },
+                    control: {},
+                    zoom: zoom
+                };
+            }
+
+
+            function reloadMap() {
+                $timeout(function () {
+                    google.maps.event.trigger($scope.map.control.getGMap(), 'resize');
                 });
             }
-        }
-
-        function getMapProperties() {
-            var mapControls = createMapControls(4.6363623, -74.0854427, 9);
 
 
-            if (requestedMunicipality) {
-                $scope.selectedSite = requestedMunicipality;
-                $scope.isShowingSiteDetail = true;
-                requestedMunicipalityDetail.setMunicipality(undefined);
-                mapControls = createMapControls(requestedMunicipality.latitud, requestedMunicipality.longitud, 14);
-            } else if (searchedTown) {
-                mapControls = createMapControls(searchedTown.latitud, searchedTown.longitud, 9);
+            function showSearchedRoute() {
+                $scope.resulListInCompactMode = true;
+                reloadMap();
+                SiteMarkerService.deleteMarkers();
+                MapRouteService.calculateRoute(siteAndTownSaverService.searchedRoute, $scope, undefined);
+                MapService.clearMarkers();
             }
 
-            return mapControls;
-        }
-
-        function createMapControls(latitud, longitud, zoom) {
-            return {
-                center: {
-                    latitude: parseFloat(latitud),
-                    longitude: parseFloat(longitud)
-                },
-                control: {},
-                zoom: zoom
+            $scope.showRoute = function () {
+                siteAndTownSaverService.setQueryMadeByUser("PLAN_A_ROUTE");
+                hasMadeRoute = true;
+                siteAndTownSaverService.setCurrentSearchedTown(undefined);
+                showSearchedRoute();
             };
-        }
 
+            $scope.goBackToSiteList = function () {
+                resetFirstSiteSearchedRoute();
+                $scope.hideSiteDetail();
 
-        function reloadMap() {
-            $timeout(function () {
-                google.maps.event.trigger($scope.map.control.getGMap(), 'resize');
-            });
-        }
+                if (siteAndTownSaverService.getQueryMadeByUser() == "SEARCH_BY_KEY_WORD") {
+                    searchingByKeyword($scope.result);
+                }
 
+                if (siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE") {
+                    $scope.showRoute();
+                }
 
-        function showSearchedRoute() {
-            $scope.resulListInCompactMode = true;
-            reloadMap();
-            SiteMarkerService.deleteMarkers();
-            MapRouteService.calculateRoute(siteAndTownSaverService.searchedRoute, $scope, undefined);
-            MapService.clearMarkers();
-        }
-
-        $scope.showRoute = function () {
-            siteAndTownSaverService.setQueryMadeByUser("PLAN_A_ROUTE");
-            hasMadeRoute = true;
-            siteAndTownSaverService.setCurrentSearchedTown(undefined);
-            showSearchedRoute();
-        };
-
-        $scope.goBackToSiteList = function () {
-            resetFirstSiteSearchedRoute();
-            $scope.hideSiteDetail();
-
-            if (siteAndTownSaverService.getQueryMadeByUser() == "SEARCH_BY_KEY_WORD") {
-                searchingByKeyword($scope.result);
-            }
-
-            if (siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE") {
-                $scope.showRoute();
-            }
-
-            switch (navigationService.getMunicipalityDetailNavigation()) {
-                case 'fromHome':
+                if (!$scope.isShowingRouteList && navigationService.getMunicipalityDetailNavigation() == 'fromHome') {
                     $location.path('/home');
-                    break;
+                }
 
-                case 'fromMunicipalitiesList':
+                if (!$scope.isShowingRouteList && navigationService.getMunicipalityDetailNavigation() == 'fromMunicipalitiesList') {
                     $location.path('/municipalities');
-                    break;
+                }
+
+                if ($scope.isShowingRouteList) {
+                    $scope.isShowingRouteList = false;
+                    $scope.isShowingSiteDetail = true;
                 }
 
             };
@@ -387,18 +389,17 @@ angular.module('map')
             $scope.showRouteList = function () {
                 $scope.isShowingRouteList = true;
                 $scope.isShowingSiteDetail = false;
-                if(requestedMunicipality){
+                if (requestedMunicipality) {
                     $scope.requestedMunicipalityRoutes = requestedMunicipality.rutas;
-                }else{
+                } else {
                     $scope.requestedMunicipalityRoutes = $scope.selectedSite.rutas;
                     navigationService.setMunicipalityDetailNavigation()
                 }
                 console.log("seleccionado", $scope.selectedSite)
 
 
-
                 console.log("hizo click en mostrar rutas", requestedMunicipality);
             }
         }
-        )
+    )
 ;

@@ -537,4 +537,11 @@ describe('Controller: MapController', function () {
         expect($scope.isShowingSiteDetail).toBe(false);
     });
 
+    it('Should show municipality detail if user is on municipality reoutes list and clicks go back', function(){
+        $scope.showRouteList();
+        $scope.goBackToSiteList();
+        expect($scope.isShowingRouteList).toBe(false);
+        expect($scope.isShowingSiteDetail).toBe(true);
+    });
+
 });
