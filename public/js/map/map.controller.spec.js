@@ -549,4 +549,12 @@ describe('Controller: MapController', function () {
 
     });
 
+    it('Should show route list if user is on route detail and clicks go back', function(){
+        $scope.showRouteDetail(requestedMunicipality.rutas[0]);
+        $scope.goBackToSiteList();
+        expect($scope.isShowingRouteDetail).toBe(false);
+        expect($scope.isShowingRouteList).toBe(true);
+
+    });
+
 });

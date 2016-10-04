@@ -122,17 +122,23 @@ angular.module('map')
                     $scope.showRoute();
                 }
 
-                if (!$scope.isShowingRouteList && navigationService.getMunicipalityDetailNavigation() == 'fromHome') {
+                if (!$scope.isShowingRouteList && navigationService.getMunicipalityDetailNavigation() == 'fromHome' && !$scope.isShowingRouteDetail) {
+                    console.log("entro a ir al home");
                     $location.path('/home');
                 }
 
-                if (!$scope.isShowingRouteList && navigationService.getMunicipalityDetailNavigation() == 'fromMunicipalitiesList') {
+                if (!$scope.isShowingRouteList && navigationService.getMunicipalityDetailNavigation() == 'fromMunicipalitiesList' && !$scope.isShowingRouteDetail) {
                     $location.path('/municipalities');
                 }
 
                 if ($scope.isShowingRouteList) {
                     $scope.isShowingRouteList = false;
                     $scope.isShowingSiteDetail = true;
+                }
+
+                if($scope.isShowingRouteDetail){
+                    $scope.isShowingRouteDetail=false;
+                    $scope.isShowingRouteList=true;
                 }
 
             };
