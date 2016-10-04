@@ -123,7 +123,6 @@ angular.module('map')
                 }
 
                 if (!$scope.isShowingRouteList && navigationService.getMunicipalityDetailNavigation() == 'fromHome' && !$scope.isShowingRouteDetail) {
-                    console.log("entro a ir al home");
                     $location.path('/home');
                 }
 
@@ -235,12 +234,10 @@ angular.module('map')
                 }
 
                 else if ((next.$$route.controller == 'HomeController' || next.$$route.controller == 'searchMunicipalityController') && ($scope.isShowingSiteDetail || $scope.isShowingRouteDetail || $scope.isShowingRouteList)) {
-                    console.log("$scope.isShowingSiteDetail", $scope.isShowingSiteDetail);
-                    console.log("$scope.isShowingRouteDetail", $scope.isShowingRouteDetail);
-                    console.log("$scope.isShowingRouteList", $scope.isShowingRouteList);
-
                     event.preventDefault();
-                    $scope.goBackToSiteList();
+                    $timeout(function () {
+                        $scope.goBackToSiteList();
+                    },100);
                 }
 
             });
