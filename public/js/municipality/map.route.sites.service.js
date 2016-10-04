@@ -64,8 +64,17 @@ angular.module('Municipality')
             $scope.routeDuration=time.toFixed(2)+" min";
         }
 
+        function ensambleRouteSites(route){
+            var routeSites=[];
+            for (var i = 0; i < route.sitios.length; i++) {
+                routeSites.push(route.sitios[i].sitio);
+            }
+            return routeSites;
+        }
+
+
         return {
             calculateRoute: calculateRoute,
-
+            ensambleRouteSites:ensambleRouteSites
         }
     });

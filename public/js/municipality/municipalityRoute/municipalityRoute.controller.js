@@ -119,9 +119,7 @@ angular.module('Municipality')
                     var route = municipalityInformationService.getCurrentRoute();
                     $scope.routeName = route.nombre;
                     $scope.routeDescription = route.descripcion;
-                    for (var i = 0; i < route.sitios.length; i++) {
-                        $scope.routeSites.push(route.sitios[i].sitio);
-                    }
+                    $scope.routeSites=MapRouteSitesService.ensambleRouteSites(route);
                     drawRoute();
                     correctRouteZoom();
                 }

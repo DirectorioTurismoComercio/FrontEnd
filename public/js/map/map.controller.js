@@ -4,7 +4,7 @@ angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory,
                                            MapService, ngDialog, SiteMarkerService, $location, messageService, $timeout,
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS, filterFilter,
-                                           requestedMunicipalityDetail, navigationService) {
+                                           requestedMunicipalityDetail, navigationService, MapRouteSitesService) {
             var hasMadeRoute = false;
             var photosPopUp = undefined;
             var requestedMunicipality = requestedMunicipalityDetail.getMunicipality();
@@ -416,8 +416,9 @@ angular.module('map')
                 $scope.isShowingRouteDetail = true;
                 $scope.isShowingSiteDetail=false;
                 $scope.selectedRoute = route;
-
                 $scope.routePhotos=ensambleRoutePhotos(route);
+                $scope.routeSites=MapRouteSitesService.ensambleRouteSites(route);
+                drawRoute();
 
 
 
@@ -434,6 +435,15 @@ angular.module('map')
                 }
 
                 return selectedRoutePhotos;
+            }
+
+
+            function drawRoute(){
+                MapService.clearMarkers();
+                if ($scope.routeSites.length > 0) {
+                    reloadMap();
+                    MapRouteSitesService.calculateRoute($scope.routeSites, $scope, undefined);
+                }
             }
         }
     )

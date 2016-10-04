@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: MapController', function () {
-    var MapController, $scope, testpopErrorAlertService, deferred, MapServiceTest, testSearchForResultsFactory, testMapRouteService, testsiteAndTownSaverService, testrequestedMunicipalityDetail, testnavigationService;
+    var MapController, $scope, testpopErrorAlertService, deferred, MapServiceTest, testSearchForResultsFactory, testMapRouteService, testsiteAndTownSaverService, testrequestedMunicipalityDetail, testnavigationService, testMapRouteSitesService;
     var sitesResponse={
         nombre:'site',
         categorias:[{
@@ -282,7 +282,7 @@ describe('Controller: MapController', function () {
 
     }));
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, messageService, MapRouteService, siteAndTownSaverService, requestedMunicipalityDetail, navigationService) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, messageService, MapRouteService, siteAndTownSaverService, requestedMunicipalityDetail, navigationService, MapRouteSitesService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         testpopErrorAlertService = messageService;
@@ -292,6 +292,7 @@ describe('Controller: MapController', function () {
         testsiteAndTownSaverService=siteAndTownSaverService;
         testrequestedMunicipalityDetail=requestedMunicipalityDetail;
         testnavigationService=navigationService;
+        testMapRouteSitesService=MapRouteSitesService;
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
         spyOn(testpopErrorAlertService, 'showErrorMessage');
@@ -302,6 +303,7 @@ describe('Controller: MapController', function () {
         spyOn(SearchForResultsFactory,'getResults').and.returnValue(sitesResponse);
         spyOn(testMapRouteService, 'calculateRoute');
         spyOn(requestedMunicipalityDetail,'getMunicipality').and.returnValue(requestedMunicipality);
+        spyOn(MapRouteSitesService,'calculateRoute');
 
         MapController = $controller('MapController', {
             $scope: $scope,
@@ -311,7 +313,8 @@ describe('Controller: MapController', function () {
             MapRouteService:testMapRouteService,
             siteAndTownSaverService:testsiteAndTownSaverService,
             requestedMunicipalityDetail:testrequestedMunicipalityDetail,
-            navigationService:testnavigationService
+            navigationService:testnavigationService,
+            MapRouteSitesService:testMapRouteSitesService
         });
     }));
 
