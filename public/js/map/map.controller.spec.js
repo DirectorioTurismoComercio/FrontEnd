@@ -300,6 +300,7 @@ describe('Controller: MapController', function () {
         spyOn(MapServiceTest, 'clearMarkers');
         spyOn(MapServiceTest, 'getUserPosition');
         spyOn(MapServiceTest, 'moveMapToPosition');
+        spyOn(MapServiceTest,'addMarkerMunicipalityWithIcon');
         spyOn(SearchForResultsFactory,'getResults').and.returnValue(sitesResponse);
         spyOn(testMapRouteService, 'calculateRoute');
         spyOn(requestedMunicipalityDetail,'getMunicipality').and.returnValue(requestedMunicipality);
@@ -557,6 +558,15 @@ describe('Controller: MapController', function () {
         $scope.goBackToSiteList();
         expect($scope.isShowingRouteDetail).toBe(false);
         expect($scope.isShowingRouteList).toBe(true);
+
+    });
+
+    it('Should delete route and markers; and draw municipality marker if user is in route detail and go back to route list', function(){
+        $scope.showRouteDetail(requestedMunicipality.rutas[0]);
+        $scope.goBackToSiteList();
+        expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
+        expect(MapServiceTest.clearRoute).toHaveBeenCalled();
+        expect(MapServiceTest.addMarkerMunicipalityWithIcon).toHaveBeenCalled();
 
     });
 

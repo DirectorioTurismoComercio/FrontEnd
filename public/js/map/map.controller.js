@@ -52,10 +52,7 @@ angular.module('map')
 
                 if (requestedMunicipality) {
                     MapService.clearRoute();
-                    MapService.addMarkerMunicipalityWithIcon({
-                        lat: parseFloat(requestedMunicipality.latitud),
-                        lng: parseFloat(requestedMunicipality.longitud)
-                    });
+                    addSearchedMunicipalityDetailMarker(requestedMunicipality)
                 }
             }
 
@@ -136,8 +133,14 @@ angular.module('map')
                 }
 
                 if($scope.isShowingRouteDetail){
+                    MapService.clearMarkers();
+                    MapService.clearRoute();
+                   if(requestedMunicipality){
+                       addSearchedMunicipalityDetailMarker(requestedMunicipality)
+                   }
                     $scope.isShowingRouteDetail=false;
                     $scope.isShowingRouteList=true;
+
                 }
 
             };
@@ -241,6 +244,13 @@ angular.module('map')
                 }
 
             });
+
+            function addSearchedMunicipalityDetailMarker(requestedMunicipality){
+                MapService.addMarkerMunicipalityWithIcon({
+                    lat: parseFloat(requestedMunicipality.latitud),
+                    lng: parseFloat(requestedMunicipality.longitud)
+                });
+            }
 
             function saveFirstSiteSearchedRoute(site) {
                 if (!$scope.hasMadeFirstRouteToSite) {
