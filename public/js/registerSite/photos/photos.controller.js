@@ -2,7 +2,7 @@
 
 angular.module('registerSite')
     .controller('registerPhotosController', function ($scope, $auth, $http, MapService, uiGmapIsReady,
-                                                      messageService, API_CONFIG, categories, $location,
+                                                      messageService, API_CONFIG, categories, $location, resizeService,
                                                       MunicipiosFactory, authenticationService, siteAndTownSaverService,
                                                       siteInformationService) {
 
@@ -56,6 +56,84 @@ angular.module('registerSite')
             siteInformationService.insidePhotos = $scope.flowInsidePhotos.flow.files;
             siteInformationService.productsPhotos = $scope.flowProductsPhotos.flow.files;
         }
+        $scope.imgLoadedCallback=function(flowObjectName,fileIndex){
+            console.log("callback");
+           switch (flowObjectName) {
+               case 'mainPhoto':
+                   processImage($scope.flowMainPhoto.flow,0, flowObjectName);
+                   $scope.loadingMainPhoto=false;
+                   break;
+
+               case 'facadePhotos':
+                   previewPhoto($scope.flowFacadePhotos.flow,fileIndex,lastFacadeFileIndex, flowObjectName);
+                   $scope.loadingFacadePhoto=false;
+               break;
+
+               case 'insidePhotos':
+                   previewPhoto($scope.flowInsidePhotos.flow,fileIndex,lastInsideFileIndex, flowObjectName);
+                   $scope.loadingInsidePhoto=false;
+                   break;
+
+               case 'productsPhotos':
+                   previewPhoto($scope.flowProductsPhotos.flow,fileIndex,lastProductsFileIndex, flowObjectName);
+                   $scope.loadingProductsPhoto=false;
+                   break;
+           }
+
+        }
+        function processImage(flowObject,fileIndex, photoLoading){
+        console.log(flowObject.files[fileIndex].file);
+        var src = URL.createObjectURL(flowObject.files[fileIndex].file);
+        resizeService
+    .resizeImage(src, {
+        width: 1200,
+        height: 800,
+        step: 3,
+        outputFormat: 'image/jpeg',
+        sizeScale: 'ko'
+        // Other options ...
+    })
+    .then(function(image){    
+
+var blob = dataURItoBlob(image);
+                                 blob.name = 'nueva';//flowObject.files[fileIndex].uniqueIdentifier;
+                            blob.lastModifiedDate = new Date();
+                            blob.type='image/jpeg';
+                            var f = new Flow.FlowFile(flowObject, blob);
+                            flowObject.files.splice(fileIndex,1);
+                            flowObject.files.push(f);
+                          //  $scope.$apply();
+       
+      // flowObject.files[fileIndex]=f;
+     console.log("new image",flowObject.files[fileIndex].file);
+     // $scope.$apply();  
+    })
+    .catch(
+        function(error){
+            console.log("error",error);
+        }
+        );
+
+        }
+function dataURItoBlob(dataURI, callback) {
+// convert base64 to raw binary data held in a string
+// doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+var byteString = atob(dataURI.split(',')[1]);
+
+// separate out the mime component
+var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
+
+// write the bytes of the string to an ArrayBuffer
+var ab = new ArrayBuffer(byteString.length);
+var ia = new Uint8Array(ab);
+for (var i = 0; i < byteString.length; i++) {
+ia[i] = byteString.charCodeAt(i);
+}
+
+// write the ArrayBuffer to a blob, and you're done
+var bb = new Blob([ab], {type: mimeString});
+return bb;
+}
 
         function checkSelectedPhotos() {
 
@@ -122,7 +200,7 @@ angular.module('registerSite')
 
             return style;
         };
-
+/*
         $scope.imgLoadedCallback = function (flowFile) {
             var orientation = 0;
 
@@ -132,6 +210,7 @@ angular.module('registerSite')
                 $scope.$apply();
             });
         };
+        */
 
 
         function loadPhotoFromURL(urlPhoto, tipo) {
