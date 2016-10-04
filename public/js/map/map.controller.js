@@ -164,6 +164,8 @@ angular.module('map')
             };
 
             $scope.showSiteDetail = function (site, index) {
+                $scope.isShowingRouteList=false;
+                $scope.isShowingRouteDetail = false;
                 var top_anchor = $window.document.getElementById("top_anchor");
                 top_anchor.focus();
                 top_anchor.blur();
