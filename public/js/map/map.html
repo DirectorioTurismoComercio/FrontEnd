@@ -288,20 +288,19 @@
                 </div>
 
 
-                <div ng-show="foundSites.length > 0 && routeToSiteIsVisible">
-                    <div><h3 class="sites-near-route-tittle" translate="ROUTE_SITES"></h3></div>
-                    <div ng-show="selectedSite.id!=site.id" class="item-separator"></div>
-                    <div ng-repeat="site in foundSites"
+                    <div><h3 class="sites-near-route-tittle" translate="ROUTE_DETAIL_SITES"></h3></div>
+                    <div class="item-separator"></div>
+                    <div ng-repeat="site in routeSites"
                          ng-mouseover="highLightMarker($index)"
                          ng-mouseleave="clearHighLightedMarker($index)">
-                        <div ng-show="selectedSite.id!=site.id" class="list-item ">
+                        <div class="list-item ">
                             <div class="row" ng-click="showSiteDetail(site, $index)">
                                 <div class="col-xs-8 info">
                                     <div class="row category-container-map-list-result">
-                                        <img class="icon" ng-src="%%site.categoryicon%%">
+                                        <img ng-if="site.tipo_sitio=='M'" class="icon" src="./images/icons/categories/Municipio.png">
+                                        <img ng-if="site.tipo_sitio=='S'" class="icon" ng-src="%%site.categorias[0].categoria.URL_icono_general%%">
                                         <h3 class="">%%site.nombre%%</h3>
                                     </div>
-                                    <h4 class="">%%site.municipio.nombre%%</h4>
                                     <p clamp="3" class="description">%%site.descripcion%%</p>
                                 </div>
                                 <div class="col-xs-4 image">
@@ -310,9 +309,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div ng-show="selectedSite.id!=site.id" class="item-separator"></div>
+                        <div class="item-separator"></div>
                     </div>
-                </div>
 
 
             </div>

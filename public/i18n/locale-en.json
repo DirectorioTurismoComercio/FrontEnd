@@ -274,6 +274,7 @@
   "INCORRECT_ACCOUNT_TYPE_TRADER": "It looks like you have a trader account, please log in as a trader",
   "TIMEOUT_CONNECTION_ERROR": "The server is taking too long to respond, please check your internet connection or try again later",
   "ROUTE_SITES": "Sites near route",
+  "ROUTE_DETAIL_SITES": "Sites near route",
   "DOUBLE_REGISTER_ERROR": "Please log out before register other account",
   "DOUBLE_LOGIN_ERROR": "Please log out before login with another account",
   "MUNICIPALITIES_VIEW": {

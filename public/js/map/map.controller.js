@@ -425,10 +425,6 @@ angular.module('map')
                     $scope.requestedMunicipalityRoutes = $scope.selectedSite.rutas;
                     navigationService.setMunicipalityDetailNavigation()
                 }
-                console.log("seleccionado", $scope.selectedSite)
-
-
-                console.log("hizo click en mostrar rutas", requestedMunicipality);
             }
 
             $scope.showRouteDetail=function(route,index){
@@ -439,12 +435,9 @@ angular.module('map')
                 $scope.routePhotos=ensambleRoutePhotos(route);
                 $scope.routeSites=MapRouteSitesService.ensambleRouteSites(route);
                 drawRoute();
+                console.log("ruta", route);
+                console.log("los sitios de la ruta", $scope.routeSites);
 
-
-
-
-                console.log("la ruta fue", index);
-                console.log("los datos son", route);
             }
 
             function ensambleRoutePhotos(route){

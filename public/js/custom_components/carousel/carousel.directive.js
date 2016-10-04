@@ -18,9 +18,6 @@ angular.module('map')
             });
 
             scope.$watch(attrs.images, function (value) {
-                
-                console.log("reloading",scope.images);
-
             });
 
             container.children('.jcarousel-control-prev')
