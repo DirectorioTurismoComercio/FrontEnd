@@ -41,16 +41,14 @@
 
 
 
-        <div ng-show="!isShowingRouteList && !isShowingRouteDetail">
-            <div ng-show="!isShowingSiteDetail || isOnSitedetails">
-                <search-tabs ng-show="!isOnSitedetails" isonmap="true" result="result" subcategoryname="subcategoryname"
-                             do-search="doSearch(result)"
-                             show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
-                <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode || isOnSitedetails">
-                    <ui-gmap-google-map id="mobileResultMap" center='map.center' zoom='map.zoom' control="map.control"/>
-                </div>
-            </div>
+        <search-tabs ng-show="!isOnSitedetails && !isShowingRouteDetail && !isShowingRouteList && !isShowingSiteDetail" isonmap="true" result="result" subcategoryname="subcategoryname"
+                     do-search="doSearch(result)"
+                     show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
+        <div class="map" ng-if="isMobileDevice()" ng-show="(resulListInCompactMode || isOnSitedetails || isShowingRouteDetail) && !isShowingRouteList">
+            <ui-gmap-google-map id="mobileResultMap" center='map.center' zoom='map.zoom' control="map.control"/>
         </div>
+
+
 
 
         <div class="result-list">
@@ -253,6 +251,9 @@
 
             <!--Route detail-->
             <div ng-if="isShowingRouteDetail">
+                <div class="site-title" ng-if="isMobileDevice()">
+                    <h1 class="name">%%selectedRoute.nombre%%</h1>
+                </div>
                 <div class="row site-detail-carousel">
                     <ul ng-if="isMobileDevice()" rn-carousel rn-carousel-controls rn-carousel-index="0"
                         class="carousel" ng-click="openDialogWindowPhotos()">
@@ -263,9 +264,6 @@
                     <carousel ng-if="!isMobileDevice()" images="routePhotos"
                               image-click-event="openDialogWindowPhotos()">
                     </carousel>
-                </div>
-                <div class="site-title" ng-if="isMobileDevice()">
-                    <h1 class="name">%%selectedRoute.nombre%%</h1>
                 </div>
                 <div class="row">
                     <div class="site-detail col-md-12">
