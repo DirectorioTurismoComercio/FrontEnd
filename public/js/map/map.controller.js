@@ -234,7 +234,11 @@ angular.module('map')
                     photosPopUp = undefined;
                 }
 
-                else if (next.$$route.controller == 'HomeController' && $scope.isShowingSiteDetail) {
+                else if ((next.$$route.controller == 'HomeController' || next.$$route.controller == 'searchMunicipalityController') && ($scope.isShowingSiteDetail || $scope.isShowingRouteDetail || $scope.isShowingRouteList)) {
+                    console.log("$scope.isShowingSiteDetail", $scope.isShowingSiteDetail);
+                    console.log("$scope.isShowingRouteDetail", $scope.isShowingRouteDetail);
+                    console.log("$scope.isShowingRouteList", $scope.isShowingRouteList);
+
                     event.preventDefault();
                     $scope.goBackToSiteList();
                 }
