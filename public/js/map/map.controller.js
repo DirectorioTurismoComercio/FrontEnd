@@ -152,7 +152,11 @@ angular.module('map')
 
                     MapService.clearMarkers();
                     MapService.clearRoute();
-                    if(requestedMunicipality){addSearchedMunicipalityDetailMarker(requestedMunicipality);}
+                    if(requestedMunicipality){
+                        addSearchedMunicipalityDetailMarker(requestedMunicipality);
+                    }else{
+                        addSearchedMunicipalityDetailMarker(searchedMunicipality);
+                    }
                     centerMapOnBackNavigation(requestedMunicipality);
                     $scope.isShowingRouteDetail=false;
                     $scope.isShowingRouteList=true;
