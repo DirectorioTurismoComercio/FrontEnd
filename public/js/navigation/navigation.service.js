@@ -4,12 +4,15 @@ angular.module('navigation',[])
     .service('navigationService', function ($location) {
         var cameToBusinessInformationThrough=undefined;
         var municiplaityDetailNavigation=undefined;
+        var clickedLogoButton=false;
 
         return {
             cameToBusinessInformationThrough:cameToBusinessInformationThrough,
             accountInfoRoute:accountInfoRoute,
             setMunicipalityDetailNavigation:setMunicipalityDetailNavigation,
-            getMunicipalityDetailNavigation:getMunicipalityDetailNavigation
+            getMunicipalityDetailNavigation:getMunicipalityDetailNavigation,
+            setClickedLogoButton:setClickedLogoButton,
+            hasClickedLogoButton:hasClickedLogoButton
         };
 
         function accountInfoRoute(user){
@@ -22,6 +25,14 @@ angular.module('navigation',[])
 
         function getMunicipalityDetailNavigation(){
             return municiplaityDetailNavigation;
+        }
+
+        function setClickedLogoButton(value){
+            clickedLogoButton=value;
+        }
+
+        function hasClickedLogoButton(){
+            return clickedLogoButton;
         }
 
     });

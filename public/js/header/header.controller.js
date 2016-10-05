@@ -13,6 +13,7 @@ angular.module('appHeader', [])
 
         $scope.goToHome = function () {
             siteAndTownSaverService.resetSearchAndRoute();
+            navigationService.setClickedLogoButton(true);
             $location.path('/home');
         }
 

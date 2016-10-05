@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controller: HeaderController', function () {
-    var appHeaderController, $scope, deferred, translate, testsiteAndTownSaverService, testLocation, testauthenticationService, test$auth, test$route;
+    var appHeaderController, $scope, deferred, translate, testsiteAndTownSaverService, testLocation, testauthenticationService, test$auth, test$route, testnavigationService;
 
     beforeEach(module('gemStore'));
     beforeEach(module('appHeader'));
@@ -22,7 +22,7 @@ describe('Controller: HeaderController', function () {
     }));
 
 
-    beforeEach(inject(function ($controller, $rootScope, $q, $translate, siteAndTownSaverService,$location, authenticationService, $auth, $route) {
+    beforeEach(inject(function ($controller, $rootScope, $q, $translate, siteAndTownSaverService,$location, authenticationService, $auth, $route, navigationService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         translate=$translate;
@@ -31,6 +31,7 @@ describe('Controller: HeaderController', function () {
         testauthenticationService=authenticationService;
         test$auth=$auth;
         test$route=$route;
+        testnavigationService=navigationService;
 
         spyOn(translate, 'use');
         spyOn(siteAndTownSaverService, 'resetSearchAndRoute');
@@ -45,7 +46,8 @@ describe('Controller: HeaderController', function () {
             $location:testLocation,
             authenticationService:testauthenticationService,
             $auth:test$auth,
-            $route:test$route
+            $route:test$route,
+            navigationService:testnavigationService
         });
     }));
 
@@ -71,6 +73,11 @@ describe('Controller: HeaderController', function () {
         deferred.resolve([]);
         $scope.$apply();
         expect(test$auth.logout).toHaveBeenCalled();
+    });
+
+    it('Should set to true ClickedLogoButton', function () {
+        $scope.goToHome();
+        expect(testnavigationService.hasClickedLogoButton()).toBe(true);
     });
 
 });

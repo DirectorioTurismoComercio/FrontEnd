@@ -6,6 +6,7 @@ angular.module('home')
                                             messageService, MapService, $window, $rootScope, $translate,
                                             MunicipalitiesDAO, requestedMunicipalityDetail, navigationService) {
         $scope.municipalities = [];
+        navigationService.setClickedLogoButton(false);
         siteAndTownSaverService.resetSearchAndRoute();
         siteAndTownSaverService.setSelectedCategory(undefined);
         setHowItWorksTraderImage();

@@ -267,13 +267,13 @@ angular.module('map')
             }
 
             $scope.$on("$routeChangeStart", function (event, next, current) {
-                if (photosPopUp != undefined) {
+                if (photosPopUp != undefined && !navigationService.hasClickedLogoButton()) {
                     event.preventDefault();
                     ngDialog.close();
                     photosPopUp = undefined;
                 }
 
-                else if ((next.$$route.controller == 'HomeController' || next.$$route.controller == 'searchMunicipalityController') && ($scope.isShowingSiteDetail || $scope.isShowingRouteDetail || $scope.isShowingRouteList)) {
+                else if ((next.$$route.controller == 'HomeController' || next.$$route.controller == 'searchMunicipalityController') && ($scope.isShowingSiteDetail || $scope.isShowingRouteDetail || $scope.isShowingRouteList) && !navigationService.hasClickedLogoButton()) {
                     event.preventDefault();
                     $timeout(function () {
                         $scope.goBackToSiteList();
