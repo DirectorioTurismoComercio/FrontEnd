@@ -532,17 +532,24 @@ describe('Controller: MapController', function () {
         expect($scope.hasMadeCurrentSiteRoute).toBe(false);
     });
 
+    it('Should set to true hasSelectedMunicipalityRoutes', function(){
+        $scope.showRouteList();
+        expect($scope.hasSelectedMunicipalityRoutes).toBe(true);
+    });
+
     it('Should show routes and hide isShowingSiteDetail if user clicks Show municipalityRoutes', function(){
         $scope.showRouteList();
         expect($scope.isShowingRouteList).toBe(true);
         expect($scope.isShowingSiteDetail).toBe(false);
     });
 
-    it('Should show municipality detail if user is on municipality reoutes list and clicks go back', function(){
+    it('Should show municipality detail, and set to false hasSelectedMunicipalityRoutes if user is on municipality reoutes list and clicks go back', function(){
         $scope.showRouteList();
         $scope.goBackToSiteList();
         expect($scope.isShowingRouteList).toBe(false);
         expect($scope.isShowingSiteDetail).toBe(true);
+        expect($scope.hasSelectedMunicipalityRoutes).toBe(false);
+
     });
 
     it('Should show route detail, hide routeList, and siteDetail when user clicks showRouteDetail', function(){
