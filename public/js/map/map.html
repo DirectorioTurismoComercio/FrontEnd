@@ -6,7 +6,7 @@
 
     <div class="col-md-6 no-padding">
         <div ng-show="isShowingSiteDetail && !isShowingRouteList && !hasSelectedMunicipalityRoutes" class="route-controls">
-            <div ng-click="goBackToSiteList()" class="list-button">
+            <div ng-click="goBack()" class="list-button">
                 <img ng-if="navigationToMunicipalityDetail==undefined" src="./images/icons/lista_resultados.png">
                 <img ng-if="navigationToMunicipalityDetail!=undefined" src="./images/registerIcons/atras.png">
             </div>
@@ -31,7 +31,7 @@
 
         <!--Header Route list-->
         <div ng-show="(!isShowingSiteDetail && isShowingRouteList) || isShowingRouteDetail || hasSelectedMunicipalityRoutes" class="header route-list-header-color container-fluid">
-            <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="goBackToSiteList()">
+            <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="goBack()">
                 <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
             </div>
             <div ng-if="!isShowingRouteDetail && !isShowingSiteDetail" class="col-xs-10 route-list-header-container">

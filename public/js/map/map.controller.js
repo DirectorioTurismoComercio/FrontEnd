@@ -108,7 +108,7 @@ angular.module('map')
                 showSearchedRoute();
             };
 
-            $scope.goBackToSiteList = function () {
+            $scope.goBack = function () {
                 if(!$scope.hasSelectedMunicipalityRoutes){
                     resetFirstSiteSearchedRoute();
                     $scope.hideSiteDetail();
@@ -267,7 +267,7 @@ angular.module('map')
                 else if ((next.$$route.controller == 'HomeController' || next.$$route.controller == 'searchMunicipalityController') && ($scope.isShowingSiteDetail || $scope.isShowingRouteDetail || $scope.isShowingRouteList) && !navigationService.hasClickedLogoButton()) {
                     event.preventDefault();
                     $timeout(function () {
-                        $scope.goBackToSiteList();
+                        $scope.goBack();
                     },100);
                 }
 
