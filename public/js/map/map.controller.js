@@ -199,9 +199,7 @@ angular.module('map')
             $scope.showSiteDetail = function (site, index) {
                 $scope.isShowingRouteList=false;
                 $scope.isShowingRouteDetail = false;
-                var top_anchor = $window.document.getElementById("top_anchor");
-                top_anchor.focus();
-                top_anchor.blur();
+                sendViewToTop();
 
                 if (index) {
                     SiteMarkerService.highLightMarkerByIndex(index);
@@ -281,6 +279,13 @@ angular.module('map')
                 }
 
             });
+
+        function sendViewToTop(){
+            var top_anchor = $window.document.getElementById("top_anchor")
+            console.log("el top anchor es",top_anchor)
+            top_anchor.focus();
+            top_anchor.blur();
+        }
 
             function centerMapOnBackNavigation(requestedMunicipality){
                 if(requestedMunicipality){
@@ -467,6 +472,7 @@ angular.module('map')
             }
 
             $scope.showRouteDetail=function(route,index){
+                sendViewToTop();
                 $scope.isShowingRouteList=false;
                 $scope.isShowingRouteDetail = true;
                 $scope.isShowingSiteDetail=false;
