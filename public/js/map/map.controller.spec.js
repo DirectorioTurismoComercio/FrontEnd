@@ -361,13 +361,13 @@ describe('Controller: MapController', function () {
 
     it('Should delete the first site that user search its route when clicks on goBackToSiteList', function () {
         $scope.showRouteToSite('place');
-        $scope.goBackToSiteList();
+        $scope.goBack();
         expect($scope.initialSelectedSite).toBe(undefined);
     });
 
     it('Should re make search by keyword after user clicks on goBackToSiteList', function () {
         $scope.doSearch('place');
-        $scope.goBackToSiteList();
+        $scope.goBack();
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();;
     });
 
@@ -383,14 +383,14 @@ describe('Controller: MapController', function () {
 
     it('Should re make search by keyword when user makes a search by keyword and then clicks goBackToSiteList', function () {
         $scope.doSearch('place');
-        $scope.goBackToSiteList();
+        $scope.goBack();
         expect(testsiteAndTownSaverService.getQueryMadeByUser()).toBe("SEARCH_BY_KEY_WORD");
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
     });
 
     it('Should re make plan routw when user plan a route and then clicks goBackToSiteList', function () {
         $scope.showRoute();
-        $scope.goBackToSiteList();
+        $scope.goBack();
         expect(testsiteAndTownSaverService.getQueryMadeByUser()).toBe("PLAN_A_ROUTE");
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
     });
@@ -546,7 +546,7 @@ describe('Controller: MapController', function () {
 
     it('Should show municipality detail, and set to false hasSelectedMunicipalityRoutes if user is on municipality reoutes list and clicks go back', function(){
         $scope.showRouteList();
-        $scope.goBackToSiteList();
+        $scope.goBack();
         expect($scope.isShowingRouteList).toBe(false);
         expect($scope.isShowingSiteDetail).toBe(true);
         expect($scope.hasSelectedMunicipalityRoutes).toBe(false);
@@ -565,7 +565,7 @@ describe('Controller: MapController', function () {
     /* fails only because top_anchor cant be instanciated*/
     xit('Should show route list if user is on route detail and clicks go back', function(){
         $scope.showRouteDetail(requestedMunicipality.rutas[0]);
-        $scope.goBackToSiteList();
+        $scope.goBack();
         expect($scope.isShowingRouteDetail).toBe(false);
         expect($scope.isShowingRouteList).toBe(true);
 
@@ -575,7 +575,7 @@ describe('Controller: MapController', function () {
     /* fails only because top_anchor cant be instanciated*/
     xit('Should delete route and markers; and draw municipality marker if user is in route detail and go back to route list', function(){
         $scope.showRouteDetail(requestedMunicipality.rutas[0]);
-        $scope.goBackToSiteList();
+        $scope.goBack();
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
         expect(MapServiceTest.clearRoute).toHaveBeenCalled();
         expect(MapServiceTest.addMarkerMunicipalityWithIcon).toHaveBeenCalled();
