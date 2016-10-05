@@ -248,6 +248,7 @@ prev.search-results .map {
     width: 20px;
     height: 30px;
     right: 3px !important;
+    z-index: 100;
 }
 
 .rn-carousel-control.rn-carousel-control-prev {
@@ -256,6 +257,7 @@ prev.search-results .map {
     left: 3px !important;
     position: absolute !important;
     bottom: 20px;
+    z-index: 100;
 }
 
 .rn-carousel-control.rn-carousel-control-next:before {
@@ -281,9 +283,9 @@ prev.search-results .map {
 }
 
 .site-detail-carousel .rn-carousel-control {
-    position: relative !important;
+    /*position: relative !important;
     bottom: 100px !important;
-    margin: 0 -20px;
+    margin: 0 -20px;*/
 }
 
 .site-detail-carousel .rn-carousel-control-next {

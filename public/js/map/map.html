@@ -39,8 +39,6 @@
             </div>
         </div>
 
-
-
         <search-tabs ng-show="!isOnSitedetails && !isShowingRouteDetail && !isShowingRouteList && !isShowingSiteDetail" isonmap="true" result="result" subcategoryname="subcategoryname"
                      do-search="doSearch(result)"
                      show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
@@ -108,8 +106,6 @@
             </div>
 
 
-
-
             <!--Lista de resultados de rutas-->
             <div ng-if="isShowingRouteList">
                 <div ng-show="requestedMunicipalityRoutes.length > 0 && !isShowingSiteDetail">
@@ -123,13 +119,17 @@
                                     </div>
                                     <div class="row topMarginElements">
                                         <img class="icon" src="./images/icons/Distancia.png">
-                                        <h4 class="route-list-subtitles route-list-parameters-text" translate="ROUTE_CREATION.ROUTE_DISTANCE"></h4>
-                                        <h4 class="route-list-parameters-text route-list-parameter-value" >%%route.distancia%%</h4>
+                                        <h4 class="route-list-subtitles route-list-parameters-text"
+                                            translate="ROUTE_CREATION.ROUTE_DISTANCE"></h4>
+                                        <h4 class="route-list-parameters-text route-list-parameter-value">
+                                            %%route.distancia%%</h4>
                                     </div>
                                     <div class="row">
                                         <img class="icon" src="./images/icons//site-detail/horario.png">
-                                        <h4 class="route-list-subtitles route-list-parameters-text" translate="ROUTE_CREATION.ROUTE_DURATION"></h4>
-                                        <h4 class="route-list-parameters-text route-list-parameter-value" >%%route.tiempo%%</h4>
+                                        <h4 class="route-list-subtitles route-list-parameters-text"
+                                            translate="ROUTE_CREATION.ROUTE_DURATION"></h4>
+                                        <h4 class="route-list-parameters-text route-list-parameter-value">
+                                            %%route.tiempo%%</h4>
                                     </div>
                                 </div>
                                 <div class="col-xs-4 image">
@@ -144,15 +144,18 @@
             </div>
 
 
-
             <div ng-if="isShowingSiteDetail">
                 <div class="site-title" ng-if="isMobileDevice()">
                     <h1 class="name">%%selectedSite.nombre%%</h1>
                     <h2 class="location">%%selectedSite.municipio.nombre%%</h2>
                 </div>
                 <div class="row site-detail-carousel" ng-if="selectedSite.fotos">
-                    <ul ng-if="isMobileDevice()" rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex"
+                    <ul ng-if="isMobileDevice()" rn-carousel rn-carousel-index="carouselIndex"
                         class="carousel" ng-click="openDialogWindowPhotos()">
+                        <div class="rn-carousel-controls">
+                            <span class="rn-carousel-control rn-carousel-control-prev" ng-click="prevSlide()"></span>
+                            <span class="rn-carousel-control rn-carousel-control-next" ng-click="nextSlide()"></span>
+                        </div>
                         <li ng-repeat="photo in selectedSite.fotos" class="text-center">
                             <img class="image" ng-src="%%photo.URLfoto%%"/>
                         </li>
@@ -175,12 +178,6 @@
                             <div class="text-center">
                                 <img ng-src="%%selectedSite.fotos[0].URLfoto%%" class="image"/>
                             </div>
-                           <!-- <div class="text-center">
-                                <div class="text-center item button" ng-click="">
-                                    <img src="./images/accountInfoIcons/municipio_sitios.png"/>
-                                    <span class="dark-text" translate="MUNICIPALITY-DETAIL.SITES"></span>
-                                </div>
-                            </div> -->
                             <div ng-if="selectedSite.rutas.length>0" class="text-center">
                                 <div class="text-center item button" ng-click="showRouteList()">
                                     <img src="./images/accountInfoIcons/municipio_rutas.png"/>
@@ -248,7 +245,6 @@
             </div>
 
 
-
             <!--Route detail-->
             <div ng-if="isShowingRouteDetail">
                 <div class="site-title" ng-if="isMobileDevice()">
@@ -314,10 +310,6 @@
 
 
             </div>
-
-
-
-
 
 
         </div>
