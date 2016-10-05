@@ -8,8 +8,14 @@ angular.module('Municipality')
             var origin = new google.maps.LatLng(sites[0].latitud,sites[0].longitud);
             var destination = new google.maps.LatLng(sites[sites.length-1].latitud,sites[sites.length-1].longitud); 
             var waypoints=[];
+            var waypointsIcons=[];
             for(var i=1; i<sites.length-1;i++){
                 waypoints.push({location: new google.maps.LatLng(sites[i].latitud,sites[i].longitud), stopover:true});
+                if(sites[i].tipo_sitio=='S'){
+                    waypointsIcons.push(MapService.createIcon(sites[i].categorias[0].categoria.URL_icono_normal, 50));
+                }else{
+                    waypointsIcons.push(MapService.createIcon('images/icons/categories/pin-municipio.png', 50));
+                }
             }
 
 
@@ -31,7 +37,6 @@ angular.module('Municipality')
                     
                     var originIcon = MapService.createIcon('images/icons/salida-mapa.png', 50);
                     var destinationIcon = MapService.createIcon('images/icons/llegada-mapa.png', 50);
-                    var siteIcon = MapService.createIcon('images/icons/pin-ubicacion-local.png', 50);
 
                     MapService.addMarker(origin, 'origin', originIcon,100);
                     if(sites.length>1){
@@ -39,7 +44,7 @@ angular.module('Municipality')
                     }
 
                     for(var i=0;i<waypoints.length;i++){
-                        MapService.addMarker(waypoints[i].location, 'site', siteIcon);
+                        MapService.addMarker(waypoints[i].location, 'site', waypointsIcons[i]);
                     }
                  
                 }else{
