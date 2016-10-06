@@ -140,6 +140,7 @@ angular.module('map')
                 if($scope.isShowingRouteDetail){
                     MapService.clearMarkers();
                     MapService.clearRoute();
+                    SiteMarkerService.deleteMarkers();
                     if(requestedMunicipality){
                         addSearchedMunicipalityDetailMarker(requestedMunicipality);
                     }else{
@@ -153,7 +154,7 @@ angular.module('map')
                 if($scope.hasSelectedMunicipalityRoutes && $scope.isShowingSiteDetail){
                     $scope.isShowingSiteDetail=false;
                     $scope.isShowingRouteDetail=true;
-                    
+                    SiteMarkerService.deleteMarkers();
                     if(requestedMunicipality){
                         $scope.selectedSite=requestedMunicipality;
                     }else{

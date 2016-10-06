@@ -120,6 +120,28 @@ angular.module('map')
             return marker;
         }
 
+        function addOriginMarker(position){
+            var generalIcon = getOriginGeneralIcon();
+            var normalIcon = generalIcon;
+            var lightedIcon = getOriginLightedIcon();
+            var marker = addMarker(position, '', normalIcon);
+            marker.normalIcon=normalIcon;
+            marker.generalIcon=generalIcon;
+            marker.lightedIcon=lightedIcon;
+            return marker;
+        }
+
+        function addDestinationMarker(position){
+            var generalIcon = getDestinationGeneralIcon();
+            var normalIcon = generalIcon;
+            var lightedIcon = getDestinationLightedIcon();
+            var marker = addMarker(position, '', normalIcon);
+            marker.normalIcon=normalIcon;
+            marker.generalIcon=generalIcon;
+            marker.lightedIcon=lightedIcon;
+            return marker;
+        }
+
         function getMunicipalityGeneralIcon(){
             var iconSize=60;
             var url = './images/icons/categories/Municipio.png';
@@ -153,6 +175,30 @@ angular.module('map')
         function getCategoryLightedIcon(categorySite) {
             var iconSize=80;
             var url = categorySite.categoria.URL_icono_seleccionado;
+            return createIcon(url, iconSize);
+        }
+
+        function getOriginGeneralIcon(){
+            var iconSize=60;
+            var url='./images/icons/salida-mapa.png';
+            return createIcon(url, iconSize);
+        }
+
+        function getOriginLightedIcon(){
+            var iconSize=80;
+            var url='./images/icons/salida-mapa.png';
+            return createIcon(url, iconSize);
+        }
+
+        function getDestinationGeneralIcon(){
+            var iconSize=60;
+            var url='./images/icons/llegada-mapa.png';
+            return createIcon(url, iconSize);
+        }
+
+        function getDestinationLightedIcon(){
+            var iconSize=80;
+            var url='./images/icons/llegada-mapa.png';
             return createIcon(url, iconSize);
         }
 
@@ -247,6 +293,8 @@ angular.module('map')
             setPinOnUserPosition: setPinOnUserPosition,
             addMarkerWithCategoryIcon: addMarkerWithCategoryIcon,
             createIcon: createIcon,
-            addMarkerMunicipalityWithIcon:addMarkerMunicipalityWithIcon
+            addMarkerMunicipalityWithIcon:addMarkerMunicipalityWithIcon,
+            addOriginMarker:addOriginMarker,
+            addDestinationMarker:addDestinationMarker
         }
     });
