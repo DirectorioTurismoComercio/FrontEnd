@@ -90,6 +90,14 @@ a.button:hover {
     transform: rotate(90deg);
 }
 
+_::-webkit-:not(:root:root), .just-safari-arrow-correction {
+
+    width: auto !important;
+
+
+}
+
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .forms-container {
