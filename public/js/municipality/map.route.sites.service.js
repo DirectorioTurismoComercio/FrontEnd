@@ -14,7 +14,7 @@ angular.module('Municipality')
                 if(sites[i].tipo_sitio=='S'){
                     waypointsIcons.push((sites[i].categorias[0]));
                 }else{
-                    waypointsIcons.push(MapService.createIcon('images/icons/categories/pin-municipio.png', 50));
+                    waypointsIcons.push('images/icons/categories/pin-municipio.png');
                 }
             }
 
@@ -49,7 +49,11 @@ angular.module('Municipality')
             SiteMarkerService.addSiteMarker(origin,originMarker,'');
 
             for(var i=0;i<waypoints.length;i++){
-                var marker = MapService.addMarkerWithCategoryIcon(waypoints[i].location, '', waypointsIcons[i]);
+                if(typeof(waypointsIcons[i])=="string"){
+                    var marker = MapService.addMarkerMunicipalityWithIcon(waypoints[i].location);
+                }else{
+                    var marker = MapService.addMarkerWithCategoryIcon(waypoints[i].location, '', waypointsIcons[i]);
+                }
                 SiteMarkerService.addSiteMarker(waypoints[i].location, marker, '');
             }
 
