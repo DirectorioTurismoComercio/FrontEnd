@@ -56,11 +56,31 @@ angular.module('registerSite')
             siteInformationService.insidePhotos = $scope.flowInsidePhotos.flow.files;
             siteInformationService.productsPhotos = $scope.flowProductsPhotos.flow.files;
         }
+                    
+        $scope.imgLoadedCallback = function (flowFile) {
+            var orientation = 0;
+
+            EXIF.getData(flowFile.file, function () {
+                orientation = this.exifdata.Orientation;
+                flowFile.orientation = orientation;
+                $scope.$apply();
+            });
+        };
+        
+        /*
         $scope.imgLoadedCallback=function(flowObjectName,fileIndex){
-            console.log("callback");
+        
+            var orientation = 0;
+
+            EXIF.getData(flowObjectName.file, function () {
+                orientation = this.exifdata.Orientation;
+                flowObjectName.orientation = orientation;
+                $scope.$apply();
+         
            switch (flowObjectName) {
+           
                case 'mainPhoto':
-                    console.log("size",$scope.flowMainPhoto.flow.files[0].file.size)
+                  
                    if($scope.flowMainPhoto.flow.files[0].file.size>500000){
                    processImage($scope.flowMainPhoto.flow,0, flowObjectName);
                    $scope.loadingMainPhoto=false;
@@ -83,7 +103,10 @@ angular.module('registerSite')
                    break;
            }
 
+            });
+
         }
+        */
         function processImage(flowObject,fileIndex, photoLoading){
         console.log(flowObject.files[fileIndex].file);
         var src = URL.createObjectURL(flowObject.files[fileIndex].file);
@@ -199,17 +222,6 @@ return bb;
 
             return style;
         };
-/*
-        $scope.imgLoadedCallback = function (flowFile) {
-            var orientation = 0;
-
-            EXIF.getData(flowFile.file, function () {
-                orientation = this.exifdata.Orientation;
-                flowFile.orientation = orientation;
-                $scope.$apply();
-            });
-        };
-        */
 
 
         function loadPhotoFromURL(urlPhoto, tipo) {
