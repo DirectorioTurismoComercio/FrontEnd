@@ -414,6 +414,14 @@ prev.search-results .map {
     display: inline-block;
 }
 
+.close-carousel-pictures-button-container{
+    margin-bottom: 1%;
+}
+
+.close-button-carousel-height{
+    height: 3vmin;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
