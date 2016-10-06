@@ -346,6 +346,7 @@
           ng-show="!isoncreateroute" \
             type="text"\
             ng-model="searchParam"\
+            ng-model-options="{ debounce: 200 }"\
             placeholder="%% attrs.placeholder %%"\
             class="%% attrs.inputclass %%"\
             id="%% attrs.inputid %%"\
@@ -354,6 +355,7 @@
             ng-show="isoncreateroute" \
             type="text"\
             ng-model="searchParam"\
+            ng-model-options="{ debounce: 200 }"\
             placeholder="%% attrs.placeholder %%"\
             class="%% attrs.inputclass %% autocomplete-site-browser"\
             id="%% attrs.inputid %%"\
