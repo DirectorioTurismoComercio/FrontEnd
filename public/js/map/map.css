@@ -534,7 +534,7 @@ prev.search-results .map {
     }
 
     .carousel-photos-display-desktop {
-        display: flex;
+        display: inherit;
     }
 
 }
@@ -556,7 +556,7 @@ prev.search-results .map {
     }
 
     .carousel-photos-display-desktop {
-        display: flex;
+        display: inherit;
     }
 }
 
@@ -575,6 +575,6 @@ prev.search-results .map {
     }
 
     .carousel-photos-display-desktop {
-        display: flex;
+        display: inherit;
     }
 }
