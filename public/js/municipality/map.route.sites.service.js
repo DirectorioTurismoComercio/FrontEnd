@@ -27,6 +27,7 @@ angular.module('Municipality')
             };
 
             MapService.clearMarkers();
+
             MapService.getDirectionsService().route(route, function (result, status) {
                 setTextRouteproperties($scope,result);
                 var points = [];
@@ -34,6 +35,7 @@ angular.module('Municipality')
                     MapService.getDirectionsDisplay().setDirections(result);
 
                     var leg = result.routes[0].legs[0];
+                    SiteMarkerService.deleteMarkers();
                     addMarkers(origin,waypoints,waypointsIcons,destination);
                  
                 }else{
