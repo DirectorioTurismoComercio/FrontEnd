@@ -60,8 +60,11 @@ angular.module('registerSite')
             console.log("callback");
            switch (flowObjectName) {
                case 'mainPhoto':
+                    console.log("size",$scope.flowMainPhoto.flow.files[0].file.size)
+                   if($scope.flowMainPhoto.flow.files[0].file.size>500000){
                    processImage($scope.flowMainPhoto.flow,0, flowObjectName);
                    $scope.loadingMainPhoto=false;
+                   }
                    break;
 
                case 'facadePhotos':
@@ -95,18 +98,14 @@ angular.module('registerSite')
     })
     .then(function(image){    
 
-var blob = dataURItoBlob(image);
-                                 blob.name = 'nueva';//flowObject.files[fileIndex].uniqueIdentifier;
+    var blob = dataURItoBlob(image);
+                            blob.name = 'nueva';//flowObject.files[fileIndex].uniqueIdentifier;
                             blob.lastModifiedDate = new Date();
-                            blob.type='image/jpeg';
                             var f = new Flow.FlowFile(flowObject, blob);
                             flowObject.files.splice(fileIndex,1);
-                            flowObject.files.push(f);
-                          //  $scope.$apply();
-       
-      // flowObject.files[fileIndex]=f;
-     console.log("new image",flowObject.files[fileIndex].file);
-     // $scope.$apply();  
+                            flowObject.files.push(f); 
+                            flowObject.files[fileIndex]=f;
+                            //$scope.$digest();  
     })
     .catch(
         function(error){
