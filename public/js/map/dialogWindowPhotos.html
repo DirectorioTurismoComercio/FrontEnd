@@ -6,13 +6,22 @@
 
     <slick infinite="true" fade="true" css-ease="linear" speed="200" next-arrow=".right" prev-arrow=".left"
            ng-click="closeDialogWindowPhotos()">
-        <div style="display: flex; flex-flow: row wrap; justify-content: center"
+        <div ng-if="!isShowingRouteDetail" style="display: flex; flex-flow: row wrap; justify-content: center"
              ng-repeat="photo in selectedSite.fotos">
             <img class="icon photos-carousel-arrow left" src="./images/icons/site-detail/flecha-atras.png"/>
             <img style="min-height: 800px; width: auto !important" class="image" ng-src="%%photo.URLfoto%%"
                  ng-click="imageClicked()"/>
             <img class="icon photos-carousel-arrow right" src="./images/icons/site-detail/flecha-adelante.png"/>
         </div>
+
+        <div ng-if="isShowingRouteDetail" style="display: flex; flex-flow: row wrap; justify-content: center"
+             ng-repeat="routePhoto in routePhotos">
+            <img class="icon photos-carousel-arrow left" src="./images/icons/site-detail/flecha-atras.png"/>
+            <img style="min-height: 800px; width: auto !important" class="image" ng-src="%%routePhoto.URLfoto%%"
+                 ng-click="imageClicked()"/>
+            <img class="icon photos-carousel-arrow right" src="./images/icons/site-detail/flecha-adelante.png"/>
+        </div>
+
     </slick>
 </div>
 
@@ -21,9 +30,15 @@
     <div class="text-center">
         <img class="close-button" src="./images/icons/site-detail/cerrar.png" ng-click="closeDialogWindowPhotos()">
     </div>
-    <ul rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex" class="carousel">
+    <ul ng-if="!isShowingRouteDetail" rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex" class="carousel">
         <li ng-repeat="photo in selectedSite.fotos" class="text-center">
             <img class="image" ng-src="%%photo.URLfoto%%" ng-click="imageClicked()"/>
+        </li>
+    </ul>
+
+    <ul ng-if="isShowingRouteDetail" rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex" class="carousel">
+        <li ng-repeat="routePhoto in routePhotos" class="text-center">
+            <img class="image" ng-src="%%routePhoto.URLfoto%%" ng-click="imageClicked()"/>
         </li>
     </ul>
 </div>
