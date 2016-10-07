@@ -77,6 +77,7 @@
         var configuredDefaults = $.mCustomScrollbar.defaults;
 
         scope.ngScrollbarsUpdate = function () {
+
           elem.mCustomScrollbar.apply(elem, arguments);
         };
 

@@ -136,19 +136,21 @@
 
         <div ng-if="isMobileDevice()">
             <div class="row control topMarginElements">
-                <div class="container-fluid col-xs-8 col-xs-offset-2 col-md-offset-0">
-                    <label class="route-subtitles route-properties-text" translate="ROUTE_CREATION.ROUTE_APROX_DISTANCE"></label>
+                <div class="container-fluid col-xs-8">
+                    <div class="col-xs-2 col-sm-1 add-site-icon">
+                    </div>
+                    <label class="route-subtitles route-properties-text col-xs-offset-1" translate="ROUTE_CREATION.ROUTE_APROX_DISTANCE"></label>
                     <label class="route-subtitles route-text-property route-properties-text">&nbsp %%routeDistance%%</label>
                 </div>
             </div>
 
             <div class="row control topMarginElements">
-                <div class="col-xs-2  add-site-route-button open-overlay-map-button"  ng-click="openNav()"  ng-if="isMobileDevice()">
-                    <img class="confirmRegisterIcons add-site-icon" src="./images/icons/boton_mapa.png">
-                </div>
                 <div class="container-fluid col-xs-8">
-                    <label class="col-xs-offset-1 col-md-offset-0 route-subtitles route-properties-text" translate="ROUTE_CREATION.ROUTE_APROX_DURATION"></label>
-                    <label class="route-subtitles route-text-property route-properties-text">&nbsp %%routeDuration%%</label>
+                    <div class="col-xs-2  col-sm-1 add-site-route-button "  ng-click="openNav()"  ng-if="isMobileDevice()">
+                        <img class="confirmRegisterIcons add-site-icon" src="./images/icons/boton_mapa.png">
+                    </div>
+                        <label class="route-subtitles route-properties-text col-xs-offset-1" translate="ROUTE_CREATION.ROUTE_APROX_DURATION"></label>
+                        <label class="route-subtitles route-text-property route-properties-text">&nbsp %%routeDuration%%</label>
                 </div>
             </div>
 

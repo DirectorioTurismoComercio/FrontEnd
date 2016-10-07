@@ -1,14 +1,272 @@
 'use strict';
 
 describe('Controller: MapController', function () {
-    var MapController, $scope, testpopErrorAlertService, deferred, MapServiceTest, testSearchForResultsFactory, testMapRouteService, testsiteAndTownSaverService;
+    var MapController, $scope, testpopErrorAlertService, deferred, MapServiceTest, testSearchForResultsFactory, testMapRouteService, testsiteAndTownSaverService, testrequestedMunicipalityDetail, testnavigationService, testMapRouteSitesService;
     var sitesResponse={
         nombre:'site',
         categorias:[{
             0:3
         }]
     };
-    beforeEach(module('gemStore'));
+    var requestedMunicipality={
+        "id": 1926,
+        "categorias": [
+
+        ],
+        "fotos": [
+            {
+                "id": 2111,
+                "URLfoto": "http://ecosistema.desarrollo.com:8000/Fotos/Fotos/Captura_de_pantalla_2016-09-21_a_las_4.19.03_p.m..jpg",
+                "tipo": "P",
+                "sitio": 1926,
+                "$$hashKey": "object:1550"
+            }
+        ],
+        "rutas": [
+            {
+                "id": 1,
+                "sitios": [
+                    {
+                        "id": 1,
+                        "sitio": {
+                            "id": 1926,
+                            "categorias": [
+
+                            ],
+                            "fotos": [
+                                {
+                                    "id": 2111,
+                                    "URLfoto": "http://ecosistema.desarrollo.com:8000/Fotos/Fotos/Captura_de_pantalla_2016-09-21_a_las_4.19.03_p.m..jpg",
+                                    "tipo": "P",
+                                    "sitio": 1926
+                                }
+                            ],
+                            "municipio": {
+                                "id": 3,
+                                "nombre": "Anapoima",
+                                "latitud": "4.565941800000000000",
+                                "longitud": "-74.564331300000000000"
+                            },
+                            "tags": [
+
+                            ],
+                            "municipio_id": 3,
+                            "nombre": "Anapoima",
+                            "telefono": "432432432",
+                            "whatsapp": "",
+                            "horariolocal": "",
+                            "web": "",
+                            "latitud": "4.550877682666806000",
+                            "longitud": "-74.534797221422200000",
+                            "descripcion": "descripcion anapoima",
+                            "correolocal": "",
+                            "ubicacionlocal": "423432",
+                            "tipo_sitio": "M",
+                            "usuario": 56
+                        },
+                        "sitio_id": 1926,
+                        "orden": 1,
+                        "ruta": 1
+                    },
+                    {
+                        "id": 2,
+                        "sitio": {
+                            "id": 1929,
+                            "categorias": [
+                                {
+                                    "id": 101,
+                                    "categoria": {
+                                        "id": 2,
+                                        "nombre": "Deportes",
+                                        "nivel": 1,
+                                        "URL_icono_general": "http://ecosistema.desarrollo.com:8000/Fotos/general_icons/deportes.png",
+                                        "URL_icono_normal": "http://ecosistema.desarrollo.com:8000/Fotos/normal_icons/deporte.png",
+                                        "URL_icono_seleccionado": "http://ecosistema.desarrollo.com:8000/Fotos/selected_icons/deporte.png",
+                                        "categoria_padre": null
+                                    },
+                                    "categoria_id": 2,
+                                    "tipo": 1,
+                                    "sitio": 1929
+                                }
+                            ],
+                            "fotos": [
+                                {
+                                    "id": 2114,
+                                    "URLfoto": "http://ecosistema.desarrollo.com:8000/Fotos/Fotos/Captura_de_pantalla_2016-06-14_a_las_9.58.02_a.m..jpg",
+                                    "tipo": "P",
+                                    "sitio": 1929
+                                }
+                            ],
+                            "municipio": {
+                                "id": 3,
+                                "nombre": "Anapoima",
+                                "latitud": "4.565941800000000000",
+                                "longitud": "-74.564331300000000000"
+                            },
+                            "tags": [
+
+                            ],
+                            "municipio_id": 3,
+                            "nombre": "pepe3",
+                            "telefono": "423423423",
+                            "whatsapp": "",
+                            "horariolocal": "",
+                            "web": "",
+                            "latitud": "4.556987181727967000",
+                            "longitud": "-74.530190527439120000",
+                            "descripcion": "ddgdf",
+                            "correolocal": "",
+                            "ubicacionlocal": "432423",
+                            "tipo_sitio": "S",
+                            "usuario": 56
+                        },
+                        "sitio_id": 1929,
+                        "orden": 2,
+                        "ruta": 1
+                    },
+                    {
+                        "id": 3,
+                        "sitio": {
+                            "id": 1927,
+                            "categorias": [
+                                {
+                                    "id": 99,
+                                    "categoria": {
+                                        "id": 7,
+                                        "nombre": "Comercio",
+                                        "nivel": 1,
+                                        "URL_icono_general": "http://ecosistema.desarrollo.com:8000/Fotos/general_icons/comercio.png",
+                                        "URL_icono_normal": "http://ecosistema.desarrollo.com:8000/Fotos/normal_icons/comercio.png",
+                                        "URL_icono_seleccionado": "http://ecosistema.desarrollo.com:8000/Fotos/selected_icons/comercio.png",
+                                        "categoria_padre": null
+                                    },
+                                    "categoria_id": 7,
+                                    "tipo": 1,
+                                    "sitio": 1927
+                                }
+                            ],
+                            "fotos": [
+                                {
+                                    "id": 2112,
+                                    "URLfoto": "http://ecosistema.desarrollo.com:8000/Fotos/Fotos/Goat_Portrait_f4mr1cn.jpg",
+                                    "tipo": "P",
+                                    "sitio": 1927
+                                }
+                            ],
+                            "municipio": {
+                                "id": 3,
+                                "nombre": "Anapoima",
+                                "latitud": "4.565941800000000000",
+                                "longitud": "-74.564331300000000000"
+                            },
+                            "tags": [
+
+                            ],
+                            "municipio_id": 3,
+                            "nombre": "sitip pepe",
+                            "telefono": "423432423",
+                            "whatsapp": "",
+                            "horariolocal": "",
+                            "web": "",
+                            "latitud": "4.550794796327250000",
+                            "longitud": "-74.533423930406570000",
+                            "descripcion": "423423423",
+                            "correolocal": "",
+                            "ubicacionlocal": "423432",
+                            "tipo_sitio": "S",
+                            "usuario": 56
+                        },
+                        "sitio_id": 1927,
+                        "orden": 3,
+                        "ruta": 1
+                    },
+                    {
+                        "id": 4,
+                        "sitio": {
+                            "id": 1928,
+                            "categorias": [
+                                {
+                                    "id": 100,
+                                    "categoria": {
+                                        "id": 5,
+                                        "nombre": "Comida y Bebida",
+                                        "nivel": 1,
+                                        "URL_icono_general": "http://ecosistema.desarrollo.com:8000/Fotos/general_icons/comida-bebida.png",
+                                        "URL_icono_normal": "http://ecosistema.desarrollo.com:8000/Fotos/normal_icons/comida-bebida.png",
+                                        "URL_icono_seleccionado": "http://ecosistema.desarrollo.com:8000/Fotos/selected_icons/comida-bebida.png",
+                                        "categoria_padre": null
+                                    },
+                                    "categoria_id": 5,
+                                    "tipo": 1,
+                                    "sitio": 1928
+                                }
+                            ],
+                            "fotos": [
+                                {
+                                    "id": 2113,
+                                    "URLfoto": "http://ecosistema.desarrollo.com:8000/Fotos/Fotos/porta_morada_2_sKxSv9B.jpg",
+                                    "tipo": "P",
+                                    "sitio": 1928
+                                }
+                            ],
+                            "municipio": {
+                                "id": 3,
+                                "nombre": "Anapoima",
+                                "latitud": "4.565941800000000000",
+                                "longitud": "-74.564331300000000000"
+                            },
+                            "tags": [
+
+                            ],
+                            "municipio_id": 3,
+                            "nombre": "pepe2",
+                            "telefono": "423423423",
+                            "whatsapp": "",
+                            "horariolocal": "",
+                            "web": "",
+                            "latitud": "4.547457944797717000",
+                            "longitud": "-74.539646655321120000",
+                            "descripcion": "sdffsdfsd",
+                            "correolocal": "",
+                            "ubicacionlocal": "423432",
+                            "tipo_sitio": "S",
+                            "usuario": 56
+                        },
+                        "sitio_id": 1928,
+                        "orden": 4,
+                        "ruta": 1
+                    }
+                ],
+                "nombre": "pepedas",
+                "descripcion": "dasdas",
+                "tiempo": "11.82 min",
+                "distancia": "3.88 Km",
+                "sitio": 1926
+            }
+        ],
+        "municipio": {
+            "id": 3,
+            "nombre": "Anapoima",
+            "latitud": "4.565941800000000000",
+            "longitud": "-74.564331300000000000"
+        },
+        "tags": [
+
+        ],
+        "municipio_id": 3,
+        "nombre": "Anapoima",
+        "telefono": "432432432",
+        "whatsapp": "",
+        "horariolocal": "",
+        "web": "",
+        "latitud": "4.550877682666806000",
+        "longitud": "-74.534797221422200000",
+        "descripcion": "descripcion anapoima",
+        "correolocal": "",
+        "ubicacionlocal": "423432",
+        "tipo_sitio": "M",
+        "usuario": 56
+    };
 
     beforeEach(module('gemStore', function ($provide, $translateProvider) {
 
@@ -24,7 +282,7 @@ describe('Controller: MapController', function () {
 
     }));
 
-    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, messageService, MapRouteService, siteAndTownSaverService) {
+    beforeEach(inject(function ($controller, $rootScope, $q, SearchForResultsFactory, MapService, messageService, MapRouteService, siteAndTownSaverService, requestedMunicipalityDetail, navigationService, MapRouteSitesService) {
         $scope = $rootScope.$new();
         deferred = $q.defer();
         testpopErrorAlertService = messageService;
@@ -32,6 +290,10 @@ describe('Controller: MapController', function () {
         testSearchForResultsFactory=SearchForResultsFactory;
         testMapRouteService=MapRouteService;
         testsiteAndTownSaverService=siteAndTownSaverService;
+        testrequestedMunicipalityDetail=requestedMunicipalityDetail;
+        testnavigationService=navigationService;
+        testMapRouteSitesService=MapRouteSitesService;
+
 
         spyOn(SearchForResultsFactory, 'doSearch').and.returnValue(deferred.promise);
         spyOn(testpopErrorAlertService, 'showErrorMessage');
@@ -39,8 +301,11 @@ describe('Controller: MapController', function () {
         spyOn(MapServiceTest, 'clearMarkers');
         spyOn(MapServiceTest, 'getUserPosition');
         spyOn(MapServiceTest, 'moveMapToPosition');
+        spyOn(MapServiceTest,'addMarkerMunicipalityWithIcon');
         spyOn(SearchForResultsFactory,'getResults').and.returnValue(sitesResponse);
         spyOn(testMapRouteService, 'calculateRoute');
+        spyOn(requestedMunicipalityDetail,'getMunicipality').and.returnValue(requestedMunicipality);
+        spyOn(MapRouteSitesService,'calculateRoute');
 
         MapController = $controller('MapController', {
             $scope: $scope,
@@ -48,7 +313,10 @@ describe('Controller: MapController', function () {
             MapService: MapServiceTest,
             SearchForResultsFactory:testSearchForResultsFactory,
             MapRouteService:testMapRouteService,
-            siteAndTownSaverService:testsiteAndTownSaverService
+            siteAndTownSaverService:testsiteAndTownSaverService,
+            requestedMunicipalityDetail:testrequestedMunicipalityDetail,
+            navigationService:testnavigationService,
+            MapRouteSitesService:testMapRouteSitesService,
         });
     }));
 
@@ -93,13 +361,13 @@ describe('Controller: MapController', function () {
 
     it('Should delete the first site that user search its route when clicks on goBackToSiteList', function () {
         $scope.showRouteToSite('place');
-        $scope.goBackToSiteList();
+        $scope.goBack();
         expect($scope.initialSelectedSite).toBe(undefined);
     });
 
     it('Should re make search by keyword after user clicks on goBackToSiteList', function () {
         $scope.doSearch('place');
-        $scope.goBackToSiteList();
+        $scope.goBack();
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();;
     });
 
@@ -115,14 +383,14 @@ describe('Controller: MapController', function () {
 
     it('Should re make search by keyword when user makes a search by keyword and then clicks goBackToSiteList', function () {
         $scope.doSearch('place');
-        $scope.goBackToSiteList();
+        $scope.goBack();
         expect(testsiteAndTownSaverService.getQueryMadeByUser()).toBe("SEARCH_BY_KEY_WORD");
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
     });
 
     it('Should re make plan routw when user plan a route and then clicks goBackToSiteList', function () {
         $scope.showRoute();
-        $scope.goBackToSiteList();
+        $scope.goBack();
         expect(testsiteAndTownSaverService.getQueryMadeByUser()).toBe("PLAN_A_ROUTE");
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
     });
@@ -263,6 +531,55 @@ describe('Controller: MapController', function () {
     it('Should show showRouteToSite button when user sees site detail for first time', function () {
         $scope.doSearch('place');
         expect($scope.hasMadeCurrentSiteRoute).toBe(false);
+    });
+
+    it('Should set to true hasSelectedMunicipalityRoutes', function(){
+        $scope.showRouteList();
+        expect($scope.hasSelectedMunicipalityRoutes).toBe(true);
+    });
+
+    it('Should show routes and hide isShowingSiteDetail if user clicks Show municipalityRoutes', function(){
+        $scope.showRouteList();
+        expect($scope.isShowingRouteList).toBe(true);
+        expect($scope.isShowingSiteDetail).toBe(false);
+    });
+
+    it('Should show municipality detail, and set to false hasSelectedMunicipalityRoutes if user is on municipality reoutes list and clicks go back', function(){
+        $scope.showRouteList();
+        $scope.goBack();
+        expect($scope.isShowingRouteList).toBe(false);
+        expect($scope.isShowingSiteDetail).toBe(true);
+        expect($scope.hasSelectedMunicipalityRoutes).toBe(false);
+
+    });
+
+    /* fails only because top_anchor cant be instanciated*/
+    xit('Should show route detail, hide routeList, and siteDetail when user clicks showRouteDetail', function(){
+        $scope.showRouteDetail(requestedMunicipality.rutas[0]);
+        expect($scope.isShowingRouteList).toBe(false);
+        expect($scope.isShowingRouteDetail).toBe(true);
+        expect($scope.isShowingSiteDetail).toBe(false);
+
+    });
+
+    /* fails only because top_anchor cant be instanciated*/
+    xit('Should show route list if user is on route detail and clicks go back', function(){
+        $scope.showRouteDetail(requestedMunicipality.rutas[0]);
+        $scope.goBack();
+        expect($scope.isShowingRouteDetail).toBe(false);
+        expect($scope.isShowingRouteList).toBe(true);
+
+    });
+
+
+    /* fails only because top_anchor cant be instanciated*/
+    xit('Should delete route and markers; and draw municipality marker if user is in route detail and go back to route list', function(){
+        $scope.showRouteDetail(requestedMunicipality.rutas[0]);
+        $scope.goBack();
+        expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
+        expect(MapServiceTest.clearRoute).toHaveBeenCalled();
+        expect(MapServiceTest.addMarkerMunicipalityWithIcon).toHaveBeenCalled();
+
     });
 
 });

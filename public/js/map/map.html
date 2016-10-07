@@ -5,9 +5,10 @@
 
 
     <div class="col-md-6 no-padding">
-        <div ng-show="isShowingSiteDetail" class="route-controls">
-            <div ng-click="goBackToSiteList()" class="list-button">
-                <img src="./images/icons/lista_resultados.png">
+        <div ng-show="isShowingSiteDetail && !isShowingRouteList && !hasSelectedMunicipalityRoutes" class="route-controls">
+            <div ng-click="goBack()" class="list-button">
+                <img ng-if="navigationToMunicipalityDetail==undefined" src="./images/icons/lista_resultados.png">
+                <img ng-if="navigationToMunicipalityDetail!=undefined" src="./images/registerIcons/atras.png">
             </div>
 
             <div ng-show="!hasMadeCurrentSiteRoute" class="control" ng-click="showRouteToSite(selectedSite)">
@@ -26,75 +27,135 @@
                 <img src="./images/icons/llegada-mapa.png">
             </div>
         </div>
-        <div ng-show="!isShowingSiteDetail || isOnSitedetails">
-            <search-tabs ng-show="!isOnSitedetails" isonmap="true" result="result" subcategoryname="subcategoryname"
-                         do-search="doSearch(result)"
-                         show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
-            <div class="map" ng-if="isMobileDevice()" ng-show="resulListInCompactMode || isOnSitedetails">
-                <ui-gmap-google-map center='map.center' zoom='map.zoom' control="map.control"/>
+
+
+        <!--Header Route list-->
+        <div ng-show="(!isShowingSiteDetail && isShowingRouteList) || isShowingRouteDetail || hasSelectedMunicipalityRoutes" class="header route-list-header-color container-fluid">
+            <div class="col-xs-1 registerHeaderBackIconcontainer" ng-click="goBack()">
+                <img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png">
+            </div>
+            <div ng-if="!isShowingRouteDetail && !isShowingSiteDetail" class="col-xs-10 route-list-header-container">
+                <p class="text route-list-municipality-name" translate="MUNICIPALITY_ROUTE_LIST.TITLE"></p><p class="text route-list-municipality-name">&nbsp %%selectedSite.nombre%%</p>
             </div>
         </div>
+
+        <search-tabs ng-show="!isOnSitedetails && !isShowingRouteDetail && !isShowingRouteList && !isShowingSiteDetail" isonmap="true" result="result" subcategoryname="subcategoryname"
+                     do-search="doSearch(result)"
+                     show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
+        <div class="map" ng-if="isMobileDevice()" ng-show="(resulListInCompactMode || isOnSitedetails || isShowingRouteDetail) && !isShowingRouteList">
+            <ui-gmap-google-map id="mobileResultMap" center='map.center' zoom='map.zoom' control="map.control"/>
+        </div>
+
+
+
+
         <div class="result-list">
             <div ng-if="noResults" class="center-block text-center">
                 <h4 class="no-results" translate="NO_RESULTS"></h4>
             </div>
-            <div ng-show="foundSites.length > 0 && !isShowingSiteDetail">
-                <div ng-if="!showResultListHorizontally()"
-                     ng-repeat="site in foundSites"
-                     ng-mouseover="highLightMarker($index)"
-                     ng-mouseleave="clearHighLightedMarker($index)">
-                    <div class="list-item ">
-                        <div class="row" ng-click="showSiteDetail(site, $index)">
-                            <div class="col-xs-8 info">
-                                <div class="row category-container-map-list-result">
-                                    <img class="icon" ng-src="%%site.categoryicon%%">
-                                    <h3 class="">%%site.nombre%%</h3>
-                                </div>
-                                <h4 class="">%%site.municipio.nombre%%</h4>
-                                <p clamp="3" class="description">%%site.descripcion%%</p>
-                            </div>
-                            <div class="col-xs-4 image">
-                                <img class="img-responsive  site-photo-height"
-                                     ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-separator"></div>
-                </div>
 
-                <ul rn-carousel rn-carousel-controls ng-if="showResultListHorizontally()" class="image"
-                    style="height: 110px;">
-                    <li ng-repeat="site in foundSites"
-                        ng-mouseover="highLightMarker($index)"
-                        ng-mouseleave="clearHighLightedMarker($index)">
-                        <div class="list-item list-item-background">
-                            <div class="row vertical-align-arrow" ng-click="showSiteDetail(site, $index)">
-                                <div class="col-xs-7 info">
+            <div ng-if="!isShowingRouteList && !isShowingRouteDetail">
+                <div ng-show="foundSites.length > 0 && !isShowingSiteDetail">
+                    <div ng-if="!showResultListHorizontally()"
+                         ng-repeat="site in foundSites"
+                         ng-mouseover="highLightMarker($index)"
+                         ng-mouseleave="clearHighLightedMarker($index)">
+                        <div class="list-item ">
+                            <div class="row" ng-click="showSiteDetail(site, $index)">
+                                <div class="col-xs-8 info">
                                     <div class="row category-container-map-list-result">
                                         <img class="icon" ng-src="%%site.categoryicon%%">
                                         <h3 class="">%%site.nombre%%</h3>
                                     </div>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
-                                    <p clamp="2" class="description">%%site.descripcion%%</p>
+                                    <p clamp="3" class="description">%%site.descripcion%%</p>
                                 </div>
-                                <div class="col-xs-5 image">
-                                    <img class="img-responsive mobile-image-preview"
+                                <div class="col-xs-4 image">
+                                    <img class="img-responsive  site-photo-height"
                                          ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                </ul>
+                        <div class="item-separator"></div>
+                    </div>
+
+                    <ul rn-carousel rn-carousel-controls ng-if="showResultListHorizontally()" class="image"
+                        style="height: 110px;">
+                        <li ng-repeat="site in foundSites"
+                            ng-mouseover="highLightMarker($index)"
+                            ng-mouseleave="clearHighLightedMarker($index)">
+                            <div class="list-item list-item-background">
+                                <div class="row vertical-align-arrow" ng-click="showSiteDetail(site, $index)">
+                                    <div class="col-xs-7 info">
+                                        <div class="row category-container-map-list-result">
+                                            <img class="icon" ng-src="%%site.categoryicon%%">
+                                            <h3 class="">%%site.nombre%%</h3>
+                                        </div>
+                                        <h4 class="">%%site.municipio.nombre%%</h4>
+                                        <p clamp="2" class="description">%%site.descripcion%%</p>
+                                    </div>
+                                    <div class="col-xs-5 image">
+                                        <img class="img-responsive mobile-image-preview"
+                                             ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div ng-show="isShowingSiteDetail">
+
+            <!--Lista de resultados de rutas-->
+            <div ng-if="isShowingRouteList">
+                <div ng-show="requestedMunicipalityRoutes.length > 0 && !isShowingSiteDetail">
+                    <div ng-if="!showResultListHorizontally()"
+                         ng-repeat="route in requestedMunicipalityRoutes">
+                        <div class="list-item ">
+                            <div class="row" ng-click="showRouteDetail(route, $index)">
+                                <div class="col-xs-8 info">
+                                    <div class="row category-container-map-list-result">
+                                        <h3 class="">%%route.nombre%%</h3>
+                                    </div>
+                                    <div class="row topMarginElements">
+                                        <img class="icon" src="./images/icons/Distancia.png">
+                                        <h4 class="route-list-subtitles route-list-parameters-text"
+                                            translate="ROUTE_CREATION.ROUTE_DISTANCE"></h4>
+                                        <h4 class="route-list-parameters-text route-list-parameter-value">
+                                            %%route.distancia%%</h4>
+                                    </div>
+                                    <div class="row">
+                                        <img class="icon" src="./images/icons//site-detail/horario.png">
+                                        <h4 class="route-list-subtitles route-list-parameters-text"
+                                            translate="ROUTE_CREATION.ROUTE_DURATION"></h4>
+                                        <h4 class="route-list-parameters-text route-list-parameter-value">
+                                            %%route.tiempo%%</h4>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 image">
+                                    <img class="img-responsive  site-photo-height"
+                                         ng-src="%%(route.sitios[0].sitio.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-separator"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div ng-if="isShowingSiteDetail">
                 <div class="site-title" ng-if="isMobileDevice()">
                     <h1 class="name">%%selectedSite.nombre%%</h1>
                     <h2 class="location">%%selectedSite.municipio.nombre%%</h2>
                 </div>
                 <div class="row site-detail-carousel" ng-if="selectedSite.fotos">
-                    <ul ng-if="isMobileDevice()" rn-carousel rn-carousel-controls rn-carousel-index="carouselIndex"
+                    <ul ng-if="isMobileDevice()" rn-carousel rn-carousel-index="carouselIndex"
                         class="carousel" ng-click="openDialogWindowPhotos()">
+                        <div class="rn-carousel-controls">
+                            <span class="rn-carousel-control rn-carousel-control-prev" ng-click="prevSlide()"></span>
+                            <span class="rn-carousel-control rn-carousel-control-next" ng-click="nextSlide()"></span>
+                        </div>
                         <li ng-repeat="photo in selectedSite.fotos" class="text-center">
                             <img class="image" ng-src="%%photo.URLfoto%%"/>
                         </li>
@@ -113,6 +174,19 @@
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.DESCRIPTION"></span>
                             <p class="dark-text">%%selectedSite.descripcion%%</p>
                         </div>
+                        <div ng-if="selectedSite.tipo_sitio == 'M'" class="municipality-additional-info">
+                            <div class="text-center">
+                                <img ng-src="%%selectedSite.fotos[0].URLfoto%%" class="image"/>
+                            </div>
+                            <div ng-if="selectedSite.rutas.length>0" class="text-center">
+                                <div class="text-center item button" ng-click="showRouteList()">
+                                    <img src="./images/accountInfoIcons/municipio_rutas.png"/>
+                                    <span class="dark-text" translate="MUNICIPALITY-DETAIL.ROUTES"></span>
+                                </div>
+                            </div>
+                            <h4 class="office" translate="MUNICIPALITY-DETAIL.OFFICE"></h4>
+                        </div>
+
                         <div ng-show="!isEmpty(selectedSite.horariolocal)" class="item">
                             <img src="./images/icons/site-detail/horario.png">
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.OPENINGHOURS"></span>
@@ -169,6 +243,73 @@
 
 
             </div>
+
+
+            <!--Route detail-->
+            <div ng-if="isShowingRouteDetail">
+                <div class="site-title" ng-if="isMobileDevice()">
+                    <h1 class="name">%%selectedRoute.nombre%%</h1>
+                </div>
+                <div class="row site-detail-carousel">
+                    <ul ng-if="isMobileDevice()" rn-carousel rn-carousel-controls rn-carousel-index="0"
+                        class="carousel" ng-click="openDialogWindowPhotos()">
+                        <li ng-repeat="routePhoto in routePhotos" class="text-center">
+                            <img class="image" ng-src="%%routePhoto.URLfoto%%"/>
+                        </li>
+                    </ul>
+                    <carousel ng-if="!isMobileDevice()" images="routePhotos"
+                              image-click-event="openDialogWindowPhotos()">
+                    </carousel>
+                </div>
+                <div class="row">
+                    <div class="site-detail col-md-12">
+                        <h1 class="name" ng-if="!isMobileDevice()">%%selectedRoute.nombre%%</h1>
+                        <div class="item">
+                            <img src="./images/icons/site-detail/descripcion.png">
+                            <span class="light-text" translate="SITE_DETAIL_CONSTANTS.DESCRIPTION"></span>
+                            <p class="dark-text">%%selectedRoute.descripcion%%</p>
+                        </div>
+
+                        <div class="item">
+                            <img src="./images/icons/Distancia.png">
+                            <span class="light-text" translate="ROUTE_CREATION.ROUTE_DISTANCE"></span>
+                            <p class="route-properties-text-display dark-text">%%selectedRoute.distancia%%</p>
+                        </div>
+                        <div class="item">
+                            <img src="./images/icons//site-detail/horario.png">
+                            <span class="light-text" translate="ROUTE_CREATION.ROUTE_DURATION"></span>
+                            <span class="route-properties-text-display dark-text">%%selectedRoute.tiempo%%</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <div><h3 class="sites-near-route-tittle" translate="ROUTE_DETAIL_SITES"></h3></div>
+                    <div class="item-separator"></div>
+                    <div ng-repeat="site in routeSites"
+                         ng-mouseover="highLightMarker($index)"
+                         ng-mouseleave="clearHighLightedMarker($index)">
+                        <div class="list-item ">
+                            <div class="row" ng-click="showSiteDetail(site, $index)">
+                                <div class="col-xs-8 info">
+                                    <div class="row category-container-map-list-result">
+                                        <img ng-if="site.tipo_sitio=='M'" class="icon" src="./images/icons/categories/Municipio.png">
+                                        <img ng-if="site.tipo_sitio=='S'" class="icon" ng-src="%%site.categorias[0].categoria.URL_icono_general%%">
+                                        <h3 class="">%%site.nombre%%</h3>
+                                    </div>
+                                    <p clamp="3" class="description">%%site.descripcion%%</p>
+                                </div>
+                                <div class="col-xs-4 image">
+                                    <img class="img-responsive  site-photo-height"
+                                         ng-src="%%(site.fotos | filter:{tipo:'P'}:true)[0].URLfoto%%"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-separator"></div>
+                    </div>
+            </div>
+
+
         </div>
     </div>
 

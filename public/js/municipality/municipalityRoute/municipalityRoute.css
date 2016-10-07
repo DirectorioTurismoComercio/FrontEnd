@@ -194,7 +194,7 @@
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .add-site-icon{
-        height: 5vmin;
+        height: 4vmin;
     }
 
     .form-no-padding-mobile{

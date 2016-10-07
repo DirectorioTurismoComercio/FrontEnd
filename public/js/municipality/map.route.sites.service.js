@@ -8,8 +8,14 @@ angular.module('Municipality')
             var origin = new google.maps.LatLng(sites[0].latitud,sites[0].longitud);
             var destination = new google.maps.LatLng(sites[sites.length-1].latitud,sites[sites.length-1].longitud); 
             var waypoints=[];
+            var waypointsIcons=[];
             for(var i=1; i<sites.length-1;i++){
                 waypoints.push({location: new google.maps.LatLng(sites[i].latitud,sites[i].longitud), stopover:true});
+                if(sites[i].tipo_sitio=='S'){
+                    waypointsIcons.push((sites[i].categorias[0]));
+                }else{
+                    waypointsIcons.push('images/icons/categories/pin-municipio.png');
+                }
             }
 
 
@@ -21,6 +27,7 @@ angular.module('Municipality')
             };
 
             MapService.clearMarkers();
+
             MapService.getDirectionsService().route(route, function (result, status) {
                 setTextRouteproperties($scope,result);
                 var points = [];
@@ -28,19 +35,8 @@ angular.module('Municipality')
                     MapService.getDirectionsDisplay().setDirections(result);
 
                     var leg = result.routes[0].legs[0];
-                    
-                    var originIcon = MapService.createIcon('images/icons/salida-mapa.png', 50);
-                    var destinationIcon = MapService.createIcon('images/icons/llegada-mapa.png', 50);
-                    var siteIcon = MapService.createIcon('images/icons/pin-ubicacion-local.png', 50);
-
-                    MapService.addMarker(origin, 'origin', originIcon,100);
-                    if(sites.length>1){
-                    MapService.addMarker(destination, 'destination', destinationIcon,100);
-                    }
-
-                    for(var i=0;i<waypoints.length;i++){
-                        MapService.addMarker(waypoints[i].location, 'site', siteIcon);
-                    }
+                    SiteMarkerService.deleteMarkers();
+                    addMarkers(origin,waypoints,waypointsIcons,destination);
                  
                 }else{
                     console.log("error en el direction status");
@@ -48,13 +44,50 @@ angular.module('Municipality')
             });
         }
 
-        function setTextRouteproperties($scope,result){
-            $scope.routeDistance=result.routes[0].legs[0].distance.text;
-            $scope.routeDuration=result.routes[0].legs[0].duration.text;
+        function addMarkers(origin,waypoints,waypointsIcons,destination){
+            var originMarker=MapService.addOriginMarker(origin);
+            SiteMarkerService.addSiteMarker(origin,originMarker,'');
+
+            for(var i=0;i<waypoints.length;i++){
+                if(typeof(waypointsIcons[i])=="string"){
+                    var marker = MapService.addMarkerMunicipalityWithIcon(waypoints[i].location);
+                }else{
+                    var marker = MapService.addMarkerWithCategoryIcon(waypoints[i].location, '', waypointsIcons[i]);
+                }
+                SiteMarkerService.addSiteMarker(waypoints[i].location, marker, '');
+            }
+
+            var destinationMarker=MapService.addDestinationMarker(destination);
+            SiteMarkerService.addSiteMarker(destination,destinationMarker,'');
         }
+
+        function setTextRouteproperties($scope,result){
+            var distance = 0;
+            var time = 0;
+            for(var i=0;i<result.routes[0].legs.length;i++){
+                distance = distance +  result.routes[0].legs[i].distance.value;
+                time = time + result.routes[0].legs[i].duration.value;
+
+            }
+            distance = distance / 1000;
+            time = time / 60;
+
+
+            $scope.routeDistance=distance.toFixed(2)+" Km";
+            $scope.routeDuration=time.toFixed(2)+" min";
+        }
+
+        function ensambleRouteSites(route){
+            var routeSites=[];
+            for (var i = 0; i < route.sitios.length; i++) {
+                routeSites.push(route.sitios[i].sitio);
+            }
+            return routeSites;
+        }
+
 
         return {
             calculateRoute: calculateRoute,
-
+            ensambleRouteSites:ensambleRouteSites
         }
     });

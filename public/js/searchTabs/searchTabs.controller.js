@@ -1,8 +1,8 @@
 angular.module('searchTabs', ['google.places', 'geolocation'])
     .controller('searchTabsController', function ($scope, geolocation, messageService, $timeout,
                                                   siteAndTownSaverService, CUNDINAMARCA_COORDS,
-                                                  MapService, $translate, KEYWORD_SEARCH_SECTION,
-                                                  ROUTE_SEARCH_SECTION, $window, categories) {
+                                                  MapService, $translate, KEYWORD_SEARCH_SECTION, $rootScope,
+                                                  ROUTE_SEARCH_SECTION, $window, categories, navigationService) {
         $scope.KEYWORD_SEARCH_SECTION = KEYWORD_SEARCH_SECTION;
         $scope.ROUTE_SEARCH_SECTION = ROUTE_SEARCH_SECTION;
         $scope.isSearchFormVisible = false;
@@ -10,7 +10,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         $scope.searchedRoute = siteAndTownSaverService.searchedRoute;
         $scope.categoryScrollPorcentaje=0;
         $scope.subcategoryScrollPorcentaje=0;
-
+        $scope.selectedLanguage = $translate.use();
 
         var initializedFields = false;
         var originRouteInput;
@@ -140,6 +140,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
         };
 
         $scope.calculateRoute = function () {
+            navigationService.setMunicipalityDetailNavigation(undefined);
             if ($scope.searchedRoute.origin == undefined) {
                 messageService.showErrorMessage("ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN");
             } else if ($scope.searchedRoute.destination == undefined) {
@@ -327,6 +328,22 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 console.log(error);
             });
         };
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $scope.selectedLanguage = $translate.use();
+
+        }
+        );
+
+        $scope.getCategoryText = function(category){
+            if($scope.selectedLanguage=='en'){
+                return category.name;
+            }
+            if($scope.selectedLanguage=='es'){
+                return category.nombre;
+            }
+
+        }
 
         $scope.display_limit = 5;
         $scope.clear = function () {

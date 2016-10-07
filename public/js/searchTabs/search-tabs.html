@@ -43,7 +43,7 @@
                                              ng-src="%%category.URL_icono_general%%">
                                     </div>
                                     <div class="search-tab-category-inside-container">
-                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%getCategoryText(category)%%</label>
                                     </div>
                                 </div>
                             </li>
@@ -71,7 +71,7 @@
                             <img class="icon" ng-src="%%category.URL_icono_general%%">
                         </div>
                         <div class="search-tab-category-inside-container">
-                            <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                            <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%getCategoryText(category)%%</label>
                         </div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
 
             <!--Categories List Desktop-->
             <div ng-show="!isMobile" class="row category-scroll-container">
-                <div class="col-xs-1 arrow-category-map-container" ng-click="previousSlide('category')">
+                <div class="col-xs-1 arrow-category-map-container just-safari-arrow-correction" ng-click="previousSlide('category')">
                     <img ng-hide="categoryScrollPorcentaje>=0 && categoryScrollPorcentaje<=10" class="icon"
                          src=./images/icons/site-detail/flecha-atras-azul.png>
                 </div>
@@ -122,13 +122,13 @@
                                     <img class="icon category-icon" ng-src="%%category.URL_icono_general%%">
                                 </div>
                                 <div >
-                                    <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                                    <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%getCategoryText(category)%%</label>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('category')">
+                <div class="col-xs-1 arrow-category-map-container just-safari-arrow-correction" ng-click="nextSlide('category')">
                     <img ng-hide="categoryScrollPorcentaje>=90 && categoryScrollPorcentaje<=100" class="icon"
                          src=./images/icons/site-detail/flecha-adelante-azul.png>
                 </div>
@@ -146,14 +146,14 @@
                         <div ng-click="selectSubcategory(subcategory)">
                             <div class="subcategory-label-container-map subcategory-label-border">
                                 <div>
-                                    <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%subcategory.nombre%%</label>
+                                    <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%getCategoryText(subcategory)%%</label>
                                 </div>
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div class="col-xs-1 arrow-category-map-container" ng-click="nextSlide('subCategory')">
+            <div class="col-xs-1 arrow-category-map-container just-safari-arrow-correction" ng-click="nextSlide('subCategory')">
                 <img ng-hide="subcategoryScrollPorcentaje>=90 && subcategoryScrollPorcentaje<=100" class="icon"
                      src=./images/icons/site-detail/flecha-adelante.png>
             </div>
@@ -184,7 +184,7 @@
                                              ng-src="%%category.URL_icono_general%%">
                                     </div>
                                     <div class="search-tab-category-inside-container">
-                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%category.nombre%%</label>
+                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%getCategoryText(category)%%</label>
                                     </div>
                                 </div>
                             </li>
@@ -201,7 +201,7 @@
                                 <div ng-click="selectSubcategory(subcategory)">
                                     <div class="subcategory-label-container-map subcategory-label-border">
                                         <div>
-                                            <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%subcategory.nombre%%</label>
+                                            <label ng-class="subcategory.isSelected ? 'search-tab-category-label subcategory-map-label subcategory-map-selected-label' : 'search-tab-category-label subcategory-map-label'">%%getCategoryText(subcategory)%%</label>
                                         </div>
                                     </div>
                                 </div>

@@ -4,8 +4,9 @@ angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory,
                                             $location, $mdDialog, siteAndTownSaverService, $log,
                                             messageService, MapService, $window, $rootScope, $translate,
-                                            MunicipalitiesDAO, requestedMunicipalityDetail) {
+                                            MunicipalitiesDAO, requestedMunicipalityDetail, navigationService) {
         $scope.municipalities = [];
+        navigationService.setClickedLogoButton(false);
         siteAndTownSaverService.resetSearchAndRoute();
         siteAndTownSaverService.setSelectedCategory(undefined);
         setHowItWorksTraderImage();
@@ -18,10 +19,13 @@ angular.module('home')
 
         $scope.showMunicipalityDetail = function (municipality) {
             requestedMunicipalityDetail.setMunicipality(municipality);
+            navigationService.setMunicipalityDetailNavigation("fromHome");
+            siteAndTownSaverService.setQueryMadeByUser(undefined);
             $location.path('/map');
         };
 
         $scope.doSearch = function (result) {
+            navigationService.setMunicipalityDetailNavigation(undefined);
             if (result != undefined) {
                 MapService.clearRoute();
                 getSites(result);

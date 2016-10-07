@@ -1,3 +1,28 @@
+.municipality-additional-info .button {
+    max-width: 250px;
+    margin: 5px 0;
+    padding-top: 9px !important;
+    padding: 9px 5px;
+    display: inline-block;
+}
+
+.municipality-additional-info .button img {
+    width: 26px;
+    height: auto;
+}
+
+.municipality-additional-info .image {
+    width: 160px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.municipality-additional-info .office {
+    color: #32A2D4;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
 prev.search-results .map {
     padding: 0;
 }
@@ -223,6 +248,7 @@ prev.search-results .map {
     width: 20px;
     height: 30px;
     right: 3px !important;
+    z-index: 100;
 }
 
 .rn-carousel-control.rn-carousel-control-prev {
@@ -231,6 +257,7 @@ prev.search-results .map {
     left: 3px !important;
     position: absolute !important;
     bottom: 20px;
+    z-index: 100;
 }
 
 .rn-carousel-control.rn-carousel-control-next:before {
@@ -256,9 +283,9 @@ prev.search-results .map {
 }
 
 .site-detail-carousel .rn-carousel-control {
-    position: relative !important;
+    /*position: relative !important;
     bottom: 100px !important;
-    margin: 0 -20px;
+    margin: 0 -20px;*/
 }
 
 .site-detail-carousel .rn-carousel-control-next {
@@ -348,19 +375,51 @@ prev.search-results .map {
     height: auto !important;
 }
 
-.mobile-image-preview{
+.mobile-image-preview {
     height: 6em;
     width: 6em;
 }
 
-.sites-near-route-tittle{
+.sites-near-route-tittle {
     color: #0A3C5A;
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
 }
 
-.category-icon{
+.category-icon {
     margin: 0px !important;
+}
+
+.route-list-subtitles{
+    font-weight: normal !important;
+}
+
+.route-list-parameters-text{
+    display: inline-block !important;
+}
+
+.route-list-parameter-value{
+    color: #000 !important;
+    font-weight: normal !important;
+}
+
+.route-list-header-container{
+    text-align: center;
+}
+
+.route-list-header-color{
+    background-color: #2F6586 !important;
+}
+.route-list-municipality-name{
+    display: inline-block;
+}
+
+.close-carousel-pictures-button-container{
+    margin-bottom: 1%;
+}
+
+.close-button-carousel-height{
+    height: 3vmin;
 }
 
 /* Extra small devices (phones, less than 768px) */
@@ -475,7 +534,7 @@ prev.search-results .map {
     }
 
     .carousel-photos-display-desktop {
-        display: flex;
+        display: inherit;
     }
 
 }
@@ -487,9 +546,9 @@ prev.search-results .map {
     }
 
     .site-photo-height {
-        height: 250px;
-        min-width: 250px !important;
-        max-width: 250px !important;
+        height: 20vmin;
+        min-width: 20vmin !important;
+        max-width: 20vmin !important;
     }
 
     .carousel-photos-display-mobile {
@@ -497,7 +556,7 @@ prev.search-results .map {
     }
 
     .carousel-photos-display-desktop {
-        display: flex;
+        display: inherit;
     }
 }
 
@@ -516,6 +575,6 @@ prev.search-results .map {
     }
 
     .carousel-photos-display-desktop {
-        display: flex;
+        display: inherit;
     }
 }
