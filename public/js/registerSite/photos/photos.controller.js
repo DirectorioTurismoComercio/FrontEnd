@@ -31,6 +31,7 @@ angular.module('registerSite')
         var loadedPhotos = 0;
 
 
+
         $scope.mainPhotoOnClick = function () {
             $scope.showMainPhotoRequired = false;
         }
@@ -59,57 +60,24 @@ angular.module('registerSite')
                     
         $scope.imgLoadedCallback = function (flowFile) {
             var orientation = 0;
-
+            if(flowFile.file.size>500000){
+                console.log(flowFile)
+                processImage(flowFile);
+            } 
+                
             EXIF.getData(flowFile.file, function () {
+                console.log(flowFile)
                 orientation = this.exifdata.Orientation;
                 flowFile.orientation = orientation;
+                
                 $scope.$apply();
             });
         };
         
-        /*
-        $scope.imgLoadedCallback=function(flowObjectName,fileIndex){
         
-            var orientation = 0;
-
-            EXIF.getData(flowObjectName.file, function () {
-                orientation = this.exifdata.Orientation;
-                flowObjectName.orientation = orientation;
-                $scope.$apply();
-         
-           switch (flowObjectName) {
-           
-               case 'mainPhoto':
-                  
-                   if($scope.flowMainPhoto.flow.files[0].file.size>500000){
-                   processImage($scope.flowMainPhoto.flow,0, flowObjectName);
-                   $scope.loadingMainPhoto=false;
-                   }
-                   break;
-
-               case 'facadePhotos':
-                   previewPhoto($scope.flowFacadePhotos.flow,fileIndex,lastFacadeFileIndex, flowObjectName);
-                   $scope.loadingFacadePhoto=false;
-               break;
-
-               case 'insidePhotos':
-                   previewPhoto($scope.flowInsidePhotos.flow,fileIndex,lastInsideFileIndex, flowObjectName);
-                   $scope.loadingInsidePhoto=false;
-                   break;
-
-               case 'productsPhotos':
-                   previewPhoto($scope.flowProductsPhotos.flow,fileIndex,lastProductsFileIndex, flowObjectName);
-                   $scope.loadingProductsPhoto=false;
-                   break;
-           }
-
-            });
-
-        }
-        */
-        function processImage(flowObject,fileIndex, photoLoading){
-        console.log(flowObject.files[fileIndex].file);
-        var src = URL.createObjectURL(flowObject.files[fileIndex].file);
+        function processImage(flowFile){
+        
+        var src = URL.createObjectURL(flowFile.file);
         resizeService
     .resizeImage(src, {
         width: 1200,
@@ -117,18 +85,26 @@ angular.module('registerSite')
         step: 3,
         outputFormat: 'image/jpeg',
         sizeScale: 'ko'
-        // Other options ...
+        
     })
     .then(function(image){    
 
     var blob = dataURItoBlob(image);
-                            blob.name = 'nueva';//flowObject.files[fileIndex].uniqueIdentifier;
+                            blob.name = 'blob';
                             blob.lastModifiedDate = new Date();
-                            var f = new Flow.FlowFile(flowObject, blob);
-                            flowObject.files.splice(fileIndex,1);
-                            flowObject.files.push(f); 
-                            flowObject.files[fileIndex]=f;
-                            //$scope.$digest();  
+                            
+                            for(var i=0;i<flowFile.flowObj.files.length;i++){
+         
+                                
+                                if(flowFile.flowObj.files[i].file===flowFile.file){
+                                flowFile.flowObj.files[i]= new Flow.FlowFile(flowFile.flowObj, new File([blob], flowFile.file.name, {type: "image/jpeg", lastModified: Date.now()}));
+                                flowFile.flowObj.files[i].file.exifdata = flowFile.file.exifdata;
+                                flowFile.flowObj.files[i].file.iptcdata = flowFile.file.iptcdata;
+                               
+                                }
+                            }
+                           
+                         
     })
     .catch(
         function(error){
