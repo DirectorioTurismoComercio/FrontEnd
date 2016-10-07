@@ -438,6 +438,7 @@ prev.search-results .map {
 
     .search-results .icon {
         width: 25px;
+        min-width: 25px;
     }
 
     .detail-icon {
