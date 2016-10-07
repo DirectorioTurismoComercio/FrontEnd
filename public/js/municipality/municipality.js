@@ -37,7 +37,7 @@ angular.module('Municipality', ['uiGmapgoogle-maps'])
             })
             .when('/municipalityroute', {
                 templateUrl: 'js/municipality/municipalityRoute/municipalityRoute.html',
-                controller: 'municipalityRouteController'
-               // required_roles: 'authenticatedUser'
+                controller: 'municipalityRouteController',
+                required_roles: 'authenticatedUser'
             });
     });
