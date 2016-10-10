@@ -129,11 +129,19 @@ angular.module('map')
                     $location.path('/municipalities');
                 }
 
-                if ($scope.isShowingRouteList) {
+                if ($scope.isShowingRouteList && !$scope.hasMadeFirstRouteToSite) {
                     centerMapOnBackNavigation(requestedMunicipality);
                     $scope.hasSelectedMunicipalityRoutes=false;
                     $scope.isShowingRouteList = false;
                     $scope.isShowingSiteDetail = true;
+                }
+
+                if($scope.isShowingRouteList && $scope.hasMadeFirstRouteToSite){
+                    $scope.showRouteToSite($scope.initialSelectedSite);
+                    $scope.hasSelectedMunicipalityRoutes=false;
+                    $scope.isShowingRouteList = false;
+                    $scope.isShowingSiteDetail = true;
+
                 }
 
                 if($scope.isShowingRouteDetail){
@@ -233,6 +241,7 @@ angular.module('map')
 
             $scope.showRouteToSite = function (site) {
                 saveFirstSiteSearchedRoute(site);
+                $scope.initialSelectedSite=site;
                 $scope.hasMadeFirstRouteToSite = true;
                 $scope.resulListInCompactMode = true;
                 reloadMap();
