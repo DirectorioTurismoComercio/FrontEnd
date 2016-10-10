@@ -25,8 +25,8 @@ angular.module('registerSite')
         $scope.loader=false;
         $scope.user=siteInformationService.user;
 
-
-
+        var exif;
+        var exif_orientation;
         var numPhotos;
         var loadedPhotos = 0;
 
@@ -60,57 +60,90 @@ angular.module('registerSite')
                     
         $scope.imgLoadedCallback = function (flowFile) {
             var orientation = 0;
-            if(flowFile.file.size>500000){
-                console.log(flowFile)
-                processImage(flowFile);
-            } 
-                
+
+            
             EXIF.getData(flowFile.file, function () {
-                console.log(flowFile)
+                console.log(flowFile.file);
                 orientation = this.exifdata.Orientation;
+                exif = this.exifdata;
                 flowFile.orientation = orientation;
-                
+                exif_orientation = orientation;
+                if(flowFile.file.size>500000){
+                processImage(flowFile);
+                }
                 $scope.$apply();
             });
         };
         
         
         function processImage(flowFile){
+        var max_width=1199;
+        var max_height=899;
+        var width;
+        var height;
+
+        if(exif_orientation==6){
+            width=max_height;
+            height=max_width;
+        }else{
+            width=max_width;
+            height=max_height;
+        }
+       width=max_height;
+            height=max_width;
         
         var src = URL.createObjectURL(flowFile.file);
-        resizeService
-    .resizeImage(src, {
-        width: 1200,
-        height: 800,
-        step: 3,
-        outputFormat: 'image/jpeg',
-        sizeScale: 'ko'
-        
-    })
-    .then(function(image){    
 
-    var blob = dataURItoBlob(image);
-                            blob.name = 'blob';
-                            blob.lastModifiedDate = new Date();
-                            
-                            for(var i=0;i<flowFile.flowObj.files.length;i++){
-         
-                                
-                                if(flowFile.flowObj.files[i].file===flowFile.file){
-                                flowFile.flowObj.files[i]= new Flow.FlowFile(flowFile.flowObj, new File([blob], flowFile.file.name, {type: "image/jpeg", lastModified: Date.now()}));
-                                flowFile.flowObj.files[i].file.exifdata = flowFile.file.exifdata;
-                                flowFile.flowObj.files[i].file.iptcdata = flowFile.file.iptcdata;
-                               
-                                }
-                            }
-                           
-                         
-    })
-    .catch(
-        function(error){
-            console.log("error",error);
-        }
-        );
+        var fileReader = new FileReader();
+        var image = new Image();
+        fileReader.onload = function (event) {
+            var uri = event.target.result;
+            image.src = uri;
+            image.onload = function(){
+                console.log("width",this.width);
+                console.log("height",this.height);
+
+            resizeService
+            .resizeImage(src, {
+                width: width,
+                height: height,
+                step: 3,
+                outputFormat: 'image/jpeg',
+                sizeScale: 'ko'
+                
+            })
+            .then(function(image){   
+           
+            var blob = dataURItoBlob(image);
+                                    blob.name = 'blob';
+                                    blob.lastModifiedDate = new Date();
+                                    
+                                    
+                                    for(var i=0;i<flowFile.flowObj.files.length;i++){
+                 
+                                        if(flowFile.flowObj.files[i].file===flowFile.file){
+                                        flowFile.flowObj.files[i]= new Flow.FlowFile(flowFile.flowObj, new File([blob], flowFile.file.name.toLowerCase()+"_exif_orientation:"+exif_orientation, {type: "image/jpeg", lastModified: Date.now()}));
+                                        flowFile.flowObj.files[i].file.exifdata = flowFile.file.exifdata;
+                                        flowFile.flowObj.files[i].file.iptcdata = flowFile.file.iptcdata;
+                                        console.log("flowfile",flowFile.flowObj.files[i].file);
+                                       
+                                        }
+                                    }
+                                   
+                                 
+            })
+            .catch(
+                function(error){
+                    console.log("error",error);
+                }
+                );
+                
+            };
+            
+        };
+        fileReader.readAsDataURL(flowFile.file);
+        
+        
 
         }
 function dataURItoBlob(dataURI, callback) {
