@@ -479,7 +479,9 @@ angular.module('map')
                 var selectedRoutePhotos=[];
 
                 for(var i=0; i<route.sitios.length; i++){
-                    selectedRoutePhotos.push(route.sitios[i].sitio.fotos[0]);
+
+                    var mainPhoto= filterFilter(route.sitios[i].sitio.fotos,{tipo:'P'},true);
+                    selectedRoutePhotos.push(mainPhoto[0]);
                 }
 
                 return selectedRoutePhotos;
