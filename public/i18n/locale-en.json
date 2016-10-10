@@ -8,8 +8,8 @@
   "HOME_CONSTANTS": {
     "CAROUSEL_TEXT": "Discover the secrets Cundinamarca has for you",
     "HOW_IT_WORKS": "How it works?",
-    "MUNICIPALITIES": "Some municipalities in Cundinamarca",
-    "WATCH_MORE": "Watch more"
+    "MUNICIPALITIES": "Some towns in Cundinamarca",
+    "WATCH_MORE": "More..."
   },
   "TABS_CONSTANTS": {
     "SEARCH_TAB": "Search",
@@ -278,8 +278,8 @@
   "DOUBLE_REGISTER_ERROR": "Please log out before register other account",
   "DOUBLE_LOGIN_ERROR": "Please log out before login with another account",
   "MUNICIPALITIES_VIEW": {
-    "TITLE": "Municipalities in Cundinamarca",
-    "SEARCH_BOX": "Search"
+    "TITLE": "Towns in Cundinamarca",
+    "SEARCH_BOX": "Search a town"
   },
   "MUNICIPALITY-DETAIL": {
     "OFFICE": "Citizen attention",
