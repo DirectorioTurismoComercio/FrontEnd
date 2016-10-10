@@ -353,10 +353,10 @@ describe('Controller: MapController', function () {
         expect($scope.routeToSiteIsVisible).toBe(false);
     });
 
-    it('Should save the first site that user search its route', function () {
+    it('Should save the site that user search its route', function () {
         $scope.showRouteToSite('place');
         $scope.showRouteToSite('place2');
-        expect($scope.initialSelectedSite).toBe('place');
+        expect($scope.initialSelectedSite).toBe('place2');
     });
 
     it('Should delete the first site that user search its route when clicks on goBackToSiteList', function () {
