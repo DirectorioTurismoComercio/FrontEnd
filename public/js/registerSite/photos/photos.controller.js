@@ -65,12 +65,13 @@ angular.module('registerSite')
             EXIF.getData(flowFile.file, function () {
                 console.log(flowFile.file);
                 orientation = this.exifdata.Orientation;
-                exif = this.exifdata;
                 flowFile.orientation = orientation;
                 exif_orientation = orientation;
+
                 if(flowFile.file.size>500000){
                 processImage(flowFile);
                 }
+                
                 $scope.$apply();
             });
         };
@@ -95,10 +96,11 @@ angular.module('registerSite')
             var uri = event.target.result;
             image.src = uri;
             image.onload = function(){
-
+            console.log("real size",this.width+" "+this.height);
             if(exif_orientation==6 || exif_orientation==8){  
                 height = this.width;
                 width = this.height;
+                console.log("orientation 6 u 8");
                 
              }else{
                 width = this.width;
@@ -109,13 +111,25 @@ angular.module('registerSite')
             if (width>max_width || height>max_height){
                 if (width>height){
                     scale_factor = width/max_width;
+                    console.log("width - max-width"+width+" "+max-width);
                 }
                 else {
                     scale_factor = height/max_height;
+                    console.log("height - max-h"+height+" "+max_height);
                 }
+                console.log("factor",scale_factor);
+            if(exif_orientation==6 || exif_orientation==8){  
+                 new_height = parseInt(width/scale_factor)
 
+                new_width = parseInt(height/scale_factor)
+                
+             }else{
                 new_width = parseInt(width/scale_factor)
+
                 new_height = parseInt(height/scale_factor)
+             }   
+
+               
             }
             console.log("new size",new_width+" "+new_height);
             resizeService
