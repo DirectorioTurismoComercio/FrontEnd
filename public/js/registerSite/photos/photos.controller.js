@@ -25,7 +25,7 @@ angular.module('registerSite')
         $scope.loader=false;
         $scope.user=siteInformationService.user;
 
-        var exif;
+     
         var exif_orientation;
         var numPhotos;
         var loadedPhotos = 0;
@@ -77,36 +77,51 @@ angular.module('registerSite')
         
         
         function processImage(flowFile){
+        
         var max_width=1199;
         var max_height=899;
         var width;
         var height;
+        var new_width;
+        var new_height;
 
-        if(exif_orientation==6){
-            width=max_height;
-            height=max_width;
-        }else{
-            width=max_width;
-            height=max_height;
-        }
-       width=max_height;
-            height=max_width;
-        
         var src = URL.createObjectURL(flowFile.file);
 
         var fileReader = new FileReader();
         var image = new Image();
+        var scale_factor=1;
+
         fileReader.onload = function (event) {
             var uri = event.target.result;
             image.src = uri;
             image.onload = function(){
-                console.log("width",this.width);
-                console.log("height",this.height);
 
+            if(exif_orientation==6 || exif_orientation==8){  
+                height = this.width;
+                width = this.height;
+                
+             }else{
+                width = this.width;
+                height = this.height;
+               
+             }   
+
+            if (width>max_width || height>max_height){
+                if (width>height){
+                    scale_factor = width/max_width;
+                }
+                else {
+                    scale_factor = height/max_height;
+                }
+
+                new_width = parseInt(width/scale_factor)
+                new_height = parseInt(height/scale_factor)
+            }
+            console.log("new size",new_width+" "+new_height);
             resizeService
             .resizeImage(src, {
-                width: width,
-                height: height,
+                width: new_width,
+                height: new_height,
                 step: 3,
                 outputFormat: 'image/jpeg',
                 sizeScale: 'ko'
