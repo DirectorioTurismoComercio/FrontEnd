@@ -141,8 +141,24 @@ angular.module('registerSite')
                 sizeScale: 'ko'
                 
             })
-            .then(function(image){   
-           
+            .then(function (image)
+                {
+                    console.log(flowFile);
+                    addFlowFile(image,flowFile);
+                })
+            .catch(
+                function(error){
+                    console.log("error",error);
+                }
+                );
+                
+            };
+            
+        };
+        fileReader.readAsDataURL(flowFile.file);
+        }
+function addFlowFile(image,flowFile){   
+           console.log("addFlow", flowFile);
             var blob = dataURItoBlob(image);
                                     blob.name = 'blob';
                                     blob.lastModifiedDate = new Date();
@@ -160,21 +176,7 @@ angular.module('registerSite')
                                     }
                                    
                                  
-            })
-            .catch(
-                function(error){
-                    console.log("error",error);
-                }
-                );
-                
-            };
-            
-        };
-        fileReader.readAsDataURL(flowFile.file);
-        
-        
-
-        }
+            }        
 function dataURItoBlob(dataURI, callback) {
 // convert base64 to raw binary data held in a string
 // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
