@@ -31,7 +31,6 @@ angular.module('map')
 
             $scope.isShowingRouteList = false;
             $scope.isShowingRouteDetail = false;
-            $scope.routePhotos=undefined;
             $scope.hasSelectedMunicipalityRoutes=false;
 
             uiGmapIsReady.promise().then(initMap);
@@ -470,23 +469,9 @@ angular.module('map')
                 $scope.isShowingRouteDetail = true;
                 $scope.isShowingSiteDetail=false;
                 $scope.selectedRoute = route;
-                $scope.routePhotos=ensambleRoutePhotos(route);
                 $scope.routeSites=MapRouteSitesService.ensambleRouteSites(route);
                 drawRoute();
             }
-
-            function ensambleRoutePhotos(route){
-                var selectedRoutePhotos=[];
-
-                for(var i=0; i<route.sitios.length; i++){
-
-                    var mainPhoto= filterFilter(route.sitios[i].sitio.fotos,{tipo:'P'},true);
-                    selectedRoutePhotos.push(mainPhoto[0]);
-                }
-
-                return selectedRoutePhotos;
-            }
-
 
             function drawRoute(){
                 MapService.clearMarkers();
