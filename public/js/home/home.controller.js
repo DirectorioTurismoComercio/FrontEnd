@@ -25,6 +25,7 @@ angular.module('home')
         };
 
         $scope.doSearch = function (result) {
+            $scope.loader=true;
             navigationService.setMunicipalityDetailNavigation(undefined);
             if (result != undefined) {
                 MapService.clearRoute();
@@ -32,6 +33,7 @@ angular.module('home')
             }
             else {
                 messageService.showErrorMessage("ERROR_NO_KEYWORD_SEARCH");
+                $scope.loader=false;
             }
         };
 
@@ -75,9 +77,11 @@ angular.module('home')
                     $location.path('/map');
                 } else {
                     messageService.showErrorMessage("ERROR_NO_RESULTS");
+                    $scope.loader=false;
                 }
             }).catch(function (error) {
                 messageService.showErrorMessage("GET_SITES_ERROR");
+                $scope.loader=false;
             });
         }
 
