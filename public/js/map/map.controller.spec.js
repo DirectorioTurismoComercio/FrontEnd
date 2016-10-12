@@ -353,22 +353,16 @@ describe('Controller: MapController', function () {
         expect($scope.routeToSiteIsVisible).toBe(false);
     });
 
-    it('Should save the first site that user search its route', function () {
+    it('Should save the site that user search its route', function () {
         $scope.showRouteToSite('place');
         $scope.showRouteToSite('place2');
-        expect($scope.initialSelectedSite).toBe('place');
-    });
-
-    it('Should delete the first site that user search its route when clicks on goBackToSiteList', function () {
-        $scope.showRouteToSite('place');
-        $scope.goBack();
-        expect($scope.initialSelectedSite).toBe(undefined);
+        expect($scope.initialSelectedSite).toBe('place2');
     });
 
     it('Should re make search by keyword after user clicks on goBackToSiteList', function () {
         $scope.doSearch('place');
         $scope.goBack();
-        expect(MapServiceTest.clearMarkers).toHaveBeenCalled();;
+        expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
     });
 
     it('Should recognizes when user search by keyword', function () {

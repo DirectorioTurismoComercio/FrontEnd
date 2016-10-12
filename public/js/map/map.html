@@ -248,22 +248,11 @@
             <!--Route detail-->
             <div ng-if="isShowingRouteDetail">
                 <div class="site-title" ng-if="isMobileDevice()">
-                    <h1 class="name">%%selectedRoute.nombre%%</h1>
-                </div>
-                <div class="row site-detail-carousel">
-                    <ul ng-if="isMobileDevice()" rn-carousel rn-carousel-controls rn-carousel-index="0"
-                        class="carousel" ng-click="openDialogWindowPhotos()">
-                        <li ng-repeat="routePhoto in routePhotos" class="text-center">
-                            <img class="image" ng-src="%%routePhoto.URLfoto%%"/>
-                        </li>
-                    </ul>
-                    <carousel ng-if="!isMobileDevice()" images="routePhotos"
-                              image-click-event="openDialogWindowPhotos()">
-                    </carousel>
+                    <h1 class="route-name-title">%%selectedRoute.nombre%%</h1>
                 </div>
                 <div class="row">
                     <div class="site-detail col-md-12">
-                        <h1 class="name" ng-if="!isMobileDevice()">%%selectedRoute.nombre%%</h1>
+                        <h1 class="route-name-title" ng-if="!isMobileDevice()">%%selectedRoute.nombre%%</h1>
                         <div class="item">
                             <img src="./images/icons/site-detail/descripcion.png">
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.DESCRIPTION"></span>

@@ -9,7 +9,8 @@ angular.module('map')
             var photosPopUp = undefined;
             var requestedMunicipality = requestedMunicipalityDetail.getMunicipality();
             var searchedTown = siteAndTownSaverService.getCurrentSearchedTown();
-            var searchedMunicipality=undefined;
+            var searchedMunicipality=requestedMunicipality;
+            $scope.hasShowRouteToSiteToMunicipality =undefined;
             $scope.hasMadeFirstRouteToSite = false;
             $scope.routeMapZoom = undefined;
             $scope.selectedSite = null;
@@ -26,12 +27,10 @@ angular.module('map')
             $scope.routeToSiteIsVisible = false;
             $scope.initialSelectedSite = undefined;
             $scope.hasMadeCurrentSiteRoute = false;
-            $scope.isMakingASearchByKeyword = siteAndTownSaverService.getQueryMadeByUser();
             $scope.map = getMapProperties();
 
             $scope.isShowingRouteList = false;
             $scope.isShowingRouteDetail = false;
-            $scope.routePhotos=undefined;
             $scope.hasSelectedMunicipalityRoutes=false;
 
             uiGmapIsReady.promise().then(initMap);
@@ -109,62 +108,90 @@ angular.module('map')
             };
 
             $scope.goBack = function () {
-                if(!$scope.hasSelectedMunicipalityRoutes){
-                    resetFirstSiteSearchedRoute();
-                    $scope.hideSiteDetail();
+                if(!$scope.hasSelectedMunicipalityRoutes && !$scope.hasShowRouteToSiteToMunicipality){
+                    console.log("entro a la priemr condicion");
+                    resetRouteAndDetailsValues();
                 }
 
                 if (!$scope.hasSelectedMunicipalityRoutes && siteAndTownSaverService.getQueryMadeByUser() == "SEARCH_BY_KEY_WORD") {
+                    console.log("entro a volver abuscar");
+                    resetRouteAndDetailsValues();
                     searchingByKeyword($scope.result);
                 }
 
                 if (siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE") {
+                    console.log("entro a volver a ahcer la ruta");
                     $scope.showRoute();
                 }
 
-                if (!$scope.isShowingRouteList && navigationService.getMunicipalityDetailNavigation() == 'fromHome' && !$scope.isShowingRouteDetail && !$scope.hasSelectedMunicipalityRoutes) {
+                if (!$scope.isShowingRouteList && navigationService.getMunicipalityDetailNavigation() == 'fromHome' && !$scope.isShowingRouteDetail && !$scope.hasSelectedMunicipalityRoutes && $scope.selectedSite.tipo_sitio=='M') {
+                    $scope.selectedSite=undefined;
+                    $scope.isShowingSiteDetail=false;
+                    $scope.isShowingRouteList=false;
+                    $scope.isShowingRouteDetail=false;
+
+                    console.log("Entro a ir al home");
                     $location.path('/home');
                 }
 
-                if (!$scope.isShowingRouteList && navigationService.getMunicipalityDetailNavigation() == 'fromMunicipalitiesList' && !$scope.isShowingRouteDetail && !$scope.hasSelectedMunicipalityRoutes) {
+                if (!$scope.isShowingRouteList && navigationService.getMunicipalityDetailNavigation() == 'fromMunicipalitiesList' && !$scope.isShowingRouteDetail && !$scope.hasSelectedMunicipalityRoutes && $scope.selectedSite.tipo_sitio=='M') {
+                    console.log("Entro a ir a municipios");
+                    $scope.selectedSite=undefined;
+                    $scope.isShowingSiteDetail=false;
+                    $scope.isShowingRouteList=false;
+                    $scope.isShowingRouteDetail=false;
                     $location.path('/municipalities');
                 }
 
-                if ($scope.isShowingRouteList) {
-                    centerMapOnBackNavigation(requestedMunicipality);
+                if ($scope.isShowingRouteList && !$scope.hasMadeFirstRouteToSite) {
+                    console.log("entro a volver a vver el detalle de l municipoio, sin la ruta");
+                    centerMapOnBackNavigation(searchedMunicipality);
                     $scope.hasSelectedMunicipalityRoutes=false;
                     $scope.isShowingRouteList = false;
                     $scope.isShowingSiteDetail = true;
                 }
 
+                if($scope.isShowingRouteList && $scope.hasMadeFirstRouteToSite){
+                    console.log("entro a ver el detalle del municpio con la ruta");
+                    $scope.showRouteToSite($scope.initialSelectedSite);
+                    $scope.hasSelectedMunicipalityRoutes=false;
+                    $scope.isShowingRouteList = false;
+                    $scope.isShowingSiteDetail = true;
+
+                }
+
                 if($scope.isShowingRouteDetail){
+                    console.log("entro a volver a ver el listado de rutas", searchedMunicipality);
                     MapService.clearMarkers();
                     MapService.clearRoute();
                     SiteMarkerService.deleteMarkers();
-                    if(requestedMunicipality){
-                        addSearchedMunicipalityDetailMarker(requestedMunicipality);
-                    }else{
-                        addSearchedMunicipalityDetailMarker(searchedMunicipality);
-                    }
-                    centerMapOnBackNavigation(requestedMunicipality);
+                    addSearchedMunicipalityDetailMarker(searchedMunicipality);
+
+                    centerMapOnBackNavigation(searchedMunicipality);
                     $scope.isShowingRouteDetail=false;
                     $scope.isShowingRouteList=true;
                 }
 
                 if($scope.hasSelectedMunicipalityRoutes && $scope.isShowingSiteDetail){
+                    console.log("entro a ver el detalle de la ruta");
                     $scope.isShowingSiteDetail=false;
                     $scope.isShowingRouteDetail=true;
                     SiteMarkerService.deleteMarkers();
-                    if(requestedMunicipality){
-                        $scope.selectedSite=requestedMunicipality;
-                    }else{
-                        $scope.selectedSite=searchedMunicipality
-                    }
+
+                    $scope.selectedSite=searchedMunicipality;
+
 
                      $timeout(function () {
                          drawRoute();
                      }, 200);
+                }
 
+                if($scope.hasShowRouteToSiteToMunicipality && $scope.isShowingSiteDetail && $scope.selectedSite.tipo_sitio!='M'){
+                    console.log("el sitio seleccionado es", $scope.selectedSite);
+                    console.log("entro a lo que se necesita", searchedMunicipality, requestedMunicipality);
+                    $scope.hasShowRouteToSiteToMunicipality=false;
+                    $scope.showSiteDetail(searchedMunicipality,0);
+                    $scope.showRouteToSite(searchedMunicipality);
 
                 }
 
@@ -202,6 +229,7 @@ angular.module('map')
                 $scope.selectedSite = site;
                 if($scope.selectedSite.tipo_sitio=='M'){
                     searchedMunicipality=site;
+                    console.log("entro a igualar searchedmucniipalitu to site");
                 }
                 checkSelectedSiteWebPage();
                 reloadMap();
@@ -233,7 +261,11 @@ angular.module('map')
             }
 
             $scope.showRouteToSite = function (site) {
+                if($scope.selectedSite.tipo_sitio=='M'){
+                    $scope.hasShowRouteToSiteToMunicipality=true;
+                }
                 saveFirstSiteSearchedRoute(site);
+                $scope.initialSelectedSite=site;
                 $scope.hasMadeFirstRouteToSite = true;
                 $scope.resulListInCompactMode = true;
                 reloadMap();
@@ -280,7 +312,13 @@ angular.module('map')
             top_anchor.blur();
         }
 
+        function resetRouteAndDetailsValues(){
+            resetFirstSiteSearchedRoute();
+            $scope.hideSiteDetail();
+        }
+
             function centerMapOnBackNavigation(requestedMunicipality){
+                console.log("entro a centrar el mpaa");
                 if(requestedMunicipality){
                     centerMap(requestedMunicipality,13)
                 }else{
@@ -456,12 +494,7 @@ angular.module('map')
                 $scope.hasSelectedMunicipalityRoutes=true;
                 $scope.isShowingRouteList = true;
                 $scope.isShowingSiteDetail = false;
-                if (requestedMunicipality) {
-                    $scope.requestedMunicipalityRoutes = requestedMunicipality.rutas;
-                } else {
-                    $scope.requestedMunicipalityRoutes = $scope.selectedSite.rutas;
-                    navigationService.setMunicipalityDetailNavigation()
-                }
+                $scope.requestedMunicipalityRoutes=$scope.selectedSite.rutas;
             }
 
             $scope.showRouteDetail=function(route,index){
@@ -470,21 +503,9 @@ angular.module('map')
                 $scope.isShowingRouteDetail = true;
                 $scope.isShowingSiteDetail=false;
                 $scope.selectedRoute = route;
-                $scope.routePhotos=ensambleRoutePhotos(route);
                 $scope.routeSites=MapRouteSitesService.ensambleRouteSites(route);
                 drawRoute();
             }
-
-            function ensambleRoutePhotos(route){
-                var selectedRoutePhotos=[];
-
-                for(var i=0; i<route.sitios.length; i++){
-                    selectedRoutePhotos.push(route.sitios[i].sitio.fotos[0]);
-                }
-
-                return selectedRoutePhotos;
-            }
-
 
             function drawRoute(){
                 MapService.clearMarkers();

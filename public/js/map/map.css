@@ -422,6 +422,11 @@ prev.search-results .map {
     height: 3vmin;
 }
 
+.route-name-title{
+    color: #32A2D4;
+    font-weight: bold;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
@@ -438,6 +443,7 @@ prev.search-results .map {
 
     .search-results .icon {
         width: 25px;
+        min-width: 25px;
     }
 
     .detail-icon {

@@ -14,6 +14,8 @@ angular.module('appHeader', [])
         $scope.goToHome = function () {
             siteAndTownSaverService.resetSearchAndRoute();
             navigationService.setClickedLogoButton(true);
+            siteAndTownSaverService.searchedRoute.origin=undefined;
+            siteAndTownSaverService.searchedRoute.destination=undefined;
             $location.path('/home');
         }
 
