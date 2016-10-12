@@ -19,6 +19,7 @@ angular.module('map')
             $scope.isOnSitedetails = false;
             $scope.foundSites = [];
             $scope.noResults = false;
+            $scope.loader=false;
             $scope.routeToController = {
                 routeFrom: '',
                 routeTo: ''
@@ -251,6 +252,7 @@ angular.module('map')
             };
 
             $scope.doSearch = function (result) {
+                $scope.loader=true;
                 navigationService.setMunicipalityDetailNavigation(undefined);
                 siteAndTownSaverService.setQueryMadeByUser("SEARCH_BY_KEY_WORD");
                 searchingByKeyword(result);
@@ -434,6 +436,7 @@ angular.module('map')
                 if (sites != undefined) {
                     MapRouteService.setSiteMarker(sites, $scope);
                 }
+                $scope.loader=false;
             }
 
             function handleLocationError() {
