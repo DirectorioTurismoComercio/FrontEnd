@@ -120,7 +120,7 @@ angular.module('map')
                     searchingByKeyword($scope.result);
                 }
 
-                if (siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE" && !$scope.isShowingRouteList && !$scope.isShowingRouteDetail) {
+                if (!$scope.hasSelectedMunicipalityRoutes && siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE" && !$scope.isShowingRouteList && !$scope.isShowingRouteDetail) {
                     console.log("entro a volver a ahcer la ruta");
                     $scope.showRoute();
                 }
