@@ -85,7 +85,6 @@ angular.module('home')
             });
         }
 
-
         function setHowItWorksTraderImage() {
             if ($translate.use() == 'es') {
                 setHowItWorksTraderImageDevice('como-funciona-comerciante-home_mob-esp.jpg', 'como-funciona-comerciante-home-esp.jpg');
