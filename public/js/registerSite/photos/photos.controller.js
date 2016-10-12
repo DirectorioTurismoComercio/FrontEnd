@@ -7,6 +7,9 @@ angular.module('registerSite')
                                                       siteInformationService) {
 
 
+        var max_width=1199;
+        var max_height=899;
+
         $scope.$on('$viewContentLoaded', function () {
             checkSelectedPhotos();
         });
@@ -79,14 +82,12 @@ angular.module('registerSite')
         
         function processImage(flowFile){
         
-        var max_width=1199;
-        var max_height=899;
         var width;
         var height;
         var new_width;
         var new_height;
 
-        var src = URL.createObjectURL(flowFile.file);
+        
 
         var fileReader = new FileReader();
         var image = new Image();
@@ -96,11 +97,9 @@ angular.module('registerSite')
             var uri = event.target.result;
             image.src = uri;
             image.onload = function(){
-            console.log("real size",this.width+" "+this.height);
             if(exif_orientation==6 || exif_orientation==8){  
                 height = this.width;
                 width = this.height;
-                console.log("orientation 6 u 8");
                 
              }else{
                 width = this.width;
@@ -131,9 +130,19 @@ angular.module('registerSite')
 
                
             }
-            console.log("new size",new_width+" "+new_height);
-            resizeService
-            .resizeImage(src, {
+            resizeFlowFile(flowFile, new_width, new_height);            
+
+                
+            };
+            
+        };
+        fileReader.readAsDataURL(flowFile.file);
+        
+        }
+
+function resizeFlowFile(flowFile, new_width, new_height){
+ var src = URL.createObjectURL(flowFile.file);   
+ resizeService.resizeImage(src, {
                 width: new_width,
                 height: new_height,
                 step: 3,
@@ -141,42 +150,36 @@ angular.module('registerSite')
                 sizeScale: 'ko'
                 
             })
-            .then(function (image)
-                {
-                    console.log(flowFile);
-                    addFlowFile(image,flowFile);
+            .then(function (image){
+                    createAndReplaceResizedFlowFile(image,flowFile);
                 })
             .catch(
                 function(error){
                     console.log("error",error);
                 }
-                );
-                
-            };
-            
-        };
-        fileReader.readAsDataURL(flowFile.file);
-        }
-function addFlowFile(image,flowFile){   
-           console.log("addFlow", flowFile);
-            var blob = dataURItoBlob(image);
-                                    blob.name = 'blob';
-                                    blob.lastModifiedDate = new Date();
-                                    
-                                    
-                                    for(var i=0;i<flowFile.flowObj.files.length;i++){
+            );
+}
+
+
+function createAndReplaceResizedFlowFile(image,flowFile){   
+    var blob = dataURItoBlob(image);
+    blob.name = 'blob';
+    blob.lastModifiedDate = new Date();
+    var resizedFlowFile = new Flow.FlowFile(flowFile.flowObj, new File([blob], flowFile.file.name.toLowerCase()+"_exif_orientation:"+exif_orientation, {type: "image/jpeg", lastModified: Date.now()}));
+    replaceFlowFile(resizedFlowFile, flowFile)        
+}
+function replaceFlowFile(resizedFlowFile, flowFile){
+    for(var i=0;i<flowFile.flowObj.files.length;i++){
                  
-                                        if(flowFile.flowObj.files[i].file===flowFile.file){
-                                        flowFile.flowObj.files[i]= new Flow.FlowFile(flowFile.flowObj, new File([blob], flowFile.file.name.toLowerCase()+"_exif_orientation:"+exif_orientation, {type: "image/jpeg", lastModified: Date.now()}));
-                                        flowFile.flowObj.files[i].file.exifdata = flowFile.file.exifdata;
-                                        flowFile.flowObj.files[i].file.iptcdata = flowFile.file.iptcdata;
-                                        console.log("flowfile",flowFile.flowObj.files[i].file);
-                                       
-                                        }
-                                    }
-                                   
-                                 
-            }        
+        if(flowFile.flowObj.files[i].file===flowFile.file){
+        flowFile.flowObj.files[i]= resizedFlowFile;
+        flowFile.flowObj.files[i].file.exifdata = flowFile.file.exifdata;
+        flowFile.flowObj.files[i].file.iptcdata = flowFile.file.iptcdata;
+        
+        }
+    }
+}                                    
+
 function dataURItoBlob(dataURI, callback) {
 // convert base64 to raw binary data held in a string
 // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
