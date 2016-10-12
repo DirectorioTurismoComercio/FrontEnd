@@ -152,8 +152,8 @@ angular.module('map')
                 }
 
                 if($scope.isShowingRouteList && $scope.hasMadeFirstRouteToSite){
-                    console.log("entro a ver el detalle del municpio con la ruta");
-                    $scope.showRouteToSite($scope.initialSelectedSite);
+                    console.log("entro a ver el detalle del municpio con la ruta", searchedMunicipality);
+                    $scope.showRouteToSite(searchedMunicipality);
                     $scope.hasSelectedMunicipalityRoutes=false;
                     $scope.isShowingRouteList = false;
                     $scope.isShowingSiteDetail = true;
