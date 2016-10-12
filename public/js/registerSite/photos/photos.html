@@ -59,7 +59,8 @@
                     <div class="thumbnail mainPhotoImagesContainer" ng-show="$flow.files.length">
                         <md-progress-circular class="loading loadingPhoto" md-mode="indeterminate"
                                               ng-show="loadingMainPhoto"></md-progress-circular>
-                        <img  image-onload="imgLoadedCallback('mainPhoto',0)" class="selectedMainPhoto" flow-img="$flow.files[0]"/>
+                        <img image-onload="imgLoadedCallback($flow.files[0])" class="selectedMainPhoto"
+                             flow-img="$flow.files[0]" ng-class="correctOrientation($flow.files[0].orientation)"/>
                         <img class="deletePhoto deletePhotoSize" ng-click="$flow.cancel()"
                              src="./images/registerIcons/foto-borrar.png">
                     </div>

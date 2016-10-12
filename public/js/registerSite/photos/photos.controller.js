@@ -7,6 +7,10 @@ angular.module('registerSite')
                                                       siteInformationService) {
 
 
+        var max_width=1199;
+        var max_height=899;
+        var max_size=500000;
+
         $scope.$on('$viewContentLoaded', function () {
             checkSelectedPhotos();
         });
@@ -25,11 +29,8 @@ angular.module('registerSite')
         $scope.loader=false;
         $scope.user=siteInformationService.user;
 
-
-
         var numPhotos;
         var loadedPhotos = 0;
-
 
         $scope.mainPhotoOnClick = function () {
             $scope.showMainPhotoRequired = false;
@@ -60,83 +61,118 @@ angular.module('registerSite')
         $scope.imgLoadedCallback = function (flowFile) {
             var orientation = 0;
 
+            
             EXIF.getData(flowFile.file, function () {
                 orientation = this.exifdata.Orientation;
                 flowFile.orientation = orientation;
-                $scope.$apply();
+
+                if(flowFile.file.size>max_size){
+                    if(flowFile.file.new_dimensions){
+                       if (flowFile.file.new_dimensions.width>max_width || flowFile.file.new_dimensions.height>max_height) 
+                       {
+                        reduceImage(flowFile);
+                       }
+                    }else{
+                        reduceImage(flowFile);
+                    }
+
+                }
+                
+                
             });
         };
         
-        /*
-        $scope.imgLoadedCallback=function(flowObjectName,fileIndex){
         
-            var orientation = 0;
-
-            EXIF.getData(flowObjectName.file, function () {
-                orientation = this.exifdata.Orientation;
-                flowObjectName.orientation = orientation;
-                $scope.$apply();
-         
-           switch (flowObjectName) {
-           
-               case 'mainPhoto':
+function reduceImage(flowFile){
+    var new_width;
+    var new_height;
+    var fileReader = new FileReader();
+    var image = new Image();
+    fileReader.onload = function (event) {
+        var uri = event.target.result;
+        image.src = uri;
+        image.onload = function(){
+            var scale_factor = calculateScaleFactor(this.width,this.height,max_width,max_height, flowFile.orientation);    
+            new_width = parseInt(this.width/scale_factor);
+            new_height = parseInt(this.height/scale_factor);  
+            resizeFlowFile(flowFile, new_width, new_height);    
+        }
                   
-                   if($scope.flowMainPhoto.flow.files[0].file.size>500000){
-                   processImage($scope.flowMainPhoto.flow,0, flowObjectName);
-                   $scope.loadingMainPhoto=false;
-                   }
-                   break;
+    };
+    fileReader.readAsDataURL(flowFile.file);
+}
 
-               case 'facadePhotos':
-                   previewPhoto($scope.flowFacadePhotos.flow,fileIndex,lastFacadeFileIndex, flowObjectName);
-                   $scope.loadingFacadePhoto=false;
-               break;
+function calculateScaleFactor(current_width, current_height, max_width, max_height, orientation){
+    var height;
+    var width;
+    var scale_factor=1;
+    if(orientation==6 || orientation==8){  
+        height = current_width;
+        width = current_height;
+        
+     }else{
+        width = current_width;
+        height = current_height;
+       
+     }   
 
-               case 'insidePhotos':
-                   previewPhoto($scope.flowInsidePhotos.flow,fileIndex,lastInsideFileIndex, flowObjectName);
-                   $scope.loadingInsidePhoto=false;
-                   break;
-
-               case 'productsPhotos':
-                   previewPhoto($scope.flowProductsPhotos.flow,fileIndex,lastProductsFileIndex, flowObjectName);
-                   $scope.loadingProductsPhoto=false;
-                   break;
-           }
-
-            });
-
+    if (width>max_width || height>max_height){
+        if (width>height){
+            scale_factor = width/max_width;
         }
-        */
-        function processImage(flowObject,fileIndex, photoLoading){
-        console.log(flowObject.files[fileIndex].file);
-        var src = URL.createObjectURL(flowObject.files[fileIndex].file);
-        resizeService
-    .resizeImage(src, {
-        width: 1200,
-        height: 800,
-        step: 3,
-        outputFormat: 'image/jpeg',
-        sizeScale: 'ko'
-        // Other options ...
-    })
-    .then(function(image){    
+        else {
+            scale_factor = height/max_height;
+        }
+    }
+    return scale_factor;
+}
 
+function resizeFlowFile(flowFile, new_width, new_height){
+ var src = URL.createObjectURL(flowFile.file);   
+ flowFile.width = new_width;
+ flowFile.height = new_height;
+ resizeService.resizeImage(src, {
+                width: new_width,
+                height: new_height,
+                step: 3,
+                outputFormat: 'image/jpeg',
+                sizeScale: 'ko'
+                
+            })
+            .then(function (image){
+                    createAndReplaceResizedFlowFile(image,flowFile);
+                })
+            .catch(
+                function(error){
+                    console.log("error",error);
+                }
+            );
+}
+
+
+function createAndReplaceResizedFlowFile(image,flowFile){   
     var blob = dataURItoBlob(image);
-                            blob.name = 'nueva';//flowObject.files[fileIndex].uniqueIdentifier;
-                            blob.lastModifiedDate = new Date();
-                            var f = new Flow.FlowFile(flowObject, blob);
-                            flowObject.files.splice(fileIndex,1);
-                            flowObject.files.push(f); 
-                            flowObject.files[fileIndex]=f;
-                            //$scope.$digest();  
-    })
-    .catch(
-        function(error){
-            console.log("error",error);
-        }
-        );
+    blob.name = 'blob';
+    blob.lastModifiedDate = new Date();
+    var resizedFlowFile = new Flow.FlowFile(flowFile.flowObj, new File([blob], flowFile.file.name.toLowerCase()+"_exif_orientation:"+flowFile.orientation, 
+                                {type: "image/jpeg", lastModified: Date.now()}));
+    replaceFlowFile(resizedFlowFile, flowFile)        
+}
 
+function replaceFlowFile(resizedFlowFile, flowFile){
+    for(var i=0;i<flowFile.flowObj.files.length;i++){
+                 
+        if(flowFile.flowObj.files[i].file===flowFile.file){
+        flowFile.flowObj.files[i]= resizedFlowFile;
+        flowFile.flowObj.files[i].file.exifdata = flowFile.file.exifdata;
+        flowFile.flowObj.files[i].file.iptcdata = flowFile.file.iptcdata;
+        flowFile.flowObj.files[i].file.new_dimensions= new Object();
+        flowFile.flowObj.files[i].file.new_dimensions.width = flowFile.width;
+        flowFile.flowObj.files[i].file.new_dimensions.height = flowFile.height;
         }
+    }
+}                                    
+
 function dataURItoBlob(dataURI, callback) {
 // convert base64 to raw binary data held in a string
 // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
