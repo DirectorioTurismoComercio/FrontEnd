@@ -101,11 +101,9 @@ angular.module('registerSite')
         var appendPhotos = function (arrayPhotos, model, fd) {
             var photosCounter = 0;
             angular.forEach(arrayPhotos, function (file) {
-                console.log("file",file.file);
                 fd.append(model + photosCounter, file.file);
                 photosCounter++;
             });
-            console.log("fd",fd);
         }
 
 

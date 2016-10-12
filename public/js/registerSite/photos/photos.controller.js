@@ -64,6 +64,9 @@ angular.module('registerSite')
             
             EXIF.getData(flowFile.file, function () {
                 orientation = this.exifdata.Orientation;
+                if(!orientation){
+                    orientation=1;
+                }
                 flowFile.orientation = orientation;
 
                 if(flowFile.file.size>max_size){
