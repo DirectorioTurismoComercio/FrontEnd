@@ -212,7 +212,8 @@
     "ADD_MUNICIPALITY": "Add info",
     "MUNICIPALITY_SITES": "Town sites",
     "MUNICIPALITY_ROUTES": "Routes",
-    "ADD_ROUTE": "Add route"
+    "ADD_ROUTE": "Add route",
+    "DELETE_ACCOUNT": "Deactivate my account"
   },
   "ROUTE_CREATION": {
     "FORM_TITLE": "Register route",
@@ -286,7 +287,13 @@
     "ROUTES": "Municipality routes",
     "SITES": "Municipality cites"
   },
-  "MUNICIPALITY_ROUTE_LIST":{
-    "TITLE":"Routes in "
+  "MUNICIPALITY_ROUTE_LIST": {
+    "TITLE": "Routes in "
+  },
+  "DELETE_ACCOUNT": {
+    "TITLE": "Desactivar cuenta",
+    "MESSAGE": "Que te vaya bonito\nque no te vaya mal\ny que el tiempo te deje\nen donde tengas que estar",
+    "CONTINUE": "Continuar",
+    "CANCEL": "Cancelar"
   }
 }

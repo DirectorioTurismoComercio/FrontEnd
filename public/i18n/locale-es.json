@@ -212,7 +212,8 @@
     "ADD_MUNICIPALITY": "Añadir información",
     "MUNICIPALITY_SITES": "Sitios del municipio",
     "MUNICIPALITY_ROUTES": "Rutas",
-    "ADD_ROUTE": "Añadir ruta"
+    "ADD_ROUTE": "Añadir ruta",
+    "DELETE_ACCOUNT": "Desactivar mi cuenta"
   },
   "ROUTE_CREATION": {
     "FORM_TITLE": "Inscripción de ruta",
@@ -232,20 +233,20 @@
     "ROUTE_APROX_DURATION": "Duración aprox.",
     "INCORRECT_NUMBER_OF_POINTS_ERROR": "La ruta debe tener al menos dos sitios*"
   },
-  "ERROR_NO_KEYWORD_SEARCH":"Por favor ingrese un criterio de busqueda",
-  "ERROR_NO_RESULTS":"No se han encontrado resultados",
+  "ERROR_NO_KEYWORD_SEARCH": "Por favor ingrese un criterio de busqueda",
+  "ERROR_NO_RESULTS": "No se han encontrado resultados",
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Los lugares fuera de cundinamarca no estan permitidos",
   "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
-  "ERROR_INITIAL_AND_DESTINY_POINTS":"Indique un punto de partida y un destino",
+  "ERROR_INITIAL_AND_DESTINY_POINTS": "Indique un punto de partida y un destino",
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN": "Debes elegir tu punto de partida",
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "Debes elegir tu destino",
-  "ERROR_SERVER_COMMUNICATION":"Hubo un error con el servidor, por favor intentalo más tarde",
-  "ERROR_POINT_OUTSIDE_MUNICIPALITY_BOUNDARIES":"Verifique que la ubicación se encuentre en el municipio seleccionado",
-  "CONFIRM_DELETE_SITE":"¿Está seguro que desea borrar este sitio?",
-  "CONFIRM_DELETE_ROUTE":"¿Está seguro que desea borrar esta ruta?",
-  "DELETE_SITE":"Borrar sitio",
-  "DELETE_ROUTE":"Borrar ruta",
-  "ERROR_ROUTE_NOT_VALID":"En una ruta con sólo 2 puntos, el punto inicial no puede ser el mismo que el punto final",
+  "ERROR_SERVER_COMMUNICATION": "Hubo un error con el servidor, por favor intentalo más tarde",
+  "ERROR_POINT_OUTSIDE_MUNICIPALITY_BOUNDARIES": "Verifique que la ubicación se encuentre en el municipio seleccionado",
+  "CONFIRM_DELETE_SITE": "¿Está seguro que desea borrar este sitio?",
+  "CONFIRM_DELETE_ROUTE": "¿Está seguro que desea borrar esta ruta?",
+  "DELETE_SITE": "Borrar sitio",
+  "DELETE_ROUTE": "Borrar ruta",
+  "ERROR_ROUTE_NOT_VALID": "En una ruta con sólo 2 puntos, el punto inicial no puede ser el mismo que el punto final",
   "MY_POSITION": "Mi posición actual",
   "SUCCESS_TITLE_MESSAGE": "Bienvenido",
   "REGISTER_COMPLETE": "El registro fue exitoso",
@@ -264,7 +265,7 @@
   "E102": "El password debe ser de al menos 6 caracteres",
   "E103": "Contraseña incorrecta.",
   "CANCEL_BUTTON": "Cancelar",
-  "ACCEPT_BUTTON":"Aceptar",
+  "ACCEPT_BUTTON": "Aceptar",
   "LOGIN_FIELDS_INCOMPLETE": "Por favor ingrese correo y contraseña",
   "TOURISTS": "Turistas",
   "TRADERS": "Comerciantes",
@@ -281,12 +282,18 @@
     "TITLE": "Municipios de Cundinamarca",
     "SEARCH_BOX": "Buscar"
   },
-  "MUNICIPALITY-DETAIL":{
-    "OFFICE":"Atención al ciudadano",
-    "ROUTES":"Rutas del municipio",
-    "SITES":"Sitios del municipio"
+  "MUNICIPALITY-DETAIL": {
+    "OFFICE": "Atención al ciudadano",
+    "ROUTES": "Rutas del municipio",
+    "SITES": "Sitios del municipio"
   },
-  "MUNICIPALITY_ROUTE_LIST":{
-    "TITLE":"Rutas en "
+  "MUNICIPALITY_ROUTE_LIST": {
+    "TITLE": "Rutas en "
+  },
+  "DELETE_ACCOUNT": {
+    "TITLE": "Desactivar cuenta",
+    "MESSAGE": "Que te vaya bonito que no te vaya mal y que el tiempo te deje en donde tengas que estar",
+    "CONTINUE": "Continuar",
+    "CANCEL": "Cancelar"
   }
 }
