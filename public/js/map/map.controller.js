@@ -119,7 +119,7 @@ angular.module('map')
                     searchingByKeyword($scope.result);
                 }
 
-                if (siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE") {
+                if (siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE" && !$scope.isShowingRouteList && !$scope.isShowingRouteDetail) {
                     console.log("entro a volver a ahcer la ruta");
                     $scope.showRoute();
                 }
@@ -151,7 +151,7 @@ angular.module('map')
                     $scope.isShowingSiteDetail = true;
                 }
 
-                if($scope.isShowingRouteList && $scope.hasMadeFirstRouteToSite){
+                if($scope.isShowingRouteList && $scope.hasMadeFirstRouteToSite ){
                     console.log("entro a ver el detalle del municpio con la ruta", searchedMunicipality);
                     $scope.showRouteToSite(searchedMunicipality);
                     $scope.hasSelectedMunicipalityRoutes=false;
