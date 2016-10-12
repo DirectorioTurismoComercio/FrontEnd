@@ -27,7 +27,6 @@ angular.module('map')
             $scope.routeToSiteIsVisible = false;
             $scope.initialSelectedSite = undefined;
             $scope.hasMadeCurrentSiteRoute = false;
-            $scope.isMakingASearchByKeyword = siteAndTownSaverService.getQueryMadeByUser();
             $scope.map = getMapProperties();
 
             $scope.isShowingRouteList = false;
