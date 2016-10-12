@@ -359,7 +359,10 @@ angular.module('map')
                     drawSitesByKeyWord(keyWord);
                 }
                 else {
+
                     messageService.showErrorMessage("ERROR_NO_KEYWORD_SEARCH");
+                    $scope.loader=false;
+                 
                 }
             }
 
@@ -422,6 +425,8 @@ angular.module('map')
                     } else {
                         $scope.foundSites = 0;
                         messageService.showErrorMessage("ERROR_NO_RESULTS");
+                        $scope.loader=false;
+                    
                     }
                 }).catch(function (error) {
                     console.log("ocurrio un error", error);
@@ -437,12 +442,15 @@ angular.module('map')
                     MapRouteService.setSiteMarker(sites, $scope);
                 }
                 $scope.loader=false;
+                
+
             }
 
             function handleLocationError() {
                 resetFirstSiteSearchedRoute();
                 messageService.showErrorMessage("ERROR_UNAVAILABLE_LOCATION");
             }
+
 
             function checkSelectedSiteWebPage() {
                 var httpProtocol = 'http://';
