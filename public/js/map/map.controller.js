@@ -509,6 +509,7 @@ angular.module('map')
             }
 
             $scope.showRouteDetail=function(route,index){
+                $scope.foundSites=undefined;
                 sendViewToTop();
                 $scope.isShowingRouteList=false;
                 $scope.isShowingRouteDetail = true;
