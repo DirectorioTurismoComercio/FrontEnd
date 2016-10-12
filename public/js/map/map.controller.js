@@ -9,7 +9,7 @@ angular.module('map')
             var photosPopUp = undefined;
             var requestedMunicipality = requestedMunicipalityDetail.getMunicipality();
             var searchedTown = siteAndTownSaverService.getCurrentSearchedTown();
-            var searchedMunicipality=undefined;
+            var searchedMunicipality=requestedMunicipality;
             $scope.hasShowRouteToSiteToMunicipality =undefined;
             $scope.hasMadeFirstRouteToSite = false;
             $scope.routeMapZoom = undefined;
@@ -146,7 +146,7 @@ angular.module('map')
 
                 if ($scope.isShowingRouteList && !$scope.hasMadeFirstRouteToSite) {
                     console.log("entro a volver a vver el detalle de l municipoio, sin la ruta");
-                    centerMapOnBackNavigation(requestedMunicipality);
+                    centerMapOnBackNavigation(searchedMunicipality);
                     $scope.hasSelectedMunicipalityRoutes=false;
                     $scope.isShowingRouteList = false;
                     $scope.isShowingSiteDetail = true;
@@ -162,16 +162,13 @@ angular.module('map')
                 }
 
                 if($scope.isShowingRouteDetail){
-                    console.log("entro a volver a ver el listado de rutas");
+                    console.log("entro a volver a ver el listado de rutas", searchedMunicipality);
                     MapService.clearMarkers();
                     MapService.clearRoute();
                     SiteMarkerService.deleteMarkers();
-                    if(requestedMunicipality){
-                        addSearchedMunicipalityDetailMarker(requestedMunicipality);
-                    }else{
-                        addSearchedMunicipalityDetailMarker(searchedMunicipality);
-                    }
-                    centerMapOnBackNavigation(requestedMunicipality);
+                    addSearchedMunicipalityDetailMarker(searchedMunicipality);
+
+                    centerMapOnBackNavigation(searchedMunicipality);
                     $scope.isShowingRouteDetail=false;
                     $scope.isShowingRouteList=true;
                 }
@@ -181,11 +178,9 @@ angular.module('map')
                     $scope.isShowingSiteDetail=false;
                     $scope.isShowingRouteDetail=true;
                     SiteMarkerService.deleteMarkers();
-                    if(requestedMunicipality){
-                        $scope.selectedSite=requestedMunicipality;
-                    }else{
-                        $scope.selectedSite=searchedMunicipality
-                    }
+
+                    $scope.selectedSite=searchedMunicipality;
+
 
                      $timeout(function () {
                          drawRoute();
@@ -196,13 +191,9 @@ angular.module('map')
                     console.log("el sitio seleccionado es", $scope.selectedSite);
                     console.log("entro a lo que se necesita", searchedMunicipality, requestedMunicipality);
                     $scope.hasShowRouteToSiteToMunicipality=false;
-                    if(requestedMunicipality){
-                        $scope.showSiteDetail(requestedMunicipality,0);
-                        $scope.showRouteToSite(requestedMunicipality);
-                    }else{
-                        $scope.showSiteDetail(searchedMunicipality,0);
-                        $scope.showRouteToSite(searchedMunicipality);
-                    }
+                    $scope.showSiteDetail(searchedMunicipality,0);
+                    $scope.showRouteToSite(searchedMunicipality);
+
                 }
 
             };
@@ -504,12 +495,7 @@ angular.module('map')
                 $scope.hasSelectedMunicipalityRoutes=true;
                 $scope.isShowingRouteList = true;
                 $scope.isShowingSiteDetail = false;
-                if (requestedMunicipality) {
-                    $scope.requestedMunicipalityRoutes = requestedMunicipality.rutas;
-                } else {
-                    $scope.requestedMunicipalityRoutes = $scope.selectedSite.rutas;
-                    navigationService.setMunicipalityDetailNavigation()
-                }
+                $scope.requestedMunicipalityRoutes=$scope.selectedSite.rutas;
             }
 
             $scope.showRouteDetail=function(route,index){
