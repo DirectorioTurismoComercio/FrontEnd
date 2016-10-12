@@ -84,22 +84,34 @@
     height: 400px;
 }
 
-.account-info-munucipality-title-container{
+.account-info-munucipality-title-container {
     margin: auto;
     width: 50%;
     text-align: center;
 }
 
-.account-info-munucipality-title{
+.account-info-munucipality-title {
     display: inline-block;
 }
 
-.municipality-sites-title-container{
+.municipality-sites-title-container {
     width: 90% !important;
 }
 
-.route-properties-text-display{
+.route-properties-text-display {
     display: inline-block;
+}
+
+.delete-account {
+    margin: 20px 2px;
+}
+
+.delete-account a {
+    cursor: pointer;
+}
+
+.delete-account a:hover {
+    text-decoration: none;
 }
 
 @media (min-width: 768px) {

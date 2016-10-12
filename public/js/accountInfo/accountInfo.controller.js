@@ -1,7 +1,9 @@
 'use strict';
 angular.module('accountInfo')
     .controller('AccountInfoController', function ($scope, $location, $http,
-                                                   authenticationService, navigationService, siteInformationService, messageService, filterFilter, API_CONFIG, $mdDialog, $translate, formValidator) {
+                                                   authenticationService, navigationService, siteInformationService,
+                                                   messageService, filterFilter, API_CONFIG, $mdDialog, $translate,
+                                                   formValidator, ngDialog) {
 
         $scope.showRequiredFieldMessage = false;
         $scope.usuario = authenticationService.getUser();
@@ -182,14 +184,31 @@ angular.module('accountInfo')
         }
 
         $scope.isResgisteredWithSocialNetwork = function () {
-
             return $scope.usuario.social_auth.length > 0;
-
-        }
+        };
 
         $scope.$on('$routeChangeStart', function (scope, next, current) {
             if (next.$$route.controller == 'summaryController' || next.$$route.controller == 'loginController') {
                 $location.path('/home');
             }
         });
+
+        $scope.deleteAccount = function () {
+
+        };
+
+        $scope.closeDialog = function () {
+            ngDialog.close();
+        };
+
+        $scope.showDialogDeleteAccount = function () {
+            ngDialog.open({
+                template: 'js/accountInfo/deleteAccount.html',
+                width: 'auto',
+                showClose: false,
+                scope: $scope,
+                closeByEscape: true,
+                closeByDocument: true
+            });
+        }
     });
