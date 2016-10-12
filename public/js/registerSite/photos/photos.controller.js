@@ -29,12 +29,8 @@ angular.module('registerSite')
         $scope.loader=false;
         $scope.user=siteInformationService.user;
 
-     
-        var exif_orientation;
         var numPhotos;
         var loadedPhotos = 0;
-
-
 
         $scope.mainPhotoOnClick = function () {
             $scope.showMainPhotoRequired = false;
@@ -67,12 +63,10 @@ angular.module('registerSite')
 
             
             EXIF.getData(flowFile.file, function () {
-                console.log(flowFile.file);
                 orientation = this.exifdata.Orientation;
                 flowFile.orientation = orientation;
-                exif_orientation = orientation;
 
-                if(flowFile.file.size>500000){
+                if(flowFile.file.size>max_size){
                     if(flowFile.file.new_dimensions){
                        if (flowFile.file.new_dimensions.width>max_width || flowFile.file.new_dimensions.height>max_height) 
                        {
@@ -135,10 +129,8 @@ function calculateScaleFactor(current_width, current_height, max_width, max_heig
 
 function resizeFlowFile(flowFile, new_width, new_height){
  var src = URL.createObjectURL(flowFile.file);   
- console.log("new height",new_height);
  flowFile.width = new_width;
  flowFile.height = new_height;
- console.log("resize",flowFile);
  resizeService.resizeImage(src, {
                 width: new_width,
                 height: new_height,
@@ -177,7 +169,6 @@ function replaceFlowFile(resizedFlowFile, flowFile){
         flowFile.flowObj.files[i].file.new_dimensions= new Object();
         flowFile.flowObj.files[i].file.new_dimensions.width = flowFile.width;
         flowFile.flowObj.files[i].file.new_dimensions.height = flowFile.height;
-        console.log("flowFile.flowObj.files[i].file",flowFile.flowObj.files[i].file);
         }
     }
 }                                    
