@@ -186,7 +186,7 @@ angular.module('map')
                      }, 200);
                 }
 
-                if($scope.hasShowRouteToSiteToMunicipality && $scope.isShowingSiteDetail && $scope.hasShowRouteToSiteToMunicipality && $scope.selectedSite.tipo_sitio!='M'){
+                if($scope.hasShowRouteToSiteToMunicipality && $scope.isShowingSiteDetail && $scope.selectedSite.tipo_sitio!='M'){
                     console.log("el sitio seleccionado es", $scope.selectedSite);
                     console.log("entro a lo que se necesita", searchedMunicipality, requestedMunicipality);
                     $scope.hasShowRouteToSiteToMunicipality=false;
