@@ -19,6 +19,7 @@ angular.module('map')
             $scope.isOnSitedetails = false;
             $scope.foundSites = [];
             $scope.noResults = false;
+            $scope.loader=false;
             $scope.routeToController = {
                 routeFrom: '',
                 routeTo: ''
@@ -119,7 +120,7 @@ angular.module('map')
                     searchingByKeyword($scope.result);
                 }
 
-                if (siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE") {
+                if (siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE" && !$scope.isShowingRouteList && !$scope.isShowingRouteDetail) {
                     console.log("entro a volver a ahcer la ruta");
                     $scope.showRoute();
                 }
@@ -151,9 +152,9 @@ angular.module('map')
                     $scope.isShowingSiteDetail = true;
                 }
 
-                if($scope.isShowingRouteList && $scope.hasMadeFirstRouteToSite){
-                    console.log("entro a ver el detalle del municpio con la ruta");
-                    $scope.showRouteToSite($scope.initialSelectedSite);
+                if($scope.isShowingRouteList && $scope.hasMadeFirstRouteToSite ){
+                    console.log("entro a ver el detalle del municpio con la ruta", searchedMunicipality);
+                    $scope.showRouteToSite(searchedMunicipality);
                     $scope.hasSelectedMunicipalityRoutes=false;
                     $scope.isShowingRouteList = false;
                     $scope.isShowingSiteDetail = true;
@@ -251,6 +252,7 @@ angular.module('map')
             };
 
             $scope.doSearch = function (result) {
+                $scope.loader=true;
                 navigationService.setMunicipalityDetailNavigation(undefined);
                 siteAndTownSaverService.setQueryMadeByUser("SEARCH_BY_KEY_WORD");
                 searchingByKeyword(result);
@@ -357,7 +359,10 @@ angular.module('map')
                     drawSitesByKeyWord(keyWord);
                 }
                 else {
+
                     messageService.showErrorMessage("ERROR_NO_KEYWORD_SEARCH");
+                    $scope.loader=false;
+                 
                 }
             }
 
@@ -420,6 +425,8 @@ angular.module('map')
                     } else {
                         $scope.foundSites = 0;
                         messageService.showErrorMessage("ERROR_NO_RESULTS");
+                        $scope.loader=false;
+                    
                     }
                 }).catch(function (error) {
                     console.log("ocurrio un error", error);
@@ -434,12 +441,16 @@ angular.module('map')
                 if (sites != undefined) {
                     MapRouteService.setSiteMarker(sites, $scope);
                 }
+                $scope.loader=false;
+                
+
             }
 
             function handleLocationError() {
                 resetFirstSiteSearchedRoute();
                 messageService.showErrorMessage("ERROR_UNAVAILABLE_LOCATION");
             }
+
 
             function checkSelectedSiteWebPage() {
                 var httpProtocol = 'http://';

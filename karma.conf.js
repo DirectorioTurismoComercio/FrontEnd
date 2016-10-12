@@ -56,6 +56,8 @@ module.exports = function (config) {
             'public/components/angular-slick/dist/slick.js',
             'public/components/angucomplete-alt/angucomplete-alt.js',
             'public/components/angucomplete-alt/dist/angucomplete-alt.min.js',
+            'public/components/angular-images-resizer/src/resize.js',
+            'public/components/angular-images-resizer/src/resize-service.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/DAO/dao.module.js',
