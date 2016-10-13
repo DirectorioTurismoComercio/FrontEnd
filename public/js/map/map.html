@@ -58,7 +58,7 @@
                 <div ng-show="foundSites.length > 0 && !isShowingSiteDetail">
                     <div ng-if="!showResultListHorizontally()"
                          ng-repeat="site in foundSites"
-                         ng-mouseover="highLightMarker($index)"
+                         ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"
                          ng-mouseleave="clearHighLightedMarker($index)">
                         <div class="list-item ">
                             <div class="row" ng-click="showSiteDetail(site, $index)">
@@ -82,7 +82,7 @@
                     <ul rn-carousel rn-carousel-controls ng-if="showResultListHorizontally()" class="image"
                         style="height: 110px;">
                         <li ng-repeat="site in foundSites"
-                            ng-mouseover="highLightMarker($index)"
+                            ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"
                             ng-mouseleave="clearHighLightedMarker($index)">
                             <div class="list-item list-item-background">
                                 <div class="row vertical-align-arrow" ng-click="showSiteDetail(site, $index)">
@@ -219,7 +219,7 @@
                     <div><h3 class="sites-near-route-tittle" translate="ROUTE_SITES"></h3></div>
                     <div ng-show="selectedSite.id!=site.id" class="item-separator"></div>
                     <div ng-repeat="site in foundSites"
-                         ng-mouseover="highLightMarker($index)"
+                         ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"
                          ng-mouseleave="clearHighLightedMarker($index)">
                         <div ng-show="selectedSite.id!=site.id" class="list-item ">
                             <div class="row" ng-click="showSiteDetail(site, $index)">
@@ -276,7 +276,7 @@
                     <div><h3 class="sites-near-route-tittle" translate="ROUTE_DETAIL_SITES"></h3></div>
                     <div class="item-separator"></div>
                     <div ng-repeat="site in routeSites"
-                         ng-mouseover="highLightMarker($index)"
+                         ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"
                          ng-mouseleave="clearHighLightedMarker($index)">
                         <div class="list-item ">
                             <div class="row" ng-click="showSiteDetail(site, $index)">

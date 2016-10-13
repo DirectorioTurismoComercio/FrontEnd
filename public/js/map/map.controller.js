@@ -33,6 +33,7 @@ angular.module('map')
             $scope.isShowingRouteList = false;
             $scope.isShowingRouteDetail = false;
             $scope.hasSelectedMunicipalityRoutes=false;
+            $scope.isDrawingRouteToRegisterSite=false;
 
             uiGmapIsReady.promise().then(initMap);
 
@@ -97,6 +98,7 @@ angular.module('map')
                 $scope.resulListInCompactMode = true;
                 reloadMap();
                 SiteMarkerService.deleteMarkers();
+                $scope.isDrawingRouteToRegisterSite=false;
                 MapRouteService.calculateRoute(siteAndTownSaverService.searchedRoute, $scope, undefined);
                 MapService.clearMarkers();
             }
@@ -203,8 +205,8 @@ angular.module('map')
                 }
             };
 
-            $scope.highLightMarker = function (index) {
-                SiteMarkerService.highLightMarkerByIndex(index);
+            $scope.highLightMarker = function (index, isDrawingRouteToRegisterSite) {
+                SiteMarkerService.highLightMarkerByIndex(index, isDrawingRouteToRegisterSite);
             };
 
             $scope.showSiteDetail = function (site, index) {
@@ -259,6 +261,7 @@ angular.module('map')
                 $scope.initialSelectedSite=site;
                 $scope.hasMadeFirstRouteToSite = true;
                 $scope.resulListInCompactMode = true;
+                $scope.isDrawingRouteToRegisterSite=true;
                 reloadMap();
                 SiteMarkerService.deleteMarkers();
                 MapService.getUserPosition(function (position) {

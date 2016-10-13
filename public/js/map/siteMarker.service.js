@@ -36,8 +36,8 @@ angular.module('map')
             }
         };
 
-        var highLightMarkerByIndex = function (index) {
-            highLightMarker(markers[index]);
+        var highLightMarkerByIndex = function (index, isDrawingRouteToRegisterSite) {
+            isDrawingRouteToRegisterSite ?  highLightMarker(markers[index+1]) :  highLightMarker(markers[index]);
         };
 
         function clearHighLightedMarker(marker) {
