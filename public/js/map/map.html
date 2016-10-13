@@ -59,7 +59,7 @@
                     <div ng-if="!showResultListHorizontally()"
                          ng-repeat="site in foundSites"
                          ng-mouseover="highLightMarker($index)"
-                         ng-mouseleave="clearHighLightedMarker($index)">
+                         ng-mouseleave="clearHighLightedMarker($index)" on-last-repeat>
                         <div class="list-item ">
                             <div class="row" ng-click="showSiteDetail(site, $index)">
                                 <div class="col-xs-8 info">
@@ -83,7 +83,7 @@
                         style="height: 110px;">
                         <li ng-repeat="site in foundSites"
                             ng-mouseover="highLightMarker($index)"
-                            ng-mouseleave="clearHighLightedMarker($index)">
+                            ng-mouseleave="clearHighLightedMarker($index)" on-last-repeat>
                             <div class="list-item list-item-background">
                                 <div class="row vertical-align-arrow" ng-click="showSiteDetail(site, $index)">
                                     <div class="col-xs-7 info">
@@ -221,7 +221,7 @@
                     <div ng-repeat="site in foundSites"
                          ng-mouseover="highLightMarker($index)"
                          ng-mouseleave="clearHighLightedMarker($index)">
-                        <div ng-show="selectedSite.id!=site.id" class="list-item ">
+                        <div ng-show="selectedSite.id!=site.id" class="list-item " on-last-repeat>
                             <div class="row" ng-click="showSiteDetail(site, $index)">
                                 <div class="col-xs-8 info">
                                     <div class="row category-container-map-list-result">

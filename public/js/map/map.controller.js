@@ -37,7 +37,10 @@ angular.module('map')
             uiGmapIsReady.promise().then(initMap);
 
             $scope.navigationToMunicipalityDetail = navigationService.getMunicipalityDetailNavigation()
-
+            $scope.changeLoader=function(){
+                console.log("change loader...");
+                $scope.loader=false;
+            }
 
             function initMap() {
                 MapService.setGMap($scope.map.control.getGMap());
@@ -441,7 +444,7 @@ angular.module('map')
                 if (sites != undefined) {
                     MapRouteService.setSiteMarker(sites, $scope);
                 }
-                $scope.loader=false;
+                
                 
 
             }
@@ -518,6 +521,8 @@ angular.module('map')
                 $scope.routeSites=MapRouteSitesService.ensambleRouteSites(route);
                 drawRoute();
             }
+
+       
 
             function drawRoute(){
                 MapService.clearMarkers();

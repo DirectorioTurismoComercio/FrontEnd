@@ -15,3 +15,12 @@ angular.module('map', ['uiGmapgoogle-maps', 'ch.filters'])
             });
     });
 
+angular.module('map').directive('onLastRepeat', function() {
+        return function(scope, element, attrs) {
+            if (scope.$last) {
+                setTimeout(function(){
+                
+            }, 1);
+            }
+        };
+    })
