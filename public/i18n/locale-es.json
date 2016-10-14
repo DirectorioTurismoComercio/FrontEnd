@@ -295,5 +295,10 @@
     "MESSAGE": "Que te vaya bonito que no te vaya mal y que el tiempo te deje en donde tengas que estar",
     "CONTINUE": "Continuar",
     "CANCEL": "Cancelar"
+  },
+  "RECOVERY_PASSWORD":{
+    "TITLE":"Recuperar contraseña",
+    "EMAIL":"Correo",
+    "RECOVERY_BUTTON":"Recuperar"
   }
 }
