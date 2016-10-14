@@ -5,9 +5,11 @@ angular.module('navigation',[])
         var cameToBusinessInformationThrough=undefined;
         var municiplaityDetailNavigation=undefined;
         var clickedLogoButton=false;
+        var cameToRecoveryPasswordThrough=false;
 
         return {
             cameToBusinessInformationThrough:cameToBusinessInformationThrough,
+            cameToRecoveryPasswordThrough:cameToRecoveryPasswordThrough,
             accountInfoRoute:accountInfoRoute,
             setMunicipalityDetailNavigation:setMunicipalityDetailNavigation,
             getMunicipalityDetailNavigation:getMunicipalityDetailNavigation,

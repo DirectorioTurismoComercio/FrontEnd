@@ -32,7 +32,7 @@ angular.module('message', [])
                     .title(title)
                     .content(message)
                     .ariaLabel('Alert Dialog Demo')
-                    .ok('Aceptar')
+                    .ok($translate.instant('ACCEPT_BUTTON'))
                     .targetEvent('$event')
             );
         }
