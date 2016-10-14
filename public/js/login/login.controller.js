@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('login')
-    .controller('loginController', function ($scope,  $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, $translate,messageService) {
+    .controller('loginController', function ($scope,  $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, $translate,messageService, navigationService) {
         $scope.submitted=false;
         var alreadyLoggedIn = authenticationService.getUser();
 
@@ -32,6 +32,7 @@ angular.module('login')
         }
 
         $scope.forgottenPassword = function () {
+            navigationService.cameToRecoveryPasswordThrough='BusinessUserLogin';
             $location.path('/forgotpassword');
         }
 

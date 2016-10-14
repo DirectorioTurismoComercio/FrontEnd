@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('forgotPassword')
-    .controller('forgotPasswordController', function ($scope, messageService) {
+    .controller('forgotPasswordController', function ($scope, messageService, navigationService, $location) {
         $scope.submitted = false;
 
         $scope.recoveryPasswordField = {
@@ -15,6 +15,11 @@ angular.module('forgotPassword')
                 messageService.showErrorMessage("RECOVERY_PASSWORD_FIELDS_INCOMPLETE",true);
             }else{
                 messageService.showSuccessMessage("EMAIL_SENDED_TEXT","EMAIL_SENDED");
+                $scope.goBack();
             }
+        }
+
+        $scope.goBack = function(){
+            navigationService.cameToRecoveryPasswordThrough=="MunicipalityUserLogin" ? $location.path('/loginmunicipality') :  $location.path('/login');
         }
     });

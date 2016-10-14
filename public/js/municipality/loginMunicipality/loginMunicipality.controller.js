@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('loginMunicipalityController', function ($scope, $auth,authenticationService, $mdDialog,messageService, $translate, $location) {
+    .controller('loginMunicipalityController', function ($scope, $auth,authenticationService, $mdDialog,messageService, $translate, $location, navigationService) {
         $scope.submitted = false;
 
         $scope.loginMunicipalityFields = {
@@ -12,6 +12,7 @@ angular.module('Municipality')
         var alreadyLoggedIn = authenticationService.getUser();
 
         $scope.forgottenPassword = function () {
+            navigationService.cameToRecoveryPasswordThrough="MunicipalityUserLogin";
             $location.path('/forgotpassword');
         }
 
