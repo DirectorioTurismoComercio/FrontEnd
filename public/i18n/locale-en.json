@@ -279,6 +279,8 @@
   "ROUTE_DETAIL_SITES": "Other places on this route",
   "DOUBLE_REGISTER_ERROR": "Please log out before register other account",
   "DOUBLE_LOGIN_ERROR": "Please log out before login with another account",
+  "EMAIL_SENDED":"Email sended",
+  "EMAIL_SENDED_TEXT":"Has been Sent an email with your new password, please be sure to replace it with a new password that you can remember when you sign",
   "MUNICIPALITIES_VIEW": {
     "TITLE": "Towns in Cundinamarca",
     "SEARCH_BOX": "Search a town"

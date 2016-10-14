@@ -10,11 +10,11 @@ angular.module('forgotPassword')
 
         $scope.sendRecoveryPasswordEmail=function(){
             $scope.submitted = true;
-            
+
             if(!$scope.recoveryPasswordField.email){
                 messageService.showErrorMessage("RECOVERY_PASSWORD_FIELDS_INCOMPLETE",true);
             }else{
-
+                messageService.showSuccessMessage("EMAIL_SENDED_TEXT","EMAIL_SENDED");
             }
         }
     });
