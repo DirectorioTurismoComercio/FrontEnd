@@ -4,8 +4,9 @@
             'ngSanitize', 'com.2fdevs.videogular', 'constants', 'auth', 'satellizer', 'map', 'home',
             'businessBrowser', 'dropDownTowns', 'searchTabs', 'siteAndTownSaver', 'howItWorks',
             'message', 'appHeader', 'pascalprecht.translate', 'appFooter', 'registerSite', 'utils',
-            'businessCategory', 'mgo-angular-wizard', 'registerTrader', 'login', 'accountInfo','ngCookies',
-            'navigation', 'checklist-model','interceptor', 'ngScrollbars', 'slick', 'Municipality', 'dao','angucomplete-alt','images-resizer'])
+            'businessCategory', 'mgo-angular-wizard', 'registerTrader', 'login', 'accountInfo', 'ngCookies',
+            'navigation', 'checklist-model', 'interceptor', 'ngScrollbars', 'slick', 'Municipality', 'dao',
+            'angucomplete-alt', 'images-resizer', 'popup'])
         .config(function ($interpolateProvider, API_CONFIG, $authProvider, $translateProvider, $httpProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');
@@ -40,14 +41,14 @@
 
             $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
             $httpProvider.defaults.xsrfCookieName = 'csrftoken';
-            
+
             //$httpProvider.defaults.headers.common['Cache-Control'] = 'no-cache';
             $httpProvider.defaults.cache = false;
 
             if (!$httpProvider.defaults.headers.get) {
-            $httpProvider.defaults.headers.get = {};
-             }
-           // $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
+                $httpProvider.defaults.headers.get = {};
+            }
+            // $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
 
         })
 })();

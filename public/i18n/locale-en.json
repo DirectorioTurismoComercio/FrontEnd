@@ -295,5 +295,11 @@
     "MESSAGE": "Que te vaya bonito\nque no te vaya mal\ny que el tiempo te deje\nen donde tengas que estar",
     "CONTINUE": "Continuar",
     "CANCEL": "Cancelar"
+  },
+  "REACTIVATE_ACCOUNT": {
+    "TITLE": "Cuenta desactivada",
+    "MESSAGE": "Esta cuenta está desactivada, para volver a activarla haz clic en continuar",
+    "CANCEL": "Cancelar",
+    "CONTINUE": "Continuar"
   }
 }

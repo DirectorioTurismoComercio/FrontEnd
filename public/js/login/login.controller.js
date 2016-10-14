@@ -1,27 +1,23 @@
 'use strict';
 
 angular.module('login')
-    .controller('loginController', function ($scope,  $location, $mdDialog, navBar, authenticationService, $auth, $http, API_CONFIG, $window, $q, $translate,messageService) {
-        $scope.submitted=false;
+    .controller('loginController', function ($scope, $location, $mdDialog, navBar, authenticationService, $auth, $http,
+                                             API_CONFIG, $window, $q, $translate, messageService,
+                                             PopupService, UserDAO) {
+        $scope.submitted = false;
         var alreadyLoggedIn = authenticationService.getUser();
 
         $scope.login = function () {
-            $scope.submitted=true;
-            if(alreadyLoggedIn){
+            $scope.submitted = true;
+            if (alreadyLoggedIn) {
                 messageService.showErrorMessage("DOUBLE_LOGIN_ERROR", true);
-            }else{
+            } else {
                 if ($scope.login.email != undefined && $scope.login.contrasena != undefined && $scope.login.contrasena.length >= 6) {
                     authenticationService.login({email: $scope.login.email, password: $scope.login.contrasena})
                         .then(function (response) {
                             $scope.user = authenticationService.getUser();
-                            if($scope.user.tipo_cuenta=="M"){
-                                showErrorDialog($translate.instant("INCORRECT_ACCOUNT_TYPE_MUNICIPALITY"));
-                                $auth.logout();
-                                $auth.removeToken();
-                                authenticationService.logout();
-                            }else{
-                                redirectToProfileMain();
-                            }
+                            checkUserLogged();
+
                         }).catch(function (error) {
                         showErrorDialog($translate.instant("BAD_LOGIN"));
                     });
@@ -29,16 +25,49 @@ angular.module('login')
                     showErrorDialog('Por favor ingrese usuario y contraseña');
                 }
             }
+        };
+
+        function checkUserLogged() {
+            if ($scope.user.tipo_cuenta == "M") {
+                checkMunicipalityAccount();
+            } else if (!$scope.user.es_cuenta_activa) {
+                checkInactiveAccount();
+            }
+            else {
+                goToProfile();
+            }
+        }
+
+        function checkMunicipalityAccount() {
+            showErrorDialog($translate.instant("INCORRECT_ACCOUNT_TYPE_MUNICIPALITY"));
+            invalidateLogin();
+        }
+
+        function checkInactiveAccount() {
+            PopupService.showYesNoMessage("REACTIVATE_ACCOUNT.TITLE", "REACTIVATE_ACCOUNT.MESSAGE",
+                "REACTIVATE_ACCOUNT.CONTINUE", "REACTIVATE_ACCOUNT.CANCEL").then(function () {
+                UserDAO.updateUser({es_cuenta_activa: true}).then(function () {
+                    goToProfile();
+                });
+            }).catch(function () {
+                invalidateLogin();
+            });
+        }
+
+        function invalidateLogin() {
+            $auth.logout();
+            $auth.removeToken();
+            authenticationService.logout();
         }
 
         $scope.forgottenPassword = function () {
-        }
+        };
 
 
         $scope.authenticate = function (provider) {
-            if(alreadyLoggedIn){
+            if (alreadyLoggedIn) {
                 messageService.showErrorMessage("DOUBLE_LOGIN_ERROR", true);
-            }else{
+            } else {
                 $auth.authenticate(provider).then(function (response) {
                     $auth.setToken(response.data.token);
                     var credentials = {
@@ -47,7 +76,7 @@ angular.module('login')
                     var deferred = $q.defer()
                     authenticationService.loginSocialMedia(credentials, response.data.token, deferred).finally(
                         function () {
-                            redirectToProfileMain();
+                            goToProfile();
                         }
                     );
                 }).catch(function (error) {
@@ -69,7 +98,7 @@ angular.module('login')
             );
         }
 
-        function redirectToProfileMain() {
+        function goToProfile() {
             $location.path('/accountinfo');
         }
     })

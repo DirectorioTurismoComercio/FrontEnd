@@ -3,7 +3,8 @@ angular.module('accountInfo')
     .controller('AccountInfoController', function ($scope, $location, $http,
                                                    authenticationService, navigationService, siteInformationService,
                                                    messageService, filterFilter, API_CONFIG, $mdDialog, $translate,
-                                                   formValidator, ngDialog, $auth, municipalityInformationService) {
+                                                   formValidator, ngDialog, $auth, municipalityInformationService,
+                                                   $route) {
 
             $scope.showRequiredFieldMessage = false;
             $scope.usuario = authenticationService.getUser();
@@ -195,7 +196,7 @@ angular.module('accountInfo')
 
             $scope.deleteAccount = function () {
                 $http.patch(API_CONFIG.url + API_CONFIG.user_detail, {
-                        is_active: false
+                        es_cuenta_activa: false
                     },
                     {
                         headers: {
