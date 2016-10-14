@@ -5,7 +5,7 @@
             'businessBrowser', 'dropDownTowns', 'searchTabs', 'siteAndTownSaver', 'howItWorks',
             'message', 'appHeader', 'pascalprecht.translate', 'appFooter', 'registerSite', 'utils',
             'businessCategory', 'mgo-angular-wizard', 'registerTrader', 'login', 'accountInfo','ngCookies',
-            'navigation', 'checklist-model','interceptor', 'ngScrollbars', 'slick', 'Municipality', 'dao','angucomplete-alt','images-resizer'])
+            'navigation', 'checklist-model','interceptor', 'ngScrollbars', 'slick', 'Municipality', 'dao','angucomplete-alt','images-resizer', 'forgotPassword'])
         .config(function ($interpolateProvider, API_CONFIG, $authProvider, $translateProvider, $httpProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');

@@ -11,6 +11,10 @@ angular.module('Municipality')
 
         var alreadyLoggedIn = authenticationService.getUser();
 
+        $scope.forgottenPassword = function () {
+            $location.path('/forgotpassword');
+        }
+
         $scope.loginMunicipality = function () {
             $scope.submitted = true;
             if(alreadyLoggedIn){

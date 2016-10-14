@@ -88,6 +88,8 @@ module.exports = function (config) {
             'public/js/utils/utils.module.js',
             'public/js/utils/image.service.js',
             'public/js/interceptor.js',
+            'public/js/forgotPassword/forgotPassword.js',
+            'public/js/forgotPassword/forgotPassword.Controller.js',
             'public/js/**/*.js',
             'test/**/*Spec.js',
             'public/templates/directives/side-bar.html'

@@ -32,6 +32,7 @@ angular.module('login')
         }
 
         $scope.forgottenPassword = function () {
+            $location.path('/forgotpassword');
         }
 
 
