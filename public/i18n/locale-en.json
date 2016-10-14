@@ -210,7 +210,7 @@
     "OLD_AND_NEW_PASSWORDS_MUST_BE_DIFFERENT": "New and confirm password must be the same*",
     "REGISTERED_MUNICIPALITY": "Registered town",
     "ADD_MUNICIPALITY": "Add info",
-    "MUNICIPALITY_SITES": "Town sites",
+    "MUNICIPALITY_SITES": "Places of this town",
     "MUNICIPALITY_ROUTES": "Routes",
     "ADD_ROUTE": "Add a route",
     "DELETE_ACCOUNT": "Deactivate my account"
@@ -283,7 +283,7 @@
     "SEARCH_BOX": "Search a town"
   },
   "MUNICIPALITY-DETAIL": {
-    "OFFICE": "Citizen attention",
+    "OFFICE": "Citizen attention point",
     "ROUTES": "Routes of this town",
     "SITES": "Municipality cites"
   },
