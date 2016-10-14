@@ -120,7 +120,7 @@
     "BUSINESS_LOCATION": "Ubicación de tu negocio",
     "MUNICIPALITY_BUSINESS_LOCATION": "Ubicación del sitio",
     "BUSINESS_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa que aquí se encuentra tu negocio",
-    "MUNICIPALITY_BUSINESS_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa dónde se encuentra el sitio",
+    "MUNICIPALITY_BUSINESS_GET_USER_LOCATION_TIP": "Usa tu ubicación actual para indicar en el mapa que aquí se encuentra el sitio",
     "BUSINESS_LOCATION_TIP": "Puedes colocar un marcador en el mapa sobre la ubicación exacta de tu negocio",
     "MUNICIPALITY_BUSINESS_LOCATION_TIP": "Puedes colocar un marcador en el mapa sobre la ubicación exacta del sitio",
     "BUSINESS_DESCRIPTION": "Descripción de tu local",
@@ -172,7 +172,7 @@
     "MUNICIPALITY_COMPLETE_REGISTRATION_TEXT": "Gracias por registrar tu sitio",
     "COMPLETE_REGISTRATION_POPUP_BUTTON": "Continuar",
     "COMPLETE_UPDATE_TEXT": "La información de tu negocio ha sido actualizada",
-    "MUNICIPALITY_COMPLETE_UPDATE_TEXT": "La información de tu sitio ha sido actualizada",
+    "MUNICIPALITY_COMPLETE_UPDATE_TEXT": "La información de tu negocio se ha actualizado exitosamente",
     "COMPLETE_UPDATE_BUTTON": "Actualizar",
     "COMPLETE_UPDATE_HEADER": "Actualización terminada",
     "COMPLETE_UPDATE_POPUP_BUTTON": "Continuar",
@@ -280,7 +280,7 @@
   "DOUBLE_LOGIN_ERROR": "Por favor cierra la sesión anterior antes de iniciar sesión con otra cuenta",
   "MUNICIPALITIES_VIEW": {
     "TITLE": "Municipios de Cundinamarca",
-    "SEARCH_BOX": "Buscar"
+    "SEARCH_BOX": "Buscar un municipio"
   },
   "MUNICIPALITY-DETAIL": {
     "OFFICE": "Punto de atención al ciudadano",
