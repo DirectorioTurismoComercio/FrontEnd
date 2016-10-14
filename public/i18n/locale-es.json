@@ -216,10 +216,10 @@
     "DELETE_ACCOUNT": "Desactivar mi cuenta"
   },
   "ROUTE_CREATION": {
-    "FORM_TITLE": "Inscripción de ruta",
+    "FORM_TITLE": "Creación de ruta",
     "ROUTE_NAME": "Nombre de la ruta",
-    "ROUTE_DESCRIPTION": "Describe la ruta",
-    "MAKE_ROUTE_TIP": "Puedes definir una ruta entre los sitios que hayas registrado en el municipio",
+    "ROUTE_DESCRIPTION": "Descripción de la ruta",
+    "MAKE_ROUTE_TIP": "Puedes crear una ruta entre los sitios que estén registrados dentro del municipio",
     "ADD_SITE": "Añadir parada",
     "SITE": "Parada ",
     "ROUTE_START_POINT": "Seleccionar punto de partida",
