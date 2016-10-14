@@ -3,7 +3,7 @@ angular.module('accountInfo')
     .controller('AccountInfoController', function ($scope, $location, $http,
                                                    authenticationService, navigationService, siteInformationService,
                                                    messageService, filterFilter, API_CONFIG, $mdDialog, $translate,
-                                                   formValidator, ngDialog) {
+                                                   formValidator, ngDialog, $auth, municipalityInformationService) {
 
             $scope.showRequiredFieldMessage = false;
             $scope.usuario = authenticationService.getUser();
@@ -202,8 +202,21 @@ angular.module('accountInfo')
                             'Authorization': 'Token ' + authenticationService.getUser().token
                         }
                     }).then(function (response) {
+                    logOut();
                 });
             };
+
+            function logOut() {
+                $auth.logout();
+                $auth.removeToken();
+                siteInformationService.clearData();
+                municipalityInformationService.resetData();
+                ngDialog.close();
+                authenticationService.logout().then(function () {
+                    $location.path('home');
+                    $route.reload();
+                });
+            }
 
             $scope.closeDialog = function () {
                 ngDialog.close();
