@@ -267,6 +267,7 @@
   "CANCEL_BUTTON": "Cancelar",
   "ACCEPT_BUTTON": "Aceptar",
   "LOGIN_FIELDS_INCOMPLETE": "Por favor ingrese correo y contraseña",
+  "RECOVERY_PASSWORD_FIELDS_INCOMPLETE":"Por favor ingrese correo",
   "TOURISTS": "Turistas",
   "TRADERS": "Comerciantes",
   "MUNICIPALITIES": "Municipios",
