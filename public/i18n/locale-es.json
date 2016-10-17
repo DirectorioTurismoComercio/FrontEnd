@@ -263,7 +263,8 @@
   "E100": "Error de comunicación con el servidor, intente nuevamente.",
   "E101": "El correo ya existe",
   "E102": "El password debe ser de al menos 6 caracteres",
-  "E103": "Contraseña incorrecta.",
+  "E103": "Contraseña incorrecta",
+  "E104": "El correo no existe",
   "CANCEL_BUTTON": "Cancelar",
   "ACCEPT_BUTTON": "Aceptar",
   "LOGIN_FIELDS_INCOMPLETE": "Por favor ingrese correo y contraseña",
@@ -309,5 +310,10 @@
     "TITLE": "Recuperar contraseña",
     "EMAIL": "Correo",
     "RECOVERY_BUTTON": "Recuperar"
+  },
+   "RESET_PASSWORD": {
+    "TITLE": "Reestablecer contraseña",
+    "TEXT": "Por favor digite una nueva contraseña",
+    "ERROR_MESSAGE": "Error al guardar contraseña"
   }
 }

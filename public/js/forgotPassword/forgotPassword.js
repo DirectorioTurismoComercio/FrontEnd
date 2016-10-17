@@ -6,5 +6,9 @@ angular.module('forgotPassword', [])
             .when('/forgotpassword', {
                 templateUrl: 'js/forgotPassword/forgotPassword.html',
                 controller: 'forgotPasswordController'
+            })
+            .when('/resetpassword/:uid/:token', {
+                templateUrl: 'js/forgotPassword/resetPassword.html',
+                controller: 'resetPasswordController'
             });
     });

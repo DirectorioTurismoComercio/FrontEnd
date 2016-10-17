@@ -3,6 +3,8 @@ var objeto = {
         "login": "/rest-auth/login/",
         "logout": "/rest-auth/logout/",
         "user": "/rest-auth/registration/",
+        "password_reset": "/rest-auth/password/reset/",
+        "confirm_password_reset":'/rest-auth/password/reset/confirm/',
         "user_detail": "/rest-auth/user/",
         "sitios":"/ruta/sitios",
         "sitio":"/sitio",

@@ -263,7 +263,8 @@
   "E100": "Error server, try again",
   "E101": "email already exists",
   "E102": "password must be at least 6 characters",
-  "E103": "Invalid password.",
+  "E103": "Invalid password",
+  "E104": "Invalid Email.",
   "CANCEL_BUTTON": "Cancel",
   "ACCEPT_BUTTON": "Accept",
   "LOGIN_FIELDS_INCOMPLETE": "Please enter email and password",
@@ -309,5 +310,10 @@
     "TITLE": "Recovery password",
     "EMAIL": "Email",
     "RECOVERY_BUTTON": "Recovery"
+  },
+   "RESET_PASSWORD": {
+    "TITLE": "Reset password",
+    "TEXT": "Please write a new password",
+    "ERROR_MESSAGE": "Error on reseting password"
   }
 }
