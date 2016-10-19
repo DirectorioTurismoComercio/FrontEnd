@@ -306,12 +306,17 @@
     "CANCEL": "Cancelar",
     "CONTINUE": "Continuar"
   },
+  "REACTIVATE_MUNICIPALITY_ACCOUNT": {
+    "TITLE": "Cuenta desactivada",
+    "MESSAGE": "Esta cuenta está desactivada, para volver a activarla solicita acceso al administrador",
+    "CONTINUE": "Entendido"
+  },
   "RECOVERY_PASSWORD": {
     "TITLE": "Recuperar contraseña",
     "EMAIL": "Correo",
     "RECOVERY_BUTTON": "Recuperar"
   },
-   "RESET_PASSWORD": {
+  "RESET_PASSWORD": {
     "TITLE": "Reestablecer contraseña",
     "TEXT": "Por favor digite una nueva contraseña",
     "ERROR_MESSAGE": "Error al guardar contraseña"
