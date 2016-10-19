@@ -232,6 +232,6 @@ angular.module('accountInfo')
                     closeByEscape: true,
                     closeByDocument: true
                 });
-            }
+            };
         }
     );

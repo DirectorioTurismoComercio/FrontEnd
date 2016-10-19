@@ -57,6 +57,12 @@
                                class="form-control-feedback  glyphicon glyphicon-asterisk glyphiconRegisterStar"></i>
                         </div>
                     </div>
+
+                    <div class="text-center delete-account">
+                        <a translate="ACCOUNT_INFO.DELETE_ACCOUNT" ng-click="showDialogDeleteAccount()"></a>
+                    </div>
+
+
              <span class="error" ng-show="municipalityInfoSubmitted && personalInfoForm.email.$error.required"
                    translate="REGISTER_USER_CONSTANTS.REQUIRED_FIELD"></span>
 
