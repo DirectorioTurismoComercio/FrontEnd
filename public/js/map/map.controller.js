@@ -121,6 +121,10 @@ angular.module('map')
                 }
 
                 if (!$scope.hasSelectedMunicipalityRoutes && siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE" && !$scope.isShowingRouteList && !$scope.isShowingRouteDetail) {
+                    $scope.isOnSitedetails=false;
+                    $scope.isShowingRouteDetail=false;
+                    $scope.isShowingRouteList=false;
+                    $scope.isShowingSiteDetail=false;
                     $scope.showRoute();
                 }
 
