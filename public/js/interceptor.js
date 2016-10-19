@@ -3,10 +3,7 @@ angular.module('interceptor', [])
   var numLoadings = 0;
     var responseInterceptor = {
         responseError: function(response) {
-      
-        if (!(--numLoadings)) {
-              $rootScope.$broadcast("loader_hide");
-        }  
+            $rootScope.$broadcast("loader_hide");
    			if(response.status==403){
    			var auth = $injector.get("$auth");
    			auth.removeToken();   
@@ -15,11 +12,8 @@ angular.module('interceptor', [])
    			return $q.reject(response);
         },
         request: function (config) {
-            
-            
             if(config.url.indexOf("sugerencias") === -1){
-            numLoadings++;  
-            $rootScope.$broadcast("loader_show");
+                $rootScope.$broadcast("loader_show");
             }
             
             return config || $q.when(config)
@@ -28,10 +22,7 @@ angular.module('interceptor', [])
         },
         response: function (response) {
             $rootScope.$broadcast("loader_hide");
-            if ((--numLoadings) === 0) {
-                
-                $rootScope.$broadcast("loader_hide");
-            }
+            $rootScope.$broadcast("loader_hide");
             return response || $q.when(response);
 
         },

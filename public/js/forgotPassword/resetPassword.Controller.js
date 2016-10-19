@@ -26,14 +26,14 @@ angular.module('forgotPassword')
 
                         .then(function (response) {
                                 showMessageDialog('', $translate.instant('ACCOUNT_INFO.ACCOUNT_PASSWORD_SUCCESSFULLY_UPDATED'));
-                                $location.path('login');
+                                $location.path('/home');
                             }
                         )
                         .catch(
                             function (errors) {
                                 showMessageDialog('Error', $translate.instant('RESET_PASSWORD.ERROR_MESSAGE'));
                                 console.log(errors);
-                                $location.path('login');
+                                $location.path('/home');
                             }
                         );
 
