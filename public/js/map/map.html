@@ -59,7 +59,7 @@
                     <div ng-if="!showResultListHorizontally()"
                          ng-repeat="site in foundSites"
                          ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"
-                         ng-mouseleave="clearHighLightedMarker($index)" on-finish-render="callMyCustomMethod()">
+                         ng-mouseleave="clearHighLightedMarker($index)" on-finish-render="finishRenderEvent()">
                         <div class="list-item ">
                             <div class="row" ng-click="showSiteDetail(site, $index)">
                                 <div class="col-xs-8 info">
@@ -83,7 +83,7 @@
                         style="height: 110px;">
                         <li ng-repeat="site in foundSites"
                             ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"
-                            ng-mouseleave="clearHighLightedMarker($index)" on-finish-render="callMyCustomMethod()">
+                            ng-mouseleave="clearHighLightedMarker($index)" on-finish-render="finishRenderEvent()">
                             <div class="list-item list-item-background">
                                 <div class="row vertical-align-arrow" ng-click="showSiteDetail(site, $index)">
                                     <div class="col-xs-7 info">
@@ -220,7 +220,7 @@
                     <div ng-show="selectedSite.id!=site.id" class="item-separator"></div>
                     <div ng-repeat="site in foundSites"
                          ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"
-                         ng-mouseleave="clearHighLightedMarker($index)" on-finish-render="callMyCustomMethod()">
+                         ng-mouseleave="clearHighLightedMarker($index)" on-finish-render="finishRenderEvent()">
                         <div ng-show="selectedSite.id!=site.id" class="list-item ">
                             <div class="row" ng-click="showSiteDetail(site, $index)">
                                 <div class="col-xs-8 info">
