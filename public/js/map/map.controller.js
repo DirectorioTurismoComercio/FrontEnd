@@ -436,9 +436,6 @@ angular.module('map')
                 if (sites != undefined) {
                     MapRouteService.setSiteMarker(sites, $scope);
                 }
-                $scope.loader=false;
-                
-
             }
 
             function handleLocationError() {
@@ -522,6 +519,13 @@ angular.module('map')
                     MapRouteSitesService.calculateRoute($scope.routeSites, $scope, undefined);
                 }
             }
+
+        $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
+            console.log("antes", $scope.loader);
+            $scope.loader=false;
+            console.log('Event captured in the controller, when finished rendering', $scope.loader);
+        });
+
         }
     )
 ;
