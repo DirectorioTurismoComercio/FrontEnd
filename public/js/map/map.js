@@ -19,7 +19,10 @@ angular.module('map').directive('onLastRepeat', function() {
         return function(scope, element, attrs) {
             if (scope.$last) {
                 setTimeout(function(){
-                
+                    console.log(scope.$parent.$parent.$parent.loader);
+
+                    scope.$parent.$parent.$parent.loader=false;
+                    console.log(scope.$parent.$parent.$parent.loader);
             }, 1);
             }
         };
