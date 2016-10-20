@@ -521,9 +521,10 @@ angular.module('map')
             }
 
         $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
-            console.log("antes", $scope.loader);
-            $scope.loader=false;
-            console.log('Event captured in the controller, when finished rendering', $scope.loader);
+            $timeout(function () {
+                $scope.loader=false;
+            }, 1000);
+
         });
 
         }
