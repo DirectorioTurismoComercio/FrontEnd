@@ -295,8 +295,8 @@
     "TITLE": "Rutas en "
   },
   "DELETE_ACCOUNT": {
-    "TITLE": "Desactivar cuenta",
-    "MESSAGE": "Que te vaya bonito que no te vaya mal y que el tiempo te deje en donde tengas que estar",
+    "TITLE": "Desactivar mi cuenta",
+    "MESSAGE": "Tu cuenta será desactivada y en 30 días será eliminada",
     "CONTINUE": "Continuar",
     "CANCEL": "Cancelar"
   },

@@ -295,21 +295,21 @@
     "TITLE": "Routes in "
   },
   "DELETE_ACCOUNT": {
-    "TITLE": "Desactivar cuenta",
-    "MESSAGE": "Que te vaya bonito\nque no te vaya mal\ny que el tiempo te deje\nen donde tengas que estar",
-    "CONTINUE": "Continuar",
-    "CANCEL": "Cancelar"
+    "TITLE": "Deactivate my account",
+    "MESSAGE": "Your account will be deactivated and after 30 days it will be deleted",
+    "CONTINUE": "Continue",
+    "CANCEL": "Cancel"
   },
   "REACTIVATE_ACCOUNT": {
-    "TITLE": "Cuenta desactivada",
-    "MESSAGE": "Esta cuenta está desactivada, para volver a activarla haz clic en continuar",
-    "CANCEL": "Cancelar",
-    "CONTINUE": "Continuar"
+    "TITLE": "Disabled account",
+    "MESSAGE": "This account is currently deactivated. To reactivate it, click \"Continue\"",
+    "CONTINUE": "Continue",
+    "CANCEL": "Cancel"
   },
   "REACTIVATE_MUNICIPALITY_ACCOUNT": {
-    "TITLE": "Cuenta desactivada",
-    "MESSAGE": "Esta cuenta está desactivada, para volver a activarla solicita acceso al administrador",
-    "CONTINUE": "Entendido"
+    "TITLE": "Disabled account",
+    "MESSAGE": "This account is currently deactivated. Please ask admin to reactivate it",
+    "CONTINUE": "Got it!"
   },
   "RECOVERY_PASSWORD": {
     "TITLE": "Recovery password",
