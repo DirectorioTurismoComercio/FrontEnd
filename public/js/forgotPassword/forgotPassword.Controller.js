@@ -20,7 +20,7 @@ angular.module('forgotPassword')
                         email: $scope.recoveryPasswordField.email
                 })
                 .then(function (reponse) {
-                    messageService.showSuccessMessage("EMAIL_SENDED_TEXT","EMAIL_SENDED");
+                    messageService.showSuccessMessage("EMAIL_SENT_TEXT","EMAIL_SENT");
                     $scope.goBack();
                 })
                 .catch(function (errors) {

@@ -7,7 +7,7 @@ angular.module('forgotPassword', [])
                 templateUrl: 'js/forgotPassword/forgotPassword.html',
                 controller: 'forgotPasswordController'
             })
-            .when('/resetpassword/:uid/:token', {
+            .when('/resetpassword/:uid/:token/:tipo_cuenta', {
                 templateUrl: 'js/forgotPassword/resetPassword.html',
                 controller: 'resetPasswordController'
             });

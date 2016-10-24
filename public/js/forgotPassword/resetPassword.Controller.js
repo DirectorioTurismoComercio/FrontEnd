@@ -7,11 +7,17 @@ angular.module('forgotPassword')
 
     	    $scope.saveNewPassword = function () {
                 $scope.changePasswordSubmitted = true;
+                var location = '/home'
                 
                 if ($scope.passwordForm.$valid 
                 	&& $scope.usuario.newpassword == $scope.usuario.confirmnewpassword
                     && $scope.usuario.newpassword.length >= 6) {
-                	console.log("saving");
+                	if($routeParams.tipo_cuenta=='C'){
+                        location = '/login'
+                    }
+                    if($routeParams.tipo_cuenta=='M'){
+                        location = '/loginmunicipality'
+                    }
                 	
                 	
                     $http.post(API_CONFIG.url + API_CONFIG.confirm_password_reset,
@@ -26,14 +32,14 @@ angular.module('forgotPassword')
 
                         .then(function (response) {
                                 showMessageDialog('', $translate.instant('ACCOUNT_INFO.ACCOUNT_PASSWORD_SUCCESSFULLY_UPDATED'));
-                                $location.path('/home');
+                                $location.path(location);
                             }
                         )
                         .catch(
                             function (errors) {
                                 showMessageDialog('Error', $translate.instant('RESET_PASSWORD.ERROR_MESSAGE'));
                                 console.log(errors);
-                                $location.path('/home');
+                                $location.path(location);
                             }
                         );
 
