@@ -280,8 +280,8 @@
   "ROUTE_DETAIL_SITES": "Sitios en la ruta",
   "DOUBLE_REGISTER_ERROR": "Por favor cierra la sesión anterior antes de registrar otra cuenta",
   "DOUBLE_LOGIN_ERROR": "Por favor cierra la sesión anterior antes de iniciar sesión con otra cuenta",
-  "EMAIL_SENDED": "Correo enviado",
-  "EMAIL_SENDED_TEXT": "Se ha enviado un correo con tu nueva contraseña, por favor asegúrate de cambiarla por una contraseña nueva que puedas recordar cuando inicies sesión",
+  "EMAIL_SENT": "Correo enviado",
+  "EMAIL_SENT_TEXT": "Se ha enviado un correo con tu nueva contraseña, por favor asegúrate de cambiarla por una contraseña nueva que puedas recordar cuando inicies sesión",
   "MUNICIPALITIES_VIEW": {
     "TITLE": "Municipios de Cundinamarca",
     "SEARCH_BOX": "Buscar un municipio"
