@@ -85,6 +85,7 @@ module.exports = function (config) {
             'public/js/login/login.js',
             'public/js/howItWorks/howItWorks.js',
             'public/js/howItWorks/howItWorks.controller.js',
+            'public/js/custom_components/pgClamp/clamp.js',
             'public/js/utils/utils.module.js',
             'public/js/utils/image.service.js',
             'public/js/interceptor.js',
