@@ -62,13 +62,16 @@ angular.module('Municipality')
                 "REACTIVATE_MUNICIPALITY_ACCOUNT.MESSAGE",
                 "REACTIVATE_MUNICIPALITY_ACCOUNT.CONTINUE").then(function () {
                 invalidateLogin();
+
             });
         }
 
         function invalidateLogin() {
             $auth.logout();
             $auth.removeToken();
-            authenticationService.logout();
+            authenticationService.logout().then(function(){
+                $location.path('/home');
+            });
         }
 
         function redirectToProfileMain() {

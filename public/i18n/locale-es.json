@@ -296,7 +296,7 @@
   },
   "DELETE_ACCOUNT": {
     "TITLE": "Desactivar mi cuenta",
-    "MESSAGE": "Tu cuenta será desactivada y en 30 días será eliminada",
+    "MESSAGE": "Tu cuenta será desactivada",
     "CONTINUE": "Continuar",
     "CANCEL": "Cancelar"
   },
@@ -308,7 +308,7 @@
   },
   "REACTIVATE_MUNICIPALITY_ACCOUNT": {
     "TITLE": "Cuenta desactivada",
-    "MESSAGE": "Esta cuenta está desactivada, para volver a activarla solicita acceso al administrador",
+    "MESSAGE": "Tu cuenta está desactivada, para volver a activarla solicita acceso al administrador enviando un correo electrónico a innovatic_fibog@unal.edu.co",
     "CONTINUE": "Entendido"
   },
   "RECOVERY_PASSWORD": {
