@@ -68,7 +68,7 @@
                                         <h3 class="">%%site.nombre%%</h3>
                                     </div>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
-                                    <p clamp="3" class="description">%%site.descripcion%%</p>
+                                    <p pg-clamp="3" class="description" ng-bind="getSiteDescription(site)"></p>
                                 </div>
                                 <div class="col-xs-4 image">
                                     <img class="img-responsive  site-photo-height"
@@ -92,7 +92,7 @@
                                             <h3 class="">%%site.nombre%%</h3>
                                         </div>
                                         <h4 class="">%%site.municipio.nombre%%</h4>
-                                        <p clamp="2" class="description">%%site.descripcion%%</p>
+                                        <p clamp="2" class="description">%%getSiteDescription(site)%%</p>
                                     </div>
                                     <div class="col-xs-5 image">
                                         <img class="img-responsive mobile-image-preview"
@@ -172,7 +172,7 @@
                         <div class="item">
                             <img src="./images/icons/site-detail/descripcion.png">
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.DESCRIPTION"></span>
-                            <p class="dark-text">%%selectedSite.descripcion%%</p>
+                            <p class="dark-text">%%getSiteDescription(selectedSite)%%</p>
                         </div>
                         <div ng-if="selectedSite.tipo_sitio == 'M'" class="municipality-additional-info">
                             <div class="text-center">
@@ -229,7 +229,7 @@
                                         <h3 class="">%%site.nombre%%</h3>
                                     </div>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
-                                    <p clamp="3" class="description">%%site.descripcion%%</p>
+                                    <p clamp="3" class="description">%%getSiteDescription(site)%%</p>
                                 </div>
                                 <div class="col-xs-4 image">
                                     <img class="img-responsive  site-photo-height"
@@ -286,7 +286,7 @@
                                         <img ng-if="site.tipo_sitio=='S'" class="icon" ng-src="%%site.categorias[0].categoria.URL_icono_general%%">
                                         <h3 class="">%%site.nombre%%</h3>
                                     </div>
-                                    <p clamp="3" class="description">%%site.descripcion%%</p>
+                                    <p clamp="3" class="description">%%getSiteDescription(site)%%</p>
                                 </div>
                                 <div class="col-xs-4 image">
                                     <img class="img-responsive  site-photo-height"

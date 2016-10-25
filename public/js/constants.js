@@ -20,6 +20,5 @@ var objeto = {
 
 
 
-
 angular.module('constants', [])
-    .constant("API_CONFIG", objeto);
+    .constant("API_CONFIG", objeto).constant('$clamp', $clamp);

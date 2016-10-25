@@ -4,7 +4,7 @@ angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory,
                                            MapService, ngDialog, SiteMarkerService, $location, messageService, $timeout,
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS, filterFilter,
-                                           requestedMunicipalityDetail, navigationService, MapRouteSitesService) {
+                                           requestedMunicipalityDetail, navigationService, MapRouteSitesService, $translate, $rootScope) {
             var hasMadeRoute = false;
             var photosPopUp = undefined;
             var requestedMunicipality = requestedMunicipalityDetail.getMunicipality();
@@ -34,6 +34,7 @@ angular.module('map')
             $scope.isShowingRouteDetail = false;
             $scope.hasSelectedMunicipalityRoutes=false;
             $scope.isDrawingRouteToRegisterSite=false;
+            $scope.languageSelected=$translate.use();
 
             uiGmapIsReady.promise().then(initMap);
 
@@ -527,6 +528,46 @@ angular.module('map')
 
         });
 
+
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+                $scope.languageSelected = $translate.use();
+
+            });
+
+        $scope.getSiteDescription = function(site){
+            if($scope.languageSelected=='en'){
+                return site.description;
+            }
+            if($scope.languageSelected=='es'){
+                return site.descripcion;
+            }
+
+        }
+
         }
     )
+    .directive('pgClamp', function( $timeout, $clamp){
+        return{
+            link : link
+        };
+
+        function link(scope, element, attrs){
+            var line = parseInt(attrs.pgClamp,10);
+
+            if(attrs.ngBind){
+                scope.$watch(attrs.ngBind, doClamp);
+            }
+
+            doClamp();
+
+            function doClamp(){
+                $timeout(function(){
+                    $clamp(element[0], { clamp : line });
+                }, 0, false);
+            }
+        }
+    });
 ;
+
+
