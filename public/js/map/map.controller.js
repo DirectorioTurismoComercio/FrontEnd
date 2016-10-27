@@ -118,7 +118,8 @@ angular.module('map')
 
                 if (!$scope.hasSelectedMunicipalityRoutes && siteAndTownSaverService.getQueryMadeByUser() == "SEARCH_BY_KEY_WORD") {
                     resetRouteAndDetailsValues();
-                    searchingByKeyword($scope.result);
+                    var keyWord=getKeyWord();
+                    searchingByKeyword(keyWord);
                 }
 
                 if (!$scope.hasSelectedMunicipalityRoutes && siteAndTownSaverService.getQueryMadeByUser() == "PLAN_A_ROUTE" && !$scope.isShowingRouteList && !$scope.isShowingRouteDetail) {
@@ -181,6 +182,22 @@ angular.module('map')
                 }
 
             };
+
+        function getKeyWord(){
+            var keyWord=undefined;
+
+            for(var i=0; i<$scope.subcategories.length; i++){
+                if($scope.subcategories[i].isSelected){
+                    keyWord=$scope.subcategories[i].nombre;
+                }
+            }
+
+            if(keyWord==undefined){
+                keyWord=$scope.result;
+            }
+
+            return keyWord;
+        }
 
         function resetValuesBeforeChangeView(){
             $scope.selectedSite=undefined;
