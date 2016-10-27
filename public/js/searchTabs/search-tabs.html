@@ -36,14 +36,13 @@
                             ng-class="isSubcategoriesVisible ? 'categories-scroll-no-margin-bottom' : ''"
                             style="height: 100px">
                             <li ng-repeat="category in categories" class="carrusel-categorias">
-                                <div ng-class="category.isSelected ? 'search-tab-category-container search-tab-category-map-container search-tab-category-selected-container':'search-tab-category-container search-tab-category-map-container search-tab-category-unselected-container'"
-                                     ng-click="setCategoryNameAsInputText(category)">
-                                    <div>
-                                        <img class="icon mobile-category-icon"
+                                <div ng-class="category.isSelected ? 'search-tab-category-selected-container category-container-mobile-home' : 'search-tab-category-unselected-container category-container-mobile-home'"  ng-click="setCategoryNameAsInputText(category)">
+                                    <div class="row">
+                                        <img class="icon mobile-category-icon category-container-mobile-image-home"
                                              ng-src="%%category.URL_icono_general%%">
                                     </div>
-                                    <div class="search-tab-category-inside-container">
-                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label':'search-tab-category-label search-tab-category-unselected-label'">%%getCategoryText(category)%%</label>
+                                    <div class="row">
+                                        <label ng-class="category.isSelected ? 'search-tab-category-label search-tab-category-selected-label category-container-mobile-label-home':'search-tab-category-label search-tab-category-unselected-label category-container-mobile-label-home'">%%getCategoryText(category)%%</label>
                                     </div>
                                 </div>
                             </li>
