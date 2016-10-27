@@ -545,6 +545,15 @@ angular.module('map')
 
         }
 
+        $scope.getSiteOpenningHours = function(site){
+            if($scope.languageSelected=='en'){
+                return site.businessOpenningHours;
+            }
+            if($scope.languageSelected=='es'){
+                return site.horariolocal;
+            }
+        }
+
         }
     );
 
