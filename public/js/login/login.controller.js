@@ -19,7 +19,16 @@ angular.module('login')
                                 checkUserLogged();
 
                             }).catch(function (error) {
-                            showErrorDialog($translate.instant("BAD_LOGIN"));
+                            var disabledAccount = error.non_field_errors[0];
+
+                            if (disabledAccount == 'User account is disabled.') {
+                                PopupService.showYesMessage("DISABLED_ACCOUNT.TITLE",
+                                    "DISABLED_ACCOUNT.MESSAGE",
+                                    "DISABLED_ACCOUNT.CONTINUE").then(function () {
+                                });
+                            } else {
+                                messageService.showErrorMessage("BAD_LOGIN", true);
+                            }
                         });
                     } else {
                         showErrorDialog('Por favor ingrese usuario y contraseña');

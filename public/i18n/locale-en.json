@@ -295,21 +295,31 @@
     "TITLE": "Routes in "
   },
   "DELETE_ACCOUNT": {
-    "TITLE": "Deactivate my account",
-    "MESSAGE": "Your account will be deactivated",
-    "CONTINUE": "Continue",
-    "CANCEL": "Cancel"
+    "TITLE": "Desactivar mi cuenta",
+    "MESSAGE": "Tu cuenta será desactivada. Tus sitios y toda la información que has publicado ya no será visible en la plataforma",
+    "CONTINUE": "Continuar",
+    "CANCEL": "Cancelar"
+  },
+  "DISABLED_MUNICIPALITY_ACCOUNT": {
+    "TITLE": "Cuenta bloqueada",
+    "MESSAGE": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. Solicita más información enviando un correo electrónico a innovatic_fibog@unal.edu.co",
+    "CONTINUE": "Entendido"
+  },
+  "DISABLED_ACCOUNT": {
+    "TITLE": "Cuenta bloqueada",
+    "MESSAGE": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. Encuentra mas informacion en la secretaría de turismo de tu municipio",
+    "CONTINUE": "Entendido"
   },
   "REACTIVATE_ACCOUNT": {
     "TITLE": "Disabled account",
-    "MESSAGE": "This account is currently deactivated. To reactivate it, click \"Continue\"",
-    "CONTINUE": "Continue",
-    "CANCEL": "Cancel"
+    "MESSAGE": "This account is currently deactivated.  To reactivate it, click 'Continue'",
+    "CANCEL": "Cancel",
+    "CONTINUE": "Continue"
   },
   "REACTIVATE_MUNICIPALITY_ACCOUNT": {
-    "TITLE": "Disabled account",
-    "MESSAGE": "Your account is currently deactivated. Please ask admin to reactivate it by sending an email to innovatic_fibog@unal.edu.co",
-    "CONTINUE": "Got it!"
+    "TITLE": "Cuenta desactivada",
+    "MESSAGE": "Tu cuenta está desactivada. La información que publiques no será visible en la plataforma mientras la cuenta no esté activa. Solicita la activación de la cuenta al administrador enviando un correo electrónico a innovatic_fibog@unal.edu.co",
+    "CONTINUE": "Entendido"
   },
   "RECOVERY_PASSWORD": {
     "TITLE": "Recovery my password",

@@ -32,7 +32,16 @@ angular.module('Municipality')
                             $scope.user = authenticationService.getUser();
                             checkUserLogged();
                         }).catch(function (error) {
-                        messageService.showErrorMessage("BAD_LOGIN", true);
+                        var disabledAccount = error.non_field_errors[0];
+
+                        if (disabledAccount == 'User account is disabled.') {
+                            PopupService.showYesMessage("DISABLED_MUNICIPALITY_ACCOUNT.TITLE",
+                                "DISABLED_MUNICIPALITY_ACCOUNT.MESSAGE",
+                                "DISABLED_MUNICIPALITY_ACCOUNT.CONTINUE").then(function () {
+                            });
+                        } else {
+                            messageService.showErrorMessage("BAD_LOGIN", true);
+                        }
                     });
                 }
                 else {
@@ -61,15 +70,14 @@ angular.module('Municipality')
             PopupService.showYesMessage("REACTIVATE_MUNICIPALITY_ACCOUNT.TITLE",
                 "REACTIVATE_MUNICIPALITY_ACCOUNT.MESSAGE",
                 "REACTIVATE_MUNICIPALITY_ACCOUNT.CONTINUE").then(function () {
-                invalidateLogin();
-
+                $location.path('/municipalityaccountinfo');
             });
         }
 
         function invalidateLogin() {
             $auth.logout();
             $auth.removeToken();
-            authenticationService.logout().then(function(){
+            authenticationService.logout().then(function () {
                 $location.path('/home');
             });
         }
