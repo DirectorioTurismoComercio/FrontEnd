@@ -44,6 +44,7 @@ angular.module('popup', [])
                 title: titleId,
                 message: messageId,
                 yesLabel: yesLabelId,
+                noLabel: undefined,
                 yesCallback: function () {
                     ngDialog.close();
                     deferred.resolve();
