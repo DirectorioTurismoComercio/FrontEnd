@@ -186,12 +186,14 @@ angular.module('map')
         function getKeyWord(){
             var keyWord=undefined;
 
-            for(var i=0; i<$scope.subcategories.length; i++){
-                if($scope.subcategories[i].isSelected){
-                    keyWord=$scope.subcategories[i].nombre;
+            try{
+                for(var i=0; i<$scope.subcategories.length; i++){
+                    if($scope.subcategories[i].isSelected){
+                        keyWord=$scope.subcategories[i].nombre;
+                    }
                 }
-            }
-
+            }catch(e){}
+            
             if(keyWord==undefined){
                 keyWord=$scope.result;
             }
@@ -235,6 +237,7 @@ angular.module('map')
                 $scope.isShowingRouteList=false;
                 $scope.isShowingRouteDetail = false;
                 sendViewToTop();
+
 
                 if (index) {
                     SiteMarkerService.highLightMarkerByIndex(index);
@@ -326,6 +329,9 @@ angular.module('map')
             var top_anchor = $window.document.getElementById("top_anchor")
             top_anchor.focus();
             top_anchor.blur();
+
+            var resultListDiv = $window.document.getElementById("resultList");
+            resultListDiv.scrollTop=0;
         }
 
         function resetRouteAndDetailsValues(){
