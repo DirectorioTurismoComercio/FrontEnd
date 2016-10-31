@@ -193,7 +193,7 @@ angular.module('map')
                     }
                 }
             }catch(e){}
-            
+
             if(keyWord==undefined){
                 keyWord=$scope.result;
             }
