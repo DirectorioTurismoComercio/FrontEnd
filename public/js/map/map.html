@@ -55,7 +55,7 @@
             </div>
 
             <div ng-if="!isShowingRouteList && !isShowingRouteDetail">
-                <div ng-show="foundSites.length > 0 && !isShowingSiteDetail">
+                <div ng-show="foundSites.length > 0 && !isShowingSiteDetail" infinite-scroll='nextPage()' infinite-scroll-disabled='busy' infinite-scroll-distance='1'>
                     <div ng-if="!showResultListHorizontally()"
                          ng-repeat="site in foundSites"
                          ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"

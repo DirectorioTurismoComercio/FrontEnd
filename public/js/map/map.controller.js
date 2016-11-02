@@ -4,12 +4,13 @@ angular.module('map')
     .controller('MapController', function ($scope, $window, uiGmapGoogleMapApi, uiGmapIsReady, SearchForResultsFactory,
                                            MapService, ngDialog, SiteMarkerService, $location, messageService, $timeout,
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS, filterFilter,
-                                           requestedMunicipalityDetail, navigationService, MapRouteSitesService, $translate, $rootScope) {
+                                           requestedMunicipalityDetail, $http, API_CONFIG, navigationService, MapRouteSitesService, $translate, $rootScope) {
             var hasMadeRoute = false;
             var photosPopUp = undefined;
             var requestedMunicipality = requestedMunicipalityDetail.getMunicipality();
             var searchedTown = siteAndTownSaverService.getCurrentSearchedTown();
             var searchedMunicipality=requestedMunicipality;
+            var currentPage=0;
             $scope.hasShowRouteToSiteToMunicipality =undefined;
             $scope.hasMadeFirstRouteToSite = false;
             $scope.routeMapZoom = undefined;
@@ -34,12 +35,38 @@ angular.module('map')
             $scope.isShowingRouteDetail = false;
             $scope.hasSelectedMunicipalityRoutes=false;
             $scope.isDrawingRouteToRegisterSite=false;
-            $scope.languageSelected=$translate.use();
+            $scope.languageSelected=$translate.use()
+
+            $scope.busy=false;
 
             uiGmapIsReady.promise().then(initMap);
 
             $scope.navigationToMunicipalityDetail = navigationService.getMunicipalityDetailNavigation()
 
+
+            $scope.nextPage=function(){
+                if($scope.busy || currentPage==0){
+                    return;
+                }else{
+                    currentPage=currentPage+1;
+
+                    $scope.busy=true;
+                    console.log("esta cargando resultados", currentPage)
+
+                    $http.get(API_CONFIG.url + '/buscar/?search=hotel&page='+currentPage)
+                        .success(function(response){
+                            for(var i=0; i<response.length; i++){
+                                $scope.foundSites.push(response[i]);
+                            }
+                            console.log("en esa pagina llego", response)
+                            $scope.busy=false; 
+                        });
+
+                    //showFoundPlaces();
+
+                }
+
+            }
 
             function initMap() {
                 MapService.setGMap($scope.map.control.getGMap());
@@ -268,6 +295,7 @@ angular.module('map')
             };
 
             $scope.doSearch = function (result) {
+                currentPage=1;
                 $scope.loader=true;
                 navigationService.setMunicipalityDetailNavigation(undefined);
                 siteAndTownSaverService.setQueryMadeByUser("SEARCH_BY_KEY_WORD");
@@ -455,7 +483,10 @@ angular.module('map')
             function showFoundPlaces() {
                 hasMadeRoute = false;
                 var sites = SearchForResultsFactory.getResults();
-                $scope.foundSites = sites;
+                for(var i=0; i<sites.length; i++){
+                    $scope.foundSites.push(sites[i]);
+                }
+                console.log($scope.foundSites);
                 centerMapOnSearchedTown();
                 if (sites != undefined) {
                     MapRouteService.setSiteMarker(sites, $scope);
