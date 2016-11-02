@@ -170,7 +170,6 @@
     "COMPLETE_REGISTRATION_TITLE": "Thanks for creating an account",
     "COMPLETE_REGISTRATION_TEXT": "Thanks for register your business",
     "MUNICIPALITY_COMPLETE_REGISTRATION_TEXT": "Thanks for register your business",
-    "COMPLETE_REGISTRATION_POPUP_BUTTON": "Continue",
     "COMPLETE_UPDATE_TEXT": "Your site information has been updated",
     "MUNICIPALITY_COMPLETE_UPDATE_TEXT": "Your bussines information has been updated successfully",
     "COMPLETE_UPDATE_UPDATE": "Site successfully updated",
@@ -326,9 +325,10 @@
     "EMAIL": "Email",
     "RECOVERY_BUTTON": "Recover password"
   },
-   "RESET_PASSWORD": {
+  "RESET_PASSWORD": {
     "TITLE": "Password reset",
     "TEXT": "Please, enter a new password",
     "ERROR_MESSAGE": "Error on reseting password"
-  }
+  },
+  "E105": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. No es posible recuperar la contraseña"
 }
