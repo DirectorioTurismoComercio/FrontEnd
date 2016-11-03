@@ -57,8 +57,10 @@ angular.module('map')
 
 
             function getNextResults() {
-                if (!$scope.isDrawingRouteToRegisterSite) {
-                    searchByKeyWordGetNextResults();
+                if (!$scope.isDrawingRouteToRegisterSite && !hasMadeRoute) {
+                        searchByKeyWordGetNextResults();
+                }else{
+                    $scope.busy = false;
                 }
             }
 
