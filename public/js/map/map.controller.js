@@ -11,6 +11,7 @@ angular.module('map')
             var searchedTown = siteAndTownSaverService.getCurrentSearchedTown();
             var searchedMunicipality=requestedMunicipality;
             var currentPage=0;
+            var hasReachedLastPage=false;
             $scope.hasShowRouteToSiteToMunicipality =undefined;
             $scope.hasMadeFirstRouteToSite = false;
             $scope.routeMapZoom = undefined;
@@ -45,7 +46,7 @@ angular.module('map')
 
 
             $scope.nextPage=function(){
-                if($scope.busy || currentPage==0){
+                if($scope.busy || currentPage==0 || hasReachedLastPage){
                     return;
                 }else{
                     currentPage=currentPage+1;
@@ -53,8 +54,13 @@ angular.module('map')
                     $scope.busy=true;
                     console.log("esta cargando resultados", currentPage)
 
-                    $http.get(API_CONFIG.url + '/buscar/?search=hotel&page='+currentPage)
+                    $http.get(API_CONFIG.url + '/buscar/?search='+$scope.result+'&page='+currentPage)
                         .success(function(response){
+                            if(response.length==0){
+                                hasReachedLastPage=true;
+                            }else{
+                                hasReachedLastPage=false;
+                            }
                             for(var i=0; i<response.length; i++){
                                 $scope.foundSites.push(response[i]);
                             }
@@ -297,6 +303,7 @@ angular.module('map')
             $scope.doSearch = function (result) {
                 currentPage=1;
                 $scope.loader=true;
+                $scope.foundSites = [];
                 navigationService.setMunicipalityDetailNavigation(undefined);
                 siteAndTownSaverService.setQueryMadeByUser("SEARCH_BY_KEY_WORD");
                 searchingByKeyword(result);
@@ -483,9 +490,11 @@ angular.module('map')
             function showFoundPlaces() {
                 hasMadeRoute = false;
                 var sites = SearchForResultsFactory.getResults();
-                for(var i=0; i<sites.length; i++){
+                $scope.foundSites = sites;
+
+                /*for(var i=0; i<sites.length; i++){
                     $scope.foundSites.push(sites[i]);
-                }
+                }*/
                 console.log($scope.foundSites);
                 centerMapOnSearchedTown();
                 if (sites != undefined) {
