@@ -64,7 +64,7 @@ angular.module('map')
 
             function searchByKeyWordGetNextResults() {
                 currentPage = currentPage + 1;
-                $http.get(API_CONFIG.url + '/buscar/?search=' + $scope.result + '&page=' + currentPage)
+                $http.get(API_CONFIG.url + '/buscar/?search=' + getKeyWord() + '&page=' + currentPage)
                     .success(function (response) {
                         hasReachedLastPage = response.length == 0;
                         for (var i = 0; i < response.length; i++) {
