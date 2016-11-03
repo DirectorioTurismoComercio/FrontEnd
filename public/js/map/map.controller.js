@@ -50,26 +50,25 @@ angular.module('map')
                     return;
                 }else{
                     currentPage=currentPage+1;
-
                     $scope.busy=true;
-                    console.log("esta cargando resultados", currentPage)
+                    console.log("esta cargando resultados", currentPage);
+                    getNextResults(currentPage);
+            }
 
-                    $http.get(API_CONFIG.url + '/buscar/?search='+$scope.result+'&page='+currentPage)
-                        .success(function(response){
-                            if(response.length==0){
-                                hasReachedLastPage=true;
-                            }else{
-                                hasReachedLastPage=false;
-                            }
-                            for(var i=0; i<response.length; i++){
-                                $scope.foundSites.push(response[i]);
-                            }
-                            MapRouteService.setSiteMarker(response, $scope);
 
-                            console.log("en esa pagina llego", response)
-                            $scope.busy=false; 
-                        });
-                }
+            function getNextResults(currentPage){
+                $http.get(API_CONFIG.url + '/buscar/?search='+$scope.result+'&page='+currentPage)
+                    .success(function(response){
+                        hasReachedLastPage=response.length==0;
+                        for(var i=0; i<response.length; i++){
+                            $scope.foundSites.push(response[i]);
+                        }
+                        MapRouteService.setSiteMarker(response, $scope);
+
+                        console.log("en esa pagina llego", response)
+                        $scope.busy=false;
+                    });
+            }
             }
 
             function initMap() {
