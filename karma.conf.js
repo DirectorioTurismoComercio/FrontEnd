@@ -58,6 +58,7 @@ module.exports = function (config) {
             'public/components/angucomplete-alt/dist/angucomplete-alt.min.js',
             'public/components/angular-images-resizer/src/resize.js',
             'public/components/angular-images-resizer/src/resize-service.js',
+            'public/components/ng-infinite-scroll/build/ng-infinite-scroll.min.js',
             'test/specHelpers.js',
             'test/specConstants.js',
             'public/js/DAO/dao.module.js',

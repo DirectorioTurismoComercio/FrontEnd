@@ -299,8 +299,6 @@ angular.module('map')
             };
 
             $scope.doSearch = function (result) {
-                currentPage=1;
-                hasReachedLastPage=false;
                 $scope.loader=true;
                 $scope.foundSites = [];
                 navigationService.setMunicipalityDetailNavigation(undefined);
@@ -403,6 +401,8 @@ angular.module('map')
             }
 
             function searchingByKeyword(keyWord) {
+                currentPage=1;
+                hasReachedLastPage=false;
                 $scope.resulListInCompactMode = false;
                 MapService.clearRoute();
                 if (keyWord != undefined) {
