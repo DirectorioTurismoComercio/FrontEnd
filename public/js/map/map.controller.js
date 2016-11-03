@@ -71,7 +71,6 @@ angular.module('map')
                     //showFoundPlaces();
 
                 }
-
             }
 
             function initMap() {
@@ -80,6 +79,7 @@ angular.module('map')
 
                 setCundinamarcaPolygon();
                 if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
+                    currentPage=1;
                     showFoundPlaces();
                 }
 
@@ -492,9 +492,6 @@ angular.module('map')
                 var sites = SearchForResultsFactory.getResults();
                 $scope.foundSites = sites;
 
-                /*for(var i=0; i<sites.length; i++){
-                    $scope.foundSites.push(sites[i]);
-                }*/
                 console.log($scope.foundSites);
                 centerMapOnSearchedTown();
                 if (sites != undefined) {
