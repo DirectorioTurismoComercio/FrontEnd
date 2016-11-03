@@ -64,12 +64,11 @@ angular.module('map')
                             for(var i=0; i<response.length; i++){
                                 $scope.foundSites.push(response[i]);
                             }
+                            MapRouteService.setSiteMarker(response, $scope);
+
                             console.log("en esa pagina llego", response)
                             $scope.busy=false; 
                         });
-
-                    //showFoundPlaces();
-
                 }
             }
 
@@ -302,6 +301,7 @@ angular.module('map')
 
             $scope.doSearch = function (result) {
                 currentPage=1;
+                hasReachedLastPage=false;
                 $scope.loader=true;
                 $scope.foundSites = [];
                 navigationService.setMunicipalityDetailNavigation(undefined);
