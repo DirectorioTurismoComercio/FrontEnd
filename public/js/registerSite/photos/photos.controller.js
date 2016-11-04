@@ -64,6 +64,11 @@ angular.module('registerSite')
                 orientation = this.exifdata.Orientation;
                 flowFile.orientation = orientation;
                 $scope.$apply();
+                console.log("SIZE...",flowFile.file.size);
+                if(flowFile.file.size>500000){
+                processImage(flowFile);
+                }
+                  
             });
         };
         
@@ -107,9 +112,9 @@ angular.module('registerSite')
 
         }
         */
-        function processImage(flowObject,fileIndex, photoLoading){
-        console.log(flowObject.files[fileIndex].file);
-        var src = URL.createObjectURL(flowObject.files[fileIndex].file);
+        function processImage(flowFile){
+        console.log(flowFile.file);
+        var src = URL.createObjectURL(flowFile.file);
         resizeService
     .resizeImage(src, {
         width: 1200,
@@ -124,11 +129,13 @@ angular.module('registerSite')
     var blob = dataURItoBlob(image);
                             blob.name = 'nueva';//flowObject.files[fileIndex].uniqueIdentifier;
                             blob.lastModifiedDate = new Date();
-                            var f = new Flow.FlowFile(flowObject, blob);
-                            flowObject.files.splice(fileIndex,1);
-                            flowObject.files.push(f); 
-                            flowObject.files[fileIndex]=f;
-                            //$scope.$digest();  
+                            console.log("valor de flow",flowFile);
+                            var f = new Flow.FlowFile(flowFile.flowObj, blob);
+                            flowFile.flowObj.files.splice(0,1);
+                            flowFile.flowObj.files.push(f); 
+                            console.log("valor de f",f);
+                            flowFile.flowObj.files[0]=f;
+                            $scope.$apply();  
     })
     .catch(
         function(error){
