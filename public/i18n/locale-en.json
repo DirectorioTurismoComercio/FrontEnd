@@ -310,7 +310,7 @@
     "CONTINUE": "Ok"
   },
   "REACTIVATE_ACCOUNT": {
-    "TITLE": "Disabled account",
+    "TITLE": "Account deactivated",
     "MESSAGE": "This account is currently deactivated.  To reactivate it, click 'Continue'",
     "CANCEL": "Cancel",
     "CONTINUE": "Continue"
