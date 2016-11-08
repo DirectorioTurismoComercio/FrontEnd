@@ -7,10 +7,13 @@ angular.module('howItWorks', [])
                 templateUrl: 'js/howItWorks/howItWorks.html',
                 controller: 'HowItWorksController'
             })
-
             .when('/howitworksTrader', {
                 templateUrl: 'js/howItWorks/howItWorksTrader/howItWorksTrader.html',
                 controller: 'HowItWorksTraderController'
+            })
+            .when('/howItWorksMunicipality', {
+                templateUrl: 'js/howItWorks/howItWorksMunicipality/howItWorksMunicipality.html',
+                controller: 'HowItWorksMunicipalityController'
             });
     });
 

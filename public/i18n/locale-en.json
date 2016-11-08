@@ -330,5 +330,8 @@
     "TEXT": "Please, enter a new password",
     "ERROR_MESSAGE": "Error on reseting password"
   },
-  "E105": "Your account has been blocked by the platform administrator. Unable to retrieve password"
+  "E105": "Your account has been blocked by the platform administrator. Unable to retrieve password",
+  "HOW_IT_WORKS_MUNICIPALITY": {
+    "TITLE": "How it works?"
+  }
 }
