@@ -75,7 +75,7 @@
     "MUNICIPALITY_LOCATION_TIP": "You can set a pin on the accurate location of  the Citizen attention point",
     "MUNICIPALITY_PHOTOS_PAGE": "Pictures of your town",
     "UPLOAD_MAIN_PHOTO_TIP": "Upload a town's profile picture",
-    "UPLOAD_SECONDARY_PHOTOS_TIP": "Upload photos of your town to help tourists get to know it",
+    "UPLOAD_SECONDARY_PHOTOS_TIP": "Upload up to three photos of your municipality in each section to help tourists get to know it",
     "MUNICIPALITY_GENERAL_PHOTOS": "Town photos",
     "MUNICIPALITY_ANTHEM_PHOTOS": "Picture of town's shield",
     "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Thanks for registering your town.You can see what others will see when the admin gives you access to your account",
@@ -92,8 +92,8 @@
     "UPLOAD_MAIN_PHOTO_TIP": "Upload a Profile picture of your business",
     "MUNICIPALITY_UPLOAD_MAIN_PHOTO_TIP": "Upload a Profile picture of your business",
     "UPLOAD_MAIN_PHOTO": "Main picture",
-    "UPLOAD_SECONDARY_PHOTOS_TIP": "Upload photos of your business to help your clients get to know your premises and your products",
-    "MUNICIPALITY_UPLOAD_SECONDARY_PHOTOS_TIP": "Add one or more site photos for tourists to know",
+    "UPLOAD_SECONDARY_PHOTOS_TIP": "Upload up to three photos of your business in each section to help your clients get to know your premises and your products",
+    "MUNICIPALITY_UPLOAD_SECONDARY_PHOTOS_TIP": "Upload up to three photos of the site in each section to help tourists get to know it",
     "BUSINESS_FACADE_PHOTOS": "Pictures of the facade of your business",
     "MUNICIPALITY_BUSINESS_FACADE_PHOTOS": "Pictures of the facade of your business",
     "BUSINESS_INSIDE_PHOTOS": "Pictures of the business interiors",
@@ -130,7 +130,7 @@
     "BUSINESS_WEB": "Web site",
     "BUSINESS_ADDRESS": "Business address",
     "MUNICIPALITY_BUSINESS_ADDRESS": "Business address",
-    "BUSINESS_MAIN_CATEGORY": "Mian category",
+    "BUSINESS_MAIN_CATEGORY": "Main category",
     "BUSINNES_ADITIONAL_CATEGORIES": "Additional categories",
     "CHOOSE_CATEGORY": "-- Pick category --",
     "CHOOSE_CATEGORY_TEXT": "Choose categories for your business",
@@ -149,7 +149,7 @@
     "DELETE_CATEGORY_BUTTON": "Delete",
     "EDIT_CATEGORY_BUTTON": "Edit",
     "BUSINESS_SUBCATEGORY": "Subcategory",
-    "CHOOSE_SUBCATEGORY": "-- Elija subcategoria --",
+    "CHOOSE_SUBCATEGORY": "-- Choose subcategory --",
     "CHOOSE_SUBCATEGORY_TEXT": "Select one or more subcategories to specify your business activities",
     "MUNICIPALITY_CHOOSE_SUBCATEGORY_TEXT": "Select one or more subcategories to specify site's activities",
     "BUSINESS_REGISTER_BUTTON": "Register business",
@@ -235,7 +235,7 @@
   "ERROR_NO_KEYWORD_SEARCH": "Please enter a keyword",
   "ERROR_NO_RESULTS": "No results to show",
   "ERROR_PLACE_OUTSIDE_CUNDINAMARCA": "Cundinamarca locations outside are not allowed",
-  "ERROR_UNAVAILABLE_LOCATION": "Lo sentimos, ahora mismo tu ubicación no está disponible",
+  "ERROR_UNAVAILABLE_LOCATION": "Sorry, your location is currently unavailable",
   "ERROR_INITIAL_AND_DESTINY_POINTS": "Set an initial and destiny points",
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_ORIGIN": "You must choose your starting point",
   "ERROR_YOU_SHOULD_FILL_YOUR_ROUTE_DESTINATION": "You must choose your destination",
@@ -294,20 +294,20 @@
     "TITLE": "Routes in "
   },
   "DELETE_ACCOUNT": {
-    "TITLE": "Desactivar mi cuenta",
-    "MESSAGE": "Tu cuenta será desactivada. Tus sitios y toda la información que has publicado ya no será visible en la plataforma",
-    "CONTINUE": "Continuar",
-    "CANCEL": "Cancelar"
+    "TITLE": "Disable my account",
+    "MESSAGE": "Your account will be disabled. Your sites and all the information you have posted will no longer be visible on the platform",
+    "CONTINUE": "Continue",
+    "CANCEL": "Cancel"
   },
   "DISABLED_MUNICIPALITY_ACCOUNT": {
-    "TITLE": "Cuenta bloqueada",
-    "MESSAGE": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. Solicita más información enviando un correo electrónico a innovatic_fibog@unal.edu.co",
-    "CONTINUE": "Entendido"
+    "TITLE": "Blocked account",
+    "MESSAGE": "Your account has been blocked by the platform administrator. Request more information by sending an email to innovatic_fibog@unal.edu.co",
+    "CONTINUE": "Ok"
   },
   "DISABLED_ACCOUNT": {
-    "TITLE": "Cuenta bloqueada",
-    "MESSAGE": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. Encuentra mas informacion en la secretaría de turismo de tu municipio",
-    "CONTINUE": "Entendido"
+    "TITLE": "Blocked account",
+    "MESSAGE": "Your account has been blocked by the platform administrator. Find more information in the citizen attention point of your town",
+    "CONTINUE": "Ok"
   },
   "REACTIVATE_ACCOUNT": {
     "TITLE": "Disabled account",
@@ -316,8 +316,8 @@
     "CONTINUE": "Continue"
   },
   "REACTIVATE_MUNICIPALITY_ACCOUNT": {
-    "TITLE": "Cuenta desactivada",
-    "MESSAGE": "Tu cuenta está desactivada. La información que publiques no será visible en la plataforma mientras la cuenta no esté activa. Solicita la activación de la cuenta al administrador enviando un correo electrónico a innovatic_fibog@unal.edu.co",
+    "TITLE": "Account deactivated",
+    "MESSAGE": "Your account is deactivated. The information you post will not be visible on the platform while the account is not active. Request activation of the account to the administrator by sending an email to innovatic_fibog@unal.edu.co",
     "CONTINUE": "Entendido"
   },
   "RECOVERY_PASSWORD": {
@@ -330,5 +330,5 @@
     "TEXT": "Please, enter a new password",
     "ERROR_MESSAGE": "Error on reseting password"
   },
-  "E105": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. No es posible recuperar la contraseña"
+  "E105": "Your account has been blocked by the platform administrator. Unable to retrieve password"
 }
