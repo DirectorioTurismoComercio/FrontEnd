@@ -24,7 +24,7 @@
                  ng-style="{'background-image':'url(%%municipality.fotos[0].URLfoto%%)'}"
                  ng-click="showMunicipalityDetail(municipality)">
                 <h1 class="municipality-title">%%municipality.nombre%%</h1>
-                <h1 clamp="3" class="municipality-description">%%municipality.descripcion%%</h1>
+                <h1 pg-clamp="3" class="municipality-description">%%getMunicipalityDescription(municipality)%%</h1>
                 <div class="shadow"></div>
             </div>
             %%areThereResults=municipality.visible;""%%
