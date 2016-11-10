@@ -332,6 +332,11 @@
   },
   "E105": "Your account has been blocked by the platform administrator. Unable to retrieve password",
   "HOW_IT_WORKS_MUNICIPALITY": {
-    "TITLE": "How it works?"
+    "LINK": "How it works?",
+    "TITLE": "This is how De Tour por Cundinamarca works:",
+    "DESCRIPTION_1": "Create a profile for your town with information, text and images",
+    "DESCRIPTION_2": "Register sites of interest in your town which you will can to promote the town",
+    "DESCRIPTION_3": "Make routes between your town's sites for tourist follows it",
+    "REGISTER_BUTTON": "Register your town now!"
   }
 }
