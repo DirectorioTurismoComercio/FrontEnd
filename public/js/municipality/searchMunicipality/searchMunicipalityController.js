@@ -2,7 +2,7 @@
 
 angular.module('Municipality')
     .controller('searchMunicipalityController', function ($scope, $log, $translate, $location, MunicipalitiesDAO,
-                                                          requestedMunicipalityDetail, $rootScope, navigationService, siteAndTownSaverService, filterFilter) {
+                                                          requestedMunicipalityDetail, $rootScope, navigationService, siteAndTownSaverService, ImageService) {
         $scope.municipalitiesGroupedByLetter = [];
         $scope.search = {};
         $scope.languageSelected=$translate.use();
@@ -68,7 +68,7 @@ angular.module('Municipality')
         });
 
         $scope.getMunicipalityImage=function(municipality){
-            return filterFilter(municipality.fotos,{tipo:'P'})[0].URLfoto;
+            return ImageService.getMainMunicipalityImage(municipality)
         }
 
     });

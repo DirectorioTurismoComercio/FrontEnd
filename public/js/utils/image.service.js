@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('utils')
-    .service('ImageService', function ($q, $window) {
+    .service('ImageService', function ($q, $window, filterFilter) {
         var MAX_IMAGE_WIDTH = 1200;
         var MAX_IMAGE_HEIGHT = 1200;
 
@@ -186,12 +186,17 @@ angular.module('utils')
             }
         }
 
+        function getMainMunicipalityImage(municipality){
+            return filterFilter(municipality.fotos,{tipo:'P'})[0].URLfoto;
+        }
+
 
 
         return {
             reduceImageSize: reduceImageSize,
             rotateImage: rotateImage,
             dataURIToBlob: dataURIToBlob,
-            changeLoadingState:changeLoadingState
+            changeLoadingState:changeLoadingState,
+            getMainMunicipalityImage:getMainMunicipalityImage
         }
     });

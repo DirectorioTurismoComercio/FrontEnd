@@ -4,7 +4,7 @@ angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory,
                                             $location, $mdDialog, siteAndTownSaverService, $log,
                                             messageService, MapService, $window, $rootScope, $translate,
-                                            MunicipalitiesDAO, requestedMunicipalityDetail, navigationService, filterFilter) {
+                                            MunicipalitiesDAO, requestedMunicipalityDetail, navigationService, ImageService) {
         $scope.municipalities = [];
         $scope.languageSelected=$translate.use();
         navigationService.setClickedLogoButton(false);
@@ -65,7 +65,7 @@ angular.module('home')
         }
 
         $scope.getMunicipalityImage=function(municipality){
-            return filterFilter(municipality.fotos,{tipo:'P'})[0].URLfoto;
+            return ImageService.getMainMunicipalityImage(municipality)
         }
 
         function chooseRandomMunicipalitiesToShow(municipalities) {
