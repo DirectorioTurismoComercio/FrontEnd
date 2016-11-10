@@ -4,7 +4,7 @@ angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory,
                                             $location, $mdDialog, siteAndTownSaverService, $log,
                                             messageService, MapService, $window, $rootScope, $translate,
-                                            MunicipalitiesDAO, requestedMunicipalityDetail, navigationService) {
+                                            MunicipalitiesDAO, requestedMunicipalityDetail, navigationService, filterFilter) {
         $scope.municipalities = [];
         $scope.languageSelected=$translate.use();
         navigationService.setClickedLogoButton(false);
@@ -62,6 +62,10 @@ angular.module('home')
             if($scope.languageSelected=='es'){
                 return municipality.descripcion;
             }
+        }
+
+        $scope.getMunicipalityImage=function(municipality){
+            return filterFilter(municipality.fotos,{tipo:'P'})[0].URLfoto;
         }
 
         function chooseRandomMunicipalitiesToShow(municipalities) {

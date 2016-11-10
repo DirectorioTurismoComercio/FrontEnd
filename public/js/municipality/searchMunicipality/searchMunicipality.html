@@ -21,7 +21,7 @@
         <div ng-if="municipality.visible" ng-repeat="municipality in group.municipalities"
              class="col-xs-12 col-sm-4">
             <div class="municipality"
-                 ng-style="{'background-image':'url(%%municipality.fotos[0].URLfoto%%)'}"
+                 ng-style="{'background-image':'url(%%getMunicipalityImage(municipality)%%)'}"
                  ng-click="showMunicipalityDetail(municipality)">
                 <h1 class="municipality-title">%%municipality.nombre%%</h1>
                 <h1 pg-clamp="3" class="municipality-description">%%getMunicipalityDescription(municipality)%%</h1>
