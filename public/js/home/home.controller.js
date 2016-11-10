@@ -4,8 +4,9 @@ angular.module('home')
     .controller('HomeController', function ($scope, SearchForResultsFactory,
                                             $location, $mdDialog, siteAndTownSaverService, $log,
                                             messageService, MapService, $window, $rootScope, $translate,
-                                            MunicipalitiesDAO, requestedMunicipalityDetail, navigationService) {
+                                            MunicipalitiesDAO, requestedMunicipalityDetail, navigationService, ImageService) {
         $scope.municipalities = [];
+        $scope.languageSelected=$translate.use();
         navigationService.setClickedLogoButton(false);
         siteAndTownSaverService.resetSearchAndRoute();
         siteAndTownSaverService.setSelectedCategory(undefined);
@@ -51,7 +52,21 @@ angular.module('home')
 
         $rootScope.$on('$translateChangeSuccess', function () {
             setHowItWorksTraderImage();
+            $scope.languageSelected = $translate.use();
         });
+
+        $scope.getMunicipalityDescription=function(municipality){
+            if($scope.languageSelected=='en'){
+                return municipality.description;
+            }
+            if($scope.languageSelected=='es'){
+                return municipality.descripcion;
+            }
+        }
+
+        $scope.getMunicipalityImage=function(municipality){
+            return ImageService.getMainMunicipalityImage(municipality)
+        }
 
         function chooseRandomMunicipalitiesToShow(municipalities) {
             var MUNICIPALITIES_LENGTH = Math.min(municipalities.length, 3);
