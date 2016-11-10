@@ -331,5 +331,8 @@
     "TEXT": "Por favor digite una nueva contraseña",
     "ERROR_MESSAGE": "Error al guardar contraseña"
   },
-  "E105": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. No es posible recuperar la contraseña"
+  "E105": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. No es posible recuperar la contraseña",
+  "HOW_IT_WORKS_MUNICIPALITY":{
+    "TITLE":"¿Cómo funciona?"
+  }
 }
