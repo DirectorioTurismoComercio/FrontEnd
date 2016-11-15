@@ -47,7 +47,6 @@ angular.module('map')
             $scope.navigationToMunicipalityDetail = navigationService.getMunicipalityDetailNavigation()
 
             $scope.nextPage = function () {
-                console.log("llego al final del scroll");
                 if ($scope.busy || currentPage == 0 || hasReachedLastPage) {
                     return;
                 } else {
@@ -59,7 +58,7 @@ angular.module('map')
 
 
             function getNextResults() {
-                if (!$scope.isDrawingRouteToRegisterSite && !hasMadeRoute) {
+                if (!$scope.isDrawingRouteToRegisterSite && !hasMadeRoute && siteAndTownSaverService.getQueryMadeByUser() != "PLAN_A_ROUTE") {
                         searchByKeyWordGetNextResults();
                 }else{
                     sitesNearRouteGetNextResults();
@@ -154,6 +153,7 @@ angular.module('map')
 
 
             function showSearchedRoute() {
+                currentPage = 1;
                 $scope.resulListInCompactMode = true;
                 reloadMap();
                 SiteMarkerService.deleteMarkers();

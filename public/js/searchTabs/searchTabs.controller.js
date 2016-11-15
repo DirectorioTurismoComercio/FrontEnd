@@ -150,8 +150,8 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                 if ($scope.isMobile) {
                     $scope.isRouteFormVisible = !$scope.isRouteFormVisible;
                 }
-                $scope.showRoute();
                 siteAndTownSaverService.setQueryMadeByUser("PLAN_A_ROUTE");
+                $scope.showRoute();
             }
         };
         
