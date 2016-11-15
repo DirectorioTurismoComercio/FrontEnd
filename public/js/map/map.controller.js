@@ -46,7 +46,6 @@ angular.module('map')
 
             $scope.navigationToMunicipalityDetail = navigationService.getMunicipalityDetailNavigation()
 
-
             $scope.nextPage = function () {
                 console.log("llego al final del scroll");
                 if ($scope.busy || currentPage == 0 || hasReachedLastPage) {
@@ -63,8 +62,7 @@ angular.module('map')
                 if (!$scope.isDrawingRouteToRegisterSite && !hasMadeRoute) {
                         searchByKeyWordGetNextResults();
                 }else{
-                   // sitesNearRouteGetNextResults();
-                    $scope.busy = false;
+                    sitesNearRouteGetNextResults();
                 }
             }
 
@@ -108,6 +106,7 @@ angular.module('map')
                 setCundinamarcaPolygon();
                 if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
                     currentPage = 1;
+                    hasReachedLastPage=false;
                     showFoundPlaces();
                 }
 
@@ -167,6 +166,7 @@ angular.module('map')
 
             $scope.showRoute = function () {
                 currentPage = 1;
+                hasReachedLastPage=false;
                 siteAndTownSaverService.setQueryMadeByUser("PLAN_A_ROUTE");
                 hasMadeRoute = true;
                 siteAndTownSaverService.setCurrentSearchedTown(undefined);
