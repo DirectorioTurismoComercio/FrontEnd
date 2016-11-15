@@ -38,6 +38,8 @@ angular.module('map')
             $scope.isDrawingRouteToRegisterSite = false;
             $scope.languageSelected = $translate.use()
 
+            $scope.points=undefined;
+
             $scope.busy = false;
 
             uiGmapIsReady.promise().then(initMap);
@@ -46,6 +48,7 @@ angular.module('map')
 
 
             $scope.nextPage = function () {
+                console.log("llego al final del scroll");
                 if ($scope.busy || currentPage == 0 || hasReachedLastPage) {
                     return;
                 } else {
@@ -60,6 +63,7 @@ angular.module('map')
                 if (!$scope.isDrawingRouteToRegisterSite && !hasMadeRoute) {
                         searchByKeyWordGetNextResults();
                 }else{
+                   // sitesNearRouteGetNextResults();
                     $scope.busy = false;
                 }
             }
@@ -77,6 +81,24 @@ angular.module('map')
                         console.log("en esa pagina llego", response)
                         $scope.busy = false;
                     });
+            }
+
+            function sitesNearRouteGetNextResults(){
+                currentPage = currentPage + 1;
+                $http.post(API_CONFIG.url+API_CONFIG.sitios, {'points': $scope.points,
+                    'page':currentPage})
+                    .success(function(sites){
+                        hasReachedLastPage = sites.length == 0;
+                        MapRouteService.setSiteMarker(sites,$scope);
+                        for (var i = 0; i < sites.length; i++) {
+                            $scope.foundSites.push(sites[i]);
+                        }
+                        $scope.loading = false;
+                        $scope.routeMapZoom = $scope.map.zoom;
+                        $scope.routeToSiteIsVisible = true;
+                        $scope.hasMadeCurrentSiteRoute = true;
+                        $scope.busy = false;
+                    })
             }
 
             function initMap() {
@@ -144,6 +166,7 @@ angular.module('map')
             }
 
             $scope.showRoute = function () {
+                currentPage = 1;
                 siteAndTownSaverService.setQueryMadeByUser("PLAN_A_ROUTE");
                 hasMadeRoute = true;
                 siteAndTownSaverService.setCurrentSearchedTown(undefined);

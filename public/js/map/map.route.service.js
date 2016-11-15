@@ -29,6 +29,7 @@ angular.module('map')
                         points.push([result.routes[0].overview_path[i].lat(), result.routes[0].overview_path[i].lng()]);
                     }
 
+                    $scope.points=points;
                     drawRouteSites(points, $scope);
                 }
             });
