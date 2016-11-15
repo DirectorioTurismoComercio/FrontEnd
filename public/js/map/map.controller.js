@@ -295,6 +295,7 @@ angular.module('map')
             };
 
             $scope.showSiteDetail = function (site, index) {
+                console.log("en el slide que esta");
                 $scope.isShowingRouteList = false;
                 $scope.isShowingRouteDetail = false;
                 sendViewToTop();

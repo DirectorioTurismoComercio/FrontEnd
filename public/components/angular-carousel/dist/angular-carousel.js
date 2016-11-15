@@ -329,6 +329,7 @@ angular.module('angular-carousel').run(['$templateCache', function ($templateCac
               }
 
               scope.nextSlide = function (slideOptions) {
+                console.log("cambio de slide");
                 var index = scope.carouselIndex + 1;
                 if (index > currentSlides.length - 1) {
                   index = 0;
@@ -390,6 +391,13 @@ angular.module('angular-carousel').run(['$templateCache', function ($templateCac
                         locked = false;
                       }, 0, false);
                     });
+
+                    console.log("cambio de slide a slide",scope.carouselIndex);
+                    console.log("coge foundsites", scope.foundSites.length)
+                    if(scope.carouselIndex < (scope.foundSites).length - 1){
+                      scope.nextPage();
+                    }
+
                   }
                 });
               }
