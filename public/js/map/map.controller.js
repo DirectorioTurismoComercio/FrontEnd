@@ -64,20 +64,15 @@ angular.module('map')
                 }else{
                     sitesNearRouteGetNextResults();
                 }
+                $scope.busy = false;
             }
 
             function searchByKeyWordGetNextResults() {
                 currentPage = currentPage + 1;
                 $http.get(API_CONFIG.url + '/buscar/?search=' + getKeyWord() + '&page=' + currentPage)
                     .success(function (response) {
-                        hasReachedLastPage = response.length == 0;
-                        for (var i = 0; i < response.length; i++) {
-                            $scope.foundSites.push(response[i]);
-                        }
-                        MapRouteService.setSiteMarker(response, $scope);
-
+                        drawMarkers(response);
                         console.log("en esa pagina llego", response)
-                        $scope.busy = false;
                     });
             }
 
@@ -86,17 +81,20 @@ angular.module('map')
                 $http.post(API_CONFIG.url+API_CONFIG.sitios, {'points': $scope.points,
                     'page':currentPage})
                     .success(function(sites){
-                        hasReachedLastPage = sites.length == 0;
-                        MapRouteService.setSiteMarker(sites,$scope);
-                        for (var i = 0; i < sites.length; i++) {
-                            $scope.foundSites.push(sites[i]);
-                        }
+                        drawMarkers(sites);
                         $scope.loading = false;
                         $scope.routeMapZoom = $scope.map.zoom;
                         $scope.routeToSiteIsVisible = true;
                         $scope.hasMadeCurrentSiteRoute = true;
-                        $scope.busy = false;
                     })
+            }
+
+            function drawMarkers(response){
+                hasReachedLastPage = response.length == 0;
+                for (var i = 0; i < response.length; i++) {
+                    $scope.foundSites.push(response[i]);
+                }
+                MapRouteService.setSiteMarker(response, $scope);
             }
 
             function initMap() {
