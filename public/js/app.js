@@ -6,7 +6,7 @@
             'message', 'appHeader', 'pascalprecht.translate', 'appFooter', 'registerSite', 'utils',
             'businessCategory', 'mgo-angular-wizard', 'registerTrader', 'login', 'accountInfo', 'ngCookies',
             'navigation', 'checklist-model', 'interceptor', 'ngScrollbars', 'slick', 'Municipality', 'dao',
-            'angucomplete-alt', 'images-resizer', 'forgotPassword', 'popup'])
+            'angucomplete-alt', 'images-resizer', 'forgotPassword', 'popup','vote'])
         .config(function ($interpolateProvider, API_CONFIG, $authProvider, $translateProvider, $httpProvider) {
             $interpolateProvider.startSymbol('%%');
             $interpolateProvider.endSymbol('%%');
