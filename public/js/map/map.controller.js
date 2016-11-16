@@ -44,7 +44,14 @@ angular.module('map')
 
             uiGmapIsReady.promise().then(initMap);
 
-            $scope.navigationToMunicipalityDetail = navigationService.getMunicipalityDetailNavigation()
+            $scope.navigationToMunicipalityDetail = navigationService.getMunicipalityDetailNavigation();
+            $scope.carouselIndex2=0;
+
+        $scope.boton=function(){
+            console.log("presiono el boton");
+            $scope.carouselIndex2=$scope.carouselIndex2+1;
+            console.log($scope.carouselIndex2);
+        }
 
             $scope.nextPage = function () {
                 if ($scope.busy || currentPage == 0 || hasReachedLastPage) {
@@ -187,6 +194,7 @@ angular.module('map')
                     $scope.isShowingRouteDetail = false;
                     $scope.isShowingRouteList = false;
                     $scope.isShowingSiteDetail = false;
+                    $scope.$broadcast('resetSlideIndex',0);
                     $scope.showRoute();
                 }
 

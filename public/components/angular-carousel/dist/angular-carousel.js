@@ -306,6 +306,10 @@ angular.module('angular-carousel').run(['$templateCache', function ($templateCac
                 });
               }
 
+              scope.$on('resetSlideIndex',function(evt,index){
+                scope.carouselIndex=0;
+              });
+
               function getSlidesDOM() {
                 return iElement[0].querySelectorAll('ul[rn-carousel] > li');
               }
@@ -329,7 +333,6 @@ angular.module('angular-carousel').run(['$templateCache', function ($templateCac
               }
 
               scope.nextSlide = function (slideOptions) {
-                console.log("cambio de slide");
                 var index = scope.carouselIndex + 1;
                 if (index > currentSlides.length - 1) {
                   index = 0;
@@ -342,7 +345,6 @@ angular.module('angular-carousel').run(['$templateCache', function ($templateCac
               };
 
               scope.prevSlide = function (slideOptions) {
-                console.log("slide")
                 var index = scope.carouselIndex - 1;
                 if (index < 0) {
                   index = currentSlides.length - 1;
@@ -392,9 +394,8 @@ angular.module('angular-carousel').run(['$templateCache', function ($templateCac
                       }, 0, false);
                     });
 
-                    console.log("cambio de slide a slide",scope.carouselIndex);
-                    console.log("coge foundsites", scope.foundSites.length)
-                    if(scope.carouselIndex < (scope.foundSites).length - 1){
+                    console.log("esta en la posicion", scope.carouselIndex);
+                    if(scope.carouselIndex == (scope.foundSites).length - 1){
                       scope.nextPage();
                     }
 
