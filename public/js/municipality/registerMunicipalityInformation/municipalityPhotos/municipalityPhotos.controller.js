@@ -21,6 +21,8 @@ angular.module('Municipality')
         $scope.loadingCoatArmsPhoto = false
         $scope.loadingMunicipalityFacedePhotos = false;
         $scope.loader=false;
+        $scope.photosLimitNumber=API_CONFIG.photosLimitNumber;
+
 
         var numPhotos;
         var loadedPhotos = 0;

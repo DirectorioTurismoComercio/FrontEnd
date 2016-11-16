@@ -75,7 +75,7 @@
     "MUNICIPALITY_LOCATION_TIP": "Puedes colocar un marcador en el mapa sobre la ubicación exacta del punto de atención al ciudadano",
     "MUNICIPALITY_PHOTOS_PAGE": "Fotografías del municipio",
     "UPLOAD_MAIN_PHOTO_TIP": "Sube una fotografía para identificar el municipio dentro de la plataforma",
-    "UPLOAD_SECONDARY_PHOTOS_TIP": "Sube una o varias fotografías del municipio para que los usuarios lo conozcan",
+    "UPLOAD_SECONDARY_PHOTOS_TIP": "Sube hasta tres fotografías del municipio en cada sección para que los usuarios lo conozcan",
     "MUNICIPALITY_GENERAL_PHOTOS": "Fotos del municipio",
     "MUNICIPALITY_ANTHEM_PHOTOS": "Foto del escudo del municipio",
     "COMPLETE_MUNICIPALITY_REGISTRATION_TEXT": "Gracias por registrar el municipio. Ten en cuenta que la información que inscribiste sólo será visible después de ser corroborada por el administrador. Recibirás una confirmación via correo electrónico cuando el proceso esté completo.",
@@ -92,8 +92,8 @@
     "UPLOAD_MAIN_PHOTO_TIP": "Sube una fotografía para identificar tu negocio dentro de la plataforma",
     "MUNICIPALITY_UPLOAD_MAIN_PHOTO_TIP": "Sube una fotografía para identificar el sitio dentro de la plataforma",
     "UPLOAD_MAIN_PHOTO": "Foto principal",
-    "UPLOAD_SECONDARY_PHOTOS_TIP": "Sube una o varias fotografías de tu negocio para que tus clientes conozcan tu local y tus productos",
-    "MUNICIPALITY_UPLOAD_SECONDARY_PHOTOS_TIP": "Sube una o varias fotografías del sitio para que los turistas puedan conocerlo",
+    "UPLOAD_SECONDARY_PHOTOS_TIP": "Sube hasta tres fotografías de tu negocio en cada sección para que tus clientes conozcan tu local y tus productos",
+    "MUNICIPALITY_UPLOAD_SECONDARY_PHOTOS_TIP": "Sube hasta tres fotografías del sitio en cada sección para que los turistas puedan conocerlo",
     "BUSINESS_FACADE_PHOTOS": "Fotos de la fachada de tu negocio",
     "MUNICIPALITY_BUSINESS_FACADE_PHOTOS": "Fotos de la entrada del sitio",
     "BUSINESS_INSIDE_PHOTOS": "Fotos del interior de tu negocio",
@@ -258,7 +258,7 @@
   "NO_RESULTS": "Lo sentimos, no hay resultados para esta búsqueda. Por favor intente con otras palabras",
   "BAD_LOGIN": "El usuario o contraseña son incorrectos",
   "REGISTER_SUCCESS": "Ya formas parte de la comunidad De Tour por Cundinamarca, ahora puedes registrar tu comercio, entrando a tu perfil podrás editar tu información para actualizar datos, e inscribir más negocios o sucursales cuando lo necesites.",
-  "REGISTER_MUNICIPALITY_SUCCESS": "Ya formas parte de la comunidad De Tour por Cundinamarca, Ahora puedes registrar la información del municipio",
+  "REGISTER_MUNICIPALITY_SUCCESS": "Ya formas parte de la comunidad De Tour por Cundinamarca. Ahora puedes registrar la información del municipio",
   "CONTACT_INFO": "Si tienes problemas al utilizar la app, alguna duda o sugerencia, puedes escribirnos a: ",
   "E100": "Error de comunicación con el servidor, intente nuevamente.",
   "E101": "El correo ya existe",
@@ -280,8 +280,8 @@
   "ROUTE_DETAIL_SITES": "Sitios en la ruta",
   "DOUBLE_REGISTER_ERROR": "Por favor cierra la sesión anterior antes de registrar otra cuenta",
   "DOUBLE_LOGIN_ERROR": "Por favor cierra la sesión anterior antes de iniciar sesión con otra cuenta",
-  "EMAIL_SENDED": "Correo enviado",
-  "EMAIL_SENDED_TEXT": "Se ha enviado un correo con tu nueva contraseña, por favor asegúrate de cambiarla por una contraseña nueva que puedas recordar cuando inicies sesión",
+  "EMAIL_SENT": "Correo enviado",
+  "EMAIL_SENT_TEXT": "Se ha enviado un correo con tu nueva contraseña, por favor asegúrate de cambiarla por una contraseña nueva que puedas recordar cuando inicies sesión",
   "MUNICIPALITIES_VIEW": {
     "TITLE": "Municipios de Cundinamarca",
     "SEARCH_BOX": "Buscar un municipio"
@@ -295,10 +295,20 @@
     "TITLE": "Rutas en "
   },
   "DELETE_ACCOUNT": {
-    "TITLE": "Desactivar cuenta",
-    "MESSAGE": "Que te vaya bonito que no te vaya mal y que el tiempo te deje en donde tengas que estar",
+    "TITLE": "Desactivar mi cuenta",
+    "MESSAGE": "Tu cuenta será desactivada. Tus sitios y toda la información que has publicado ya no será visible en la plataforma",
     "CONTINUE": "Continuar",
     "CANCEL": "Cancelar"
+  },
+  "DISABLED_MUNICIPALITY_ACCOUNT": {
+    "TITLE": "Cuenta bloqueada",
+    "MESSAGE": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. Solicita más información enviando un correo electrónico a innovatic_fibog@unal.edu.co",
+    "CONTINUE": "Entendido"
+  },
+  "DISABLED_ACCOUNT": {
+    "TITLE": "Cuenta bloqueada",
+    "MESSAGE": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. Encuentra mas informacion en la secretaría de turismo de tu municipio",
+    "CONTINUE": "Entendido"
   },
   "REACTIVATE_ACCOUNT": {
     "TITLE": "Cuenta desactivada",
@@ -306,14 +316,28 @@
     "CANCEL": "Cancelar",
     "CONTINUE": "Continuar"
   },
+  "REACTIVATE_MUNICIPALITY_ACCOUNT": {
+    "TITLE": "Cuenta desactivada",
+    "MESSAGE": "Tu cuenta está desactivada. La información que publiques no será visible en la plataforma mientras la cuenta no esté activa. Solicita la activación de la cuenta al administrador enviando un correo electrónico a innovatic_fibog@unal.edu.co",
+    "CONTINUE": "Entendido"
+  },
   "RECOVERY_PASSWORD": {
     "TITLE": "Recuperar contraseña",
     "EMAIL": "Correo",
     "RECOVERY_BUTTON": "Recuperar"
   },
-   "RESET_PASSWORD": {
+  "RESET_PASSWORD": {
     "TITLE": "Reestablecer contraseña",
     "TEXT": "Por favor digite una nueva contraseña",
     "ERROR_MESSAGE": "Error al guardar contraseña"
+  },
+  "E105": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. No es posible recuperar la contraseña",
+  "HOW_IT_WORKS_MUNICIPALITY":{
+    "LINK":"¿Cómo funciona?",
+    "TITLE": "De Tour por Cundinamarca funciona así:",
+    "DESCRIPTION_1": "Crea el perfil de tu municipio con información, textos e imágenes",
+    "DESCRIPTION_2": "Registra sitios de interés en tu municipio con los cuales podrás promocionar el municipio",
+    "DESCRIPTION_3": "Crea rutas entre los sitios de tu municipio para que los turistas lo recorran",
+    "REGISTER_BUTTON": "¡Inscribe tu municipio ahora!"
   }
 }

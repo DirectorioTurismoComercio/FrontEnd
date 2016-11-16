@@ -118,6 +118,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
                     category.isSelected=false;
                     $scope.result='';
                     $scope.isSubcategoriesVisible=false;
+                    setAllAsUnselected($scope.categories);
                 }else{
                     $scope.result=category.nombre;
                     setSubcategories(category.id);
@@ -205,6 +206,7 @@ angular.module('searchTabs', ['google.places', 'geolocation'])
 
 
         function setAllAsUnselected(object){
+            $scope.subcategoryname=undefined;
             try {
                 for (var i = 0; i < object.length; i++) {
                     object[i].isSelected = false;

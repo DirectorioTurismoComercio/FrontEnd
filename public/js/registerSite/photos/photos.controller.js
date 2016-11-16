@@ -28,6 +28,7 @@ angular.module('registerSite')
         $scope.loadingPhotos = false;
         $scope.loader=false;
         $scope.user=siteInformationService.user;
+        $scope.photosLimitNumber=API_CONFIG.photosLimitNumber;
 
         var numPhotos;
         var loadedPhotos = 0;

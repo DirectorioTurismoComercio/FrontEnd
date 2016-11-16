@@ -1,7 +1,12 @@
 'use strict';
 
 angular.module('Municipality')
-    .controller('municipalityAccountInfoController', function ($scope, $location, $mdDialog, filterFilter, siteInformationService, municipalityInformationService, messageService, API_CONFIG, $http, ngDialog, authenticationService, formValidator, $translate, serverConnectionService) {
+    .controller('municipalityAccountInfoController', function ($scope, $location, $mdDialog, filterFilter,
+                                                               siteInformationService, municipalityInformationService,
+                                                               messageService, API_CONFIG, $http, ngDialog,
+                                                               authenticationService, formValidator, $translate,
+                                                               serverConnectionService, $auth,
+                                                               $route) {
 
         $scope.showRequiredFieldMessage = false;
         $scope.user = authenticationService.getUser();
@@ -26,9 +31,9 @@ angular.module('Municipality')
                 splitSites();
 
             })
-            .error(function(error){
-                console.log("error",error);
-            }
+            .error(function (error) {
+                    console.log("error", error);
+                }
             );
 
         function splitSites() {
@@ -258,7 +263,7 @@ angular.module('Municipality')
             });
         }
 
-        function deleteItemFromArray(serverRoute, item){
+        function deleteItemFromArray(serverRoute, item) {
             if (serverRoute == API_CONFIG.siteDetail) {
                 $scope.municipalitySites.splice($scope.municipalitySites.indexOf(item), 1);
             } else if (serverRoute == API_CONFIG.updateRoute) {
@@ -272,5 +277,46 @@ angular.module('Municipality')
                 $location.path('/home');
             }
         });
+
+
+        $scope.deleteAccount = function () {
+            $http.patch(API_CONFIG.url + API_CONFIG.user_detail, {
+                    es_cuenta_activa: false
+                },
+                {
+                    headers: {
+                        'Authorization': 'Token ' + authenticationService.getUser().token
+                    }
+                }).then(function (response) {
+                logOut();
+            });
+        };
+
+        function logOut() {
+            $auth.logout();
+            $auth.removeToken();
+            siteInformationService.clearData();
+            municipalityInformationService.resetData();
+            ngDialog.close();
+            authenticationService.logout().then(function () {
+                $location.path('home');
+                $route.reload();
+            });
+        }
+
+        $scope.closeDialog = function () {
+            ngDialog.close();
+        };
+
+        $scope.showDialogDeleteAccount = function () {
+            ngDialog.open({
+                template: 'js/accountInfo/deleteAccount.html',
+                width: 'auto',
+                showClose: false,
+                scope: $scope,
+                closeByEscape: true,
+                closeByDocument: true
+            });
+        };
 
     });

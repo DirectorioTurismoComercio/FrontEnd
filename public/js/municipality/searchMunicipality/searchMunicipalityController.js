@@ -2,9 +2,10 @@
 
 angular.module('Municipality')
     .controller('searchMunicipalityController', function ($scope, $log, $translate, $location, MunicipalitiesDAO,
-                                                          requestedMunicipalityDetail, navigationService, siteAndTownSaverService) {
+                                                          requestedMunicipalityDetail, $rootScope, navigationService, siteAndTownSaverService, ImageService) {
         $scope.municipalitiesGroupedByLetter = [];
         $scope.search = {};
+        $scope.languageSelected=$translate.use();
 
         MunicipalitiesDAO.getAllMunicipalities().then(function (municipalities) {
             $scope.municipalitiesGroupedByLetter = groupMunicipalitiesByLetter(municipalities);
@@ -16,6 +17,15 @@ angular.module('Municipality')
             siteAndTownSaverService.setQueryMadeByUser(undefined);
             $location.path('/map');
         };
+
+        $scope.getMunicipalityDescription=function(municipality){
+            if($scope.languageSelected=='en'){
+                return municipality.description;
+            }
+            if($scope.languageSelected=='es'){
+                return municipality.descripcion;
+            }
+        }
 
         function groupMunicipalitiesByLetter(municipalities) {
             var lastFoundLetter;
@@ -52,5 +62,13 @@ angular.module('Municipality')
         $scope.getFirstLetter = function (municipality) {
             return municipality.nombre.charAt(0);
         };
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $scope.languageSelected = $translate.use();
+        });
+
+        $scope.getMunicipalityImage=function(municipality){
+            return ImageService.getMainMunicipalityImage(municipality)
+        }
 
     });

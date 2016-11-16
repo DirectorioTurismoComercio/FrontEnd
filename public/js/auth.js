@@ -36,8 +36,8 @@
 						var token = response.key;
 						userDataRequest(credentials,token, deferred);
 					})
-					.error(function(){
-						deferred.reject();
+					.error(function(error){
+						deferred.reject(error);
 					});
 				return deferred.promise;
 			},

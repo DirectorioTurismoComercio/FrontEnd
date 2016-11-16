@@ -124,7 +124,7 @@
             }
 
           }else{
-            $scope.attrs.placeholder='I am searching...';
+            $scope.attrs.placeholder='I am looking for...';
           }
         }
         if($translate.use()=='es')
@@ -180,7 +180,7 @@
               break;
           }
         }else{
-          placeholder='I am searching...';
+          placeholder='I am looking for...';
         }
 
       }

@@ -90,10 +90,12 @@
 
 .search-tab-category-selected-label{
     color: #A9EDFF;
+    cursor: pointer;
 }
 
 .search-tab-category-unselected-label{
     color: #0071BC;
+    cursor: pointer;
 }
 
 .category-scroll-container{
@@ -139,6 +141,7 @@
 
 .subcategory-map-label{
      color: #A9EDFF;
+    cursor: pointer;
 }
 
 .subcategory-map-selected-label{
@@ -175,6 +178,23 @@
 
 .no-padding-left{
     padding-left: 0px !important;
+}
+
+.category-container-mobile-home{
+    width: 95px;
+    height: 100px;
+    margin: 3px;
+    padding: 5px 3px 0px 1px
+}
+
+.category-container-mobile-image-home{
+    display: block;
+    margin: auto !important
+}
+
+.category-container-mobile-label-home{
+    text-align: center;
+    width: 100%
 }
 
 /* Extra small devices (phones, less than 768px) */

@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <search-tabs ng-show="!isOnSitedetails && !isShowingRouteDetail && !isShowingRouteList && !isShowingSiteDetail" isonmap="true" result="result" subcategoryname="subcategoryname"
+        <search-tabs ng-show="!isOnSitedetails && !isShowingRouteDetail && !isShowingRouteList && !isShowingSiteDetail" isonmap="true" result="result" subcategories="subcategories" subcategoryname="subcategoryname"
                      do-search="doSearch(result)"
                      show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
         <div class="map" ng-if="isMobileDevice()" ng-show="(resulListInCompactMode || isOnSitedetails || isShowingRouteDetail) && !isShowingRouteList">
@@ -49,7 +49,7 @@
 
 
 
-        <div class="result-list">
+        <div id="resultList" class="result-list">
             <div ng-if="noResults" class="center-block text-center">
                 <h4 class="no-results" translate="NO_RESULTS"></h4>
             </div>
@@ -59,7 +59,7 @@
                     <div ng-if="!showResultListHorizontally()"
                          ng-repeat="site in foundSites"
                          ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"
-                         ng-mouseleave="clearHighLightedMarker($index)">
+                         ng-mouseleave="clearHighLightedMarker($index)" on-finish-render="finishRenderEvent()">
                         <div class="list-item ">
                             <div class="row" ng-click="showSiteDetail(site, $index)">
                                 <div class="col-xs-8 info">
@@ -68,7 +68,7 @@
                                         <h3 class="">%%site.nombre%%</h3>
                                     </div>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
-                                    <p clamp="3" class="description">%%site.descripcion%%</p>
+                                    <p pg-clamp="3" class="description" ng-bind="getSiteDescription(site)"></p>
                                 </div>
                                 <div class="col-xs-4 image">
                                     <img class="img-responsive  site-photo-height"
@@ -83,7 +83,7 @@
                         style="height: 110px;">
                         <li ng-repeat="site in foundSites"
                             ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"
-                            ng-mouseleave="clearHighLightedMarker($index)">
+                            ng-mouseleave="clearHighLightedMarker($index)" on-finish-render="finishRenderEvent()">
                             <div class="list-item list-item-background">
                                 <div class="row vertical-align-arrow" ng-click="showSiteDetail(site, $index)">
                                     <div class="col-xs-7 info">
@@ -92,7 +92,7 @@
                                             <h3 class="">%%site.nombre%%</h3>
                                         </div>
                                         <h4 class="">%%site.municipio.nombre%%</h4>
-                                        <p clamp="2" class="description">%%site.descripcion%%</p>
+                                        <p pg-clamp="2" class="description">%%getSiteDescription(site)%%</p>
                                     </div>
                                     <div class="col-xs-5 image">
                                         <img class="img-responsive mobile-image-preview"
@@ -172,7 +172,7 @@
                         <div class="item">
                             <img src="./images/icons/site-detail/descripcion.png">
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.DESCRIPTION"></span>
-                            <p class="dark-text">%%selectedSite.descripcion%%</p>
+                            <p class="dark-text">%%getSiteDescription(selectedSite)%%</p>
                         </div>
                         <div ng-if="selectedSite.tipo_sitio == 'M'" class="municipality-additional-info">
                             <div class="text-center">
@@ -190,7 +190,7 @@
                         <div ng-show="!isEmpty(selectedSite.horariolocal)" class="item">
                             <img src="./images/icons/site-detail/horario.png">
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.OPENINGHOURS"></span>
-                            <p class="dark-text">%%selectedSite.horariolocal%%</p>
+                            <p class="dark-text">%%getSiteOpenningHours(selectedSite)%%</p>
                         </div>
                         <div class="item">
                             <img src="./images/icons/site-detail/direccion.png">
@@ -220,7 +220,7 @@
                     <div ng-show="selectedSite.id!=site.id" class="item-separator"></div>
                     <div ng-repeat="site in foundSites"
                          ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"
-                         ng-mouseleave="clearHighLightedMarker($index)">
+                         ng-mouseleave="clearHighLightedMarker($index)" on-finish-render="finishRenderEvent()">
                         <div ng-show="selectedSite.id!=site.id" class="list-item ">
                             <div class="row" ng-click="showSiteDetail(site, $index)">
                                 <div class="col-xs-8 info">
@@ -229,7 +229,7 @@
                                         <h3 class="">%%site.nombre%%</h3>
                                     </div>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
-                                    <p clamp="3" class="description">%%site.descripcion%%</p>
+                                    <p pg-clamp="3" class="description">%%getSiteDescription(site)%%</p>
                                 </div>
                                 <div class="col-xs-4 image">
                                     <img class="img-responsive  site-photo-height"
@@ -256,7 +256,7 @@
                         <div class="item">
                             <img src="./images/icons/site-detail/descripcion.png">
                             <span class="light-text" translate="SITE_DETAIL_CONSTANTS.DESCRIPTION"></span>
-                            <p class="dark-text">%%selectedRoute.descripcion%%</p>
+                            <p class="dark-text">%%getSiteDescription(selectedRoute)%%</p>
                         </div>
 
                         <div class="item">
@@ -286,7 +286,7 @@
                                         <img ng-if="site.tipo_sitio=='S'" class="icon" ng-src="%%site.categorias[0].categoria.URL_icono_general%%">
                                         <h3 class="">%%site.nombre%%</h3>
                                     </div>
-                                    <p clamp="3" class="description">%%site.descripcion%%</p>
+                                    <p pg-clamp="3" class="description">%%getSiteDescription(site)%%</p>
                                 </div>
                                 <div class="col-xs-4 image">
                                     <img class="img-responsive  site-photo-height"

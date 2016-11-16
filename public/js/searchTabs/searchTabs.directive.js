@@ -10,7 +10,8 @@ angular.module('searchTabs')
                 subcategoryname:'=',
                 doSearch:'&',
                 showRoute:'&',
-                subcategorySearch:'='
+                subcategorySearch:'=',
+                subcategories:'='
             }
         }
     }]);

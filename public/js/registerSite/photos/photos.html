@@ -99,7 +99,7 @@
                                  src="./images/registerIcons/foto-borrar.png">
                         </div>
                     </div>
-                    <flow-btn flow-single-file="false">
+                    <flow-btn flow-single-file="false" ng-show="flowFacadePhotos.flow.files.length<photosLimitNumber">
                         <img class="rowPhotosButton" src="./images/registerIcons/foto-subir.png"/>
                     </flow-btn>
                 </div>
@@ -127,7 +127,7 @@
                                  src="./images/registerIcons/foto-borrar.png">
                         </div>
                     </div>
-                    <flow-btn flow-single-file="false">
+                    <flow-btn flow-single-file="false" ng-show="flowInsidePhotos.flow.files.length<photosLimitNumber">
                         <img class="rowPhotosButton" src="./images/registerIcons/foto-subir.png"/>
                     </flow-btn>
                 </div>
@@ -155,7 +155,7 @@
                                  src="./images/registerIcons/foto-borrar.png">
                         </div>
                     </div>
-                    <flow-btn flow-single-file="false">
+                    <flow-btn flow-single-file="false" ng-show="flowProductsPhotos.flow.files.length<photosLimitNumber">
                         <img class="rowPhotosButton" src="./images/registerIcons/foto-subir.png"/>
                     </flow-btn>
                 </div>

@@ -8,7 +8,8 @@
                    translate="%%message%%"></label>
         </div>
         <div class="next-button NextButtonRegister topMarginElements">
-            <button class="button edit-section-button cancel-button" ng-click="noCallback()"
+            <button ng-if="noLabel != undefined" class="button edit-section-button cancel-button"
+                    ng-click="noCallback()"
                     translate="%%noLabel%%"></button>
             <button class="button edit-section-button" ng-click="yesCallback()"
                     translate="%%yesLabel%%"></button>

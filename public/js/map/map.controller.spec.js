@@ -361,6 +361,7 @@ describe('Controller: MapController', function () {
 
     it('Should re make search by keyword after user clicks on goBackToSiteList', function () {
         $scope.doSearch('place');
+        $scope.subcategories=['comida','bebida'];
         $scope.goBack();
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
     });
@@ -377,6 +378,7 @@ describe('Controller: MapController', function () {
 
     it('Should re make search by keyword when user makes a search by keyword and then clicks goBackToSiteList', function () {
         $scope.doSearch('place');
+        $scope.subcategories=['comida','bebida'];
         $scope.goBack();
         expect(testsiteAndTownSaverService.getQueryMadeByUser()).toBe("SEARCH_BY_KEY_WORD");
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();
@@ -384,6 +386,7 @@ describe('Controller: MapController', function () {
 
     it('Should re make plan routw when user plan a route and then clicks goBackToSiteList', function () {
         $scope.showRoute();
+        $scope.subcategories=['comida','bebida'];
         $scope.goBack();
         expect(testsiteAndTownSaverService.getQueryMadeByUser()).toBe("PLAN_A_ROUTE");
         expect(MapServiceTest.clearMarkers).toHaveBeenCalled();

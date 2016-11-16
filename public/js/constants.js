@@ -15,11 +15,11 @@ var objeto = {
         "getMunicipalitySites":"/municipio/sitios",
         "createRoute":'/ruta/crear',
         "updateRoute":'/ruta/actualizar/',
-        "timeout":120000
+        "timeout":120000,
+        "photosLimitNumber":3
     }
 
 
 
-
 angular.module('constants', [])
-    .constant("API_CONFIG", objeto);
+    .constant("API_CONFIG", objeto).constant('$clamp', $clamp);
