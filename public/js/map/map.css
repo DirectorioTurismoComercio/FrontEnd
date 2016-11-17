@@ -1,3 +1,17 @@
+.star-color {
+    color: #32A2D4;
+}
+
+.shiny-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.shiny-list li {
+    display: inline-block;
+    margin: 0 3px;
+}
+
 .municipality-additional-info .button {
     max-width: 250px;
     margin: 5px 0;
@@ -390,39 +404,40 @@ prev.search-results .map {
     margin: 0px !important;
 }
 
-.route-list-subtitles{
+.route-list-subtitles {
     font-weight: normal !important;
 }
 
-.route-list-parameters-text{
+.route-list-parameters-text {
     display: inline-block !important;
 }
 
-.route-list-parameter-value{
+.route-list-parameter-value {
     color: #000 !important;
     font-weight: normal !important;
 }
 
-.route-list-header-container{
+.route-list-header-container {
     text-align: center;
 }
 
-.route-list-header-color{
+.route-list-header-color {
     background-color: #2F6586 !important;
 }
-.route-list-municipality-name{
+
+.route-list-municipality-name {
     display: inline-block;
 }
 
-.close-carousel-pictures-button-container{
+.close-carousel-pictures-button-container {
     margin-bottom: 1%;
 }
 
-.close-button-carousel-height{
+.close-button-carousel-height {
     height: 3vmin;
 }
 
-.route-name-title{
+.route-name-title {
     color: #32A2D4;
     font-weight: bold;
 }

@@ -82,6 +82,7 @@
     "COMPLETE_MUNICIPALITY_UPLOAD_TEXT": "Your town information has been updated"
   },
   "SITE_DETAIL_CONSTANTS": {
+    "RATING": "Rating",
     "DESCRIPTION": "Description",
     "OPENINGHOURS": "Opening hours"
   },

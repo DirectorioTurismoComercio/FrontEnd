@@ -82,6 +82,7 @@
     "COMPLETE_MUNICIPALITY_UPLOAD_TEXT": "La información de tu municipio ha sido actualizada"
   },
   "SITE_DETAIL_CONSTANTS": {
+    "RATING": "Calificación",
     "DESCRIPTION": "Descripción",
     "OPENINGHOURS": "Horario de Atención"
   },
@@ -332,8 +333,8 @@
     "ERROR_MESSAGE": "Error al guardar contraseña"
   },
   "E105": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. No es posible recuperar la contraseña",
-  "HOW_IT_WORKS_MUNICIPALITY":{
-    "LINK":"¿Cómo funciona?",
+  "HOW_IT_WORKS_MUNICIPALITY": {
+    "LINK": "¿Cómo funciona?",
     "TITLE": "De Tour por Cundinamarca funciona así:",
     "DESCRIPTION_1": "Crea el perfil de tu municipio con información, textos e imágenes",
     "DESCRIPTION_2": "Registra sitios de interés en tu municipio con los cuales podrás promocionar el municipio",
