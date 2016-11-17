@@ -96,9 +96,6 @@ angular.module('map')
                     .success(function(sites){
                         drawMarkers(sites);
                         $scope.loading = false;
-                        $scope.routeMapZoom = $scope.map.zoom;
-                        $scope.routeToSiteIsVisible = true;
-                        $scope.hasMadeCurrentSiteRoute = true;
                     })
             }
 
