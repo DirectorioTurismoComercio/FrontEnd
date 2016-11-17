@@ -334,6 +334,7 @@ angular.module('map')
 
             $scope.rateSite = function (selectedSite) {
                 RatingService.rateSite(selectedSite.id, selectedSite.rating);
+                event.stopPropagation();
             };
 
             function sendViewToTop() {

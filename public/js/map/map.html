@@ -71,6 +71,15 @@
                                         <h3 class="">%%site.nombre%%</h3>
                                     </div>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
+
+                                    <div class="item">
+                                        <input-stars max="5" list-class="shiny-list"
+                                                     icon-base="fa fa-star fa-2x star-color"
+                                                     ng-model="selectedSite.rating"
+                                                     on-star-click="rateSite(selectedSite)"
+                                                     readonly></input-stars>
+                                    </div>
+
                                     <p pg-clamp="3" class="description" ng-bind="getSiteDescription(site)"></p>
                                 </div>
                                 <div class="col-xs-4 image">
@@ -176,7 +185,8 @@
 
                         <div class="item">
                             <input-stars max="5" list-class="shiny-list" icon-base="fa fa-star fa-2x star-color"
-                                         ng-model="selectedSite.rating" on-star-click="rateSite(selectedSite)"></input-stars>
+                                         ng-model="selectedSite.rating"
+                                         on-star-click="rateSite(selectedSite)"></input-stars>
                         </div>
 
 
