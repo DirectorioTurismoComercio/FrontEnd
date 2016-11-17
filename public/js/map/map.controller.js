@@ -44,8 +44,6 @@ angular.module('map')
 
             $scope.scrollContainer=$window.innerWidth < 992 ? "" : "#resultList";
 
-            console.log("el container", $scope.scrollContainer);
-
             uiGmapIsReady.promise().then(initMap);
 
             $scope.navigationToMunicipalityDetail = navigationService.getMunicipalityDetailNavigation();
@@ -53,14 +51,24 @@ angular.module('map')
 
 
             $scope.nextPage = function () {
-                if ($scope.busy || currentPage == 0 || hasReachedLastPage) {
+                if ($scope.busy || currentPage == 0 || hasReachedLastPage || $scope.isDrawingRouteToRegisterSite) {
                     return;
                 } else {
                     $scope.busy = true;
-                    console.log("esta cargando resultados", currentPage);
                     getNextResults();
                 }
             }
+
+        $scope.nextPageSitesNearSelectedSite = function () {
+            if($scope.busy || currentPage == 0 || hasReachedLastPage){
+                return;
+            }else{
+                $scope.busy = true;
+                sitesNearRouteGetNextResults();
+                $scope.busy = false;
+
+            }
+        }
 
 
             function getNextResults() {
@@ -102,14 +110,18 @@ angular.module('map')
                 MapRouteService.setSiteMarker(response, $scope);
             }
 
+            function resetPaginationVariables(){
+                currentPage = 1;
+                hasReachedLastPage=false;
+            }
+
             function initMap() {
                 MapService.setGMap($scope.map.control.getGMap());
 
 
                 setCundinamarcaPolygon();
                 if (siteAndTownSaverService.getCurrentSearchedSite() != undefined) {
-                    currentPage = 1;
-                    hasReachedLastPage=false;
+                    resetPaginationVariables();
                     showFoundPlaces();
                 }
 
@@ -159,7 +171,7 @@ angular.module('map')
 
 
             function showSearchedRoute() {
-                currentPage = 1;
+                resetPaginationVariables();
                 $scope.resulListInCompactMode = true;
                 reloadMap();
                 SiteMarkerService.deleteMarkers();
@@ -169,8 +181,7 @@ angular.module('map')
             }
 
             $scope.showRoute = function () {
-                currentPage = 1;
-                hasReachedLastPage=false;
+                resetPaginationVariables();
                 siteAndTownSaverService.setQueryMadeByUser("PLAN_A_ROUTE");
                 hasMadeRoute = true;
                 siteAndTownSaverService.setCurrentSearchedTown(undefined);
@@ -302,7 +313,6 @@ angular.module('map')
             };
 
             $scope.showSiteDetail = function (site, index) {
-                console.log("en el slide que esta");
                 $scope.isShowingRouteList = false;
                 $scope.isShowingRouteDetail = false;
                 sendViewToTop();
@@ -349,6 +359,7 @@ angular.module('map')
             }
 
             $scope.showRouteToSite = function (site) {
+                resetPaginationVariables();
                 if ($scope.selectedSite.tipo_sitio == 'M') {
                     $scope.hasShowRouteToSiteToMunicipality = true;
                 }
@@ -440,8 +451,7 @@ angular.module('map')
 
             function searchingByKeyword(keyWord) {
                 $scope.isDrawingRouteToRegisterSite = false;
-                currentPage = 1;
-                hasReachedLastPage = false;
+                resetPaginationVariables();
                 $scope.resulListInCompactMode = false;
                 MapService.clearRoute();
                 if (keyWord != undefined) {
