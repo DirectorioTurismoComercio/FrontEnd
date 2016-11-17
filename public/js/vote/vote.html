@@ -1,0 +1,38 @@
+<div class="hidden-xs hidden-sm">
+    <app-header></app-header>
+</div>
+<loader></loader>
+
+<div class="row topMarginHeader registerSiteBackgroundColor backgroundFillViewPort">
+    <div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
+        <div class="header container-fluid">
+            <div class="col-xs-1 registerHeaderBackIconcontainer">
+                <a href="#/home"><img class="registerHeaderBackIcon" src="./images/registerIcons/atras.png"></a>
+            </div>
+            <p class="text" translate="LOGIN.TRADER_LOGIN"></p>
+        </div>
+
+        <div class="row topMarginHeader">
+            <div class="social-button col-xs-1"></div>
+            <div class="social-button col-xs-10">
+                <a class="btn btn-block btn-social btn-facebook btn-lg" ng-click="authenticate('facebook')">
+                    <span class="fa fa-facebook"></span>
+                    <span translate="LOGIN.LOGIN_WITH_FACEBOOK"></span>
+                </a>
+            </div>
+            <div class="social-button col-xs-1"></div>
+        </div>
+
+        <div class="row topMarginHeader">
+            <div class="social-button col-xs-1"></div>
+            <div class="social-button col-xs-10">
+                <a class="btn btn-block btn-social btn-lg btn-google" ng-click="authenticate('google')">
+                    <span class="fa fa-google"></span>
+                    <span translate="LOGIN.LOGIN_WITH_GOOGLE"></span>
+                </a>
+            </div>
+            <div class="social-button col-xs-1"></div>
+        </div>
+       
+    </div>
+</div>
