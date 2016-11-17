@@ -42,16 +42,15 @@ angular.module('map')
 
             $scope.busy = false;
 
+            $scope.scrollContainer=$window.innerWidth < 992 ? "" : "#resultList";
+
+            console.log("el container", $scope.scrollContainer);
+
             uiGmapIsReady.promise().then(initMap);
 
             $scope.navigationToMunicipalityDetail = navigationService.getMunicipalityDetailNavigation();
             $scope.carouselIndex2=0;
 
-        $scope.boton=function(){
-            console.log("presiono el boton");
-            $scope.carouselIndex2=$scope.carouselIndex2+1;
-            console.log($scope.carouselIndex2);
-        }
 
             $scope.nextPage = function () {
                 if ($scope.busy || currentPage == 0 || hasReachedLastPage) {
