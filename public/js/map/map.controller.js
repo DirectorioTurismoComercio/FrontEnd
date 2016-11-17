@@ -85,7 +85,6 @@ angular.module('map')
                 $http.get(API_CONFIG.url + '/buscar/?search=' + getKeyWord() + '&page=' + currentPage)
                     .success(function (response) {
                         drawMarkers(response);
-                        console.log("en esa pagina llego", response)
                     });
             }
 
@@ -536,8 +535,6 @@ angular.module('map')
                 hasMadeRoute = false;
                 var sites = SearchForResultsFactory.getResults();
                 $scope.foundSites = sites;
-
-                console.log($scope.foundSites);
                 centerMapOnSearchedTown();
                 if (sites != undefined) {
                     MapRouteService.setSiteMarker(sites, $scope);
