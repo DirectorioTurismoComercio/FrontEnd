@@ -339,5 +339,9 @@
     "DESCRIPTION_2": "Register sites of interest in your town that will help promoting the town",
     "DESCRIPTION_3": "Make routes between your town's places for tourist follows it",
     "REGISTER_BUTTON": "Register your town now!"
+  },
+  "RATING": {
+    "TITLE": "Rating",
+    "SEND": "Rate"
   }
 }

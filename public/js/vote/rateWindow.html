@@ -1,6 +1,17 @@
-
-<div class="item">
-    <input-stars max="5" list-class="shiny-list" icon-base="fa fa-star fa-2x star-color"
-                 ng-model="site.rating"></input-stars>
-    <button class="button edit-section-button" ng-click="send()">Enviar calificación</button>
+<div class="col-md-4  col-md-offset-4 centerColumnNoPadding registerSiteFormBackgroundColor">
+    <div class="header container-fluid register-trader-title">
+        <label class="text" translate="RATING.TITLE"></label>
+    </div>
+    <div>
+        <div class="text-center">
+            <div class="item" style="margin-top: 30px">
+                <input-stars max="5" list-class="shiny-list" icon-base="fa fa-star fa-2x star-color"
+                             ng-model="site.rating"></input-stars>
+            </div>
+        </div>
+        <div class="next-button NextButtonRegister topMarginElements">
+            <button class="button edit-section-button" ng-click="send()"
+                    translate="RATING.SEND"></button>
+        </div>
+    </div>
 </div>
