@@ -94,7 +94,7 @@
                     </div>
 
                     <ul rn-carousel rn-carousel-controls ng-if="showResultListHorizontally()" class="image"
-                        style="height: 110px;">
+                        style="height: 180px;">
                         <li ng-repeat="site in foundSites"
                             ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"
                             ng-mouseleave="clearHighLightedMarker($index)" on-finish-render="finishRenderEvent()">
@@ -108,7 +108,7 @@
                                         <h4 class="">%%site.municipio.nombre%%</h4>
                                         <div class="item">
                                             <input-stars max="5" list-class="shiny-list"
-                                                         icon-base="fa fa-star fa-2x star-color"
+                                                         icon-base="fa fa-star star-color"
                                                          ng-model="site.calificacionPromedio"
                                                          readonly></input-stars>
 
