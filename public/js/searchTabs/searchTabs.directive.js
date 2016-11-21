@@ -12,7 +12,8 @@ angular.module('searchTabs')
                 showRoute:'&',
                 subcategorySearch:'=',
                 subcategories:'=',
-                hasReachedLastPage:'='
+                hasReachedLastPage:'=',
+                results:'='
             }
         }
     }]);
