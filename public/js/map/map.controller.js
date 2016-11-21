@@ -93,13 +93,15 @@ angular.module('map')
             }
 
             function sitesNearRouteGetNextResults(){
-                currentPage = currentPage + 1;
-                $http.post(API_CONFIG.url+API_CONFIG.sitios, {'points': $scope.points,
-                    'page':currentPage})
-                    .success(function(sites){
-                        drawMarkers(sites);
-                        $scope.loading = false;
-                    })
+                if($scope.points){
+                    currentPage = currentPage + 1;
+                    $http.post(API_CONFIG.url+API_CONFIG.sitios, {'points': $scope.points,
+                            'page':currentPage})
+                        .success(function(sites){
+                            drawMarkers(sites);
+                            $scope.loading = false;
+                        })
+                }
             }
 
             function drawMarkers(response){
