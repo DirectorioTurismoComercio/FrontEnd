@@ -44,9 +44,10 @@
                      show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
         <div class="map" ng-if="isMobileDevice()" ng-show="(resulListInCompactMode || isOnSitedetails || isShowingRouteDetail) && !isShowingRouteList">
             <ui-gmap-google-map id="mobileResultMap" center='map.center' zoom='map.zoom' control="map.control"/>
+            <div ng-if="!hasReachedLastPage && foundSites.length>4 && isMobileDevice()">
+                <h3 class="more-results-mobile-title" translate="MORE_RESULTS_MOBILE"></h3>
+            </div>
         </div>
-
-
 
 
         <div id="resultList" class="result-list">

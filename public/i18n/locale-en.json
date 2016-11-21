@@ -339,5 +339,7 @@
     "DESCRIPTION_3": "Make routes between your town's places for tourist follows it",
     "REGISTER_BUTTON": "Register your town now!"
   },
-  "MORE_RESULTS":"Scroll down to find more places"
+  "MORE_RESULTS":"Scroll down to find more places",
+  "MORE_RESULTS_MOBILE":"Swipe right to find more places"
+
 }

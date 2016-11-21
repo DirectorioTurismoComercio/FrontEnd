@@ -340,5 +340,7 @@
     "DESCRIPTION_3": "Crea rutas entre los sitios de tu municipio para que los turistas lo recorran",
     "REGISTER_BUTTON": "¡Inscribe tu municipio ahora!"
   },
-  "MORE_RESULTS":"Desliza hacia abajo para encontrar más lugares"
+  "MORE_RESULTS":"Desliza hacia abajo para encontrar más lugares",
+  "MORE_RESULTS_MOBILE":"Desliza hacia la derecha para encontrar más lugares"
+
 }

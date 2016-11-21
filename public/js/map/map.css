@@ -427,6 +427,14 @@ prev.search-results .map {
     font-weight: bold;
 }
 
+.more-results-mobile-title{
+    text-align: center;
+    font-weight: bold;
+    color: #32A2D4;
+    font-size:1.2em;
+    padding: 0% 6%;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
