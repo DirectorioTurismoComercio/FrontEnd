@@ -40,7 +40,7 @@
         </div>
 
         <search-tabs ng-show="!isOnSitedetails && !isShowingRouteDetail && !isShowingRouteList && !isShowingSiteDetail" isonmap="true" result="result" subcategories="subcategories" subcategoryname="subcategoryname"
-                     do-search="doSearch(result)"
+                     do-search="doSearch(result)" has-reached-last-page="hasReachedLastPage"
                      show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
         <div class="map" ng-if="isMobileDevice()" ng-show="(resulListInCompactMode || isOnSitedetails || isShowingRouteDetail) && !isShowingRouteList">
             <ui-gmap-google-map id="mobileResultMap" center='map.center' zoom='map.zoom' control="map.control"/>

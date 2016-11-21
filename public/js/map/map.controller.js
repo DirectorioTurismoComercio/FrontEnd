@@ -11,7 +11,7 @@ angular.module('map')
             var searchedTown = siteAndTownSaverService.getCurrentSearchedTown();
             var searchedMunicipality = requestedMunicipality;
             var currentPage = 0;
-            var hasReachedLastPage = false;
+            $scope.hasReachedLastPage = false;
             $scope.hasShowRouteToSiteToMunicipality = undefined;
             $scope.hasMadeFirstRouteToSite = false;
             $scope.routeMapZoom = undefined;
@@ -51,7 +51,7 @@ angular.module('map')
 
 
             $scope.nextPage = function () {
-                if ($scope.busy || currentPage == 0 || hasReachedLastPage || $scope.isDrawingRouteToRegisterSite) {
+                if ($scope.busy || currentPage == 0 || $scope.hasReachedLastPage || $scope.isDrawingRouteToRegisterSite) {
                     return;
                 } else {
                     $scope.busy = true;
@@ -60,7 +60,7 @@ angular.module('map')
             }
 
         $scope.nextPageSitesNearSelectedSite = function () {
-            if($scope.busy || currentPage == 0 || hasReachedLastPage){
+            if($scope.busy || currentPage == 0 || $scope.hasReachedLastPage){
                 return;
             }else{
                 $scope.busy = true;
@@ -99,7 +99,7 @@ angular.module('map')
             }
 
             function drawMarkers(response){
-                hasReachedLastPage = response.length == 0;
+                $scope.hasReachedLastPage = response.length == 0;
                 for (var i = 0; i < response.length; i++) {
                     $scope.foundSites.push(response[i]);
                 }
@@ -108,7 +108,7 @@ angular.module('map')
 
             function resetPaginationVariables(){
                 currentPage = 1;
-                hasReachedLastPage=false;
+                $scope.hasReachedLastPage=false;
             }
 
             function initMap() {
