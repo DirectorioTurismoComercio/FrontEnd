@@ -229,6 +229,7 @@ prev.search-results .map {
 }
 
 .list-item-background {
+    height:152px;
     background-color: #F2F2F2;
 }
 
@@ -246,7 +247,7 @@ prev.search-results .map {
 
 .vertical-align-arrow {
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
 }
 
 .rn-carousel-control {
