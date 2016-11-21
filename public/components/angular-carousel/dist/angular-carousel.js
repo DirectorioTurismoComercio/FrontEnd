@@ -393,8 +393,6 @@ angular.module('angular-carousel').run(['$templateCache', function ($templateCac
                         locked = false;
                       }, 0, false);
                     });
-
-                    console.log("esta en la posicion", scope.carouselIndex);
                     if(scope.carouselIndex == (scope.foundSites).length - 1){
                       scope.nextPage();
                     }
