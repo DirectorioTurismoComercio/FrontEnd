@@ -2,76 +2,77 @@
 
 angular.module('vote')
     .controller('VoteController', function ($scope, SearchForResultsFactory,
-                                            $location, $mdDialog,authenticationService,$auth,$q,$http,API_CONFIG,$window) {
+                                            $location, $mdDialog,authenticationService,
+                                            $auth,$q,$http,selectedSite,ngDialog, RatingService) {
               
     	console.log("vote controller");
-var alreadyLoggedIn = authenticationService.getUser();
-               
-    	     $scope.authenticate = function (provider) {
-                
-                if (alreadyLoggedIn) {
-                    console.log("alreadyLoggedIn")
-                } else {
-                    
+        var loginWindow;
+        var rateWindow;
+        
+        if(!authenticationService.getUser()){
+        openLoginWindow();
+        }
 
-                    $auth.authenticate(provider).then(function (response) {
-                        $auth.setToken(response.data.token);
-                        var credentials = {
-                            username: response.data.username
-                        };
-                        var deferred = $q.defer()
-                        authenticationService.loginSocialMedia(credentials, response.data.token, deferred).finally(
-                            function () {
-                                f1()
-                            }
-                        );
-                    }).catch(function (error) {
-                        console.log('hubo un error', error);
-                    });
-/*
-                    $auth.authenticate(provider).then(function (response) {
-                        
-                    	console.log(response);
-                        $auth.setToken(response.data.token);
-                        var credentials = {
-                            username: response.data.username
-                        };
-                        var deferred = $q.defer()
-                            $http.get(API_CONFIG.url  + API_CONFIG.user_detail, { headers: {'Authorization': 'Token ' + response.data.token} })
-                            .success(function(response){
+        $scope.site = {"rating":0};
+        console.log("selected site vote...",selectedSite);
+        
+        function openLoginWindow  () {
+            console.log("open vote...");
+                loginWindow=ngDialog.open({
+                    template: 'js/vote/touristSignUp.html',
+                    width: 'auto',
+                    showClose: false,
+                    scope: $scope,
+                    closeByEscape: true,
+                    closeByDocument: true,
+                    closeByNavigation: true
+                });
+        }
+        $scope.send = function(){
+            if(!authenticationService.getUser()){
+                openLoginWindow();
+            }else{
+            RatingService.rateSite(selectedSite,$scope.site.rating);
+            ngDialog.close();
+            }
+        }
+        $scope.authenticate = function (provider) {
                 
-                            //$window.localStorage["user"] = JSON.stringify(user);
-                            f1();
-                        });
-
-                        });
-
-*/
-                    
-                
-                
-                }
-                
-
+        $auth.authenticate(provider).then(function (response) {
+            $auth.setToken(response.data.token);
+            var deferred = $q.defer()
+            var credentials = {
+                username: response.data.username
             };
-            function f1(){
+            
+            authenticationService.loginSocialMedia(credentials, response.data.token, deferred).finally(
+                function () {
+                    loginWindow.close();
+                    chanegeToATouristAccount()
+                }
+            );
+            }).catch(function (error) {
+                console.log('hubo un error', error);
+            });        
+        };
+        function chanegeToATouristAccount(){
 
                   
-                                $http.patch(API_CONFIG.url + API_CONFIG.user_detail, {
-                                        tipo_cuenta: 'T'
-                                    },
-                                    {
-                                        headers: {
-                                            'Authorization': 'Token ' + authenticationService.getUser().token
-                                        }
-                                    }).then(function (response) {
-                                        console.log("ahora turista");
-                                    
-                                },
-                                function (error){
-                                    console.log(error);
-                                }
-                                );
+                $http.patch(API_CONFIG.url + API_CONFIG.user_detail, {
+                        tipo_cuenta: 'T'
+                    },
+                    {
+                        headers: {
+                            'Authorization': 'Token ' + authenticationService.getUser().token
+                        }
+                    }).then(function (response) {
+                        console.log("ahora turista");
+                    
+                },
+                function (error){
+                    console.log(error);
+                }
+                );
                
 
             };

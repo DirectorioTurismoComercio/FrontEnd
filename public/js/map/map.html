@@ -68,16 +68,19 @@
                                 <div class="col-xs-8 info">
                                     <div class="row category-container-map-list-result">
                                         <img class="icon" ng-src="%%site.categoryicon%%">
-                                        <h3 class="">%%site.nombre%%</h3>
+                                        <h3 class="">%%site.nombre%% </h3>
                                     </div>
                                     <h4 class="">%%site.municipio.nombre%%</h4>
 
                                     <div class="item">
                                         <input-stars max="5" list-class="shiny-list"
                                                      icon-base="fa fa-star fa-2x star-color"
-                                                     ng-model="selectedSite.rating"
-                                                     on-star-click="rateSite(selectedSite)"
+                                                     ng-model="site.calificacionPromedio"
+                                                     
                                                      readonly></input-stars>
+
+                                         <h4 ng-show="site.votos>0">calificación: %%site.calificacionPromedio%%, %%site.votos%% votos</h4>
+                                         <h4 ng-show="site.votos==0">Sin Calificación </h4>           
                                     </div>
 
                                     <p pg-clamp="3" class="description" ng-bind="getSiteDescription(site)"></p>
@@ -188,7 +191,7 @@
                                          ng-model="selectedSite.rating"
                                          on-star-click="rateSite(selectedSite)"></input-stars>
                         </div>
-
+                        <button class="button edit-section-button" ng-click="openDialogRateWindow(selectedSite.id)">Califica este sitio</button>
 
                         <div class="item">
                             <img src="./images/icons/site-detail/descripcion.png">

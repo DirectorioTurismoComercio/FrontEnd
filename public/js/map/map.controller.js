@@ -333,6 +333,7 @@ angular.module('map')
             });
 
             $scope.rateSite = function (selectedSite) {
+                console.log(selectedSite.id);
                 RatingService.rateSite(selectedSite.id, selectedSite.rating);
                 event.stopPropagation();
             };
@@ -508,6 +509,25 @@ angular.module('map')
                     closeByEscape: true,
                     closeByDocument: true,
                     closeByNavigation: true
+                });
+            }
+            $scope.openDialogRateWindow = function (selectedSite) {
+                console.log("rating",selectedSite);
+                photosPopUp = ngDialog.open({
+                    template: 'js/vote/rateWindow.html',
+                    width: 'auto',
+                    showClose: false,
+                    scope: $scope,
+                    closeByEscape: true,
+                    closeByDocument: true,
+                    closeByNavigation: true, 
+                    resolve:{
+                    selectedSite: function(){
+                        console.log("returning",selectedSite);
+                        return selectedSite;
+                     }
+                    },
+                    controller: 'VoteController'
                 });
             }
             $scope.closeDialogWindowPhotos = function () {

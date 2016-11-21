@@ -15,6 +15,7 @@ var objeto = {
         "getMunicipalitySites":"/municipio/sitios",
         "createRoute":'/ruta/crear',
         "updateRoute":'/ruta/actualizar/',
+        'rate': '/calificacion',
         "timeout":120000,
         "photosLimitNumber":3
     }
