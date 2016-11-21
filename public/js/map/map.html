@@ -44,7 +44,7 @@
                      show-route="showRoute()" subcategory-search="subcategorySearch"></search-tabs>
         <div class="map" ng-if="isMobileDevice()" ng-show="(resulListInCompactMode || isOnSitedetails || isShowingRouteDetail) && !isShowingRouteList">
             <ui-gmap-google-map id="mobileResultMap" center='map.center' zoom='map.zoom' control="map.control"/>
-            <div ng-if="!hasReachedLastPage && foundSites.length>4 && isMobileDevice()">
+            <div ng-if="!hasReachedLastPage && foundSites.length>4 && isMobileDevice() &&!isOnSitedetails">
                 <h3 class="more-results-mobile-title" translate="MORE_RESULTS_MOBILE"></h3>
             </div>
         </div>
@@ -218,6 +218,9 @@
 
                 <div ng-show="foundSites.length > 0 && routeToSiteIsVisible" infinite-scroll='nextPageSitesNearSelectedSite()' infinite-scroll-disabled='busy' infinite-scroll-distance='0' infinite-scroll-container=scrollContainer>
                     <div><h3 class="sites-near-route-tittle" translate="ROUTE_SITES"></h3></div>
+                    <div ng-if="!hasReachedLastPage && foundSites.length>4 && !isMobileDevice()">
+                        <h3 class="more-results-mobile-title" translate="MORE_RESULTS_MOBILE"></h3>
+                    </div>
                     <div ng-show="selectedSite.id!=site.id" class="item-separator"></div>
                     <div ng-repeat="site in foundSites"
                          ng-mouseover="highLightMarker($index, isDrawingRouteToRegisterSite)"

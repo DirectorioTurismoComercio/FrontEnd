@@ -394,7 +394,7 @@ angular.module('angular-carousel').run(['$templateCache', function ($templateCac
                       }, 0, false);
                     });
                     if(scope.carouselIndex == (scope.foundSites).length - 1){
-                      scope.nextPage();
+                      scope.nextPageSitesNearSelectedSite();
                     }
 
                   }

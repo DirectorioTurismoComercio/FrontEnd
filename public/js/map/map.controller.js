@@ -55,7 +55,11 @@ angular.module('map')
                     return;
                 } else {
                     $scope.busy = true;
-                    getNextResults();
+                    if(!($scope.isMobileDevice() && ($scope.resulListInCompactMode || $scope.isOnSitedetails || $scope.isShowingRouteDetail) && !$scope.isShowingRouteList)) {
+                        getNextResults();
+                    }
+                    $scope.busy = false;
+
                 }
             }
 
@@ -75,7 +79,7 @@ angular.module('map')
                 if (!$scope.isDrawingRouteToRegisterSite && !hasMadeRoute && siteAndTownSaverService.getQueryMadeByUser() != "PLAN_A_ROUTE") {
                         searchByKeyWordGetNextResults();
                 }else{
-                    sitesNearRouteGetNextResults();
+                        sitesNearRouteGetNextResults();
                 }
                 $scope.busy = false;
             }
