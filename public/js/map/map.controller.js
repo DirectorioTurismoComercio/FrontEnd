@@ -247,8 +247,6 @@ angular.module('map')
                 $scope.isShowingSiteDetail = true;
                 $scope.isOnSitedetails = true;
                 $scope.selectedSite = site;
-                $scope.selectedSite.rating = 4;
-
 
                 if ($scope.selectedSite.tipo_sitio == 'M') {
                     searchedMunicipality = site;
@@ -332,9 +330,9 @@ angular.module('map')
 
             });
 
-            $scope.rateSite = function (selectedSite) {
-                RatingService.rateSite(selectedSite.id, selectedSite.rating);
-            };
+            /*$scope.rateSite = function (selectedSite) {
+             RatingService.rateSite(selectedSite.id, selectedSite.rating);
+             };*/
 
             function sendViewToTop() {
                 var top_anchor = $window.document.getElementById("top_anchor")
@@ -510,7 +508,7 @@ angular.module('map')
                 });
             }
             $scope.openDialogRateWindow = function (selectedSite) {
-                console.log("rating",selectedSite);
+                console.log("rating", selectedSite);
                 photosPopUp = ngDialog.open({
                     template: 'js/vote/rateWindow.html',
                     width: 'auto',
@@ -518,12 +516,12 @@ angular.module('map')
                     scope: $scope,
                     closeByEscape: true,
                     closeByDocument: true,
-                    closeByNavigation: true, 
-                    resolve:{
-                    selectedSite: function(){
-                        console.log("returning",selectedSite);
-                        return selectedSite;
-                     }
+                    closeByNavigation: true,
+                    resolve: {
+                        selectedSite: function () {
+                            console.log("returning", selectedSite);
+                            return selectedSite;
+                        }
                     },
                     controller: 'VoteController'
                 });

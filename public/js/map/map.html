@@ -197,9 +197,9 @@
                         <div class="item">
                             <input-stars max="5" list-class="shiny-list" icon-base="fa fa-star fa-2x star-color"
                                          ng-model="selectedSite.rating"
-                                         on-star-click="rateSite(selectedSite)"></input-stars>
+                                         readonly></input-stars>
                         </div>
-                        <button class="button edit-section-button" ng-click="openDialogRateWindow(selectedSite.id)">Califica este sitio</button>
+                        <button class="button rate-button" ng-click="openDialogRateWindow(selectedSite.id)">Califica este sitio</button>
 
                         <div class="item">
                             <img src="./images/icons/site-detail/descripcion.png">

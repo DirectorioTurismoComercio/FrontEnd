@@ -1,3 +1,7 @@
+.rate-button {
+    width: 150px;
+}
+
 .star-color {
     color: #32A2D4;
 }
@@ -229,7 +233,7 @@ prev.search-results .map {
 }
 
 .list-item-background {
-    height:152px;
+    height: 152px;
     background-color: #F2F2F2;
 }
 
