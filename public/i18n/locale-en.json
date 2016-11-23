@@ -343,5 +343,6 @@
   "RATING": {
     "TITLE": "Rating",
     "SEND": "Rate"
-  }
+  },
+  "SITE_NOT_FOUND": "We are so sorry, the site that you have searched doesn't exist anymore"
 }

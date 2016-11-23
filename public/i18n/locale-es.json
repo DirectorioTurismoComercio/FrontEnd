@@ -343,6 +343,7 @@
   },
   "RATING": {
     "TITLE": "Calificación",
-    "SEND":"Calificar"
-  }
+    "SEND": "Calificar"
+  },
+  "SITE_NOT_FOUND": "Lo sentimos, el sitio que buscas ya no existe"
 }
