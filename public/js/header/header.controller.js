@@ -5,6 +5,7 @@ angular.module('appHeader', [])
         $scope.isUserLoggedIn = isUserLoggedIn();
 
         $scope.user = authenticationService.getUser();
+        console.log($scope.user)
 
         $scope.changeLanguage = function (language) {
             $scope.selectedLanguage = language;
