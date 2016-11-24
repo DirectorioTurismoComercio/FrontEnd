@@ -343,6 +343,7 @@
   },
   "RATING": {
     "TITLE": "Calificación",
-    "SEND":"Calificar"
+    "SEND":"Calificar",
+    "LOGIN":"Ingreso"
   }
 }

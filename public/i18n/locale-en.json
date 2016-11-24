@@ -342,6 +342,7 @@
   },
   "RATING": {
     "TITLE": "Rating",
-    "SEND": "Rate"
+    "SEND": "Rate",
+    "LOGIN":"Login"
   }
 }

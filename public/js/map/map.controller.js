@@ -5,7 +5,7 @@ angular.module('map')
                                            MapService, ngDialog, SiteMarkerService, $location, messageService, $timeout,
                                            siteAndTownSaverService, MapRouteService, CUNDINAMARCA_COORDS, filterFilter,
                                            requestedMunicipalityDetail, navigationService, MapRouteSitesService, $translate,
-                                           $rootScope, RatingService) {
+                                           $rootScope, authenticationService) {
             var hasMadeRoute = false;
             var photosPopUp = undefined;
             var requestedMunicipality = requestedMunicipalityDetail.getMunicipality();
@@ -508,23 +508,41 @@ angular.module('map')
                 });
             }
             $scope.openDialogRateWindow = function (selectedSite) {
-                
-                photosPopUp = ngDialog.open({
-                    template: 'js/vote/rateWindow.html',
-                    width: 'auto',
-                    showClose: false,
-                    scope: $scope,
-                    closeByEscape: true,
-                    closeByDocument: true,
-                    closeByNavigation: true,
-                    resolve: {
-                        selectedSite: function () {
-                            
-                            return selectedSite;
-                        }
-                    },
-                    controller: 'VoteController'
-                });
+                if(!authenticationService.getUser()){
+                    var loginWindow=ngDialog.open({
+                        template: 'js/vote/touristSignUp.html',
+                        width: 'auto',
+                        showClose: false,
+                        scope: $scope,
+                        closeByEscape: true,
+                        closeByDocument: true,
+                        closeByNavigation: true,
+                        resolve:{
+                            selectedSite: function () {
+
+                                return selectedSite;
+                            }
+                        },
+                        controller: 'touristSignUpController'
+                    });
+                }else{
+                    var ratingWindow = ngDialog.open({
+                        template: 'js/vote/rateWindow.html',
+                        width: 'auto',
+                        showClose: false,
+                        scope: $scope,
+                        closeByEscape: true,
+                        closeByDocument: true,
+                        closeByNavigation: true,
+                        resolve: {
+                            selectedSite: function () {
+
+                                return selectedSite;
+                            }
+                        },
+                        controller: 'VoteController'
+                    });
+                }
             }
             $scope.closeDialogWindowPhotos = function () {
                 ngDialog.close();
