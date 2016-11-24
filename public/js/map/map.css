@@ -452,6 +452,10 @@ prev.search-results .map {
     display: inline-block;
 }
 
+.list-result-description-site{
+    margin-top: 1%;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
