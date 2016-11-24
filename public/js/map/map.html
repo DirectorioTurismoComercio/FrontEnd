@@ -78,8 +78,7 @@
                                                      ng-model="site.calificacionPromedio"
                                                      readonly></input-stars>
 
-                                         <h4 ng-show="site.votos>0">calificación: %%site.calificacionPromedio%%, %%site.votos%% votos</h4>
-                                         <h4 ng-show="site.votos==0">Sin Calificación </h4>           
+                                        <i class="glyphicon glyphicon-user glyphiconStarColor"></i> <h4 class="vote-number">%%site.votos%%</h4>
                                     </div>
 
                                     <p pg-clamp="3" class="description" ng-bind="getSiteDescription(site)"></p>
@@ -112,8 +111,7 @@
                                                          ng-model="site.calificacionPromedio"
                                                          readonly></input-stars>
 
-                                            <h4 ng-show="site.votos>0">calificación: %%site.calificacionPromedio%%, %%site.votos%% votos</h4>
-                                            <h4 ng-show="site.votos==0">Sin Calificación </h4>
+                                            <i class="glyphicon glyphicon-user glyphiconStarColor"></i> <h4 class="vote-number">%%site.votos%%</h4>
                                         </div>
                                         <p pg-clamp="2" class="description">%%getSiteDescription(site)%%</p>
                                     </div>
@@ -196,8 +194,11 @@
 
                         <div class="item">
                             <input-stars max="5" list-class="shiny-list" icon-base="fa fa-star fa-2x star-color"
-                                         ng-model="selectedSite.rating"
+                                         ng-model="selectedSite.calificacionPromedio"
                                          readonly></input-stars>
+                        </div>
+                        <div>
+                            <i class="glyphicon glyphicon-user glyphiconStarColor"></i> <h4 class="vote-number">%%selectedSite.votos%%</h4>
                         </div>
                         <button class="button rate-button" ng-click="openDialogRateWindow(selectedSite.id)">Califica este sitio</button>
 
@@ -267,8 +268,7 @@
                                                      ng-model="site.calificacionPromedio"
                                                      readonly></input-stars>
 
-                                        <h4 ng-show="site.votos>0">calificación: %%site.calificacionPromedio%%, %%site.votos%% votos</h4>
-                                        <h4 ng-show="site.votos==0">Sin Calificación </h4>
+                                        <i class="glyphicon glyphicon-user glyphiconStarColor"></i> <h4 class="vote-number">%%site.votos%%</h4>
                                     </div>
                                     <p pg-clamp="3" class="description">%%getSiteDescription(site)%%</p>
                                 </div>
