@@ -87,7 +87,8 @@ angular.module('login')
                         var deferred = $q.defer()
                         authenticationService.loginSocialMedia(credentials, response.data.token, deferred).finally(
                             function () {
-                                goToProfile();
+                                changeToTraderAccount();
+                                
                             }
                         );
                     }).catch(function (error) {
@@ -108,6 +109,28 @@ angular.module('login')
                         .targetEvent('$event')
                 );
             }
+
+            function changeToTraderAccount(){
+
+                  console.log("")
+                $http.patch(API_CONFIG.url + API_CONFIG.user_detail, {
+                        tipo_cuenta: 'C'
+                    },
+                    {
+                        headers: {
+                            'Authorization': 'Token ' + authenticationService.getUser().token
+                        }
+                    }).then(function (response) {
+                        console.log("redireccionando")
+                        goToProfile();
+                },
+                function (error){
+                    console.log(error);
+                }
+                );
+               
+
+            };
 
             function goToProfile() {
                 $location.path('/accountinfo');
