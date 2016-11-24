@@ -112,7 +112,7 @@ angular.module('login')
 
             function changeToTraderAccount(){
 
-                  console.log("")
+                  
                 $http.patch(API_CONFIG.url + API_CONFIG.user_detail, {
                         tipo_cuenta: 'C'
                     },
@@ -121,7 +121,7 @@ angular.module('login')
                             'Authorization': 'Token ' + authenticationService.getUser().token
                         }
                     }).then(function (response) {
-                        console.log("redireccionando")
+                        
                         goToProfile();
                 },
                 function (error){
