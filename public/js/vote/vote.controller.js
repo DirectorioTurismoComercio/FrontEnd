@@ -3,7 +3,7 @@
 angular.module('vote')
     .controller('VoteController', function ($scope, SearchForResultsFactory,
                                             $location, $mdDialog,authenticationService,
-                                            $auth,$q,$http,API_CONFIG,selectedSite,ngDialog, RatingService) {
+                                            $auth,$q,$http,API_CONFIG,selectedSite,ngDialog, RatingService, $rootScope) {
               
     	
         var loginWindow;
@@ -31,6 +31,7 @@ angular.module('vote')
                 openLoginWindow();
             }else{
             RatingService.rateSite(selectedSite,$scope.site.rating);
+            $rootScope.$broadcast('ratingDone',0);
             ngDialog.close();
             }
         }
