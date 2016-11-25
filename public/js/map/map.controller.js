@@ -624,8 +624,13 @@ angular.module('map')
             var scope = $rootScope.$new();
             scope.url = objeto.domain + "/#/map?site=" + siteId;
             scope.copyUrl = function (url) {
-                document.getElementById('url').select();
-                document.execCommand('copy', false);
+                try {
+                    document.getElementById('url').select();
+                    document.execCommand('copy', false);
+                } catch (err) {
+                    console.error(err);
+                }
+
                 ngDialog.close();
             };
 
