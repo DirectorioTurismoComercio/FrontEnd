@@ -31,7 +31,6 @@ angular.module('vote')
                 openLoginWindow();
             }else{
             RatingService.rateSite(selectedSite,$scope.site.rating);
-            $rootScope.$broadcast('ratingDone',0);
             ngDialog.close();
             }
         }
@@ -46,6 +45,7 @@ angular.module('vote')
              
             authenticationService.loginSocialMedia(credentials, response.data.token, deferred).finally(
                 function () {
+                    $rootScope.$broadcast('ratingDone',0);
                     loginWindow.close();
                     if(authenticationService.getUser().tipo_cuenta!='C'){
                     changeToTouristAccount();

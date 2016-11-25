@@ -342,6 +342,9 @@
   },
   "RATING": {
     "TITLE": "Rating",
-    "SEND": "Rate"
+    "SEND": "Rate",
+    "LOGIN":"Login",
+    "VOTE_INFO":"Your rating will be reflected the next time you enter the site",
+    "RATE_BUTTON":"Rate this place"
   }
 }

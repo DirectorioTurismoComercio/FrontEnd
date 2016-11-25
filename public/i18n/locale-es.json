@@ -343,6 +343,9 @@
   },
   "RATING": {
     "TITLE": "Calificación",
-    "SEND":"Calificar"
+    "SEND":"Calificar",
+    "LOGIN":"Ingreso",
+    "VOTE_INFO":"Tu calificación se verá reflejada la próxima vez que ingreses al sitio",
+    "RATE_BUTTON":"Califica este sitio"
   }
 }
