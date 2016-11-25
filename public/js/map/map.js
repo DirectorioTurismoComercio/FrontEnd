@@ -11,7 +11,8 @@ angular.module('map', ['uiGmapgoogle-maps', 'ch.filters'])
         $routeProvider
             .when('/map', {
                 templateUrl: 'js/map/map.html',
-                controller: 'MapController'
+                controller: 'MapController',
+                reloadOnSearch: false
             });
     })
 

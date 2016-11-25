@@ -332,10 +332,6 @@ angular.module('map')
 
         });
 
-        /*$scope.rateSite = function (selectedSite) {
-         RatingService.rateSite(selectedSite.id, selectedSite.rating);
-         };*/
-
         function sendViewToTop() {
             var top_anchor = $window.document.getElementById("top_anchor")
             top_anchor.focus();
@@ -595,7 +591,7 @@ angular.module('map')
                 return site.descripcion;
             }
 
-        }
+        };
 
         $scope.getSiteOpenningHours = function (site) {
             if ($scope.languageSelected == 'en') {
@@ -604,11 +600,12 @@ angular.module('map')
             if ($scope.languageSelected == 'es') {
                 return site.horariolocal;
             }
-        }
+        };
 
 
         function showSiteFromUrl() {
             var siteId = $location.search().site;
+            $location.url($location.path());
 
             if (siteId) {
                 var SiteDAO = $resource(API_CONFIG.url + '/detalle-sitio/:siteId', {siteId: '@id'});
