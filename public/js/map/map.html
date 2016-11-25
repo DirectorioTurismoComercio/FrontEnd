@@ -78,8 +78,9 @@
                                                      ng-model="site.calificacionPromedio"
                                                      readonly></input-stars>
 
-                                         <h4 ng-show="site.votos>0">calificación: %%site.calificacionPromedio%%, %%site.votos%% votos</h4>
-                                         <h4 ng-show="site.votos==0">Sin Calificación </h4>           
+                                        <h4 ng-show="site.votos>0">calificación: %%site.calificacionPromedio%%,
+                                            %%site.votos%% votos</h4>
+                                        <h4 ng-show="site.votos==0">Sin Calificación </h4>
                                     </div>
 
                                     <p pg-clamp="3" class="description" ng-bind="getSiteDescription(site)"></p>
@@ -112,7 +113,8 @@
                                                          ng-model="site.calificacionPromedio"
                                                          readonly></input-stars>
 
-                                            <h4 ng-show="site.votos>0">calificación: %%site.calificacionPromedio%%, %%site.votos%% votos</h4>
+                                            <h4 ng-show="site.votos>0">calificación: %%site.calificacionPromedio%%,
+                                                %%site.votos%% votos</h4>
                                             <h4 ng-show="site.votos==0">Sin Calificación </h4>
                                         </div>
                                         <p pg-clamp="2" class="description">%%getSiteDescription(site)%%</p>
@@ -199,7 +201,10 @@
                                          ng-model="selectedSite.rating"
                                          readonly></input-stars>
                         </div>
-                        <button class="button rate-button" ng-click="openDialogRateWindow(selectedSite.id)">Califica este sitio</button>
+                        <button class="button rate-button" ng-click="openDialogRateWindow(selectedSite.id)"
+                                translate="SITE_DETAIL_CONSTANTS.RATE"></button>
+                        <button class="button share-button" ng-click="shareSite(selectedSite.id)"
+                                translate="SITE_DETAIL_CONSTANTS.SHARE"></button>
 
                         <div class="item">
                             <img src="./images/icons/site-detail/descripcion.png">
@@ -267,7 +272,8 @@
                                                      ng-model="site.calificacionPromedio"
                                                      readonly></input-stars>
 
-                                        <h4 ng-show="site.votos>0">calificación: %%site.calificacionPromedio%%, %%site.votos%% votos</h4>
+                                        <h4 ng-show="site.votos>0">calificación: %%site.calificacionPromedio%%,
+                                            %%site.votos%% votos</h4>
                                         <h4 ng-show="site.votos==0">Sin Calificación </h4>
                                     </div>
                                     <p pg-clamp="3" class="description">%%getSiteDescription(site)%%</p>

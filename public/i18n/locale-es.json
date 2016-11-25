@@ -83,6 +83,8 @@
   },
   "SITE_DETAIL_CONSTANTS": {
     "RATING": "Calificación",
+    "RATE": "Califica este sitio",
+    "SHARE": "Comparte este sitio",
     "DESCRIPTION": "Descripción",
     "OPENINGHOURS": "Horario de Atención"
   },
@@ -344,6 +346,11 @@
   "RATING": {
     "TITLE": "Calificación",
     "SEND": "Calificar"
+  },
+  "SHARING": {
+    "TITLE": "Compartir",
+    "DESCRIPTION": "Haz que todo el mundo conozca este sitio compartiendo el siguiente enlace",
+    "COPY": "Copiar"
   },
   "SITE_NOT_FOUND": "Lo sentimos, el sitio que buscas ya no existe"
 }

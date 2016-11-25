@@ -1,4 +1,10 @@
 .rate-button {
+    margin: 3px;
+    width: 150px;
+}
+
+.share-button {
+    margin: 5px;
     width: 150px;
 }
 

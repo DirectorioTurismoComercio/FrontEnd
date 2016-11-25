@@ -580,7 +580,6 @@ angular.module('map')
 
         $rootScope.$on('$translateChangeSuccess', function () {
             $scope.languageSelected = $translate.use();
-
         });
 
         $scope.getSiteDescription = function (site) {
@@ -620,6 +619,26 @@ angular.module('map')
                 });
             }
         }
+
+        $scope.shareSite = function (siteId) {
+            var scope = $rootScope.$new();
+            scope.url = objeto.domain + "/#/map?site=" + siteId;
+            scope.copyUrl = function (url) {
+                document.getElementById('url').select();
+                document.execCommand('copy', false);
+                ngDialog.close();
+            };
+
+
+            ngDialog.open({
+                template: 'js/map/share.html',
+                width: 'auto',
+                showClose: true,
+                scope: scope,
+                closeByEscape: true,
+                closeByDocument: true
+            });
+        };
     });
 
 
