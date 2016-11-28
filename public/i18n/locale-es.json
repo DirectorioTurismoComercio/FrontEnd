@@ -345,12 +345,16 @@
   },
   "RATING": {
     "TITLE": "Calificación",
-    "SEND": "Calificar"
+    "SEND": "Calificar",
+    "LOGIN":"Ingreso",
+    "VOTE_INFO":"Tu calificación se verá reflejada la próxima vez que ingreses al sitio",
+    "RATE_BUTTON":"Califica este sitio"
   },
   "SHARING": {
     "TITLE": "Compartir",
     "DESCRIPTION": "Haz que todo el mundo conozca este sitio compartiendo el siguiente enlace",
-    "COPY": "Copiar"
-  },
-  "SITE_NOT_FOUND": "Lo sentimos, el sitio que buscas ya no existe"
+    "COPY": "Copiar",
+    "SITE_NOT_FOUND": "Lo sentimos, el sitio que buscas ya no existe"
+
+  }
 }

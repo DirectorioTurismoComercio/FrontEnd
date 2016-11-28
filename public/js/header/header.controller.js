@@ -1,10 +1,11 @@
 angular.module('appHeader', [])
-    .controller('appHeaderController', function ($scope, $translate, $location, navigationService, siteInformationService, siteAndTownSaverService, isUserLoggedIn, authenticationService, $auth, $route, municipalityInformationService) {
+    .controller('appHeaderController', function ($scope, $translate, $location, navigationService, siteInformationService, siteAndTownSaverService, isUserLoggedIn, authenticationService, $auth, $route, municipalityInformationService, $rootScope) {
 
         $scope.selectedLanguage = $translate.use();
         $scope.isUserLoggedIn = isUserLoggedIn();
 
         $scope.user = authenticationService.getUser();
+        console.log($scope.user)
 
         $scope.changeLanguage = function (language) {
             $scope.selectedLanguage = language;
@@ -32,6 +33,11 @@ angular.module('appHeader', [])
         $scope.goToAccountInfo = function () {
             navigationService.accountInfoRoute($scope.user);
         }
+
+        $rootScope.$on('ratingDone',function(evt, index){
+            $scope.user = authenticationService.getUser();
+            $scope.isUserLoggedIn = isUserLoggedIn();
+        });
 
         function clearData() {
             if ($scope.user.tipo_cuenta != "M") {

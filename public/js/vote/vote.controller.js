@@ -3,9 +3,9 @@
 angular.module('vote')
     .controller('VoteController', function ($scope, SearchForResultsFactory,
                                             $location, $mdDialog,authenticationService,
-                                            $auth,$q,$http,selectedSite,ngDialog, RatingService) {
+                                            $auth,$q,$http,API_CONFIG,selectedSite,ngDialog, RatingService, $rootScope) {
               
-    	console.log("vote controller");
+    	
         var loginWindow;
         var rateWindow;
         
@@ -14,10 +14,8 @@ angular.module('vote')
         }
 
         $scope.site = {"rating":0};
-        console.log("selected site vote...",selectedSite);
         
         function openLoginWindow  () {
-            console.log("open vote...");
                 loginWindow=ngDialog.open({
                     template: 'js/vote/touristSignUp.html',
                     width: 'auto',
@@ -44,18 +42,21 @@ angular.module('vote')
             var credentials = {
                 username: response.data.username
             };
-            
+             
             authenticationService.loginSocialMedia(credentials, response.data.token, deferred).finally(
                 function () {
+                    $rootScope.$broadcast('ratingDone',0);
                     loginWindow.close();
-                    chanegeToATouristAccount()
+                    if(authenticationService.getUser().tipo_cuenta!='C'){
+                    changeToTouristAccount();
+                    }
                 }
             );
             }).catch(function (error) {
                 console.log('hubo un error', error);
             });        
         };
-        function chanegeToATouristAccount(){
+        function changeToTouristAccount(){
 
                   
                 $http.patch(API_CONFIG.url + API_CONFIG.user_detail, {

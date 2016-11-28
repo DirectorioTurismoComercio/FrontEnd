@@ -453,6 +453,15 @@ prev.search-results .map {
     font-weight: bold;
 }
 
+.vote-number{
+    color: #32A2D4;
+    display: inline-block;
+}
+
+.list-result-description-site{
+    margin-top: 1%;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
