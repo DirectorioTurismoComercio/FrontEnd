@@ -462,6 +462,22 @@ prev.search-results .map {
     margin-top: 1%;
 }
 
+.pg-clamp-style{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
+.clamp3{
+    -webkit-line-clamp: 3;
+}
+
+.clamp2{
+    -webkit-line-clamp: 2;
+
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {
