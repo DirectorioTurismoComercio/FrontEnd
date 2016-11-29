@@ -345,7 +345,7 @@
   "RATING": {
     "TITLE": "Rating",
     "SEND": "Rate",
-    "LOGIN":"Login",
+    "LOGIN":"Login with your account to rate",
     "VOTE_INFO":"Your rating will be reflected the next time you enter the site",
     "RATE_BUTTON":"Rate this place"
   },

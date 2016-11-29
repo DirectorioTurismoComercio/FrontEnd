@@ -346,7 +346,7 @@
   "RATING": {
     "TITLE": "Calificación",
     "SEND": "Calificar",
-    "LOGIN":"Ingreso",
+    "LOGIN":"Ingresa con tu cuenta para calificar",
     "VOTE_INFO":"Tu calificación se verá reflejada la próxima vez que ingreses al sitio",
     "RATE_BUTTON":"Califica este sitio"
   },
