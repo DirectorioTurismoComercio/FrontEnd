@@ -352,7 +352,7 @@
   "SHARING": {
     "TITLE": "Sharing",
     "DESCRIPTION": "Enable others to know this site sharing the next url",
-    "COPY": "Copy",
+    "COPY": "Copy link",
     "SITE_NOT_FOUND": "We are so sorry, the site that you have searched doesn't exist anymore"
 
   }

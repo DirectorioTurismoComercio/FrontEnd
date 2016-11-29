@@ -478,6 +478,10 @@ prev.search-results .map {
 
 }
 
+.share-button-font-size{
+    font-size: 0.9em !important;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {

@@ -353,7 +353,7 @@
   "SHARING": {
     "TITLE": "Compartir",
     "DESCRIPTION": "Haz que todo el mundo conozca este sitio compartiendo el siguiente enlace",
-    "COPY": "Copiar",
+    "COPY": "Copiar enlace",
     "SITE_NOT_FOUND": "Lo sentimos, el sitio que buscas ya no existe"
 
   }
