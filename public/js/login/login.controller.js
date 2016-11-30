@@ -19,7 +19,9 @@ angular.module('login')
                                 checkUserLogged();
 
                             }).catch(function (error) {
-                            var disabledAccount = error.non_field_errors[0];
+                            if (error.non_field_errors) {
+                                var disabledAccount = error.non_field_errors[0];
+                            }
 
                             if (disabledAccount == 'User account is disabled.') {
                                 PopupService.showYesMessage("DISABLED_ACCOUNT.TITLE",
@@ -88,7 +90,7 @@ angular.module('login')
                         authenticationService.loginSocialMedia(credentials, response.data.token, deferred).finally(
                             function () {
                                 changeToTraderAccount();
-                                
+
                             }
                         );
                     }).catch(function (error) {
@@ -110,9 +112,9 @@ angular.module('login')
                 );
             }
 
-            function changeToTraderAccount(){
+            function changeToTraderAccount() {
 
-                  
+
                 $http.patch(API_CONFIG.url + API_CONFIG.user_detail, {
                         tipo_cuenta: 'C'
                     },
@@ -121,14 +123,14 @@ angular.module('login')
                             'Authorization': 'Token ' + authenticationService.getUser().token
                         }
                     }).then(function (response) {
-                        
+
                         goToProfile();
-                },
-                function (error){
-                    console.log(error);
-                }
+                    },
+                    function (error) {
+                        console.log(error);
+                    }
                 );
-               
+
 
             };
 

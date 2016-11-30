@@ -32,7 +32,9 @@ angular.module('Municipality')
                             $scope.user = authenticationService.getUser();
                             checkUserLogged();
                         }).catch(function (error) {
-                        var disabledAccount = error.non_field_errors[0];
+                        if (error.non_field_errors) {
+                            var disabledAccount = error.non_field_errors[0];
+                        }
 
                         if (disabledAccount == 'User account is disabled.') {
                             PopupService.showYesMessage("DISABLED_MUNICIPALITY_ACCOUNT.TITLE",
