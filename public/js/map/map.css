@@ -453,6 +453,35 @@ prev.search-results .map {
     font-weight: bold;
 }
 
+.vote-number{
+    color: #32A2D4;
+    display: inline-block;
+}
+
+.list-result-description-site{
+    margin-top: 1%;
+}
+
+.pg-clamp-style{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
+.clamp3{
+    -webkit-line-clamp: 3;
+}
+
+.clamp2{
+    -webkit-line-clamp: 2;
+
+}
+
+.share-button-font-size{
+    font-size: 0.9em !important;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .list-item h3 {

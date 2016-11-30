@@ -1,6 +1,4 @@
 var objeto = {
-    "domain": "https://www.detourporcundinamarca.com",
-    "url": "http://innovamarca.com.co/servicio2",
     "login": "/rest-auth/login/",
     "logout": "/rest-auth/logout/",
     "user": "/rest-auth/registration/",
