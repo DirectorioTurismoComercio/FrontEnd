@@ -310,7 +310,7 @@
   },
   "DISABLED_ACCOUNT": {
     "TITLE": "Cuenta bloqueada",
-    "MESSAGE": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. Encuentra mas informacion en la secretaría de turismo de tu municipio",
+    "MESSAGE": "Tu cuenta ha sido bloqueada por el administrador de la plataforma. Solicita más información enviando un correo electrónico a innovatic_fibog@unal.edu.co",
     "CONTINUE": "Entendido"
   },
   "REACTIVATE_ACCOUNT": {

@@ -309,7 +309,7 @@
   },
   "DISABLED_ACCOUNT": {
     "TITLE": "Blocked account",
-    "MESSAGE": "Your account has been blocked by the platform administrator. Find more information in the citizen information point of your town",
+    "MESSAGE": "Your account has been blocked by the platform administrator. Request more information by sending an email to innovatic_fibog@unal.edu.co",
     "CONTINUE": "Ok"
   },
   "REACTIVATE_ACCOUNT": {
