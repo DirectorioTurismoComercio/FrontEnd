@@ -41,13 +41,7 @@ angular.module('registerTrader')
                     var deferred = $q.defer()
                     authenticationService.loginSocialMedia(credentials, response.data.token, deferred).finally(
                         function () {
-                            if (authenticationService.getUser().sitios.length == 0) {
-                                redirectToRegisterSite();
-                            }
-                            else {
-                                redirectToProfile();
-                            }
-
+                            changeToTraderAccount()
                         }
                     );
                 }).catch(function (error) {
@@ -81,7 +75,7 @@ angular.module('registerTrader')
                     promesa.then(function (reponse) {
                         authenticationService.setUserByToken(reponse.data.key, deferred).finally(
                             function () {
-                                redirectToRegisterSite()
+                                changeToTraderAccount();
                             }
                         );
 
@@ -96,6 +90,38 @@ angular.module('registerTrader')
 
 
         }
+
+        function changeToTraderAccount(){
+            console.log("entro a cambiar tipo de usuario");
+
+            $http.patch(API_CONFIG.url + API_CONFIG.user_detail, {
+                    tipo_cuenta: 'C'
+                },
+                {
+                    headers: {
+                        'Authorization': 'Token ' + authenticationService.getUser().token
+                    }
+                }).then(function (response) {
+                    var user= authenticationService.getUser();
+                    user.tipo_cuenta='C'
+                    authenticationService.setUser(user,authenticationService.getUser().token)
+
+                    if (authenticationService.getUser().sitios.length == 0) {
+                        redirectToRegisterSite();
+                    }
+                    else {
+                        redirectToProfile();
+                    }
+
+
+                },
+                function (error){
+                    console.log(error);
+                }
+            );
+
+
+        };
 
         $scope.doneRegistration = function () {
             ngDialog.close();
