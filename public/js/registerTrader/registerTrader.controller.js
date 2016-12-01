@@ -92,8 +92,6 @@ angular.module('registerTrader')
         }
 
         function changeToTraderAccount(){
-            console.log("entro a cambiar tipo de usuario");
-
             $http.patch(API_CONFIG.url + API_CONFIG.user_detail, {
                     tipo_cuenta: 'C'
                 },
