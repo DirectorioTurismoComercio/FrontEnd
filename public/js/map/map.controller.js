@@ -506,7 +506,6 @@ angular.module('map')
             });
         }
         $scope.openDialogRateWindow = function (selectedSite) {
-            console.log("rating", selectedSite);
             photosPopUp = ngDialog.open({
                 template: 'js/vote/rateWindow.html',
                 width: 'auto',
@@ -517,7 +516,6 @@ angular.module('map')
                 closeByNavigation: true,
                 resolve: {
                     selectedSite: function () {
-                        console.log("returning", selectedSite);
                         return selectedSite;
                     }
                 },

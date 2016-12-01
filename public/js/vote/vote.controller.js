@@ -67,8 +67,7 @@ angular.module('vote')
                             'Authorization': 'Token ' + authenticationService.getUser().token
                         }
                     }).then(function (response) {
-                        console.log("ahora turista");
-                    
+
                 },
                 function (error){
                     console.log(error);
